@@ -1,0 +1,29 @@
+.scroller {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroller section {
+  scroll-snap-align: center;
+}
+
+#model-one,
+#model-two,
+#model-three {
+  background: url("/storage/home/home-bg-one.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+.title {
+  margin-bottom: 35%;
+}

@@ -11285,3 +11285,37 @@ textarea.form-control-lg {
 body {
   font-family: "Montserrat", sans-serif;
 }
+
+.scroller {
+  position: relative;
+  height: 100vh;
+  overflow: auto;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.scroller section {
+  scroll-snap-align: center;
+}
+
+#model-one,
+#model-two,
+#model-three {
+  background: url("/storage/home/home-bg-one.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+.title {
+  margin-bottom: 35%;
+}
+
+@media (max-width: 992px) {
+  .desktop-navbar {
+    display: none;
+  }
+}

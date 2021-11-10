@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-light">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light desktop-navbar position-fixed w-100">
   <div class="container-fluid justify-content-evenly">
     <div class="logo">
       <a class="navbar-brand" href="#">
@@ -8,13 +8,13 @@
     <div class="nav-items">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Model 1</a>
+          <a class="nav-link active" href="#model-one">Model 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Model 2</a>
+          <a class="nav-link active" href="#model-two">Model 2</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">Model 3</a>
+          <a class="nav-link active" href="#model-three">Model 3</a>
         </li>
       </ul>
     </div>
