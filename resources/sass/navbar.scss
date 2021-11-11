@@ -1,0 +1,51 @@
+.mobile-navbar {
+  z-index: 10;
+}
+
+.navbar-toggler {
+  z-index: 11;
+  border-color: transparent;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #000000;
+  margin: 6px 0;
+  transition: 0.5s;
+}
+
+.bar1.change {
+  transform: rotate(-45deg) translate(-10px, 10px);
+}
+
+.bar2.change {
+  opacity: 0;
+}
+
+.bar3.change {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+#mobile-navbar-modal {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.backdrop {
+  filter: brightness(0.5);
+  transition: 0.5s;
+}
