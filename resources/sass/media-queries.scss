@@ -2,6 +2,17 @@
   .desktop-navbar {
     display: none;
   }
+  .btn-order-now {
+    max-width: 290px;
+  }
+
+  .title {
+    padding-top: 85px;
+
+    h1 {
+      font-size: $home-title-font-size-mobile;
+    }
+  }
 }
 
 @media (min-width: 992px) {

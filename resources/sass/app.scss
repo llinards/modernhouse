@@ -1,14 +1,33 @@
 @import "~bootstrap";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
 
 body {
   font-family: "Montserrat", sans-serif;
 }
 
-@import './navbar.scss';
-@import './home.scss';
+$home-title-font-size: 56px;
+$home-title-font-size-mobile: 46px;
+$home-title-letter-spacing: 0px;
+$home-title-font-color: #3f3f3f;
 
+$navbar-item-font-color: #262626;
+$navbar-item-font-weigth: 500;
+$navbar-item-letter-spacing: 0;
+$navbar-item-font-size: 19px;
 
+$btn-order-now-bg-color: #3f3f3f;
+$btn-order-now-font-size: 17px;
+$btn-order-now-letter-spacing: 1.6px;
 
-@import './media-queries.scss';
+@import "./navbar.scss";
+@import "./home.scss";
+
+@import "./media-queries.scss";

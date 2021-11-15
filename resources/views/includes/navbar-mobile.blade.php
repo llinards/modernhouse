@@ -50,15 +50,32 @@
 
 <script>
   const menu = document.querySelector(".navbar-toggler");
+
+  function closeMenu() {
+    menu.classList.remove('open');
+    document.getElementById('mobile-navbar-modal').style.width = '0';
+    document.querySelector('.home').classList.remove('backdrop');
+    document.querySelector('.home').style.overflowY = 'scroll';
+  }
+
+  function openMenu() {
+    menu.classList.add('open');
+    document.getElementById('mobile-navbar-modal').style.width = '60%';
+    document.querySelector('.home').classList.add('backdrop');
+    document.querySelector('.home').style.overflowY = 'hidden';
+  }
+
   menu.addEventListener("click", () => {
     if (menu.classList.contains('open')) {
-      menu.classList.remove('open');
-      document.getElementById('mobile-navbar-modal').style.width = '0';
-      document.querySelector('.scroller').classList.remove('backdrop');
+      closeMenu();
     } else {
-      menu.classList.add('open');
-      document.getElementById('mobile-navbar-modal').style.width = '60%';
-      document.querySelector('.scroller').classList.add('backdrop');
+      openMenu();
+      document.querySelector('.home.backdrop').addEventListener('click', () => {
+        closeMenu();
+        for (let item of menu.children) {
+          item.classList.remove("change");
+        }
+      })
     }
     for (let item of menu.children) {
       item.classList.toggle("change");
