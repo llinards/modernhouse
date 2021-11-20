@@ -11352,6 +11352,10 @@ body {
   opacity: 0.5;
 }
 
+.nav-link-active {
+  opacity: 0.5;
+}
+
 .desktop-navbar {
   z-index: 10;
 }

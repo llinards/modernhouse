@@ -29,20 +29,19 @@
     <div class="nav-items">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">@lang('about')</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">@lang('contact')</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            ENG
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">LAT</a></li>
-            <li><a class="dropdown-item" href="#">SWE</a></li>
-          </ul>
-        </li>
+        @if (count(config('app.languages')) > 1)
+          <li class="nav-item language-select d-flex justify-content-between">
+            @foreach (config('app.languages') as $langLocale => $langName)
+              <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"
+                href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
+            @endforeach
+          </li>
+        @endif
       </ul>
     </div>
   </div>
