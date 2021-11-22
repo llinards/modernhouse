@@ -11371,7 +11371,7 @@ body {
   border: none;
 }
 
-.home {
+#home {
   position: relative;
   -ms-scroll-snap-type: y mandatory;
       scroll-snap-type: y mandatory;
@@ -11380,8 +11380,11 @@ body {
   overflow-x: hidden;
   height: 100%;
 }
-.home section {
+#home section {
   scroll-snap-align: center;
+}
+#home .title {
+  padding-top: 125px;
 }
 
 #model-one,
@@ -11397,9 +11400,6 @@ body {
   transform: rotate(180deg);
 }
 
-.title {
-  padding-top: 125px;
-}
 .title h1, .title .h1 {
   font-size: 56px;
   letter-spacing: 0px;
@@ -11437,9 +11437,10 @@ body {
     max-width: 290px;
   }
 
-  .title {
+  #home .title {
     padding-top: 85px;
   }
+
   .title h1, .title .h1 {
     font-size: 46px;
   }

@@ -13,19 +13,21 @@
   </div>
 
   <div id="mobile-navbar-modal" class="d-flex h-100 flex-column justify-content-around align-items-center">
-    <div class="nav-items">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Model 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Model 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Model 3</a>
-        </li>
-      </ul>
-    </div>
+    @if ($index)
+      <div class="nav-items">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Model 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Model 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Model 3</a>
+          </li>
+        </ul>
+      </div>
+    @endif
     <div class="nav-items">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -53,15 +55,15 @@
   function closeMenu() {
     menu.classList.remove('open');
     document.getElementById('mobile-navbar-modal').style.width = '0';
-    document.querySelector('.home').classList.remove('backdrop');
-    document.querySelector('.home').style.overflowY = 'scroll';
+    document.querySelector('.content').classList.remove('backdrop');
+    document.querySelector('.content').style.overflowY = 'scroll';
   }
 
   function openMenu() {
     menu.classList.add('open');
     document.getElementById('mobile-navbar-modal').style.width = '60%';
-    document.querySelector('.home').classList.add('backdrop');
-    document.querySelector('.home').style.overflowY = 'hidden';
+    document.querySelector('.content').classList.add('backdrop');
+    document.querySelector('.content').style.overflowY = 'hidden';
   }
 
   menu.addEventListener("click", () => {
@@ -69,7 +71,7 @@
       closeMenu();
     } else {
       openMenu();
-      document.querySelector('.home.backdrop').addEventListener('click', () => {
+      document.querySelector('.content.backdrop').addEventListener('click', () => {
         closeMenu();
         for (let item of menu.children) {
           item.classList.remove("change");

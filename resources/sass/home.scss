@@ -1,4 +1,4 @@
-.home {
+#home {
   position: relative;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -8,6 +8,9 @@
     scroll-snap-align: center;
   }
   height: 100%;
+  .title {
+    padding-top: 125px;
+  }
 }
 
 #model-one,
@@ -27,7 +30,6 @@
 }
 
 .title {
-  padding-top: 125px;
   h1 {
     font-size: $home-title-font-size;
     letter-spacing: $home-title-letter-spacing;

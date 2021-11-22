@@ -1,8 +1,8 @@
 @extends('app')
 @section('content')
-  @include('includes.navbar-desktop')
-  @include('includes.navbar-mobile')
-  <article class="home">
+  @include('includes.navbar-desktop', ['index' => true])
+  @include('includes.navbar-mobile', ['index' => true])
+  <article id="home" class="content">
     <section id="model-one">
       <div class="container w-100 h-100 d-flex flex-column">
         <div class="title">
