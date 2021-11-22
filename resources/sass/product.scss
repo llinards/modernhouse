@@ -1,0 +1,15 @@
+.house-trim-titles {
+  border: none;
+  button.nav-link.active {
+    border-color: transparent;
+    border-bottom: 4px solid $primary-color;
+    opacity: 0.5;
+  }
+}
+
+.house-trim-content {
+}
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent;
+}

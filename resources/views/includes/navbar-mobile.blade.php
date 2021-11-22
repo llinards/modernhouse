@@ -1,7 +1,7 @@
-<nav class="mobile-navbar position-fixed w-100">
+<nav class="mobile-navbar {{ $index ? 'position-fixed' : '' }} w-100">
   <div class="container-fluid d-flex justify-content-between">
     <div class="logo">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="{{ asset('storage/logo-black.svg') }}" width="85" alt="Modern House logo">
       </a>
     </div>

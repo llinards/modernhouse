@@ -13,6 +13,8 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+$primary-color: #3f3f3f;
+
 $home-title-font-size: 56px;
 $home-title-font-size-mobile: 46px;
 $home-title-letter-spacing: 0px;
@@ -29,5 +31,6 @@ $btn-order-now-letter-spacing: 1.6px;
 
 @import "./navbar.scss";
 @import "./home.scss";
+@import "./product.scss";
 
 @import "./media-queries.scss";
