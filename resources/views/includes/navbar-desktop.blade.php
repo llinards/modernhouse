@@ -35,7 +35,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               @foreach (config('app.languages') as $langLocale => $langName)
                 @if ($langLocale != strtoupper(app()->getLocale()))
-                  <li><a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a></li>
+                  <li><a class="dropdown-item" href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a></li>
                 @endif
               @endforeach
             </ul>
