@@ -15,20 +15,21 @@ body {
 
 $primary-color: #3f3f3f;
 
-$home-title-font-size: 56px;
-$home-title-font-size-mobile: 46px;
-$home-title-letter-spacing: 0px;
-$home-title-font-color: #3f3f3f;
+$title-font-size: 56px;
+$title-font-size-mobile: 46px;
+$title-letter-spacing: 0px;
+$title-font-color: $primary-color;
 
 $navbar-item-font-color: #262626;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
 
-$btn-order-now-bg-color: #3f3f3f;
-$btn-order-now-font-size: 17px;
-$btn-order-now-letter-spacing: 1.6px;
+$btn-main-bg-color: $primary-color;
+$btn-main-font-size: 17px;
+$btn-main-letter-spacing: 1.6px;
 
+@import "./compontents.scss";
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";

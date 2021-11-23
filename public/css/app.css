@@ -11293,6 +11293,38 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+.title h1, .title .h1 {
+  font-size: 56px;
+  letter-spacing: 0px;
+  color: #3f3f3f;
+}
+
+.btn-main {
+  width: 328px;
+  height: 48px;
+  border-radius: 32px;
+  background-color: #3f3f3f;
+  border-color: transparent;
+  font-size: 17px;
+  letter-spacing: 1.6px;
+}
+
+.btn-main:hover,
+.btn-main:focus {
+  background-color: white;
+  color: black;
+  border-color: transparent;
+}
+
+.btn-main:focus,
+.btn-main:active:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+}
+
 .mobile-navbar {
   z-index: 10;
 }
@@ -11396,38 +11428,6 @@ body {
   height: 100%;
 }
 
-.arrow-up {
-  transform: rotate(180deg);
-}
-
-.title h1, .title .h1 {
-  font-size: 56px;
-  letter-spacing: 0px;
-  color: #3f3f3f;
-}
-
-.btn-order-now {
-  width: 328px;
-  height: 48px;
-  border-radius: 32px;
-  background-color: #3f3f3f;
-  border-color: transparent;
-  font-size: 17px;
-  letter-spacing: 1.6px;
-}
-
-.btn-order-now:hover,
-.btn-order-now:focus {
-  background-color: white;
-  color: black;
-  border-color: transparent;
-}
-
-.btn-order-now:focus,
-.btn-order-now:active:focus {
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
-}
-
 .house-trim-titles {
   border: none;
 }
@@ -11442,12 +11442,50 @@ body {
   border-color: transparent;
 }
 
+.form-check {
+  padding: 0;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.options .option-icon {
+  border: 3px solid transparent;
+}
+
+.options .option-icon,
+.options .option-icon:checked[type=radio] {
+  background: url("/storage/model-1/1.jpg");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.options .option-icon:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.options .option-icon:checked {
+  border: 3px solid #3f3f3f;
+  padding: 3px;
+}
+.options .option-icon:checked + label {
+  font-weight: 700;
+}
+
 @media (max-width: 992px) {
   .desktop-navbar {
     display: none;
   }
 
-  .btn-order-now {
+  .btn-main {
     max-width: 290px;
   }
 

@@ -13,3 +13,42 @@
 .nav-tabs .nav-link:focus {
   border-color: transparent;
 }
+
+.form-check {
+  padding: 0;
+}
+
+.option {
+  // cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.options .option-icon {
+  border: 3px solid transparent;
+}
+
+.options .option-icon,
+.options .option-icon:checked[type="radio"] {
+  background: url("/storage/model-1/1.jpg");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.options .option-icon:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.options .option-icon:checked {
+  border: 3px solid $primary-color;
+  padding: 3px;
+  & + label {
+    font-weight: 700;
+  }
+}
