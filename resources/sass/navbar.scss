@@ -15,7 +15,7 @@
   .bar3 {
     width: 25px;
     height: 1px;
-    background-color: #3f3f3f;
+    background-color: $primary-color;
     margin: 6px 0;
     transition: 0.5s;
   }
@@ -59,13 +59,9 @@
 }
 
 .nav-link:hover,
-.nav-link:focus {
-  color: $navbar-item-font-color;
-  opacity: 0.5;
-}
-
+.nav-link:focus,
 .nav-link-active {
-  opacity: 0.5;
+  color: $navbar-hover-font-color;
 }
 
 .desktop-navbar {

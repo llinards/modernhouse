@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::get('/', function () {
 Route::get('/product', function () {
     return view('product');
 });
+
+Route::post('/submit-order', function (Request $request) {
+    dd($request);
+})->name('submit_order');

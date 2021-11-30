@@ -11293,6 +11293,22 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+h1, .h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 .arrow-up {
   transform: rotate(180deg);
 }
@@ -11323,6 +11339,11 @@ body {
 .btn-main:focus,
 .btn-main:active:focus {
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.5);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #3f3f3f;
 }
 
 .mobile-navbar {
@@ -11379,13 +11400,9 @@ body {
 }
 
 .nav-link:hover,
-.nav-link:focus {
-  color: #262626;
-  opacity: 0.5;
-}
-
+.nav-link:focus,
 .nav-link-active {
-  opacity: 0.5;
+  color: #919191;
 }
 
 .desktop-navbar {
@@ -11428,13 +11445,18 @@ body {
   height: 100%;
 }
 
-.house-trim-titles {
+.product-level-titles {
   border: none;
 }
-.house-trim-titles button.nav-link.active {
+.product-level-titles button.nav-link {
   border-color: transparent;
-  border-bottom: 4px solid #3f3f3f;
-  opacity: 0.5;
+  border: none;
+  padding: 0.5rem;
+}
+.product-level-titles button.nav-link.active {
+  border-bottom: 4px solid #919191;
+  color: #919191;
+  border-radius: 5%;
 }
 
 .nav-tabs .nav-link:hover,
@@ -11460,8 +11482,8 @@ body {
 .options .option-icon:checked[type=radio] {
   background: url("/storage/model-1/1.jpg");
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  height: 75px;
+  width: 75px;
   border-radius: 50%;
   margin: 0 auto;
   cursor: pointer;
@@ -11474,7 +11496,6 @@ body {
 
 .options .option-icon:checked {
   border: 3px solid #3f3f3f;
-  padding: 3px;
 }
 .options .option-icon:checked + label {
   font-weight: 700;

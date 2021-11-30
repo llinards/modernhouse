@@ -2,7 +2,8 @@
 @section('content')
   @include('includes.navbar-desktop', ['index' => false])
   @include('includes.navbar-mobile', ['index' => false])
-  <form>
+  <form method="POST" action="{{ route('submit_order') }}" enctype="multipart/form-data">
+    @csrf
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-7"></div>
@@ -10,8 +11,8 @@
           <div class="title">
             <h1 class="fw-bold text-center text-uppercase">Model 1</h1>
           </div>
-          <div class="house-trims">
-            <ul class="nav nav-tabs d-flex justify-content-between house-trim-titles">
+          <div class="product-levels">
+            <ul class="nav nav-tabs d-flex justify-content-evenly product-level-titles flex-nowrap">
               <li class="nav-item">
                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#premium" type="button">Premium</button>
               </li>
@@ -22,40 +23,88 @@
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#economy" type="button">Economy</button>
               </li>
             </ul>
-            <div class="tab-content house-trim-content">
-              <div class="tab-pane show active" id="premium">
-                <div class="price">
+            <div class="tab-content product-level">
+              <div class="tab-pane fade show active" id="premium">
+                <div class="product-price">
                   <h1 class="text-center">EUR 15 000,00</h1>
                 </div>
-                <div class="description">
+                <div class="product-short-description">
                   <p class="small">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi
                     debitis
                     rem esse consequuntur
                     odit
                     alias voluptas dolor laudantium sit! Deserunt cum odio et?</p>
                 </div>
-                <div class="feature-details-btn text-center d-flex flex-column justify-content-end align-items-center h-100">
-                  <a href="#" class="btn btn-primary btn-main fw-light d-flex justify-content-center align-items-center">@lang('feature details')</a>
+                <div class="product-description-btn text-center d-flex flex-column justify-content-end align-items-center h-100">
+                  <a href="#"
+                    class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('feature
+                    details')</a>
                 </div>
-                <div class="available-options mt-5">
-                  <div class="windows d-flex justify-content-center align-items-center flex-column">
+                <div class="product-options">
+                  <div class="product-option d-flex justify-content-center align-items-center flex-column">
                     <h4 class="fw-bold text-center">Windows</h4>
                     <div class="options d-flex justify-content-center align-items-center">
                       <div class="m-3 option form-check">
                         <input class="form-check-input option-icon" type="radio" name="flexRadioDefault" id="" checked>
-                        <label class="form-check-label text-center" for="flexRadioDefault1">
+                        <label class="form-check-label text-center" for="flexRadioDefault">
                           Solid Black Oak
                         </label>
                       </div>
                       <div class="m-3 option form-check">
                         <input class="form-check-input option-icon" type="radio" name="flexRadioDefault" id="">
-                        <label class="form-check-label text-center" for="flexRadioDefault2">
+                        <label class="form-check-label text-center" for="flexRadioDefault">
                           Solid Black Oak
                         </label>
                       </div>
                       <div class="m-3 option form-check">
                         <input class="form-check-input option-icon" type="radio" name="flexRadioDefault" id="">
+                        <label class="form-check-label text-center" for="flexRadioDefault">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-option d-flex justify-content-center align-items-center flex-column">
+                    <h4 class="fw-bold text-center">Facade</h4>
+                    <div class="options d-flex justify-content-center align-items-center">
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault2" id="" checked>
                         <label class="form-check-label text-center" for="flexRadioDefault2">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault2" id="">
+                        <label class="form-check-label text-center" for="flexRadioDefault2">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault2" id="">
+                        <label class="form-check-label text-center" for="flexRadioDefault2">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-option d-flex justify-content-center align-items-center flex-column">
+                    <h4 class="fw-bold text-center">Roof</h4>
+                    <div class="options d-flex justify-content-center align-items-center">
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault3" id="" checked>
+                        <label class="form-check-label text-center" for="flexRadioDefault3">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault3" id="">
+                        <label class="form-check-label text-center" for="flexRadioDefault3">
+                          Solid Black Oak
+                        </label>
+                      </div>
+                      <div class="m-3 option form-check">
+                        <input class="form-check-input option-icon" type="radio" name="flexRadioDefault3" id="">
+                        <label class="form-check-label text-center" for="flexRadioDefault3">
                           Solid Black Oak
                         </label>
                       </div>
@@ -63,15 +112,19 @@
                   </div>
                 </div>
               </div>
+              <div class="tab-pane fade" id="standart">
+              </div>
+              <div class="tab-pane fade" id="economy">
+              </div>
             </div>
-            <div class="tab-pane" id="standart">
-            </div>
-            <div class="tab-pane" id="economy">
+            <div class="product-order d-flex flex-column justify-content-end align-items-center h-100">
+              <h4 class="fw-bold text-center">Order your Model 1</h4>
+              <button type="submit"
+                class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order now')</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </form>
 @endsection
