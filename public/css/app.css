@@ -11384,6 +11384,7 @@ p {
   overflow-y: hidden;
   background-color: white;
   transition: 0.5s;
+  z-index: 10;
 }
 
 .backdrop {
@@ -11447,6 +11448,7 @@ p {
 
 .product-level-titles {
   border: none;
+  justify-content: space-evenly;
 }
 .product-level-titles button.nav-link {
   border-color: transparent;
@@ -11457,6 +11459,16 @@ p {
   border-bottom: 4px solid #919191;
   color: #919191;
   border-radius: 5%;
+}
+
+.product-price h1, .product-price .h1 {
+  font-size: 49px;
+  font-weight: 500;
+}
+
+.product-short-description {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .nav-tabs .nav-link:hover,
@@ -11489,6 +11501,15 @@ p {
   cursor: pointer;
 }
 
+.options .option-icon::before,
+.options .option-icon:checked[type=radio]::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  color: red;
+}
+
 .options .option-icon:focus {
   border: none;
   box-shadow: none;
@@ -11516,6 +11537,14 @@ p {
 
   .title h1, .title .h1 {
     font-size: 46px;
+  }
+
+  .product-level-titles {
+    justify-content: center;
+  }
+
+  .product-price h1, .product-price .h1 {
+    font-size: 40px;
   }
 }
 @media (min-width: 992px) {
