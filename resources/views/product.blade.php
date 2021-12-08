@@ -6,7 +6,20 @@
     @csrf
     <div class="container-fluid content">
       <div class="row">
-        <div class="col-lg-7"></div>
+        <div class="col-lg-7">
+          <div class="main-img">
+            <img src="{{ asset('storage/model-1/1.jpg') }}" alt="" id="current">
+          </div>
+          <div class="imgs">
+            <img src="{{ asset('storage/model-1/1.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/2.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/3.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/4.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/5.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/6.jpg') }}" alt="">
+            <img src="{{ asset('storage/model-1/7.jpg') }}" alt="">
+          </div>
+        </div>
         <div class="col-lg-5">
           <div class="title">
             <h1 class="fw-bold text-center text-uppercase">Model 1</h1>
@@ -120,11 +133,31 @@
             <div class="product-order d-flex flex-column justify-content-end align-items-center h-100">
               <h4 class="fw-bold text-center mb-2">Order your Model 1</h4>
               <button type="submit"
-                class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order now')</button>
+                class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order
+                now')</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </form>
+  <script>
+    const current = document.querySelector('#current');
+    const imgs = document.querySelectorAll('.imgs img');
+    const opacity = 0.4;
+
+    imgs.forEach((img) => {
+      img.addEventListener('click', (e) => {
+        imgClick(e);
+      })
+    })
+
+    function imgClick(e) {
+      imgs.forEach((img) => {
+        img.style.opacity = 1;
+      });
+      current.src = e.target.src;
+      e.target.style.opacity = opacity;
+    }
+  </script>
 @endsection
