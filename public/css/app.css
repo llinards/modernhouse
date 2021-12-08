@@ -11409,12 +11409,20 @@ p {
 .desktop-navbar {
   z-index: 10;
 }
+.desktop-navbar #middle-links {
+  padding-left: 185px;
+}
+
 .dropdown-menu {
   margin: 0;
   padding: 0;
   min-width: 0;
   border-radius: 0;
   border: none;
+}
+
+.push-right {
+  margin-left: auto;
 }
 
 #home {
