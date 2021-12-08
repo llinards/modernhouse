@@ -78,12 +78,23 @@
   }
 }
 
+.thumbnail-img {
+  img {
+    object-fit: cover;
+    max-height: 387px;
+  }
+}
+
 .product-imgs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
   // margin-top: 5px;
   margin: 5px 51px 0 51px;
+  img {
+    object-fit: cover;
+    height: 150px;
+  }
 }
 
 #next-photo,

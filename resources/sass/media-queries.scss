@@ -18,6 +18,31 @@
     }
   }
 
+  .thumbnail-img {
+    img {
+      max-height: 100%;
+    }
+  }
+
+  .product-imgs {
+    display: none;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    position: absolute;
+    top: 45%;
+    bottom: 45%;
+  }
+
+  .arrow-right {
+    right: 0;
+  }
+
+  .arrot-left {
+    left: 0;
+  }
+
   .product-level-titles {
     justify-content: center;
   }

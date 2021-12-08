@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg {{ $index ? 'position-fixed' : '' }} desktop-navbar w-100">
-  <div class="container-fluid justify-content-between">
+  <div class="container-xxl justify-content-between">
     <div class="logo">
       <a class="navbar-brand me-0" href="/">
         <img src="{{ asset('storage/logo-black.svg') }}" width="125" alt="Modern House logo">

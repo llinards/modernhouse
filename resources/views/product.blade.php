@@ -4,14 +4,14 @@
   @include('includes.navbar-mobile', ['index' => false])
   <form method="POST" action="{{ route('submit_order') }}" enctype="multipart/form-data">
     @csrf
-    <div class="container-fluid content">
+    <div class="container-xxl content">
       <div class="row">
         <div class="col-lg-7">
-          <div class="product-thumbnail d-flex">
+          <div class="product-thumbnail d-flex position-relative">
             <div class="arrow-left d-flex align-items-center m-2">
               <img width="35" height="35" class="invisible" id="previous-photo" src="{{ asset('storage/arrow-down-black.svg') }}" alt="">
             </div>
-            <div class="thumbnail-img">
+            <div class="thumbnail-img mb-md-4 mb-lg-0">
               <img class="img-fluid" src="{{ asset('storage/model-1/1.jpg') }}" alt="" id="current-img">
             </div>
             <div class="arrow-right d-flex align-items-center m-2">

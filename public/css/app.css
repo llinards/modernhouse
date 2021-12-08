@@ -11526,11 +11526,22 @@ p {
   font-weight: 700;
 }
 
+.thumbnail-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 387px;
+}
+
 .product-imgs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
   margin: 5px 51px 0 51px;
+}
+.product-imgs img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 150px;
 }
 
 #next-photo,
@@ -11561,6 +11572,29 @@ p {
 
   .title h1, .title .h1 {
     font-size: 46px;
+  }
+
+  .thumbnail-img img {
+    max-height: 100%;
+  }
+
+  .product-imgs {
+    display: none;
+  }
+
+  .arrow-left,
+.arrow-right {
+    position: absolute;
+    top: 45%;
+    bottom: 45%;
+  }
+
+  .arrow-right {
+    right: 0;
+  }
+
+  .arrot-left {
+    left: 0;
   }
 
   .product-level-titles {
