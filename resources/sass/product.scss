@@ -1,0 +1,111 @@
+.product-level-titles {
+  border: none;
+  justify-content: space-evenly;
+  button.nav-link {
+    border-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    &.active {
+      border-bottom: 4px solid $navbar-hover-font-color;
+      color: $navbar-hover-font-color;
+      border-radius: 5%;
+    }
+  }
+}
+
+.product-price {
+  h1 {
+    font-size: $product-price-title-font-size;
+    font-weight: $product-price-title-font-weight;
+  }
+}
+
+.product-short-description {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent;
+}
+
+.form-check {
+  padding: 0;
+}
+
+.option {
+  // cursor: pointer;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.options .option-icon {
+  border: 3px solid transparent;
+}
+
+.options .option-icon,
+.options .option-icon:checked[type="radio"] {
+  background: url("/storage/model-1/1.jpg");
+  background-size: cover;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.options .option-icon::before,
+.options .option-icon:checked[type="radio"]::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  color: red;
+}
+
+.options .option-icon:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.options .option-icon:checked {
+  border: 3px solid $primary-color;
+  // padding: 3px;
+  & + label {
+    font-weight: 700;
+  }
+}
+
+.thumbnail-img {
+  img {
+    object-fit: cover;
+    max-height: 387px;
+  }
+}
+
+.product-imgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  // margin-top: 5px;
+  margin: 5px 51px 0 51px;
+  img {
+    object-fit: cover;
+    height: 150px;
+  }
+}
+
+#next-photo,
+#previous-photo {
+  cursor: pointer;
+}
+
+.arrow-left img {
+  transform: rotate(90deg);
+}
+
+.arrow-right img {
+  transform: rotate(-90deg);
+}
