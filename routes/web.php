@@ -22,7 +22,4 @@ Route::get('/product', function () {
     return view('product');
 });
 
-Route::post('/submit-order', function (Request $request) {
-    dd($request);
-})->name('submit_order');
 Auth::routes();
