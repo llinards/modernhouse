@@ -103,7 +103,7 @@
                 </div>
                 <div class="product-order d-flex flex-column justify-content-end align-items-center">
                   <h4 class="fw-bold text-center mb-2">Order your Model 1</h4>
-                  <button type="submit"
+                  <button
                     class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order
                     now')</button>
                 </div>
