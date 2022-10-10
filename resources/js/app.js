@@ -3,26 +3,31 @@ require('bootstrap');
 
 import Splide from '@splidejs/splide';
 
-const main = new Splide( '#main-carousel', {
-  type      : 'fade',
-  pagination: false,
-} );
+const galleries = document.querySelectorAll('.tab-pane .row .col-lg-7.mt-4');
 
-const thumbnails = new Splide( '#thumbnail-carousel', {
-  fixedWidth  : 100,
-  fixedHeight : 60,
-  gap         : 10,
-  arrows: false,
-  pagination  : false,
-  isNavigation: true,
-  breakpoints : {
-    600: {
-      fixedWidth : 60,
-      fixedHeight: 44,
+galleries.forEach((gallery) => {
+  const main = new Splide( '#' + gallery.firstElementChild.id, {
+    type      : 'fade',
+    pagination: false,
+    lazyLoad: 'nearby',
+  });
+
+  const thumbnails = new Splide( '#' + gallery.lastElementChild.id, {
+    fixedWidth  : 100,
+    fixedHeight : 60,
+    gap         : 10,
+    arrows: false,
+    pagination  : false,
+    isNavigation: true,
+    lazyLoad: 'sequential',
+    breakpoints : {
+      600: {
+        fixedWidth : 60,
+        fixedHeight: 44,
+      },
     },
-  },
-} );
-
-main.sync( thumbnails );
-main.mount();
-thumbnails.mount();
+  });
+  main.sync( thumbnails );
+  main.mount();
+  thumbnails.mount();
+});

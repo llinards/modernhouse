@@ -18,8 +18,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/product', function () {
-    return view('product');
-});
-
 Auth::routes();
+
+Route::get('/{product:slug}', [\App\Http\Controllers\ProductController::class, 'show']);
+
