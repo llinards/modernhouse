@@ -17,10 +17,18 @@ class ProductSeeder extends Seeder
     public function run()
     {
       DB::table('products')->insert([
-        'name' => 'Model One',
-        'slug' => 'model-one',
-        'cover_photo_filename' => 'cover.jpg',
-        'created_at' => Carbon::now(),
+        [
+          'name' => 'Model One',
+          'slug' => 'model-one',
+          'cover_photo_filename' => 'cover.jpg',
+          'created_at' => Carbon::now(),
+        ],
+        [
+          'name' => 'Model Two',
+          'slug' => 'model-two',
+          'cover_photo_filename' => 'cover.jpg',
+          'created_at' => Carbon::now(),
+        ],
       ]);
     }
 }

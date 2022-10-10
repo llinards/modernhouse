@@ -137,6 +137,46 @@ class ImageSeeder extends Seeder
             'filename' => '8.jpg',
             'created_at' => Carbon::now()
           ],
+          [
+            'option_id' => 4,
+            'filename' => '1.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '2.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '3.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '4.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '5.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '6.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '7.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'option_id' => 4,
+            'filename' => '8.jpg',
+            'created_at' => Carbon::now()
+          ],
         ]);
     }
 }

@@ -7,20 +7,16 @@
   //section {
   //  scroll-snap-align: center;
   //}
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   height: 100%;
   .title {
     padding-top: 125px;
   }
-}
-
-#model-one,
-#model-two,
-#model-three {
-  background-image: url("/storage/home/home-bg-one.jpg");
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
+  section {
+    background: no-repeat top center fixed;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
 }
