@@ -11322,8 +11322,6 @@ p {
 
 #home {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
   height: 100%;
 }
 #home .title {
@@ -11331,8 +11329,6 @@ p {
 }
 #home section {
   background: no-repeat top center fixed;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
 }
 
 .product-level-titles {

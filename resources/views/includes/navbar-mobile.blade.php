@@ -16,15 +16,11 @@
     @if ($index)
       <div class="nav-items">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#model-one">Model 1</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#model-two">Model 2</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Model 3</a>
-          </li>
+          @foreach($allProducts as $product)
+            <li class="nav-item">
+              <a class="nav-link" href="#{{ $product->slug }}">{{ $product->name }}</a>
+            </li>
+          @endforeach
         </ul>
       </div>
     @endif
