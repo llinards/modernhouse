@@ -7,9 +7,9 @@
   }
 
   #home {
-    .title {
-      padding-top: 85px;
-    }
+    //.title {
+    //  padding-top: 85px;
+    //}
   }
 
   .title {
@@ -25,8 +25,12 @@
   }
 }
 
-@media (min-width: 992px) {
-  .mobile-navbar {
-    display: none;
+@media (max-width: 570px) {
+  .modern-house-logo {
+    width: 90px;
+  }
+
+  .product-level-titles button {
+    font-size: $product-level-titles-font-size-mobile;
   }
 }

@@ -2,10 +2,10 @@
   <div class="container-fluid d-flex justify-content-between">
     <div class="logo">
       <a class="navbar-brand" href="/">
-        <img src="{{ asset('storage/logo-black.svg') }}" width="85" alt="Modern House logo">
+        <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav">
+    <button type="button" class="navbar-toggler px-3" data-toggle="collapse" data-target="#nav">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
@@ -17,10 +17,10 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Model 1</a>
+            <a class="nav-link" href="#model-one">Model 1</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Model 2</a>
+            <a class="nav-link" href="#model-two">Model 2</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Model 3</a>
@@ -51,6 +51,7 @@
 
 <script>
   const menu = document.querySelector(".navbar-toggler");
+  const menuLinks = document.querySelectorAll("#mobile-navbar-modal .nav-link");
 
   function closeMenu() {
     menu.classList.remove('open');
@@ -65,6 +66,25 @@
     document.querySelector('.content').classList.add('backdrop');
     document.querySelector('.content').style.overflowY = 'hidden';
   }
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (menu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+        document.querySelector('.content.backdrop').addEventListener('click', () => {
+          closeMenu();
+          for (let item of menu.children) {
+            item.classList.remove("change");
+          }
+        })
+      }
+      for (let item of menu.children) {
+        item.classList.toggle("change");
+      }
+    });
+  });
 
   menu.addEventListener("click", () => {
     if (menu.classList.contains('open')) {

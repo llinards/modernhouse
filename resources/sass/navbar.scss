@@ -13,15 +13,15 @@
   .bar1,
   .bar2,
   .bar3 {
-    width: 25px;
-    height: 1px;
+    width: 40px;
+    height: 4px;
     background-color: $primary-color;
     margin: 6px 0;
     transition: 0.5s;
   }
 
   .bar1.change {
-    transform: rotate(-45deg) translate(-5px, 5px);
+    transform: rotate(-45deg) translate(-8px, 8px);
   }
 
   .bar2.change {

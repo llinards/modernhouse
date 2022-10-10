@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-  @include('includes.navbar-desktop', ['index' => true])
+{{--  @include('includes.navbar-desktop', ['index' => true])--}}
   @include('includes.navbar-mobile', ['index' => true])
   <article id="home" class="content">
 
