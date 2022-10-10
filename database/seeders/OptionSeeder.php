@@ -20,21 +20,21 @@ class OptionSeeder extends Seeder
         [
           'product_id' => 1,
           'name' => 'Model One - One',
-          'price' => '250 000',
+          'price' => 250000,
           'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
           'created_at' => Carbon::now(),
         ],
         [
           'product_id' => 1,
           'name' => 'Model One - Two',
-          'price' => '270 000',
+          'price' => 270000,
           'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
           'created_at' => Carbon::now(),
         ],
         [
           'product_id' => 1,
           'name' => 'Model One - Three',
-          'price' => '300 000',
+          'price' => 300000,
           'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
           'created_at' => Carbon::now(),
         ]
