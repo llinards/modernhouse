@@ -7,15 +7,20 @@
   //section {
   //  scroll-snap-align: center;
   //}
-  //scroll-snap-type: y mandatory;
-  //overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
   height: 100%;
   .title {
+    h1 {
+    color: white;
     padding-top: 125px;
-  }
+  }}
   section {
-    background: no-repeat top center fixed;
-    //scroll-snap-align: center;
-    //scroll-snap-stop: always;
+    background-size: cover;
+    background-repeat: no-repeat;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    background-position: center center;
+    height: 100%;
   }
 }
