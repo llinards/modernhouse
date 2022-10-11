@@ -3,9 +3,8 @@
 {{--  @include('includes.navbar-desktop', ['index' => true])--}}
   @include('includes.navbar-mobile', ['index' => true, 'allProducts' => $allProducts])
   <article id="home" class="content">
-
     @foreach($allProducts as $product)
-      <section id="{{$product->slug}}" class="h-100 d-flex flex-column justify-content-between" style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
+      <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between" style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
         <div class="title">
           <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
         </div>
