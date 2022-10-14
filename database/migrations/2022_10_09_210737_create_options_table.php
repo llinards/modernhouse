@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('product_id');
             $table->string('name');
             $table->integer('price');
+            $table->integer('price_basic');
+            $table->integer('price_full');
             $table->text('description');
             $table->timestamps();
         });
