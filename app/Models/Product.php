@@ -14,13 +14,13 @@ class Product extends Model
     return 'slug';
   }
 
-    public function productOptions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function productVariants(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-      return $this->hasMany(Option::class);
+      return $this->hasMany(ProductVariant::class);
     }
 
-    public function productImages(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
     {
-      return $this->hasManyThrough(Image::class, Option::class);
+      return $this->hasManyThrough(Image::class, ProductVariant::class);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class OptionSeeder extends Seeder
+class ProductVariantSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class OptionSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('options')->insert([
+      DB::table('product_variants')->insert([
         [
           'product_id' => 1,
           'name' => 'Model One - One',
