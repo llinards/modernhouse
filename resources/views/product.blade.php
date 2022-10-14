@@ -58,14 +58,14 @@
                     <div class="product-levels">
                       <ul class="nav nav-tabs d-flex product-level-titles flex-nowrap">
                         <li class="nav-item">
-                          <button class="nav-link active variant-title" id="basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic" type="button">Basic</button>
+                          <button class="nav-link active variant-title" id="basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($option->name)}}" type="button">Basic</button>
                         </li>
                         <li class="nav-item">
-                          <button class="nav-link variant-title" id="full-variant-title" data-bs-toggle="tab" data-bs-target="#full" type="button">Full</button>
+                          <button class="nav-link variant-title" id="full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($option->name)}}" type="button">Full</button>
                         </li>
                       </ul>
                       <div class="tab-content product-level mt-2">
-                        <div class="tab-pane fade show active" id="basic">
+                        <div class="tab-pane fade show active" id="basic-{{Str::slug($option->name)}}">
                           <div class="accordion accordion-flush" id="accordionExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
@@ -108,7 +108,7 @@
                             <h1 class="text-center">EUR {{ number_format($option->price_basic, 2, ',', ' ') }}</h1>
                           </div>
                         </div>
-                        <div class="tab-pane fade" id="full">
+                        <div class="tab-pane fade" id="full-{{Str::slug($option->name)}}">
                           <div class="accordion accordion-flush" id="accordionExample">
                             <div class="accordion-item">
                               <h2 class="accordion-header" id="headingOne">
@@ -168,20 +168,6 @@
     </div>
   </div>
   <script>
-    let basicVariant = document.getElementById('basic-variant-title');
-    let fullVariant = document.getElementById('full-variant-title');
-
-    // if (basicVariant.classList.contains('active')) {
-    //   console.log('basic price');
-    // }
-    //
-    // if (fullVariant.classList.contains('active')) {
-    //   console.log('full price');
-    // }
-    //
-    // console.log(basicVariant.classList);
-    // console.log(fullVariant.classList);
-
 
   </script>
 @endsection
