@@ -49,15 +49,112 @@
                     </div>
                   </section>
                 </div>
-                <div class="col-lg-5 mt-4 d-flex flex-column justify-content-around">
+                <div class="col-lg-5 mt-4 d-flex flex-column">
                   <div class="product-short-description">
                     <p>{{ $option->description }}</p>
                   </div>
-                  <div class="product-price">
-                    <h1 class="text-center">EUR {{ $option->price }}</h1>
+                  <div class="product-option-types">
+                    <h4 class="fw-bold text-center mt-4 mb-2">Choose your variant:</h4>
+                    <div class="product-levels">
+                      <ul class="nav nav-tabs d-flex product-level-titles flex-nowrap">
+                        <li class="nav-item">
+                          <button class="nav-link active variant-title" id="basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic" type="button">Basic</button>
+                        </li>
+                        <li class="nav-item">
+                          <button class="nav-link variant-title" id="full-variant-title" data-bs-toggle="tab" data-bs-target="#full" type="button">Full</button>
+                        </li>
+                      </ul>
+                      <div class="tab-content product-level mt-2">
+                        <div class="tab-pane fade show active" id="basic">
+                          <div class="accordion accordion-flush" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                  Ārsienas
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                                <div class="accordion-body">
+                                  <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">An item</li>
+                                    <li class="list-group-item">A second item</li>
+                                    <li class="list-group-item">A third item</li>
+                                    <li class="list-group-item">A fourth item</li>
+                                    <li class="list-group-item">And a fifth one</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Vannasistaba
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                                <div class="accordion-body">
+                                  <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">An item</li>
+                                    <li class="list-group-item">A second item</li>
+                                    <li class="list-group-item">A third item</li>
+                                    <li class="list-group-item">A fourth item</li>
+                                    <li class="list-group-item">And a fifth one</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="product-price mt-2 mb-5">
+                            <h1 class="text-center">EUR {{ number_format($option->price_basic, 2, ',', ' ') }}</h1>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="full">
+                          <div class="accordion accordion-flush" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                  Ārsienas
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                                <div class="accordion-body">
+                                  <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">An item</li>
+                                    <li class="list-group-item">A second item</li>
+                                    <li class="list-group-item">A third item</li>
+                                    <li class="list-group-item">A fourth item</li>
+                                    <li class="list-group-item">And a fifth one</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Vannasistaba
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                                <div class="accordion-body">
+                                  <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">An item</li>
+                                    <li class="list-group-item">A second item</li>
+                                    <li class="list-group-item">A third item</li>
+                                    <li class="list-group-item">A fourth item</li>
+                                    <li class="list-group-item">And a fifth one</li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="product-price mt-2 mb-5">
+                            <h1 class="text-center">EUR {{ number_format($option->price_full, 2, ',', ' ') }}</h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="product-order d-flex flex-column justify-content-end align-items-center">
-                    <h4 class="fw-bold text-center mb-2">Order your Model 1</h4>
+                  <div class="product-order d-flex flex-column align-items-center">
                     <button
                       class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order
                       now')</button>
@@ -70,4 +167,21 @@
       </div>
     </div>
   </div>
+  <script>
+    let basicVariant = document.getElementById('basic-variant-title');
+    let fullVariant = document.getElementById('full-variant-title');
+
+    // if (basicVariant.classList.contains('active')) {
+    //   console.log('basic price');
+    // }
+    //
+    // if (fullVariant.classList.contains('active')) {
+    //   console.log('full price');
+    // }
+    //
+    // console.log(basicVariant.classList);
+    // console.log(fullVariant.classList);
+
+
+  </script>
 @endsection
