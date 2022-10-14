@@ -1,4 +1,5 @@
-.product-level-titles {
+.product-variant-titles,
+.product-variant-option-titles{
   border: none;
   justify-content: space-evenly;
   button.nav-link {
@@ -20,7 +21,7 @@
   }
 }
 
-.product-short-description {
+.product-variant-short-description {
   max-width: 500px;
   margin: 0 auto;
 }

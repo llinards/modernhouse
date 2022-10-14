@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('option_id');
+            $table->foreignId('product_variant_id');
             $table->string('filename');
             $table->timestamps();
         });
