@@ -23,4 +23,9 @@ class Product extends Model
     {
       return $this->hasManyThrough(Image::class, ProductVariant::class);
     }
+
+    public function productVariantOptions(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
+    {
+      return $this->hasManyThrough(ProductVariantOption::class, ProductVariant::class);
+    }
 }

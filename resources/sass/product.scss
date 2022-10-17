@@ -72,4 +72,23 @@
   background-image: var(--bs-accordion-btn-icon);
 }
 
+.product-variant-option-content {
+  li {
+    position: relative;
+    display: block;
+    padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+    color: var(--bs-list-group-color);
+    text-decoration: none;
+    background-color: var(--bs-list-group-bg);
+    &:not(:last-child) {
+      border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+      border-width: 0 0 var(--bs-list-group-border-width);
+    }
+  }
+
+  h5:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
 //$accordion-button-active-bg: red;
