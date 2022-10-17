@@ -32,14 +32,14 @@
         <li class="nav-item">
           <a class="nav-link" href="#">@lang('contact')</a>
         </li>
-        @if (count(config('app.languages')) > 1)
-          <li class="nav-item language-select d-flex justify-content-between">
-            @foreach (config('app.languages') as $langLocale => $langName)
-              <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"
-                href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
-            @endforeach
-          </li>
-        @endif
+{{--        @if (count(config('app.languages')) > 1)--}}
+{{--          <li class="nav-item language-select d-flex justify-content-between">--}}
+{{--            @foreach (config('app.languages') as $langLocale => $langName)--}}
+{{--              <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"--}}
+{{--                href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>--}}
+{{--            @endforeach--}}
+{{--          </li>--}}
+{{--        @endif--}}
       </ul>
     </div>
   </div>
