@@ -66,86 +66,50 @@
                       </ul>
                       <div class="tab-content product-variant-option mt-2">
                         <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
-                          <div class="accordion accordion-flush" id="accordionExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                  Ārsienas
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                                <div class="accordion-body">
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                    <li class="list-group-item">A fourth item</li>
-                                    <li class="list-group-item">And a fifth one</li>
-                                  </ul>
+                          <div class="accordion accordion-flush">
+                            @foreach($product->productVariantOptions as $option)
+                              @if($option->product_variant_id === $variant->id)
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_type)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_type)}}">
+                                      {{ $option->option_type }}
+                                    </button>
+                                  </h2>
+                                  <div id="{{Str::slug($option->option_type)}}" class="accordion-collapse collapse product-variant-option-content">
+                                    <div class="accordion-body">
+                                      <ul class="list-group list-group-flush">
+                                        {!! $option->options_basic !!}
+                                      </ul>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Vannasistaba
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-                                <div class="accordion-body">
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                    <li class="list-group-item">A fourth item</li>
-                                    <li class="list-group-item">And a fifth one</li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
+                              @endif
+                            @endforeach
                           </div>
                           <div class="product-price mt-2 mb-5">
                             <h1 class="text-center">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h1>
                           </div>
                         </div>
                         <div class="tab-pane fade" id="full-{{Str::slug($variant->name)}}">
-                          <div class="accordion accordion-flush" id="accordionExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                  Ārsienas
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-                                <div class="accordion-body">
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                    <li class="list-group-item">A fourth item</li>
-                                    <li class="list-group-item">And a fifth one</li>
-                                  </ul>
+                          <div class="accordion accordion-flush">
+                            @foreach($product->productVariantOptions as $option)
+                              @if($option->product_variant_id === $variant->id)
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_type)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_type)}}">
+                                      {{ $option->option_type }}
+                                    </button>
+                                  </h2>
+                                  <div id="{{Str::slug($option->option_type)}}" class="accordion-collapse collapse product-variant-option-content">
+                                    <div class="accordion-body">
+                                      <ul class="list-group list-group-flush">
+                                        {!! $option->options_full !!}
+                                      </ul>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Vannasistaba
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
-                                <div class="accordion-body">
-                                  <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">An item</li>
-                                    <li class="list-group-item">A second item</li>
-                                    <li class="list-group-item">A third item</li>
-                                    <li class="list-group-item">A fourth item</li>
-                                    <li class="list-group-item">And a fifth one</li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
+                              @endif
+                            @endforeach
                           </div>
                           <div class="product-price mt-2 mb-5">
                             <h1 class="text-center">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h1>
