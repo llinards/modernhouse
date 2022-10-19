@@ -17,4 +17,9 @@ class ProductsController extends Controller
     {
       return view('product', compact('product'));
     }
+
+    public function requestProductInfo(Request $request)
+    {
+      
+    }
 }

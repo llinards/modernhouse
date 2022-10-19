@@ -11210,6 +11210,11 @@ p {
   color: #3f3f3f;
 }
 
+h4, .h4 {
+  letter-spacing: 0px;
+  color: #3f3f3f;
+}
+
 .btn-main {
   width: 328px;
   height: 48px;
@@ -11243,6 +11248,10 @@ p {
 
 .modern-house-logo {
   width: 125px;
+}
+
+.modal-footer {
+  border: none;
 }
 
 .mobile-navbar {
