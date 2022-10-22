@@ -66,8 +66,8 @@
                       </li>
                     </ul>
                     <div class="product-price mt-4 mb-4">
-                      <h1 class="text-center basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h1>
-                      <h1 class="text-center full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h1>
+                      <h2 class="text-center fw-bold basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
+                      <h2 class="text-center fw-bold full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>
                     </div>
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">
