@@ -9,24 +9,31 @@
         <form id="request-product-info" method="POST" action="{{ route('request-product-info', Str::slug($product->name)) }}">
           @csrf
           <x-honeypot />
-          <div class="mb-3">
-            <label for="product-variant" class="form-label fw-bold">Variants*</label>
-            <select class="form-select" name="product-variant" id="product-variant" aria-label="Default select example">
-              @foreach($product->productVariants as $variant)
-                <option value="{{ $variant->name }}">{{ $variant->name }}</option>
-              @endforeach
-            </select>
-          </div>
+          <input type="text" class="visually-hidden" name="product-name" value="{{ $product->name }}" />
+          @if(count($product->productVariants) !== 1)
+            <div class="mb-3">
+              <label for="product-variant" class="form-label fw-bold">Variants*</label>
+              <select class="form-select" name="product-variant" id="product-variant" aria-label="Default select example">
+                @foreach($product->productVariants as $variant)
+                  <option value="{{ $variant->name }}">{{ $variant->name }}</option>
+                @endforeach
+              </select>
+            </div>
+          @endif
           <div class="mb-3">
             <label for="product-variant-option" class="form-label fw-bold">Komplektācija*</label>
             <select class="form-select" name="product-variant-option" id="product-variant-option" aria-label="Default select example">
-              <option value="basic" selected>Basic</option>
-              <option value="basic">Full</option>
+              <option value="Basic" selected>Basic</option>
+              <option value="Full">Full</option>
             </select>
           </div>
           <div class="mb-3">
             <label for="name-surname" class="form-label fw-bold">Vārds, uzvārds*</label>
             <input type="text" name="name-surname" class="form-control" id="name-surname" value="">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label fw-bold">E-pasts*</label>
+            <input type="email" name="email" class="form-control" id="email" value="">
           </div>
           <div class="mb-3">
             <label for="phone-number" class="form-label fw-bold">Kontakttālrunis*</label>

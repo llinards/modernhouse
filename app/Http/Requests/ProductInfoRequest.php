@@ -25,6 +25,7 @@ class ProductInfoRequest extends FormRequest
     {
         return [
             'name-surname' => ['required','alpha','max:50'],
+            'email' => ['required', 'email'],
             'phone-number' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:25'],
             'company' => 'max:100'
         ];

@@ -149,6 +149,10 @@ return [
         ],
         'company' => [
           'max' => 'Kompānijas nosaukums ir aizdomīgi garš.'
+        ],
+        'email' => [
+          'required' => 'Pieteikumā ir jānorāda e-pasts.',
+          'email' => 'E-pasta adrese nav korekta.'
         ]
     ],
 
