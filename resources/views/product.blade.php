@@ -7,6 +7,8 @@
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
       </div>
+      @include('includes.status-messages')
+
       <div class="product-variants-options">
         <ul class="nav mt-4 nav-tabs d-flex product-variant-titles flex-nowrap">
           @if(count($product->productVariants) !== 1)
@@ -19,7 +21,7 @@
         </ul>
         <div class="tab-content product-variant">
           @foreach($product->productVariants as $variant)
-            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{Str::slug($variant->name)}}">
+            <div class="tab-pane product-variant-tab fade {{ $loop->first ? 'show active' : '' }}" id="{{Str::slug($variant->name)}}">
               <div class="row">
                 <div class="col-lg-7 mt-4">
                   <section id="{{Str::slug($variant->name)}}-main-carousel" class="splide">
@@ -70,7 +72,7 @@
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">
                     <button
-                      class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase">@lang('order
+                      class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('order
                       now')</button>
                   </div>
                 </div>
@@ -124,6 +126,7 @@
               </div>
             </div>
           @endforeach
+          @include('includes.request-product-info-modal', [$product])
         </div>
       </div>
     </div>
@@ -156,7 +159,5 @@
         });
       });
     });
-
-
   </script>
 @endsection

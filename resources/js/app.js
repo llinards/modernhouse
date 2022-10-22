@@ -1,4 +1,3 @@
-require('./bootstrap');
 require('bootstrap');
 
 import Splide from '@splidejs/splide';

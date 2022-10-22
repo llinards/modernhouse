@@ -2,5 +2,7 @@
   "customer order": "Veikt pasūtījumu",
   "about": "Par Mums",
   "contact": "Sazināties ar mums",
-  "feature details": "Uzzināt vairāk"
+  "feature details": "Uzzināt vairāk",
+  "message has been sent": "Paldies! Ziņa ir nosūtīta!",
+  "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz."
 }

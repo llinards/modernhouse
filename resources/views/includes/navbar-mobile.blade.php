@@ -18,7 +18,7 @@
         <ul class="navbar-nav">
           @foreach($allProducts as $product)
             <li class="nav-item">
-              <a class="nav-link" href="#{{ $product->slug }}">{{ $product->name }}</a>
+              <a class="nav-link text-center" href="#{{ $product->slug }}">{{ $product->name }}</a>
             </li>
           @endforeach
         </ul>
@@ -27,10 +27,10 @@
     <div class="nav-items">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">@lang('about')</a>
+          <a class="nav-link text-center" href="#">@lang('about')</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">@lang('contact')</a>
+          <a class="nav-link text-center" href="#">@lang('contact')</a>
         </li>
 {{--        @if (count(config('app.languages')) > 1)--}}
 {{--          <li class="nav-item language-select d-flex justify-content-between">--}}
@@ -58,7 +58,11 @@
 
   function openMenu() {
     menu.classList.add('open');
-    document.getElementById('mobile-navbar-modal').style.width = '60%';
+    if (window.screen.width <= 990) {
+      document.getElementById('mobile-navbar-modal').style.width = '60%';
+    } else {
+      document.getElementById('mobile-navbar-modal').style.width = '40%';
+    }
     document.querySelector('.content').classList.add('backdrop');
     document.querySelector('.content').style.overflowY = 'hidden';
   }
