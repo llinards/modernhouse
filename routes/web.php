@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,5 @@ Auth::routes();
 
 Route::get('/', [\App\Http\Controllers\ProductsController::class, 'index']);
 Route::get('/{product:slug}', [\App\Http\Controllers\ProductsController::class, 'show']);
-Route::post('/{product:slug}', [\App\Http\Controllers\ProductsController::class, 'requestProductInfo'])->name('request-product-info');
+Route::post('/{product:slug}', [\App\Http\Controllers\ProductsController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductInfoRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class ProductsController extends Controller
 {
@@ -18,8 +20,9 @@ class ProductsController extends Controller
       return view('product', compact('product'));
     }
 
-    public function requestProductInfo(Request $request)
+    public function requestProductInfo(ProductInfoRequest $request)
     {
-      
+
+      return back()->with('success', Lang::get('message has been sent'));
     }
 }

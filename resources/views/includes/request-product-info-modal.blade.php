@@ -6,8 +6,9 @@
       </div>
       <div class="modal-body">
         <h4 class="text-center">{{$product->name}}</h4>
-        <form method="POST" action="{{ route('request-product-info', Str::slug($product->name)) }}">
+        <form id="request-product-info" method="POST" action="{{ route('request-product-info', Str::slug($product->name)) }}">
           @csrf
+          <x-honeypot />
           <div class="mb-3">
             <label for="product-variant" class="form-label fw-bold">Variants*</label>
             <select class="form-select" name="product-variant" id="product-variant" aria-label="Default select example">
