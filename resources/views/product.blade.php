@@ -1,6 +1,6 @@
 @extends('app', ['title' => $product->name, 'index' => false])
 @section('content')
-  <div class="container-xxl content">
+  <div class="container-xxl">
     <div class="row">
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>

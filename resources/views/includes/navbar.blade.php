@@ -64,18 +64,20 @@
     menu.classList.remove('open');
     document.getElementById('mobile-navbar-modal').style.width = '0';
     document.querySelector('.content').classList.remove('backdrop');
-    document.querySelector('.content').style.overflowY = 'scroll';
+    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
+    document.body.style.overflowY = 'scroll';
   }
 
   function openMenu() {
     menu.classList.add('open');
     if (window.screen.width <= 990) {
-      document.getElementById('mobile-navbar-modal').style.width = '80%';
+      document.getElementById('mobile-navbar-modal').style.width = '100%';
     } else {
       document.getElementById('mobile-navbar-modal').style.width = '40%';
     }
     document.querySelector('.content').classList.add('backdrop');
-    document.querySelector('.content').style.overflowY = 'hidden';
+    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
+    document.body.style.overflowY = 'hidden';
   }
 
   menuLinks.forEach((link) => {

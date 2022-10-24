@@ -10,6 +10,8 @@
     </head>
     <body class="antialiased">
         @include('includes.navbar')
-        @yield('content')
+        <div class="content w-100 h-100">
+          @yield('content')
+        </div>
     </body>
 </html>
