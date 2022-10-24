@@ -1,7 +1,6 @@
 @extends('app')
 @section('content')
-{{--  @include('includes.navbar-desktop', ['index' => false])--}}
-  @include('includes.navbar-mobile', ['index' => false])
+  @include('includes.navbar', ['index' => false])
   <div class="container-xxl content">
     <div class="row">
       <div class="title">

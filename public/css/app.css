@@ -11314,25 +11314,6 @@ h4, .h4 {
   color: #919191;
 }
 
-.desktop-navbar {
-  z-index: 10;
-}
-.desktop-navbar #middle-links {
-  padding-left: 185px;
-}
-
-.dropdown-menu {
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  border-radius: 0;
-  border: none;
-}
-
-.push-right {
-  margin-left: auto;
-}
-
 .footer-info .nav-link {
   font-size: var(--bs-nav-link-font-size);
   font-weight: var(--bs-nav-link-font-weight);
@@ -11443,9 +11424,6 @@ h4, .h4 {
 }
 
 @media (max-width: 992px) {
-  .desktop-navbar {
-    display: none;
-  }
   .btn-main {
     max-width: 290px;
   }
