@@ -83,3 +83,10 @@
 .push-right {
   margin-left: auto;
 }
+
+.footer-info {
+  .nav-link {
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+  }
+}
