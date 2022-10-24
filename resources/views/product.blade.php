@@ -1,13 +1,11 @@
-@extends('app')
+@extends('app', ['title' => $product->name, 'index' => false])
 @section('content')
-  @include('includes.navbar', ['index' => false])
   <div class="container-xxl content">
     <div class="row">
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
       </div>
       @include('includes.status-messages')
-
       <div class="product-variants-options">
         <ul class="nav mt-4 nav-tabs d-flex product-variant-titles flex-nowrap">
           @if(count($product->productVariants) !== 1)

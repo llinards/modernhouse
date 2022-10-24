@@ -1,6 +1,5 @@
-@extends('app')
+@extends('app', ['index' => true, 'allProducts' => $allProducts])
 @section('content')
-  @include('includes.navbar', ['index' => true, 'allProducts' => $allProducts])
   <article id="home" class="content">
     @foreach($allProducts as $key => $product)
       <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between" style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
