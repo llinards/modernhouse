@@ -13,6 +13,11 @@
   </div>
 
   <div id="mobile-navbar-modal" class="d-flex h-100 flex-column justify-content-around align-items-center">
+    <div class="logo">
+      <a class="navbar-brand" href="/">
+        <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
+      </a>
+    </div>
     @if ($index)
       <div class="nav-items">
         <ul class="navbar-nav">
@@ -42,6 +47,12 @@
 {{--        @endif--}}
       </ul>
     </div>
+    <div class="footer-info d-flex flex-column align-items-center">
+      <p class="mb-2">&copy; {{ date('Y') }} "Modern House" SIA</p>
+      <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
+      <p>@lang('modern house registration number'): 40203251766</p>
+      <p><a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a></p>
+    </div>
   </div>
 </nav>
 
@@ -59,7 +70,7 @@
   function openMenu() {
     menu.classList.add('open');
     if (window.screen.width <= 990) {
-      document.getElementById('mobile-navbar-modal').style.width = '60%';
+      document.getElementById('mobile-navbar-modal').style.width = '80%';
     } else {
       document.getElementById('mobile-navbar-modal').style.width = '40%';
     }
