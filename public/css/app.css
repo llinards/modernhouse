@@ -11284,7 +11284,7 @@ h4, .h4 {
 }
 .mobile-navbar #mobile-navbar-modal {
   position: fixed;
-  height: 100%;
+  max-height: 100%;
   width: 0;
   top: 0;
   right: 0;
@@ -11293,11 +11293,12 @@ h4, .h4 {
   background-color: white;
   transition: 0.5s;
   z-index: 10;
+  box-shadow: -6px 1px 11px 0px rgba(0, 0, 0, 0.41);
 }
 
 .backdrop {
-  filter: brightness(0.5);
   transition: 0.5s;
+  filter: opacity(0.5);
 }
 
 .nav-link,

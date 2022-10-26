@@ -5,7 +5,7 @@
         <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    <button type="button" class="navbar-toggler px-3" data-toggle="collapse" data-target="#nav">
+    <button type="button" class="navbar-toggler px-3">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
@@ -48,10 +48,10 @@
       </ul>
     </div>
     <div class="footer-info d-flex flex-column align-items-center">
-      <p class="mb-2">&copy; {{ date('Y') }} "Modern House" SIA</p>
       <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
       <p>@lang('modern house registration number'): 40203251766</p>
       <p><a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a></p>
+      <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>
     </div>
   </div>
 </nav>
@@ -64,18 +64,20 @@
     menu.classList.remove('open');
     document.getElementById('mobile-navbar-modal').style.width = '0';
     document.querySelector('.content').classList.remove('backdrop');
-    document.querySelector('.content').style.overflowY = 'scroll';
+    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
+    document.body.style.overflowY = 'scroll';
   }
 
   function openMenu() {
     menu.classList.add('open');
     if (window.screen.width <= 990) {
-      document.getElementById('mobile-navbar-modal').style.width = '80%';
+      document.getElementById('mobile-navbar-modal').style.width = '100%';
     } else {
       document.getElementById('mobile-navbar-modal').style.width = '40%';
     }
     document.querySelector('.content').classList.add('backdrop');
-    document.querySelector('.content').style.overflowY = 'hidden';
+    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
+    document.body.style.overflowY = 'hidden';
   }
 
   menuLinks.forEach((link) => {
