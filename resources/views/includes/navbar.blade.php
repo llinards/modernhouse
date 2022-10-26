@@ -12,46 +12,48 @@
     </button>
   </div>
 
-  <div id="mobile-navbar-modal" class="d-flex h-100 flex-column justify-content-around align-items-center">
-    <div class="logo">
-      <a class="navbar-brand" href="/">
-        <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
-      </a>
-    </div>
-    @if ($index)
+  <div id="mobile-navbar-modal" class="h-100">
+    <div id="modal-content" class="d-flex h-100 flex-column justify-content-around align-items-center">
+      <div class="logo">
+        <a class="navbar-brand" href="/">
+          <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
+        </a>
+      </div>
+      @if ($index)
+        <div class="nav-items">
+          <ul class="navbar-nav">
+            @foreach($allProducts as $product)
+              <li class="nav-item">
+                <a class="nav-link text-center" href="/{{ $product->slug }}">{{ $product->name }}</a>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       <div class="nav-items">
         <ul class="navbar-nav">
-          @foreach($allProducts as $product)
-            <li class="nav-item">
-              <a class="nav-link text-center" href="#{{ $product->slug }}">{{ $product->name }}</a>
-            </li>
-          @endforeach
+          <li class="nav-item">
+            <a class="nav-link text-center" href="#">@lang('about')</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center" href="#">@lang('contact')</a>
+          </li>
+  {{--        @if (count(config('app.languages')) > 1)--}}
+  {{--          <li class="nav-item language-select d-flex justify-content-between">--}}
+  {{--            @foreach (config('app.languages') as $langLocale => $langName)--}}
+  {{--              <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"--}}
+  {{--                href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>--}}
+  {{--            @endforeach--}}
+  {{--          </li>--}}
+  {{--        @endif--}}
         </ul>
       </div>
-    @endif
-    <div class="nav-items">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-center" href="#">@lang('about')</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-center" href="#">@lang('contact')</a>
-        </li>
-{{--        @if (count(config('app.languages')) > 1)--}}
-{{--          <li class="nav-item language-select d-flex justify-content-between">--}}
-{{--            @foreach (config('app.languages') as $langLocale => $langName)--}}
-{{--              <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"--}}
-{{--                href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>--}}
-{{--            @endforeach--}}
-{{--          </li>--}}
-{{--        @endif--}}
-      </ul>
-    </div>
-    <div class="footer-info d-flex flex-column align-items-center">
-      <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
-      <p>@lang('modern house registration number'): 40203251766</p>
-      <p><a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a></p>
-      <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>
+      <div class="footer-info d-flex flex-column align-items-center">
+        <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
+        <p>@lang('modern house registration number'): 40203251766</p>
+        <p><a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a></p>
+        <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>
+      </div>
     </div>
   </div>
 </nav>
@@ -63,6 +65,7 @@
   function closeMenu() {
     menu.classList.remove('open');
     document.getElementById('mobile-navbar-modal').style.width = '0';
+    document.getElementById('modal-content').style.opacity = '0';
     document.querySelector('.content').classList.remove('backdrop');
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
     document.body.style.overflowY = 'scroll';
@@ -75,6 +78,7 @@
     } else {
       document.getElementById('mobile-navbar-modal').style.width = '40%';
     }
+    document.getElementById('modal-content').style.opacity = '1';
     document.querySelector('.content').classList.add('backdrop');
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
     document.body.style.overflowY = 'hidden';

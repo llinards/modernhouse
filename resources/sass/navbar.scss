@@ -44,6 +44,10 @@
     transition: 0.5s;
     z-index: 10;
     box-shadow: -6px 1px 11px 0px rgba(0,0,0,0.41);
+    #modal-content {
+      opacity: 0;
+      transition: 0.5s;
+    }
   }
 }
 
