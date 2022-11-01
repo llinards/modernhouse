@@ -9,7 +9,9 @@
         <script src="{{ mix('/js/app.js') }}" defer></script>
     </head>
     <body class="antialiased">
+        @if(isset($index))
         @include('includes.navbar')
+        @endif
         <div class="content w-100 h-100">
           @yield('content')
         </div>
