@@ -9,10 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
-  public function getRouteKeyName(): string
-  {
-    return 'slug';
-  }
+    protected $fillable = ['slug', 'name', 'cover'];
+
+    public function getRouteKeyName(): string
+    {
+      return 'slug';
+    }
 
     public function productVariants(): \Illuminate\Database\Eloquent\Relations\HasMany
     {

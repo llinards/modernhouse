@@ -3,12 +3,13 @@
   <div class="container">
     @include('includes.admin-navbar')
     <section class="all-products">
-      <div class="all-products-title mt-5">
+      <div class="all-products-title my-5">
         <h2 class="text-center">Visas mājas/moduļi</h2>
       </div>
       <div class="all-products-content">
         <div class="container">
           <div class="row justify-content-between">
+            @include('includes.status-messages')
             @foreach($allProducts as $product)
               <div class="col-lg-4 p-2 text-center">
                 <div class="card position-relative">

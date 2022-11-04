@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('name');
             $table->string('cover_photo_filename');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

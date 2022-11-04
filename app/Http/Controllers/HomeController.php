@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 
-class ProductsController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {

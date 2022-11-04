@@ -10,11 +10,12 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-7">
-              <form action="/admin" method="POST">
+              @include('includes.status-messages')
+              <form action="/admin" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="mb-3">
                   <label for="product-name" class="form-label">Nosaukums</label>
-                  <input type="email" class="form-control" id="product-name" name="product-name">
+                  <input type="text" class="form-control" id="product-name" name="product-name">
                 </div>
                 <div class="mb-3">
                   <label for="product-cover-photo" class="form-label">Produkta pirmās lapas bilde</label>
@@ -22,6 +23,7 @@
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
                 </div>
+                <button type="submit" class="btn btn-success">Pievienot</button>
               </form>
             </div>
           </div>
@@ -29,4 +31,18 @@
       </div>
     </section>
   </div>
+  <script>
+
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.create(document.querySelector('input[id="product-cover-photo"]'));
+    FilePond.setOptions({
+      server: {
+        url: '/admin/upload',
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+      },
+      acceptedFileTypes: ['image/*'],
+    });
+  </script>
 @endsection

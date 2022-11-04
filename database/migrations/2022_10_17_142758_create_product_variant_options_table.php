@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('product_variant_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_variant_id');
             $table->string('option_type');
             $table->text('options_basic');
             $table->text('options_full');
             $table->timestamps();
+            $table->foreignId('product_variant_id')->references('id')->on('product_variants')->onDelete('cascade');
         });
     }
 

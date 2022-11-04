@@ -6,6 +6,10 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
         <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
+        @if(!isset($index))
+          <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+          <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+      @endif
         <script src="{{ mix('/js/app.js') }}" defer></script>
     </head>
     <body class="antialiased">

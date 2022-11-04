@@ -153,6 +153,12 @@ return [
         'email' => [
           'required' => 'Pieteikumā ir jānorāda e-pasts.',
           'email' => 'E-pasta adrese nav korekta.'
+        ],
+        'product-name' => [
+          'required' => 'Nav norādīts nosaukums.'
+        ],
+        'product-cover-photo' => [
+          'required' => 'Nav pievienota titulbilde.'
         ]
     ],
 
