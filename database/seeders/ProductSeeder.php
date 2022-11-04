@@ -22,12 +22,14 @@ class ProductSeeder extends Seeder
           'slug' => 'model-one',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
+          'is_active' => true
         ],
         [
           'name' => 'Model Two',
           'slug' => 'model-two',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
+          'is_active' => false
         ],
       ]);
     }

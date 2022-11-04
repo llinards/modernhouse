@@ -10,7 +10,7 @@
     </head>
     <body class="antialiased">
         @if(isset($index))
-        @include('includes.navbar')
+          @include('includes.navbar')
         @endif
         <div class="content w-100 h-100">
           @yield('content')

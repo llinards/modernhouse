@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
           ProductVariantSeeder::class,
           ImageSeeder::class,
           ProductVariantOptionSeeder::class,
+          UserSeeder::class
         ]);
     }
 }
