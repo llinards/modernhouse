@@ -2,6 +2,8 @@ require('bootstrap');
 
 import Splide from '@splidejs/splide';
 
+import 'filepond/dist/filepond.min.css';
+
 const galleries = document.querySelectorAll('.tab-pane .row .col-lg-7.mt-4');
 
 galleries.forEach((gallery) => {

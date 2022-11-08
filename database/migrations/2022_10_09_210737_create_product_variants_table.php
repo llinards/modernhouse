@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
             $table->string('name');
             $table->integer('price');
             $table->integer('price_basic');
             $table->integer('price_full');
             $table->text('description');
             $table->timestamps();
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

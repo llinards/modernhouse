@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->name, 'index' => false])
+@extends('app', ['title' => $product->name, 'index' => false, 'allProducts' => $allProducts])
 @section('content')
   <div class="container-xxl">
     <div class="row">
@@ -73,8 +73,8 @@
                       now')</button>
                   </div>
                 </div>
-                <h4 class="fw-bold text-center mt-4">Tehnical details</h4>
-                <div class="tab-content product-variant-option mt-2">
+                <div class="tab-content product-variant-option mt-4">
+                  <h4 class="fw-bold text-center my-2">Tehnical details</h4>
                   <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
                     <div class="accordion accordion-flush">
                       @foreach($product->productVariantOptions as $option)

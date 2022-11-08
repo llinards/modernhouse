@@ -9,17 +9,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 
-class ProductsController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-      $allProducts = Product::all();
+      $allProducts = Product::where('is_active', true)->get();
       return view('home', compact('allProducts'));
     }
 
     public function show(Product $product)
     {
-      return view('product', compact('product'));
+      $allProducts = Product::where('is_active', true)->get();
+      return view('product', compact('product', 'allProducts'));
     }
 
     public function requestProductInfo(ProductInfoRequest $request)

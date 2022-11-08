@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_variant_id');
             $table->string('filename');
             $table->timestamps();
+            $table->foreignId('product_variant_id')->references('id')->on('product_variants')->onDelete('cascade');
         });
     }
 
