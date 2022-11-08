@@ -11,7 +11,7 @@
           <div class="row justify-content-between">
             @include('includes.status-messages')
             @foreach($allProducts as $product)
-              <div class="col-lg-4 p-2 text-center">
+              <div class="col-lg-4 p-2">
                 <div class="card position-relative">
                   <div class="position-absolute">
                     <span class="badge {{ $product->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $product->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
@@ -19,9 +19,20 @@
                   </div>
                   <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">{{ $product->name }}</h5>
-                    <div class="all-products-content-buttons d-flex justify-content-between mt-2">
-                      <a href="/admin/{{ $product->slug }}/edit" class="btn btn-warning">Rediģēt</a>
+                    <h4 class="card-title text-center border-bottom">{{ $product->name }}</h4>
+                    @if(count($product->productVariants) != 0)
+                      <p class="text-center">Varianti</p>
+                      @foreach($product->productVariants as $variant)
+                      <div class="my-1 text-center">
+                        <h5 class="mb-2">{{ $variant->name }}</h5>
+                        <a href="/admin/{{ $product->slug }}/{{ $variant->id }}/edit" class="btn btn-secondary btn-sm">Rediģēt</a>
+                      </div>
+                      @endforeach
+                    @else
+                      <p>Nav pievienoti varianti.</p>
+                    @endif
+                    <div class="all-products-content-buttons d-flex justify-content-between mt-4">
+                      <a href="/admin/{{ $product->slug }}/edit" class="btn btn-secondary">Rediģēt</a>
                       <a href="#" class="btn btn-danger">Dzēst</a>
                     </div>
                   </div>

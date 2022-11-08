@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-      $allProducts = Product::all();
+      $allProducts = Product::with('productVariants')->get();
 //      dd($allProducts);
       return view('admin.index', compact('allProducts'));
     }
