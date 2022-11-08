@@ -29,7 +29,7 @@ class ProductSeeder extends Seeder
           'slug' => 'model-two',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
-          'is_active' => false
+          'is_active' => true
         ],
       ]);
     }
