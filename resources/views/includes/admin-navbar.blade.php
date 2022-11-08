@@ -5,7 +5,6 @@
     </a>
   </div>
   <div class="nav-item flex-grow-1">
-    {{ Request::is('/admin/create') ? 'dasdas' : '' }}
     <a href="/admin/create" class="nav-link">Pievienot</a>
   </div>
   <div class="nav-item px-2">

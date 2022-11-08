@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->name, 'index' => false])
+@extends('app', ['title' => $product->name, 'index' => false, 'allProducts' => $allProducts])
 @section('content')
   <div class="container-xxl">
     <div class="row">

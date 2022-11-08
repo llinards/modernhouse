@@ -19,17 +19,17 @@
           <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
         </a>
       </div>
-      @if ($index)
-        <div class="nav-items">
-          <ul class="navbar-nav">
-            @foreach($allProducts as $product)
-              <li class="nav-item">
-                <a class="nav-link text-center" href="/{{ $product->slug }}">{{ $product->name }}</a>
-              </li>
-            @endforeach
-          </ul>
-        </div>
-      @endif
+      <div class="nav-items">
+        <ul class="navbar-nav">
+          @foreach($allProducts as $product)
+            @if(!request()->is($product->slug))
+            <li class="nav-item">
+              <a class="nav-link text-center active" href="/{{ $product->slug }}">{{ $product->name }}</a>
+            </li>
+            @endif
+          @endforeach
+        </ul>
+      </div>
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">

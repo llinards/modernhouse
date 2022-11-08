@@ -19,7 +19,8 @@ class HomeController extends Controller
 
     public function show(Product $product)
     {
-      return view('product', compact('product'));
+      $allProducts = Product::where('is_active', true)->get();
+      return view('product', compact('product', 'allProducts'));
     }
 
     public function requestProductInfo(ProductInfoRequest $request)
