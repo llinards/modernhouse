@@ -32,7 +32,6 @@
     </section>
   </div>
   <script>
-
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.create(document.querySelector('input[id="product-cover-photo"]'));
     FilePond.setOptions({

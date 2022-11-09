@@ -5,7 +5,7 @@
     </a>
   </div>
   <div class="nav-item flex-grow-1">
-    <a href="/admin/create" class="nav-link">Pievienot</a>
+    <a href="/admin/create" class="nav-link">Jauna māja/modulis</a>
   </div>
   <div class="nav-item px-2">
     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

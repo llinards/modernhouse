@@ -15,7 +15,6 @@
                 <div class="card position-relative">
                   <div class="position-absolute">
                     <span class="badge {{ $product->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $product->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-{{--                    <span class="badge text-bg-light">1</span>--}}
                   </div>
                   <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}" class="card-img-top" alt="...">
                   <div class="card-body">

@@ -3,9 +3,12 @@
   "about": "Par Mums",
   "contact": "Sazināties ar mums",
   "feature details": "Uzzināt vairāk",
+  "error try again": "Kļūda! Mēģini vēlreiz.",
+
   "message has been sent": "Paldies! Ziņa ir nosūtīta!",
   "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz.",
   "modern house registration number": "Reģ. Nr.",
+
   "product added": "Pievienots!",
-  "product add failed": "Kļūda! Mēģini vēlreiz."
+  "product updated": "Informācija atjaunota!"
 }

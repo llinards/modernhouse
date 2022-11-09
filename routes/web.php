@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create'] );
   Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store'] );
   Route::get('/admin/{product:slug}/edit', [\App\Http\Controllers\ProductController::class, 'show'] );
+  Route::patch('/admin', [\App\Http\Controllers\ProductController::class, 'update']);
 
   Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
