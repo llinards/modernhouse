@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
                   <div class="product-short-description">
-                    <p>{{ $variant->description }}</p>
+                    <p>{!! $variant->description !!}</p>
                   </div>
                   <div>
                     <h4 class="fw-bold text-center mt-4">Choose your variant:</h4>

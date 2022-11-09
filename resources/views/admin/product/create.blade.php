@@ -9,7 +9,7 @@
       <div class="all-products-content">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-7">
+            <div class="col-lg-7 col-12">
               @include('includes.status-messages')
               <form action="/admin" method="POST" enctype="multipart/form-data" >
                 @csrf
@@ -23,6 +23,7 @@
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
                 </div>
+                <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
               </form>
             </div>
@@ -41,6 +42,7 @@
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
       },
+      required: true,
       acceptedFileTypes: ['image/*'],
     });
   </script>

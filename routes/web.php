@@ -23,6 +23,9 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/{product:slug}/edit', [\App\Http\Controllers\ProductController::class, 'show'] );
   Route::patch('/admin', [\App\Http\Controllers\ProductController::class, 'update']);
 
+  Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
+  Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
+
   Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
 });

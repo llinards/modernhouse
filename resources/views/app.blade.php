@@ -17,6 +17,7 @@
     <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
       <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
       @if(!isset($index))
+        <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
         <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
         <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
       @endif

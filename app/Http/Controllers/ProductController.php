@@ -17,12 +17,12 @@ class ProductController extends Controller
     {
       $allProducts = Product::with('productVariants')->get();
 //      dd($allProducts);
-      return view('admin.index', compact('allProducts'));
+      return view('admin.product.index', compact('allProducts'));
     }
 
     public function create()
     {
-      return view('admin.create');
+      return view('admin.product.create');
     }
 
     public function store(StoreProductRequest $data)
@@ -35,7 +35,7 @@ class ProductController extends Controller
           'cover_photo_filename' => basename($data['product-cover-photo']),
           'is_active' => false
         ]);
-        return redirect('/admin')->with('success', Lang::get('product added'));
+        return redirect('/admin')->with('success', Lang::get('added'));
       } catch (\Exception $e) {
         return back()->with('error', Lang::get('error try again'));
       }
@@ -43,12 +43,11 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-      return view('admin.edit', compact('product'));
+      return view('admin.product.edit', compact('product'));
     }
 
     public function update(UpdateProductRequest $data)
     {
-
       try {
         $productToUpdate = Product::findOrFail($data->id);
         $newProductSlug = Str::slug($data['product-name']);
