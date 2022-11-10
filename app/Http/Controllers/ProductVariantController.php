@@ -21,7 +21,6 @@ class ProductVariantController extends Controller
 
     public function store(StoreProductVariantRequest $data)
     {
-      $parentProduct = Product::findOrFail($data['product-id']);
       try {
         $newProductVariant = ProductVariant::create([
           'name' => $data['product-variant-name'],
@@ -33,13 +32,49 @@ class ProductVariantController extends Controller
         ]);
         foreach($data['product-variant-images'] as $image) {
           $fileName = basename($image);
-          Storage::disk('public')->move($image, 'product-images/'.$parentProduct->slug.'/'.Str::slug($data['product-variant-name']).'/'.$fileName);
+          Storage::disk('public')->move($image, 'product-images/'.$newProductVariant->product->slug.'/'.Str::slug($data['product-variant-name']).'/'.$fileName);
           $newProductVariant->productVariantImages()->create([
-            'filename' => $fileName,
-            'product_variant_id' => $newProductVariant->id
+            'filename' => $fileName
           ]);
         }
         return redirect('/admin')->with('success', Lang::get('added'));
+      } catch (\Exception $e) {
+        return back()->with('error', Lang::get('error try again'));
+      }
+    }
+
+    public function show (ProductVariant $productVariant)
+    {
+      return view('admin.product-variant.edit', compact('productVariant'));
+    }
+
+    public function update (Request $data)
+    {
+      try {
+        $productVariantToUpdate = ProductVariant::findOrFail($data->id);
+        if ($data['product-variant-name'] !== $productVariantToUpdate->name) {
+          $newProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.Str::slug($data['product-variant-name']);
+          $oldProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.Str::slug($productVariantToUpdate->name);
+          Storage::disk('public')->makeDirectory($newProductVariantImageDirectory);
+          Storage::disk('public')->move($oldProductVariantImageDirectory, $newProductVariantImageDirectory);
+        }
+        $productVariantToUpdate->update([
+          'name' => $data['product-variant-name'],
+          'price' => 0,
+          'price_basic' => $data['product-variant-basic-price'],
+          'price_full' => $data['product-variant-full-price'],
+          'description' => $data['product-variant-description'],
+        ]);
+        if (isset($data['product-variant-images'])) {
+          foreach($data['product-variant-images'] as $image) {
+            $fileName = basename($image);
+            Storage::disk('public')->move($image, 'product-images/'.$productVariantToUpdate->product->slug.'/'.Str::slug($data['product-variant-name']).'/'.$fileName);
+            $productVariantToUpdate->productVariantImages()->create([
+              'filename' => $fileName
+            ]);
+          }
+        }
+        return redirect('/admin')->with('success', Lang::get('updated'));
       } catch (\Exception $e) {
         return back()->with('error', Lang::get('error try again'));
       }

@@ -24,7 +24,7 @@
                       @foreach($product->productVariants as $variant)
                       <div class="my-1 text-center">
                         <h5 class="mb-2">{{ $variant->name }}</h5>
-                        <a href="/admin/{{ $product->slug }}/{{ $variant->id }}/edit" class="btn btn-secondary btn-sm">Rediģēt</a>
+                        <a href="/admin/product-variant/{{ $variant->id }}/edit" class="btn btn-secondary btn-sm">Rediģēt</a>
                       </div>
                       @endforeach
                     @else

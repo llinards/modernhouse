@@ -13,13 +13,6 @@ use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    public function index()
-    {
-      $allProducts = Product::with('productVariants')->get();
-//      dd($allProducts);
-      return view('admin.product.index', compact('allProducts'));
-    }
-
     public function create()
     {
       return view('admin.product.create');
@@ -28,11 +21,14 @@ class ProductController extends Controller
     public function store(StoreProductRequest $data)
     {
       try {
-        Storage::disk('public')->move($data['product-cover-photo'], 'product-images/'.Str::slug($data['product-name']).'/'.basename($data['product-cover-photo']));
+        $productCoverPhotoFilename = basename($data['product-cover-photo']);
+        $productSlug = Str::slug($data['product-name']);
+
+        Storage::disk('public')->move($data['product-cover-photo'], 'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
         Product::create([
-          'slug' => Str::slug($data['product-name']),
+          'slug' => $productSlug,
           'name' => $data['product-name'],
-          'cover_photo_filename' => basename($data['product-cover-photo']),
+          'cover_photo_filename' => $productCoverPhotoFilename,
           'is_active' => false
         ]);
         return redirect('/admin')->with('success', Lang::get('added'));
@@ -69,7 +65,7 @@ class ProductController extends Controller
           $productToUpdate->is_active = false;
         }
         $productToUpdate->save();
-        return redirect('/admin')->with('success', Lang::get('product updated'));
+        return redirect('/admin')->with('success', Lang::get('updated'));
       } catch (\Exception $e) {
         return back()->with('error', Lang::get('error try again'));
       }

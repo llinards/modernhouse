@@ -17,7 +17,8 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-  Route::get('/admin', [\App\Http\Controllers\ProductController::class, 'index'] );
+  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
+
   Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create'] );
   Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store'] );
   Route::get('/admin/{product:slug}/edit', [\App\Http\Controllers\ProductController::class, 'show'] );
@@ -25,6 +26,10 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
+  Route::get('/admin/product-variant/{productVariant}/edit', [\App\Http\Controllers\ProductVariantController::class, 'show']);
+  Route::patch('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'update']);
+
+  Route::delete('/admin/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
 
   Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
