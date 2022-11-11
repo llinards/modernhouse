@@ -32,7 +32,6 @@
                     @endif
                     <div class="all-products-content-buttons d-flex justify-content-between mt-4">
                       <a href="/admin/{{ $product->slug }}/edit" class="btn btn-secondary">Rediģēt</a>
-                      <a href="#" class="btn btn-danger">Dzēst</a>
                     </div>
                   </div>
                 </div>

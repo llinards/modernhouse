@@ -63,9 +63,15 @@
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
                 </div>
-                <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
-                <button type="submit" form="update-product-variant" class="btn btn-success">Atjaunot</button>
+                <div class="d-flex justify-content-between">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-variant-modal" class="btn btn-danger">Dzēst</button>
+                  <div class="d-flex">
+                    <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
+                    <button type="submit" form="update-product-variant" class="btn btn-success mx-1">Atjaunot</button>
+                  </div>
+                </div>
               </form>
+              @include('admin.product-variant.delete-modal')
             </div>
           </div>
         </div>

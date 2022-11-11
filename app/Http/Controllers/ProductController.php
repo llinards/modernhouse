@@ -70,4 +70,15 @@ class ProductController extends Controller
         return back()->with('error', Lang::get('error try again'));
       }
     }
+
+    public function destroy (Product $product)
+    {
+      try {
+        Storage::disk('public')->deleteDirectory('product-images/'.$product->slug);
+        $product->delete();
+        return redirect('/admin')->with('success', Lang::get('deleted'));
+      } catch (\Exception $e) {
+        return back()->with('error', Lang::get('error try again'));
+      }
+    }
 }

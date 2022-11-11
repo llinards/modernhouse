@@ -47,7 +47,7 @@ class ProductVariantController extends Controller
     {
       return view('admin.product-variant.edit', compact('productVariant'));
     }
-
+    // TODO: Create UpdateProductVariantRequest
     public function update (Request $data)
     {
       try {
@@ -75,6 +75,17 @@ class ProductVariantController extends Controller
           }
         }
         return redirect('/admin')->with('success', Lang::get('updated'));
+      } catch (\Exception $e) {
+        return back()->with('error', Lang::get('error try again'));
+      }
+    }
+
+    public function destroy (ProductVariant $productVariant)
+    {
+      try {
+        Storage::disk('public')->deleteDirectory('product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name));
+        $productVariant->delete();
+        return redirect('/admin')->with('success', Lang::get('deleted'));
       } catch (\Exception $e) {
         return back()->with('error', Lang::get('error try again'));
       }
