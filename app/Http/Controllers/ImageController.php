@@ -17,7 +17,7 @@ class ImageController extends Controller
       $productVariant = Str::slug($image->productVariant->name);
       $image->delete();
       Storage::disk('public')->delete('product-images/'.$product.'/'.$productVariant.'/'.$image->filename);
-      return back()->with('success', Lang::get('image deleted'));
+      return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', Lang::get('image deleted'));
     } catch (\Exception $e) {
       return back()->with('error', Lang::get('error try again'));
     }

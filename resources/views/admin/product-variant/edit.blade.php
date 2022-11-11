@@ -40,7 +40,7 @@
                     {{ $productVariant->description }}
                   </textarea>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" id="product-variant-images">
                   <p>Esošās bildes</p>
                   <div class="row">
                     @if(count($productVariant->productVariantImages) === 0)
@@ -48,7 +48,7 @@
                     @else
                       @foreach($productVariant->productVariantImages as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
-                          <a class="btn btn-danger btn-sm mb-1" href="/admin/image/{{$image->id}}/delete" onclick="event.preventDefault();document.getElementById('delete-product-variant-image').submit();">
+                          <a class="btn btn-danger btn-sm mb-1" href="{{ URL::to('/admin/image/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
                           <img class="img-fluid mb-2" src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name)).'/'.$image->filename }}" alt="">
@@ -72,13 +72,6 @@
       </div>
     </section>
   </div>
-  @if(count($productVariant->productVariantImages) !== 0)
-{{--    wrong id--}}
-    <form id="delete-product-variant-image" action="/admin/image/{{$image->id}}/delete" method="POST">
-      @csrf
-      @method('DELETE')
-    </form>
-  @endif
   <script>
     CKEDITOR.replace('product-variant-description', {
 
@@ -93,7 +86,6 @@
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
       },
-      // required: true,
       allowMultiple: true,
       acceptedFileTypes: ['image/*'],
     });
