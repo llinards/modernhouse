@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->integer('price_basic');
-            $table->integer('price_full');
+            $table->decimal('price_basic');
+            $table->decimal('price_full');
             $table->text('description');
             $table->timestamps();
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');

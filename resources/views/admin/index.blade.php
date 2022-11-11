@@ -15,7 +15,6 @@
                 <div class="card position-relative">
                   <div class="position-absolute">
                     <span class="badge {{ $product->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $product->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-{{--                    <span class="badge text-bg-light">1</span>--}}
                   </div>
                   <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}" class="card-img-top" alt="...">
                   <div class="card-body">
@@ -25,7 +24,7 @@
                       @foreach($product->productVariants as $variant)
                       <div class="my-1 text-center">
                         <h5 class="mb-2">{{ $variant->name }}</h5>
-                        <a href="/admin/{{ $product->slug }}/{{ $variant->id }}/edit" class="btn btn-secondary btn-sm">Rediģēt</a>
+                        <a href="/admin/product-variant/{{ $variant->id }}/edit" class="btn btn-secondary btn-sm">Rediģēt</a>
                       </div>
                       @endforeach
                     @else
@@ -33,7 +32,6 @@
                     @endif
                     <div class="all-products-content-buttons d-flex justify-content-between mt-4">
                       <a href="/admin/{{ $product->slug }}/edit" class="btn btn-secondary">Rediģēt</a>
-                      <a href="#" class="btn btn-danger">Dzēst</a>
                     </div>
                   </div>
                 </div>

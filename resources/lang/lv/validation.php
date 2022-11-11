@@ -137,29 +137,46 @@ return [
     */
 
     'custom' => [
-        'name-surname' => [
-            'required' => 'Pieteikumā ir jānorāda vārds, uzvārds.',
-            'alpha' => 'Vārds, uzvārds drīkst saturēt tikai alfabēta simbolus.',
-            'max' => 'Vārds, uzvārds ir aizdomīgi garš.'
-        ],
-        'phone-number' => [
-          'required' => 'Pieteikumā ir jānorāda telefona numurs.',
-          'regex' => 'Telefona numurs drīkst saturēt tikai ciparus.',
-          'max' => 'Telefona numurs ir aizdomīgi garš.'
-        ],
-        'company' => [
-          'max' => 'Kompānijas nosaukums ir aizdomīgi garš.'
-        ],
-        'email' => [
-          'required' => 'Pieteikumā ir jānorāda e-pasts.',
-          'email' => 'E-pasta adrese nav korekta.'
-        ],
-        'product-name' => [
-          'required' => 'Nav norādīts nosaukums.'
-        ],
-        'product-cover-photo' => [
-          'required' => 'Nav pievienota titulbilde.'
-        ]
+      'name-surname' => [
+        'required' => 'Pieteikumā ir jānorāda vārds, uzvārds.',
+        'alpha' => 'Vārds, uzvārds drīkst saturēt tikai alfabēta simbolus.',
+        'max' => 'Vārds, uzvārds ir aizdomīgi garš.'
+      ],
+      'phone-number' => [
+        'required' => 'Pieteikumā ir jānorāda telefona numurs.',
+        'regex' => 'Telefona numurs drīkst saturēt tikai ciparus.',
+        'max' => 'Telefona numurs ir aizdomīgi garš.'
+      ],
+      'company' => [
+        'max' => 'Kompānijas nosaukums ir aizdomīgi garš.'
+      ],
+      'email' => [
+        'required' => 'Pieteikumā ir jānorāda e-pasts.',
+        'email' => 'E-pasta adrese nav korekta.'
+      ],
+      'product-name' => [
+        'required' => 'Nav norādīts nosaukums.'
+      ],
+      'product-cover-photo' => [
+        'required' => 'Nav pievienota titulbilde.'
+      ],
+      'product-id' => [
+        'numeric' => 'Nav izvēlēts produkts, kam pievienot variantu!'
+      ],
+      'product-variant-name' => [
+        'required' => 'Nav norādīts varianta nosaukums.'
+      ],
+      'product-variant-basic-price' => [
+        'required' => 'Nav norādīta pamatkomplektācijas summa.',
+        'numeric' => 'Pamatkomplektācijas summa drīkst saturēt tikai ciparus.'
+      ],
+      'product-variant-full-price' => [
+        'required' => 'Nav norādīta pilnās komplektācijas summa.',
+        'numeric' => 'Pilnās komplektācijas summa drīkst saturēt tikai ciparus.'
+      ],
+      'product-variant-description' => [
+        'required' => 'Nav pievienots apraksts.'
+      ]
     ],
 
     /*

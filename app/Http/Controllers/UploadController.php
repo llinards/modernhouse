@@ -14,6 +14,13 @@ class UploadController extends Controller
       $filePath = $file->storeAs('uploads/temp', 'cover.' . $file->getClientOriginalExtension(), 'public');
       return $filePath;
     }
+    if ($data->hasFile('product-variant-images')) {
+      $files = $data->file('product-variant-images');
+      foreach($files as $file) {
+        $filePath = $file->store('uploads/temp', 'public');
+        return $filePath;
+      }
+    }
     return '';
   }
 
