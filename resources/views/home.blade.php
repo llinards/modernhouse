@@ -7,7 +7,7 @@
           <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
         </div>
         <div class="order-now text-center d-flex flex-column justify-content-end align-items-center">
-          <a href="/{{ $product->slug }}" class="btn btn-primary btn-main fw-light d-flex justify-content-center align-items-center ">@lang('feature details')</a>
+          <a href="/{{ $product->slug }}" class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('feature details')</a>
           @php
             ++$key;
           @endphp

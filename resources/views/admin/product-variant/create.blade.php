@@ -6,7 +6,7 @@
       <div class="all-products-title my-5">
         <h2 class="text-center">Pievienot jaunu variantu</h2>
       </div>
-      <div class="all-products-content">
+      <div class="all-products-content my-5">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-7 col-12">

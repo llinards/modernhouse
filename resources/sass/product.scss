@@ -9,15 +9,7 @@
     &.active {
       border-bottom: 4px solid $navbar-hover-font-color;
       color: $navbar-hover-font-color;
-      //border-radius: 5%;
     }
-  }
-}
-
-.product-price {
-  h1 {
-    font-size: $product-price-title-font-size;
-    font-weight: $product-price-title-font-weight;
   }
 }
 
@@ -29,10 +21,6 @@
 .nav-tabs .nav-link:hover,
 .nav-tabs .nav-link:focus {
   border-color: transparent;
-}
-
-.form-check {
-  padding: 0;
 }
 
 .splide__slide img {
@@ -52,11 +40,6 @@
 .splide__track--nav > .splide__list > .splide__slide.is-active {
   border: none;
 }
-
-//.variant-button:focus,
-//.variant-button:active{
-//  color: $navbar-hover-font-color;
-//}
 
 .variant-button:not(.collapsed) {
   background-color: $navbar-hover-font-color;
@@ -90,5 +73,3 @@
     margin-top: 16px;
   }
 }
-
-//$accordion-button-active-bg: red;
