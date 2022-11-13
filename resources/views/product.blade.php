@@ -69,7 +69,7 @@
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">
                     <button
-                      class="btn btn-primary btn-main btn-secondary fw-light d-flex justify-content-center align-items-center text-uppercase" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('order
+                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center text-uppercase" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('order
                       now')</button>
                   </div>
                 </div>
