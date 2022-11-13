@@ -6,7 +6,7 @@
       <div class="all-products-title my-5">
         <h2 class="text-center">Rediģēt variantu - {{ $productVariant->name }}</h2>
       </div>
-      <div class="all-products-content">
+      <div class="all-products-content my-5">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-7 col-12">
@@ -16,7 +16,7 @@
                 @method('PATCH')
                 <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
                 <div class="mb-3">
-                  <p>Pieder pie produkta - <strong>{{ $productVariant->product->name }}</strong></p>
+                  <h4>Pieder pie produkta - <strong>{{ $productVariant->product->name }}</strong></h4>
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-name" class="form-label">Varianta nosaukums</label>
