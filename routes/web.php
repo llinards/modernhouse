@@ -38,6 +38,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
+Route::post('/contact-us', [\App\Http\Controllers\HomeController::class, 'submitContactUs']);
 Route::get('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'show']);
 Route::post('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');
 

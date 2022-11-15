@@ -29,22 +29,24 @@
           </div>
           <div class="mb-3">
             <label for="name-surname" class="form-label fw-bold">Vārds, uzvārds*</label>
-            <input type="text" name="name-surname" class="form-control" id="name-surname" value="">
+            <input type="text" name="name-surname" class="form-control" id="name-surname" value="{{ old('name-surname') }}">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label fw-bold">E-pasts*</label>
-            <input type="email" name="email" class="form-control" id="email" value="">
+            <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
           </div>
           <div class="mb-3">
             <label for="phone-number" class="form-label fw-bold">Kontakttālrunis*</label>
-            <input type="tel" name="phone-number" class="form-control" id="phone-number" value="">
+            <input type="tel" name="phone-number" class="form-control" id="phone-number" value="{{ old('phone-number') }}">
           </div>
           <div class="mb-3">
             <label for="company" class="form-label fw-bold">Uzņēmums</label>
-            <input type="text" name="company" class="form-control" id="company" value="">
+            <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
           </div>
           <label for="customers-question" class="form-label fw-bold">Papildus jautājumi</label>
-          <textarea class="form-control" name="customers-question" id="customers-question" rows="3"></textarea>
+          <textarea class="form-control" name="customers-question" id="customers-question" rows="3">
+            {{ old('customers-question') }}
+          </textarea>
           <div class="modal-footer d-flex justify-content-center">
             <button type="submit" class="btn btn-primary fw-light d-flex justify-content-center align-items-center text-uppercase">Nosūtīt</button>
           </div>

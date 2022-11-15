@@ -11327,6 +11327,10 @@ p {
   height: 100%;
 }
 
+.modern-house-location-map {
+  width: 100%;
+}
+
 .product-variant-titles,
 .product-variant-option-titles {
   border: none;
