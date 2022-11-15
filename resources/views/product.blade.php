@@ -27,7 +27,7 @@
                         @foreach($product->productVariantImages as $image)
                           @if($image->product_variant_id === $variant->id)
                             <li class="splide__slide">
-                              <img class="img-fluid" src="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="">
+                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="">
                             </li>
                           @endif
                         @endforeach

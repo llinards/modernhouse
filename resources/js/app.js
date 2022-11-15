@@ -10,7 +10,7 @@ galleries.forEach((gallery) => {
   const main = new Splide( '#' + gallery.firstElementChild.id, {
     type      : 'fade',
     pagination: false,
-    lazyLoad: 'nearby',
+    lazyLoad: 'sequential',
   });
 
   const thumbnails = new Splide( '#' + gallery.lastElementChild.id, {
@@ -18,7 +18,7 @@ galleries.forEach((gallery) => {
     fixedHeight : 60,
     gap         : 10,
     arrows: false,
-    pagination  : false,
+    pagination: false,
     isNavigation: true,
     lazyLoad: 'sequential',
     breakpoints : {
