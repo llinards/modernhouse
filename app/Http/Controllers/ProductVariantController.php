@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductVariantRequest;
+use App\Http\Requests\UpdateProductVariantRequest;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductVariant;
@@ -47,8 +48,8 @@ class ProductVariantController extends Controller
     {
       return view('admin.product-variant.edit', compact('productVariant'));
     }
-    // TODO: Create UpdateProductVariantRequest
-    public function update (Request $data)
+
+    public function update (UpdateProductVariantRequest $data)
     {
       try {
         $productVariantToUpdate = ProductVariant::findOrFail($data->id);

@@ -24,7 +24,7 @@
           @foreach($allProducts as $product)
             @if(!request()->is($product->slug))
             <li class="nav-item">
-              <a class="nav-link text-center active" href="/{{ $product->slug }}">{{ $product->name }}</a>
+              <a class="nav-link text-center" href="/{{ $product->slug }}">{{ $product->name }}</a>
             </li>
             @endif
           @endforeach
@@ -36,7 +36,7 @@
             <a class="nav-link text-center" href="#">@lang('about')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">@lang('contact')</a>
+            <a class="nav-link text-center" href="/contact-us">@lang('contact')</a>
           </li>
   {{--        @if (count(config('app.languages')) > 1)--}}
   {{--          <li class="nav-item language-select d-flex justify-content-between">--}}
