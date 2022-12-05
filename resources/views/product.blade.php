@@ -69,8 +69,7 @@
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">
                     <button
-                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center text-uppercase" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('order
-                      now')</button>
+                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
                   </div>
                 </div>
                 <div class="tab-content product-variant-option mt-4">
