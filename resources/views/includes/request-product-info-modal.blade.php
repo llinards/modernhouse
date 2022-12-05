@@ -48,7 +48,7 @@
             {{ old('customers-question') }}
           </textarea>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary fw-light d-flex justify-content-center align-items-center text-uppercase">Nosūtīt</button>
+            <button type="submit" class="btn btn-primary fw-light d-flex justify-content-center align-items-center">Nosūtīt</button>
           </div>
         </form>
       </div>
