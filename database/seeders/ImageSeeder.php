@@ -53,11 +53,6 @@ class ImageSeeder extends Seeder
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 1,
-            'filename' => '8.jpg',
-            'created_at' => Carbon::now()
-          ],
-          [
             'product_variant_id' => 2,
             'filename' => '1.jpg',
             'created_at' => Carbon::now()
@@ -98,6 +93,71 @@ class ImageSeeder extends Seeder
             'created_at' => Carbon::now()
           ],
           [
+            'product_variant_id' => 2,
+            'filename' => '9.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '10.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '12.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '13.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '14.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '15.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '16.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '17.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '18.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '19.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '20.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '21.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 2,
+            'filename' => '22.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
             'product_variant_id' => 3,
             'filename' => '1.jpg',
             'created_at' => Carbon::now()
@@ -138,45 +198,40 @@ class ImageSeeder extends Seeder
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '1.jpg',
+            'product_variant_id' => 3,
+            'filename' => '9.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '2.jpg',
+            'product_variant_id' => 3,
+            'filename' => '10.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '3.jpg',
+            'product_variant_id' => 3,
+            'filename' => '11.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '4.jpg',
+            'product_variant_id' => 3,
+            'filename' => '12.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '5.jpg',
+            'product_variant_id' => 3,
+            'filename' => '13.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '6.jpg',
+            'product_variant_id' => 3,
+            'filename' => '14.jpg',
             'created_at' => Carbon::now()
           ],
           [
-            'product_variant_id' => 4,
-            'filename' => '7.jpg',
+            'product_variant_id' => 3,
+            'filename' => '15.jpg',
             'created_at' => Carbon::now()
-          ],
-          [
-            'product_variant_id' => 4,
-            'filename' => '8.jpg',
-            'created_at' => Carbon::now()
-          ],
+          ]
         ]);
     }
 }

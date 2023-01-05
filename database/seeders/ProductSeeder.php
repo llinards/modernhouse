@@ -18,19 +18,12 @@ class ProductSeeder extends Seeder
     {
       DB::table('products')->insert([
         [
-          'name' => 'Model One',
-          'slug' => 'model-one',
+          'name' => 'Moduļu Mājas',
+          'slug' => 'modulu-majas',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
           'is_active' => true
-        ],
-        [
-          'name' => 'Model Two',
-          'slug' => 'model-two',
-          'cover_photo_filename' => 'cover.jpg',
-          'created_at' => Carbon::now(),
-          'is_active' => true
-        ],
+        ]
       ]);
     }
 }
