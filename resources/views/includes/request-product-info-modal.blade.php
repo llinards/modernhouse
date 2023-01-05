@@ -23,8 +23,8 @@
           <div class="mb-3">
             <label for="product-variant-option" class="form-label fw-bold">Komplektācija*</label>
             <select class="form-select" name="product-variant-option" id="product-variant-option" aria-label="Default select example">
-              <option value="Basic" selected>Basic</option>
-              <option value="Full">Full</option>
+              <option value="Basic" selected>Rūpnīcas</option>
+              <option value="Full">Pilna</option>
             </select>
           </div>
           <div class="mb-3">

@@ -49,22 +49,26 @@
                   </section>
                 </div>
                 <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
-                  <div class="product-short-description">
-                    <p>{!! $variant->description !!}</p>
-                  </div>
                   <div>
-                    <h4 class="fw-bold text-center mt-4">Choose your variant:</h4>
+                    <div class="title">
+                      <h2 class="fw-bold text-center">Izvēlies komplektāciju</h2>
+                    </div>
                     <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
                       <li class="nav-item">
-                        <button class="nav-link active product-variant-option-title basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Basic</button>
+                        <button class="nav-link active product-variant-option-title basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas</button>
                       </li>
                       <li class="nav-item">
-                        <button class="nav-link product-variant-option-title full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Full</button>
+                        <button class="nav-link product-variant-option-title full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna</button>
                       </li>
                     </ul>
-                    <div class="product-price mt-4 mb-4">
-                      <h2 class="text-center fw-bold basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
-                      <h2 class="text-center fw-bold full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>
+                    <div class="product-price mt-4 mb-1">
+                      <div class="title">
+                        <h2 class="text-center fw-bold basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
+                        <h2 class="text-center fw-bold full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>
+                      </div>
+                    </div>
+                    <div class="product-short-description">
+                      <p>{!! $variant->description !!}</p>
                     </div>
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">
@@ -73,7 +77,7 @@
                   </div>
                 </div>
                 <div class="tab-content product-variant-option mt-4">
-                  <h4 class="fw-bold text-center my-2">Tehnical details</h4>
+                  <h4 class="fw-bold text-center my-2">Tehniskās specifikācijas</h4>
                   <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
                     <div class="accordion accordion-flush">
                       @foreach($product->productVariantOptions as $option)
