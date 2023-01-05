@@ -19,38 +19,35 @@ class ProductVariantSeeder extends Seeder
       DB::table('product_variants')->insert([
         [
           'product_id' => 1,
-          'name' => 'Model One - One',
-          'price' => 250000,
-          'price_basic' => 250000,
-          'price_full' => 275000,
-          'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
+          'name' => 'Modulis Lund',
+          'price' => 44700,
+          'price_basic' => 44700,
+          'price_full' => 66000,
+          'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
+                            <p>&Scaron;im projektam nav nepiecie&scaron;ama būvatļauja (līdz apbūves platībai 60m&sup2;) un ir iespējams dzīvot uzreiz.</p>
+                            <p>Projektos ir iespējami dažādi iek&scaron;ējās un ārējās apdares risinājumi, kā arī ir iespējams veikt izmaiņas telpu plānojumos.</p>',
           'created_at' => Carbon::now(),
         ],
         [
           'product_id' => 1,
-          'name' => 'Model One - Two',
-          'price' => 275000,
-          'price_basic' => 275000,
-          'price_full' => 300000,
-          'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
+          'name' => 'Modulis Malmö',
+          'price' => 26500,
+          'price_basic' => 26500,
+          'price_full' => 43200,
+          'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
+                            <p>&Scaron;im projektam nav nepiecie&scaron;ama būvatļauja (līdz apbūves platībai 60m&sup2;) un ir iespējams dzīvot uzreiz.</p>
+                            <p>Projektos ir iespējami dažādi iek&scaron;ējās un ārējās apdares risinājumi, kā arī ir iespējams veikt izmaiņas telpu plānojumos.</p>',
           'created_at' => Carbon::now(),
         ],
         [
           'product_id' => 1,
-          'name' => 'Model One - Three',
-          'price' => 300000,
-          'price_basic' => 300000,
-          'price_full' => 325000,
-          'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
-          'created_at' => Carbon::now(),
-        ],
-        [
-          'product_id' => 2,
-          'name' => 'Model Two',
-          'price' => 500000,
-          'price_basic' => 500000,
-          'price_full' => 550000,
-          'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi maxime earum cum dolorum, unde molestias eligendi debitis rem esse consequuntur odit alias voluptas dolor laudantium sit! Deserunt cum odio et?',
+          'name' => 'Modulis Visby',
+          'price' => 28000,
+          'price_basic' => 28000,
+          'price_full' => 46900,
+          'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
+                            <p>&Scaron;im projektam nav nepiecie&scaron;ama būvatļauja (līdz apbūves platībai 60m&sup2;) un ir iespējams dzīvot uzreiz.</p>
+                            <p>Projektos ir iespējami dažādi iek&scaron;ējās un ārējās apdares risinājumi, kā arī ir iespējams veikt izmaiņas telpu plānojumos.</p>',
           'created_at' => Carbon::now(),
         ]
       ]);

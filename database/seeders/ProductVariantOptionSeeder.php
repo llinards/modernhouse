@@ -19,484 +19,194 @@ class ProductVariantOptionSeeder extends Seeder
           [
             'product_variant_id' => 1,
             'option_type' => 'Ārsienas',
-            'options_basic' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
+            'options_basic' => '<li>Vertikāls fasādes dēlis / Dabīgā šīfera loksnes CUPA H2</li>
               <li>Horizontālais latojums (25x100mm)</li>
               <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
+              <li>Peļu siets pa mājas perimetru</li>
+              <li>Difūzijas membrāna (Siga Majvest 200)</li>
+              <li>Vēja reģipsis Norgips GU (9,5mm)</li>
+              <li>Statņi koka karkasam C24 (45x145mm)</li>
               <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
+              <li>Tvaika barjeras plēve (Siga Majpell 5)</li>
+              <li>Latojums (45x45mm)</li>
+              <li>Izolācija Isover KL 35 (50mm) – materiāls piegādāts</li>
+              <li>OSB 3 (10mm) – materiāls piegādāts </li>
+              <li>Saplāksnis (15 mm) vannas istabā – materiāls piegādāts</li>
+              <li>Reģipsis GKB (12,5mm) – materiāls piegādāts</li>
+              <li>Reģipsis mitrām telpām GKBI (12,5 mm) – materiāls piegādāts</li>',
+            'options_full' => '<li>Vertikāls fasādes dēlis / Dabīgā šīfera loksnes CUPA H2</li>
+              <li>Horizontālais latojums (25x100mm)</li>
+              <li>Vertikālais Latojums (25x50mm)</li>
+              <li>Peļu siets pa mājas perimetru</li>
+              <li>Difūzijas membrāna (Siga Majvest 200)</li>
+              <li>Vēja reģipsis Norgips GU (9,5mm)</li>
+              <li>Statņi koka karkasam C24 (45x145mm)</li>
+              <li>Izolācija Isover KL 35 (150mm) </li>
+              <li>Tvaika barjeras plēve (Siga Majpell 5)</li>
               <li>Latojums (45x45mm)</li>
               <li>Izolācija Isover KL 35 (50mm) </li>
               <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>',
-            'options_full' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 2,
-            'option_type' => 'Ārsienas',
-            'options_basic' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>',
-            'options_full' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 4,
-            'option_type' => 'Ārsienas',
-            'options_basic' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>',
-            'options_full' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 3,
-            'option_type' => 'Ārsienas',
-            'options_basic' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>',
-            'options_full' => '<li>Vertikāls  fasādes dēlis  (UTV 21x120mm) / Dabīgā šīfera loksnes CUPA H2</li>
-              <li>Peļu siets pa mājas perimetru</li>
-              <li>Horizontālais latojums (25x100mm)</li>
-              <li>Vertikālais Latojums (25x50mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Vēja riģipsis Norgips GU (9,5mm)</li>
-              <li>Statņi koka karkasam (45x145mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (150mm) </li>
-              <li>Tvaika barjeras plēve (Siga Majpel 5)</li>
-              <li>Latojums (45x45mm)</li>
-              <li>Izolācija Isover KL 35 (50mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-              <li>Premium</li>'
+              <li>Saplāksnis (15 mm) vannas istabā</li>
+              <li>Hidroizolācija vannas istabā</li>
+              <li>Reģipsis GKB (12,5mm)</li>
+              <li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>
+              <li>Flīzes vannas istabā</li>
+              '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Iekšējās sienas',
-            'options_basic' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
+            'options_basic' => '<li>Reģipsis GKB (12,5mm)</li>
               <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>',
-            'options_full' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
+              <li>Statņi koka karkasam C24 (45x75mm)</li>
+              <li>Izolācija Isover KL 35 (75 mm) </li>
+              <li>OSB 3 (10mm) – materiāls piegādāts</li>
+              <li>Saplāksnis (15 mm) vannas istabā – materiāls piegādāts</li>
+              <li>Reģipsis GKB (12,5mm) – materiāls piegādāts</li>
+              <li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā – materiāls piegādāts</li>
+              ',
+            'options_full' => '<li>Reģipsis GKB (12,5mm)</li>
               <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
+              <li>Statņi koka karkasam C24 (45x75mm)</li>
+              <li>Izolācija Isover KL 35 (75 mm) </li>
               <li>OSB 3 (10mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 2,
-            'option_type' => 'Iekšējās sienas',
-            'options_basic' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>',
-            'options_full' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 3,
-            'option_type' => 'Iekšējās sienas',
-            'options_basic' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>',
-            'options_full' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Premium</li>'
-          ],
-          [
-            'product_variant_id' => 4,
-            'option_type' => 'Iekšējās sienas',
-            'options_basic' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>',
-            'options_full' => '<li>Riģipsis (12,5mm)</li>
-              <li>Riģipsim skrūves (3,9x35mm)</li>
-              <li>OSB 3 (10mm)</li>
-              <li>Koka karkass (45x95mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>OSB 3 (10mm)</li>
-              <li>Premium</li>'
+              <li>Saplāksnis (15 mm) vannas istabā</li>
+              <li>Hidroizolācija vannas istabā</li>
+              <li>Reģipsis GKB (12,5mm)</li>
+              <li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>
+              <li>Flīzes vannas istabā</li>
+              '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Grīdas panelis',
-            'options_basic' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
+            'options_basic' => '<li>OSB ar spundi (22mm)</li>
+              <li>Koka karkass C24 (195x45mm)</li>
               <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            ',
-            'options_full' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
+              <li>Cembrit Windstopper extreme (9 mm)</li>
+              <li>Latojums, imprignēts (25x100mm)</li>
+              ',
+            'options_full' => '<li>Vinila grīdas segums ar apakšklāju</li>
+              <li>Krāsotas grīdlīstes (12x95mm)</li>
+              <li>Flīzes vannas istabā</li>
+              <li>Hidroizolācija vannas istabā</li>
+              <li>Vannas istabas grīdas betonēšana krituma izveidei</li>
+              <li>OSB ar spundi (22mm)</li>
+              <li>Koka karkass C24 (195x45mm)</li>
               <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            '
-          ],
-          [
-            'product_variant_id' => 2,
-            'option_type' => 'Grīdas panelis',
-            'options_basic' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            ',
-            'options_full' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            '
-          ],
-          [
-            'product_variant_id' => 3,
-            'option_type' => 'Grīdas panelis',
-            'options_basic' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            ',
-            'options_full' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            '
-          ],
-          [
-            'product_variant_id' => 4,
-            'option_type' => 'Grīdas panelis',
-            'options_basic' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            ',
-            'options_full' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis 22mm</li>
-              <li>Koka karkas (220x45mm)</li>
-              <li>Izolācija Isover KL 35 (200mm) </li>
-              <li>Isover SKC-20 </li>
-              <li>Latojums (25x100mm)</li>
-              <li>Cembrit Windstopper extreme 4.5mm</li>
-            '
-          ],
-          [
-            'product_variant_id' => 1,
-            'option_type' => 'Pārseguma panelis',
-            'options_basic' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis (22mm)</li>
-              <li>Koka karkas (145x45mm)</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>Isover SKC-20</li>
-              <li>Latojums (25x100mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-            ',
-            'options_full' => '
-              <li>Vinila grīdas segums ar apakšklāju</li>
-              <li>Krāsotas grīdlīstes (12x57mm)</li>
-              <li>Durelis (22mm)</li>
-              <li>Koka karkas (145x45mm)</li>
-              <li>Izolācija Isover KL 35 (100mm) </li>
-              <li>Isover SKC-20</li>
-              <li>Latojums (25x100mm)</li>
-              <li>Riģipsis (12,5mm)</li>
+              <li>Cembrit Windstopper extreme (9 mm)</li>
+              <li>Latojums, imprignēts (25x100mm)</li>
             '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Jumta panelis',
-            'options_basic' => '
-              <li>ICOPAL apakšklājs</li>
-              <li>Dēļu klājs (SH 21x120)</li>
+            'options_basic' => '<li>Bitumena ruļļu materiāls 2 kārtas</li>
+              <li>Dēļu klājs ar spundi</li>
+              <li>Latojums (45x45mm)</li>
+              <li>Difūzijas membrāna (Siga Majvest 200)</li>
+              <li>Koka karkass C24 (45x195mm)</li>
+              <li>Izolācija Isover KL35 (200mm)</li>
+              <li>Tvaika barjera (Siga Majpell 5)</li>
+              <li>Latojums  (45x45)</li>
+              <li>Izolācija Isover KL35 (50mm) – materiāls piegādāts</li>
+              <li>Huntonit Antikk krāsoti kokšķiedru paneļi (11x300x1220mm) – materiāls piegādāts</li>
+              ',
+            'options_full' => '<li>Bitumena ruļļu materiāls 2 kārtas</li>
+              <li>Dēļu klājs ar spundi</li>
               <li>Latojums  (45x45mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Koka karkas (45x195mm)</li>
-              <li>Izolācija Isover (200mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Tvaika barjera (Siga Majpel 5)</li>
-              <li>Latojums  (28x70)</li>
-              <li>Izolācija Isover (50mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-            ',
-            'options_full' => '
-              <li>ICOPAL apakšklājs</li>
-              <li>Dēļu klājs (SH 21x120)</li>
-              <li>Latojums  (45x45mm)</li>
-              <li>Difūzijas membrāna (Siga Majvest)</li>
-              <li>Koka karkas (45x195mm)</li>
-              <li>Izolācija Isover (200mm)</li>
-              <li>Isover SKC-20</li>
-              <li>Tvaika barjera (Siga Majpel 5)</li>
-              <li>Latojums  (28x70)</li>
-              <li>Izolācija Isover (50mm)</li>
-              <li>Riģipsis (12,5mm)</li>
-            '
+              <li>Difūzijas membrāna (Siga Majvest 200)</li>
+              <li>Koka karkass C24 (45x195mm)</li>
+              <li>Izolācija Isover KL35 (200mm)</li>
+              <li>Tvaika barjera (Siga Majpell 5)</li>
+              <li>Latojums  (45x45)</li>
+              <li>Izolācija Isover KL35 (50mm)</li>
+              <li>Huntonit Antikk krāsoti kokšķiedru paneļi (11x300x1220mm)</li>
+              '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Logi un durvis',
-            'options_basic' => '
-              <li>PVC 2 stiklu pakešu logi</li>
+            'options_basic' => '<li>PVC 3 stiklu pakešu logi </li>
+              <li>-	A+ klase, </li>
+              <li>-	6 kameru 82 mm vācu profils (Salamander bluEnergy) </li>
+              <li>-	48 mm stikla pakete ar Termix rāmi</li>
+              <li>-	Roto NT furnitūra.</li>
+              <li>Āra palodzes</li>
+              ',
+            'options_full' => '<li>PVC 3 stiklu pakešu logi </li>
+              <li>-	A+ klase, </li>
+              <li>-	6 kameru 82 mm vācu profils (Salamander bluEnergy) </li>
+              <li>-	48 mm stikla pakete ar Termix rāmi</li>
+              <li>-	Roto NT furnitūra.</li>
               <li>Āra palodzes</li>
               <li>Iekšējās palodzes</li>
-              <li>Masīvkoka iekšdurvis ar pildiņu</li>
-            ',
-            'options_full' => '
-              <li>PVC 2 stiklu pakešu logi</li>
-              <li>Āra palodzes</li>
-              <li>Iekšējās palodzes</li>
-              <li>Masīvkoka iekšdurvis ar pildiņu</li>
+              <li>Masīvkoka iekšdurvis</li>
+              '
+          ],
+          [
+            'product_variant_id' => 1,
+            'option_type' => 'Pirts',
+            'options_basic' => '-',
+            'options_full' => '<li>Saunas apdares dēlis (apse)</li>
+              <li>Latojums (25x50mm)</li>
+              <li>Saunas izolācija ar folliju</li>
+              <li>Saunas sēdvietas (apse)</li>
+              <li>Saunas elektriskā krāsns</li>
             '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Vannasistaba',
-            'options_basic' => '
-              <h5>Sienas:</h5>
-              <li>Flīzes</li>
-              <li>Hidroizolācija</li>
-              <li>Riģipsis mitrām telpām GKBI (12,5 mm)</li>
-              <li>Finieris (15 mm)</li>
-              <h5>Grīda:</h5>
-              <li>Flīzes</li>
-              <li>Hidroizolācija</li>
-              <li>Grīdas betoēšana kritumu izveidei</li>
-              <h5>Aprīkojums:</h5>
-              <li>WC pods</li>
-              <li>Izlietne ar kumodi</li>
-              <li>Dušas paliktnis??</li>
-              <li>Dušas maisītājs</li>
-              <li>Elektriskais ūdens sildītājs</li>
-            ',
-            'options_full' => '
-              <h5>Sienas:</h5>
-              <li>Flīzes</li>
-              <li>Hidroizolācija</li>
-              <li>Riģipsis mitrām telpām GKBI (12,5 mm)</li>
-              <li>Finieris (15 mm)</li>
-              <h5>Grīda:</h5>
-              <li>Flīzes</li>
-              <li>Hidroizolācija</li>
-              <li>Grīdas betoēšana kritumu izveidei</li>
-              <h5>Aprīkojums:</h5>
-              <li>WC pods</li>
-              <li>Izlietne ar kumodi</li>
-              <li>Dušas paliktnis??</li>
-              <li>Dušas maisītājs</li>
+            'options_basic' => '-',
+            'options_full' => '<li>WC pods </li>
+              <li>Izlietne ar maisītāju un kumodi </li>
+              <li>Dušas maisītājs </li>
+              <li>Dušas sienas</li>
               <li>Elektriskais ūdens sildītājs</li>
             '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Virtuve',
-            'options_basic' => '
-              <li>Virtuves iekārta</li>
-              <li>Cepeškrāsns (Electrolux LIR60433B)</li>
-              <li>Indukcijas plīts virsma Electrolux LIT30230C</li>
-              <li>Tvaika nosūcējsFaber INKA PLUS HCSBKA52</li>
-              <li>Trauku mašīna (Electrolux EES69310L)</li>
-              <li>Iebūvējamais ledusskapis Whirlpool ARG 585</li>
-              <li>Iebūvējama mikroviļņu krāsns Bosch BFL524MB0</li>
+            'options_basic' => '-',
+            'options_full' => '<li>Virtuves iekārta – laminētas kokšķiedras plātes korpuss, laminēta kokskaidu plātne ar HPL pārklājumu, krāsotas MDF fasādes, BLUM furnitūra ar softclose mehānismiem</li>
+              <li>Indukcijas plīts virsma (Electrolux)</li>
+              <li>Tvaika nosūcējs (Faber) </li>
+              <li>Iebūvējamais ledusskapis (Electrolux)</li>
+              <li>Iebūvējama mikroviļņu krāsns (Electrolux)</li>
               <li>Izlietne</li>
-            ',
-            'options_full' => '
-              <li>Virtuves iekārta</li>
-              <li>Cepeškrāsns (Electrolux LIR60433B)</li>
-              <li>Indukcijas plīts virsma Electrolux LIT30230C</li>
-              <li>Tvaika nosūcējsFaber INKA PLUS HCSBKA52</li>
-              <li>Trauku mašīna (Electrolux EES69310L)</li>
-              <li>Iebūvējamais ledusskapis Whirlpool ARG 585</li>
-              <li>Iebūvējama mikroviļņu krāsns Bosch BFL524MB0</li>
-              <li>Izlietne</li>
+              <li>Jaucējkrāns </li>
             '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Elektrība',
-            'options_basic' => '
-              <li>Sienās iemontētas rozetes un kontaktslēdži</li>
-            ',
-            'options_full' => '
-              <li>Sienās iemontētas rozetes un kontaktslēdži</li>
+            'options_basic' => '<li>Sagatavots pievads elektrības pievilkšanai</li>',
+            'options_full' => '<li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
+            <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>
             '
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Santehnika',
-            'options_basic' => '
-              <li>Konstrukcijās iestrādāti kanalizācijas un ūdens izvadi</li>
-            ',
-            'options_full' => '
-              <li>Konstrukcijās iestrādāti kanalizācijas un ūdens izvadi</li>
-            '
+            'options_basic' => '<li>Sagatavots pievads santehnikas un elektrības pievilkšanai</li>',
+            'options_full' => '<li>Konstrukcijās iestrādāti un pievienoti kanalizācijas un ūdens izvadi</li>'
           ],
           [
             'product_variant_id' => 1,
             'option_type' => 'Iekšējā apdare',
-            'options_basic' => '
-              <li>Krāsotas riģipša sienas vai</li>
-            ',
-            'options_full' => '
-              <li>Krāsotas riģipša sienas vai</li>
-            '
+            'options_basic' => '-',
+            'options_full' => '<li>Krāsotas reģipša sienas vai krāsoti apdares dēļi</li>'
           ],
           [
             'product_variant_id' => 1,
-            'option_type' => 'Cena nav iekļauts',
-            'options_basic' => '
-              <li>Pamatu izbūve (stabveida elementi)</li>
-              <li>Moduļa transportēšana</li>
-              <li>Izgatavošanas laiks</li>
-            ',
-            'options_full' => '
-               <li>Pamatu izbūve (stabveida elementi)</li>
-              <li>Moduļa transportēšana</li>
-              <li>Izgatavošanas laiks</li>
-            '
+            'option_type' => 'Cenā nav iekļauts',
+            'options_basic' => '<li>Pamatu izbūve (Stabveida pamati)</li>
+                <li>Moduļa transportēšana</li>',
+            'options_full' => '<li>Pamatu izbūve (Stabveida pamati)</li>
+                <li>Moduļa transportēšana</li>'
           ],
-
         ]);
     }
 }
