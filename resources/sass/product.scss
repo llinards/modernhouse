@@ -13,9 +13,21 @@
   }
 }
 
-.product-variant-short-description {
+.product-short-description {
   max-width: 500px;
   margin: 0 auto;
+
+  p {
+    padding: 0.5rem 0;
+    font-size: $product-variant-description-font-size;
+    color: $product-variant-description-font-color;
+  }
+}
+
+.product-variant-titles button,
+.product-variant-option-titles button{
+  font-size: $product-variant-titles-font-size;
+  letter-spacing: $product-variant-titles-letter-spacing;
 }
 
 .nav-tabs .nav-link:hover,

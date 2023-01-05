@@ -1,8 +1,11 @@
 @media (max-width: 992px) {
+  //.content-product {
+  //  position: relative;
+  //  top: 0;
+  //}
   .btn-main {
     max-width: 290px;
   }
-
   .title {
     h1 {
       font-size: $title-font-size-mobile;
@@ -15,7 +18,14 @@
     width: 90px;
   }
 
-  .product-variant-titles button {
+  .title {
+    h2 {
+      font-size: $title-2nd-font-size-mobile;
+    }
+  }
+
+  .product-variant-titles button,
+  .product-variant-option-titles button{
     font-size: $product-variant-titles-font-size-mobile;
   }
 }

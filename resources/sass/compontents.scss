@@ -8,6 +8,12 @@
   }
 }
 
+.title {
+  h2 {
+    font-size: $title-2nd-font-size;
+  }
+}
+
 .btn-primary{
   width: 328px;
   height: 48px;
@@ -27,6 +33,11 @@
   border-color: $primary-color;
   box-shadow: 0 0 20px 0 $primary-color;
 }
+
+//.content-product {
+//  position: absolute;
+//  top: 30px;
+//}
 
 .modern-house-logo {
   width: 125px;
