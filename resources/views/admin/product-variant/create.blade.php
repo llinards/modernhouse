@@ -60,9 +60,7 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('product-variant-description', {
-
-    });
+    CKEDITOR.replace('product-variant-description', {});
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));

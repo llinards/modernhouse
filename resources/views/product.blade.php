@@ -61,7 +61,7 @@
                         <button class="nav-link product-variant-option-title full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna</button>
                       </li>
                     </ul>
-                    <div class="product-price mt-4 mb-1">
+                    <div class="product-price mt-4 mb-2">
                       <div class="title">
                         <h2 class="text-center fw-bold basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
                         <h2 class="text-center fw-bold full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>

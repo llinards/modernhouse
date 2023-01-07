@@ -20,7 +20,6 @@ class ProductVariantSeeder extends Seeder
         [
           'product_id' => 1,
           'name' => 'Modulis Lund',
-          'price' => 44700,
           'price_basic' => 44700,
           'price_full' => 66000,
           'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
@@ -31,7 +30,6 @@ class ProductVariantSeeder extends Seeder
         [
           'product_id' => 1,
           'name' => 'Modulis Malmö',
-          'price' => 26500,
           'price_basic' => 26500,
           'price_full' => 43200,
           'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
@@ -42,7 +40,6 @@ class ProductVariantSeeder extends Seeder
         [
           'product_id' => 1,
           'name' => 'Modulis Visby',
-          'price' => 28000,
           'price_basic' => 28000,
           'price_full' => 46900,
           'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>

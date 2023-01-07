@@ -22,6 +22,11 @@
     font-size: $product-variant-description-font-size;
     color: $product-variant-description-font-color;
   }
+
+  p:first-child,
+  p:last-child{
+    padding: 0;
+  }
 }
 
 .product-variant-titles button,
