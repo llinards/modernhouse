@@ -81,17 +81,17 @@
                   <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
                     <div class="accordion accordion-flush">
                       @foreach($product->productVariantOptions as $option)
-                        @if($option->product_variant_id === $variant->id)
+                        @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
                           <div class="accordion-item">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_type)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_type)}}">
-                                {{ $option->option_type }}
+                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                                {{ $option->option_title }}
                               </button>
                             </h2>
-                            <div id="{{Str::slug($option->option_type)}}" class="accordion-collapse collapse product-variant-option-content">
+                            <div id="{{Str::slug($option->option_title)}}" class="accordion-collapse collapse product-variant-option-content">
                               <div class="accordion-body">
                                 <ul class="list-group list-group-flush">
-                                  {!! $option->options_basic !!}
+                                  {!! $option->options !!}
                                 </ul>
                               </div>
                             </div>
@@ -103,17 +103,17 @@
                   <div class="tab-pane fade" id="full-{{Str::slug($variant->name)}}">
                     <div class="accordion accordion-flush">
                       @foreach($product->productVariantOptions as $option)
-                        @if($option->product_variant_id === $variant->id)
+                        @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')
                           <div class="accordion-item">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_type)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_type)}}">
-                                {{ $option->option_type }}
+                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                                {{ $option->option_title }}
                               </button>
                             </h2>
-                            <div id="{{Str::slug($option->option_type)}}" class="accordion-collapse collapse product-variant-option-content">
+                            <div id="{{Str::slug($option->option_title)}}" class="accordion-collapse collapse product-variant-option-content">
                               <div class="accordion-body">
                                 <ul class="list-group list-group-flush">
-                                  {!! $option->options_full !!}
+                                  {!! $option->options !!}
                                 </ul>
                               </div>
                             </div>

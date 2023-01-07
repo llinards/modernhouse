@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Pievienot jaunu variantu</h2>
+        <h2 class="text-center">Pievienot jaunu moduli/māju</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
@@ -14,7 +14,7 @@
               <form action="/admin/product-variant" method="POST" enctype="multipart/form-data" >
                 @csrf
                 <div class="mb-3">
-                  <label for="product-id" class="form-label">Pievienot variantu</label>
+                  <label for="product-id" class="form-label">Izvēlies kategoriju</label>
                   <select class="form-select" name="product-id" id="product-id">
                     <option selected>Izvēlies...</option>
                     @foreach($allProducts as $product)
@@ -23,13 +23,13 @@
                   </select>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-name" class="form-label">Varianta nosaukums</label>
+                  <label for="product-variant-name" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="product-variant-name" value="{{ old('product-variant-name') }}" name="product-variant-name">
                 </div>
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-basic-price" class="form-label">Cena pamatkomplektācijai</label>
+                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas komplektācijai</label>
                       <input type="text" name="product-variant-basic-price" id="product-variant-basic-price" value="{{ old('product-variant-basic-price') }}" class="form-control">
                     </div>
                     <div class="col-6">
@@ -39,16 +39,16 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-description" class="form-label">Varianta apraksts</label>
+                  <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description" id="product-variant-description">
                     {{ old('product-variant-description') }}
                   </textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-images" class="form-label">Varianta bildes</label>
+                  <label for="product-variant-images" class="form-label">Bildes</label>
                   <input class="form-control" type="file" id="product-variant-images" name="product-variant-images[]">
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a></p>
                 </div>
                 <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>

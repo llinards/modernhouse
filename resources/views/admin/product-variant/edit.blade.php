@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Rediģēt variantu - {{ $productVariant->name }}</h2>
+        <h2 class="text-center">Rediģēt - {{ $productVariant->name }}</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
@@ -16,16 +16,16 @@
                 @method('PATCH')
                 <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
                 <div class="mb-3">
-                  <h4>Pieder pie produkta - <strong>{{ $productVariant->product->name }}</strong></h4>
+                  <h4>Pieder pie kategorijas - <strong>{{ $productVariant->product->name }}</strong></h4>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-name" class="form-label">Varianta nosaukums</label>
+                  <label for="product-variant-name" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="product-variant-name" value="{{ $productVariant->name }}" name="product-variant-name">
                 </div>
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-basic-price" class="form-label">Cena pamatkomplektācijai</label>
+                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas komplektācijai</label>
                       <input type="text" name="product-variant-basic-price" id="product-variant-basic-price" value="{{ $productVariant->price_basic }}" class="form-control">
                     </div>
                     <div class="col-6">
@@ -35,7 +35,7 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-description" class="form-label">Varianta apraksts</label>
+                  <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description" id="product-variant-description">
                     {{ $productVariant->description }}
                   </textarea>
@@ -61,7 +61,7 @@
                   <label for="product-variant-images" class="form-label">Pievienot jaunas bildes</label>
                   <input class="form-control" type="file" id="product-variant-images" name="product-variant-images[]">
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a></p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-variant-modal" class="btn btn-danger">Dzēst</button>

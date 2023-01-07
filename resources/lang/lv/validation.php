@@ -161,14 +161,14 @@ return [
         'required' => 'Nav pievienota titulbilde.'
       ],
       'product-id' => [
-        'numeric' => 'Nav izvēlēts produkts, kam pievienot variantu!'
+        'numeric' => 'Nav izvēlēta kategorija, kam pievienot!'
       ],
       'product-variant-name' => [
-        'required' => 'Nav norādīts varianta nosaukums.'
+        'required' => 'Nav norādīts nosaukums.'
       ],
       'product-variant-basic-price' => [
-        'required' => 'Nav norādīta pamatkomplektācijas summa.',
-        'numeric' => 'Pamatkomplektācijas summa drīkst saturēt tikai ciparus.'
+        'required' => 'Nav norādīta rūpnīcas komplektācijas summa.',
+        'numeric' => 'Rūpnīcas komplektācijas summa drīkst saturēt tikai ciparus.'
       ],
       'product-variant-full-price' => [
         'required' => 'Nav norādīta pilnās komplektācijas summa.',
@@ -176,6 +176,9 @@ return [
       ],
       'product-variant-description' => [
         'required' => 'Nav pievienots apraksts.'
+      ],
+      'product-variant-images' => [
+        'required' => 'Nav pievienotas bildes.'
       ]
     ],
 

@@ -5,10 +5,10 @@
     </a>
   </div>
   <div class="nav-item">
-    <a href="/admin/create" class="nav-link">Jauna māja/modulis</a>
+    <a href="/admin/create" class="nav-link">Jauna kategorija</a>
   </div>
   <div class="nav-item">
-    <a href="/admin/product-variant/create" class="nav-link">Jauns variants</a>
+    <a href="/admin/product-variant/create" class="nav-link">Jauns modulis/māja</a>
   </div>
   <div class="nav-item px-2">
     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
