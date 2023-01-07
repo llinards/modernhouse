@@ -21,7 +21,7 @@
                   <label for="product-cover-photo" class="form-label">Produkta pirmās lapas bilde</label>
                   <input class="form-control" type="file" id="product-cover-photo" name="product-cover-photo">
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://tinypng.com" target="_blank">tinypng.com/</a></p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a></p>
                 </div>
                 <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
