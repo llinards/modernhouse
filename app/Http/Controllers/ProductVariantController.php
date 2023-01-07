@@ -25,7 +25,6 @@ class ProductVariantController extends Controller
       try {
         $newProductVariant = ProductVariant::create([
           'name' => $data['product-variant-name'],
-          'price' => 0,
           'price_basic' => $data['product-variant-basic-price'],
           'price_full' => $data['product-variant-full-price'],
           'description' => $data['product-variant-description'],
