@@ -67,9 +67,22 @@
 }
 
 .nav-link:hover,
-.nav-link:focus,
+.nav-link:focus {
+  color: $navbar-hover-font-color;
+}
+
 .nav-link-active {
   color: $navbar-hover-font-color;
+  border-bottom: 2px solid $navbar-hover-font-color;
+  padding-bottom: 0;
+}
+
+.social-network-icons-menu i{
+  font-size: 24px;
+}
+
+.social-network-icon-dividers {
+  font-size: 24px;
 }
 
 .footer-info {
