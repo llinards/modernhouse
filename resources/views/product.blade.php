@@ -69,6 +69,64 @@
                     </div>
                     <div class="product-short-description">
                       <p>{!! $variant->description !!}</p>
+                      <div class="product-details">
+                        <div class="product-details-header d-flex justify-content-between">
+                          <p class="text-start">Dzīvojamā platība: 40,95m<sup>2</sup></p>
+                          <p class="text-end">Apbūves platība: 52m<sup>2</sup></p>
+                        </div>
+                        <hr class="m-1">
+                        <ul class="product-details-content p-0 m-0">
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/check.svg') }}"/>Guļamistabas
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/bed.svg') }}"/>2
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/check.svg') }}"/>Viesistaba ar virtuves zonu
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/fork-knife.svg') }}"/>1
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/check.svg') }}"/>Vannas istaba
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/bathtub.svg') }}"/>1
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/negative.svg') }}"/>Lofts
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/ladder-simple.svg') }}"/>
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/check.svg') }}"/>Sauna
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/leaf.svg') }}"/>1
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/check.svg') }}"/>Terase
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/selection-plus.svg') }}"/>1
+                            </div>
+                          </li>
+                        </ul>
+                        <hr class="m-1 mb-3">
+                      </div>
                     </div>
                   </div>
                   <div class="product-order d-flex flex-column align-items-center">

@@ -54,7 +54,55 @@ p {
   letter-spacing: 0;
 }
 
-@import "./compontents.scss";
+.arrow-up {
+  transform: rotate(180deg);
+}
+
+.title {
+  h1 {
+    font-size: $title-font-size;
+  }
+}
+
+.title {
+  h2 {
+    font-size: $title-2nd-font-size;
+  }
+}
+
+.btn-primary{
+  width: 328px;
+  height: 48px;
+  border-radius: 32px;
+  background-color: $primary-color;
+  border-color: transparent;
+  font-size: 17px;
+  letter-spacing: 1.6px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:first-child:active {
+  background-color: white;
+  color: $primary-color;
+  border-color: $primary-color;
+  box-shadow: 0 0 20px 0 $primary-color;
+}
+
+//.content-product {
+//  position: absolute;
+//  top: 30px;
+//}
+
+.modern-house-logo {
+  width: 125px;
+}
+
+.modal-footer {
+  border: none;
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
