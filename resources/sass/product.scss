@@ -18,7 +18,7 @@
   margin: 0 auto;
 
   p {
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
     font-size: $product-variant-description-font-size;
     color: $product-variant-description-font-color;
   }
@@ -88,5 +88,21 @@
 
   h5:not(:first-child) {
     margin-top: 16px;
+  }
+}
+
+.product-details {
+  //max-width: 328px;
+  //margin: 0 auto;
+  li {
+    list-style: none;
+  }
+  img {
+    max-width: 25px;
+    height: 25px;
+    padding-right: 0.5rem;
+  }
+  p {
+    color: $primary-color;
   }
 }

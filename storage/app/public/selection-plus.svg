@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>selection-plus</title>
+    <g id="DESKTOP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Modulis_Lund_Pilna" transform="translate(-1243.000000, -833.000000)">
+            <g id="selection-plus" transform="translate(1243.000000, 833.000000)">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                <line x1="13.125" y1="4.51979167" x2="10.875" y2="4.51979167" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="10.875" y1="19.5197917" x2="13.125" y2="19.5197917" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <path d="M16.875,4.5 L18.75,4.5 C19.1642136,4.5 19.5,4.83578644 19.5,5.25 L19.5,7.125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <line x1="19.5197917" y1="13.125" x2="19.5197917" y2="10.875" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="4.51979167" y1="10.875" x2="4.51979167" y2="13.125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <path d="M7.125,19.5 L5.25,19.5 C4.83578644,19.5 4.5,19.1642136 4.5,18.75 L4.5,16.875" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M7.125,4.5 L5.25,4.5 C4.83578644,4.5 4.5,4.83578644 4.5,5.25 L4.5,7.125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <line x1="19.5197917" y1="16.875" x2="19.5197917" y2="22.125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="22.125" y1="19.5197917" x2="16.875" y2="19.5197917" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>
