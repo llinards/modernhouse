@@ -11,11 +11,34 @@
           @php
             ++$key;
           @endphp
-          @if(count($allProducts) !== 1)
-            <a href="#{{ $loop->last ? $allProducts[0]->slug : $allProducts[$key]->slug }}" class="pb-lg-5 pb-4 pt-3">
-              <img width="35" height="35" class="{{ $loop->last ? 'arrow-up' : '' }}" src="{{ asset('storage/arrow-down.svg') }}" alt="Arrow down">
-            </a>
-          @endif
+          <a href="#{{ $loop->last ? 'next' : $allProducts[$key]->slug }}" class="pb-lg-5 pb-4 pt-3">
+            <img width="35" height="35" src="{{ asset('storage/arrow-down.svg') }}" alt="Arrow down">
+          </a>
+        </div>
+      </section>
+      <section id="next" class="d-flex justify-content-center align-items-center flex-column">
+        <div class="container-fluid">
+        <div>
+          <div class="text-center">
+            <img src="{{ asset('storage/check.svg') }}"/>
+          </div>
+          <h2 class="text-uppercase text-center">izvēlies</h2>
+          <p class="text-center">Iepazīsties un izvēlies sev labāko variantu.</p>
+        </div>
+        <div>
+          <div class="text-center">
+            <img src="{{ asset('storage/check.svg') }}"/>
+          </div>
+          <h2 class="text-uppercase text-center">pasūti</h2>
+          <p class="text-center">Veic pasūtījumu mūsu pieteikuma anketā.</p>
+        </div>
+        <div>
+          <div class="text-center">
+            <img src="{{ asset('storage/check.svg') }}"/>
+          </div>
+          <h2 class="text-uppercase text-center">sazinamies</h2>
+          <p class="text-center">Mēs ar Tevi sazināsimies!</p>
+        </div>
         </div>
       </section>
     @endforeach

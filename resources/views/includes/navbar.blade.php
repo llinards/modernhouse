@@ -22,21 +22,25 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           @foreach($allProducts as $product)
-            @if(!request()->is($product->slug))
             <li class="nav-item">
-              <a class="nav-link text-center" href="/{{ $product->slug }}">{{ $product->name }}</a>
+              <a class="nav-link text-center {{ request()->is($product->slug) ? 'nav-link-active' : '' }}" href="/{{ $product->slug }}">{{ $product->name }}</a>
             </li>
-            @endif
           @endforeach
         </ul>
       </div>
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">@lang('about')</a>
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="/contact-us">@lang('contact')</a>
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('gallery')</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('about')</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}" href="/contact-us">@lang('contact')</a>
           </li>
   {{--        @if (count(config('app.languages')) > 1)--}}
   {{--          <li class="nav-item language-select d-flex justify-content-between">--}}
@@ -47,6 +51,19 @@
   {{--          </li>--}}
   {{--        @endif--}}
         </ul>
+      </div>
+      <div class="d-flex social-network-icons-menu">
+        <div class="p-1">
+          <a href="" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
+        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1">
+          <a href="" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
+        </div>
+        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1">
+          <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+        </div>
       </div>
       <div class="footer-info d-flex flex-column align-items-center">
         <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
