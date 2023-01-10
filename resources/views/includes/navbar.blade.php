@@ -1,22 +1,29 @@
 <nav class="mobile-navbar {{ $index ? 'position-fixed' : '' }} w-100">
-  <div class="container-fluid d-flex justify-content-between">
-    <div class="logo">
+  <div class="container-fluid d-flex justify-content-between {{ $index ? 'background-index ' : '' }}">
+    <div class="logo py-3">
       <a class="navbar-brand" href="/">
-        <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
+        <img src="{{ $index ? asset('storage/logo-white.png') : asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    <button type="button" class="navbar-toggler px-3">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
+    @if($index)
+      <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
+        @foreach($allProducts as $product)
+          <a class="nav-link index text-center p-2" href="#{{ $product->slug }}">{{ $product->name }}</a>
+        @endforeach
+      </div>
+    @endif
+    <button type="button" class="navbar-toggler py-3">
+      <div class="bar1 {{ $index ? 'bar-index' : '' }}"></div>
+      <div class="bar2 {{ $index ? 'bar-index' : '' }}"></div>
+      <div class="bar3 {{ $index ? 'bar-index' : '' }}"></div>
     </button>
   </div>
 
-  <div id="mobile-navbar-modal" class="h-100">
-    <div id="modal-content" class="d-flex h-100 flex-column justify-content-around align-items-center">
-      <div class="logo">
+  <div id="navbar-modal" class="h-100">
+    <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
+      <div class="logo p-0">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
+          <img src="{{ asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
         </a>
       </div>
       <div class="nav-items">
@@ -66,7 +73,7 @@
         </div>
       </div>
       <div class="footer-info d-flex flex-column align-items-center">
-        <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
+        <p class="text-center">Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
         <p>@lang('modern house registration number'): 40203251766</p>
         <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>
       </div>
@@ -76,11 +83,11 @@
 
 <script>
   const menu = document.querySelector(".navbar-toggler");
-  const menuLinks = document.querySelectorAll("#mobile-navbar-modal .nav-link");
+  const menuLinks = document.querySelectorAll("#navbar-modal .nav-link");
 
   function closeMenu() {
     menu.classList.remove('open');
-    document.getElementById('mobile-navbar-modal').style.width = '0';
+    document.getElementById('navbar-modal').style.width = '0';
     document.getElementById('modal-content').style.opacity = '0';
     document.querySelector('.content').classList.remove('backdrop');
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
@@ -90,9 +97,9 @@
   function openMenu() {
     menu.classList.add('open');
     if (window.screen.width <= 990) {
-      document.getElementById('mobile-navbar-modal').style.width = '100%';
+      document.getElementById('navbar-modal').style.width = '100%';
     } else {
-      document.getElementById('mobile-navbar-modal').style.width = '40%';
+      document.getElementById('navbar-modal').style.width = '40%';
     }
     document.getElementById('modal-content').style.opacity = '1';
     document.querySelector('.content').classList.add('backdrop');
