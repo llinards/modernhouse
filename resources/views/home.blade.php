@@ -20,21 +20,21 @@
         <div class="container-fluid">
         <div>
           <div class="text-center">
-            <img src="{{ asset('storage/check.svg') }}"/>
+            <img src="{{ asset('storage/house-line.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">izvēlies</h2>
           <p class="text-center">Iepazīsties un izvēlies sev labāko variantu.</p>
         </div>
         <div>
           <div class="text-center">
-            <img src="{{ asset('storage/check.svg') }}"/>
+            <img src="{{ asset('storage/checks.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">pasūti</h2>
           <p class="text-center">Veic pasūtījumu mūsu pieteikuma anketā.</p>
         </div>
         <div>
           <div class="text-center">
-            <img src="{{ asset('storage/check.svg') }}"/>
+            <img src="{{ asset('storage/handshake.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">sazinamies</h2>
           <p class="text-center">Mēs ar Tevi sazināsimies!</p>

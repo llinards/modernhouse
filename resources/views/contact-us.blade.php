@@ -1,6 +1,7 @@
 @extends('app', ['title' => Lang::get('contact'), 'index' => false, 'allProducts' => $allProducts])
 @section('content')
   <div class="container xxl">
+    <div class="row">
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">@lang('contact')</h1>
       </div>
@@ -50,6 +51,7 @@
             </form>
           </div>
         </div>
+    </div>
     </div>
   </div>
 @endsection

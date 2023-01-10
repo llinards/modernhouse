@@ -2,13 +2,21 @@
   z-index: 10;
   //background-color: #000000;
 
+  .logo {
+    padding-left: 60px;
+  }
   .navbar-toggler {
-    z-index: 11;
+    z-index: 15;
     border-color: transparent;
+    padding-right: 60px;
   }
 
   .navbar-toggler:focus {
     box-shadow: none;
+  }
+
+  .background-index {
+    background-color: rgba(63, 63, 63, .5);
   }
 
   .bar1,
@@ -19,6 +27,14 @@
     background-color: $primary-color;
     margin: 6px 0;
     transition: 0.5s;
+  }
+
+  .bar-index {
+    background-color: white;
+  }
+
+  .bar-index.change {
+    background-color: $primary-color;
   }
 
   .bar1.change {
@@ -33,7 +49,7 @@
     transform: rotate(45deg) translate(-5px, -5px);
   }
 
-  #mobile-navbar-modal {
+  #navbar-modal {
     position: fixed;
     max-height: 100%;
     width: 0;
@@ -64,6 +80,10 @@
   font-weight: $navbar-item-font-weigth;
   letter-spacing: $navbar-item-letter-spacing;
   font-size: $navbar-item-font-size;
+}
+
+.nav-link.index {
+  color: white;
 }
 
 .nav-link:hover,
