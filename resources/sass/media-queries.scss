@@ -3,12 +3,12 @@
   //  position: relative;
   //  top: 0;
   //}
-  .mobile-navbar {
+  .navbar-index {
     .logo {
-      padding-left: 1rem;
+      padding-left: 0;
     }
     .navbar-toggler {
-      padding-right: 1rem;
+      padding-right: 0;
     }
   }
   .navbar-links-desktop {
@@ -38,5 +38,12 @@
   .product-variant-titles button,
   .product-variant-option-titles button{
     font-size: $product-variant-titles-font-size-mobile;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navbar-product-page {
+    max-width: 1320px;
+    margin: 0 auto;
   }
 }

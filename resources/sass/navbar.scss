@@ -2,13 +2,10 @@
   z-index: 10;
   //background-color: #000000;
 
-  .logo {
-    padding-left: 60px;
-  }
+
   .navbar-toggler {
     z-index: 15;
     border-color: transparent;
-    padding-right: 60px;
   }
 
   .navbar-toggler:focus {
@@ -65,6 +62,15 @@
       opacity: 0;
       transition: 0.5s;
     }
+  }
+}
+
+.navbar-index {
+  .logo {
+    padding-left: 60px;
+  }
+  .navbar-toggler {
+    padding-right: 60px;
   }
 }
 

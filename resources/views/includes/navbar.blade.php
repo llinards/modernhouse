@@ -1,4 +1,4 @@
-<nav class="mobile-navbar {{ $index ? 'position-fixed' : '' }} w-100">
+<nav class="mobile-navbar {{ $index ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
   <div class="container-fluid d-flex justify-content-between {{ $index ? 'background-index ' : '' }}">
     <div class="logo py-3">
       <a class="navbar-brand" href="/">
@@ -8,7 +8,7 @@
     @if($index)
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allProducts as $product)
-          <a class="nav-link index text-center p-2" href="#{{ $product->slug }}">{{ $product->name }}</a>
+          <a class="nav-link index text-center p-2" href="/{{ $product->slug }}">{{ $product->name }}</a>
         @endforeach
       </div>
     @endif
