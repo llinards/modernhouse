@@ -16,8 +16,8 @@
           </a>
         </div>
       </section>
-      <section id="next" class="d-flex justify-content-center align-items-center flex-column">
-        <div class="container-fluid">
+    @endforeach
+    <section id="next" class="d-flex justify-content-center align-items-center flex-column">
         <div>
           <div class="text-center">
             <img src="{{ asset('storage/house-line.png') }}"/>
@@ -39,8 +39,7 @@
           <h2 class="text-uppercase text-center">sazinamies</h2>
           <p class="text-center">Mēs ar Tevi sazināsimies!</p>
         </div>
-        </div>
       </section>
-    @endforeach
+    @include('includes.footer')
   </article>
 @endsection

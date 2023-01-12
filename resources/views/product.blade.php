@@ -189,6 +189,7 @@
       </div>
     </div>
   </div>
+  @include('includes.footer')
   <script>
     const basicVariantBtn = document.querySelectorAll('.basic-variant-title');
     const fullVariantBtn = document.querySelectorAll('.full-variant-title');
