@@ -1,6 +1,12 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
+@font-face {
+  font-family: 'TipoTypeRegular';
+  src: url('/fonts/TipoTypeRegular.otf');
+  font-weight: normal;
+}
+
 @import '~bootstrap/scss/bootstrap';
 
 @import '@splidejs/splide/css';
@@ -18,6 +24,7 @@ html {
 
 body {
   font-family: "Montserrat", sans-serif;
+  //font-family: "TipoTypeRegular", sans-serif;
 }
 
 $primary-color: #3f3f3f;
@@ -102,6 +109,15 @@ p {
 
 .modal-footer {
   border: none;
+}
+
+footer {
+  height: 250px;
+  padding: 0 60px;
+  background-color: $primary-color;
+  h4, p {
+    color: white;
+  }
 }
 
 @import "./navbar.scss";

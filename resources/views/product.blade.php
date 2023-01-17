@@ -1,6 +1,6 @@
 @extends('app', ['title' => $product->name, 'index' => false, 'allProducts' => $allProducts])
 @section('content')
-  <div class="container-xxl">
+  <div class="container-xxl mb-4">
     <div class="row">
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
@@ -189,6 +189,7 @@
       </div>
     </div>
   </div>
+  @include('includes.footer')
   <script>
     const basicVariantBtn = document.querySelectorAll('.basic-variant-title');
     const fullVariantBtn = document.querySelectorAll('.full-variant-title');

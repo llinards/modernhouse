@@ -16,31 +16,32 @@
           </a>
         </div>
       </section>
-      <section id="next" class="d-flex justify-content-center align-items-center flex-column">
-        <div class="container-fluid">
-        <div>
+    @endforeach
+    <section id="next" class="d-flex justify-content-center align-items-center flex-column">
+        <div class="m-2">
           <div class="text-center">
             <img src="{{ asset('storage/house-line.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">izvēlies</h2>
           <p class="text-center">Iepazīsties un izvēlies sev labāko variantu.</p>
         </div>
-        <div>
+        <div class="m-2">
           <div class="text-center">
             <img src="{{ asset('storage/checks.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">pasūti</h2>
           <p class="text-center">Veic pasūtījumu mūsu pieteikuma anketā.</p>
         </div>
-        <div>
+        <div class="m-2">
           <div class="text-center">
             <img src="{{ asset('storage/handshake.png') }}"/>
           </div>
           <h2 class="text-uppercase text-center">sazinamies</h2>
           <p class="text-center">Mēs ar Tevi sazināsimies!</p>
         </div>
-        </div>
       </section>
-    @endforeach
+    <section id="footer">
+      @include('includes.footer')
+    </section>
   </article>
 @endsection
