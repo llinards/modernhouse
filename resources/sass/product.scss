@@ -1,0 +1,108 @@
+.product-variant-titles,
+.product-variant-option-titles{
+  border: none;
+  justify-content: space-evenly;
+  button.nav-link {
+    border-color: transparent;
+    border: none;
+    padding: 0.5rem;
+    &.active {
+      border-bottom: 4px solid $navbar-hover-font-color;
+      color: $navbar-hover-font-color;
+    }
+  }
+}
+
+.product-short-description {
+  max-width: 500px;
+  margin: 0 auto;
+
+  p {
+    padding: 0.25rem 0;
+    font-size: $product-variant-description-font-size;
+    color: $product-variant-description-font-color;
+  }
+
+  p:first-child,
+  p:last-child{
+    padding: 0;
+  }
+}
+
+.product-variant-titles button,
+.product-variant-option-titles button{
+  font-size: $product-variant-titles-font-size;
+  letter-spacing: $product-variant-titles-letter-spacing;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.splide__slide {
+  opacity: 0.6;
+}
+
+.splide__slide.is-active {
+  opacity: 1;
+}
+
+.splide__track--nav > .splide__list > .splide__slide.is-active {
+  border: none;
+}
+
+.variant-button:not(.collapsed) {
+  background-color: $navbar-hover-font-color;
+  color: white;
+}
+
+.variant-button:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.variant-button:not(.collapsed)::after {
+  background-image: var(--bs-accordion-btn-icon);
+}
+
+.product-variant-option-content {
+  li {
+    position: relative;
+    display: block;
+    padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+    color: var(--bs-list-group-color);
+    text-decoration: none;
+    background-color: var(--bs-list-group-bg);
+    &:not(:last-child) {
+      border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
+      border-width: 0 0 var(--bs-list-group-border-width);
+    }
+  }
+
+  h5:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
+.product-details {
+  //max-width: 328px;
+  //margin: 0 auto;
+  li {
+    list-style: none;
+  }
+  img {
+    max-width: 25px;
+    height: 25px;
+    padding-right: 0.5rem;
+  }
+  p {
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,29 @@
+#home {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
+  .title {
+    h1 {
+    color: white;
+    padding-top: 150px;
+  }}
+  section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    background-position: center center;
+    height: 100%;
+  }
+}
+
+#next {
+  img {
+    width: 100px;
+  }
+}
+
+.modern-house-location-map {
+  width: 100%;
+}
