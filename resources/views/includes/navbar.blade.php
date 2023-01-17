@@ -91,7 +91,7 @@
     document.getElementById('modal-content').style.opacity = '0';
     document.querySelector('.content').classList.remove('backdrop');
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
-    document.body.style.overflowY = 'scroll';
+
   }
 
   function openMenu() {
@@ -104,7 +104,7 @@
     document.getElementById('modal-content').style.opacity = '1';
     document.querySelector('.content').classList.add('backdrop');
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
-    document.body.style.overflowY = 'hidden';
+
   }
 
   menuLinks.forEach((link) => {

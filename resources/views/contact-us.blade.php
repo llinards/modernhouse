@@ -1,6 +1,6 @@
 @extends('app', ['title' => Lang::get('contact'), 'index' => false, 'allProducts' => $allProducts])
 @section('content')
-  <div class="container xxl">
+  <div class="container-xxl mb-4">
     <div class="row">
       <div class="title">
         <h1 class="fw-bold text-center text-uppercase">@lang('contact')</h1>
@@ -22,7 +22,7 @@
         <div class="row mt-4 justify-content-center">
           <div class="col-lg-8 contact-us-form">
             <h2 class="text-center mb-2">Sazināties ar mums</h2>
-            <form id="request-product-info" method="POST" action="/contact-us">
+            <form method="POST" action="/contact-us">
               @csrf
               <x-honeypot />
               <div class="mb-3">
@@ -51,7 +51,8 @@
             </form>
           </div>
         </div>
-    </div>
+      </div>
     </div>
   </div>
+  @include('includes.footer')
 @endsection

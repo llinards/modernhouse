@@ -11251,6 +11251,7 @@ p {
 
 footer {
   height: 250px;
+  padding: 0 60px;
   background-color: #3f3f3f;
 }
 footer h4, footer .h4, footer p {
@@ -11277,7 +11278,7 @@ footer h4, footer .h4, footer p {
   height: 4px;
   background-color: #3f3f3f;
   margin: 6px 0;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 .mobile-navbar .bar-index {
   background-color: white;
@@ -11303,13 +11304,13 @@ footer h4, footer .h4, footer p {
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: white;
-  transition: 0.5s;
+  transition: all 0.5s;
   z-index: 10;
   box-shadow: -6px 1px 11px 0px rgba(0, 0, 0, 0.41);
 }
 .mobile-navbar #navbar-modal #modal-content {
   opacity: 0;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 
 .navbar-index .logo {
@@ -11320,7 +11321,7 @@ footer h4, footer .h4, footer p {
 }
 
 .backdrop {
-  transition: 0.5s;
+  transition: all 0.5s;
   filter: opacity(0.5);
 }
 
@@ -11377,6 +11378,12 @@ footer h4, footer .h4, footer p {
   scroll-snap-stop: always;
   background-position: center center;
   height: 100%;
+}
+#home section#next {
+  padding-top: 60px;
+}
+#home section#footer {
+  height: 250px;
 }
 
 #next img {
@@ -11510,6 +11517,9 @@ footer h4, footer .h4, footer p {
 @media (max-width: 570px) {
   .modern-house-logo {
     width: 65px;
+  }
+  footer {
+    padding: 1.5rem 0;
   }
   .title h2, .title .h2 {
     font-size: 32px;
