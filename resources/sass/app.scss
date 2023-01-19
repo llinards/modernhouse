@@ -43,6 +43,9 @@ $product-variant-titles-letter-spacing: 1.6px;
 $product-variant-description-font-size: 12px;
 $product-variant-description-font-color: #919191;
 
+$paragraph-font-color: #919191;
+$paragraph-font-size: 14px;
+
 $navbar-item-font-color: #3f3f3f;
 $navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
@@ -109,6 +112,10 @@ h2.title {
   border: none;
 }
 
+label {
+  color: $primary-color;
+}
+
 footer {
   height: 250px;
   padding: 0 60px;
@@ -121,5 +128,6 @@ footer {
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
+@import "./contact-us.scss";
 
 @import "./media-queries.scss";

@@ -6,21 +6,8 @@
       @include('includes.status-messages')
       <div class="mt-4">
         <div class="row">
-          <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-            <h2 class="mb-2">Adrese:</h2>
-            <p class="text-uppercase">modern house sia</p>
-            <p>Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
-            <p>@lang('modern house registration number'): 40203251766</p>
-            <p class="mt-1"><a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a></p>
-          </div>
-          <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-5">
-            <iframe class="modern-house-location-map" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=24.848290085792545%2C57.14056767167189%2C24.85354721546173%2C57.142382401878564&amp;layer=mapnik&amp;marker=57.1414757755372%2C24.850918650627136"></iframe>
-          </div>
-        </div>
-        <div class="row mt-4 justify-content-center">
-          <div class="col-lg-8">
-            <h2 class="text-center mb-2">Sazināties ar mums</h2>
-            <form method="POST" action="/contact-us">
+          <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
+            <form method="POST" class="w-100" action="/contact-us">
               @csrf
               <x-honeypot />
               <div class="mb-3">
@@ -48,9 +35,38 @@
               </div>
             </form>
           </div>
+          <div class="col-lg-6 order-first order-lg-last d-flex justify-content-center align-items-between flex-column">
+            <div class="row modern-house-staff">
+              <div class="col-6 text-center">
+                <h5 class="fw-bold pb-1">Helvijs Ervalds</h5>
+                <p>Modern House CEO</p>
+                <a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a>
+                <p>+371 25666622</p>
+              </div>
+              <div class="col-6 text-center">
+                <h5 class="fw-bold pb-1">Aigars Jonass</h5>
+                <p>Pārdošanas speciālists</p>
+                <a class="nav-link" href="mailto:aigars@modern-house.lv">aigars@modern-house.lv</a>
+                <p>+371 26312075</p>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <i class="bi bi-geo-alt fs-2"></i>
+                <h5 class="fw-bold mt-2">Lauku iela 1, Sigulda, Siguldas nov., LV-2150<br/>
+                @lang('modern house registration number'): 40203251766</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+          <div class="col-lg-12">
+            <iframe class="modern-house-location-map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=24.848290085792545%2C57.14056767167189%2C24.85354721546173%2C57.142382401878564&amp;layer=mapnik&amp;marker=57.1414757755372%2C24.850918650627136"></iframe>
+          </div>
         </div>
       </div>
     </div>
   </div>
   @include('includes.footer')
 @endsection
+

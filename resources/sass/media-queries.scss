@@ -40,6 +40,10 @@
   .product-variant-option-titles button{
     font-size: $product-variant-titles-font-size-mobile;
   }
+
+  .modern-house-location-map {
+    height: 250px;
+  }
 }
 
 @media (min-width: 1400px) {
