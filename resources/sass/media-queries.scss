@@ -17,10 +17,8 @@
   .btn-main {
     max-width: 290px;
   }
-  .title {
-    h1 {
-      font-size: $title-font-size-mobile;
-    }
+  h1.title {
+    font-size: $title-font-size-mobile;
   }
 }
 
@@ -33,11 +31,10 @@
     padding: 1.5rem 0;
   }
 
-  .title {
-    h2 {
-      font-size: $title-2nd-font-size-mobile;
-    }
+  h2.title {
+    font-size: $title-2nd-font-size-mobile;
   }
+
 
   .product-variant-titles button,
   .product-variant-option-titles button{

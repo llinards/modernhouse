@@ -1,5 +1,5 @@
 <nav class="mobile-navbar {{ $index ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
-  <div class="container-fluid d-flex justify-content-between {{ $index ? 'background-index ' : '' }}">
+  <div class="container-fluid d-flex justify-content-between {{ $index ? 'navbar-index-background' : '' }}">
     <div class="logo py-3">
       <a class="navbar-brand" href="/">
         <img src="{{ $index ? asset('storage/logo-white.png') : asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
@@ -59,20 +59,20 @@
   {{--        @endif--}}
         </ul>
       </div>
-      <div class="d-flex social-network-icons-menu">
+      <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
           <a href="" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
         </div>
-        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
           <a href="" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
         </div>
-        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
           <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
         </div>
       </div>
-      <div class="footer-info d-flex flex-column align-items-center">
+      <div class="navbar-modal-footer d-flex flex-column align-items-center">
         <p class="text-center">Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
         <p>@lang('modern house registration number'): 40203251766</p>
         <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>

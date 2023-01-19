@@ -44,7 +44,7 @@ $product-variant-description-font-size: 12px;
 $product-variant-description-font-color: #919191;
 
 $navbar-item-font-color: #3f3f3f;
-$navbar-hover-font-color: #919191;
+$navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
@@ -66,17 +66,15 @@ p {
   transform: rotate(180deg);
 }
 
-.title {
-  h1 {
-    font-size: $title-font-size;
-  }
+h1.title {
+  font-size: $title-font-size;
 }
 
-.title {
-  h2 {
-    font-size: $title-2nd-font-size;
-  }
+
+h2.title {
+  font-size: $title-2nd-font-size;
 }
+
 
 .btn-primary{
   width: 328px;

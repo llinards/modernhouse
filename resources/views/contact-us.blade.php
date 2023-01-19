@@ -2,11 +2,9 @@
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
-      <div class="title">
-        <h1 class="fw-bold text-center text-uppercase">@lang('contact')</h1>
-      </div>
+      <h1 class="fw-bold text-center text-uppercase title">@lang('contact')</h1>
       @include('includes.status-messages')
-      <div class="contact-information mt-4">
+      <div class="mt-4">
         <div class="row">
           <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
             <h2 class="mb-2">Adrese:</h2>
@@ -20,7 +18,7 @@
           </div>
         </div>
         <div class="row mt-4 justify-content-center">
-          <div class="col-lg-8 contact-us-form">
+          <div class="col-lg-8">
             <h2 class="text-center mb-2">Sazināties ar mums</h2>
             <form method="POST" action="/contact-us">
               @csrf

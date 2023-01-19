@@ -12,7 +12,7 @@
     box-shadow: none;
   }
 
-  .background-index {
+  .navbar-index-background {
     background-color: rgba(63, 63, 63, .5);
   }
 
@@ -94,24 +94,24 @@
 
 .nav-link:hover,
 .nav-link:focus {
-  color: $navbar-hover-font-color;
+  color: $navbar-item-hover-font-color;
 }
 
 .nav-link-active {
-  color: $navbar-hover-font-color;
-  border-bottom: 2px solid $navbar-hover-font-color;
+  color: $navbar-item-hover-font-color;
+  border-bottom: 2px solid $navbar-item-hover-font-color;
   padding-bottom: 0;
 }
 
-.social-network-icons-menu i{
+.navbar-modal-social-network-icons i{
   font-size: 24px;
 }
 
-.social-network-icon-dividers {
+.navbar-modal-social-network-icon-dividers {
   font-size: 24px;
 }
 
-.footer-info {
+.navbar-modal-footer {
   .nav-link {
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
