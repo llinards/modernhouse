@@ -77,7 +77,8 @@
     position: relative;
     display: block;
     padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
-    color: var(--bs-list-group-color);
+    //color: var(--bs-list-group-color);
+    color: $primary-color;
     text-decoration: none;
     background-color: var(--bs-list-group-bg);
     &:not(:last-child) {
