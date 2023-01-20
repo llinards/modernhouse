@@ -65,59 +65,22 @@
                       <p>{!! $variant->description !!}</p>
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
-                          <p class="text-start">Dzīvojamā platība: 40,95m<sup>2</sup></p>
-                          <p class="text-end">Apbūves platība: 52m<sup>2</sup></p>
+                          @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
+                            <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}m<sup>2</sup></p>
+                          @endforeach
                         </div>
                         <hr class="m-1">
                         <ul class="product-details-content p-0 m-0">
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/check.svg') }}"/>Guļamistabas
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/bed.svg') }}"/>2
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/check.svg') }}"/>Viesistaba ar virtuves zonu
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/fork-knife.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/check.svg') }}"/>Vannas istaba
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/bathtub.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/negative.svg') }}"/>Lofts
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/ladder-simple.svg') }}"/>
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/check.svg') }}"/>Sauna
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/leaf.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/icons/check.svg') }}"/>Terase
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/icons/selection-plus.svg') }}"/>1
-                            </div>
-                          </li>
+                          @foreach($variant->productVariantDetails as $productVariantDetail)
+                            <li class="d-flex justify-content-between">
+                              <div>
+                                <img src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
+                              </div>
+                              <div>
+                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>{{ ($productVariantDetail->count === 0) ? '' : $productVariantDetail->count }}
+                              </div>
+                            </li>
+                          @endforeach
                         </ul>
                         <hr class="m-1 mb-3">
                       </div>
