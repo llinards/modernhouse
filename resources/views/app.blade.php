@@ -11,7 +11,7 @@
     <meta property="og:url" content=" {{Request::url()}}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}" />
-    <meta property="og:description" content="" />
+    <meta property="og:description" content="{{ isset($short_description) ? $short_description : 'Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde.' }}" />
     <meta property="og:image" content="{{ asset('storage/logo/logo-black.png') }}" />
 
     <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
