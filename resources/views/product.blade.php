@@ -72,50 +72,50 @@
                         <ul class="product-details-content p-0 m-0">
                           <li class="d-flex justify-content-between">
                             <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Guļamistabas
+                              <img src="{{ asset('storage/icons/check.svg') }}"/>Guļamistabas
                             </div>
                             <div>
-                              <img src="{{ asset('storage/bed.svg') }}"/>2
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Viesistaba ar virtuves zonu
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/fork-knife.svg') }}"/>1
+                              <img src="{{ asset('storage/icons/bed.svg') }}"/>2
                             </div>
                           </li>
                           <li class="d-flex justify-content-between">
                             <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Vannas istaba
+                              <img src="{{ asset('storage/icons/check.svg') }}"/>Viesistaba ar virtuves zonu
                             </div>
                             <div>
-                              <img src="{{ asset('storage/bathtub.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/negative.svg') }}"/>Lofts
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/ladder-simple.svg') }}"/>
+                              <img src="{{ asset('storage/icons/fork-knife.svg') }}"/>1
                             </div>
                           </li>
                           <li class="d-flex justify-content-between">
                             <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Sauna
+                              <img src="{{ asset('storage/icons/check.svg') }}"/>Vannas istaba
                             </div>
                             <div>
-                              <img src="{{ asset('storage/leaf.svg') }}"/>1
+                              <img src="{{ asset('storage/icons/bathtub.svg') }}"/>1
                             </div>
                           </li>
                           <li class="d-flex justify-content-between">
                             <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Terase
+                              <img src="{{ asset('storage/icons/negative.svg') }}"/>Lofts
                             </div>
                             <div>
-                              <img src="{{ asset('storage/selection-plus.svg') }}"/>1
+                              <img src="{{ asset('storage/icons/ladder-simple.svg') }}"/>
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/icons/check.svg') }}"/>Sauna
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/icons/leaf.svg') }}"/>1
+                            </div>
+                          </li>
+                          <li class="d-flex justify-content-between">
+                            <div>
+                              <img src="{{ asset('storage/icons/check.svg') }}"/>Terase
+                            </div>
+                            <div>
+                              <img src="{{ asset('storage/icons/selection-plus.svg') }}"/>1
                             </div>
                           </li>
                         </ul>

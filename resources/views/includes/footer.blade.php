@@ -2,7 +2,7 @@
   <div class="container-fluid h-100">
     <div class="row align-items-center h-100 text-md-start text-center">
       <div class="col-md-6 col-12">
-        <img class="modern-house-logo" src="{{ asset('storage/logo-white.png') }} " alt="Modern House Logo">
+        <img class="modern-house-logo" src="{{ asset('storage/logo/logo-white.png') }} " alt="Modern House Logo">
       </div>
       <div class="col-md-3 col-6">
         <h4 class="mb-2 fw-bold">Mūsu adrese</h4>

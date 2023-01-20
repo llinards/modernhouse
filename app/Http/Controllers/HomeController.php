@@ -49,4 +49,10 @@ class HomeController extends Controller
         return back()->with('error', Lang::get('message has not been sent'));
       }
     }
+
+  public function aboutUs()
+  {
+    $allProducts = Product::where('is_active', true)->get();
+    return view('about-us', compact('allProducts'));
+  }
 }

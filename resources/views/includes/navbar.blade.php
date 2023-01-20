@@ -2,10 +2,10 @@
   <div class="container-fluid d-flex justify-content-between {{ $index ? 'navbar-index-background' : '' }}">
     <div class="logo py-3">
       <a class="navbar-brand" href="/">
-        <img src="{{ $index ? asset('storage/logo-white.png') : asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    @if($index)
+    @if($index && (count($allProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allProducts as $product)
           <a class="nav-link index text-center p-2" href="/{{ $product->slug }}">{{ $product->name }}</a>
@@ -23,7 +23,7 @@
     <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
       <div class="logo p-0">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+          <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
         </a>
       </div>
       <div class="nav-items">
@@ -38,13 +38,13 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
+            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('gallery')</a>
+            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="#">@lang('gallery')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('about')</a>
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="/about-us">@lang('about')</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}" href="/contact-us">@lang('contact')</a>
