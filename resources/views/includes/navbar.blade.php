@@ -2,7 +2,7 @@
   <div class="container-fluid d-flex justify-content-between {{ $index ? 'navbar-index-background' : '' }}">
     <div class="logo py-3">
       <a class="navbar-brand" href="/">
-        <img src="{{ $index ? asset('storage/logo-white.png') : asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
     @if($index)
@@ -23,7 +23,7 @@
     <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
       <div class="logo p-0">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+          <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
         </a>
       </div>
       <div class="nav-items">
