@@ -69,4 +69,3 @@
   </div>
   @include('includes.footer')
 @endsection
-
