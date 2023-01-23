@@ -41,7 +41,7 @@
             <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="#">@lang('gallery')</a>
+            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="/gallery">@lang('gallery')</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="/about-us">@lang('about')</a>

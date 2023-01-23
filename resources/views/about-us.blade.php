@@ -23,12 +23,12 @@
             </p>
           </div>
           <div class="col-lg-6 d-flex order-first order-lg-last justify-content-center align-items-center flex-column">
-            <img class="img-fluid" src="{{ asset('storage/about-us/one.jpg') }}" />
+            <img class="img-fluid" src="{{ asset('storage/about-us/two.jpg') }}" />
           </div>
         </div>
         <div class="row mt-5">
           <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-            <img class="img-fluid" src="{{ asset('storage/about-us/one.jpg') }}" />
+            <img class="img-fluid" src="{{ asset('storage/about-us/three.jpg') }}" />
           </div>
           <div class="col-lg-6 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-4">
             <h2 class="fw-bold title mb-2">Interjera koncepts</h2>
@@ -46,7 +46,7 @@
             <p>Modern House CEO</p>
           </div>
           <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
-            <img class="img-fluid" src="{{ asset('storage/about-us/one.jpg') }}" />
+            <img class="img-fluid" src="{{ asset('storage/about-us/four.jpg') }}" />
           </div>
         </div>
       </div>

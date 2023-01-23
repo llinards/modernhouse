@@ -34,6 +34,18 @@
                     </div>
                   </div>
                 </div>
+{{--                <hr>--}}
+{{--                <div class="mb-3">--}}
+{{--                  <div class="row">--}}
+{{--                  @foreach($productVariant->productVariantAreaDetails as $key => $productVariantAreaDetail)--}}
+{{--                    <div class="col">--}}
+{{--                      <input name="product-variant-area-detail-id-[]" id="product-variant-area-detail-id-{{$key}}" value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">--}}
+{{--                      <input type="text" name="product-variant-area-detail-name[]" id="product-variant-area-detail-name-{{$key}}" value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">--}}
+{{--                      <input type="text" name="product-variant-area-detail-square-meters[]" id="product-variant-area-detail-square-meters-{{$key}}" value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">--}}
+{{--                    </div>--}}
+{{--                  @endforeach--}}
+{{--                </div>--}}
+{{--                <hr>--}}
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description" id="product-variant-description">
