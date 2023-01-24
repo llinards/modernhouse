@@ -38,7 +38,7 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
+            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="/news">@lang('news')</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="/gallery">@lang('gallery')</a>

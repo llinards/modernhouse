@@ -1,4 +1,6 @@
 # *
 # !.gitignore
-#product-images
+product-images
+gallery
+news
 uploads

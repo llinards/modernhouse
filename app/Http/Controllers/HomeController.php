@@ -6,6 +6,7 @@ use App\Http\Requests\ContactUsRequest;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
 use App\Models\GalleryContent;
+use App\Models\NewsContent;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -56,10 +57,18 @@ class HomeController extends Controller
       $allProducts = Product::where('is_active', true)->get();
       return view('about-us', compact('allProducts'));
     }
+
     public function gallery()
     {
       $allProducts = Product::where('is_active', true)->get();
       $galleryContent = GalleryContent::with('galleryImages')->get();
       return view('gallery', compact('galleryContent', 'allProducts'));
+    }
+
+    public function news()
+    {
+      $allProducts = Product::where('is_active', true)->get();
+      $newsContent = NewsContent::get();
+      return view('news', compact('newsContent', 'allProducts'));
     }
 }
