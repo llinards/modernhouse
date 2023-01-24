@@ -12,7 +12,7 @@ galleryImages.forEach((image) => {
   const main = new Splide( '#' + image.firstElementChild.id, {
     type      : 'fade',
     pagination: false,
-    lazyLoad: 'sequential',
+    lazyLoad: 'nearby',
     heightRatio : 0.5,
   });
   main.mount();
