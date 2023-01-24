@@ -1,4 +1,5 @@
 # *
 # !.gitignore
-#product-images
+product-images
+gallery
 uploads
