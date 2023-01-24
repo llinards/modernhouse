@@ -14,11 +14,5 @@ class NewsContentSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        DB::table('news_content')->insert([
-          [
-
-          ]
-        ]);
-    }
+    {}
 }

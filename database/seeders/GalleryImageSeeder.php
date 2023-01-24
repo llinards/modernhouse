@@ -223,6 +223,11 @@ class GalleryImageSeeder extends Seeder
           'created_at' => Carbon::now(),
         ],
         [
+          'image_location' => 'atbrivotaju-ielas-kvartals/0.jpg',
+          'gallery_content_id' => 6,
+          'created_at' => Carbon::now(),
+        ],
+        [
           'image_location' => 'atbrivotaju-ielas-kvartals/1.jpg',
          'gallery_content_id' => 6,
           'created_at' => Carbon::now(),
@@ -309,11 +314,6 @@ class GalleryImageSeeder extends Seeder
         ],
         [
           'image_location' => 'atbrivotaju-ielas-kvartals/18.jpg',
-         'gallery_content_id' => 6,
-          'created_at' => Carbon::now(),
-        ],
-        [
-          'image_location' => 'atbrivotaju-ielas-kvartals/19.jpg',
          'gallery_content_id' => 6,
           'created_at' => Carbon::now(),
         ],
@@ -480,11 +480,6 @@ class GalleryImageSeeder extends Seeder
         [
           'image_location' => 'vitolu-ielas-interjers/33.jpeg',
          'gallery_content_id' => 7,
-          'created_at' => Carbon::now(),
-        ],
-        [
-          'image_location' => 'vitolu-ielas-interjers/1.jpeg',
-         'gallery_content_id' => 8,
           'created_at' => Carbon::now(),
         ],
         [
