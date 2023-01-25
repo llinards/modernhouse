@@ -407,5 +407,124 @@ class ImageSeeder extends Seeder
           'created_at' => Carbon::now()
         ],
       ]);
+        DB::table('images')->insert([
+          [
+            'product_variant_id' => 6,
+            'filename' => '1.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '2.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '3.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '4.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '5.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '6.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '7.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '8.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '9.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '10.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 6,
+            'filename' => '11.png',
+            'created_at' => Carbon::now()
+          ]
+      ]);
+      DB::table('images')->insert([
+        [
+          'product_variant_id' => 7,
+          'filename' => '1.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '2.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '3.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '4.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '5.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '6.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '7.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '8.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '9.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '10.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '11.jpg',
+          'created_at' => Carbon::now()
+        ],
+        [
+          'product_variant_id' => 7,
+          'filename' => '12.png',
+          'created_at' => Carbon::now()
+        ]
+      ]);
     }
 }

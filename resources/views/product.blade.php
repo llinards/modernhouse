@@ -5,7 +5,7 @@
       <h1 class="fw-bold text-center text-uppercase title">{{ $product->name }}</h1>
       @include('includes.status-messages')
       <div>
-        <ul class="nav mt-4 nav-tabs d-flex product-variant-titles flex-nowrap">
+        <ul class="nav mt-4 nav-tabs d-flex product-variant-titles">
           @if(count($product->productVariants) !== 1)
             @foreach($product->productVariants as $variant)
               <li class="nav-item">
