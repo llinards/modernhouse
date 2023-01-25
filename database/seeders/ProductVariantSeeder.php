@@ -71,5 +71,27 @@ class ProductVariantSeeder extends Seeder
           'created_at' => Carbon::now(),
         ],
       ]);
+      DB::table('product_variants')->insert([
+        [
+          'product_id' => 1,
+          'name' => 'Modulis Orebro',
+          'price_basic' => 43300,
+          'price_full' => 64000,
+          'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
+                            <p>&Scaron;im projektam nav nepiecie&scaron;ama būvatļauja (līdz apbūves platībai 60m&sup2;) un ir iespējams dzīvot uzreiz.</p>
+                            <p>Projektos ir iespējami dažādi iek&scaron;ējās un ārējās apdares risinājumi, kā arī ir iespējams veikt izmaiņas telpu plānojumos.</p>',
+          'created_at' => Carbon::now(),
+        ],
+        [
+          'product_id' => 1,
+          'name' => 'Modulis Idre',
+          'price_basic' => 45000,
+          'price_full' => 66400,
+          'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
+                            <p>&Scaron;im projektam nav nepiecie&scaron;ama būvatļauja (līdz apbūves platībai 60m&sup2;) un ir iespējams dzīvot uzreiz.</p>
+                            <p>Projektos ir iespējami dažādi iek&scaron;ējās un ārējās apdares risinājumi, kā arī ir iespējams veikt izmaiņas telpu plānojumos.</p>',
+          'created_at' => Carbon::now(),
+        ],
+      ]);
     }
 }
