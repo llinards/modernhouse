@@ -90,7 +90,7 @@ class ProductVariantDetailSeeder extends Seeder
             'created_at' => Carbon::now(),
           ],
           [
-            'name' => 'Lofts 6,4 m2',
+            'name' => 'Lofts 17,1 m2',
             'hasThis' => true,
             'icon' => 'ladder-simple',
             'count' => 0,
@@ -138,7 +138,7 @@ class ProductVariantDetailSeeder extends Seeder
             'created_at' => Carbon::now(),
           ],
           [
-            'name' => 'Lofts 15,3 m2',
+            'name' => 'Lofts 9.3 m2',
             'hasThis' => true,
             'icon' => 'ladder-simple',
             'count' => 0,
