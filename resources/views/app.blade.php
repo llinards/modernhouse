@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <meta name="author" content="{{ config('app.name') }}">
-    <meta name="description" content="">
+    <meta name="description" content="{{ isset($short_description) ? $short_description : 'Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde.' }}">
 
     <meta property="og:url" content=" {{Request::url()}}" />
     <meta property="og:type" content="article" />

@@ -61,11 +61,11 @@
       </div>
       <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">

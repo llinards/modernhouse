@@ -15,10 +15,10 @@
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
         <div class="p-2">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-instagram text-white"></i></a>
+          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i class="bi bi-instagram text-white"></i></a>
         </div>
         <div class="p-2">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-facebook text-white"></i></a>
+          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i class="bi bi-facebook text-white"></i></a>
         </div>
       </div>
       <hr class="m-0">

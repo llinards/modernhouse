@@ -74,7 +74,7 @@ class ProductVariantSeeder extends Seeder
       DB::table('product_variants')->insert([
         [
           'product_id' => 1,
-          'name' => 'Modulis Orebro',
+          'name' => 'Modulis Örebro',
           'price_basic' => 43300,
           'price_full' => 64000,
           'description' => '<p>Pārvietojama koka karkasa moduļu māja. &Scaron;āda veida māju būvniecība ir salīdzino&scaron;i ātra un neaizņem ilgu projekta saskaņo&scaron;anas laiku.</p>
