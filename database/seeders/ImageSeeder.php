@@ -24,7 +24,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 1,
-            'filename' => '2.jpg',
+            'filename' => '2.png',
             'created_at' => Carbon::now()
           ],
           [
@@ -74,7 +74,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 1,
-            'filename' => '12.png',
+            'filename' => '12.jpg',
             'created_at' => Carbon::now()
           ],
           [
@@ -84,7 +84,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 2,
-            'filename' => '2.jpg',
+            'filename' => '2.png',
             'created_at' => Carbon::now()
           ],
           [
@@ -114,7 +114,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 2,
-            'filename' => '8.png',
+            'filename' => '8.jpg',
             'created_at' => Carbon::now()
           ],
           [
@@ -124,7 +124,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 3,
-            'filename' => '2.jpg',
+            'filename' => '2.png',
             'created_at' => Carbon::now()
           ],
           [
@@ -154,7 +154,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 3,
-            'filename' => '8.png',
+            'filename' => '8.jpg',
             'created_at' => Carbon::now()
           ]
         ]);
@@ -166,7 +166,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 4,
-          'filename' => '2.jpg',
+          'filename' => '2.png',
           'created_at' => Carbon::now()
         ],
         [
@@ -261,7 +261,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 4,
-          'filename' => '21.png',
+          'filename' => '21.jpg',
           'created_at' => Carbon::now()
         ]
       ]);
@@ -273,7 +273,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 5,
-          'filename' => '2.jpg',
+          'filename' => '2.png',
           'created_at' => Carbon::now()
         ],
         [
@@ -403,7 +403,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 5,
-          'filename' => '28.png',
+          'filename' => '28.jpg',
           'created_at' => Carbon::now()
         ],
       ]);
@@ -415,7 +415,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 6,
-            'filename' => '2.jpg',
+            'filename' => '2.png',
             'created_at' => Carbon::now()
           ],
           [
@@ -460,7 +460,7 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 6,
-            'filename' => '11.png',
+            'filename' => '11.jpg',
             'created_at' => Carbon::now()
           ]
       ]);
@@ -472,7 +472,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 7,
-          'filename' => '2.jpg',
+          'filename' => '2.png',
           'created_at' => Carbon::now()
         ],
         [
@@ -522,7 +522,7 @@ class ImageSeeder extends Seeder
         ],
         [
           'product_variant_id' => 7,
-          'filename' => '12.png',
+          'filename' => '12.jpg',
           'created_at' => Carbon::now()
         ]
       ]);

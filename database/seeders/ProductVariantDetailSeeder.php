@@ -188,7 +188,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Mansarda stāvs 33m2',
             'hasThis' => true,
-            'icon' => 'ladder-simple',
+            'icon' => 'noliktava',
             'count' => 0,
             'product_variant_id' => 4,
             'created_at' => Carbon::now(),
@@ -196,7 +196,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Auto nojume 26,4m2',
             'hasThis' => true,
-            'icon' => 'leaf',
+            'icon' => 'auto_nojume',
             'count' => 0,
             'product_variant_id' => 4,
             'created_at' => Carbon::now(),
@@ -236,7 +236,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Mansarda stāvs 33m2',
             'hasThis' => true,
-            'icon' => 'ladder-simple',
+            'icon' => 'noliktava',
             'count' => 0,
             'product_variant_id' => 5,
             'created_at' => Carbon::now(),
@@ -244,7 +244,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Auto nojume 26,4m2',
             'hasThis' => true,
-            'icon' => 'leaf',
+            'icon' => 'auto_nojume',
             'count' => 0,
             'product_variant_id' => 5,
             'created_at' => Carbon::now(),
