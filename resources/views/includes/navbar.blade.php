@@ -90,6 +90,8 @@
     document.getElementById('navbar-modal').style.width = '0';
     document.getElementById('modal-content').style.opacity = '0';
     document.querySelector('.content').classList.remove('backdrop');
+    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
+    (navbarLinksDesktop) ? navbarLinksDesktop.classList.remove('visually-hidden') : '';
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
 
   }
@@ -103,6 +105,8 @@
     }
     document.getElementById('modal-content').style.opacity = '1';
     document.querySelector('.content').classList.add('backdrop');
+    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
+    (navbarLinksDesktop) ? navbarLinksDesktop.classList.add('visually-hidden') : '';
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
 
   }
