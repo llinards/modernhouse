@@ -10,7 +10,7 @@
               <h2 class="fw-bold title mb-2">{{ $newsItem->title }}</h2>
               <p>{!! $newsItem->content !!}</p>
               @foreach($newsItem->newsAttachments as $attachment)
-                <div class="d-flex w-100 justify-content-lg-end justify-content-center">
+                <div class="d-flex w-100 justify-content-lg-start justify-content-center">
                   <a class="nav-link text-center" target="_blank" href="{{ asset('storage/news/'.$attachment->attachment_location) }}">
                     <i class="bi bi-download"></i><p>Prezentācija</p></a>
                 </div>

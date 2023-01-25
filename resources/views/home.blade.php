@@ -9,13 +9,13 @@
           @php
             ++$key;
           @endphp
-          <a href="#{{ $loop->last ? 'next' : $allProducts[$key]->slug }}" class="pb-lg-5 pb-4 pt-3">
+          <a href="#{{ $loop->last ? 'choose-order-contact' : $allProducts[$key]->slug }}" class="pb-lg-5 pb-4 pt-3">
             <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
           </a>
         </div>
       </section>
     @endforeach
-    <section id="next" class="d-flex justify-content-center align-items-center flex-column">
+    <section id="choose-order-contact" class="d-flex justify-content-center align-items-center flex-column">
         <div class="m-2">
           <div class="text-center">
             <img src="{{ asset('storage/icons/house-line.png') }}"/>
