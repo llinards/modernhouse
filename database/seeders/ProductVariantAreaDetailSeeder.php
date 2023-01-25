@@ -53,6 +53,30 @@ class ProductVariantAreaDetailSeeder extends Seeder
             'product_variant_id' => 3,
             'created_at' => Carbon::now(),
           ],
+          [
+            'name' => 'Dzīvojamā platība',
+            'square_meters' => 144,
+            'product_variant_id' => 4,
+            'created_at' => Carbon::now(),
+          ],
+          [
+            'name' => 'Apbūves platība',
+            'square_meters' => 211.5,
+            'product_variant_id' => 4,
+            'created_at' => Carbon::now(),
+          ],
+          [
+            'name' => 'Dzīvojamā platība',
+            'square_meters' => 144,
+            'product_variant_id' => 5,
+            'created_at' => Carbon::now(),
+          ],
+          [
+            'name' => 'Apbūves platība',
+            'square_meters' => 228,
+            'product_variant_id' => 5,
+            'created_at' => Carbon::now(),
+          ],
         ]);
     }
 }
