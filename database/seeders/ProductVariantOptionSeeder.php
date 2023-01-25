@@ -229,7 +229,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -608,7 +608,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -755,7 +755,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -1136,7 +1136,7 @@ class ProductVariantOptionSeeder extends Seeder
           'option_title' => 'Elektrība',
           'option_category' => 'Full',
           'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
         ],
         [
@@ -1314,7 +1314,7 @@ class ProductVariantOptionSeeder extends Seeder
           'option_title' => 'Elektrība',
           'option_category' => 'Full',
           'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
         ],
         [
@@ -1626,7 +1626,7 @@ class ProductVariantOptionSeeder extends Seeder
           'option_title' => 'Elektroinstalācija',
           'option_category' => 'Full',
           'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
         ],
         [
@@ -1763,7 +1763,7 @@ class ProductVariantOptionSeeder extends Seeder
           'option_title' => 'Elektroinstalācija',
           'option_category' => 'Full',
           'options' => '
-<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
+<li>Elektroinstalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
         ],
         [

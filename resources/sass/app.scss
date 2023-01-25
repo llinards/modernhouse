@@ -140,11 +140,17 @@ label {
   color: $primary-color;
 }
 
+#home section#footer,
 footer {
-  height: 250px;
-  padding: 0 60px;
+  height: 225px;
+}
+
+footer {
   background-color: $primary-color;
   h4, p {
+    color: white;
+  }
+  hr {
     color: white;
   }
 }
