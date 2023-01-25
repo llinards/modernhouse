@@ -77,7 +77,13 @@
                                 <img src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
                               </div>
                               <div>
-                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>{{ ($productVariantDetail->count === 0) ? '' : $productVariantDetail->count }}
+{{--                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>{{ ($productVariantDetail->count === 0) ? '' : $productVariantDetail->count }}--}}
+                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>
+                                @if($productVariantDetail->count === 0)
+                                  <span class="invisible">-</span>
+                                @else
+                                  {{ $productVariantDetail->count }}
+                                @endif
                               </div>
                             </li>
                           @endforeach

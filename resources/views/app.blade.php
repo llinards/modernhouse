@@ -23,7 +23,7 @@
       @endif
       <script src="{{ mix('/js/app.js') }}" defer></script>
   </head>
-  <body class="antialiased">
+  <body class="antialiased" oncontextmenu="return false">
       @if(isset($index))
         @include('includes.navbar')
       @endif

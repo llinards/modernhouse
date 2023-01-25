@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="14px" height="2px" viewBox="0 0 14 2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Path 5</title>
+    <title>Path 5 Copy</title>
     <g id="DESKTOP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
-        <g id="Modulis_Lund_Pilna" transform="translate(-996.000000, -786.000000)" stroke="#3F3F3F" stroke-width="2">
-            <line x1="997" y1="787" x2="1009" y2="787" id="Path-5"></line>
+        <g id="Modulis_Malmö_Pilna" transform="translate(-997.000000, -817.000000)" stroke="#3F3F3F">
+            <line x1="998" y1="818" x2="1010" y2="818" id="Path-5-Copy"></line>
         </g>
     </g>
 </svg>

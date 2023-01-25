@@ -92,7 +92,7 @@ class ProductVariantOptionSeeder extends Seeder
           ],
           [
             'product_variant_id' => 1,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Basic',
             'options' => '
 <li>Sagatavots pievads elektrības pievilkšanai</li>'
@@ -234,7 +234,7 @@ class ProductVariantOptionSeeder extends Seeder
           ],
           [
             'product_variant_id' => 1,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
 <li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
@@ -354,7 +354,7 @@ class ProductVariantOptionSeeder extends Seeder
 
           [
             'product_variant_id' => 2,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Basic',
             'options' => '
 <li>Sagatavots pievads elektrības pievilkšanai</li>'
@@ -469,7 +469,7 @@ class ProductVariantOptionSeeder extends Seeder
 
           [
             'product_variant_id' => 3,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Basic',
             'options' => '
 <li>Sagatavots pievads elektrības pievilkšanai</li>'
@@ -617,7 +617,7 @@ class ProductVariantOptionSeeder extends Seeder
           ],
           [
             'product_variant_id' => 2,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
 <li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
@@ -770,7 +770,7 @@ class ProductVariantOptionSeeder extends Seeder
           ],
           [
             'product_variant_id' => 3,
-            'option_title' => 'Elektrība',
+            'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
 <li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
