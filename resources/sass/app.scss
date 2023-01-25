@@ -1,10 +1,16 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 @font-face {
   font-family: 'TipoTypeRegular';
   src: url('/fonts/TipoTypeRegular.otf');
-  font-weight: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TipoTypeBold';
+  src: url('/fonts/TipoTypeBold.otf');
+  font-weight: 700;
 }
 
 @import '~bootstrap/scss/bootstrap';
@@ -23,8 +29,8 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  //font-family: "TipoTypeRegular", sans-serif;
+  //font-family: "Montserrat", sans-serif;
+  font-family: "TipoTypeRegular", sans-serif;
 }
 
 $primary-color: #3f3f3f;
@@ -46,11 +52,27 @@ $product-variant-description-font-color: #919191;
 $paragraph-font-color: #919191;
 $paragraph-font-size: 14px;
 
+$paragraph-ceo-quot-font-size: 16px;
+
 $navbar-item-font-color: #3f3f3f;
 $navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "TipoTypeBold", sans-serif;
+}
+
+p,
+.variant-button {
+  font-family: "TipoTypeRegular", sans-serif;
+}
 
 h1,
 h2,

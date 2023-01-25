@@ -1,6 +1,6 @@
 <nav class="mobile-navbar {{ $index ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
-  <div class="container-fluid d-flex justify-content-between {{ $index ? 'navbar-index-background' : '' }}">
-    <div class="logo py-3">
+  <div class="container-xxl d-flex justify-content-between">
+    <div class="logo py-4">
       <a class="navbar-brand" href="/">
         <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
@@ -12,7 +12,7 @@
         @endforeach
       </div>
     @endif
-    <button type="button" class="navbar-toggler py-3">
+    <button type="button" class="navbar-toggler py-4">
       <div class="bar1 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar2 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar3 {{ $index ? 'bar-index' : '' }}"></div>

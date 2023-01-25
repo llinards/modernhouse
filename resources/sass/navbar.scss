@@ -12,10 +12,6 @@
     box-shadow: none;
   }
 
-  .navbar-index-background {
-    background-color: rgba(63, 63, 63, .5);
-  }
-
   .bar1,
   .bar2,
   .bar3 {
@@ -66,12 +62,7 @@
 }
 
 .navbar-index {
-  .logo {
-    padding-left: 60px;
-  }
-  .navbar-toggler {
-    padding-right: 60px;
-  }
+  background-color: rgba(63, 63, 63, .5);
 }
 
 .backdrop {
