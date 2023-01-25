@@ -54,7 +54,27 @@ class ImageSeeder extends Seeder
           ],
           [
             'product_variant_id' => 1,
-            'filename' => '8.png',
+            'filename' => '8.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 1,
+            'filename' => '9.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 1,
+            'filename' => '10.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 1,
+            'filename' => '11.jpg',
+            'created_at' => Carbon::now()
+          ],
+          [
+            'product_variant_id' => 1,
+            'filename' => '12.png',
             'created_at' => Carbon::now()
           ],
           [

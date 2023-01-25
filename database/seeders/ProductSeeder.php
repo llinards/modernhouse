@@ -23,7 +23,14 @@ class ProductSeeder extends Seeder
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
           'is_active' => true
-        ]
+        ],
+//        [
+//          'name' => 'Dvīņu māja',
+//          'slug' => 'dvinu-maja',
+//          'cover_photo_filename' => 'cover.jpg',
+//          'created_at' => Carbon::now(),
+//          'is_active' => true
+//        ]
       ]);
     }
 }

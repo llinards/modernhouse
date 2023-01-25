@@ -44,8 +44,8 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm) – materiāls piegādāts</li>
 <li>Saplāksnis (15 mm) vannas istabā – materiāls piegādāts</li>
 <li>Reģipsis GKB (12,5mm) – materiāls piegādāts</li>
@@ -102,7 +102,8 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Santehnika',
             'option_category' => 'Basic',
             'options' => '
-<li>Sagatavots pievads santehnikas un elektrības pievilkšanai</li>'
+<li>Kanalizācijas iebūvēšana grīdā un pievada izbūve</li>
+<li>Ūdens pievada izbūve</li>'
           ],
           [
             'product_variant_id' => 1,
@@ -130,10 +131,8 @@ class ProductVariantOptionSeeder extends Seeder
 <li>Izolācija Isover KL 35 (50mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>'
           ],
           [
             'product_variant_id' => 1,
@@ -142,25 +141,18 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>'
           ],
           [
             'product_variant_id' => 1,
             'option_title' => 'Grīdas panelis',
             'option_category' => 'Full',
             'options' => '
-<li>Vinila grīdas segums ar apakšklāju</li>
-<li>Krāsotas grīdlīstes (12x95mm)</li>
-<li>Flīzes vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
-<li>Vannas istabas grīdas betonēšana krituma izveidei</li>
 <li>OSB ar spundi (22mm)</li>
 <li>Koka karkass C24 (195x45mm)</li>
 <li>Izolācija Isover KL 35 (200mm) </li>
@@ -237,7 +229,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
+<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -252,7 +244,12 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Iekšējā apdare',
             'option_category' => 'Full',
             'options' => '
-<li>Krāsotas reģipša sienas vai krāsoti apdares dēļi</li>'
+<li>Krāsotas reģipša sienas vai krāsoti apdares dēļi</li>
+<li>Vinila grīdas segums ar apakšklāju</li>
+<li>Krāsotas grīdlīstes</li>
+<li>Flīzes vannas istabā</li>
+<li>Hidroizolācija vannas istabā</li>
+<li>Vannas istabas grīdas betonēšana krituma izveidei</li>'
           ],
           [
             'product_variant_id' => 1,
@@ -290,8 +287,8 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm) – materiāls piegādāts</li>
 <li>Saplāksnis (15 mm) vannas istabā – materiāls piegādāts</li>
 <li>Reģipsis GKB (12,5mm) – materiāls piegādāts</li>
@@ -365,7 +362,8 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Santehnika',
             'option_category' => 'Basic',
             'options' => '
-<li>Sagatavots pievads santehnikas un elektrības pievilkšanai</li>'
+<li>Kanalizācijas iebūvēšana grīdā un pievada izbūve</li>
+<li>Ūdens pievada izbūve</li>'
           ],
 
           [
@@ -405,8 +403,8 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm) – materiāls piegādāts</li>
 <li>Saplāksnis (15 mm) vannas istabā – materiāls piegādāts</li>
 <li>Reģipsis GKB (12,5mm) – materiāls piegādāts</li>
@@ -480,7 +478,8 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Santehnika',
             'option_category' => 'Basic',
             'options' => '
-<li>Sagatavots pievads santehnikas un elektrības pievilkšanai</li>'
+<li>Kanalizācijas iebūvēšana grīdā un pievada izbūve</li>
+<li>Ūdens pievada izbūve</li>'
           ],
 
           [
@@ -510,10 +509,8 @@ class ProductVariantOptionSeeder extends Seeder
 <li>Izolācija Isover KL 35 (50mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>'
           ],
           [
             'product_variant_id' => 2,
@@ -522,25 +519,18 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>'
           ],
           [
             'product_variant_id' => 2,
             'option_title' => 'Grīdas panelis',
             'option_category' => 'Full',
             'options' => '
-<li>Vinila grīdas segums ar apakšklāju</li>
-<li>Krāsotas grīdlīstes (12x95mm)</li>
-<li>Flīzes vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
-<li>Vannas istabas grīdas betonēšana krituma izveidei</li>
 <li>OSB ar spundi (22mm)</li>
 <li>Koka karkass C24 (195x45mm)</li>
 <li>Izolācija Isover KL 35 (200mm) </li>
@@ -552,8 +542,6 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Pārseguma panelis',
             'option_category' => 'Full',
             'options' => '
-<li>Vinila grīdas segums ar apakšklāju</li>
-<li>Krāsotas grīdlīstes (12x95mm)</li>
 <li>OSB ar spundi (22mm)</li>
 <li>Koka karkass C24 (145x45mm)</li>
 <li>Izolācija Isover KL 35 (100mm) </li>
@@ -620,7 +608,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
+<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -635,7 +623,12 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Iekšējā apdare',
             'option_category' => 'Full',
             'options' => '
-<li>Krāsotas reģipša sienas vai krāsoti apdares dēļi</li>'
+<li>Krāsotas reģipša sienas un griesti vai krāsoti apdares dēļi</li>
+<li>Vinila grīdas segums ar apakšklāju</li>
+<li>Krāsotas grīdlīstes</li>
+<li>Flīzes vannas istabā</li>
+<li>Hidroizolācija vannas istabā</li>
+<li>Vannas istabas grīdas betonēšana krituma izveidei</li>'
           ],
           [
             'product_variant_id' => 2,
@@ -663,10 +656,8 @@ class ProductVariantOptionSeeder extends Seeder
 <li>Izolācija Isover KL 35 (50mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm)</li>'
           ],
           [
             'product_variant_id' => 3,
@@ -675,25 +666,18 @@ class ProductVariantOptionSeeder extends Seeder
             'options' => '
 <li>Reģipsis GKB (12,5mm)</li>
 <li>OSB 3 (10mm)</li>
-<li>Statņi koka karkasam C24 (45x75mm)</li>
-<li>Izolācija Isover KL 35 (75 mm) </li>
+<li>Statņi koka karkasam C24 (45x95mm)</li>
+<li>Izolācija Isover KL 35 (100 mm) </li>
 <li>OSB 3 (10mm)</li>
 <li>Saplāksnis (15 mm) vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
 <li>Reģipsis GKB (12,5mm)</li>
-<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>
-<li>Flīzes vannas istabā</li>'
+<li>Reģipsis mitrām telpām GKBI (12,5 mm) vannas istabā</li>'
           ],
           [
             'product_variant_id' => 3,
             'option_title' => 'Grīdas panelis',
             'option_category' => 'Full',
             'options' => '
-<li>Vinila grīdas segums ar apakšklāju</li>
-<li>Krāsotas grīdlīstes (12x95mm)</li>
-<li>Flīzes vannas istabā</li>
-<li>Hidroizolācija vannas istabā</li>
-<li>Vannas istabas grīdas betonēšana krituma izveidei</li>
 <li>OSB ar spundi (22mm)</li>
 <li>Koka karkass C24 (195x45mm)</li>
 <li>Izolācija Isover KL 35 (200mm) </li>
@@ -705,8 +689,6 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Pārseguma panelis',
             'option_category' => 'Full',
             'options' => '
-<li>Vinila grīdas segums ar apakšklāju</li>
-<li>Krāsotas grīdlīstes (12x95mm)</li>
 <li>OSB ar spundi (22mm)</li>
 <li>Koka karkass C24 (145x45mm)</li>
 <li>Izolācija Isover KL 35 (100mm) </li>
@@ -773,7 +755,7 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Elektroinstalācija',
             'option_category' => 'Full',
             'options' => '
-<li>Elektro instalācija veikta pēs Skandināvijas standartiem.</li>
+<li>Elektro instalācija veikta pēc Skandināvijas standartiem.</li>
 <li>Sienās iemontētas rozetes un kontaktslēdži (Jung LS 990 sērija)</li>'
           ],
           [
@@ -788,7 +770,12 @@ class ProductVariantOptionSeeder extends Seeder
             'option_title' => 'Iekšējā apdare',
             'option_category' => 'Full',
             'options' => '
-<li>Krāsotas reģipša sienas vai krāsoti apdares dēļi</li>'
+<li>Krāsotas reģipša sienas un griesti vai krāsoti apdares dēļi</li>
+<li>Vinila grīdas segums ar apakšklāju</li>
+<li>Krāsotas grīdlīstes</li>
+<li>Flīzes vannas istabā</li>
+<li>Hidroizolācija vannas istabā</li>
+<li>Vannas istabas grīdas betonēšana krituma izveidei</li>'
           ],
           [
             'product_variant_id' => 3,
