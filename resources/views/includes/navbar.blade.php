@@ -8,7 +8,7 @@
     @if($index && (count($allProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allProducts as $product)
-          <a class="nav-link index text-center p-2" href="/{{ $product->slug }}">{{ $product->name }}</a>
+          <a class="nav-link index text-center p-3" href="/{{ $product->slug }}">{{ $product->name }}</a>
         @endforeach
       </div>
     @endif
