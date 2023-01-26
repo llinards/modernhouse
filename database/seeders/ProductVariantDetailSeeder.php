@@ -59,9 +59,9 @@ class ProductVariantDetailSeeder extends Seeder
           ],
           [
             'name' => 'Terase',
-            'hasThis' => true,
+            'hasThis' => false,
             'icon' => 'selection-plus',
-            'count' => 1,
+            'count' => 0,
             'product_variant_id' => 1,
             'created_at' => Carbon::now(),
           ],
@@ -188,7 +188,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Mansarda stāvs 33m2',
             'hasThis' => true,
-            'icon' => 'noliktava',
+            'icon' => 'ladder-simple',
             'count' => 0,
             'product_variant_id' => 4,
             'created_at' => Carbon::now(),
@@ -236,7 +236,7 @@ class ProductVariantDetailSeeder extends Seeder
           [
             'name' => 'Mansarda stāvs 33m2',
             'hasThis' => true,
-            'icon' => 'noliktava',
+            'icon' => 'ladder-simple',
             'count' => 0,
             'product_variant_id' => 5,
             'created_at' => Carbon::now(),
@@ -309,7 +309,7 @@ class ProductVariantDetailSeeder extends Seeder
             'name' => 'Guļamistabas',
             'hasThis' => true,
             'icon' => 'bed',
-            'count' => 2,
+            'count' => 1,
             'product_variant_id' => 7,
             'created_at' => Carbon::now(),
           ],

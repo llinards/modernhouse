@@ -25,15 +25,15 @@ class ProductSeeder extends Seeder
           'is_active' => true
         ],
         [
-          'name' => 'Dvīņu māja',
-          'slug' => 'dvinu-maja',
+          'name' => 'Dvīņu mājas',
+          'slug' => 'dvinu-majas',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
           'is_active' => true
         ],
         [
-          'name' => 'Privātmāja',
-          'slug' => 'privatmaja',
+          'name' => 'Privātmājas',
+          'slug' => 'privatmajas',
           'cover_photo_filename' => 'cover.jpg',
           'created_at' => Carbon::now(),
           'is_active' => true
