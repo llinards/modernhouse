@@ -17,7 +17,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
+//  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
 
   Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create'] );
   Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store'] );
