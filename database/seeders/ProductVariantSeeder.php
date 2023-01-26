@@ -52,8 +52,8 @@ class ProductVariantSeeder extends Seeder
         [
           'product_id' => 2,
           'name' => 'Dvīņu māja',
-          'price_basic' => 44700,
-          'price_full' => 66000,
+          'price_basic' => 0,
+          'price_full' => 0,
           'description' => '<p>Projekts ir veidots ar praktisku, pārdomātu plānojumu un modernu vizuālo risinājumu. Māju koncepts izstrādāts atbilstoši tam, lai ēkas iegūtu A+ energoefektivitātes pakāpi, kas pozitīvi atsauksies uz zemām ikmēneša komunālajām izmaksām.</p>
                             <p>Projektējot un būvējot mājas mēs domājam ilgtermiņā par klienta vēlmēm, kas atspoguļojas vizuālajā risinājumā un augstas kvalitātes koka karkasa tehnoloģijas izmantošanā.</p>',
           'created_at' => Carbon::now(),
@@ -63,8 +63,8 @@ class ProductVariantSeeder extends Seeder
         [
           'product_id' => 3,
           'name' => 'Privātmāja',
-          'price_basic' => 44700,
-          'price_full' => 66000,
+          'price_basic' => 0,
+          'price_full' => 0,
           'description' => '<p>Projekts ir veidots ar praktisku, pārdomātu plānojumu un modernu vizuālo risinājumu. Mājas koncepts izstrādāts atbilstoši tam, lai ēka iegūtu A+ energoefektivitātes pakāpi, kas pozitīvi atsauksies uz zemām ikmēneša komunālajām izmaksām.</p>
                             <p>Ēkas būvniecībai tiks izmantota vērienīgi uzkrātā pieredze būvējot un eksportējot mājas uz Zviedriju un ikviena mūsu klienta atsauksme kalpo par apliecinājumu kvalitātes garantam.</p>
                             <p>Projektējot un būvējot mājas mēs domājam ilgtermiņā par klienta vēlmēm, kas atspoguļojas vizuālajā risinājumā un augstas kvalitātes koka karkasa tehnoloģijas izmantošanā.</p>',
