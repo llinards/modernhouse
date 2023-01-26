@@ -58,8 +58,20 @@
                       </li>
                     </ul>
                     <div class="mt-4 mb-2">
-                      <h2 class="text-center fw-bold basic-variant-price title">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
-                      <h2 class="text-center fw-bold full-variant-price visually-hidden title">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>
+                      <h2 class="text-center fw-bold basic-variant-price title">
+                        @if($variant->price_basic != 0.00)
+                          EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
+                        @else
+                          Cena pēc individuāla pieprasījuma
+                        @endif
+                      </h2>
+                      <h2 class="text-center fw-bold full-variant-price visually-hidden title">
+                        @if($variant->price_basic != 0.00)
+                          EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
+                        @else
+                          Cena pēc individuāla pieprasījuma
+                        @endif
+                      </h2>
                     </div>
                     <div class="product-short-description">
                       <p>{!! $variant->description !!}</p>
