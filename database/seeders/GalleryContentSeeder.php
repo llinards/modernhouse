@@ -79,7 +79,7 @@ class GalleryContentSeeder extends Seeder
         ],
         [
           'title' => 'Individuālie projekti',
-          'content' => 'Individuāli projekti - MODERN HOUSE ir atvērti jebkuram investīciju un sadarbības piedāvājumam.',
+          'content' => '<p>MODERN HOUSE ir atvērti jebkuram investīciju un sadarbības piedāvājumam.</p>',
           'created_at' => Carbon::now(),
         ],
       ]);
