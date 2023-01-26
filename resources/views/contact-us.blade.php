@@ -40,7 +40,7 @@
               <div class="col-6 text-center">
                 <h5 class="fw-bold pb-1">Helvijs Ervalds</h5>
                 <p>Modern House CEO</p>
-                <a class="nav-link" href="mailto:info@modern-house.lv">info@modern-house.lv</a>
+                <a class="nav-link" href="mailto:helvijs@modern-house.lv">helvijs@modern-house.lv</a>
                 <p>+371 25666622</p>
               </div>
               <div class="col-6 text-center">

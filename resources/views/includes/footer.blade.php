@@ -20,6 +20,9 @@
         <div class="p-2">
           <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i class="bi bi-facebook text-white"></i></a>
         </div>
+        <div class="p-2">
+          <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill text-white"></i></a>
+        </div>
       </div>
       <hr class="m-0">
       <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }} | Visas tiesības rezervētas.</p>
