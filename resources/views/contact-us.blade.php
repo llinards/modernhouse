@@ -53,7 +53,7 @@
             <div class="row mt-4">
               <div class="col-12 text-center">
                 <i class="bi bi-geo-alt fs-2"></i>
-                <h5 class="fw-bold mt-2">Lauku iela 1, Sigulda, Siguldas nov., LV-2150<br/>
+                <h5 class="fw-bold mt-2">Lauku iela 1, Sigulda,<br/> Siguldas nov., LV-2150<br/>
                 @lang('modern house registration number'): 40203251766</h5>
               </div>
             </div>

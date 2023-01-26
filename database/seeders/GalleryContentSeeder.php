@@ -68,6 +68,11 @@ class GalleryContentSeeder extends Seeder
           'created_at' => Carbon::now(),
         ],
         [
+          'title' => 'Sauna Åre',
+          'content' => '<p>Gatava saunas māja, kura ir viegli uzstādāma jebkurā mājas pagalmā. Kontrolējam kvalitāti katrā celtniecības posmā un tieši tāpēc nodrošinām katram klietnam iespēju iepazīties ar ražošanas procesu Siguldā.</p>',
+          'created_at' => Carbon::now(),
+        ],
+        [
           'title' => 'Interjera koncepta vizualizācijas',
           'content' => '<p>MODERN HOUSE Interjera dizaina pamatā ir funkcionalitāte, vienkāršība un estētika. Kopējais mājokļa iekārtojums ir elegants un mūsdienīgs, kas rada patīkamu un ļoti mājīgu atmosfēru. Mūsu dizainam raksturīgs ir dabiskums, kas iekļauj koksni un dabīgu gaismu. Tieši tāpēc mūsu mājas ir ar lieliem logiem, kas visas dienas garumā nodrošina labu apgaismojumu.</p>',
           'created_at' => Carbon::now(),
