@@ -58,14 +58,14 @@
                       </li>
                     </ul>
                     <div class="mt-4 mb-2">
-                      <h2 class="text-center fw-bold basic-variant-price title">
+                      <h2 class="text-center fw-bold basic-variant-price title show active basic-{{Str::slug($variant->name)}}">
                         @if($variant->price_basic != 0.00)
                           EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
                         @else
                           Cena pēc individuāla pieprasījuma
                         @endif
                       </h2>
-                      <h2 class="text-center fw-bold full-variant-price visually-hidden title">
+                      <h2 class="text-center fw-bold full-variant-price title full-{{Str::slug($variant->name)}}">
                         @if($variant->price_basic != 0.00)
                           EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
                         @else
@@ -89,7 +89,6 @@
                                 <img src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
                               </div>
                               <div>
-{{--                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>{{ ($productVariantDetail->count === 0) ? '' : $productVariantDetail->count }}--}}
                                 <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>
                                 @if($productVariantDetail->count === 0)
                                   <span class="invisible">-</span>
@@ -166,32 +165,22 @@
   </div>
   @include('includes.footer')
   <script>
-    const basicVariantBtn = document.querySelectorAll('.basic-variant-title');
-    const fullVariantBtn = document.querySelectorAll('.full-variant-title');
-
-    const basicVariantPrice = document.querySelectorAll('.basic-variant-price');
-    const fullVariantPrice = document.querySelectorAll('.full-variant-price');
-
-    basicVariantBtn.forEach(item => {
-      item.addEventListener('click', (e) => {
-        basicVariantPrice.forEach(item => {
-          item.classList.remove('visually-hidden');
-        });
-        fullVariantPrice.forEach(item => {
-          item.classList.add('visually-hidden');
-        });
-      });
-    });
-
-    fullVariantBtn.forEach(item => {
-      item.addEventListener('click', (e) => {
-        fullVariantPrice.forEach(item => {
-          item.classList.remove('visually-hidden');
-        });
-        basicVariantPrice.forEach(item => {
-          item.classList.add('visually-hidden');
-        });
-      });
-    });
+    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant)=>{
+      selectedVariant.addEventListener('show.bs.tab', () => {
+        const targetClass = selectedVariant.dataset.bsTarget
+        const currentVariantPrice = document.querySelector('.'+targetClass.replace('#', ''));
+        if (currentVariantPrice) {
+          if (currentVariantPrice.nextElementSibling) {
+            currentVariantPrice.nextElementSibling.classList.toggle('show');
+            currentVariantPrice.nextElementSibling.classList.toggle('active');
+          } else if (currentVariantPrice.previousElementSibling) {
+            currentVariantPrice.previousElementSibling.classList.toggle('show');
+            currentVariantPrice.previousElementSibling.classList.toggle('active');
+          }
+          currentVariantPrice.classList.toggle('show');
+          currentVariantPrice.classList.toggle('active');
+        }
+      })
+    })
   </script>
 @endsection
