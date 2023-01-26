@@ -69,12 +69,12 @@ class GalleryContentSeeder extends Seeder
         ],
         [
           'title' => 'Interjera koncepta vizualizācijas',
-          'content' => '<p>MODERN HOUSE Interjera dizaina pamatā ir funkcionalitāte, vienkāršība un estētika. Kopējais mājokļa iekārtojums ir elegants un mūsdienīgs, kas rada patīkamu un ļoti mājīgu atmosfēru. Mūsu dizainam raksturīgs ir dabiskums, kas iekļauj koksni un dabīgu gaismu. Tieši tāpēc mūsu mājas ir ar lieliem logiem, kas visas dienas garumā nodrošina labu apgaismojumu. Individuāli projekti - MODERN HOUSE ir atvērti jebkuram investīciju un sadarbības piedāvājumam.</p>',
+          'content' => '<p>MODERN HOUSE Interjera dizaina pamatā ir funkcionalitāte, vienkāršība un estētika. Kopējais mājokļa iekārtojums ir elegants un mūsdienīgs, kas rada patīkamu un ļoti mājīgu atmosfēru. Mūsu dizainam raksturīgs ir dabiskums, kas iekļauj koksni un dabīgu gaismu. Tieši tāpēc mūsu mājas ir ar lieliem logiem, kas visas dienas garumā nodrošina labu apgaismojumu.</p>',
           'created_at' => Carbon::now(),
         ],
         [
           'title' => 'Individuālie projekti',
-          'content' => '',
+          'content' => 'Individuāli projekti - MODERN HOUSE ir atvērti jebkuram investīciju un sadarbības piedāvājumam.',
           'created_at' => Carbon::now(),
         ],
       ]);

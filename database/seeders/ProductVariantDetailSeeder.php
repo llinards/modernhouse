@@ -261,7 +261,7 @@ class ProductVariantDetailSeeder extends Seeder
             'name' => 'Guļamistabas',
             'hasThis' => true,
             'icon' => 'bed',
-            'count' => 2,
+            'count' => 1,
             'product_variant_id' => 6,
             'created_at' => Carbon::now(),
           ],
