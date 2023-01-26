@@ -108,3 +108,8 @@
     color: $primary-color;
   }
 }
+
+.basic-variant-price:not(.show),
+.full-variant-price:not(.show) {
+  display: none;
+}
