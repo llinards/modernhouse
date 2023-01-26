@@ -1,13 +1,11 @@
 @extends('app', ['title' => $product->name, 'index' => false, 'allProducts' => $allProducts])
 @section('content')
-  <div class="container-xxl">
+  <div class="container-xxl mb-4">
     <div class="row">
-      <div class="title">
-        <h1 class="fw-bold text-center text-uppercase">{{ $product->name }}</h1>
-      </div>
+      <h1 class="fw-bold text-center text-uppercase title">{{ $product->name }}</h1>
       @include('includes.status-messages')
-      <div class="product-variants-options">
-        <ul class="nav mt-4 nav-tabs d-flex product-variant-titles flex-nowrap">
+      <div>
+        <ul class="nav mt-4 nav-tabs d-flex product-variant-titles">
           @if(count($product->productVariants) !== 1)
             @foreach($product->productVariants as $variant)
               <li class="nav-item">
@@ -16,9 +14,9 @@
             @endforeach
           @endif
         </ul>
-        <div class="tab-content product-variant">
+        <div class="tab-content">
           @foreach($product->productVariants as $variant)
-            <div class="tab-pane product-variant-tab fade {{ $loop->first ? 'show active' : '' }}" id="{{Str::slug($variant->name)}}">
+            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{Str::slug($variant->name)}}">
               <div class="row">
                 <div class="col-lg-7 mt-4">
                   <section id="{{Str::slug($variant->name)}}-main-carousel" class="splide">
@@ -27,7 +25,7 @@
                         @foreach($product->productVariantImages as $image)
                           @if($image->product_variant_id === $variant->id)
                             <li class="splide__slide">
-                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="">
+                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="{{ $variant->name }}">
                             </li>
                           @endif
                         @endforeach
@@ -40,7 +38,7 @@
                         @foreach($product->productVariantImages as $image)
                           @if($image->product_variant_id === $variant->id)
                             <li class="splide__slide">
-                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}"/>
+                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="{{ $variant->name }}"/>
                             </li>
                           @endif
                         @endforeach
@@ -50,92 +48,69 @@
                 </div>
                 <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
                   <div>
-                    <div class="title">
-                      <h2 class="fw-bold text-center">Izvēlies komplektāciju</h2>
-                    </div>
+                    <h2 class="fw-bold text-center title">Izvēlies komplektāciju</h2>
                     <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
                       <li class="nav-item">
-                        <button class="nav-link active product-variant-option-title basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas</button>
+                        <button class="nav-link active basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas</button>
                       </li>
                       <li class="nav-item">
-                        <button class="nav-link product-variant-option-title full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna</button>
+                        <button class="nav-link full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna</button>
                       </li>
                     </ul>
-                    <div class="product-price mt-4 mb-2">
-                      <div class="title">
-                        <h2 class="text-center fw-bold basic-variant-price">EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}</h2>
-                        <h2 class="text-center fw-bold full-variant-price visually-hidden">EUR {{ number_format($variant->price_full, 2, ',', ' ') }}</h2>
-                      </div>
+                    <div class="mt-4 mb-2">
+                      <h2 class="text-center fw-bold basic-variant-price title">
+                        @if($variant->price_basic != 0.00)
+                          EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
+                        @else
+                          Cena pēc individuāla pieprasījuma
+                        @endif
+                      </h2>
+                      <h2 class="text-center fw-bold full-variant-price visually-hidden title">
+                        @if($variant->price_basic != 0.00)
+                          EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
+                        @else
+                          Cena pēc individuāla pieprasījuma
+                        @endif
+                      </h2>
                     </div>
                     <div class="product-short-description">
                       <p>{!! $variant->description !!}</p>
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
-                          <p class="text-start">Dzīvojamā platība: 40,95m<sup>2</sup></p>
-                          <p class="text-end">Apbūves platība: 52m<sup>2</sup></p>
+                          @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
+                            <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}m<sup>2</sup></p>
+                          @endforeach
                         </div>
                         <hr class="m-1">
                         <ul class="product-details-content p-0 m-0">
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Guļamistabas
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/bed.svg') }}"/>2
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Viesistaba ar virtuves zonu
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/fork-knife.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Vannas istaba
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/bathtub.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/negative.svg') }}"/>Lofts
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/ladder-simple.svg') }}"/>
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Sauna
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/leaf.svg') }}"/>1
-                            </div>
-                          </li>
-                          <li class="d-flex justify-content-between">
-                            <div>
-                              <img src="{{ asset('storage/check.svg') }}"/>Terase
-                            </div>
-                            <div>
-                              <img src="{{ asset('storage/selection-plus.svg') }}"/>1
-                            </div>
-                          </li>
+                          @foreach($variant->productVariantDetails as $productVariantDetail)
+                            <li class="d-flex justify-content-between">
+                              <div>
+                                <img src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
+                              </div>
+                              <div>
+{{--                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>{{ ($productVariantDetail->count === 0) ? '' : $productVariantDetail->count }}--}}
+                                <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>
+                                @if($productVariantDetail->count === 0)
+                                  <span class="invisible">-</span>
+                                @else
+                                  {{ $productVariantDetail->count }}
+                                @endif
+                              </div>
+                            </li>
+                          @endforeach
                         </ul>
                         <hr class="m-1 mb-3">
                       </div>
                     </div>
                   </div>
-                  <div class="product-order d-flex flex-column align-items-center">
+                  <div class="d-flex flex-column align-items-center">
                     <button
                       class="btn btn-primary fw-light d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
                   </div>
                 </div>
                 <div class="tab-content product-variant-option mt-4">
-                  <h4 class="fw-bold text-center my-2">Tehniskās specifikācijas</h4>
+                  <h3 class="fw-bold text-center my-2">Tehniskās specifikācijas</h3>
                   <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
                     <div class="accordion accordion-flush">
                       @foreach($product->productVariantOptions as $option)
@@ -189,6 +164,7 @@
       </div>
     </div>
   </div>
+  @include('includes.footer')
   <script>
     const basicVariantBtn = document.querySelectorAll('.basic-variant-title');
     const fullVariantBtn = document.querySelectorAll('.full-variant-title');

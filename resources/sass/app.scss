@@ -1,5 +1,19 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@font-face {
+  font-family: 'TipoTypeRegular';
+  src: url('/storage/fonts/TipoTypeRegular.otf') format('opentype');
+  src: url('/storage/fonts/TipoTypeRegular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TipoTypeBold';
+  src: url('/storage/fonts/TipoTypeBold.otf') format('opentype');
+  src: url('/storage/fonts/TipoTypeBold.ttf') format('truetype');
+  font-weight: 700;
+}
 
 @import '~bootstrap/scss/bootstrap';
 
@@ -17,13 +31,14 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  //font-family: "Montserrat", sans-serif;
+  font-family: "TipoTypeRegular", sans-serif;
 }
 
 $primary-color: #3f3f3f;
 
 $title-font-size: 56px;
-$title-font-size-mobile: 46px;
+$title-font-size-mobile: 38px;
 
 $title-2nd-font-size: 42px;
 $title-2nd-font-size-mobile: 32px;
@@ -36,11 +51,30 @@ $product-variant-titles-letter-spacing: 1.6px;
 $product-variant-description-font-size: 12px;
 $product-variant-description-font-color: #919191;
 
+$paragraph-font-color: #919191;
+$paragraph-font-size: 14px;
+
+$paragraph-ceo-quot-font-size: 16px;
+
 $navbar-item-font-color: #3f3f3f;
-$navbar-hover-font-color: #919191;
+$navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "TipoTypeBold", sans-serif;
+}
+
+p,
+.variant-button {
+  font-family: "TipoTypeRegular", sans-serif;
+}
 
 h1,
 h2,
@@ -59,17 +93,15 @@ p {
   transform: rotate(180deg);
 }
 
-.title {
-  h1 {
-    font-size: $title-font-size;
-  }
+h1.title {
+  font-size: $title-font-size;
 }
 
-.title {
-  h2 {
-    font-size: $title-2nd-font-size;
-  }
+
+h2.title {
+  font-size: $title-2nd-font-size;
 }
+
 
 .btn-primary{
   width: 328px;
@@ -104,8 +136,30 @@ p {
   border: none;
 }
 
+label {
+  color: $primary-color;
+}
+
+#home section#footer,
+footer {
+  height: 225px;
+}
+
+footer {
+  background-color: $primary-color;
+  h4, p {
+    color: white;
+  }
+  hr {
+    color: white;
+  }
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
+@import "./about-us.scss";
+@import "./contact-us.scss";
+@import './gallery.scss';
 
 @import "./media-queries.scss";

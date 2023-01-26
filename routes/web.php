@@ -17,7 +17,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
+//  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
 
   Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create'] );
   Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store'] );
@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
+Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
+Route::get('/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
+Route::get('/news', [\App\Http\Controllers\HomeController::class, 'news']);
 Route::post('/contact-us', [\App\Http\Controllers\HomeController::class, 'submitContactUs']);
 Route::get('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'show']);
 Route::post('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');

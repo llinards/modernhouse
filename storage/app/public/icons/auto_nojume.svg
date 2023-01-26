@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>auto_nojume</title>
+    <g id="DESKTOP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Modulis_Lund_Pilna" transform="translate(-1294.000000, -800.000000)">
+            <g id="auto_nojume" transform="translate(1294.000000, 800.000000)">
+                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                <line x1="1.5" y1="11.253125" x2="22.5" y2="11.253125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <path d="M21,17.25 L21,19.5 C21,19.9142136 20.6642136,20.25 20.25,20.25 L18,20.25 C17.5857864,20.25 17.25,19.9142136 17.25,19.5 L17.25,17.25" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M6.75,17.25 L6.75,19.5 C6.75,19.9142136 6.41421356,20.25 6,20.25 L3.75,20.25 C3.33578644,20.25 3,19.9142136 3,19.5 L3,17.25" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <line x1="6" y1="14.253125" x2="7.5" y2="14.253125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="16.5" y1="14.253125" x2="18" y2="14.253125" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
+                <path d="M21,11.25 L18.196875,4.95 C18.0780273,4.67767909 17.8096229,4.50119405 17.5125,4.5 L6.4875,4.5 C6.19037707,4.50119405 5.92197273,4.67767909 5.803125,4.95 L3,11.25 L3,17.25 L21,17.25 L21,11.25 Z" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,11 +3,10 @@
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
-  .title {
-    h1 {
+  h1.title {
     color: white;
     padding-top: 150px;
-  }}
+  }
   section {
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,14 +15,14 @@
     background-position: center center;
     height: 100%;
   }
-}
 
-#next {
-  img {
-    width: 100px;
+  section#choose-order-contact {
+    padding-top: 60px;
   }
 }
 
-.modern-house-location-map {
-  width: 100%;
+#choose-order-contact {
+  img {
+    width: 100px;
+  }
 }

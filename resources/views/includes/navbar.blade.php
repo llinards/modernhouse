@@ -1,18 +1,18 @@
 <nav class="mobile-navbar {{ $index ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
-  <div class="container-fluid d-flex justify-content-between {{ $index ? 'background-index ' : '' }}">
-    <div class="logo py-3">
+  <div class="container-xxl d-flex justify-content-between">
+    <div class="logo py-4">
       <a class="navbar-brand" href="/">
-        <img src="{{ $index ? asset('storage/logo-white.png') : asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    @if($index)
+    @if($index && (count($allProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allProducts as $product)
-          <a class="nav-link index text-center p-2" href="/{{ $product->slug }}">{{ $product->name }}</a>
+          <a class="nav-link index text-center p-3" href="/{{ $product->slug }}">{{ $product->name }}</a>
         @endforeach
       </div>
     @endif
-    <button type="button" class="navbar-toggler py-3">
+    <button type="button" class="navbar-toggler py-4">
       <div class="bar1 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar2 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar3 {{ $index ? 'bar-index' : '' }}"></div>
@@ -23,7 +23,7 @@
     <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
       <div class="logo p-0">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('storage/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+          <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
         </a>
       </div>
       <div class="nav-items">
@@ -38,13 +38,13 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('news')</a>
+            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="/news">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('gallery')</a>
+            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="/gallery">@lang('gallery')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="#">@lang('about')</a>
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="/about-us">@lang('about')</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}" href="/contact-us">@lang('contact')</a>
@@ -59,20 +59,20 @@
   {{--        @endif--}}
         </ul>
       </div>
-      <div class="d-flex social-network-icons-menu">
+      <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
         </div>
-        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
-          <a href="" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
         </div>
-        <div class="p-1 social-network-icon-dividers">|</div>
+        <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
           <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
         </div>
       </div>
-      <div class="footer-info d-flex flex-column align-items-center">
+      <div class="navbar-modal-footer d-flex flex-column align-items-center">
         <p class="text-center">Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
         <p>@lang('modern house registration number'): 40203251766</p>
         <p class="mt-4">&copy; {{ date('Y') }} "Modern House" SIA</p>
@@ -90,8 +90,10 @@
     document.getElementById('navbar-modal').style.width = '0';
     document.getElementById('modal-content').style.opacity = '0';
     document.querySelector('.content').classList.remove('backdrop');
+    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
+    (navbarLinksDesktop) ? navbarLinksDesktop.classList.remove('visually-hidden') : '';
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
-    document.body.style.overflowY = 'scroll';
+
   }
 
   function openMenu() {
@@ -103,8 +105,10 @@
     }
     document.getElementById('modal-content').style.opacity = '1';
     document.querySelector('.content').classList.add('backdrop');
+    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
+    (navbarLinksDesktop) ? navbarLinksDesktop.classList.add('visually-hidden') : '';
     document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
-    document.body.style.overflowY = 'hidden';
+
   }
 
   menuLinks.forEach((link) => {

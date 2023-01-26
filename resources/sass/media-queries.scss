@@ -1,26 +1,19 @@
 @media (max-width: 992px) {
-  //.content-product {
-  //  position: relative;
-  //  top: 0;
-  //}
-  .navbar-index {
-    .logo {
-      padding-left: 0;
-    }
-    .navbar-toggler {
-      padding-right: 0;
-    }
-  }
   .navbar-links-desktop {
     display: none !important;
   }
   .btn-main {
     max-width: 290px;
   }
-  .title {
-    h1 {
-      font-size: $title-font-size-mobile;
-    }
+  h1.title {
+    font-size: $title-font-size-mobile;
+  }
+}
+
+@media (max-width: 768px) {
+  #home section#footer,
+  footer {
+    height: 300px;
   }
 }
 
@@ -29,21 +22,21 @@
     width: 65px;
   }
 
-  .title {
-    h2 {
-      font-size: $title-2nd-font-size-mobile;
-    }
+  //footer {
+  //  padding: 1.5rem 0;
+  //}
+
+  h2.title {
+    font-size: $title-2nd-font-size-mobile;
   }
+
 
   .product-variant-titles button,
   .product-variant-option-titles button{
     font-size: $product-variant-titles-font-size-mobile;
   }
-}
 
-@media (min-width: 1400px) {
-  .navbar-product-page {
-    max-width: 1320px;
-    margin: 0 auto;
+  .modern-house-location-map {
+    height: 250px;
   }
 }

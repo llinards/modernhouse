@@ -6,6 +6,18 @@ import 'filepond/dist/filepond.min.css';
 
 const galleries = document.querySelectorAll('.tab-pane .row .col-lg-7.mt-4');
 
+const galleryImages = document.querySelectorAll('#gallery-images');
+
+galleryImages.forEach((image) => {
+  const main = new Splide( '#' + image.firstElementChild.id, {
+    type      : 'fade',
+    pagination: false,
+    lazyLoad: 'nearby',
+    heightRatio : 0.5,
+  });
+  main.mount();
+});
+
 galleries.forEach((gallery) => {
   const main = new Splide( '#' + gallery.firstElementChild.id, {
     type      : 'fade',

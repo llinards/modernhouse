@@ -7,8 +7,8 @@
     border: none;
     padding: 0.5rem;
     &.active {
-      border-bottom: 4px solid $navbar-hover-font-color;
-      color: $navbar-hover-font-color;
+      border-bottom: 4px solid $navbar-item-hover-font-color;
+      color: $navbar-item-hover-font-color;
     }
   }
 }
@@ -59,7 +59,7 @@
 }
 
 .variant-button:not(.collapsed) {
-  background-color: $navbar-hover-font-color;
+  background-color: $navbar-item-hover-font-color;
   color: white;
 }
 
@@ -77,7 +77,8 @@
     position: relative;
     display: block;
     padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
-    color: var(--bs-list-group-color);
+    //color: var(--bs-list-group-color);
+    color: $primary-color;
     text-decoration: none;
     background-color: var(--bs-list-group-bg);
     &:not(:last-child) {
@@ -96,6 +97,7 @@
   //margin: 0 auto;
   li {
     list-style: none;
+    font-size: $product-variant-description-font-size;
   }
   img {
     max-width: 25px;

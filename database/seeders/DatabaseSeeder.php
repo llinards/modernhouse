@@ -18,7 +18,14 @@ class DatabaseSeeder extends Seeder
           ProductVariantSeeder::class,
           ImageSeeder::class,
           ProductVariantOptionSeeder::class,
-          UserSeeder::class
+          UserSeeder::class,
+          ProductVariantAreaDetailSeeder::class,
+          ProductVariantDetailSeeder::class,
+          NewsContentSeeder::class,
+          NewsImageSeeder::class,
+          NewsAttachmentSeeder::class,
+          GalleryContentSeeder::class,
+          GalleryImageSeeder::class,
         ]);
     }
 }

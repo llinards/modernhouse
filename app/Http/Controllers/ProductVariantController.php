@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductVariantRequest;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductVariantAreaDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
@@ -50,6 +51,7 @@ class ProductVariantController extends Controller
 
     public function update (UpdateProductVariantRequest $data)
     {
+//      return $data;
       try {
         $productVariantToUpdate = ProductVariant::findOrFail($data->id);
         if ($data['product-variant-name'] !== $productVariantToUpdate->name) {
@@ -60,11 +62,16 @@ class ProductVariantController extends Controller
         }
         $productVariantToUpdate->update([
           'name' => $data['product-variant-name'],
-          'price' => 0,
           'price_basic' => $data['product-variant-basic-price'],
           'price_full' => $data['product-variant-full-price'],
           'description' => $data['product-variant-description'],
         ]);
+//        foreach($data["product-variant-area-detail-name"] as $key => $productVariantAreaDetailName) {
+//          $productVariantAreaDetailToUpdate = ProductVariantAreaDetail::findOrFail($data['product-variant-area-detail-id-'.$key]);
+//          $productVariantAreaDetailToUpdate->update([
+//            'name' => $productVariantAreaDetailName
+//          ]);
+//        };
         if (isset($data['product-variant-images'])) {
           foreach($data['product-variant-images'] as $image) {
             $fileName = basename($image);
