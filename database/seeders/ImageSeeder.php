@@ -259,11 +259,6 @@ class ImageSeeder extends Seeder
           'filename' => '20.jpg',
           'created_at' => Carbon::now()
         ],
-        [
-          'product_variant_id' => 4,
-          'filename' => '21.jpg',
-          'created_at' => Carbon::now()
-        ]
       ]);
         DB::table('images')->insert([
         [
@@ -399,11 +394,6 @@ class ImageSeeder extends Seeder
         [
           'product_variant_id' => 5,
           'filename' => '27.jpg',
-          'created_at' => Carbon::now()
-        ],
-        [
-          'product_variant_id' => 5,
-          'filename' => '28.jpg',
           'created_at' => Carbon::now()
         ],
       ]);
