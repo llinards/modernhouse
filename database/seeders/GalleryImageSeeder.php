@@ -423,6 +423,11 @@ class GalleryImageSeeder extends Seeder
           'created_at' => Carbon::now(),
         ],
         [
+          'image_location' => 'atbrivotaju-ielas-projekts/19.jpg',
+          'gallery_content_id' => 8,
+          'created_at' => Carbon::now(),
+        ],
+        [
           'image_location' => 'vitolu-ielas-interjers/1.jpeg',
          'gallery_content_id' => 9,
           'created_at' => Carbon::now(),
