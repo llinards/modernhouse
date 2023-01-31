@@ -3,7 +3,13 @@
 @if (isset($data['product-variant']))
   <p>Variants: <strong>{{ $data['product-variant'] }}</strong></p>
 @endif
-<p>Komplektācija: <strong>{{ $data['product-variant-option'] }}</strong></p>
+<p>Komplektācija:
+  @if($data['product-variant-option'] == 'Basic')
+    <strong>Rūpnīcas</strong>
+  @else
+    <strong>Pilna</strong>
+  @endif
+</p>
 <p>Vārds, uzvārds: <strong>{{ $data['name-surname'] }}</strong></p>
 <p>E-pasts: <strong>{{ $data['email'] }}</strong></p>
 <p>Kontakttālrunis: <strong>{{ $data['phone-number'] }}</strong></p>
