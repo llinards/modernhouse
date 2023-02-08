@@ -22,10 +22,6 @@
     width: 65px;
   }
 
-  //footer {
-  //  padding: 1.5rem 0;
-  //}
-
   h2.title {
     font-size: $title-2nd-font-size-mobile;
   }
@@ -38,5 +34,16 @@
 
   .modern-house-location-map {
     height: 250px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .mobile-navbar {
+    .navbar-toggler.open {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      transition: all 0.5s;
+    }
   }
 }
