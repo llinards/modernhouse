@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section>
       <div class="mt-5">
-        <h2 class="text-center">Galerija</h2>
+        <h2 class="text-center">Galerijas</h2>
       </div>
       <div>
         <div class="container">
@@ -17,13 +17,18 @@
               <div class="col-lg-3 p-2">
                 <div class="card position-relative">
                   <div class="card-body">
-                    <h3 class="card-title text-center">{{ $galleryItem->title }}</h3>
+                    <p class="card-title text-center">{{ $galleryItem->title }}</p>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
-                      <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-secondary">Rediģēt</a>
+                      <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-secondary m-1">Rediģēt</a>
+                      <button type="button" data-bs-toggle="modal"
+                              data-bs-target="#delete-gallery-modal-{{$galleryItem->id}}" class="btn btn-danger m-1">
+                        Dzēst
+                      </button>
                     </div>
                   </div>
                 </div>
+                @include('admin.gallery.delete-modal')
               </div>
             @endforeach
           </div>

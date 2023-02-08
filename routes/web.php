@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
   Route::post('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
   Route::get('/admin/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
   Route::patch('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
+  Route::delete('/admin/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);

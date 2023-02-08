@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGalleryContentRequest;
 use App\Http\Requests\UpdateGalleryContentRequest;
 use App\Models\GalleryContent;
-use App\Models\ProductVariant;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -73,6 +71,17 @@ class GalleryController extends Controller
         }
       }
       return back()->with('success', Lang::get('updated'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
+  }
+
+  public function destroy(GalleryContent $gallery)
+  {
+    try {
+      Storage::disk('public')->deleteDirectory('gallery/' . Str::slug($gallery->title));
+      $gallery->delete();
+      return back()->with('success', Lang::get('deleted'));
     } catch (\Exception $e) {
       return back()->with('error', Lang::get('error try again'));
     }
