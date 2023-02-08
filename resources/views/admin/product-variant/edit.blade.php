@@ -11,7 +11,8 @@
           <div class="row justify-content-center">
             <div class="col-lg-7 col-12">
               @include('includes.status-messages')
-              <form action="/admin/product-variant" id="update-product-variant" method="POST" enctype="multipart/form-data">
+              <form action="/admin/product-variant" id="update-product-variant" method="POST"
+                    enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
@@ -20,35 +21,39 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-name" class="form-label">Nosaukums</label>
-                  <input type="text" class="form-control" id="product-variant-name" value="{{ $productVariant->name }}" name="product-variant-name">
+                  <input type="text" class="form-control" id="product-variant-name" value="{{ $productVariant->name }}"
+                         name="product-variant-name">
                 </div>
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
                       <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas komplektācijai</label>
-                      <input type="text" name="product-variant-basic-price" id="product-variant-basic-price" value="{{ $productVariant->price_basic }}" class="form-control">
+                      <input type="text" name="product-variant-basic-price" id="product-variant-basic-price"
+                             value="{{ $productVariant->price_basic }}" class="form-control">
                     </div>
                     <div class="col-6">
                       <label for="product-variant-full-price" class="form-label">Cena pilnai komplektācijai</label>
-                      <input type="text" name="product-variant-full-price" id="product-variant-full-price" value="{{ $productVariant->price_full }}" class="form-control">
+                      <input type="text" name="product-variant-full-price" id="product-variant-full-price"
+                             value="{{ $productVariant->price_full }}" class="form-control">
                     </div>
                   </div>
                 </div>
-{{--                <hr>--}}
-{{--                <div class="mb-3">--}}
-{{--                  <div class="row">--}}
-{{--                  @foreach($productVariant->productVariantAreaDetails as $key => $productVariantAreaDetail)--}}
-{{--                    <div class="col">--}}
-{{--                      <input name="product-variant-area-detail-id-[]" id="product-variant-area-detail-id-{{$key}}" value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">--}}
-{{--                      <input type="text" name="product-variant-area-detail-name[]" id="product-variant-area-detail-name-{{$key}}" value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">--}}
-{{--                      <input type="text" name="product-variant-area-detail-square-meters[]" id="product-variant-area-detail-square-meters-{{$key}}" value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">--}}
-{{--                    </div>--}}
-{{--                  @endforeach--}}
-{{--                </div>--}}
-{{--                <hr>--}}
+                {{--                <hr>--}}
+                {{--                <div class="mb-3">--}}
+                {{--                  <div class="row">--}}
+                {{--                  @foreach($productVariant->productVariantAreaDetails as $key => $productVariantAreaDetail)--}}
+                {{--                    <div class="col">--}}
+                {{--                      <input name="product-variant-area-detail-id-[]" id="product-variant-area-detail-id-{{$key}}" value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">--}}
+                {{--                      <input type="text" name="product-variant-area-detail-name[]" id="product-variant-area-detail-name-{{$key}}" value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">--}}
+                {{--                      <input type="text" name="product-variant-area-detail-square-meters[]" id="product-variant-area-detail-square-meters-{{$key}}" value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">--}}
+                {{--                    </div>--}}
+                {{--                  @endforeach--}}
+                {{--                </div>--}}
+                {{--                <hr>--}}
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
-                  <textarea rows="5" class="form-control" name="product-variant-description" id="product-variant-description">
+                  <textarea rows="5" class="form-control" name="product-variant-description"
+                            id="product-variant-description">
                     {{ $productVariant->description }}
                   </textarea>
                 </div>
@@ -60,10 +65,13 @@
                     @else
                       @foreach($productVariant->productVariantImages as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
-                          <a class="btn btn-danger btn-sm mb-1" href="{{ URL::to('/admin/image/'.$image->id.'/delete') }}">
+                          <a class="btn btn-danger btn-sm mb-1"
+                             href="{{ URL::to('/admin/image/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
-                          <img class="img-fluid mb-2" src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name)).'/'.$image->filename }}" alt="">
+                          <img class="img-fluid mb-2"
+                               src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name)).'/'.$image->filename }}"
+                               alt="">
                         </div>
                       @endforeach
                     @endif
@@ -73,10 +81,13 @@
                   <label for="product-variant-images" class="form-label">Pievienot jaunas bildes</label>
                   <input class="form-control" type="file" id="product-variant-images" name="product-variant-images[]">
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a></p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  </p>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-variant-modal" class="btn btn-danger">Dzēst</button>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-variant-modal"
+                          class="btn btn-danger">Dzēst
+                  </button>
                   <div class="d-flex">
                     <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
                     <button type="submit" form="update-product-variant" class="btn btn-success mx-1">Atjaunot</button>
@@ -91,9 +102,7 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('product-variant-description', {
-
-    });
+    CKEDITOR.replace('product-variant-description', {});
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));
