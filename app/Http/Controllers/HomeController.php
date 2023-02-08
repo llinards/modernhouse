@@ -8,7 +8,6 @@ use App\Mail\RequestedProductInfo;
 use App\Models\GalleryContent;
 use App\Models\NewsContent;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 
