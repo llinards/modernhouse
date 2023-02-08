@@ -11,14 +11,20 @@ class UploadController extends Controller
   {
     if ($data->hasFile('product-cover-photo')) {
       $file = $data->file('product-cover-photo');
-      $filePath = $file->storeAs('uploads/temp', 'cover.' . $file->getClientOriginalExtension(), 'public');
-      return $filePath;
+      return $file->storeAs('uploads/temp', 'cover.' . $file->getClientOriginalExtension(), 'public');
     }
     if ($data->hasFile('product-variant-images')) {
       $files = $data->file('product-variant-images');
       foreach($files as $file) {
-        $filePath = $file->store('uploads/temp', 'public');
-        return $filePath;
+        $fileName = $file->getClientOriginalName();
+        return $file->storeAs('uploads/temp', $fileName,  'public');
+      }
+    }
+    if ($data->hasFile('gallery-images')) {
+      $files = $data->file('gallery-images');
+      foreach($files as $file) {
+        $fileName = $file->getClientOriginalName();
+        return $file->storeAs('uploads/temp', $fileName, 'public');
       }
     }
     return '';

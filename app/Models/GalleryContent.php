@@ -9,6 +9,8 @@ class GalleryContent extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'content'];
+
     public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
       return $this->hasMany(GalleryImage::class);
