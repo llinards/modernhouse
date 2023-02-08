@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
   Route::get('/admin/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
   Route::post('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
+  Route::get('/admin/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
+  Route::patch('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
@@ -35,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
   Route::delete('/admin/product-variant/{productVariant}/delete', [\App\Http\Controllers\ProductVariantController::class, 'destroy']);
 
   Route::get('/admin/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
+  Route::get('/admin/gallery/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
 
   Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);

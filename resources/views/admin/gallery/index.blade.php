@@ -20,7 +20,7 @@
                     <h3 class="card-title text-center">{{ $galleryItem->title }}</h3>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
-                      <a href="/admin/gallery/{{ Str::slug($galleryItem->title) }}/edit" class="btn btn-secondary">Rediģēt</a>
+                      <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-secondary">Rediģēt</a>
                     </div>
                   </div>
                 </div>

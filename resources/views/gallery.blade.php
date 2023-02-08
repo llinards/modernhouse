@@ -16,7 +16,7 @@
                 <ul class="splide__list">
                   @foreach($galleryItem->galleryImages as $image)
                     <li class="splide__slide">
-                      <img class="img-fluid" data-splide-lazy="{{ asset('storage/gallery/'.$image->image_location) }}" alt="{{ $galleryItem->title }}">
+                      <img class="img-fluid" data-splide-lazy="{{ asset('storage/gallery/'. Str::slug($galleryItem->title) . '/' .$image->filename) }}"  alt="{{ $galleryItem->title }}">
                     </li>
                   @endforeach
                 </ul>
