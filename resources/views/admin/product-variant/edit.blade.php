@@ -105,6 +105,7 @@
         }
       },
       allowMultiple: true,
+      allowReorder: true,
       acceptedFileTypes: ['image/*'],
     });
   </script>
