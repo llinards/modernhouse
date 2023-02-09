@@ -49,6 +49,7 @@ Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contact
 Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
 Route::get('/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
 Route::get('/news', [\App\Http\Controllers\HomeController::class, 'news']);
+Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class, 'privacyPolicy']);
 Route::post('/contact-us', [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 Route::get('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'show']);
 Route::post('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');

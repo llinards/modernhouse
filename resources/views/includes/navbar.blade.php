@@ -59,6 +59,13 @@
   {{--        @endif--}}
         </ul>
       </div>
+      <div class="nav-items">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}" href="/privacy-policy">@lang('privacy-policy')</a>
+          </li>
+        </ul>
+      </div>
       <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
           <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>

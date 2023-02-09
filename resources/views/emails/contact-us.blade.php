@@ -9,5 +9,8 @@
 @if (isset($data['customers-question']))
   <p>Klienta jautājums: <strong>{{ $data['customers-question'] }}</strong></p>
 @endif
+@if (isset($data['customer-agrees-for-data-processing']))
+  <p>Klients mājaslapā ir devis apstiprinājumu datu apstrādei un uzglabāšanai.</p>
+@endif
 
 <p>Jautājums iesūtīts: {{ gmdate('Y-m-d h:i:s', time() + 3 * 60 * 60) }}</p>

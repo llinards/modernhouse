@@ -27,7 +27,8 @@ class ContactUsRequest extends FormRequest
             'name-surname' => ['required','string','max:50'],
             'email' => ['required', 'email'],
             'phone-number' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:25'],
-            'company' => 'max:100'
+            'company' => 'max:100',
+            'customer-agrees-for-data-processing' => 'accepted'
         ];
     }
 }
