@@ -53,6 +53,11 @@ class HomeController extends Controller
     return view('about-us')->with('allProducts', $this->getAllActiveProducts());
   }
 
+  public function privacyPolicy()
+  {
+    return view('privacy-policy')->with('allProducts', $this->getAllActiveProducts());
+  }
+
   public function gallery()
   {
     $galleryContent = GalleryContent::with('galleryImages')->get();
@@ -63,7 +68,6 @@ class HomeController extends Controller
   {
     $newsContent = NewsContent::get();
     return view('news')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
-
   }
 
   protected function getAllActiveProducts()

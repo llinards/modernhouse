@@ -154,6 +154,9 @@ return [
         'required' => 'Pieteikumā ir jānorāda e-pasts.',
         'email' => 'E-pasta adrese nav korekta.'
       ],
+      'customer-agrees-for-data-processing' => [
+        'accepted' => 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai sazinātos ar mums.'
+      ],
       'product-name' => [
         'required' => 'Nav norādīts nosaukums.'
       ],
