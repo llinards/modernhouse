@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('gallery_images', function (Blueprint $table) {
             $table->id();
-            $table->string('image_location');;
+            $table->string('filename');
             $table->foreignId('gallery_content_id')->references('id')->on('gallery_contents')->onDelete('cascade');
             $table->timestamps();
         });

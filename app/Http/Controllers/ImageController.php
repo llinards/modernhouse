@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GalleryImage;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -18,6 +19,18 @@ class ImageController extends Controller
       $image->delete();
       Storage::disk('public')->delete('product-images/'.$product.'/'.$productVariant.'/'.$image->filename);
       return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', Lang::get('image deleted'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
+  }
+
+  public function destroyGalleryImages (GalleryImage $image)
+  {
+    try {
+      $gallery = Str::slug($image->galleryContent->title);
+      $image->delete();
+      Storage::disk('public')->delete('gallery/'.$gallery.'/'.$image->filename);
+      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', Lang::get('image deleted'));
     } catch (\Exception $e) {
       return back()->with('error', Lang::get('error try again'));
     }

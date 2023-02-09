@@ -9,6 +9,8 @@ class GalleryImage extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['filename', 'gallery_content_id'];
+
     public function galleryContent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
       return $this->belongsTo(GalleryContent::class);

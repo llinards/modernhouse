@@ -179,7 +179,13 @@ return [
       ],
       'product-variant-images' => [
         'required' => 'Nav pievienotas bildes.'
-      ]
+      ],
+      'gallery-title' => [
+        'required' => 'Nav norādīts galerijas nosaukums.'
+      ],
+      'gallery-images' => [
+        'required' => 'Nav pievienotas bildes galerijai.'
+      ],
     ],
 
     /*

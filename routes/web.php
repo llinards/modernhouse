@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
@@ -17,13 +16,20 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-//  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'] );
+  Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
 
-  Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create'] );
-  Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store'] );
-  Route::get('/admin/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show'] );
+  Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create']);
+  Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store']);
+  Route::get('/admin/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show']);
   Route::patch('/admin', [\App\Http\Controllers\ProductController::class, 'update']);
   Route::delete('/admin/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
+
+  Route::get('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
+  Route::get('/admin/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
+  Route::post('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
+  Route::get('/admin/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
+  Route::patch('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
+  Route::delete('/admin/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
@@ -32,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
   Route::delete('/admin/product-variant/{productVariant}/delete', [\App\Http\Controllers\ProductVariantController::class, 'destroy']);
 
   Route::get('/admin/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
+  Route::get('/admin/gallery/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
 
   Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
