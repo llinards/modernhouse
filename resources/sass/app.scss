@@ -103,7 +103,7 @@ h2.title {
 }
 
 
-.btn-primary{
+.btn-primary {
   width: 328px;
   height: 48px;
   border-radius: 32px;
@@ -121,6 +121,21 @@ h2.title {
   color: $primary-color;
   border-color: $primary-color;
   box-shadow: 0 0 20px 0 $primary-color;
+}
+
+.form-check-input:focus {
+  border-color: $primary-color;
+  box-shadow: none;
+}
+
+.form-check-input:checked {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
 
 //.content-product {
@@ -147,9 +162,11 @@ footer {
 
 footer {
   background-color: $primary-color;
+
   h4, p {
     color: white;
   }
+
   hr {
     color: white;
   }

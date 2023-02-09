@@ -182,5 +182,14 @@
         }
       })
     })
+
+    let isConsentToProcessData = false;
+    let consentToProcessDataCheckbox = document.getElementById('customer-agrees-for-data-processing');
+    consentToProcessDataCheckbox.checked = false;
+
+    consentToProcessDataCheckbox.addEventListener('change', (e) => {
+      isConsentToProcessData = e.srcElement.checked;
+      isConsentToProcessData ? document.getElementById('submit-product-info-callback').classList.remove('disabled') : document.getElementById('submit-product-info-callback').classList.add('disabled');
+    });
   </script>
 @endsection

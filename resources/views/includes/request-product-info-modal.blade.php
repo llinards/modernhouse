@@ -44,11 +44,18 @@
             <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
           </div>
           <label for="customers-question" class="form-label fw-bold">Papildus jautājumi</label>
-          <textarea class="form-control" name="customers-question" id="customers-question" rows="3">
+          <textarea class="form-control mb-3" name="customers-question" id="customers-question" rows="3">
             {{ old('customers-question') }}
           </textarea>
+          <div class="mb-3 d-flex align-items-center">
+            <input class="form-check-input m-0" type="checkbox" value="1" id="customer-agrees-for-data-processing"
+                   name="customer-agrees-for-data-processing"
+            >
+            <label for="customer-agrees-for-data-processing" class="form-label mb-0 d-block mx-2">Piekrītu, ka mani iesniegtie
+              dati tiek apstrādāti un uzglabāti.</label>
+          </div>
           <div class="modal-footer d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary fw-light d-flex justify-content-center align-items-center">Nosūtīt</button>
+            <button type="submit" id="submit-product-info-callback" class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">Nosūtīt</button>
           </div>
         </form>
       </div>
