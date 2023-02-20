@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariantOption extends Model
 {
-    use HasFactory;
+  protected $fillable = ['option_title', 'option_category', 'options', 'product_variant_id'];
+
+  use HasFactory;
 }
