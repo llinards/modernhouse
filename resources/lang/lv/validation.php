@@ -189,6 +189,24 @@ return [
       'gallery-images' => [
         'required' => 'Nav pievienotas bildes galerijai.'
       ],
+      'id.*' => [
+        'required' => 'Mēģini vēlreiz.',
+        'numeric' => 'Mēģini vēlreiz.'
+      ],
+      'product-variant-option-title.*' => [
+        'required' => 'Nav norādīts nosaukums.'
+      ],
+      'product-variant-option-category.*' => [
+        'required' => 'Nav izvēlēta komplektācija.',
+        'in' => 'Nav izvēlēta komplektācija.'
+      ],
+      'product-variant-option-description.*' => [
+        'required' => 'Nav pievienots apraksts.'
+      ],
+      'product-variant-id.*' => [
+        'required' => 'Mēģini vēlreiz.',
+        'numeric' => 'Mēģini vēlreiz.'
+      ]
     ],
 
     /*

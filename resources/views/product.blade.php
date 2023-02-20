@@ -9,7 +9,8 @@
           @if(count($product->productVariants) !== 1)
             @foreach($product->productVariants as $variant)
               <li class="nav-item">
-                <button class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab" data-bs-target="#{{Str::slug($variant->name)}}" type="button">{{ $variant->name }}</button>
+                <button class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab"
+                        data-bs-target="#{{Str::slug($variant->name)}}" type="button">{{ $variant->name }}</button>
               </li>
             @endforeach
           @endif
@@ -25,7 +26,9 @@
                         @foreach($product->productVariantImages as $image)
                           @if($image->product_variant_id === $variant->id)
                             <li class="splide__slide">
-                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="{{ $variant->name }}">
+                              <img class="img-fluid"
+                                   data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
+                                   alt="{{ $variant->name }}">
                             </li>
                           @endif
                         @endforeach
@@ -38,7 +41,9 @@
                         @foreach($product->productVariantImages as $image)
                           @if($image->product_variant_id === $variant->id)
                             <li class="splide__slide">
-                              <img class="img-fluid" data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}" alt="{{ $variant->name }}"/>
+                              <img class="img-fluid"
+                                   data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
+                                   alt="{{ $variant->name }}"/>
                             </li>
                           @endif
                         @endforeach
@@ -51,14 +56,19 @@
                     <h2 class="fw-bold text-center title">Izvēlies komplektāciju</h2>
                     <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
                       <li class="nav-item">
-                        <button class="nav-link active basic-variant-title" data-bs-toggle="tab" data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas</button>
+                        <button class="nav-link active basic-variant-title" data-bs-toggle="tab"
+                                data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas
+                        </button>
                       </li>
                       <li class="nav-item">
-                        <button class="nav-link full-variant-title" data-bs-toggle="tab" data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna</button>
+                        <button class="nav-link full-variant-title" data-bs-toggle="tab"
+                                data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna
+                        </button>
                       </li>
                     </ul>
                     <div class="mt-4 mb-2">
-                      <h2 class="text-center fw-bold basic-variant-price title show active basic-{{Str::slug($variant->name)}}">
+                      <h2
+                        class="text-center fw-bold basic-variant-price title show active basic-{{Str::slug($variant->name)}}">
                         @if($variant->price_basic != 0.00)
                           EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
                         @else
@@ -78,7 +88,8 @@
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
                           @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
-                            <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}m<sup>2</sup></p>
+                            <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}
+                              m<sup>2</sup></p>
                           @endforeach
                         </div>
                         <hr class="m-1">
@@ -86,7 +97,8 @@
                           @foreach($variant->productVariantDetails as $productVariantDetail)
                             <li class="d-flex justify-content-between">
                               <div>
-                                <img src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
+                                <img
+                                  src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
                               </div>
                               <div>
                                 <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}"/>
@@ -105,7 +117,8 @@
                   </div>
                   <div class="d-flex flex-column align-items-center">
                     <button
-                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
+                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                      data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
                   </div>
                 </div>
                 <div class="tab-content product-variant-option mt-4">
@@ -116,15 +129,16 @@
                         @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
                           <div class="accordion-item">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                              <button class="accordion-button collapsed variant-button" type="button"
+                                      data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}"
+                                      aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
                                 {{ $option->option_title }}
                               </button>
                             </h2>
-                            <div id="{{Str::slug($option->option_title)}}" class="accordion-collapse collapse product-variant-option-content">
+                            <div id="{{Str::slug($option->option_title)}}"
+                                 class="accordion-collapse collapse product-variant-option-content">
                               <div class="accordion-body">
-                                <ul class="list-group list-group-flush">
-                                  {!! $option->options !!}
-                                </ul>
+                                {!! $option->options !!}
                               </div>
                             </div>
                           </div>
@@ -138,15 +152,16 @@
                         @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')
                           <div class="accordion-item">
                             <h2 class="accordion-header">
-                              <button class="accordion-button collapsed variant-button" type="button" data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}" aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                              <button class="accordion-button collapsed variant-button" type="button"
+                                      data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}"
+                                      aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
                                 {{ $option->option_title }}
                               </button>
                             </h2>
-                            <div id="{{Str::slug($option->option_title)}}" class="accordion-collapse collapse product-variant-option-content">
+                            <div id="{{Str::slug($option->option_title)}}"
+                                 class="accordion-collapse collapse product-variant-option-content">
                               <div class="accordion-body">
-                                <ul class="list-group list-group-flush">
-                                  {!! $option->options !!}
-                                </ul>
+                                {!! $option->options !!}
                               </div>
                             </div>
                           </div>
@@ -165,10 +180,10 @@
   </div>
   @include('includes.footer')
   <script>
-    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant)=>{
+    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
       selectedVariant.addEventListener('show.bs.tab', () => {
         const targetClass = selectedVariant.dataset.bsTarget
-        const currentVariantPrice = document.querySelector('.'+targetClass.replace('#', ''));
+        const currentVariantPrice = document.querySelector('.' + targetClass.replace('#', ''));
         if (currentVariantPrice) {
           if (currentVariantPrice.nextElementSibling) {
             currentVariantPrice.nextElementSibling.classList.toggle('show');

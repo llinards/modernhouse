@@ -29,4 +29,15 @@ class ProductVariant extends Model
   {
     return $this->hasMany(ProductVariantDetail::class);
   }
+
+  public function productVariantOptions()
+  {
+    return $this->hasMany(ProductVariantOption::class);
+  }
+
+  public function productVariantOptionsByCategory()
+  {
+    return $this->productVariantOptions()->orderBy('option_category');
+  }
+
 }

@@ -36,20 +36,12 @@
                       <input type="text" name="product-variant-full-price" id="product-variant-full-price"
                              value="{{ $productVariant->price_full }}" class="form-control">
                     </div>
+                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc individuālā pieprasījuma.</strong></p>
                   </div>
                 </div>
-                {{--                <hr>--}}
-                {{--                <div class="mb-3">--}}
-                {{--                  <div class="row">--}}
-                {{--                  @foreach($productVariant->productVariantAreaDetails as $key => $productVariantAreaDetail)--}}
-                {{--                    <div class="col">--}}
-                {{--                      <input name="product-variant-area-detail-id-[]" id="product-variant-area-detail-id-{{$key}}" value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">--}}
-                {{--                      <input type="text" name="product-variant-area-detail-name[]" id="product-variant-area-detail-name-{{$key}}" value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">--}}
-                {{--                      <input type="text" name="product-variant-area-detail-square-meters[]" id="product-variant-area-detail-square-meters-{{$key}}" value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">--}}
-                {{--                    </div>--}}
-                {{--                  @endforeach--}}
-                {{--                </div>--}}
-                {{--                <hr>--}}
+                <div class="mb-3">
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options" class="btn btn-secondary">Tehniskā informācija</a>
+                </div>
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description"
@@ -102,7 +94,9 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('product-variant-description', {});
+    CKEDITOR.replace('product-variant-description', {
+      removeButtons: removeButtons = 'Source,Save,Templates,SelectAll,Scayt,NewPage,Preview,Print,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,TextColor,Maximize,About,ShowBlocks,BGColor,Format,Font,FontSize'
+    });
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));
