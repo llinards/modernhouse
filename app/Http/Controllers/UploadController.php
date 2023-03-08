@@ -27,6 +27,13 @@ class UploadController extends Controller
         return $file->storeAs('uploads/temp', $fileName, 'public');
       }
     }
+    if ($data->hasFile('news-images-attachments')) {
+      $files = $data->file('news-images-attachments');
+      foreach($files as $file) {
+        $fileName = $file->getClientOriginalName();
+        return $file->storeAs('uploads/temp', $fileName, 'public');
+      }
+    }
     return '';
   }
 

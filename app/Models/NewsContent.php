@@ -7,15 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsContent extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    public function newsImages()
-    {
-      return $this->hasMany(NewsImage::class);
-    }
+  protected $fillable = ['title', 'content'];
 
-    public function newsAttachments()
-    {
-      return $this->hasMany(NewsAttachment::class);
-    }
+  public function newsImages()
+  {
+    return $this->hasMany(NewsImage::class);
+  }
+
+  public function newsAttachments()
+  {
+    return $this->hasMany(NewsAttachment::class);
+  }
 }
