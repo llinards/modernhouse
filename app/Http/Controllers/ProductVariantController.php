@@ -26,7 +26,8 @@ class ProductVariantController extends Controller
         'price_basic' => $data['product-variant-basic-price'],
         'price_full' => $data['product-variant-full-price'],
         'description' => $data['product-variant-description'],
-        'product_id' => $data['product-id']
+        'product_id' => $data['product-id'],
+        'is_active' => false
       ]);
       foreach ($data['product-variant-images'] as $image) {
         $fileName = basename($image);
@@ -48,7 +49,6 @@ class ProductVariantController extends Controller
 
   public function update(UpdateProductVariantRequest $data)
   {
-//      return $data;
     try {
       $productVariantToUpdate = ProductVariant::findOrFail($data->id);
       if ($data['product-variant-name'] !== $productVariantToUpdate->name) {
@@ -62,13 +62,8 @@ class ProductVariantController extends Controller
         'price_basic' => $data['product-variant-basic-price'],
         'price_full' => $data['product-variant-full-price'],
         'description' => $data['product-variant-description'],
+        'is_active' => isset($data['product-variant-available']),
       ]);
-//        foreach($data["product-variant-area-detail-name"] as $key => $productVariantAreaDetailName) {
-//          $productVariantAreaDetailToUpdate = ProductVariantAreaDetail::findOrFail($data['product-variant-area-detail-id-'.$key]);
-//          $productVariantAreaDetailToUpdate->update([
-//            'name' => $productVariantAreaDetailName
-//          ]);
-//        };
       if (isset($data['product-variant-images'])) {
         foreach ($data['product-variant-images'] as $image) {
           $fileName = basename($image);
