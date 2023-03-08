@@ -9,6 +9,8 @@ class NewsAttachment extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['attachment_location', 'news_content_id'];
+
     public function newsContent()
     {
       return $this->belongsTo(NewsContent::class);
