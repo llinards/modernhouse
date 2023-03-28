@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariantDetail extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  public function productVariant(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+  {
+    return $this->belongsTo(ProductVariant::class);
+  }
 }

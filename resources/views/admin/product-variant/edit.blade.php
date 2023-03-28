@@ -49,6 +49,7 @@
                 </div>
                 <div class="mb-3">
                   <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options" class="btn btn-secondary">Tehniskā informācija</a>
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details" class="btn btn-secondary">Platība, istabas</a>
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
