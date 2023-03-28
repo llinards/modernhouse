@@ -23,7 +23,7 @@
                         <h5>{{ $productVariantDetail->name }}</h5>
                         <img
                           src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                        <img src="{{ asset('storage/icons/'.$productVariantDetail->icon.'.svg') }}" alt="">
+                        <img src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}" alt="">
                         <p>Skaits: {{ $productVariantDetail->count }}</p>
                         <a href="{{ URL::to('/admin/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}" class="btn btn-danger">Dzēst</a>
                       </div>
