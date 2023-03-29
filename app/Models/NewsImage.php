@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsImage extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['image_location', 'news_content_id'];
 
   public function newsContent()
   {

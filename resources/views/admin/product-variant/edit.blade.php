@@ -20,6 +20,16 @@
                   <h4>Pieder pie kategorijas - <strong>{{ $productVariant->product->name }}</strong></h4>
                 </div>
                 <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="{{ $productVariant->is_active }}"
+                           id="product-variant-available"
+                           name="product-variant-available" {{ $productVariant->is_active ? 'checked' : '' }} >
+                    <label class="form-check-label" for="product-variant-available">
+                      Pieejams mājaslapā
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3">
                   <label for="product-variant-name" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="product-variant-name" value="{{ $productVariant->name }}"
                          name="product-variant-name">
@@ -36,11 +46,44 @@
                       <input type="text" name="product-variant-full-price" id="product-variant-full-price"
                              value="{{ $productVariant->price_full }}" class="form-control">
                     </div>
-                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc individuālā pieprasījuma.</strong></p>
+                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc
+                        individuālā pieprasījuma.</strong></p>
                   </div>
                 </div>
                 <div class="mb-3">
-                  <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options" class="btn btn-secondary">Tehniskā informācija</a>
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
+                     class="btn btn-secondary">Tehniskā informācija</a>
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
+                     class="btn btn-secondary">Platība, istabas</a>
+                </div>
+                <div class="mb-3">
+                  <div class="row">
+                    @if (count($productVariant->productVariantAreaDetails) !== 0)
+                      @foreach($productVariant->productVariantAreaDetails as $productVariantAreaDetail)
+                        <div class="col-6">
+                          <input name="product-variant-area-details-id[]" id="product-variant-area-details-id"
+                                 value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">
+                          <input type="text" name="product-variant-area-details-name[]"
+                                 value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">
+                          <input type="text" name="product-variant-area-details-square-meters[]"
+                                 value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">
+                        </div>
+                      @endforeach
+                    @else
+                      <div class="col-6">
+                        <input type="text" name="product-variant-area-details-name[]"
+                               value="Dzīvojamā platība" class="form-control mb-2">
+                        <input type="text" name="product-variant-area-details-square-meters[]"
+                               value="" class="form-control">
+                      </div>
+                      <div class="col-6">
+                        <input type="text" name="product-variant-area-details-name[]"
+                               value="Apbūves platība" class="form-control mb-2">
+                        <input type="text" name="product-variant-area-details-square-meters[]"
+                               value="" class="form-control">
+                      </div>
+                    @endif
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>

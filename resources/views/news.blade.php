@@ -9,20 +9,25 @@
             <div class="col-lg-3 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
               <h2 class="fw-bold title mb-2">{{ $newsItem->title }}</h2>
               <p>{!! $newsItem->content !!}</p>
-              @foreach($newsItem->newsAttachments as $attachment)
-                <div class="d-flex w-100 justify-content-lg-start justify-content-center">
-                  <a class="nav-link text-center" target="_blank" href="{{ asset('storage/news/'.$attachment->attachment_location) }}">
-                    <i class="bi bi-download"></i><p>Prezentācija</p></a>
-                </div>
-              @endforeach
+              <div class="d-flex w-100 justify-content-lg-between justify-content-center mt-2 flex-wrap">
+                @foreach($newsItem->newsAttachments as $attachment)
+                  <a class="nav-link text-center m-lg-0 m-2" target="_blank"
+                     href="{{ asset('storage/news/'.$attachment->attachment_location) }}">
+                    <i class="bi bi-download"></i>
+                    <p>Prezentācija</p></a>
+                @endforeach
+              </div>
             </div>
-            <div class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column " id="gallery-images">
+            <div
+              class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column "
+              id="gallery-images">
               <section id="{{Str::slug($newsItem->title)}}-main-carousel" class="splide">
                 <div class="splide__track">
                   <ul class="splide__list">
                     @foreach($newsItem->newsImages as $image)
                       <li class="splide__slide">
-                        <img class="img-fluid" data-splide-lazy="{{ asset('storage/news/'.$image->image_location) }}" alt="{{ $newsItem->title }}">
+                        <img class="img-fluid" data-splide-lazy="{{ asset('storage/news/'.$image->image_location) }}"
+                             alt="{{ $newsItem->title }}">
                       </li>
                     @endforeach
                   </ul>

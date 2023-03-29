@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariantAreaDetail extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = ['name', 'square_meters', 'product_variant_id'];
 
   public function productVariant(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {

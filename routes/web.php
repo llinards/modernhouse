@@ -31,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
   Route::patch('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
   Route::delete('/admin/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
+  Route::get('/admin/news', [\App\Http\Controllers\NewsController::class, 'index']);
+  Route::get('/admin/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
+  Route::post('/admin/news', [\App\Http\Controllers\NewsController::class, 'store']);
+
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
   Route::get('/admin/product-variant/{productVariant}/edit', [\App\Http\Controllers\ProductVariantController::class, 'show']);
@@ -41,6 +45,11 @@ Route::middleware(['auth'])->group(function () {
   Route::patch('/admin/product-variant/{productVariant}/product-variant-options', [\App\Http\Controllers\ProductVariantOptionController::class, 'update']);
   Route::post('/admin/product-variant/{productVariant}/product-variant-options', [\App\Http\Controllers\ProductVariantOptionController::class, 'store']);
   Route::get('/admin/product-variant/{productVariant}/product-variant-options/{productVariantOption}', [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy']);
+
+  Route::get('/admin/product-variant/{productVariant}/product-variant-details', [\App\Http\Controllers\ProductVariantDetailController::class, 'index']);
+  Route::get('/admin/product-variant/{productVariant}/product-variant-details/create', [\App\Http\Controllers\ProductVariantDetailController::class, 'create']);
+  Route::post('/admin/product-variant/{productVariant}/product-variant-details', [\App\Http\Controllers\ProductVariantDetailController::class, 'store']);
+  Route::get('/admin/product-variant/{productVariant}/product-variant-details/{productVariantDetail}', [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
 
 
   Route::get('/admin/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);

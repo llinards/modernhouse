@@ -36,6 +36,8 @@
                       <label for="product-variant-full-price" class="form-label">Cena pilnai komplektācijai</label>
                       <input type="text" name="product-variant-full-price" id="product-variant-full-price" value="{{ old('product-variant-full-price') }}" class="form-control">
                     </div>
+                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc
+                        individuālā pieprasījuma.</strong></p>
                   </div>
                 </div>
                 <div class="mb-3">
