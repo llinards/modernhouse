@@ -14,18 +14,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-          ProductSeeder::class,
-          ProductVariantSeeder::class,
-          ImageSeeder::class,
-          ProductVariantOptionSeeder::class,
-          UserSeeder::class,
-          ProductVariantAreaDetailSeeder::class,
-          ProductVariantDetailSeeder::class,
-          NewsContentSeeder::class,
-          NewsImageSeeder::class,
-          NewsAttachmentSeeder::class,
-          GalleryContentSeeder::class,
-          GalleryImageSeeder::class,
+//          ProductSeeder::class,
+//          ProductVariantSeeder::class,
+//          ImageSeeder::class,
+//          ProductVariantOptionSeeder::class,
+//          UserSeeder::class,
+//          ProductVariantAreaDetailSeeder::class,
+//          ProductVariantDetailSeeder::class,
+//          NewsContentSeeder::class,
+//          NewsImageSeeder::class,
+//          NewsAttachmentSeeder::class,
+//          GalleryContentSeeder::class,
+//          GalleryImageSeeder::class,
           ProductVariantDetailIcon::class
         ]);
     }
