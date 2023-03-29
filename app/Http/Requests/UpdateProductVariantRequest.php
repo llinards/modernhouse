@@ -28,6 +28,8 @@ class UpdateProductVariantRequest extends FormRequest
         'product-variant-name'  => 'required',
         'product-variant-basic-price' => ['required', 'numeric'],
         'product-variant-full-price' => ['required', 'numeric'],
+        'product-variant-area-details-name.*'  => 'required',
+        'product-variant-area-details-square-meters.*' => 'required',
         'product-variant-description' => 'required',
       ];
     }

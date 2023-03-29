@@ -177,6 +177,12 @@ return [
       'required' => 'Nav norādīta pilnās komplektācijas summa.',
       'numeric' => 'Pilnās komplektācijas summa drīkst saturēt tikai ciparus.'
     ],
+    'product-variant-area-details-name.*' => [
+      'required' => 'Nav norādīta nosaukums platībai.'
+    ],
+    'product-variant-area-details-square-meters.*' => [
+      'required' => 'Nav norādīta platība.'
+    ],
     'product-variant-description' => [
       'required' => 'Nav pievienots apraksts.'
     ],
