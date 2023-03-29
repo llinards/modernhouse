@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProductVariantRequest;
 use App\Http\Requests\UpdateProductVariantRequest;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductVariantAreaDetail;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -64,6 +65,22 @@ class ProductVariantController extends Controller
         'description' => $data['product-variant-description'],
         'is_active' => isset($data['product-variant-available']),
       ]);
+      foreach ($data['product-variant-area-details-name'] as $key => $productVariantAreaDetail) {
+        if (isset($data['product-variant-area-details-id'][$key])) {
+          $productVariantAreaDetailToUpdate = ProductVariantAreaDetail::find($data['product-variant-area-details-id'][$key]);
+          $productVariantAreaDetailToUpdate->update([
+            'name' => $data['product-variant-area-details-name'][$key],
+            'square_meters' => $data['product-variant-area-details-square-meters'][$key],
+            'product_variant_id' => $data['id']
+          ]);
+        } else {
+          ProductVariantAreaDetail::create([
+            'name' => $data['product-variant-area-details-name'][$key],
+            'square_meters' => $data['product-variant-area-details-square-meters'][$key],
+            'product_variant_id' => $data['id']
+          ]);
+        }
+      }
       if (isset($data['product-variant-images'])) {
         foreach ($data['product-variant-images'] as $image) {
           $fileName = basename($image);
@@ -75,6 +92,7 @@ class ProductVariantController extends Controller
       }
       return redirect('/admin')->with('success', Lang::get('updated'));
     } catch (\Exception $e) {
+      return $e;
       return back()->with('error', Lang::get('error try again'));
     }
   }
