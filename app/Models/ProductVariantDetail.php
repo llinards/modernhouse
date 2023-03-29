@@ -9,6 +9,8 @@ class ProductVariantDetail extends Model
 {
   use HasFactory;
 
+  protected $fillable = ['name', 'hasThis', 'icon', 'count', 'product_variant_id'];
+
   public function productVariant(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
     return $this->belongsTo(ProductVariant::class);

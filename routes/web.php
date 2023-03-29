@@ -47,7 +47,8 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/product-variant/{productVariant}/product-variant-options/{productVariantOption}', [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy']);
 
   Route::get('/admin/product-variant/{productVariant}/product-variant-details', [\App\Http\Controllers\ProductVariantDetailController::class, 'index']);
-  Route::patch('/admin/product-variant/{productVariant}/product-variant-details', [\App\Http\Controllers\ProductVariantDetailController::class, 'update']);
+  Route::get('/admin/product-variant/{productVariant}/product-variant-details/create', [\App\Http\Controllers\ProductVariantDetailController::class, 'create']);
+  Route::post('/admin/product-variant/{productVariant}/product-variant-details', [\App\Http\Controllers\ProductVariantDetailController::class, 'store']);
   Route::get('/admin/product-variant/{productVariant}/product-variant-details/{productVariantDetail}', [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
 
 

@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
           NewsAttachmentSeeder::class,
           GalleryContentSeeder::class,
           GalleryImageSeeder::class,
+          ProductVariantDetailIcon::class
         ]);
     }
 }
