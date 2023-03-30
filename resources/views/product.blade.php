@@ -104,7 +104,8 @@
                                     src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
                                 </div>
                                 <div>
-                                  <img src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
+                                  <img
+                                    src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
                                   @if($productVariantDetail->count === 0)
                                     <span class="invisible">-</span>
                                   @else
@@ -124,55 +125,59 @@
                         data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
                     </div>
                   </div>
-                  <div class="tab-content product-variant-option mt-4">
-                    <h3 class="fw-bold text-center my-2">Tehniskās specifikācijas</h3>
-                    <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
-                      <div class="accordion accordion-flush">
-                        @foreach($product->productVariantOptions as $option)
-                          @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed variant-button" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}"
-                                        aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
-                                  {{ $option->option_title }}
-                                </button>
-                              </h2>
-                              <div id="{{Str::slug($option->option_title)}}"
-                                   class="accordion-collapse collapse product-variant-option-content">
-                                <div class="accordion-body">
-                                  {!! $option->options !!}
+                  @if(count($product->productVariantOptions) > 0)
+                    <div class="tab-content product-variant-option mt-4">
+                      <h3 class="fw-bold text-center my-2">Tehniskās specifikācijas</h3>
+                      <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
+                        <div class="accordion accordion-flush">
+                          @foreach($product->productVariantOptions as $option)
+                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button collapsed variant-button" type="button"
+                                          data-bs-toggle="collapse"
+                                          data-bs-target="#{{Str::slug($option->option_title)}}"
+                                          aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                                    {{ $option->option_title }}
+                                  </button>
+                                </h2>
+                                <div id="{{Str::slug($option->option_title)}}"
+                                     class="accordion-collapse collapse product-variant-option-content">
+                                  <div class="accordion-body">
+                                    {!! $option->options !!}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          @endif
-                        @endforeach
+                            @endif
+                          @endforeach
+                        </div>
                       </div>
-                    </div>
-                    <div class="tab-pane fade" id="full-{{Str::slug($variant->name)}}">
-                      <div class="accordion accordion-flush">
-                        @foreach($product->productVariantOptions as $option)
-                          @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed variant-button" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#{{Str::slug($option->option_title)}}"
-                                        aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
-                                  {{ $option->option_title }}
-                                </button>
-                              </h2>
-                              <div id="{{Str::slug($option->option_title)}}"
-                                   class="accordion-collapse collapse product-variant-option-content">
-                                <div class="accordion-body">
-                                  {!! $option->options !!}
+                      <div class="tab-pane fade" id="full-{{Str::slug($variant->name)}}">
+                        <div class="accordion accordion-flush">
+                          @foreach($product->productVariantOptions as $option)
+                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')
+                              <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                  <button class="accordion-button collapsed variant-button" type="button"
+                                          data-bs-toggle="collapse"
+                                          data-bs-target="#{{Str::slug($option->option_title)}}"
+                                          aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                                    {{ $option->option_title }}
+                                  </button>
+                                </h2>
+                                <div id="{{Str::slug($option->option_title)}}"
+                                     class="accordion-collapse collapse product-variant-option-content">
+                                  <div class="accordion-body">
+                                    {!! $option->options !!}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          @endif
-                        @endforeach
+                            @endif
+                          @endforeach
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  @endif
                 </div>
               </div>
             @endif
