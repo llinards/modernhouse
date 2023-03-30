@@ -66,7 +66,7 @@ class HomeController extends Controller
 
   public function news()
   {
-    $newsContent = NewsContent::get();
+    $newsContent = NewsContent::orderBy('created_at', 'desc')->get();
     return view('news')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 

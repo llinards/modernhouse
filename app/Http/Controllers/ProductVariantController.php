@@ -92,7 +92,6 @@ class ProductVariantController extends Controller
       }
       return redirect('/admin')->with('success', Lang::get('updated'));
     } catch (\Exception $e) {
-      return $e;
       return back()->with('error', Lang::get('error try again'));
     }
   }
