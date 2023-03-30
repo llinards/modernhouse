@@ -108,8 +108,14 @@ class NewsController extends Controller
    * @return \Illuminate\Http\Response
    */
   public
-  function destroy($id)
+  function destroy(NewsContent $news)
   {
-    //
+    try {
+      Storage::disk('public')->deleteDirectory('news/'.Str::slug($news['title']));
+      $news->delete();
+      return redirect('/admin/news')->with('success', Lang::get('deleted'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
   }
 }

@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/news', [\App\Http\Controllers\NewsController::class, 'index']);
   Route::get('/admin/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
   Route::post('/admin/news', [\App\Http\Controllers\NewsController::class, 'store']);
+  Route::delete('/admin/news/{news}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
