@@ -12,7 +12,7 @@
         @endforeach
       </div>
     @endif
-    <button type="button" class="navbar-toggler py-4">
+    <button type="button" name="menu" class="navbar-toggler py-4">
       <div class="bar1 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar2 {{ $index ? 'bar-index' : '' }}"></div>
       <div class="bar3 {{ $index ? 'bar-index' : '' }}"></div>

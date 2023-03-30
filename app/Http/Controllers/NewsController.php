@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NewsAttachment;
 use App\Models\NewsContent;
+use App\Models\NewsImage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
@@ -11,33 +13,18 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+
   public function index()
   {
     $allNewsContent = NewsContent::all();
     return view('admin.news.index', compact('allNewsContent'));
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function create()
   {
     return view('admin.news.create');
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param Request $data
-   * @return RedirectResponse
-   */
   public function store(Request $data)
   {
     try {
@@ -50,11 +37,11 @@ class NewsController extends Controller
         Storage::disk('public')->move($newsImageAttachment, 'news/' . Str::slug($data['news-title']) . '/' . $fileName);
         if (pathinfo($newsImageAttachment)['extension'] === 'pdf') {
           $newNewsContent->newsAttachments()->create([
-            'attachment_location' => Str::slug($data['news-title']) . '/' . $fileName
+            'attachment_location' => $fileName
           ]);
         } else {
           $newNewsContent->newsImages()->create([
-            'image_location' => Str::slug($data['news-title']) . '/' . $fileName
+            'image_location' => $fileName
           ]);
         }
       }
@@ -64,52 +51,76 @@ class NewsController extends Controller
     }
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param int $id
-   * @return \Illuminate\Http\Response
-   */
-  public
-  function show($id)
+  public function show(NewsContent $news)
   {
-    //
+    return view('admin.news.edit', compact('news'));
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param int $id
-   * @return \Illuminate\Http\Response
-   */
-  public
-  function edit($id)
+  public function destroyNewsImage(NewsImage $newsImage)
   {
-    //
+    try {
+      $newsImage->delete();
+      Storage::disk('public')->delete('news/' . Str::slug($newsImage->newsContent->title) . '/' . $newsImage->image_location);
+      return redirect()->to(app('url')->previous() . "#news-images")->with('success', Lang::get('image deleted'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param \Illuminate\Http\Request $request
-   * @param int $id
-   * @return \Illuminate\Http\Response
-   */
-  public
-  function update(Request $request, $id)
+  public function destroyNewsAttachment(NewsAttachment $newsAttachment)
   {
-    //
+    try {
+      $newsAttachment->delete();
+      Storage::disk('public')->delete('news/' . Str::slug($newsAttachment->newsContent->title) . '/' . $newsAttachment->attachment_location);
+      return redirect()->to(app('url')->previous() . "#news-attachments")->with('success', Lang::get('attachment deleted'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param int $id
-   * @return \Illuminate\Http\Response
-   */
-  public
-  function destroy($id)
+  public function update(Request $data)
   {
-    //
+    try {
+      $newsToUpdate = NewsContent::findOrFail($data->id);
+      if ($data['news-title'] !== $newsToUpdate->title) {
+        $newProductVariantImageDirectory = 'news/' . Str::slug($data['news-title']);
+        $oldProductVariantImageDirectory = 'news/' . Str::slug($newsToUpdate->title);
+        Storage::disk('public')->makeDirectory($newProductVariantImageDirectory);
+        Storage::disk('public')->move($oldProductVariantImageDirectory, $newProductVariantImageDirectory);
+      }
+      $newsToUpdate->update([
+        'title' => $data['news-title'],
+        'content' => $data['news-content']
+      ]);
+      if (isset($data['news-images-attachments'])) {
+        foreach ($data['news-images-attachments'] as $newsImageAttachment) {
+          $fileName = basename($newsImageAttachment);
+          Storage::disk('public')->move($newsImageAttachment, 'news/' . Str::slug($data['news-title']) . '/' . $fileName);
+          if (pathinfo($newsImageAttachment)['extension'] === 'pdf') {
+            $newsToUpdate->newsAttachments()->create([
+              'attachment_location' => $fileName
+            ]);
+          } else {
+            $newsToUpdate->newsImages()->create([
+              'image_location' => $fileName
+            ]);
+          }
+        }
+      }
+      return redirect('/admin/news')->with('success', Lang::get('updated'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
+  }
+
+  public function destroy(NewsContent $news)
+  {
+    try {
+      Storage::disk('public')->deleteDirectory('news/' . Str::slug($news['title']));
+      $news->delete();
+      return redirect('/admin/news')->with('success', Lang::get('deleted'));
+    } catch (\Exception $e) {
+      return back()->with('error', Lang::get('error try again'));
+    }
   }
 }
