@@ -69,6 +69,7 @@
                   <input class="form-control" type="file" id="news-images-attachments" name="news-images-attachments[]">
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
                   </p>
                 </div>
                 <a href="/admin/news" class="btn btn-secondary">Atpakaļ</a>
