@@ -54,6 +54,7 @@
   </div>
   <script>
     FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.create(document.querySelector('input[id="product-cover-photo"]'));
     FilePond.setOptions({
       server: {
@@ -63,6 +64,7 @@
         }
       },
       acceptedFileTypes: ['image/*'],
+      allowImagePreview: true,
     });
   </script>
 @endsection

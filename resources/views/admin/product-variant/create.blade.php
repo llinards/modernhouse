@@ -67,6 +67,7 @@
     });
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));
     FilePond.setOptions({
       server: {
@@ -78,6 +79,7 @@
       required: true,
       allowMultiple: true,
       allowReorder: true,
+      allowImagePreview: true,
       acceptedFileTypes: ['image/*'],
     });
   </script>
