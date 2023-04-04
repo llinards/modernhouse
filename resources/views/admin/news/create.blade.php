@@ -47,6 +47,7 @@
     });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.create(document.querySelector('input[id="news-images-attachments"]'));
     FilePond.setOptions({
       server: {
@@ -59,6 +60,7 @@
       allowMultiple: true,
       allowReorder: true,
       allowFileSizeValidation: true,
+      allowImagePreview: true,
       maxFileSize: "33MB",
       acceptedFileTypes: ['image/*', 'application/pdf'],
     });
