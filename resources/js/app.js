@@ -3,6 +3,7 @@ require('bootstrap');
 import Splide from '@splidejs/splide';
 
 import 'filepond/dist/filepond.min.css';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
 const galleries = document.querySelectorAll('.tab-pane .row .col-lg-7.mt-4');
 

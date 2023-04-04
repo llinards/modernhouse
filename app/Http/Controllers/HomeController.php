@@ -60,7 +60,7 @@ class HomeController extends Controller
 
   public function gallery()
   {
-    $galleryContent = GalleryContent::with('galleryImages')->get();
+    $galleryContent = GalleryContent::with('galleryImages')->orderBy('created_at','desc')->get();
     return view('gallery')->with('galleryContent', $galleryContent)->with('allProducts', $this->getAllActiveProducts());
   }
 

@@ -142,6 +142,7 @@
     });
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));
     FilePond.setOptions({
       server: {
@@ -152,6 +153,7 @@
       },
       allowMultiple: true,
       allowReorder: true,
+      allowImagePreview: true,
       acceptedFileTypes: ['image/*'],
     });
   </script>
