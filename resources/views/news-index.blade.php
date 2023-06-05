@@ -13,9 +13,8 @@
                    class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('read more')</a>
               </div>
             </div>
-            <div
-              class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column "
-              id="gallery-images">
+            <div class="col-lg-9 d-flex order-first order-lg-last justify-content-center flex-column "
+                 id="gallery-images">
               <section id="{{Str::slug($newsItem->title)}}-main-carousel" class="splide">
                 <div class="splide__track">
                   <ul class="splide__list">
