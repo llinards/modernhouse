@@ -64,10 +64,15 @@ class HomeController extends Controller
     return view('gallery')->with('galleryContent', $galleryContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
-  public function news()
+  public function newsIndex()
   {
-    $newsContent = NewsContent::orderBy('created_at', 'desc')->get();
-    return view('news')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
+    $newsContent = NewsContent::with('newsImages')->orderBy('created_at', 'desc')->get();
+    return view('news-index')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
+  }
+
+  public function newsShow (NewsContent $newsContent)
+  {
+    return view('news-show')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
   protected function getAllActiveProducts()

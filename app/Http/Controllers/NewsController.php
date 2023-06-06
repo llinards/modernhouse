@@ -30,7 +30,8 @@ class NewsController extends Controller
     try {
       $newNewsContent = NewsContent::create([
         'title' => $data['news-title'],
-        'content' => $data['news-content']
+        'slug' => Str::slug($data['news-title']),
+        'content' => $data['news-content'],
       ]);
       foreach ($data['news-images-attachments'] as $newsImageAttachment) {
         $fileName = basename($newsImageAttachment);
@@ -90,6 +91,7 @@ class NewsController extends Controller
       }
       $newsToUpdate->update([
         'title' => $data['news-title'],
+        'slug' => Str::slug($data['news-title']),
         'content' => $data['news-content']
       ]);
       if (isset($data['news-images-attachments'])) {
