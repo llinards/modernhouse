@@ -15,7 +15,7 @@
             </div>
             <div class="col-lg-9 d-flex order-first order-lg-last justify-content-center flex-column "
                  id="gallery-images">
-              <section id="{{Str::slug($newsItem->title)}}-main-carousel" class="splide">
+              <section id="news-index-{{Str::slug($newsItem->title)}}-main-carousel" class="splide">
                 <div class="splide__track">
                   <ul class="splide__list">
                     @foreach($newsItem->newsImages as $image)
