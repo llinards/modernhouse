@@ -36,7 +36,7 @@
             <p>{!! $newsContent->content !!}</p>
           </div>
         </div>
-        <div class="d-flex w-100 justify-content-center mt-2 flex-wrap">
+        <div class="d-flex w-100 justify-content-center mt-4 flex-wrap">
           <a href="/news"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('back')</a>
         </div>
