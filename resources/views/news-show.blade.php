@@ -8,7 +8,7 @@
           <div
             class="col-lg-8"
             id="gallery-images">
-            <section id="{{Str::slug($newsContent->title)}}-main-carousel" class="splide">
+            <section id="news-show-{{Str::slug($newsContent->title)}}-main-carousel" class="splide">
               <div class="splide__track">
                 <ul class="splide__list">
                   @foreach($newsContent->newsImages as $image)
