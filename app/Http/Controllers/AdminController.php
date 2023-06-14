@@ -7,9 +7,4 @@ use Illuminate\Support\Facades\App;
 
 class AdminController extends Controller
 {
-  public function index()
-  {
-    $allProducts = Product::with('productVariants')->get();
-    return view('admin.index', compact('allProducts'));
-  }
 }
