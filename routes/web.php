@@ -64,6 +64,12 @@ Route::middleware(['auth'])->group(function () {
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
 });
 
+Route::group(['prefix' => '{locale}', 'where', ['locale' => '[a-zA-Z]{2}']], function ($locale) {
+  Session::put('locale', $locale);
+  return redirect()->back();
+});
+
+
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
 Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
