@@ -3,7 +3,7 @@
   <div class="container">
     @include('includes.admin-navbar')
     <section class="all-products">
-      <div class="all-products-title my-5">
+      <div class="all-products-title mt-2 my-lg-5">
         <h2 class="text-center">Visas mājas/moduļi</h2>
       </div>
       <div class="all-products-content">
