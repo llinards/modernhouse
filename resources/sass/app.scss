@@ -172,6 +172,10 @@ footer {
   }
 }
 
+.maintenance-page {
+  height: 100dvh;
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
