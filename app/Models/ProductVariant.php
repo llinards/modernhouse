@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductVariant extends Model
 {
-    protected $fillable = ['name','price_basic','price_full','description','product_id', 'is_active'];
-    use HasFactory;
+  protected $fillable = ['name', 'price_basic', 'price_full', 'description', 'product_id', 'is_active'];
+  use HasFactory;
+
+  protected $with = ['productVariantAreaDetails', 'productVariantDetails'];
 
   public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
