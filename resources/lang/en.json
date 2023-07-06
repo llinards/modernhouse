@@ -2,5 +2,17 @@
   "customer order": "Custom Order",
   "about": "About",
   "contact": "Contact Us",
-  "feature details": "Feature Details"
+  "feature details": "Learn More",
+  "news": "News",
+  "gallery": "Gallery",
+  "privacy-policy": "Privacy Policy",
+  "read more": "Read More",
+  "back": "Back",
+  "maintenance": "Maintenance!",
+  "be right back": "We'll be right back!",
+  "404 error": "Page not found!",
+  "page does not exist": "Page does not exist.",
+  "message has been sent": "Paldies! Ziņa ir nosūtīta!",
+  "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz.",
+  "modern house registration number": "Reg. Nr."
 }
