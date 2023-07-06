@@ -34,19 +34,7 @@ class NewsController extends Controller
         'content' => $data['news-content'],
         'language' => $data['news-language'],
       ]);
-      foreach ($data['news-images-attachments'] as $newsImageAttachment) {
-        $fileName = basename($newsImageAttachment);
-        Storage::disk('public')->move($newsImageAttachment, 'news/' . Str::slug($data['news-title']) . '/' . $fileName);
-        if (pathinfo($newsImageAttachment)['extension'] === 'pdf') {
-          $newNewsContent->newsAttachments()->create([
-            'attachment_location' => $fileName
-          ]);
-        } else {
-          $newNewsContent->newsImages()->create([
-            'image_location' => $fileName
-          ]);
-        }
-      }
+      $this->saveNewsImagesAttachments($data, $newNewsContent);
       return redirect('/admin/news')->with('success', 'Jaunums pievienots');
     } catch (\Exception $e) {
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
@@ -96,19 +84,7 @@ class NewsController extends Controller
         'content' => $data['news-content']
       ]);
       if (isset($data['news-images-attachments'])) {
-        foreach ($data['news-images-attachments'] as $newsImageAttachment) {
-          $fileName = basename($newsImageAttachment);
-          Storage::disk('public')->move($newsImageAttachment, 'news/' . Str::slug($data['news-title']) . '/' . $fileName);
-          if (pathinfo($newsImageAttachment)['extension'] === 'pdf') {
-            $newsToUpdate->newsAttachments()->create([
-              'attachment_location' => $fileName
-            ]);
-          } else {
-            $newsToUpdate->newsImages()->create([
-              'image_location' => $fileName
-            ]);
-          }
-        }
+        $this->saveNewsImagesAttachments($data, $newsToUpdate);
       }
       return redirect('/admin/news')->with('success', 'Jaunums atjaunināts!');
     } catch (\Exception $e) {
@@ -124,6 +100,23 @@ class NewsController extends Controller
       return redirect('/admin/news')->with('success', 'Jaunums dzēsts!');
     } catch (\Exception $e) {
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  protected function saveNewsImagesAttachments(Request $data, $newsToUpdate): void
+  {
+    foreach ($data['news-images-attachments'] as $newsImageAttachment) {
+      $fileName = basename($newsImageAttachment);
+      Storage::disk('public')->move($newsImageAttachment, 'news/' . Str::slug($data['news-title']) . '/' . $fileName);
+      if (pathinfo($newsImageAttachment)['extension'] === 'pdf') {
+        $newsToUpdate->newsAttachments()->create([
+          'attachment_location' => $fileName
+        ]);
+      } else {
+        $newsToUpdate->newsImages()->create([
+          'image_location' => $fileName
+        ]);
+      }
     }
   }
 }
