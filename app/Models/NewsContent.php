@@ -9,7 +9,8 @@ class NewsContent extends Model
 {
   use HasFactory;
 
-  protected $fillable = ['title', 'slug', 'content'];
+  protected $fillable = ['title', 'slug', 'content', 'language'];
+  protected $with = ['newsImages', 'newsAttachments'];
 
   public function newsImages()
   {

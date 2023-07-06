@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'lv',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,9 +233,9 @@ return [
     ],
 
     'languages' => [
-        'EN' => 'English',
+        'en' => 'English',
 //        'SE' => 'Swedish',
-        'LV' => 'Latvian'
+        'lv' => 'Latvian'
 //        'NO' => 'Norway'
     ],
 

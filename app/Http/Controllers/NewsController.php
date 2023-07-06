@@ -16,7 +16,7 @@ class NewsController extends Controller
 
   public function index()
   {
-    $allNewsContent = NewsContent::all();
+    $allNewsContent = NewsContent::where('language', Lang::locale())->get();
     return view('admin.news.index', compact('allNewsContent'));
   }
 
@@ -32,6 +32,7 @@ class NewsController extends Controller
         'title' => $data['news-title'],
         'slug' => Str::slug($data['news-title']),
         'content' => $data['news-content'],
+        'language' => $data['news-language'],
       ]);
       foreach ($data['news-images-attachments'] as $newsImageAttachment) {
         $fileName = basename($newsImageAttachment);
@@ -46,9 +47,9 @@ class NewsController extends Controller
           ]);
         }
       }
-      return redirect('/admin/news')->with('success', Lang::get('added'));
+      return redirect('/admin/news')->with('success', 'Jaunums pievienots');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -62,9 +63,9 @@ class NewsController extends Controller
     try {
       $newsImage->delete();
       Storage::disk('public')->delete('news/' . Str::slug($newsImage->newsContent->title) . '/' . $newsImage->image_location);
-      return redirect()->to(app('url')->previous() . "#news-images")->with('success', Lang::get('image deleted'));
+      return redirect()->to(app('url')->previous() . "#news-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -73,9 +74,9 @@ class NewsController extends Controller
     try {
       $newsAttachment->delete();
       Storage::disk('public')->delete('news/' . Str::slug($newsAttachment->newsContent->title) . '/' . $newsAttachment->attachment_location);
-      return redirect()->to(app('url')->previous() . "#news-attachments")->with('success', Lang::get('attachment deleted'));
+      return redirect()->to(app('url')->previous() . "#news-attachments")->with('success', 'Pielikums dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -109,9 +110,9 @@ class NewsController extends Controller
           }
         }
       }
-      return redirect('/admin/news')->with('success', Lang::get('updated'));
+      return redirect('/admin/news')->with('success', 'Jaunums atjaunināts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -120,9 +121,9 @@ class NewsController extends Controller
     try {
       Storage::disk('public')->deleteDirectory('news/' . Str::slug($news['title']));
       $news->delete();
-      return redirect('/admin/news')->with('success', Lang::get('deleted'));
+      return redirect('/admin/news')->with('success', 'Jaunums dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 }

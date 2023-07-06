@@ -13,6 +13,10 @@
               @include('includes.status-messages')
               <form action="/admin/news" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input name="news-language" class="visually-hidden" value="{{ Lang::locale() }}">
+                <div class="alert alert-secondary mx-0 my-2" role="alert">
+                  <p>Jaunums, ko pievienosi būs pieejams tikai {{ strtoupper(Lang::locale()) }} valodā.</p>
+                </div>
                 <div class="mb-3">
                   <label for="news-title" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="news-title" value="{{ old('news-title') }}"
