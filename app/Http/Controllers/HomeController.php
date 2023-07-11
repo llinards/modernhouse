@@ -66,7 +66,7 @@ class HomeController extends Controller
 
   public function newsIndex()
   {
-    $newsContent = NewsContent::with('newsImages')->orderBy('created_at', 'desc')->get();
+    $newsContent = NewsContent::where('language', Lang::locale())->orderBy('created_at', 'desc')->get();
     return view('news-index')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
