@@ -26,7 +26,7 @@ class ProductController extends Controller
   {
     try {
       $productCoverPhotoFilename = basename($data['product-cover-photo']);
-      $productSlug = Str::slug($data['product-name']);
+      $productSlug = $data['product-slug'];
 
       Storage::disk('public')->move($data['product-cover-photo'],
         'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
