@@ -15,12 +15,14 @@ class HomeController extends Controller
 {
   public function index()
   {
-    return view('home')->with('allProducts', $this->getAllActiveProducts());
+    $allProducts = Product::activeProducts()->get();
+    return view('home')->with('allProducts', $allProducts);
   }
 
   public function show(Product $product)
   {
-    return view('product')->with('product', $product)->with('allProducts', $this->getAllActiveProducts());
+    $allProducts = Product::activeProducts()->get();
+    return view('product')->with('product', $product)->with('allProducts', $allProducts);
   }
 
   public function requestProductInfo(ContactUsRequest $request)
@@ -60,7 +62,7 @@ class HomeController extends Controller
 
   public function gallery()
   {
-    $galleryContent = GalleryContent::with('galleryImages')->orderBy('created_at','desc')->get();
+    $galleryContent = GalleryContent::with('galleryImages')->orderBy('created_at', 'desc')->get();
     return view('gallery')->with('galleryContent', $galleryContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
@@ -70,7 +72,7 @@ class HomeController extends Controller
     return view('news-index')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
-  public function newsShow (NewsContent $newsContent)
+  public function newsShow(NewsContent $newsContent)
   {
     return view('news-show')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }

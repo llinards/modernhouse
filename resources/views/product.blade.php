@@ -2,7 +2,7 @@
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
-      <h1 class="fw-bold text-center text-uppercase title">{{ $product->name }}</h1>
+      <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
       @include('includes.status-messages')
       <div>
         <ul class="nav mt-4 nav-tabs d-flex product-variant-titles">
@@ -30,7 +30,7 @@
                             @if($image->product_variant_id === $variant->id)
                               <li class="splide__slide">
                                 <img class="img-fluid"
-                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
+                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->slug)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
                                      alt="{{ $variant->name }}">
                               </li>
                             @endif
@@ -45,7 +45,7 @@
                             @if($image->product_variant_id === $variant->id)
                               <li class="splide__slide">
                                 <img class="img-fluid"
-                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->name)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
+                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->slug)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
                                      alt="{{ $variant->name }}"/>
                               </li>
                             @endif

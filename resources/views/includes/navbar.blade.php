@@ -2,13 +2,15 @@
   <div class="container-xxl d-flex justify-content-between">
     <div class="logo py-4">
       <a class="navbar-brand" href="/">
-        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
+        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}"
+             class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
     @if($index && (count($allProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allProducts as $product)
-          <a class="nav-link index text-center p-3" href="/{{ $product->slug }}">{{ $product->name }}</a>
+          <a class="nav-link index text-center p-3"
+             href="/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>
         @endforeach
       </div>
     @endif
@@ -30,7 +32,8 @@
         <ul class="navbar-nav">
           @foreach($allProducts as $product)
             <li class="nav-item">
-              <a class="nav-link text-center {{ request()->is($product->slug) ? 'nav-link-active' : '' }}" href="/{{ $product->slug }}">{{ $product->name }}</a>
+              <a class="nav-link text-center {{ request()->is($product->slug) ? 'nav-link-active' : '' }}"
+                 href="/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>
             </li>
           @endforeach
         </ul>
@@ -38,22 +41,26 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}" href="/news">@lang('news')</a>
+            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}"
+               href="/news">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}" href="/gallery">@lang('gallery')</a>
+            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}"
+               href="/gallery">@lang('gallery')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}" href="/about-us">@lang('about')</a>
+            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}"
+               href="/about-us">@lang('about')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}" href="/contact-us">@lang('contact')</a>
+            <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}"
+               href="/contact-us">@lang('contact')</a>
           </li>
           @if (count(config('app.languages')) > 1)
             <li class="nav-item language-select d-flex justify-content-between">
               @foreach (config('app.languages') as $langLocale => $langName)
                 <a class="nav-link {{ $langLocale == strtoupper(app()->getLocale()) ? 'nav-link-active' : '' }}"
-                  href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
+                   href="{{ url()->current() }}?language={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
               @endforeach
             </li>
           @endif
@@ -62,17 +69,20 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}" href="/privacy-policy">@lang('privacy-policy')</a>
+            <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}"
+               href="/privacy-policy">@lang('privacy-policy')</a>
           </li>
         </ul>
       </div>
       <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
-          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i
+              class="bi bi-instagram"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
-          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i
+              class="bi bi-facebook"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">

@@ -4,9 +4,11 @@
       <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo w-75" alt="Modern House logo">
     </a>
   </div>
-  <div class="nav-item">
-    <a href="/admin/create" class="nav-link">Jauna kategorija</a>
-  </div>
+  @if(app()->getLocale() === 'lv')
+    <div class="nav-item">
+      <a href="/admin/create" class="nav-link">Jauna kategorija</a>
+    </div>
+  @endif
   <div class="nav-item">
     <a href="/admin/product-variant/create" class="nav-link">Jauns modulis/māja</a>
   </div>

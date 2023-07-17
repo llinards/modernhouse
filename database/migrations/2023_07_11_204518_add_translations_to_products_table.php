@@ -12,7 +12,9 @@ return new class extends Migration {
   {
     Schema::table('products', function (Blueprint $table) {
       $table->renameColumn('name', 'name_lv');
-      $table->string('name_en')->after('name')->nullable();
+      $table->string('name_en')->after('name')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_se')->after('name_en')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_no')->after('name_se')->nullable()->default('Nav tulkojuma!');
     });
   }
 
@@ -24,6 +26,8 @@ return new class extends Migration {
     Schema::table('products', function (Blueprint $table) {
       $table->renameColumn('name_lv', 'name');
       $table->dropColumn('name_en');
+      $table->dropColumn('name_se');
+      $table->dropColumn('name_no');
     });
   }
 };
