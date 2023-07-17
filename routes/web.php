@@ -63,16 +63,17 @@ Route::middleware(['auth'])->group(function () {
   Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
 });
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
-Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
-Route::get('/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
-Route::get('/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
-Route::get('/news/{newsContent:slug}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
-Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class, 'privacyPolicy']);
-Route::post('/contact-us', [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
-Route::get('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'show']);
-Route::post('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');
+Route::middleware('setLanguage')->group(function () {
+  Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+  Route::get('/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
+  Route::get('/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
+  Route::get('/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
+  Route::get('/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
+  Route::get('/news/{newsContent:slug}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
+  Route::get('/privacy-policy', [\App\Http\Controllers\HomeController::class, 'privacyPolicy']);
+  Route::post('/contact-us', [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
+  Route::get('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'show']);
+  Route::post('/{product:slug}', [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class)->name('request-product-info');
 
-
+});
 
