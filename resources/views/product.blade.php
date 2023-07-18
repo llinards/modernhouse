@@ -97,27 +97,31 @@
                                 m<sup>2</sup></p>
                             @endforeach
                           </div>
-                          <hr class="m-1">
-                          <ul class="product-details-content p-0 m-0">
-                            @foreach($variant->productVariantDetails as $productVariantDetail)
-                              <li class="d-flex justify-content-between">
-                                <div>
-                                  <img
-                                    src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
-                                </div>
-                                <div>
-                                  <img
-                                    src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
-                                  @if($productVariantDetail->count === 0)
-                                    <span class="invisible">-</span>
-                                  @else
-                                    {{ $productVariantDetail->count }}
-                                  @endif
-                                </div>
-                              </li>
-                            @endforeach
-                          </ul>
-                          <hr class="m-1 mb-3">
+                          @if($variant->productVariantDetails->count() > 0)
+                            <hr class="m-1">
+                            <ul class="product-details-content p-0 m-0">
+                              @foreach($variant->productVariantDetails as $productVariantDetail)
+                                @if($productVariantDetail->language === app()->getLocale())
+                                  <li class="d-flex justify-content-between">
+                                    <div>
+                                      <img
+                                        src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
+                                    </div>
+                                    <div>
+                                      <img
+                                        src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
+                                      @if($productVariantDetail->count === 0)
+                                        <span class="invisible">-</span>
+                                      @else
+                                        {{ $productVariantDetail->count }}
+                                      @endif
+                                    </div>
+                                  </li>
+                                @endif
+                              @endforeach
+                            </ul>
+                            <hr class="m-1 mb-3">
+                          @endif
                         </div>
                       </div>
                     </div>
