@@ -76,17 +76,15 @@ class ProductVariantController extends Controller
         if (isset($data['product-variant-area-details-id'][$key])) {
           $productVariantAreaDetailToUpdate = ProductVariantAreaDetail::find($data['product-variant-area-details-id'][$key]);
           $productVariantAreaDetailToUpdate->update([
-            'name' => $data['product-variant-area-details-name'][$key],
+            'name_'.app()->getLocale() => $data['product-variant-area-details-name'][$key],
             'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id'],
-            'language' => app()->getLocale()
+            'product_variant_id' => $data['id']
           ]);
         } else {
           ProductVariantAreaDetail::create([
-            'name' => $data['product-variant-area-details-name'][$key],
+            'name_'.app()->getLocale() => $data['product-variant-area-details-name'][$key],
             'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id'],
-            'language' => app()->getLocale()
+            'product_variant_id' => $data['id']
           ]);
         }
       }

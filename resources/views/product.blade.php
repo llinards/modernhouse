@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->name, 'index' => false, 'allProducts' => $allProducts])
+@extends('app', ['title' => $product->{'name_'.app()->getLocale()}, 'index' => false, 'allProducts' => $allProducts])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
@@ -57,16 +57,16 @@
                   </div>
                   <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
                     <div>
-                      <h2 class="fw-bold text-center title">Izvēlies komplektāciju</h2>
+                      <h2 class="fw-bold text-center title">@lang('choose option')</h2>
                       <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
                         <li class="nav-item">
                           <button class="nav-link active basic-variant-title" data-bs-toggle="tab"
-                                  data-bs-target="#basic-{{$variant->slug}}" type="button">Rūpnīcas
+                                  data-bs-target="#basic-{{$variant->slug}}" type="button">@lang('basic')
                           </button>
                         </li>
                         <li class="nav-item">
                           <button class="nav-link full-variant-title" data-bs-toggle="tab"
-                                  data-bs-target="#full-{{$variant->slug}}" type="button">Pilna
+                                  data-bs-target="#full-{{$variant->slug}}" type="button">@lang('full')
                           </button>
                         </li>
                       </ul>
@@ -76,14 +76,14 @@
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
                           @else
-                            Cena pēc individuāla pieprasījuma
+                            @lang('invividual price')
                           @endif
                         </h2>
                         <h2 class="text-center fw-bold full-variant-price title full-{{$variant->slug}}">
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
                           @else
-                            Cena pēc individuāla pieprasījuma
+                            @lang('invividual price')
                           @endif
                         </h2>
                       </div>
@@ -92,10 +92,9 @@
                         <div class="product-details">
                           <div class="product-details-header d-flex justify-content-between">
                             @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
-                              @if($productVariantAreaDetail->language === app()->getLocale())
-                                <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}
-                                  m<sup>2</sup></p>
-                              @endif
+                              <p>{{ $productVariantAreaDetail->{'name_'.app()->getLocale()} }}
+                                : {{ $productVariantAreaDetail->square_meters }}
+                                m<sup>2</sup></p>
                             @endforeach
                           </div>
                           <hr class="m-1">
@@ -130,7 +129,7 @@
                   </div>
                   @if(count($product->productVariantOptions) > 0)
                     <div class="tab-content product-variant-option mt-4">
-                      <h3 class="fw-bold text-center my-2">Tehniskās specifikācijas</h3>
+                      <h3 class="fw-bold text-center my-2">@lang('tech specs')</h3>
                       <div class="tab-pane fade show active" id="basic-{{$variant->slug}}">
                         <div class="accordion accordion-flush">
                           @foreach($product->productVariantOptions as $option)

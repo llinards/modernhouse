@@ -66,7 +66,8 @@
                           <input name="product-variant-area-details-id[]" id="product-variant-area-details-id"
                                  value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">
                           <input type="text" name="product-variant-area-details-name[]"
-                                 value="{{ $productVariantAreaDetail->name }}" class="form-control mb-2">
+                                 value="{{ $productVariantAreaDetail->{'name_'.app()->getLocale()} }}"
+                                 class="form-control mb-2">
                           <input type="text" name="product-variant-area-details-square-meters[]"
                                  value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">
                         </div>

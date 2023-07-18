@@ -11,7 +11,10 @@ return new class extends Migration {
   public function up(): void
   {
     Schema::table('product_variant_area_details', function (Blueprint $table) {
-      $table->string('language')->default('lv');
+      $table->renameColumn('name', 'name_lv');
+      $table->string('name_en')->after('name')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_se')->after('name_en')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_no')->after('name_se')->nullable()->default('Nav tulkojuma!');
     });
   }
 
@@ -21,7 +24,10 @@ return new class extends Migration {
   public function down(): void
   {
     Schema::table('product_variant_area_details', function (Blueprint $table) {
-      $table->dropColumn('language');
+      $table->renameColumn('name_lv', 'name');
+      $table->dropColumn('name_en');
+      $table->dropColumn('name_se');
+      $table->dropColumn('name_no');
     });
   }
 };

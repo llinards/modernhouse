@@ -16,5 +16,10 @@
   "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz.",
   "modern house registration number": "Reģ. Nr.",
   "living space": "Dzīvojamā platība",
-  "construction area": "Apbūves platība"
+  "construction area": "Apbūves platība",
+  "choose option": "Izvēlies komplektāciju",
+  "basic": "Rūpnīcas",
+  "full": "Pilna",
+  "individual price": "Cena pēc individuāla pieprasījuma",
+  "tech specs": "Tehniskās specifikācijas"
 }
