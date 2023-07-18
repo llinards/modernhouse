@@ -12,7 +12,7 @@ class ProductVariantDetailController extends Controller
 {
   public function index(ProductVariant $productVariant)
   {
-    $allProductVariantDetails = $productVariant->productVariantDetails;
+    $allProductVariantDetails = $productVariant->productVariantDetails->where('language', app()->getLocale());
     return view('admin.product-variant.product-variant-details.index',
       compact('productVariant', 'allProductVariantDetails'));
   }

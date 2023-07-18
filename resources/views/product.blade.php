@@ -137,7 +137,7 @@
                       <div class="tab-pane fade show active" id="basic-{{$variant->slug}}">
                         <div class="accordion accordion-flush">
                           @foreach($product->productVariantOptions as $option)
-                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
+                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic' && $option->language === app()->getLocale())
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
                                   <button class="accordion-button collapsed variant-button" type="button"
@@ -161,7 +161,7 @@
                       <div class="tab-pane fade" id="full-{{$variant->slug}}">
                         <div class="accordion accordion-flush">
                           @foreach($product->productVariantOptions as $option)
-                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')
+                            @if($option->product_variant_id === $variant->id && $option->option_category === 'Full' && $option->language === app()->getLocale())
                               <div class="accordion-item">
                                 <h2 class="accordion-header">
                                   <button class="accordion-button collapsed variant-button" type="button"

@@ -17,22 +17,20 @@
               @include('includes.status-messages')
               <div class="row">
                 @foreach($allProductVariantDetails as $productVariantDetail)
-                  @if($productVariantDetail->language === app()->getLocale())
-                    <div class="col-6 text-center">
-                      <div class="mb-3">
-                        <h5>{{ $productVariantDetail->name }}</h5>
-                        <img
-                          src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                        <img
-                          src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"
-                          alt="">
-                        <p>Skaits: {{ $productVariantDetail->count }}</p>
-                        <a
-                          href="{{ URL::to('/admin/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}"
-                          class="btn btn-danger">Dzēst</a>
-                      </div>
+                  <div class="col-6 text-center">
+                    <div class="mb-3">
+                      <h5>{{ $productVariantDetail->name }}</h5>
+                      <img
+                        src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                      <img
+                        src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"
+                        alt="">
+                      <p>Skaits: {{ $productVariantDetail->count }}</p>
+                      <a
+                        href="{{ URL::to('/admin/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}"
+                        class="btn btn-danger">Dzēst</a>
                     </div>
-                  @endif
+                  </div>
                 @endforeach
               </div>
               <div class="d-flex">
