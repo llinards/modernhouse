@@ -52,9 +52,9 @@ class ProductController extends Controller
   {
     try {
       $productToUpdate = Product::findOrFail($data->id);
-      $productSlug = Str::slug($data['product-slug']);
+      $productSlug = app()->getLocale() === 'lv' ? Str::slug($data['product-slug']) : $productToUpdate->slug;
 
-      if ($productToUpdate->slug !== $productSlug) {
+      if ((app()->getLocale() === 'lv') && $productToUpdate->slug !== $productSlug) {
         $newProductImageDirectory = 'product-images/'.$productSlug;
         Storage::disk('public')->makeDirectory($newProductImageDirectory);
         Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
@@ -69,7 +69,7 @@ class ProductController extends Controller
 
       $productToUpdate->slug = $productSlug;
       $productToUpdate->{'name_'.app()->getLocale()} = $data['product-name'];
-      
+
       if (isset($data['product-available'])) {
         $productToUpdate->is_active = true;
       } else {
