@@ -11,7 +11,8 @@
               @if($variant->is_active)
                 <li class="nav-item">
                   <button class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab"
-                          data-bs-target="#{{Str::slug($variant->name)}}" type="button">{{ $variant->name }}</button>
+                          data-bs-target="#{{Str::slug($variant->slug)}}"
+                          type="button">{{ $variant->{'name_'.app()->getLocale()} }}</button>
                 </li>
               @endif
             @endforeach
@@ -20,33 +21,33 @@
         <div class="tab-content">
           @foreach($product->productVariants as $variant)
             @if($variant->is_active)
-              <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{Str::slug($variant->name)}}">
+              <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{$variant->slug}}">
                 <div class="row">
                   <div class="col-lg-7 mt-4">
-                    <section id="{{Str::slug($variant->name)}}-main-carousel" class="splide">
+                    <section id="{{$variant->slug}}-main-carousel" class="splide">
                       <div class="splide__track">
                         <ul class="splide__list">
                           @foreach($product->productVariantImages as $image)
                             @if($image->product_variant_id === $variant->id)
                               <li class="splide__slide">
                                 <img class="img-fluid"
-                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->slug)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
-                                     alt="{{ $variant->name }}">
+                                     data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$variant->slug.'/'.$image->filename) }}"
+                                     alt="{{ $variant->{'name_'.app()->getLocale()} }}">
                               </li>
                             @endif
                           @endforeach
                         </ul>
                       </div>
                     </section>
-                    <section id="{{Str::slug($variant->name)}}-thumbnail-carousel" class="splide mt-2">
+                    <section id="{{$variant->slug}}-thumbnail-carousel" class="splide mt-2">
                       <div class="splide__track">
                         <ul class="splide__list">
                           @foreach($product->productVariantImages as $image)
                             @if($image->product_variant_id === $variant->id)
                               <li class="splide__slide">
                                 <img class="img-fluid"
-                                     data-splide-lazy="{{ asset('storage/product-images/'.Str::slug($product->slug)).'/'.Str::slug($variant->name).'/'.$image->filename }}"
-                                     alt="{{ $variant->name }}"/>
+                                     data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$variant->slug.'/'.$image->filename) }}"
+                                     alt="{{ $variant->{'name_'.app()->getLocale()} }}"/>
                               </li>
                             @endif
                           @endforeach
@@ -60,25 +61,25 @@
                       <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
                         <li class="nav-item">
                           <button class="nav-link active basic-variant-title" data-bs-toggle="tab"
-                                  data-bs-target="#basic-{{Str::slug($variant->name)}}" type="button">Rūpnīcas
+                                  data-bs-target="#basic-{{$variant->slug}}" type="button">Rūpnīcas
                           </button>
                         </li>
                         <li class="nav-item">
                           <button class="nav-link full-variant-title" data-bs-toggle="tab"
-                                  data-bs-target="#full-{{Str::slug($variant->name)}}" type="button">Pilna
+                                  data-bs-target="#full-{{$variant->slug}}" type="button">Pilna
                           </button>
                         </li>
                       </ul>
                       <div class="mt-4 mb-2">
                         <h2
-                          class="text-center fw-bold basic-variant-price title show active basic-{{Str::slug($variant->name)}}">
+                          class="text-center fw-bold basic-variant-price title show active basic-{{$variant->slug}}">
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
                           @else
                             Cena pēc individuāla pieprasījuma
                           @endif
                         </h2>
-                        <h2 class="text-center fw-bold full-variant-price title full-{{Str::slug($variant->name)}}">
+                        <h2 class="text-center fw-bold full-variant-price title full-{{$variant->slug}}">
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
                           @else
@@ -87,7 +88,7 @@
                         </h2>
                       </div>
                       <div class="product-short-description">
-                        <p>{!! $variant->description !!}</p>
+                        <p>{!! $variant->{'description_'.app()->getLocale()} !!}</p>
                         <div class="product-details">
                           <div class="product-details-header d-flex justify-content-between">
                             @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
@@ -128,7 +129,7 @@
                   @if(count($product->productVariantOptions) > 0)
                     <div class="tab-content product-variant-option mt-4">
                       <h3 class="fw-bold text-center my-2">Tehniskās specifikācijas</h3>
-                      <div class="tab-pane fade show active" id="basic-{{Str::slug($variant->name)}}">
+                      <div class="tab-pane fade show active" id="basic-{{$variant->slug}}">
                         <div class="accordion accordion-flush">
                           @foreach($product->productVariantOptions as $option)
                             @if($option->product_variant_id === $variant->id && $option->option_category === 'Basic')
@@ -152,7 +153,7 @@
                           @endforeach
                         </div>
                       </div>
-                      <div class="tab-pane fade" id="full-{{Str::slug($variant->name)}}">
+                      <div class="tab-pane fade" id="full-{{$variant->slug}}">
                         <div class="accordion accordion-flush">
                           @foreach($product->productVariantOptions as $option)
                             @if($option->product_variant_id === $variant->id && $option->option_category === 'Full')

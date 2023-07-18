@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateProductVariantRequest;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantAreaDetail;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -21,25 +21,29 @@ class ProductVariantController extends Controller
 
   public function store(StoreProductVariantRequest $data)
   {
+    $productVariantSlug = Str::slug($data['product-variant-name']);
     try {
       $newProductVariant = ProductVariant::create([
-        'name' => $data['product-variant-name'],
+        'name_'.app()->getLocale() => $data['product-variant-name'],
+        'slug' => $productVariantSlug,
         'price_basic' => $data['product-variant-basic-price'],
         'price_full' => $data['product-variant-full-price'],
-        'description' => $data['product-variant-description'],
+        'description_'.app()->getLocale() => $data['product-variant-description'],
         'product_id' => $data['product-id'],
         'is_active' => false
       ]);
       foreach ($data['product-variant-images'] as $image) {
         $fileName = basename($image);
-        Storage::disk('public')->move($image, 'product-images/' . $newProductVariant->product->slug . '/' . Str::slug($data['product-variant-name']) . '/' . $fileName);
+        Storage::disk('public')->move($image,
+          'product-images/'.$newProductVariant->product->slug.'/'.$productVariantSlug.'/'.$fileName);
         $newProductVariant->productVariantImages()->create([
           'filename' => $fileName
         ]);
       }
-      return redirect('/admin')->with('success', Lang::get('added'));
+      return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -52,17 +56,20 @@ class ProductVariantController extends Controller
   {
     try {
       $productVariantToUpdate = ProductVariant::findOrFail($data->id);
-      if ($data['product-variant-name'] !== $productVariantToUpdate->name) {
-        $newProductVariantImageDirectory = 'product-images/' . $productVariantToUpdate->product->slug . '/' . Str::slug($data['product-variant-name']);
-        $oldProductVariantImageDirectory = 'product-images/' . $productVariantToUpdate->product->slug . '/' . Str::slug($productVariantToUpdate->name);
+      $productVariantSlug = app()->getLocale() === 'lv' ? Str::slug($data['product-variant-name']) : $productVariantToUpdate->slug;
+
+      if ((app()->getLocale() === 'lv') && $productVariantSlug !== $productVariantToUpdate->slug) {
+        $newProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantSlug;
+        $oldProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantToUpdate->slug;
         Storage::disk('public')->makeDirectory($newProductVariantImageDirectory);
         Storage::disk('public')->move($oldProductVariantImageDirectory, $newProductVariantImageDirectory);
       }
       $productVariantToUpdate->update([
-        'name' => $data['product-variant-name'],
+        'name_'.app()->getLocale() => $data['product-variant-name'],
+        'slug' => $productVariantSlug,
         'price_basic' => $data['product-variant-basic-price'],
         'price_full' => $data['product-variant-full-price'],
-        'description' => $data['product-variant-description'],
+        'description_'.app()->getLocale() => $data['product-variant-description'],
         'is_active' => isset($data['product-variant-available']),
       ]);
       foreach ($data['product-variant-area-details-name'] as $key => $productVariantAreaDetail) {
@@ -84,26 +91,29 @@ class ProductVariantController extends Controller
       if (isset($data['product-variant-images'])) {
         foreach ($data['product-variant-images'] as $image) {
           $fileName = basename($image);
-          Storage::disk('public')->move($image, 'product-images/' . $productVariantToUpdate->product->slug . '/' . Str::slug($data['product-variant-name']) . '/' . $fileName);
+          Storage::disk('public')->move($image,
+            'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantToUpdate->slug.'/'.$fileName);
           $productVariantToUpdate->productVariantImages()->create([
             'filename' => $fileName
           ]);
         }
       }
-      return redirect('/admin')->with('success', Lang::get('updated'));
+      return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
   public function destroy(ProductVariant $productVariant)
   {
     try {
-      Storage::disk('public')->deleteDirectory('product-images/' . $productVariant->product->slug . '/' . Str::slug($productVariant->name));
+      Storage::disk('public')->deleteDirectory('product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name));
       $productVariant->delete();
-      return redirect('/admin')->with('success', Lang::get('deleted'));
+      return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 }

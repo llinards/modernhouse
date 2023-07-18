@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Rediģēt - {{ $productVariant->name }}</h2>
+        <h2 class="text-center">Rediģēt - {{ $productVariant->{'name_'.app()->getLocale()} }}</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
@@ -32,7 +32,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-name" class="form-label">Nosaukums</label>
-                  <input type="text" class="form-control" id="product-variant-name" value="{{ $productVariant->name }}"
+                  <input type="text" class="form-control" id="product-variant-name"
+                         value="{{ $productVariant->{'name_'.app()->getLocale()} }}"
                          name="product-variant-name">
                 </div>
                 <div class="mb-3">
@@ -90,7 +91,7 @@
                   <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description"
                             id="product-variant-description">
-                    {{ $productVariant->description }}
+                    {{ $productVariant->{'description_'.app()->getLocale()} }}
                   </textarea>
                 </div>
                 <div class="mb-3" id="product-variant-images">
@@ -106,7 +107,7 @@
                             <i class="bi bi-x"></i>
                           </a>
                           <img class="img-fluid mb-2"
-                               src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name)).'/'.$image->filename }}"
+                               src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
                                alt="">
                         </div>
                       @endforeach
