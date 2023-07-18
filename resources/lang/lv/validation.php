@@ -160,6 +160,9 @@ return [
     'product-name' => [
       'required' => 'Nav norādīts nosaukums.'
     ],
+    'product-slug' => [
+      'required' => 'Nav norādīts ID.'
+    ],
     'product-cover-photo' => [
       'required' => 'Nav pievienota titulbilde.'
     ],

@@ -6,7 +6,7 @@ use App\Http\Requests\StoreProductVariantOptionsRequest;
 use App\Http\Requests\UpdateProductVariantOptionsRequest;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 
 class ProductVariantOptionController extends Controller
 {
@@ -14,18 +14,22 @@ class ProductVariantOptionController extends Controller
   {
     try {
       foreach ($data['product-variant-option-title'] as $key => $productVariantOption) {
-        $this->addDataToDB($data['product-variant-option-title'][$key], $data['product-variant-option-description'][$key], $data['product-variant-option-category'][$key], $data['product-variant-id'][$key]);
+        $this->addDataToDB($data['product-variant-option-title'][$key],
+          $data['product-variant-option-description'][$key], $data['product-variant-option-category'][$key],
+          $data['product-variant-id'][$key]);
       }
-      return back()->with('success', Lang::get('added'));
+      return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
   public function show(ProductVariant $productVariant)
   {
-    $allProductVariantOptions = $productVariant->productVariantOptionsByCategory;
-    return view('admin.product-variant.product-variant-options.index', compact('allProductVariantOptions', 'productVariant'));
+    $allProductVariantOptions = $productVariant->productVariantOptionsByCategory->where('language', app()->getLocale());
+    return view('admin.product-variant.product-variant-options.index',
+      compact('allProductVariantOptions', 'productVariant'));
   }
 
   public function update(UpdateProductVariantOptionsRequest $allProductVariantOptions)
@@ -40,12 +44,16 @@ class ProductVariantOptionController extends Controller
             'option_category' => $allProductVariantOptions['product-variant-option-category'][$key]
           ]);
         } else {
-          $this->addDataToDB($allProductVariantOptions['product-variant-option-title'][$key], $allProductVariantOptions['product-variant-option-description'][$key], $allProductVariantOptions['product-variant-option-category'][$key], $allProductVariantOptions['product-variant-id'][$key]);
+          $this->addDataToDB($allProductVariantOptions['product-variant-option-title'][$key],
+            $allProductVariantOptions['product-variant-option-description'][$key],
+            $allProductVariantOptions['product-variant-option-category'][$key],
+            $allProductVariantOptions['product-variant-id'][$key]);
         }
       }
-      return back()->with('success', Lang::get('updated'));
+      return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -53,19 +61,25 @@ class ProductVariantOptionController extends Controller
   {
     try {
       $productVariantOption->delete();
-      return back()->with('success', Lang::get('deleted'));
+      return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  protected function addDataToDB($productVariantOptionTitle, $productVariantOptionDescription, $productVariantOptionCategory, $productVariantId)
-  {
+  protected function addDataToDB(
+    $productVariantOptionTitle,
+    $productVariantOptionDescription,
+    $productVariantOptionCategory,
+    $productVariantId
+  ) {
     return ProductVariantOption::create([
       'option_title' => $productVariantOptionTitle,
       'options' => $productVariantOptionDescription,
       'option_category' => $productVariantOptionCategory,
       'product_variant_id' => $productVariantId,
+      'language' => app()->getLocale(),
     ]);
   }
 }

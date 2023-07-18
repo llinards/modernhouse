@@ -8,10 +8,10 @@
     <div class="nav-item">
       <a href="/admin/create" class="nav-link">Jauna kategorija</a>
     </div>
+    <div class="nav-item">
+      <a href="/admin/product-variant/create" class="nav-link">Jauns modulis/māja</a>
+    </div>
   @endif
-  <div class="nav-item">
-    <a href="/admin/product-variant/create" class="nav-link">Jauns modulis/māja</a>
-  </div>
   <div class="nav-item">
     <a href="/admin/gallery" class="nav-link">Galerijas</a>
   </div>
