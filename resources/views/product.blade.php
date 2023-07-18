@@ -92,8 +92,10 @@
                         <div class="product-details">
                           <div class="product-details-header d-flex justify-content-between">
                             @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
-                              <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}
-                                m<sup>2</sup></p>
+                              @if($productVariantAreaDetail->language === app()->getLocale())
+                                <p>{{ $productVariantAreaDetail->name }}: {{ $productVariantAreaDetail->square_meters }}
+                                  m<sup>2</sup></p>
+                              @endif
                             @endforeach
                           </div>
                           <hr class="m-1">

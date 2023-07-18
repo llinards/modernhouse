@@ -74,13 +74,13 @@
                     @else
                       <div class="col-6">
                         <input type="text" name="product-variant-area-details-name[]"
-                               value="Dzīvojamā platība" class="form-control mb-2">
+                               value="@lang('living space')" class="form-control mb-2">
                         <input type="text" name="product-variant-area-details-square-meters[]"
                                value="" class="form-control">
                       </div>
                       <div class="col-6">
                         <input type="text" name="product-variant-area-details-name[]"
-                               value="Apbūves platība" class="form-control mb-2">
+                               value="@lang('construction area')" class="form-control mb-2">
                         <input type="text" name="product-variant-area-details-square-meters[]"
                                value="" class="form-control">
                       </div>

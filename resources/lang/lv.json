@@ -14,5 +14,7 @@
   "page does not exist": "Šāda lapa neeksistē.",
   "message has been sent": "Paldies! Ziņa ir nosūtīta!",
   "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz.",
-  "modern house registration number": "Reģ. Nr."
+  "modern house registration number": "Reģ. Nr.",
+  "living space": "Dzīvojamā platība",
+  "construction area": "Apbūves platība"
 }

@@ -78,13 +78,15 @@ class ProductVariantController extends Controller
           $productVariantAreaDetailToUpdate->update([
             'name' => $data['product-variant-area-details-name'][$key],
             'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id']
+            'product_variant_id' => $data['id'],
+            'language' => app()->getLocale()
           ]);
         } else {
           ProductVariantAreaDetail::create([
             'name' => $data['product-variant-area-details-name'][$key],
             'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id']
+            'product_variant_id' => $data['id'],
+            'language' => app()->getLocale()
           ]);
         }
       }
