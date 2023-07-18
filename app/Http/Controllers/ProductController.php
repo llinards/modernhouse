@@ -52,24 +52,24 @@ class ProductController extends Controller
   {
     try {
       $productToUpdate = Product::findOrFail($data->id);
-      if (app()->getLocale() === 'lv') {
-        $newProductSlug = Str::slug($data['product-name']);
-        if ($productToUpdate->slug !== $newProductSlug) {
-          $newProductImageDirectory = 'product-images/'.$newProductSlug;
-          Storage::disk('public')->makeDirectory($newProductImageDirectory);
-          Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
-        }
+      $productSlug = Str::slug($data['product-slug']);
+
+      if ($productToUpdate->slug !== $productSlug) {
+        $newProductImageDirectory = 'product-images/'.$productSlug;
+        Storage::disk('public')->makeDirectory($newProductImageDirectory);
+        Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
       }
+
       if (isset($data['product-cover-photo'])) {
         Storage::disk('public')->delete('product-images/'.$productToUpdate->slug.'/'.$productToUpdate->cover_photo_filename);
         Storage::disk('public')->move($data['product-cover-photo'],
-          'product-images/'.$newProductSlug.'/'.basename($data['product-cover-photo']));
+          'product-images/'.$productSlug.'/'.basename($data['product-cover-photo']));
         $productToUpdate->cover_photo_filename = basename($data['product-cover-photo']);
       }
-      if (app()->getLocale() === 'lv') {
-        $productToUpdate->slug = $newProductSlug;
-      }
+
+      $productToUpdate->slug = $productSlug;
       $productToUpdate->{'name_'.app()->getLocale()} = $data['product-name'];
+      
       if (isset($data['product-available'])) {
         $productToUpdate->is_active = true;
       } else {
@@ -90,6 +90,7 @@ class ProductController extends Controller
       $product->delete();
       return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
+      Log::debug($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
