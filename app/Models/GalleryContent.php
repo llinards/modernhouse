@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class GalleryContent extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = ['title', 'content'];
+  protected $fillable = ['title', 'content', 'slug'];
 
-    public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-      return $this->hasMany(GalleryImage::class);
-    }
+  protected $with = ['galleryImages'];
+
+  public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(GalleryImage::class);
+  }
 }

@@ -12,14 +12,15 @@
             </div>
             <div class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column"
                  id="gallery-images">
-              <section id="{{Str::slug($galleryItem->title)}}-main-carousel" class="splide">
+              <section id="{{$galleryItem->slug}}-main-carousel" class="splide">
                 <div class="splide__track">
                   <ul class="splide__list">
                     @foreach($galleryItem->galleryImages as $image)
                       <li class="splide__slide">
-                        <a data-fslightbox="{{Str::slug($galleryItem->title)}}" href="{{ asset('storage/gallery/'. Str::slug($galleryItem->title) . '/' .$image->filename) }}">
+                        <a data-fslightbox="{{$galleryItem->slug}}"
+                           href="{{ asset('storage/gallery/'. $galleryItem->slug . '/' .$image->filename) }}">
                           <img class="img-fluid"
-                               data-splide-lazy="{{ asset('storage/gallery/'. Str::slug($galleryItem->title) . '/' .$image->filename) }}"
+                               data-splide-lazy="{{ asset('storage/gallery/'. $galleryItem->slug . '/' .$image->filename) }}"
                                alt="{{ $galleryItem->title }}">
                         </a>
                       </li>

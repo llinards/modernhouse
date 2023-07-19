@@ -62,13 +62,14 @@ class HomeController extends Controller
 
   public function gallery()
   {
-    $galleryContent = GalleryContent::with('galleryImages')->orderBy('created_at', 'desc')->get();
+    $galleryContent = GalleryContent::orderBy('created_at', 'desc')->get();
+    return $galleryContent;
     return view('gallery')->with('galleryContent', $galleryContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
   public function newsIndex()
   {
-    $newsContent = NewsContent::where('language', Lang::locale())->orderBy('created_at', 'desc')->get();
+    $newsContent = NewsContent::where('language', app()->getLocale())->orderBy('created_at', 'desc')->get();
     return view('news-index')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreGalleryContentRequest;
 use App\Http\Requests\UpdateGalleryContentRequest;
 use App\Models\GalleryContent;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -13,7 +14,7 @@ class GalleryController extends Controller
 {
   public function index()
   {
-    $allGalleryContent = GalleryContent::all();
+    $allGalleryContent = GalleryContent::orderBy('created_at', 'desc')->get();
     return view('admin.gallery.index', compact('allGalleryContent'));
   }
 
@@ -24,20 +25,23 @@ class GalleryController extends Controller
 
   public function store(StoreGalleryContentRequest $data)
   {
+    $galleryContentSlug = Str::slug($data['gallery-title']);
     try {
       $newGalleryContent = GalleryContent::create([
         'title' => $data['gallery-title'],
-        'content' => $data['gallery-content']
+        'content' => $data['gallery-content'],
+        'slug' => $galleryContentSlug
       ]);
       foreach ($data['gallery-images'] as $image) {
         $fileName = basename($image);
-        Storage::disk('public')->move($image, 'gallery/' . Str::slug($data['gallery-title']) . '/' . $fileName);
+        Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
         $newGalleryContent->galleryImages()->create([
           'filename' => $fileName
         ]);
       }
-      return redirect('/admin/gallery')->with('success', Lang::get('added'));
+      return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
+      Log::debug($e);
       return back()->with('error', Lang::get('error try again'));
     }
   }
@@ -51,39 +55,44 @@ class GalleryController extends Controller
   {
     try {
       $galleryToUpdate = GalleryContent::findOrFail($data->id);
-      if ($data['gallery-title'] !== $galleryToUpdate->title) {
-        $newGalleryDirectory = 'gallery/' . Str::slug($data['gallery-title']);
-        $oldGalleryDirectory = 'gallery/' . Str::slug($galleryToUpdate->title);
+      $galleryContentSlug = app()->getLocale() === 'lv' ? Str::slug($data['gallery-title']) : $galleryToUpdate->slug;
+
+      if ((app()->getLocale() === 'lv') && $galleryContentSlug !== $galleryToUpdate->slug) {
+        $newGalleryDirectory = 'gallery/'.$galleryContentSlug;
+        $oldGalleryDirectory = 'gallery/'.$galleryToUpdate->slug;
         Storage::disk('public')->makeDirectory($newGalleryDirectory);
         Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
       }
       $galleryToUpdate->update([
         'title' => $data['gallery-title'],
         'content' => $data['gallery-content'],
+        'slug' => $galleryContentSlug
       ]);
       if (isset($data['gallery-images'])) {
         foreach ($data['gallery-images'] as $image) {
           $fileName = basename($image);
-          Storage::disk('public')->move($image, 'gallery/' . Str::slug($data['gallery-title']) . '/' . $fileName);
+          Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
           $galleryToUpdate->galleryImages()->create([
             'filename' => $fileName
           ]);
         }
       }
-      return back()->with('success', Lang::get('updated'));
+      return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
   public function destroy(GalleryContent $gallery)
   {
     try {
-      Storage::disk('public')->deleteDirectory('gallery/' . Str::slug($gallery->title));
+      Storage::disk('public')->deleteDirectory('gallery/'.$gallery->slug);
       $gallery->delete();
-      return back()->with('success', Lang::get('deleted'));
+      return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 }
