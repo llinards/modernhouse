@@ -4,11 +4,11 @@
     <div class="row">
       <h1 class="fw-bold text-center text-uppercase title">@lang('gallery')</h1>
       <div class="mt-4 gallery">
-        @foreach($galleryContent as $galleryItem)
+        @foreach($galleryContents as $galleryItem)
           <div class="row mt-5">
             <div class="col-lg-3 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
-              <h2 class="fw-bold title mb-2">{{ $galleryItem->title }}</h2>
-              <p>{!! $galleryItem->content !!}</p>
+              <h2 class="fw-bold title mb-2">{{ $galleryItem->translations[0]->title }}</h2>
+              <p>{!! $galleryItem->translations[0]->content !!}</p>
             </div>
             <div class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column"
                  id="gallery-images">
