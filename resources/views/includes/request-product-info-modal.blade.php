@@ -14,7 +14,7 @@
                  value="{{ $product->{'name_'.app()->getLocale()} }}"/>
           @if(count($product->productVariants) !== 1)
             <div class="mb-3">
-              <label for="product-variant" class="form-label fw-bold">Variants*</label>
+              <label for="product-variant" class="form-label fw-bold">@lang('product variant')*</label>
               <select class="form-select" name="product-variant" id="product-variant"
                       aria-label="Default select example">
                 @foreach($product->productVariants as $variant)
@@ -25,32 +25,32 @@
             </div>
           @endif
           <div class="mb-3">
-            <label for="product-variant-option" class="form-label fw-bold">Komplektācija*</label>
+            <label for="product-variant-option" class="form-label fw-bold">@lang('product variant option')*</label>
             <select class="form-select" name="product-variant-option" id="product-variant-option"
                     aria-label="Default select example">
-              <option value="Basic" selected>Rūpnīcas</option>
-              <option value="Full">Pilna</option>
+              <option value="Basic" selected>@lang('basic')</option>
+              <option value="Full">@lang('full')</option>
             </select>
           </div>
           <div class="mb-3">
-            <label for="name-surname" class="form-label fw-bold">Vārds, uzvārds*</label>
+            <label for="name-surname" class="form-label fw-bold">@lang('name surname')*</label>
             <input type="text" name="name-surname" class="form-control" id="name-surname"
                    value="{{ old('name-surname') }}">
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label fw-bold">E-pasts*</label>
+            <label for="email" class="form-label fw-bold">@lang('email')*</label>
             <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
           </div>
           <div class="mb-3">
-            <label for="phone-number" class="form-label fw-bold">Kontakttālrunis*</label>
+            <label for="phone-number" class="form-label fw-bold">@lang('phone number')*</label>
             <input type="tel" name="phone-number" class="form-control" id="phone-number"
                    value="{{ old('phone-number') }}">
           </div>
           <div class="mb-3">
-            <label for="company" class="form-label fw-bold">Uzņēmums</label>
+            <label for="company" class="form-label fw-bold">@lang('company')</label>
             <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
           </div>
-          <label for="customers-question" class="form-label fw-bold">Papildus jautājumi</label>
+          <label for="customers-question" class="form-label fw-bold">@lang('additional questions')</label>
           <textarea class="form-control mb-3" name="customers-question" id="customers-question" rows="3">
             {{ old('customers-question') }}
           </textarea>
@@ -58,13 +58,12 @@
             <input class="form-check-input m-0" type="checkbox" value="1" id="customer-agrees-for-data-processing"
                    name="customer-agrees-for-data-processing"
             >
-            <label for="customer-agrees-for-data-processing" class="form-label mb-0 d-block mx-2">Piekrītu, ka mani
-              iesniegtie
-              dati tiek apstrādāti un uzglabāti.</label>
+            <label for="customer-agrees-for-data-processing"
+                   class="form-label mb-0 d-block mx-2">@lang('data processing agreement')</label>
           </div>
           <div class="modal-footer d-flex justify-content-center">
             <button type="submit" id="submit-product-info-callback"
-                    class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">Nosūtīt
+                    class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">@lang('send')
             </button>
           </div>
         </form>

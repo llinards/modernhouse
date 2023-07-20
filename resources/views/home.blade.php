@@ -23,22 +23,22 @@
         <div class="text-center">
           <img src="{{ asset('storage/icons/house-line.png') }}"/>
         </div>
-        <h2 class="text-uppercase text-center">izvēlies</h2>
-        <p class="text-center">Iepazīsties un izvēlies sev labāko variantu.</p>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 1')</h2>
+        <p class="text-center">@lang('choose order contact text 1')</p>
       </div>
       <div class="m-2">
         <div class="text-center">
           <img src="{{ asset('storage/icons/checks.png') }}"/>
         </div>
-        <h2 class="text-uppercase text-center">pasūti</h2>
-        <p class="text-center">Veic pasūtījumu mūsu pieteikuma anketā.</p>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 2')</h2>
+        <p class="text-center">@lang('choose order contact text 2')</p>
       </div>
       <div class="m-2">
         <div class="text-center">
           <img src="{{ asset('storage/icons/handshake.png') }}"/>
         </div>
-        <h2 class="text-uppercase text-center">sazinamies</h2>
-        <p class="text-center">Mēs ar Tevi sazināsimies!</p>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 3')</h2>
+        <p class="text-center">@lang('choose order contact text 2')</p>
       </div>
     </section>
     <section id="footer">
