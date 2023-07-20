@@ -6,21 +6,23 @@ use App\Http\Requests\StoreProductVariantDetail;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantDetail;
 use App\Models\ProductVariantDetailIcon;
-use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 
 class ProductVariantDetailController extends Controller
 {
   public function index(ProductVariant $productVariant)
   {
-    $allProductVariantDetails = $productVariant->productVariantDetails;
-    return view('admin.product-variant.product-variant-details.index', compact('productVariant', 'allProductVariantDetails'));
+    $allProductVariantDetails = $productVariant->productVariantDetails->where('language', app()->getLocale());
+    return view('admin.product-variant.product-variant-details.index',
+      compact('productVariant', 'allProductVariantDetails'));
   }
 
   public function create(ProductVariant $productVariant)
   {
     $allProductVariantDetails = $productVariant->productVariantDetails;
     $allProductVariantDetailIcons = ProductVariantDetailIcon::all();
-    return view('admin.product-variant.product-variant-details.create', compact('productVariant', 'allProductVariantDetails', 'allProductVariantDetailIcons'));
+    return view('admin.product-variant.product-variant-details.create',
+      compact('productVariant', 'allProductVariantDetails', 'allProductVariantDetailIcons'));
   }
 
   public function store(StoreProductVariantDetail $data)
@@ -34,16 +36,19 @@ class ProductVariantDetailController extends Controller
           'name' => $fileName
         ]);
       }
-      $newProductVariantDetail = ProductVariantDetail::create([
+      ProductVariantDetail::create([
         'name' => $data['product-variant-detail-name'],
         'hasThis' => $data['product-variant-detail-available'] === 'on' ? true : false,
-        'icon' => isset($data['product-variant-detail-new-icon']) ? basename($data['product-variant-detail-new-icon']->getClientOriginalName(), ".svg") : basename($data['product-variant-detail-icon'], ".svg"),
+        'icon' => isset($data['product-variant-detail-new-icon']) ? basename($data['product-variant-detail-new-icon']->getClientOriginalName(),
+          ".svg") : basename($data['product-variant-detail-icon'], ".svg"),
         'product_variant_id' => $data['product-variant-id'],
-        'count' => $data['product-variant-detail-count']
+        'count' => $data['product-variant-detail-count'],
+        'language' => app()->getLocale()
       ]);
-      return back()->with('success', Lang::get('updated'));
+      return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -51,9 +56,10 @@ class ProductVariantDetailController extends Controller
   {
     try {
       $productVariantDetail->delete();
-      return back()->with('success', Lang::get('deleted'));
+      return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 }

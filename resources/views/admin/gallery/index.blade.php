@@ -9,15 +9,17 @@
       <div>
         <div class="container">
           <div class="row justify-content-between">
-            <div class="mb-2">
-              <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
-            </div>
+            @if(app()->getLocale() == 'lv')
+              <div class="mb-2">
+                <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
+              </div>
+            @endif
             @include('includes.status-messages')
-            @foreach($allGalleryContent as $galleryItem)
+            @foreach($galleryContents as $galleryItem)
               <div class="col-lg-3 p-2">
                 <div class="card position-relative">
                   <div class="card-body">
-                    <p class="card-title text-center">{{ $galleryItem->title }}</p>
+                    <p class="card-title text-center">{{ $galleryItem->translations[0]->title ?? 'Nav tulkojuma!' }}</p>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
                       <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-secondary m-1">Rediģēt</a>

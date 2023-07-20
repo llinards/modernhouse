@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
-use Illuminate\Http\File;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -16,8 +13,8 @@ class ProductController extends Controller
 {
   public function index()
   {
-    $allProducts = Product::with('productVariants')->get();
-    return view('admin.index', compact('allProducts'));
+    $allProducts = Product::all();
+    return view('admin.index')->with('allProducts', $allProducts);
   }
 
   public function create()
@@ -29,19 +26,20 @@ class ProductController extends Controller
   {
     try {
       $productCoverPhotoFilename = basename($data['product-cover-photo']);
-      $productSlug = Str::slug($data['product-name']);
+      $productSlug = $data['product-slug'];
 
-      Storage::disk('public')->move($data['product-cover-photo'], 'product-images/' . $productSlug . '/' . $productCoverPhotoFilename);
+      Storage::disk('public')->move($data['product-cover-photo'],
+        'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
       Product::create([
         'slug' => $productSlug,
-        'name' => $data['product-name'],
+        'name_'.app()->getLocale() => $data['product-name'],
         'cover_photo_filename' => $productCoverPhotoFilename,
         'is_active' => false
       ]);
-      return redirect('/admin')->with('success', Lang::get('added'));
+      return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       Log::debug($e);
-      return back()->with('error', Lang::get('error try again'));
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
@@ -54,39 +52,46 @@ class ProductController extends Controller
   {
     try {
       $productToUpdate = Product::findOrFail($data->id);
-      $newProductSlug = Str::slug($data['product-name']);
-      if ($productToUpdate->slug !== $newProductSlug) {
-        $newProductImageDirectory = 'product-images/' . $newProductSlug;
+      $productSlug = app()->getLocale() === 'lv' ? Str::slug($data['product-slug']) : $productToUpdate->slug;
+
+      if ((app()->getLocale() === 'lv') && $productToUpdate->slug !== $productSlug) {
+        $newProductImageDirectory = 'product-images/'.$productSlug;
         Storage::disk('public')->makeDirectory($newProductImageDirectory);
-        Storage::disk('public')->move('product-images/' . $productToUpdate->slug, $newProductImageDirectory);
+        Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
       }
+
       if (isset($data['product-cover-photo'])) {
-        Storage::disk('public')->delete('product-images/' . $productToUpdate->slug . '/' . $productToUpdate->cover_photo_filename);
-        Storage::disk('public')->move($data['product-cover-photo'], 'product-images/' . $newProductSlug . '/' . basename($data['product-cover-photo']));
+        Storage::disk('public')->delete('product-images/'.$productToUpdate->slug.'/'.$productToUpdate->cover_photo_filename);
+        Storage::disk('public')->move($data['product-cover-photo'],
+          'product-images/'.$productSlug.'/'.basename($data['product-cover-photo']));
         $productToUpdate->cover_photo_filename = basename($data['product-cover-photo']);
       }
-      $productToUpdate->slug = $newProductSlug;
-      $productToUpdate->name = $data['product-name'];
+
+      $productToUpdate->slug = $productSlug;
+      $productToUpdate->{'name_'.app()->getLocale()} = $data['product-name'];
+
       if (isset($data['product-available'])) {
         $productToUpdate->is_active = true;
       } else {
         $productToUpdate->is_active = false;
       }
       $productToUpdate->save();
-      return redirect('/admin')->with('success', Lang::get('updated'));
+      return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
   public function destroy(Product $product)
   {
     try {
-      Storage::disk('public')->deleteDirectory('product-images/' . $product->slug);
+      Storage::disk('public')->deleteDirectory('product-images/'.$product->slug);
       $product->delete();
-      return redirect('/admin')->with('success', Lang::get('deleted'));
+      return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      return back()->with('error', Lang::get('error try again'));
+      Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 }

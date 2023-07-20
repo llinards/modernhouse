@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section>
       <div class="my-5">
-        <h2 class="text-center">Rediģēt - {{ $gallery->title }}</h2>
+        <h2 class="text-center">Rediģēt - {{ $galleryContent->translations[0]->title ?? 'Nav tulkojuma!' }}</h2>
       </div>
       <div class="my-5">
         <div class="container">
@@ -14,30 +14,34 @@
               <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                <input name="id" class="visually-hidden" value="{{ $gallery->id }}">
+                <input name="id" class="visually-hidden" value="{{ $galleryContent->id }}">
                 <div class="mb-3">
                   <label for="gallery-title" class="form-label">Nosaukums</label>
-                  <input type="text" class="form-control" id="gallery-title" value="{{ $gallery->title }}"
+                  <input type="text" class="form-control" id="gallery-title"
+                         value="{{ $galleryContent->translations[0]->title ?? 'Nav tulkojuma!' }}"
                          name="gallery-title">
                 </div>
                 <div class="mb-3">
                   <label for="gallery-content" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="gallery-content" id="gallery-content">
-                    {{ $gallery->content }}
+                    {{ $galleryContent->translations[0]->content ?? 'Nav tulkojuma!' }}
                   </textarea>
                 </div>
                 <div class="mb-3" id="gallery-images">
                   <p>Esošās bildes</p>
                   <div class="row">
-                    @if(count($gallery->galleryImages) === 0)
+                    @if(count($galleryContent->galleryImages) === 0)
                       <p>Nav pievienotas bildes!</p>
                     @else
-                      @foreach($gallery->galleryImages as $image)
+                      @foreach($galleryContent->galleryImages as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
-                          <a class="btn btn-danger btn-sm mb-1" href="{{ URL::to('/admin/gallery/image/'.$image->id.'/delete') }}">
+                          <a class="btn btn-danger btn-sm mb-1"
+                             href="{{ URL::to('/admin/gallery/image/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
-                          <img class="img-fluid mb-2" src="{{ asset('storage/gallery/'.Str::slug($gallery->title).'/'.$image->filename) }}" alt="">
+                          <img class="img-fluid mb-2"
+                               src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
+                               alt="">
                         </div>
                       @endforeach
                     @endif

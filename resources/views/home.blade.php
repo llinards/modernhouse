@@ -2,10 +2,13 @@
 @section('content')
   <article id="home">
     @foreach($allProducts as $key => $product)
-      <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between" style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
-        <h1 class="fw-bold text-center text-uppercase title">{{ $product->name }}</h1>
+      <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between"
+               style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
+        <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
         <div class="text-center d-flex flex-column justify-content-end align-items-center">
-          <a href="/{{ $product->slug }}" class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('feature details')</a>
+          <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
+             class="btn btn-primary fw-light d-flex justify-content-center align-items-center
+          ">@lang('feature details')</a>
           @php
             ++$key;
           @endphp
@@ -16,28 +19,28 @@
       </section>
     @endforeach
     <section id="choose-order-contact" class="d-flex justify-content-center align-items-center flex-column">
-        <div class="m-2">
-          <div class="text-center">
-            <img src="{{ asset('storage/icons/house-line.png') }}"/>
-          </div>
-          <h2 class="text-uppercase text-center">izvēlies</h2>
-          <p class="text-center">Iepazīsties un izvēlies sev labāko variantu.</p>
+      <div class="m-2">
+        <div class="text-center">
+          <img src="{{ asset('storage/icons/house-line.png') }}"/>
         </div>
-        <div class="m-2">
-          <div class="text-center">
-            <img src="{{ asset('storage/icons/checks.png') }}"/>
-          </div>
-          <h2 class="text-uppercase text-center">pasūti</h2>
-          <p class="text-center">Veic pasūtījumu mūsu pieteikuma anketā.</p>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 1')</h2>
+        <p class="text-center">@lang('choose order contact text 1')</p>
+      </div>
+      <div class="m-2">
+        <div class="text-center">
+          <img src="{{ asset('storage/icons/checks.png') }}"/>
         </div>
-        <div class="m-2">
-          <div class="text-center">
-            <img src="{{ asset('storage/icons/handshake.png') }}"/>
-          </div>
-          <h2 class="text-uppercase text-center">sazinamies</h2>
-          <p class="text-center">Mēs ar Tevi sazināsimies!</p>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 2')</h2>
+        <p class="text-center">@lang('choose order contact text 2')</p>
+      </div>
+      <div class="m-2">
+        <div class="text-center">
+          <img src="{{ asset('storage/icons/handshake.png') }}"/>
         </div>
-      </section>
+        <h2 class="text-uppercase text-center">@lang('choose order contact title 3')</h2>
+        <p class="text-center">@lang('choose order contact text 2')</p>
+      </div>
+    </section>
     <section id="footer">
       @include('includes.footer')
     </section>

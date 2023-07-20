@@ -4,14 +4,15 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Detaļas - {{ $productVariant->name }}</h2>
+        <h2 class="text-center">Detaļas - {{ $productVariant->{'name_'.app()->getLocale()} }}</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-7 col-12">
               <div class="mb-5 text-center">
-                <a class="btn btn-success" href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details/create">+</a>
+                <a class="btn btn-success"
+                   href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details/create">+</a>
               </div>
               @include('includes.status-messages')
               <div class="row">
