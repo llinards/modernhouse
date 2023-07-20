@@ -33,13 +33,13 @@ Route::middleware(['auth'])->group(function () {
   Route::get('/admin/news', [\App\Http\Controllers\NewsController::class, 'index']);
   Route::get('/admin/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
   Route::post('/admin/news', [\App\Http\Controllers\NewsController::class, 'store']);
-  Route::get('/admin/news/{news}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
+  Route::get('/admin/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
   Route::get('/admin/news/images/{newsImage}/delete',
     [\App\Http\Controllers\NewsController::class, 'destroyNewsImage']);
   Route::get('/admin/news/attachments/{newsAttachment}/delete',
     [\App\Http\Controllers\NewsController::class, 'destroyNewsAttachment']);
   Route::patch('/admin/news', [\App\Http\Controllers\NewsController::class, 'update']);
-  Route::delete('/admin/news/{news}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
+  Route::delete('/admin/news/{news:id}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
 
   Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
   Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
