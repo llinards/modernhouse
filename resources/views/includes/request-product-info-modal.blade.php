@@ -7,7 +7,7 @@
       <div class="modal-body">
         <h4 class="text-center">{{$product->{'name_'.app()->getLocale()} }}</h4>
         <form id="request-product-info" method="POST"
-              action="{{ route('request-product-info', $product->slug) }}">
+              action="/{{app()->getLocale()}}/{{$product->slug}}">
           @csrf
           <x-honeypot/>
           <input type="text" class="visually-hidden" name="product-name"

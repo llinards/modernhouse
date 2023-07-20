@@ -9,6 +9,7 @@ use App\Models\GalleryContent;
 use App\Models\NewsContent;
 use App\Models\Product;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -19,18 +20,21 @@ class HomeController extends Controller
     return view('home')->with('allProducts', $allProducts);
   }
 
-  public function show(Product $product)
+  //TODO:check why the first paramter is required to be $language
+  public function show($language, Product $product)
   {
     $allProducts = Product::activeProducts()->get();
     return view('product')->with('product', $product)->with('allProducts', $allProducts);
   }
 
-  public function requestProductInfo(ContactUsRequest $request)
+  //TODO:check why the first paramter is required to be $language
+  public function requestProductInfo($language, ContactUsRequest $request)
   {
     try {
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
+      Log::debug($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -46,6 +50,7 @@ class HomeController extends Controller
       Mail::to('info@modern-house.lv')->send(new ContactUsSubmitted($data->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
+      Log::debug($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -86,7 +91,8 @@ class HomeController extends Controller
     return view('news-index')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }
 
-  public function newsShow(NewsContent $newsContent)
+  //TODO:check why the first paramter is required to be $language
+  public function newsShow($language, NewsContent $newsContent)
   {
     return view('news-show')->with('newsContent', $newsContent)->with('allProducts', $this->getAllActiveProducts());
   }

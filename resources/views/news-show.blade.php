@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="d-flex w-100 justify-content-center mt-4 flex-wrap">
-          <a href="/news"
+          <a href="/{{app()->getLocale()}}/news"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('back')</a>
         </div>
       </div>
