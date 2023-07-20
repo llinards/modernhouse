@@ -33,10 +33,7 @@ class GalleryController extends Controller
   {
     $galleryContentSlug = Str::slug($data['gallery-title']);
     try {
-      //TODO: refactor what's being created in the main table
       $newGalleryContent = GalleryContent::create([
-        'title' => $data['gallery-title'],
-        'content' => $data['gallery-content'],
         'slug' => $galleryContentSlug
       ]);
       $newGalleryContent->translations()->create([
@@ -99,10 +96,7 @@ class GalleryController extends Controller
         Storage::disk('public')->makeDirectory($newGalleryDirectory);
         Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
       }
-      //TODO: refactor what's being created in the main table
       $galleryToUpdate->update([
-        'title' => $data['gallery-title'],
-        'content' => $data['gallery-content'],
         'slug' => $galleryContentSlug
       ]);
       if (isset($data['gallery-images'])) {
