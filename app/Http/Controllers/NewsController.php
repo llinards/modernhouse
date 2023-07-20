@@ -99,7 +99,7 @@ class NewsController extends Controller
   public function destroy(NewsContent $news)
   {
     try {
-      Storage::disk('public')->deleteDirectory('news/'.Str::slug($news['title']));
+      Storage::disk('public')->deleteDirectory('news/'.$news->slug);
       $news->delete();
       return redirect('/admin/news')->with('success', 'Jaunums dzēsts!');
     } catch (\Exception $e) {
