@@ -7,42 +7,43 @@
       <div class="mt-4">
         <div class="row">
           <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
-            <form method="POST" class="w-100" action="/contact-us">
+            <form method="POST" class="w-100" action="/{{app()->getLocale()}}/contact-us">
               @csrf
               <x-honeypot/>
               <div class="mb-3">
-                <label for="name-surname" class="form-label fw-bold">Vārds, uzvārds*</label>
+                <label for="name-surname" class="form-label fw-bold">@lang('name surname')*</label>
                 <input type="text" name="name-surname" class="form-control" id="name-surname"
                        value="{{ old('name-surname') }}">
               </div>
               <div class="mb-3">
-                <label for="email" class="form-label fw-bold">E-pasts*</label>
+                <label for="email" class="form-label fw-bold">@lang('email')*</label>
                 <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
               </div>
               <div class="mb-3">
-                <label for="phone-number" class="form-label fw-bold">Kontakttālrunis*</label>
+                <label for="phone-number" class="form-label fw-bold">@lang('phone number')*</label>
                 <input type="tel" name="phone-number" class="form-control" id="phone-number"
                        value="{{ old('phone-number') }}">
               </div>
               <div class="mb-3">
-                <label for="company" class="form-label fw-bold">Uzņēmums</label>
+                <label for="company" class="form-label fw-bold">@lang('company')</label>
                 <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
               </div>
-              <label for="customers-question" class="form-label fw-bold">Jautājumi</label>
+              <label for="customers-question" class="form-label fw-bold">@lang('questions')</label>
               <textarea class="form-control mb-3" name="customers-question" id="customers-question" rows="3">
                 {{ old('customers-question') }}
               </textarea>
               <div class="mb-3 d-flex align-items-center">
-                <input class="form-check-input m-0" type="checkbox" value="1" checked id="customer-agrees-for-data-processing"
+                <input class="form-check-input m-0" type="checkbox" value="1" checked
+                       id="customer-agrees-for-data-processing"
                        name="customer-agrees-for-data-processing"
                 >
-                <label for="customer-agrees-for-data-processing" class="form-label mb-0 d-block mx-2">Piekrītu, ka mani iesniegtie
-                  dati tiek apstrādāti un uzglabāti.</label>
+                <label for="customer-agrees-for-data-processing"
+                       class="form-label mb-0 d-block mx-2">@lang('data processing agreement')</label>
               </div>
               <div class="d-flex justify-content-center">
                 <button type="submit" id="submit-contact-us"
                         class="mt-4 btn btn-primary disabled fw-light d-flex justify-content-center align-items-center text-uppercase">
-                  Nosūtīt
+                  @lang('send')
                 </button>
               </div>
             </form>
@@ -50,14 +51,14 @@
           <div class="col-lg-6 order-first order-lg-last d-flex justify-content-center align-items-between flex-column">
             <div class="row modern-house-staff">
               <div class="col-6 text-center">
-                <h5 class="fw-bold pb-1">Helvijs Ervalds</h5>
-                <p>Modern House CEO</p>
+                <h5 class="fw-bold pb-1">@lang('helvijs')</h5>
+                <p>@lang('ceo')</p>
                 <a class="nav-link" href="mailto:helvijs@modern-house.lv">helvijs@modern-house.lv</a>
                 <p>+371 25666622</p>
               </div>
               <div class="col-6 text-center">
-                <h5 class="fw-bold pb-1">Aigars Jonass</h5>
-                <p>Pārdošanas speciālists</p>
+                <h5 class="fw-bold pb-1">@lang('aigars')</h5>
+                <p>@lang('sales specialist')</p>
                 <a class="nav-link" href="mailto:aigars@modern-house.lv">aigars@modern-house.lv</a>
                 <p>+371 26312075</p>
               </div>

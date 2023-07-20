@@ -76,14 +76,14 @@
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_basic, 2, ',', ' ') }}
                           @else
-                            @lang('invividual price')
+                            @lang('individual price')
                           @endif
                         </h2>
                         <h2 class="text-center fw-bold full-variant-price title full-{{$variant->slug}}">
                           @if($variant->price_basic != 0.00)
                             EUR {{ number_format($variant->price_full, 2, ',', ' ') }}
                           @else
-                            @lang('invividual price')
+                            @lang('individual price')
                           @endif
                         </h2>
                       </div>

@@ -9,6 +9,11 @@ class NewsContent extends Model
 {
   use HasFactory;
 
+  public function getRouteKeyName(): string
+  {
+    return 'slug';
+  }
+
   protected $fillable = ['title', 'slug', 'content', 'language'];
   protected $with = ['newsImages', 'newsAttachments'];
 
