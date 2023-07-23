@@ -68,10 +68,6 @@
             <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/contact-us">@lang('contact')</a>
           </li>
-        </ul>
-      </div>
-      <div class="nav-items">
-        <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/privacy-policy">@lang('privacy-policy')</a>

@@ -57,7 +57,8 @@
     background-color: white;
     transition: all 0.5s;
     z-index: 10;
-    box-shadow: -6px 1px 11px 0px rgba(0,0,0,0.41);
+    box-shadow: -6px 1px 11px 0px rgba(0, 0, 0, 0.41);
+
     #modal-content {
       opacity: 0;
       transition: all 0.5s;
@@ -98,12 +99,12 @@
   padding-bottom: 0;
 }
 
-.navbar-modal-social-network-icons i{
-  font-size: 24px;
+.navbar-modal-social-network-icons i {
+  font-size: 20px;
 }
 
 .navbar-modal-social-network-icon-dividers {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .navbar-modal-footer {
