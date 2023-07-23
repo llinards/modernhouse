@@ -12,23 +12,28 @@ class SetLanguage
   /**
    * Handle an incoming request.
    *
-   * @param  Closure(Request): (Response)  $next
+   * @param Closure(Request): (Response) $next
    */
   public function handle($request, Closure $next): mixed
   {
     $language = $request->segment(1);
     $supportedLanguages = array_keys(config('app.languages'));
 
-    if (in_array($language, $supportedLanguages, true)) {
-      App::setLocale($language);
+    $changeLanguage = $request->query('changeLanguage');
+    if ($changeLanguage && in_array($changeLanguage, $supportedLanguages, true)) {
+      App::setLocale($changeLanguage);
+      $pathWithoutLanguage = ltrim(substr($request->getPathInfo(), 3), '/');
+      $newUrl = url('/' . $changeLanguage . '/' . $pathWithoutLanguage);
+      return redirect($newUrl);
     } else {
-      App::setLocale('app.locale');
-    }
-
-    if (!in_array($language, $supportedLanguages, true)) {
-      $defaultLocale = 'lv';
-      $defaultUrl = url('/'.$defaultLocale.'/'.ltrim($request->getPathInfo(), '/'));
-      return redirect($defaultUrl);
+      if (in_array($language, $supportedLanguages, true)) {
+        App::setLocale($language);
+      } else {
+        App::setLocale(config('app.locale'));
+        $defaultLocale = config('app.locale');
+        $defaultUrl = url('/' . $defaultLocale . '/' . ltrim($request->getPathInfo(), '/'));
+        return redirect($defaultUrl);
+      }
     }
 
     return $next($request);
