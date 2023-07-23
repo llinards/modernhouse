@@ -60,6 +60,7 @@ class ProductController extends Controller
         Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
       }
 
+      //TODO: iespējams, ka te vajag array no loopot
       if (isset($data['product-cover-photo'])) {
         Storage::disk('public')->delete('product-images/'.$productToUpdate->slug.'/'.$productToUpdate->cover_photo_filename);
         Storage::disk('public')->move($data['product-cover-photo'],

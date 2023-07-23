@@ -3,30 +3,30 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Symfony\Component\HttpFoundation\Response;
 
 class SetLanguage
 {
   /**
    * Handle an incoming request.
    *
-   * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+   * @param  Closure(Request): (Response)  $next
    */
-  public function handle($request, Closure $next)
+  public function handle($request, Closure $next): mixed
   {
-    $language = $request->segment(1); // Get the first segment of the URL
-
+    $language = $request->segment(1);
     $supportedLanguages = array_keys(config('app.languages'));
 
-    if (in_array($language, $supportedLanguages)) {
-      App::setLocale($language); // Set the application's locale to Latvian
+    if (in_array($language, $supportedLanguages, true)) {
+      App::setLocale($language);
     } else {
       App::setLocale('app.locale');
     }
 
-    // If the first segment is not a valid language code, redirect to default locale
-    if (!in_array($language, $supportedLanguages)) {
-      $defaultLocale = 'lv'; // Set your default locale here
+    if (!in_array($language, $supportedLanguages, true)) {
+      $defaultLocale = 'lv';
       $defaultUrl = url('/'.$defaultLocale.'/'.ltrim($request->getPathInfo(), '/'));
       return redirect($defaultUrl);
     }
