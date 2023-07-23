@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GalleryContent extends Model
 {
-  protected $fillable = ['title', 'content', 'slug'];
-
-//  protected $with = ['translations', 'galleryImages'];
-
+  protected $fillable = ['slug'];
+  
   public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(GalleryImage::class);
