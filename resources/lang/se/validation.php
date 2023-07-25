@@ -3,24 +3,24 @@
 return [
   'custom' => [
     'name-surname' => [
-      'required' => 'Name and surname are required.',
-      'alpha' => 'Name and surname can only contain letters.',
-      'max' => 'Name and surname are suspiciously long.'
+      'required' => 'Namn och efternamn är obligatoriskt.',
+      'alpha' => 'Namn och efternamn kan endast innehålla bokstäver.',
+      'max' => 'Namn och efternamn är misstänkt långa.'
     ],
     'phone-number' => [
-      'required' => 'Phone number is required.',
-      'regex' => 'Phone number can only contain numbers.',
-      'max' => 'Phone number is suspiciously long.'
+      'required' => 'Telefonnummer är obligatoriskt.',
+      'regex' => 'Telefonnummer kan endast innehålla siffror.',
+      'max' => 'Telefonnummer är misstänkt långt.'
     ],
     'company' => [
-      'max' => 'Company name is suspiciously long.'
+      'max' => 'Företagsnamn är misstänkt långt.'
     ],
     'email' => [
-      'required' => 'Email is required.',
-      'email' => 'Email is not correct.'
+      'required' => 'E-post är obligatoriskt.',
+      'email' => 'E-post är inte korrekt.'
     ],
     'customer-agrees-for-data-processing' => [
-      'accepted' => 'You have to agree to data processing and storage to contact us.'
+      'accepted' => 'Du måste godkänna dataskydd och lagring för att kontakta oss.'
     ],
     // Admin panel
     'product-name' => [
