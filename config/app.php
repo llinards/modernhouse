@@ -236,7 +236,7 @@ return [
     'lv' => 'Latvian',
     'en' => 'English',
     'se' => 'Swedish',
-//    'no' => 'Norway'
+    'no' => 'Norway'
   ],
 
 ];
