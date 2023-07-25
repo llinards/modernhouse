@@ -235,7 +235,7 @@ return [
   'languages' => [
     'lv' => 'Latvian',
     'en' => 'English',
-//    'se' => 'Swedish',
+    'se' => 'Swedish',
 //    'no' => 'Norway'
   ],
 
