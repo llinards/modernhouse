@@ -33,7 +33,7 @@
           @if (count(config('app.languages')) > 1)
             <li class="nav-item language-select d-flex justify-content-between">
               @foreach (config('app.languages') as $langLocale => $langName)
-                @if($langLocale !== 'no')
+                @if($langLocale !== 'se' && $langLocale !== 'no')
                   <a class="nav-link mx-2 {{ $langLocale == app()->getLocale() ? 'nav-link-active' : '' }}"
                      href="{{ url()->current() }}?changeLanguage={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
                 @endif
