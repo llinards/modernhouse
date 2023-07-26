@@ -6,14 +6,31 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <meta name="author" content="{{ config('app.name') }}">
-  <meta name="description"
-        content="{{ isset($short_description) ? $short_description : 'Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde.' }}">
-
+  @if(app()->getLocale() === 'en')
+    <meta name="description"
+          content="Energy-efficient modular houses and modular saunas. Full cycle timber frame house construction. Demo houses available for viewing and purchase or individual project development.">
+    <meta property="og:description"
+          content="Energy-efficient modular houses and modular saunas. Full cycle timber frame house construction. Demo houses available for viewing and purchase or individual project development."/>
+  @elseif(app()->getLocale() === 'se')
+    <meta name="description"
+          content="Energieffektiva modulhus och modulbastur. Helcykelkonstruktion av hus med trästomme. Demonstrationshus tillgängliga för visning och köp eller individuell projektutveckling.">
+    <meta property="og:description"
+          content="Energieffektiva modulhus och modulbastur. Helcykelkonstruktion av hus med trästomme. Demonstrationshus tillgängliga för visning och köp eller individuell projektutveckling."/>
+  @elseif(app()->getLocale() === 'no')
+    <meta name="description"
+          content="Energieffektive modulhus og modulbaserte badstuer. Fullsyklus trehuskonstruksjon med bindingsverk. Demohus tilgjengelig for visning og kjøp eller individuell prosjektutvikling.">
+    <meta property="og:description"
+          content="Energieffektive modulhus og modulbaserte badstuer. Fullsyklus trehuskonstruksjon med bindingsverk. Demohus tilgjengelig for visning og kjøp eller individuell prosjektutvikling."/>
+  @else
+    <meta name="description"
+          content="Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde.">
+    <meta property="og:description"
+          content="Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde."/>
+  @endif
   <meta property="og:url" content=" {{Request::url()}}"/>
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}"/>
-  <meta property="og:description"
-        content="{{ isset($short_description) ? $short_description : 'Energoefektīvas moduļu mājas un moduļu pirtis. Pilna cikla koka karkasa māju būvniecība. Iespējama demo māju apskate un iegāde vai arī individuāla projekta izstrāde.' }}"/>
+
   <meta property="og:image" content="{{ asset('storage/logo/mh-og-logo.jpeg') }}"/>
 
   <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
