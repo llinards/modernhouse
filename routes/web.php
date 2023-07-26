@@ -15,65 +15,65 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 */
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
-  Route::get('/admin', [\App\Http\Controllers\ProductController::class, 'index']);
-  Route::get('/admin/create', [\App\Http\Controllers\ProductController::class, 'create']);
-  Route::post('/admin', [\App\Http\Controllers\ProductController::class, 'store']);
-  Route::get('/admin/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show']);
-  Route::patch('/admin', [\App\Http\Controllers\ProductController::class, 'update']);
-  Route::delete('/admin/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+  Route::get('/', [\App\Http\Controllers\ProductController::class, 'index']);
+  Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create']);
+  Route::post('/', [\App\Http\Controllers\ProductController::class, 'store']);
+  Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show']);
+  Route::patch('/', [\App\Http\Controllers\ProductController::class, 'update']);
+  Route::delete('/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
-  Route::get('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
-  Route::get('/admin/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
-  Route::post('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
-  Route::get('/admin/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
-  Route::patch('/admin/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
-  Route::delete('/admin/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
+  Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
+  Route::get('/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
+  Route::post('/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
+  Route::get('/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
+  Route::patch('/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
+  Route::delete('/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
-  Route::get('/admin/news', [\App\Http\Controllers\NewsController::class, 'index']);
-  Route::get('/admin/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
-  Route::post('/admin/news', [\App\Http\Controllers\NewsController::class, 'store']);
-  Route::get('/admin/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
-  Route::get('/admin/news/images/{newsImage}/delete',
+  Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index']);
+  Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
+  Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store']);
+  Route::get('/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
+  Route::get('/news/images/{newsImage}/delete',
     [\App\Http\Controllers\NewsController::class, 'destroyNewsImage']);
-  Route::get('/admin/news/attachments/{newsAttachment}/delete',
+  Route::get('/news/attachments/{newsAttachment}/delete',
     [\App\Http\Controllers\NewsController::class, 'destroyNewsAttachment']);
-  Route::patch('/admin/news', [\App\Http\Controllers\NewsController::class, 'update']);
-  Route::delete('/admin/news/{news:id}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
+  Route::patch('/news', [\App\Http\Controllers\NewsController::class, 'update']);
+  Route::delete('/news/{news:id}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
 
-  Route::get('/admin/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
-  Route::post('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
-  Route::get('/admin/product-variant/{productVariant}/edit',
+  Route::get('/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
+  Route::post('/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
+  Route::get('/product-variant/{productVariant}/edit',
     [\App\Http\Controllers\ProductVariantController::class, 'show']);
-  Route::patch('/admin/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'update']);
-  Route::delete('/admin/product-variant/{productVariant}/delete',
+  Route::patch('/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'update']);
+  Route::delete('/product-variant/{productVariant}/delete',
     [\App\Http\Controllers\ProductVariantController::class, 'destroy']);
 
-  Route::get('/admin/product-variant/{productVariant}/product-variant-options',
+  Route::get('/product-variant/{productVariant}/product-variant-options',
     [\App\Http\Controllers\ProductVariantOptionController::class, 'show']);
-  Route::patch('/admin/product-variant/{productVariant}/product-variant-options',
+  Route::patch('/product-variant/{productVariant}/product-variant-options',
     [\App\Http\Controllers\ProductVariantOptionController::class, 'update']);
-  Route::post('/admin/product-variant/{productVariant}/product-variant-options',
+  Route::post('/product-variant/{productVariant}/product-variant-options',
     [\App\Http\Controllers\ProductVariantOptionController::class, 'store']);
-  Route::get('/admin/product-variant/{productVariant}/product-variant-options/{productVariantOption}',
+  Route::get('/product-variant/{productVariant}/product-variant-options/{productVariantOption}',
     [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy']);
 
-  Route::get('/admin/product-variant/{productVariant}/product-variant-details',
+  Route::get('/product-variant/{productVariant}/product-variant-details',
     [\App\Http\Controllers\ProductVariantDetailController::class, 'index']);
-  Route::get('/admin/product-variant/{productVariant}/product-variant-details/create',
+  Route::get('/product-variant/{productVariant}/product-variant-details/create',
     [\App\Http\Controllers\ProductVariantDetailController::class, 'create']);
-  Route::post('/admin/product-variant/{productVariant}/product-variant-details',
+  Route::post('/product-variant/{productVariant}/product-variant-details',
     [\App\Http\Controllers\ProductVariantDetailController::class, 'store']);
-  Route::get('/admin/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
+  Route::get('/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
     [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
 
 
-  Route::get('/admin/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
-  Route::get('/admin/gallery/image/{image}/delete',
+  Route::get('/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
+  Route::get('/gallery/image/{image}/delete',
     [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
 
-  Route::post('/admin/upload', [\App\Http\Controllers\UploadController::class, 'store']);
-  Route::delete('/admin/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
+  Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
+  Route::delete('/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
 });
 
 Route::middleware('setLanguage')->group(function () {

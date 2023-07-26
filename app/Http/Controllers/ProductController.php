@@ -25,11 +25,14 @@ class ProductController extends Controller
   public function store(StoreProductRequest $data)
   {
     try {
-      $productCoverPhotoFilename = basename($data['product-cover-photo']);
+      $productCoverPhotoFilename = "";
       $productSlug = $data['product-slug'];
 
-      Storage::disk('public')->move($data['product-cover-photo'],
-        'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
+      foreach ($data['product-cover-photo'] as $image) {
+        $productCoverPhotoFilename = basename($image);
+        Storage::disk('public')->move($image,
+          'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
+      }
       Product::create([
         'slug' => $productSlug,
         'name_'.app()->getLocale() => $data['product-name'],
@@ -60,12 +63,15 @@ class ProductController extends Controller
         Storage::disk('public')->move('product-images/'.$productToUpdate->slug, $newProductImageDirectory);
       }
 
-      //TODO: iespējams, ka te vajag array no loopot
       if (isset($data['product-cover-photo'])) {
+        $productCoverPhotoFilename = "";
         Storage::disk('public')->delete('product-images/'.$productToUpdate->slug.'/'.$productToUpdate->cover_photo_filename);
-        Storage::disk('public')->move($data['product-cover-photo'],
-          'product-images/'.$productSlug.'/'.basename($data['product-cover-photo']));
-        $productToUpdate->cover_photo_filename = basename($data['product-cover-photo']);
+        foreach ($data['product-cover-photo'] as $image) {
+          $productCoverPhotoFilename = basename($image);
+          Storage::disk('public')->move($image,
+            'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
+        }
+        $productToUpdate->cover_photo_filename = $productCoverPhotoFilename;
       }
 
       $productToUpdate->slug = $productSlug;
