@@ -9,10 +9,12 @@ class UploadController extends Controller
 {
   public function store(Request $data)
   {
-    //TODO: Shorten this method
     if ($data->hasFile('product-cover-photo')) {
-      $file = $data->file('product-cover-photo');
-      return $file->storeAs('uploads/temp', 'cover.'.$file->getClientOriginalExtension(), 'public');
+      $files = $data->file('product-cover-photo');
+      foreach ($files as $file) {
+        $fileExtension = $file->getClientOriginalExtension();
+        return $file->storeAs('uploads/temp', 'cover.'.$fileExtension, 'public');
+      }
     }
     if ($data->hasFile('product-variant-images')) {
       $files = $data->file('product-variant-images');
