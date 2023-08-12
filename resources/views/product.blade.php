@@ -30,9 +30,12 @@
                           @foreach($product->productVariantImages as $image)
                             @if($image->product_variant_id === $variant->id)
                               <li class="splide__slide">
-                                <img class="img-fluid"
-                                     data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$variant->slug.'/'.$image->filename) }}"
-                                     alt="{{ $variant->{'name_'.app()->getLocale()} }}">
+                                <a data-fslightbox="{{$variant->slug}}"
+                                   href="{{ asset('storage/product-images/'.$product->slug.'/'.$variant->slug.'/'.$image->filename) }}">
+                                  <img class="img-fluid"
+                                       data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$variant->slug.'/'.$image->filename) }}"
+                                       alt="{{ $variant->{'name_'.app()->getLocale()} }}">
+                                </a>
                               </li>
                             @endif
                           @endforeach
