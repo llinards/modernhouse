@@ -34,6 +34,8 @@
   "product variant": "Variant",
   "product variant option": "Choose your package",
   "name surname": "Name, Surname",
+  "first name": "Name",
+  "last name": "Surname",
   "email": "E-mail",
   "phone number": "Contact phone",
   "company": "Company",

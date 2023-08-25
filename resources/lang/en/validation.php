@@ -2,10 +2,15 @@
 
 return [
   'custom' => [
-    'name-surname' => [
-      'required' => 'Name and surname are required.',
-      'alpha' => 'Name and surname can only contain letters.',
-      'max' => 'Name and surname are suspiciously long.'
+    'first-name' => [
+      'required' => 'First name is required.',
+      'alpha' => 'First name can only contain letters.',
+      'max' => 'First name is suspiciously long.'
+    ],
+    'last-name' => [
+      'required' => 'Last name is required.',
+      'alpha' => 'Last name can only contain letters.',
+      'max' => 'Last name is suspiciously long.'
     ],
     'phone-number' => [
       'required' => 'Phone number is required.',

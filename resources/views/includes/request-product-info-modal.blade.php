@@ -33,9 +33,14 @@
             </select>
           </div>
           <div class="mb-3">
-            <label for="name-surname" class="form-label fw-bold">@lang('name surname')*</label>
-            <input type="text" name="name-surname" class="form-control" id="name-surname"
-                   value="{{ old('name-surname') }}">
+            <label for="first-name" class="form-label fw-bold">@lang('first name')*</label>
+            <input type="text" name="first-name" class="form-control" id="first-name"
+                   value="{{ old('first-name') }}">
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="form-label fw-bold">@lang('last name')*</label>
+            <input type="text" name="last-name" class="form-control" id="last-name"
+                   value="{{ old('last-name') }}">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label fw-bold">@lang('email')*</label>

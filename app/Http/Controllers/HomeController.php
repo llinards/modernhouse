@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
+use App\Http\Services\KlaviyoService;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
 use App\Models\GalleryContent;
@@ -28,9 +29,11 @@ class HomeController extends Controller
   }
 
   //TODO:check why the first paramter is required to be $language
-  public function requestProductInfo($language, ContactUsRequest $request)
+  public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
   {
     try {
+      $profileId = $klaviyoService->createProfile($request);
+      return $profileId;
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
