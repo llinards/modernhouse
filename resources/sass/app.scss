@@ -102,15 +102,36 @@ h2.title {
   font-size: $title-2nd-font-size;
 }
 
-
-.btn-primary {
+.btn-primary,
+.btn-secondary {
   width: 328px;
   height: 48px;
   border-radius: 32px;
-  background-color: $primary-color;
-  border-color: transparent;
   font-size: 17px;
   letter-spacing: 1.6px;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: transparent;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: $primary-color;
+  border-color: transparent;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-primary:active,
+.btn-secondary:active,
+.btn-primary:first-child:active,
+.btn-secondary:first-child:active {
+  border-color: $primary-color;
+  box-shadow: 0 0 20px 0 $primary-color;
 }
 
 .btn-primary:hover,
@@ -119,8 +140,14 @@ h2.title {
 .btn-primary:first-child:active {
   background-color: white;
   color: $primary-color;
-  border-color: $primary-color;
-  box-shadow: 0 0 20px 0 $primary-color;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:first-child:active {
+  background-color: $primary-color;
+  color: white;
 }
 
 .form-check-input:focus {
