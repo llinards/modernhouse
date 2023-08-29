@@ -57,7 +57,7 @@
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   </p>
                 </div>
-                <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
+                <a href="/admin" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
               </form>
             </div>

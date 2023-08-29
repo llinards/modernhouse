@@ -58,7 +58,7 @@
                 </div>
                 <div class="d-flex">
                   <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
-                     class="btn btn-secondary">Atpakaļ</a>
+                     class="btn btn-dark">Atpakaļ</a>
                   <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
                 </div>
               </form>

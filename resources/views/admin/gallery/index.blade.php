@@ -22,7 +22,7 @@
                     <p class="card-title text-center">{{ $galleryItem->translations[0]->title ?? 'Nav tulkojuma!' }}</p>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
-                      <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-secondary m-1">Rediģēt</a>
+                      <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-dark m-1">Rediģēt</a>
                       <button type="button" data-bs-toggle="modal"
                               data-bs-target="#delete-gallery-modal-{{$galleryItem->id}}" class="btn btn-danger m-1">
                         Dzēst

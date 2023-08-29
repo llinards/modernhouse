@@ -54,9 +54,9 @@
                 </div>
                 <div class="mb-3">
                   <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
-                     class="btn btn-secondary">Tehniskā informācija</a>
+                     class="btn btn-dark">Tehniskā informācija</a>
                   <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
-                     class="btn btn-secondary">Platība, istabas</a>
+                     class="btn btn-dark">Platība, istabas</a>
                 </div>
                 <div class="mb-3">
                   <div class="row">
@@ -127,7 +127,7 @@
                           class="btn btn-danger">Dzēst
                   </button>
                   <div class="d-flex">
-                    <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
+                    <a href="/admin" class="btn btn-dark">Atpakaļ</a>
                     <button type="submit" form="update-product-variant" class="btn btn-success mx-1">Atjaunot</button>
                   </div>
                 </div>
