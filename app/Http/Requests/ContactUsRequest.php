@@ -6,29 +6,30 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ContactUsRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return true;
-    }
+  /**
+   * Determine if the user is authorized to make this request.
+   *
+   * @return bool
+   */
+  public function authorize()
+  {
+    return true;
+  }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
-    public function rules()
-    {
-        return [
-            'name-surname' => ['required','string','max:50'],
-            'email' => ['required', 'email'],
-            'phone-number' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:25'],
-            'company' => 'max:100',
-            'customer-agrees-for-data-processing' => 'accepted'
-        ];
-    }
+  /**
+   * Get the validation rules that apply to the request.
+   *
+   * @return array<string, mixed>
+   */
+  public function rules()
+  {
+    return [
+      'first-name' => ['required', 'string', 'max:50'],
+      'last-name' => ['required', 'string', 'max:50'],
+      'email' => ['required', 'email'],
+      'phone-number' => ['required', 'regex:/^([0-9\s\-\+\(\)]*)$/', 'max:25'],
+      'company' => 'max:100',
+      'customer-agrees-for-data-processing' => 'accepted'
+    ];
+  }
 }

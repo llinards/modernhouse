@@ -2,10 +2,15 @@
 
 return [
   'custom' => [
-    'name-surname' => [
-      'required' => 'Namn och efternamn är obligatoriskt.',
-      'alpha' => 'Namn och efternamn kan endast innehålla bokstäver.',
-      'max' => 'Namn och efternamn är misstänkt långa.'
+    'first-name' => [
+      'required' => 'Förnamn är obligatoriskt.',
+      'alpha' => 'Förnamn kan endast innehålla bokstäver.',
+      'max' => 'Förnamn är misstänkt långt.'
+    ],
+    'last-name' => [
+      'required' => 'Efternamn är obligatoriskt.',
+      'alpha' => 'Efternamn kan endast innehålla bokstäver.',
+      'max' => 'Efternamn är misstänkt långt.'
     ],
     'phone-number' => [
       'required' => 'Telefonnummer är obligatoriskt.',

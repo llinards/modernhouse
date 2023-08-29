@@ -2,10 +2,15 @@
 
 return [
   'custom' => [
-    'name-surname' => [
-      'required' => 'Pieteikumā ir jānorāda vārds, uzvārds.',
-      'alpha' => 'Vārds, uzvārds drīkst saturēt tikai alfabēta simbolus.',
-      'max' => 'Vārds, uzvārds ir aizdomīgi garš.'
+    'first-name' => [
+      'required' => 'Pieteikumā ir jānorāda vārds.',
+      'alpha' => 'Vārds drīkst saturēt tikai alfabēta simbolus.',
+      'max' => 'Vārds ir aizdomīgi garš.'
+    ],
+    'last-name' => [
+      'required' => 'Pieteikumā ir jānorāda uzvārds.',
+      'alpha' => 'Uzvārds drīkst saturēt tikai alfabēta simbolus.',
+      'max' => 'Uzvārds ir aizdomīgi garš.'
     ],
     'phone-number' => [
       'required' => 'Pieteikumā ir jānorāda telefona numurs.',

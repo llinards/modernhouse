@@ -2,10 +2,15 @@
 
 return [
   'custom' => [
-    'name-surname' => [
-      'required' => 'Navn og etternavn er påkrevd.',
-      'alpha' => 'Navn og etternavn kan kun inneholde bokstaver.',
-      'max' => 'Navn og etternavn er mistenkelig lange.'
+    'first-name' => [
+      'required' => 'Fornavn er påkrevd.',
+      'alpha' => 'Fornavn kan kun inneholde bokstaver.',
+      'max' => 'Fornavn er mistenkelig langt.'
+    ],
+    'last-name' => [
+      'required' => 'Etternavn er påkrevd.',
+      'alpha' => 'Etternavn kan kun inneholde bokstaver.',
+      'max' => 'Etternavn er mistenkelig langt.'
     ],
     'phone-number' => [
       'required' => 'Telefonnummer er påkrevd.',
