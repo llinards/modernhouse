@@ -10,56 +10,53 @@ class KlaviyoService
 {
   private KlaviyoAPI $klaviyo;
 
+  private function getApiKey()
+  {
+    return config('app.klaviyo_api_key');
+  }
+
   public function __construct()
   {
     $this->klaviyo = new KlaviyoAPI(
-      env('KLAVIYO_API_KEY'),
-      $num_retries = 3,
-      $wait_seconds = 3,
-      $guzzle_options = []);
+      $this->getApiKey());
   }
 
-  public function subscribeToList($profileId, $listId, $request)
+  public function subscribeProfile($profileId, $listId, $request)
   {
-    $data = array(
-      'data' => array(
+    $data = [
+      'data' => [
         'type' => 'profile-subscription-bulk-create-job',
-        'attributes' => array(
-          'profiles' => array(
-            'data' => array(
-              array(
+        'attributes' => [
+          'profiles' => [
+            'data' => [
+              [
                 'type' => 'profile',
                 'id' => $profileId,
-                'attributes' => array(
+                'attributes' => [
                   'email' => $request['email'],
                   'phone_number' => $request['phone-number'],
-                  'subscriptions' => array(
-                    'email' => array(
-                      'MARKETING'
-                    ),
-                    'sms' => array(
-                      'MARKETING'
-                    )
-                  )
-                ),
-              )
-            )
-          )
-        ),
-        'relationships' => array(
-          'list' => array(
-            'data' => array(
+                  'subscriptions' => [
+                    'email' => ['MARKETING'],
+                    'sms' => ['MARKETING']
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        'relationships' => [
+          'list' => [
+            'data' => [
               'type' => 'list',
               'id' => $listId
-            )
-          )
-        )
-      )
-    );
-
+            ]
+          ]
+        ]
+      ]
+    ];
     try {
-      $response = $this->klaviyo->Profiles->subscribeProfiles($data);
-      dd($response);
+      $this->klaviyo->Profiles->subscribeProfiles($data);
+      Log::info('Profile subscribed!');
     } catch (ApiException $e) {
       Log::error($e->getResponseBody());
     }
@@ -83,6 +80,7 @@ class KlaviyoService
 
     try {
       $response = $this->klaviyo->Profiles->createProfile($data);
+      Log::info('Profile created!');
       return $response['data']['id'];
     } catch (ApiException $e) {
       Log::error($e->getResponseBody());

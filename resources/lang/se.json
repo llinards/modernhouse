@@ -37,7 +37,7 @@
   "first name": "Förnamn",
   "last name": "Efternamn",
   "email": "E-post",
-  "phone number": "Kontaktpersonens telefon",
+  "phone number": "Kontaktpersonens telefon (inklusive landskod)",
   "company": "Företag",
   "additional questions": "Frågor",
   "questions": "Frågor",

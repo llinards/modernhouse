@@ -37,7 +37,7 @@
   "first name": "Name",
   "last name": "Surname",
   "email": "E-mail",
-  "phone number": "Contact phone",
+  "phone number": "Contact phone (with country code)",
   "company": "Company",
   "additional questions": "Questions",
   "questions": "Questions",

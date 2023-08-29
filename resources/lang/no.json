@@ -37,7 +37,7 @@
   "first name": "Fornavn",
   "last name": "Etternavn",
   "email": "E-post",
-  "phone number": "Kontakttelefon",
+  "phone number": "Kontakttelefon (inkludert landkode)",
   "company": "Selskap",
   "additional questions": "Spørsmål",
   "questions": "Spørsmål",

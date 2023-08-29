@@ -33,7 +33,9 @@ class HomeController extends Controller
   {
     try {
       $profileId = $klaviyoService->createProfile($request);
-      $klaviyoService->subscribeToList($profileId, env('KLAVIYO_PRODUCT_INFO_LIST'), $request);
+      if ($profileId) {
+        $klaviyoService->subscribeProfile($profileId, 'XpkjqM', $request);
+      }
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
