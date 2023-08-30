@@ -14,8 +14,9 @@
               <div
                 class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column">
                 <video class="img-fluid" controls
-                       src="{{ asset('storage/gallery/'. $galleryItem->slug . '/' .$galleryItem->galleryImages[0]->filename) }}"
-                       title="{{ $galleryItem->translations[0]->title }}"/>
+                       src="{{ asset('storage/gallery/'. $galleryItem->slug . '/' .$galleryItem->galleryImages[0]->filename) }}#t=0.001"
+                       title="{{ $galleryItem->translations[0]->title }}">Your browser does not support the video tag.
+                </video>
               </div>
             @else
               <div
