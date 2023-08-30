@@ -72,7 +72,7 @@ class HomeController extends Controller
 
   public function gallery()
   {
-    $galleryContents = GalleryContent::select('id', 'slug')
+    $galleryContents = GalleryContent::select('id', 'slug', 'is_video')
       ->with([
         'galleryImages' => function ($query) {
           $query->select('filename', 'gallery_content_id');
