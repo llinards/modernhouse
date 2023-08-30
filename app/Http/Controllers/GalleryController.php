@@ -34,7 +34,8 @@ class GalleryController extends Controller
     $galleryContentSlug = Str::slug($data['gallery-title']);
     try {
       $newGalleryContent = GalleryContent::create([
-        'slug' => $galleryContentSlug
+        'slug' => $galleryContentSlug,
+        'is_video' => isset($data['gallery-type'])
       ]);
       $newGalleryContent->translations()->create([
         'title' => $data['gallery-title'],
@@ -57,13 +58,13 @@ class GalleryController extends Controller
 
   public function show(GalleryContent $gallery)
   {
-    $galleryContent = GalleryContent::select('id', 'slug')
+    $galleryContent = GalleryContent::select('id', 'slug', 'is_video')
       ->with([
         'translations' => function ($query) {
           $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
         },
         'galleryImages' => function ($query) {
-          $query->select('filename', 'gallery_content_id');
+          $query->select('id', 'filename', 'gallery_content_id');
         }
       ])
       ->findOrFail($gallery->id);
@@ -97,7 +98,8 @@ class GalleryController extends Controller
         Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
       }
       $galleryToUpdate->update([
-        'slug' => $galleryContentSlug
+        'slug' => $galleryContentSlug,
+        'is_video' => isset($data['gallery-type'])
       ]);
       if (isset($data['gallery-images'])) {
         foreach ($data['gallery-images'] as $image) {

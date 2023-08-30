@@ -25,7 +25,8 @@ class UpdateGalleryContentRequest extends FormRequest
   {
     return [
       'gallery-title' => 'required',
-      'gallery-content' => ''
+      'gallery-content' => '',
+      'gallery-type' => ''
     ];
   }
 }

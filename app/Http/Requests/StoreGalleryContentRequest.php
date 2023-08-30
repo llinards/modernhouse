@@ -26,7 +26,8 @@ class StoreGalleryContentRequest extends FormRequest
     return [
       'gallery-title' => 'required',
       'gallery-content' => '',
-      'gallery-images' => 'required'
+      'gallery-images' => 'required',
+      'gallery-type' => ''
     ];
   }
 }

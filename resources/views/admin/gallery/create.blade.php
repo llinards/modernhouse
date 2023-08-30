@@ -14,6 +14,14 @@
               <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type">
+                    <label class="form-check-label" for="gallery-type">
+                      Video galerija
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3">
                   <label for="gallery-title" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="gallery-title" value="{{ old('gallery-title') }}"
                          name="gallery-title">
@@ -58,7 +66,7 @@
       allowMultiple: true,
       allowReorder: true,
       allowImagePreview: true,
-      acceptedFileTypes: ['image/*'],
+      acceptedFileTypes: ['image/*', 'video/*'],
     });
   </script>
 @endsection
