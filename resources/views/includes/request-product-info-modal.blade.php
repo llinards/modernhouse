@@ -67,6 +67,8 @@
                    class="form-label mb-0 d-block mx-2">@lang('data processing agreement')</label>
           </div>
           <div class="modal-footer d-flex justify-content-center">
+            <div class="spinner-border visually-hidden" id="submit-product-info-callback-loading" role="status">
+            </div>
             <button type="submit" id="submit-product-info-callback"
                     class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">@lang('send')
             </button>
