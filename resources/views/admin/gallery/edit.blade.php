@@ -84,6 +84,7 @@
     });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.create(document.querySelector('input[id="gallery-images"]'));
     FilePond.setOptions({
       server: {
@@ -92,10 +93,13 @@
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
       },
+      allowFileSizeValidation: true,
+      maxFileSize: '50MB',
+      maxTotalFileSize: '50MB',
       allowMultiple: true,
       allowReorder: true,
       allowImagePreview: true,
-      acceptedFileTypes: ['image/*', 'video/*'],
+      acceptedFileTypes: ['image/*', 'video/mp4'],
     });
   </script>
 @endsection
