@@ -16,6 +16,15 @@
                 @method('PATCH')
                 <input name="id" class="visually-hidden" value="{{ $galleryContent->id }}">
                 <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
+                           value="{{ $galleryContent->is_video }}" {{ $galleryContent->is_video ? 'checked' : '' }}>
+                    <label class="form-check-label" for="gallery-type">
+                      Video galerija
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3">
                   <label for="gallery-title" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="gallery-title"
                          value="{{ $galleryContent->translations[0]->title ?? 'Nav tulkojuma!' }}"
@@ -28,7 +37,7 @@
                   </textarea>
                 </div>
                 <div class="mb-3" id="gallery-images">
-                  <p>Esošās bildes</p>
+                  <p>Esošās bildes / video</p>
                   <div class="row">
                     @if(count($galleryContent->galleryImages) === 0)
                       <p>Nav pievienotas bildes!</p>
@@ -39,9 +48,15 @@
                              href="{{ URL::to('/admin/gallery/image/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
-                          <img class="img-fluid mb-2"
-                               src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
-                               alt="">
+                          @if($galleryContent->is_video)
+                            <video class="img-fluid mb-2" controls
+                                   src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
+                            />
+                          @else
+                            <img class="img-fluid mb-2"
+                                 src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
+                                 alt="">
+                          @endif
                         </div>
                       @endforeach
                     @endif
@@ -54,7 +69,7 @@
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   </p>
                 </div>
-                <a href="/admin/gallery" class="btn btn-secondary">Atpakaļ</a>
+                <a href="/admin/gallery" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Atjaunot</button>
               </form>
             </div>
@@ -69,6 +84,7 @@
     });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.create(document.querySelector('input[id="gallery-images"]'));
     FilePond.setOptions({
       server: {
@@ -77,10 +93,13 @@
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
       },
+      allowFileSizeValidation: true,
+      maxFileSize: '50MB',
+      maxTotalFileSize: '50MB',
       allowMultiple: true,
       allowReorder: true,
       allowImagePreview: true,
-      acceptedFileTypes: ['image/*'],
+      acceptedFileTypes: ['image/*', 'video/mp4'],
     });
   </script>
 @endsection

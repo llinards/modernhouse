@@ -36,7 +36,7 @@
                   <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
                   </p>
                 </div>
-                <a href="/admin/news" class="btn btn-secondary">Atpakaļ</a>
+                <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
               </form>
             </div>

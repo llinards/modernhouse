@@ -25,7 +25,7 @@
                                                        :productVariant="$productVariant"/>
                     @endforeach
                   </div>
-                  <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-secondary">Atpakaļ</a>
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-dark">Atpakaļ</a>
                   <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
                 </form>
               @else
@@ -35,7 +35,7 @@
                   <div class="row" id="product-variant-option-editor-section">
                     <x-product-variant-option-create :productVariant="$productVariant"/>
                   </div>
-                  <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-secondary">Atpakaļ</a>
+                  <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-dark">Atpakaļ</a>
                   <button type="submit"
                           class="btn btn-success mx-1">{{ count($allProductVariantOptions) !== 0 ? 'Atjaunot' : 'Pievienot' }}</button>
                 </form>

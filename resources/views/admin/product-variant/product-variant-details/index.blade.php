@@ -34,7 +34,7 @@
                 @endforeach
               </div>
               <div class="d-flex">
-                <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-secondary">Atpakaļ</a>
+                <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-dark">Atpakaļ</a>
               </div>
             </div>
           </div>

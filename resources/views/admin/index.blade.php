@@ -36,7 +36,7 @@
                     @endif
                     <hr>
                     <div class="all-products-content-buttons d-flex justify-content-center mt-4">
-                      <a href="/admin/{{ $product->slug }}/edit" class="btn btn-secondary">Rediģēt</a>
+                      <a href="/admin/{{ $product->slug }}/edit" class="btn btn-dark">Rediģēt</a>
                     </div>
                   </div>
                 </div>

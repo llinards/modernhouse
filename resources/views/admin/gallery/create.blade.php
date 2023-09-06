@@ -14,6 +14,14 @@
               <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type">
+                    <label class="form-check-label" for="gallery-type">
+                      Video galerija
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3">
                   <label for="gallery-title" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="gallery-title" value="{{ old('gallery-title') }}"
                          name="gallery-title">
@@ -31,7 +39,7 @@
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   </p>
                 </div>
-                <a href="/admin/gallery" class="btn btn-secondary">Atpakaļ</a>
+                <a href="/admin/gallery" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
               </form>
             </div>
@@ -46,6 +54,7 @@
     });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.create(document.querySelector('input[id="gallery-images"]'));
     FilePond.setOptions({
       server: {
@@ -55,10 +64,13 @@
         }
       },
       required: true,
+      allowFileSizeValidation: true,
+      maxFileSize: '50MB',
+      maxTotalFileSize: '50MB',
       allowMultiple: true,
       allowReorder: true,
       allowImagePreview: true,
-      acceptedFileTypes: ['image/*'],
+      acceptedFileTypes: ['image/*', 'video/mp4'],
     });
   </script>
 @endsection

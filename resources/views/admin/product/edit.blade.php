@@ -58,7 +58,7 @@
                           class="btn btn-danger">Dzēst
                   </button>
                   <div class="d-flex">
-                    <a href="/admin" class="btn btn-secondary">Atpakaļ</a>
+                    <a href="/admin" class="btn btn-dark">Atpakaļ</a>
                     <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
                   </div>
                 </div>
