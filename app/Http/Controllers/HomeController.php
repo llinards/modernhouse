@@ -60,6 +60,11 @@ class HomeController extends Controller
     }
   }
 
+  public function submitConsultation(ContactUsRequest $data)
+  {
+    return $data;
+  }
+
   public function aboutUs()
   {
     return view('about-us')->with('allProducts', $this->getAllActiveProducts());
@@ -84,6 +89,7 @@ class HomeController extends Controller
       ->whereHas('translations', function ($query) {
         $query->where('language', app()->getLocale());
       })
+      ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
       ->get();
     return view('gallery')->with('galleryContents', $galleryContents)->with('allProducts',
