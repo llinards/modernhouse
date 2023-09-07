@@ -13,12 +13,22 @@
               @include('includes.status-messages')
               <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type">
-                    <label class="form-check-label" for="gallery-type">
-                      Video galerija
-                    </label>
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type">
+                      <label class="form-check-label" for="gallery-type">
+                        Video galerija
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned">
+                      <label class="form-check-label" for="gallery-pinned">
+                        Rādīt galeriju kā pirmo
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-3">
