@@ -15,13 +15,24 @@
                 @csrf
                 @method('PATCH')
                 <input name="id" class="visually-hidden" value="{{ $galleryContent->id }}">
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
-                           value="{{ $galleryContent->is_video }}" {{ $galleryContent->is_video ? 'checked' : '' }}>
-                    <label class="form-check-label" for="gallery-type">
-                      Video galerija
-                    </label>
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
+                             value="{{ $galleryContent->is_video }}" {{ $galleryContent->is_video ? 'checked' : '' }}>
+                      <label class="form-check-label" for="gallery-type">
+                        Video galerija
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned"
+                             value="{{ $galleryContent->is_pinned }}" {{ $galleryContent->is_pinned ? 'checked' : '' }}>
+                      <label class="form-check-label" for="gallery-pinned">
+                        Rādīt galeriju kā pirmo
+                      </label>
+                    </div>
                   </div>
                 </div>
                 <div class="mb-3">

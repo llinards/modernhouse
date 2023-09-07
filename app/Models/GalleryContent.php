@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class GalleryContent extends Model
 {
-  protected $fillable = ['slug', 'is_video'];
+  protected $fillable = ['slug', 'is_video', 'is_pinned'];
 
   public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {

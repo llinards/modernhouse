@@ -35,7 +35,8 @@ class GalleryController extends Controller
     try {
       $newGalleryContent = GalleryContent::create([
         'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type'])
+        'is_video' => isset($data['gallery-type']),
+        'is_pinned' => isset($data['gallery-pinned'])
       ]);
       $newGalleryContent->translations()->create([
         'title' => $data['gallery-title'],
@@ -58,7 +59,7 @@ class GalleryController extends Controller
 
   public function show(GalleryContent $gallery)
   {
-    $galleryContent = GalleryContent::select('id', 'slug', 'is_video')
+    $galleryContent = GalleryContent::select('id', 'slug', 'is_video', 'is_pinned')
       ->with([
         'translations' => function ($query) {
           $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
@@ -99,7 +100,8 @@ class GalleryController extends Controller
       }
       $galleryToUpdate->update([
         'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type'])
+        'is_video' => isset($data['gallery-type']),
+        'is_pinned' => isset($data['gallery-pinned'])
       ]);
       if (isset($data['gallery-images'])) {
         foreach ($data['gallery-images'] as $image) {

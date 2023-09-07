@@ -26,7 +26,8 @@ class UpdateGalleryContentRequest extends FormRequest
     return [
       'gallery-title' => 'required',
       'gallery-content' => '',
-      'gallery-type' => ''
+      'gallery-type' => '',
+      'gallery-pinned' => '',
     ];
   }
 }
