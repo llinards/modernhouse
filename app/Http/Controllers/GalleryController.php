@@ -13,6 +13,26 @@ class GalleryController extends Controller
 {
   public function index()
   {
+    $galleryContents = GalleryContent::select('id', 'slug', 'is_video')
+      ->with([
+        'galleryImages' => function ($query) {
+          $query->select('filename', 'gallery_content_id');
+        },
+        'translations' => function ($query) {
+          $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
+        },
+      ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
+      ->orderByDesc('is_pinned')
+      ->orderBy('created_at', 'desc')
+      ->get();
+    return view('gallery')->with('galleryContents', $galleryContents);
+  }
+
+  public function indexAdmin()
+  {
     $galleryContents = GalleryContent::select('id', 'slug')
       ->with([
         'translations' => function ($query) {

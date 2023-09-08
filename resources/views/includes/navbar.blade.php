@@ -6,9 +6,9 @@
              class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    @if($index && (count($allProducts) > 1))
+    @if($index && (count($allActiveProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
-        @foreach($allProducts as $product)
+        @foreach($allActiveProducts as $product)
           <a class="nav-link index text-center p-3"
              href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>
         @endforeach
@@ -42,7 +42,7 @@
       </div>
       <div class="nav-items">
         <ul class="navbar-nav">
-          @foreach($allProducts as $product)
+          @foreach($allActiveProducts as $product)
             <li class="nav-item">
               <a class="nav-link text-center {{ request()->is($product->slug) ? 'nav-link-active' : '' }}"
                  href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>

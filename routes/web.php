@@ -23,7 +23,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::patch('/', [\App\Http\Controllers\ProductController::class, 'update']);
   Route::delete('/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
-  Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
+  Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'indexAdmin']);
   Route::get('/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
   Route::post('/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
   Route::get('/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
@@ -77,15 +77,22 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
 
 Route::middleware('setLanguage')->group(function () {
-  Route::get('{language?}/', [\App\Http\Controllers\HomeController::class, 'index']);
-
-  Route::get('{language?}/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
-  Route::get('{language?}/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
+  Route::get('{language?}/', static function () {
+    return view('home');
+  });
+  Route::get('{language?}/about-us', static function () {
+    return view('about-us');
+  });
+  Route::get('{language?}/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
   Route::get('{language?}/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
   Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
-  Route::get('{language?}/privacy-policy', [\App\Http\Controllers\HomeController::class, 'privacyPolicy']);
+  Route::get('{language?}/privacy-policy', static function () {
+    return view('privacy-policy');
+  });
 
-  Route::get('{language?}/contact-us', [\App\Http\Controllers\HomeController::class, 'contactUs']);
+  Route::get('{language?}/contact-us', static function () {
+    return view('contact-us');
+  });
   Route::post('{language?}/contact-us',
     [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
