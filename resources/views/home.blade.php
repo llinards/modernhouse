@@ -7,7 +7,10 @@
         <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
         <div class="text-center d-flex flex-column justify-content-end align-items-center">
           <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
-             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center">@lang('feature details')</a>
+             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>
+          {{--          <button--}}
+          {{--            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"--}}
+          {{--            data-bs-toggle="modal" data-bs-target="#request-consultation">@lang('request consultation')</button>--}}
           @php
             ++$key;
           @endphp
@@ -17,6 +20,7 @@
         </div>
       </section>
     @endforeach
+    @include('includes.request-consultation-modal')
     <section id="choose-order-contact" class="d-flex justify-content-center align-items-center flex-column">
       <div class="m-2">
         <div class="text-center">
