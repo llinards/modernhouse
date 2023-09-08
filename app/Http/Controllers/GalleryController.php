@@ -8,7 +8,6 @@ use App\Http\Services\GalleryService;
 use App\Models\GalleryContent;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
@@ -79,8 +78,8 @@ class GalleryController extends Controller
   public function update(UpdateGalleryContentRequest $data)
   {
     try {
-      $galleryToUpdate = GalleryContent::findOrFail($data->id);
-      $galleryContentSlug = app()->getLocale() === 'lv' ? Str::slug($data['gallery-title']) : $galleryToUpdate->slug;
+//      $galleryToUpdate = GalleryContent::findOrFail($data->id);
+//      $galleryContentSlug = app()->getLocale() === 'lv' ? Str::slug($data['gallery-title']) : $galleryToUpdate->slug;
       $galleryTranslationToUpdate = $galleryToUpdate->translations()->where('language', app()->getLocale())->first();
 
       if ($galleryTranslationToUpdate) {
@@ -96,17 +95,17 @@ class GalleryController extends Controller
         ]);
       }
 
-      if ((app()->getLocale() === 'lv') && $galleryContentSlug !== $galleryToUpdate->slug) {
-        $newGalleryDirectory = 'gallery/'.$galleryContentSlug;
-        $oldGalleryDirectory = 'gallery/'.$galleryToUpdate->slug;
-        Storage::disk('public')->makeDirectory($newGalleryDirectory);
-        Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
-      }
-      $galleryToUpdate->update([
-        'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type']),
-        'is_pinned' => isset($data['gallery-pinned'])
-      ]);
+//      if ((app()->getLocale() === 'lv') && $galleryContentSlug !== $galleryToUpdate->slug) {
+//        $newGalleryDirectory = 'gallery/'.$galleryContentSlug;
+//        $oldGalleryDirectory = 'gallery/'.$galleryToUpdate->slug;
+//        Storage::disk('public')->makeDirectory($newGalleryDirectory);
+//        Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
+//      }
+//      $galleryToUpdate->update([
+//        'slug' => $galleryContentSlug,
+//        'is_video' => isset($data['gallery-type']),
+//        'is_pinned' => isset($data['gallery-pinned'])
+//      ]);
       if (isset($data['gallery-images'])) {
         foreach ($data['gallery-images'] as $image) {
           $fileName = basename($image);

@@ -10,4 +10,10 @@ class FileService
   {
     Storage::disk('public')->move($file, $location.'/'.basename($file));
   }
+
+  public function moveDirectory(string $oldDirectory, string $newDirectory): void
+  {
+    Storage::disk('public')->makeDirectory($newDirectory);
+    Storage::disk('public')->move($oldDirectory, $newDirectory);
+  }
 }

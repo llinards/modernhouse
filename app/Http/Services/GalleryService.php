@@ -3,44 +3,66 @@
 namespace App\Http\Services;
 
 use App\Models\GalleryContent;
-use Illuminate\Support\Str;
 
 class GalleryService
 {
   private string $slug;
+  private object $gallery;
 
-  private function setSlug(object $data): void
+  private function setSlug(string $slug): void
   {
-    $this->slug = Str::slug($data['gallery-title']);
+    $this->slug = $slug;
+  }
+
+  private function getGallery(string $id): object
+  {
+    return GalleryContent::findOrFail($id);
   }
 
   public function addGallery(object $data): void
   {
-    $this->setSlug($data);
-    $newGallery = GalleryContent::create([
+    $this->setSlug($data['gallery-title']);
+    $this->gallery = GalleryContent::create([
       'slug' => $this->slug,
       'is_video' => isset($data['gallery-type']),
       'is_pinned' => isset($data['gallery-pinned'])
     ]);
-    $this->addTranslation($newGallery, $data);
-    $this->addImage($newGallery, $data['gallery-images']);
+    $this->addTranslation($data);
+    $this->addImage($data['gallery-images']);
   }
 
-  private function addTranslation(object $gallery, object $data): void
+  public function updateGallery(object $data)
   {
-    $gallery->translations()->create([
+    $this->gallery = $this->getGallery($data['gallery-id']);
+    $this->setSlug(app()->getLocale() === 'lv' ? $data['gallery-title'] : $this->gallery->slug);
+    $isSlugChanged = $this->gallery->slug !== $this->slug;
+    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+      $fileService = new FileService();
+      $fileService->moveDirectory('gallery/'.$this->gallery->slug, 'gallery/'.$this->slug);
+    }
+    $this->gallery->update([
+      'slug' => $this->slug,
+      'is_video' => isset($data['gallery-type']),
+      'is_pinned' => isset($data['gallery-pinned'])
+    ]);
+
+  }
+
+  private function addTranslation(object $data): void
+  {
+    $this->gallery->translations()->create([
       'title' => $data['gallery-title'],
       'content' => $data['gallery-content'],
       'language' => app()->getLocale()
     ]);
   }
 
-  private function addImage(object $gallery, array $images): void
+  private function addImage(array $images): void
   {
     foreach ($images as $image) {
       $fileService = new FileService();
       $fileService->storeFile($image, 'gallery/'.$this->slug);
-      $gallery->galleryImages()->create([
+      $this->gallery->galleryImages()->create([
         'filename' => basename($image)
       ]);
     }
