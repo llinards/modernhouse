@@ -23,7 +23,7 @@ class GalleryService
       'is_pinned' => isset($data['gallery-pinned'])
     ]);
     $this->addTranslation($newGallery, $data);
-    $this->addImages($newGallery, $data['gallery-images']);
+    $this->addImage($newGallery, $data['gallery-images']);
   }
 
   private function addTranslation(object $gallery, object $data): void
@@ -35,7 +35,7 @@ class GalleryService
     ]);
   }
 
-  private function addImages(object $gallery, array $images): void
+  private function addImage(object $gallery, array $images): void
   {
     foreach ($images as $image) {
       $fileService = new FileService();
