@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGalleryContentRequest;
 use App\Http\Requests\UpdateGalleryContentRequest;
+use App\Http\Services\GalleryService;
 use App\Models\GalleryContent;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -49,30 +50,13 @@ class GalleryController extends Controller
     return view('admin.gallery.create');
   }
 
-  public function store(StoreGalleryContentRequest $data)
+  public function store(StoreGalleryContentRequest $data, GalleryService $galleryService)
   {
-    $galleryContentSlug = Str::slug($data['gallery-title']);
     try {
-      $newGalleryContent = GalleryContent::create([
-        'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type']),
-        'is_pinned' => isset($data['gallery-pinned'])
-      ]);
-      $newGalleryContent->translations()->create([
-        'title' => $data['gallery-title'],
-        'content' => $data['gallery-content'],
-        'language' => app()->getLocale()
-      ]);
-      foreach ($data['gallery-images'] as $image) {
-        $fileName = basename($image);
-        Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
-        $newGalleryContent->galleryImages()->create([
-          'filename' => $fileName
-        ]);
-      }
+      $galleryService->addGallery($data);
       return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
