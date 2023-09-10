@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Models\GalleryContent;
+use Illuminate\Support\Str;
 
 class GalleryService
 {
@@ -11,12 +12,17 @@ class GalleryService
 
   private function setSlug(string $slug): void
   {
-    $this->slug = $slug;
+    $this->slug = Str::slug($slug);
   }
 
   private function getGallery(string $id): object
   {
     return GalleryContent::findOrFail($id);
+  }
+
+  public function getTranslation()
+  {
+    return $this->gallery->translations()->where('language', app()->getLocale())->first();
   }
 
   public function addGallery(object $data): void
@@ -27,17 +33,15 @@ class GalleryService
       'is_video' => isset($data['gallery-type']),
       'is_pinned' => isset($data['gallery-pinned'])
     ]);
-    $this->addTranslation($data);
-    $this->addImage($data['gallery-images']);
   }
 
   public function updateGallery(object $data)
   {
-    $this->gallery = $this->getGallery($data['gallery-id']);
+    $fileService = new FileService();
+    $this->gallery = $this->getGallery($data['id']);
     $this->setSlug(app()->getLocale() === 'lv' ? $data['gallery-title'] : $this->gallery->slug);
     $isSlugChanged = $this->gallery->slug !== $this->slug;
     if ($isSlugChanged && (app()->getLocale() === 'lv')) {
-      $fileService = new FileService();
       $fileService->moveDirectory('gallery/'.$this->gallery->slug, 'gallery/'.$this->slug);
     }
     $this->gallery->update([
@@ -45,10 +49,9 @@ class GalleryService
       'is_video' => isset($data['gallery-type']),
       'is_pinned' => isset($data['gallery-pinned'])
     ]);
-
   }
 
-  private function addTranslation(object $data): void
+  public function addTranslation(object $data): void
   {
     $this->gallery->translations()->create([
       'title' => $data['gallery-title'],
@@ -57,7 +60,16 @@ class GalleryService
     ]);
   }
 
-  private function addImage(array $images): void
+  public function updateTranslation($translation, $data): void
+  {
+    $translation->update([
+      'title' => $data['gallery-title'],
+      'content' => $data['gallery-content']
+    ]);
+  }
+
+  //TODO: maybe this should be extracted also as a seperate method
+  public function addImage(array $images): void
   {
     foreach ($images as $image) {
       $fileService = new FileService();

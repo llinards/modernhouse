@@ -53,6 +53,8 @@ class GalleryController extends Controller
   {
     try {
       $galleryService->addGallery($data);
+      $galleryService->addTranslation($data);
+      $galleryService->addImage($data['gallery-images']);
       return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       Log::error($e);
@@ -75,45 +77,18 @@ class GalleryController extends Controller
     return view('admin.gallery.edit', compact('galleryContent'));
   }
 
-  public function update(UpdateGalleryContentRequest $data)
+  public function update(UpdateGalleryContentRequest $data, GalleryService $galleryService)
   {
     try {
-//      $galleryToUpdate = GalleryContent::findOrFail($data->id);
-//      $galleryContentSlug = app()->getLocale() === 'lv' ? Str::slug($data['gallery-title']) : $galleryToUpdate->slug;
-      $galleryTranslationToUpdate = $galleryToUpdate->translations()->where('language', app()->getLocale())->first();
-
-      if ($galleryTranslationToUpdate) {
-        $galleryToUpdate->translations()->where('language', app()->getLocale())->update([
-          'title' => $data['gallery-title'],
-          'content' => $data['gallery-content']
-        ]);
+      $galleryService->updateGallery($data);
+      $translation = $galleryService->getTranslation();
+      if ($translation) {
+        $galleryService->updateTranslation($translation, $data);
       } else {
-        $galleryToUpdate->translations()->create([
-          'title' => $data['gallery-title'],
-          'content' => $data['gallery-content'],
-          'language' => app()->getLocale()
-        ]);
+        $galleryService->addTranslation($data);
       }
-
-//      if ((app()->getLocale() === 'lv') && $galleryContentSlug !== $galleryToUpdate->slug) {
-//        $newGalleryDirectory = 'gallery/'.$galleryContentSlug;
-//        $oldGalleryDirectory = 'gallery/'.$galleryToUpdate->slug;
-//        Storage::disk('public')->makeDirectory($newGalleryDirectory);
-//        Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
-//      }
-//      $galleryToUpdate->update([
-//        'slug' => $galleryContentSlug,
-//        'is_video' => isset($data['gallery-type']),
-//        'is_pinned' => isset($data['gallery-pinned'])
-//      ]);
       if (isset($data['gallery-images'])) {
-        foreach ($data['gallery-images'] as $image) {
-          $fileName = basename($image);
-          Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
-          $galleryToUpdate->galleryImages()->create([
-            'filename' => $fileName
-          ]);
-        }
+        $galleryService->addImage($data['gallery-images']);
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
