@@ -84,15 +84,12 @@ Route::middleware('setLanguage')->group(function () {
     return view('about-us');
   });
   Route::get('{language?}/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
-  Route::get('{language?}/', [\App\Http\Controllers\HomeController::class, 'index']);
 
   Route::get('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'requestConsultation']);
   Route::post('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
-
-  Route::get('{language?}/about-us', [\App\Http\Controllers\HomeController::class, 'aboutUs']);
-  Route::get('{language?}/gallery', [\App\Http\Controllers\HomeController::class, 'gallery']);
+  
   Route::get('{language?}/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
   Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
   Route::get('{language?}/privacy-policy', static function () {
