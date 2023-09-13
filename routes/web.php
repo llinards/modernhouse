@@ -79,6 +79,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/', [\App\Http\Controllers\HomeController::class, 'index']);
 
+  Route::get('{language?}/request-consultation',
+    [\App\Http\Controllers\HomeController::class, 'requestConsultation']);
   Route::post('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
 

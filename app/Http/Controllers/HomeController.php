@@ -9,6 +9,7 @@ use App\Mail\RequestedProductInfo;
 use App\Models\GalleryContent;
 use App\Models\NewsContent;
 use App\Models\Product;
+use Http;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -60,9 +61,22 @@ class HomeController extends Controller
     }
   }
 
+  public function requestConsultation()
+  {
+    return view('request-consultation')->with('allProducts', $this->getAllActiveProducts());
+  }
+
   public function submitConsultation(ContactUsRequest $data)
   {
-    return $data;
+    try {
+      $zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/xxx/xxx/';
+      $response = Http::post($zapierWebhookUrl, $data);
+      Log::info($response);
+      return back()->with('success', Lang::get('message has been sent'));
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', Lang::get('message has not been sent'));
+    }
   }
 
   public function aboutUs()
