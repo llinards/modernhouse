@@ -51,6 +51,14 @@ class GalleryService
     ]);
   }
 
+  public function destroyGallery(object $data): void
+  {
+    $this->gallery = $this->getGallery($data->id);
+    $fileService = new FileService();
+    $fileService->destroyDirectory('gallery/'.$this->gallery->slug);
+    $this->gallery->delete();
+  }
+
   public function addTranslation(object $data): void
   {
     $this->gallery->translations()->create([
@@ -80,10 +88,10 @@ class GalleryService
     }
   }
 
-  public function destroyImage(object $image): void
+  public function destroyImage(object $data): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($image->filename, 'gallery/'.$image->galleryContent->slug);
-    $image->delete();
+    $fileService->destroyFile($data->filename, 'gallery/'.$data->galleryContent->slug);
+    $data->delete();
   }
 }

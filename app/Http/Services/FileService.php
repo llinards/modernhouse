@@ -11,14 +11,19 @@ class FileService
     Storage::disk('public')->move($file, $location.'/'.basename($file));
   }
 
+  public function destroyFile(string $file, string $location): void
+  {
+    Storage::disk('public')->delete($location.'/'.$file);
+  }
+
   public function moveDirectory(string $oldDirectory, string $newDirectory): void
   {
     Storage::disk('public')->makeDirectory($newDirectory);
     Storage::disk('public')->move($oldDirectory, $newDirectory);
   }
 
-  public function destroyFile(string $file, string $location): void
+  public function destroyDirectory(string $location): void
   {
-    Storage::disk('public')->delete($location.'/'.$file);
+    Storage::disk('public')->deleteDirectory($location);
   }
 }
