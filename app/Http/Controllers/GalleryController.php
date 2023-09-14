@@ -6,6 +6,7 @@ use App\Http\Requests\StoreGalleryContentRequest;
 use App\Http\Requests\UpdateGalleryContentRequest;
 use App\Http\Services\GalleryService;
 use App\Models\GalleryContent;
+use App\Models\GalleryImage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -92,7 +93,17 @@ class GalleryController extends Controller
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroyImage(GalleryImage $image)
+  {
+    try {
+      return $image;
+    } catch (\Exception $e) {
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

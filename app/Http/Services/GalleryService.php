@@ -79,4 +79,12 @@ class GalleryService
       ]);
     }
   }
+
+  public function destroyImage(string $id)
+  {
+    $image = $this->gallery->galleryImages()->findOrFail($id);
+    $fileService = new FileService();
+    $fileService->destroyFile($image->fileName, 'gallery/'.$this->gallery->slug);
+    $image->delete();
+  }
 }

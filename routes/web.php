@@ -28,6 +28,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::post('/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
   Route::get('/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
   Route::patch('/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
+  Route::get('/gallery/{image}/delete', [\App\Http\Controllers\GalleryController::class, 'destroyImage']);
   Route::delete('/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
   Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index']);
@@ -69,8 +70,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
   Route::get('/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
-  Route::get('/gallery/image/{image}/delete',
-    [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
+//  Route::get('/gallery/image/{image}/delete',
+//    [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
 
   Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
@@ -89,7 +90,7 @@ Route::middleware('setLanguage')->group(function () {
     [\App\Http\Controllers\HomeController::class, 'requestConsultation']);
   Route::post('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
-  
+
   Route::get('{language?}/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
   Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
   Route::get('{language?}/privacy-policy', static function () {

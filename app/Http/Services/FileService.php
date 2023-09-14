@@ -16,4 +16,9 @@ class FileService
     Storage::disk('public')->makeDirectory($newDirectory);
     Storage::disk('public')->move($oldDirectory, $newDirectory);
   }
+
+  public function destroyFile(string $file, string $location): void
+  {
+    Storage::disk('public')->delete($location.'/'.$file);
+  }
 }
