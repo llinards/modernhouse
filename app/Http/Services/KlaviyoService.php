@@ -77,13 +77,13 @@ class KlaviyoService
         ]
       ]
     ];
-
     try {
       $response = $this->klaviyo->Profiles->createProfile($data);
       Log::info('Profile created!');
       return $response['data']['id'];
     } catch (ApiException $e) {
       Log::error($e->getResponseBody());
+      throw new \RuntimeException('Profile not created!');
     }
   }
 }

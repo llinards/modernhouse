@@ -9,7 +9,6 @@ use App\Mail\RequestedProductInfo;
 use App\Models\GalleryContent;
 use App\Models\NewsContent;
 use App\Models\Product;
-use Http;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -66,12 +65,13 @@ class HomeController extends Controller
     return view('request-consultation')->with('allProducts', $this->getAllActiveProducts());
   }
 
-  public function submitConsultation(ContactUsRequest $data)
+  public function submitConsultation(ContactUsRequest $data, KlaviyoService $klaviyoService)
   {
     try {
-      $zapierWebhookUrl = 'https://hooks.zapier.com/hooks/catch/xxx/xxx/';
-      $response = Http::post($zapierWebhookUrl, $data);
-      Log::info($response);
+      $profileId = $klaviyoService->createProfile($data);
+      if ($profileId) {
+        $klaviyoService->subscribeProfile($profileId, 'W3jiWs', $data);
+      }
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
