@@ -80,11 +80,10 @@ class GalleryService
     }
   }
 
-  public function destroyImage(string $id)
+  public function destroyImage(object $image): void
   {
-    $image = $this->gallery->galleryImages()->findOrFail($id);
     $fileService = new FileService();
-    $fileService->destroyFile($image->fileName, 'gallery/'.$this->gallery->slug);
+    $fileService->destroyFile($image->filename, 'gallery/'.$image->galleryContent->slug);
     $image->delete();
   }
 }

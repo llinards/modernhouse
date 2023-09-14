@@ -98,16 +98,18 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroyImage(GalleryImage $image)
+  public function destroyImage(GalleryImage $image, GalleryService $galleryService)
   {
     try {
-      return $image;
+      $galleryService->destroyImage($image);
+      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
+  //TODO: remade;
   public function destroy(GalleryContent $gallery)
   {
     try {
