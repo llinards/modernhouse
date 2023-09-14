@@ -82,8 +82,14 @@ class KlaviyoService
       Log::info('Profile created!');
       return $response['data']['id'];
     } catch (ApiException $e) {
-      Log::error($e->getResponseBody());
-      throw new \RuntimeException('Profile not created!');
+      if ($e->getCode() === 409) {
+        $profileId = json_decode($e->getResponseBody(), true);
+        Log::info('Profile already exists!');
+        return $profileId['errors'][0]['meta']['duplicate_profile_id'];
+      } else {
+        Log::error($e->getResponseBody());
+        throw new \RuntimeException('Profile not created!');
+      }
     }
   }
 }
