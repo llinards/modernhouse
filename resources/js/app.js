@@ -1,11 +1,9 @@
 require('bootstrap');
-
-require('fslightbox');
-
 import Splide from '@splidejs/splide';
-
 import 'filepond/dist/filepond.min.css';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+require('fslightbox');
 
 const galleryImages = document.querySelectorAll('#gallery-images');
 galleryImages.forEach((image) => {

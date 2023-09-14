@@ -60,9 +60,23 @@ class HomeController extends Controller
     }
   }
 
-  public function submitConsultation(ContactUsRequest $data)
+  public function requestConsultation()
   {
-    return $data;
+    return view('request-consultation')->with('allProducts', $this->getAllActiveProducts());
+  }
+
+  public function submitConsultation(ContactUsRequest $data, KlaviyoService $klaviyoService)
+  {
+    try {
+      $profileId = $klaviyoService->createProfile($data);
+      if ($profileId) {
+        $klaviyoService->subscribeProfile($profileId, 'W3jiWs', $data);
+      }
+      return back()->with('success', Lang::get('message has been sent'));
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', Lang::get('message has not been sent'));
+    }
   }
 
   public function aboutUs()
