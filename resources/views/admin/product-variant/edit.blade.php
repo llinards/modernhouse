@@ -146,6 +146,7 @@
 
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.create(document.querySelector('input[id="product-variant-images"]'));
     FilePond.setOptions({
       server: {
@@ -156,6 +157,7 @@
       },
       allowMultiple: true,
       allowReorder: true,
+      maxFileSize: '500KB',
       allowImagePreview: true,
       acceptedFileTypes: ['image/*'],
     });
