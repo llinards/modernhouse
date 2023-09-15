@@ -90,7 +90,8 @@ Route::middleware('setLanguage')->group(function () {
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
 
   Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
-  Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
+  Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\NewsController::class, 'indexOneNewsItem']);
+
   Route::get('{language?}/privacy-policy', static function () {
     return view('privacy-policy');
   });

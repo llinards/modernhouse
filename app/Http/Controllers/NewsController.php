@@ -37,6 +37,22 @@ class NewsController extends Controller
     return view('admin.news.index', compact('news'));
   }
 
+  public function indexOneNewsItem($language, NewsContent $newsContent)
+  {
+    $newsItem = NewsContent::select('id', 'title', 'content', 'slug')
+      ->with([
+        'newsImages' => function ($query) {
+          $query->select('image_location', 'news_content_id');
+        },
+        'newsAttachments' => function ($query) {
+          $query->select('attachment_location', 'news_content_id');
+        },
+      ])
+      ->where('language', $language)
+      ->findOrFail($newsContent->id);
+    return view('news-show', compact('newsItem'));
+  }
+
   public function create()
   {
     return view('admin.news.create');

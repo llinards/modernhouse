@@ -6,7 +6,6 @@ use App\Http\Requests\ContactUsRequest;
 use App\Http\Services\KlaviyoService;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
-use App\Models\NewsContent;
 use App\Models\Product;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -64,11 +63,5 @@ class HomeController extends Controller
       Log::error($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
-  }
-
-  //TODO:check why the first paramter is required to be $language
-  public function newsShow($language, NewsContent $newsContent)
-  {
-    return view('news-show')->with('newsContent', $newsContent);
   }
 }
