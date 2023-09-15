@@ -16,8 +16,25 @@ class NewsController extends Controller
 
   public function index()
   {
-    $allNewsContent = NewsContent::where('language', Lang::locale())->get();
-    return view('admin.news.index', compact('allNewsContent'));
+    $news = NewsContent::select('id', 'title', 'slug')
+      ->with([
+        'newsImages' => function ($query) {
+          $query->select('image_location', 'news_content_id');
+        },
+      ])
+      ->where('language', app()->getLocale())
+      ->orderBy('created_at', 'desc')
+      ->get();
+    return view('news-index', compact('news'));
+  }
+
+  public function indexAdmin()
+  {
+    $news = NewsContent::select('id', 'title')
+      ->where('language', Lang::locale())
+      ->orderBy('created_at', 'desc')
+      ->get();
+    return view('admin.news.index', compact('news'));
   }
 
   public function create()

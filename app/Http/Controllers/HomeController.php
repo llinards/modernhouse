@@ -66,12 +66,6 @@ class HomeController extends Controller
     }
   }
 
-  public function newsIndex()
-  {
-    $newsContent = NewsContent::where('language', app()->getLocale())->orderBy('created_at', 'desc')->get();
-    return view('news-index')->with('newsContent', $newsContent);
-  }
-
   //TODO:check why the first paramter is required to be $language
   public function newsShow($language, NewsContent $newsContent)
   {

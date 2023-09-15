@@ -31,7 +31,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/gallery/{image}/delete', [\App\Http\Controllers\GalleryController::class, 'destroyImage']);
   Route::delete('/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
 
-  Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index']);
+  Route::get('/news', [\App\Http\Controllers\NewsController::class, 'indexAdmin']);
   Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
   Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store']);
   Route::get('/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
@@ -70,8 +70,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
 
   Route::get('/image/{image}/delete', [\App\Http\Controllers\ImageController::class, 'destroy']);
-//  Route::get('/gallery/image/{image}/delete',
-//    [\App\Http\Controllers\ImageController::class, 'destroyGalleryImages']);
 
   Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
   Route::delete('/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
@@ -91,7 +89,7 @@ Route::middleware('setLanguage')->group(function () {
   Route::post('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
 
-  Route::get('{language?}/news', [\App\Http\Controllers\HomeController::class, 'newsIndex']);
+  Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
   Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\HomeController::class, 'newsShow']);
   Route::get('{language?}/privacy-policy', static function () {
     return view('privacy-policy');
