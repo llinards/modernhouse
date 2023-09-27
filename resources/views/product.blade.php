@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->{'name_'.app()->getLocale()}, 'index' => false, 'allProducts' => $allProducts])
+@extends('app', ['title' => $product->{'name_'.app()->getLocale()}, 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">

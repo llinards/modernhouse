@@ -1,7 +1,7 @@
-@extends('app', ['index' => true, 'allProducts' => $allProducts])
+@extends('app', ['index' => true])
 @section('content')
   <article id="home">
-    @foreach($allProducts as $key => $product)
+    @foreach($allActiveProducts as $key => $product)
       <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between"
                style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
         <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
@@ -14,7 +14,8 @@
           @php
             ++$key;
           @endphp
-          <a href="#{{ $loop->last ? 'choose-order-contact' : $allProducts[$key]->slug }}" class="pb-lg-5 pb-4 pt-3">
+          <a href="#{{ $loop->last ? 'choose-order-contact' : $allActiveProducts[$key]->slug }}"
+             class="pb-lg-5 pb-4 pt-3">
             <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
           </a>
         </div>

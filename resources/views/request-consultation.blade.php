@@ -1,4 +1,4 @@
-@extends('app', ['title' => Lang::get('request consultation'), 'index' => false, 'allProducts' => $allProducts])
+@extends('app', ['title' => Lang::get('request consultation'), 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
@@ -11,12 +11,12 @@
                   action="/{{app()->getLocale()}}/request-consultation">
               @csrf
               <x-honeypot/>
-              @if(count($allProducts) > 0)
+              @if(count($allActiveProducts) > 0)
                 <div class="mb-3">
                   <label for="product" class="form-label fw-bold">@lang('product interested')*</label>
                   <select class="form-select" name="product-variant" id="product"
                           aria-label="Default select example">
-                    @foreach($allProducts as $product)
+                    @foreach($allActiveProducts as $product)
                       <option
                         value="{{ $product->{'name_'.app()->getLocale()} }}">{{ $product->{'name_'.app()->getLocale()} }}</option>
                     @endforeach
