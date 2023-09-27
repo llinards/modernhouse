@@ -62,7 +62,7 @@ class GalleryController extends Controller
     }
   }
 
-  public function show(GalleryContent $data)
+  public function show(GalleryContent $gallery)
   {
     $galleryContent = GalleryContent::select('id', 'slug', 'is_video', 'is_pinned')
       ->with([
@@ -73,7 +73,7 @@ class GalleryController extends Controller
           $query->select('id', 'filename', 'gallery_content_id');
         }
       ])
-      ->findOrFail($data->id);
+      ->findOrFail($gallery->id);
     return view('admin.gallery.edit', compact('galleryContent'));
   }
 
@@ -97,10 +97,10 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroyImage(GalleryImage $data, GalleryService $galleryService)
+  public function destroyImage(GalleryImage $image, GalleryService $galleryService)
   {
     try {
-      $galleryService->destroyImage($data);
+      $galleryService->destroyImage($image);
       return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
@@ -108,10 +108,10 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroy(GalleryContent $data, GalleryService $galleryService)
+  public function destroy(GalleryContent $gallery, GalleryService $galleryService)
   {
     try {
-      $galleryService->destroyGallery($data);
+      $galleryService->destroyGallery($gallery);
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::debug($e);
