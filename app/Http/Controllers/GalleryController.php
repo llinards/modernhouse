@@ -4,14 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGalleryContentRequest;
 use App\Http\Requests\UpdateGalleryContentRequest;
+use App\Http\Services\GalleryService;
 use App\Models\GalleryContent;
+use App\Models\GalleryImage;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class GalleryController extends Controller
 {
   public function index()
+  {
+    $galleryContents = GalleryContent::select('id', 'slug', 'is_video')
+      ->with([
+        'galleryImages' => function ($query) {
+          $query->select('filename', 'gallery_content_id');
+        },
+        'translations' => function ($query) {
+          $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
+        },
+      ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
+      ->orderByDesc('is_pinned')
+      ->orderBy('created_at', 'desc')
+      ->get();
+    return view('gallery')->with('galleryContents', $galleryContents);
+  }
+
+  public function indexAdmin()
   {
     $galleryContents = GalleryContent::select('id', 'slug')
       ->with([
@@ -29,35 +49,20 @@ class GalleryController extends Controller
     return view('admin.gallery.create');
   }
 
-  public function store(StoreGalleryContentRequest $data)
+  public function store(StoreGalleryContentRequest $data, GalleryService $galleryService)
   {
-    $galleryContentSlug = Str::slug($data['gallery-title']);
     try {
-      $newGalleryContent = GalleryContent::create([
-        'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type']),
-        'is_pinned' => isset($data['gallery-pinned'])
-      ]);
-      $newGalleryContent->translations()->create([
-        'title' => $data['gallery-title'],
-        'content' => $data['gallery-content'],
-        'language' => app()->getLocale()
-      ]);
-      foreach ($data['gallery-images'] as $image) {
-        $fileName = basename($image);
-        Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
-        $newGalleryContent->galleryImages()->create([
-          'filename' => $fileName
-        ]);
-      }
+      $galleryService->addGallery($data);
+      $galleryService->addTranslation($data);
+      $galleryService->addImage($data['gallery-images']);
       return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function show(GalleryContent $gallery)
+  public function show(GalleryContent $data)
   {
     $galleryContent = GalleryContent::select('id', 'slug', 'is_video', 'is_pinned')
       ->with([
@@ -68,62 +73,45 @@ class GalleryController extends Controller
           $query->select('id', 'filename', 'gallery_content_id');
         }
       ])
-      ->findOrFail($gallery->id);
+      ->findOrFail($data->id);
     return view('admin.gallery.edit', compact('galleryContent'));
   }
 
-  public function update(UpdateGalleryContentRequest $data)
+  public function update(UpdateGalleryContentRequest $data, GalleryService $galleryService)
   {
     try {
-      $galleryToUpdate = GalleryContent::findOrFail($data->id);
-      $galleryContentSlug = app()->getLocale() === 'lv' ? Str::slug($data['gallery-title']) : $galleryToUpdate->slug;
-      $galleryTranslationToUpdate = $galleryToUpdate->translations()->where('language', app()->getLocale())->first();
-
-      if ($galleryTranslationToUpdate) {
-        $galleryToUpdate->translations()->where('language', app()->getLocale())->update([
-          'title' => $data['gallery-title'],
-          'content' => $data['gallery-content']
-        ]);
+      $galleryService->updateGallery($data);
+      $translation = $galleryService->getTranslation();
+      if ($translation) {
+        $galleryService->updateTranslation($translation, $data);
       } else {
-        $galleryToUpdate->translations()->create([
-          'title' => $data['gallery-title'],
-          'content' => $data['gallery-content'],
-          'language' => app()->getLocale()
-        ]);
+        $galleryService->addTranslation($data);
       }
-
-      if ((app()->getLocale() === 'lv') && $galleryContentSlug !== $galleryToUpdate->slug) {
-        $newGalleryDirectory = 'gallery/'.$galleryContentSlug;
-        $oldGalleryDirectory = 'gallery/'.$galleryToUpdate->slug;
-        Storage::disk('public')->makeDirectory($newGalleryDirectory);
-        Storage::disk('public')->move($oldGalleryDirectory, $newGalleryDirectory);
-      }
-      $galleryToUpdate->update([
-        'slug' => $galleryContentSlug,
-        'is_video' => isset($data['gallery-type']),
-        'is_pinned' => isset($data['gallery-pinned'])
-      ]);
       if (isset($data['gallery-images'])) {
-        foreach ($data['gallery-images'] as $image) {
-          $fileName = basename($image);
-          Storage::disk('public')->move($image, 'gallery/'.$galleryContentSlug.'/'.$fileName);
-          $galleryToUpdate->galleryImages()->create([
-            'filename' => $fileName
-          ]);
-        }
+        $galleryService->addImage($data['gallery-images']);
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function destroy(GalleryContent $gallery)
+  public function destroyImage(GalleryImage $data, GalleryService $galleryService)
   {
     try {
-      Storage::disk('public')->deleteDirectory('gallery/'.$gallery->slug);
-      $gallery->delete();
+      $galleryService->destroyImage($data);
+      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroy(GalleryContent $data, GalleryService $galleryService)
+  {
+    try {
+      $galleryService->destroyGallery($data);
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::debug($e);

@@ -1,4 +1,4 @@
-@extends('app', ['title' => Lang::get('gallery'), 'index' => false, 'allProducts' => $allProducts])
+@extends('app', ['title' => Lang::get('gallery'), 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">

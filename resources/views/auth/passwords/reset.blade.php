@@ -4,8 +4,8 @@
   <div class="container w-100 h-100">
     <div class="row justify-content-center align-items-center h-100 w-100">
       <div class="col-md-6">
-        <div class="modern-house-logo w-100 text-center">
-          <img src="{{ asset('storage/logo-black.svg') }}" class="modern-house-logo" alt="Modern House logo">
+        <div class="modern-house-logo w-100 text-center mb-2">
+          <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo" alt="Modern House logo">
         </div>
         <div class="card">
           <div class="card-body">
@@ -44,12 +44,10 @@
                          required autocomplete="new-password">
                 </div>
               </div>
-              <div class="row mb-0">
-                <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                    Atjaunot
-                  </button>
-                </div>
+              <div class="row mb-0 justify-content-center">
+                <button type="submit" class="btn btn-primary btn-main fw-light">
+                  Atjaunot
+                </button>
               </div>
             </form>
           </div>

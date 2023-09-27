@@ -56,7 +56,7 @@
                       @foreach($galleryContent->galleryImages as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
-                             href="{{ URL::to('/admin/gallery/image/'.$image->id.'/delete') }}">
+                             href="{{ URL::to('/admin/gallery/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
                           @if($galleryContent->is_video)
