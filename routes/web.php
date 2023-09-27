@@ -84,8 +84,10 @@ Route::middleware('setLanguage')->group(function () {
   });
   Route::get('{language?}/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
 
-  Route::get('{language?}/request-consultation',
-    [\App\Http\Controllers\HomeController::class, 'requestConsultation']);
+  Route::get('{language?}/request-consultation', static function () {
+    return view('request-consultation');
+  });
+
   Route::post('{language?}/request-consultation',
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
 

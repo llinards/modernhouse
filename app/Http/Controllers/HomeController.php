@@ -46,11 +46,6 @@ class HomeController extends Controller
     }
   }
 
-  public function requestConsultation()
-  {
-    return view('request-consultation')->with('allProducts', $this->getAllActiveProducts());
-  }
-
   public function submitConsultation(ContactUsRequest $data, KlaviyoService $klaviyoService)
   {
     try {
