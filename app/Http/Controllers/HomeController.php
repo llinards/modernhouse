@@ -21,7 +21,7 @@ class HomeController extends Controller
         'productVariants' => function ($query) {
           $query->select('id', 'product_id', 'slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'price_basic',
             'price_full', 'description_lv', 'description_en', 'description_no', 'description_se')->where('is_active',
-            1)->orderBy('order');
+            1)->where('name_'.app()->getLocale(), 'not like', 'Nav tulkojuma!')->orderBy('order');
         }
       ])
       ->where('is_active', 1)
