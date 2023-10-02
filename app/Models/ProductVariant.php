@@ -13,7 +13,9 @@ class ProductVariant extends Model
   ];
   use HasFactory;
 
-  protected $with = ['productVariantAreaDetails', 'productVariantDetails'];
+  protected $with = [
+    'productVariantImages', 'productVariantAreaDetails', 'productVariantDetails', 'productVariantOptions'
+  ];
 
   public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
