@@ -10,7 +10,8 @@ class Product extends Model
   use HasFactory;
 
   protected $fillable = ['slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'cover_photo_filename', 'is_active'];
-  protected $with = ['productVariants', 'productVariantImages', 'productVariantOptions'];
+
+  protected $with = ['productVariants'];
 
   public function getRouteKeyName(): string
   {
@@ -20,16 +21,6 @@ class Product extends Model
   public function productVariants(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(ProductVariant::class);
-  }
-
-  public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
-  {
-    return $this->hasManyThrough(Image::class, ProductVariant::class);
-  }
-
-  public function productVariantOptions(): \Illuminate\Database\Eloquent\Relations\HasManyThrough
-  {
-    return $this->hasManyThrough(ProductVariantOption::class, ProductVariant::class);
   }
 
   public function scopeActiveProducts($query)
