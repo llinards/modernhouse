@@ -15,6 +15,11 @@ class NewsService
     $this->slug = Str::slug($slug);
   }
 
+  private function getNews(string $id): object
+  {
+    return NewsContent::findOrFail($id);
+  }
+
   public function addNews(object $data): void
   {
     $this->setSlug($data['news-title']);
@@ -22,7 +27,7 @@ class NewsService
       'title' => $data['news-title'],
       'slug' => $this->slug,
       'content' => $data['news-content'],
-      'language' => $data['news-language'],
+      'language' => app()->getLocale(),
     ]);
   }
 
@@ -46,5 +51,43 @@ class NewsService
         'attachment_location' => basename($attachment)
       ]);
     }
+  }
+
+  public function updateNews(object $data): void
+  {
+    $fileService = new FileService();
+    $this->news = $this->getNews($data['id']);
+    $this->setSlug($data['news-title']);
+    $isSlugChanged = $this->news->slug !== $this->slug;
+    if ($isSlugChanged) {
+      $fileService->moveDirectory('news/'.$this->news->slug, 'news/'.$this->slug);
+    }
+    $this->news->update([
+      'title' => $data['news-title'],
+      'slug' => $this->slug,
+      'content' => $data['news-content']
+    ]);
+  }
+
+  public function destroyNews(object $data): void
+  {
+    $this->news = $this->getNews($data->id);
+    $fileService = new FileService();
+    $fileService->destroyDirectory('news/'.$this->news->slug);
+    $this->news->delete();
+  }
+
+  public function destroyImage(object $data): void
+  {
+    $fileService = new FileService();
+    $fileService->destroyFile($data->image_location, 'news/'.$data->newsContent->slug);
+    $data->delete();
+  }
+
+  public function destroyAttachment(object $data): void
+  {
+    $fileService = new FileService();
+    $fileService->destroyFile($data->attachment_location, 'news/'.$data->newsContent->slug);
+    $data->delete();
   }
 }

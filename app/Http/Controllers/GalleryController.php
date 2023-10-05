@@ -87,21 +87,10 @@ class GalleryController extends Controller
       } else {
         $galleryService->addTranslation($data);
       }
-      if (isset($data['gallery-images'])) {
+      if ($data->has(['gallery-images'])) {
         $galleryService->addImage($data['gallery-images']);
       }
       return back()->with('success', 'Atjaunots!');
-    } catch (\Exception $e) {
-      Log::error($e);
-      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
-    }
-  }
-
-  public function destroyImage(GalleryImage $image, GalleryService $galleryService)
-  {
-    try {
-      $galleryService->destroyImage($image);
-      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
@@ -115,6 +104,17 @@ class GalleryController extends Controller
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::debug($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroyImage(GalleryImage $image, GalleryService $galleryService)
+  {
+    try {
+      $galleryService->destroyImage($image);
+      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
+    } catch (\Exception $e) {
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
