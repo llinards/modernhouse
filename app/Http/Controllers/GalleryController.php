@@ -103,7 +103,7 @@ class GalleryController extends Controller
       $galleryService->destroyGallery($gallery);
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

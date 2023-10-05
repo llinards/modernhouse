@@ -122,7 +122,7 @@ class NewsController extends Controller
       $newsService->destroyAttachment($attachment);
       return redirect()->to(app('url')->previous()."#news-attachments")->with('success', 'Pielikums dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
