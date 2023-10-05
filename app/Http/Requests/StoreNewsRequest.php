@@ -23,7 +23,6 @@ class StoreNewsRequest extends FormRequest
   {
     return [
       'news-title' => 'required',
-      'news-content' => 'required',
       'news-images' => 'required'
     ];
   }
@@ -32,7 +31,6 @@ class StoreNewsRequest extends FormRequest
   {
     return [
       'news-title.required' => 'Nav pievienots virsraksts!',
-      'news-content.required' => 'Nav pievienots teksts!',
       'news-images.required' => 'Nav pievienotas bildes!',
     ];
   }
