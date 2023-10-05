@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNewsRequest;
+use App\Http\Services\NewsService;
 use App\Models\NewsAttachment;
 use App\Models\NewsContent;
 use App\Models\NewsImage;
@@ -25,7 +27,7 @@ class NewsController extends Controller
       ->where('language', app()->getLocale())
       ->orderBy('created_at', 'desc')
       ->get();
-    return view('news-index', compact('news'));
+    return view('news.index', compact('news'));
   }
 
   public function indexAdmin()
@@ -37,7 +39,27 @@ class NewsController extends Controller
     return view('admin.news.index', compact('news'));
   }
 
-  public function indexOneNewsItem($language, NewsContent $newsContent)
+  public function create()
+  {
+    return view('admin.news.create');
+  }
+
+  public function store(StoreNewsRequest $data, NewsService $newsService)
+  {
+    try {
+      $newsService->addNews($data);
+      $newsService->addImage($data['news-images']);
+      if ($data->has('news-attachments')) {
+        $newsService->addAttachment($data['news-attachments']);
+      }
+      return redirect('/admin/news')->with('success', 'Jaunums pievienots');
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function show($language, NewsContent $news)
   {
     $newsItem = NewsContent::select('id', 'title', 'content', 'slug')
       ->with([
@@ -49,33 +71,11 @@ class NewsController extends Controller
         },
       ])
       ->where('language', $language)
-      ->findOrFail($newsContent->id);
-    return view('news-show', compact('newsItem'));
+      ->findOrFail($news->id);
+    return view('news.show', compact('newsItem'));
   }
 
-  public function create()
-  {
-    return view('admin.news.create');
-  }
-
-  public function store(Request $data)
-  {
-    try {
-      $newNewsContent = NewsContent::create([
-        'title' => $data['news-title'],
-        'slug' => Str::slug($data['news-title']),
-        'content' => $data['news-content'],
-        'language' => $data['news-language'],
-      ]);
-      $this->saveNewsImagesAttachments($data, $newNewsContent);
-      return redirect('/admin/news')->with('success', 'Jaunums pievienots');
-    } catch (\Exception $e) {
-      Log::debug($e);
-      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
-    }
-  }
-
-  public function show(NewsContent $news)
+  public function showAdmin(NewsContent $news)
   {
     return view('admin.news.edit', compact('news'));
   }
