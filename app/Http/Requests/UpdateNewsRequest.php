@@ -22,8 +22,7 @@ class UpdateNewsRequest extends FormRequest
   public function rules(): array
   {
     return [
-      'news-title' => 'required',
-      'news-content' => 'required'
+      'news-title' => 'required'
     ];
   }
 
@@ -31,7 +30,6 @@ class UpdateNewsRequest extends FormRequest
   {
     return [
       'news-title.required' => 'Nav pievienots virsraksts!',
-      'news-content.required' => 'Nav pievienots teksts!',
     ];
   }
 }
