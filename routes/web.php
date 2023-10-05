@@ -34,12 +34,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/news', [\App\Http\Controllers\NewsController::class, 'indexAdmin']);
   Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
   Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store']);
-  Route::get('/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'show']);
-  Route::get('/news/images/{newsImage}/delete',
-    [\App\Http\Controllers\NewsController::class, 'destroyNewsImage']);
-  Route::get('/news/attachments/{newsAttachment}/delete',
-    [\App\Http\Controllers\NewsController::class, 'destroyNewsAttachment']);
+  Route::get('/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'showAdmin']);
   Route::patch('/news', [\App\Http\Controllers\NewsController::class, 'update']);
+  Route::get('/news/image/{image:id}/delete',
+    [\App\Http\Controllers\NewsController::class, 'destroyNewsImage']);
+  Route::get('/news/attachment/{attachment:id}/delete',
+    [\App\Http\Controllers\NewsController::class, 'destroyNewsAttachment']);
   Route::delete('/news/{news:id}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
 
   Route::get('/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
@@ -92,7 +92,7 @@ Route::middleware('setLanguage')->group(function () {
     [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
 
   Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
-  Route::get('{language?}/news/{newsContent}', [\App\Http\Controllers\NewsController::class, 'indexOneNewsItem']);
+  Route::get('{language?}/news/{news}', [\App\Http\Controllers\NewsController::class, 'show']);
 
   Route::get('{language?}/privacy-policy', static function () {
     return view('privacy-policy');

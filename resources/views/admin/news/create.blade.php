@@ -13,7 +13,6 @@
               @include('includes.status-messages')
               <form action="/admin/news" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input name="news-language" class="visually-hidden" value="{{ Lang::locale() }}">
                 <div class="alert alert-secondary mx-0 my-2" role="alert">
                   <p>Jaunums, ko pievienosi būs pieejams tikai {{ strtoupper(Lang::locale()) }} valodā.</p>
                 </div>
@@ -28,13 +27,20 @@
                     {{ old('news-content') }}
                   </textarea>
                 </div>
-                <div class="mb-3">
-                  <label for="news-images-attachments" class="form-label">Bildes un pielikumi</label>
-                  <input class="form-control" type="file" id="news-images-attachments" name="news-images-attachments[]">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label for="news-images" class="form-label">Bildes</label>
+                    <input class="form-control" type="file" id="news-images" name="news-images[]">
+                    </p>
+                  </div>
+                  <div class="col">
+                    <label for="news-attachments" class="form-label">Pielikumi</label>
+                    <input class="form-control" type="file" id="news-attachments" name="news-attachments[]">
+                    </p>
+                  </div>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
-                  </p>
                 </div>
                 <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
@@ -53,8 +59,7 @@
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.create(document.querySelector('input[id="news-images-attachments"]'));
-    FilePond.setOptions({
+    FilePond.create(document.querySelector('input[id="news-images"]'), {
       server: {
         url: '/admin/upload',
         headers: {
@@ -66,8 +71,22 @@
       allowReorder: true,
       allowFileSizeValidation: true,
       allowImagePreview: true,
-      maxFileSize: "33MB",
-      acceptedFileTypes: ['image/*', 'application/pdf'],
+      maxFileSize: "512KB",
+      acceptedFileTypes: ['image/*'],
+    });
+
+    FilePond.create(document.querySelector('input[id="news-attachments"]'), {
+      server: {
+        url: '/admin/upload',
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+      },
+      allowMultiple: true,
+      allowReorder: true,
+      allowFileSizeValidation: true,
+      maxFileSize: "50MB",
+      acceptedFileTypes: ['application/pdf'],
     });
   </script>
 @endsection
