@@ -35,7 +35,7 @@
                       @foreach($news->newsImages as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
-                             href="{{ URL::to('/admin/news/images/'.$image->id.'/delete') }}">
+                             href="{{ URL::to('/admin/news/image/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
                           <img class="img-fluid mb-2"
@@ -55,7 +55,7 @@
                       @foreach($news->newsAttachments as $attachment)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
-                             href="{{ URL::to('/admin/news/attachments/'.$attachment->id.'/delete') }}">
+                             href="{{ URL::to('/admin/news/attachment/'.$attachment->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
                           <p class="mb-2">{{ basename($attachment->attachment_location) }}</p>
@@ -64,13 +64,20 @@
                     @endif
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="news-images-attachments" class="form-label">Bildes un pielikumi</label>
-                  <input class="form-control" type="file" id="news-images-attachments" name="news-images-attachments[]">
+                <div class="row mb-3">
+                  <div class="col">
+                    <label for="news-images" class="form-label">Bildes</label>
+                    <input class="form-control" type="file" id="news-images" name="news-images[]">
+                    </p>
+                  </div>
+                  <div class="col">
+                    <label for="news-attachments" class="form-label">Pielikumi</label>
+                    <input class="form-control" type="file" id="news-attachments" name="news-attachments[]">
+                    </p>
+                  </div>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
-                  </p>
                 </div>
                 <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Atjaunot</button>
@@ -89,20 +96,33 @@
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.create(document.querySelector('input[id="news-images-attachments"]'));
-    FilePond.setOptions({
+    FilePond.create(document.querySelector('input[id="news-images"]'), {
       server: {
         url: '/admin/upload',
         headers: {
           'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
       },
-      allowFileSizeValidation: true,
-      maxFileSize: "33MB",
-      allowImagePreview: true,
       allowMultiple: true,
       allowReorder: true,
-      acceptedFileTypes: ['image/*', 'application/pdf'],
+      allowFileSizeValidation: true,
+      allowImagePreview: true,
+      maxFileSize: "512KB",
+      acceptedFileTypes: ['image/*'],
+    });
+
+    FilePond.create(document.querySelector('input[id="news-attachments"]'), {
+      server: {
+        url: '/admin/upload',
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+      },
+      allowMultiple: true,
+      allowReorder: true,
+      allowFileSizeValidation: true,
+      maxFileSize: "50MB",
+      acceptedFileTypes: ['application/pdf'],
     });
   </script>
 @endsection

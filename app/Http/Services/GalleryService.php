@@ -35,6 +35,27 @@ class GalleryService
     ]);
   }
 
+  //TODO: maybe this should be extracted also as a seperate method
+  public function addImage(array $images): void
+  {
+    foreach ($images as $image) {
+      $fileService = new FileService();
+      $fileService->storeFile($image, 'gallery/'.$this->slug);
+      $this->gallery->galleryImages()->create([
+        'filename' => basename($image)
+      ]);
+    }
+  }
+
+  public function addTranslation(object $data): void
+  {
+    $this->gallery->translations()->create([
+      'title' => $data['gallery-title'],
+      'content' => $data['gallery-content'],
+      'language' => app()->getLocale()
+    ]);
+  }
+
   public function updateGallery(object $data)
   {
     $fileService = new FileService();
@@ -51,23 +72,6 @@ class GalleryService
     ]);
   }
 
-  public function destroyGallery(object $data): void
-  {
-    $this->gallery = $this->getGallery($data->id);
-    $fileService = new FileService();
-    $fileService->destroyDirectory('gallery/'.$this->gallery->slug);
-    $this->gallery->delete();
-  }
-
-  public function addTranslation(object $data): void
-  {
-    $this->gallery->translations()->create([
-      'title' => $data['gallery-title'],
-      'content' => $data['gallery-content'],
-      'language' => app()->getLocale()
-    ]);
-  }
-
   public function updateTranslation($translation, $data): void
   {
     $translation->update([
@@ -76,16 +80,12 @@ class GalleryService
     ]);
   }
 
-  //TODO: maybe this should be extracted also as a seperate method
-  public function addImage(array $images): void
+  public function destroyGallery(object $data): void
   {
-    foreach ($images as $image) {
-      $fileService = new FileService();
-      $fileService->storeFile($image, 'gallery/'.$this->slug);
-      $this->gallery->galleryImages()->create([
-        'filename' => basename($image)
-      ]);
-    }
+    $this->gallery = $this->getGallery($data->id);
+    $fileService = new FileService();
+    $fileService->destroyDirectory('gallery/'.$this->gallery->slug);
+    $this->gallery->delete();
   }
 
   public function destroyImage(object $data): void
