@@ -52,4 +52,27 @@ class ProductService
       $fileService->storeFile($image, 'product-images/'.$this->slug);
     }
   }
+
+  public function updateProduct(object $data): void
+  {
+    $fileService = new FileService();
+    $this->product = $this->getProduct($data['id']);
+    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-slug'] : $this->product->slug);
+    $isSlugChanged = $this->product->slug !== $this->slug;
+    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+      $fileService->moveDirectory('product-images/'.$this->product->slug, 'product-images/'.$this->slug);
+    }
+    $this->product->update([
+      'slug' => $this->slug,
+      'cover_photo_filename' => isset($data['product-cover-photo'][0]) ? basename($data['product-cover-photo'][0]) : $this->product->cover_photo_filename,
+      'is_active' => isset($data['product-available'])
+    ]);
+  }
+
+  public function updateTranslation($translation, $data): void
+  {
+    $translation->update([
+      'name' => $data['product-name'],
+    ]);
+  }
 }
