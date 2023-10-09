@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Http\Services\ProductService;
 use App\Models\Product;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -60,14 +59,13 @@ class ProductController extends Controller
     }
   }
 
-  public function destroy(Product $product)
+  public function destroy(Product $product, ProductService $productService)
   {
     try {
-      Storage::disk('public')->deleteDirectory('product-images/'.$product->slug);
-      $product->delete();
+      $productService->destroyProduct($product);
       return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

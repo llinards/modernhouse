@@ -75,4 +75,12 @@ class ProductService
       'name' => $data['product-name'],
     ]);
   }
+
+  public function destroyProduct(object $data): void
+  {
+    $this->product = $this->getProduct($data->id);
+    $fileService = new FileService();
+    $fileService->destroyDirectory('product-images/'.$this->product->slug);
+    $this->product->delete();
+  }
 }
