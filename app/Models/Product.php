@@ -23,8 +23,8 @@ class Product extends Model
     return $this->hasMany(ProductVariant::class);
   }
 
-  public function scopeActiveProducts($query)
+  public function translations(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
-    return $query->where('is_active', true);
+    return $this->hasMany(TranslationsProduct::class);
   }
 }

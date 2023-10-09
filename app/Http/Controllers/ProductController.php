@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Http\Services\ProductService;
 use App\Models\Product;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -14,7 +15,7 @@ class ProductController extends Controller
   public function index()
   {
     $allProducts = Product::all();
-    return view('admin.index')->with('allProducts', $allProducts);
+    return view('admin.index', compact('allProducts'));
   }
 
   public function create()
@@ -22,26 +23,15 @@ class ProductController extends Controller
     return view('admin.product.create');
   }
 
-  public function store(StoreProductRequest $data)
+  public function store(StoreProductRequest $data, ProductService $productService)
   {
     try {
-      $productCoverPhotoFilename = "";
-      $productSlug = $data['product-slug'];
-
-      foreach ($data['product-cover-photo'] as $image) {
-        $productCoverPhotoFilename = basename($image);
-        Storage::disk('public')->move($image,
-          'product-images/'.$productSlug.'/'.$productCoverPhotoFilename);
-      }
-      Product::create([
-        'slug' => $productSlug,
-        'name_'.app()->getLocale() => $data['product-name'],
-        'cover_photo_filename' => $productCoverPhotoFilename,
-        'is_active' => false
-      ]);
+      $productService->addProduct($data);
+      $productService->addTranslation($data);
+      $productService->addImage($data['product-cover-photo']);
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

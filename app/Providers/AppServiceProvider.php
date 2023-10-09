@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
    */
   public function boot()
   {
-    $allActiveProducts = Product::activeProducts()->get();
+    $allActiveProducts = Product::where('is_active', true)->get();
     View::share('allActiveProducts', $allActiveProducts);
   }
 }
