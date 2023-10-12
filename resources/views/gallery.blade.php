@@ -22,7 +22,7 @@
               <div
                 class="col-lg-9 d-flex order-first order-lg-last justify-content-center align-items-center flex-column"
                 id="gallery-images">
-                <section id="{{$galleryItem->slug}}-main-carousel" class="splide">
+                <section id="gallery-{{$galleryItem->slug}}-main-carousel" class="splide">
                   <div class="splide__track">
                     <ul class="splide__list">
                       @foreach($galleryItem->galleryImages as $image)
