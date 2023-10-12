@@ -89,7 +89,7 @@ Route::middleware('setLanguage')->group(function () {
   });
 
   Route::post('{language?}/request-consultation',
-    [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
+    [\App\Http\Controllers\HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
 
   Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
   Route::get('{language?}/news/{news}', [\App\Http\Controllers\NewsController::class, 'show']);
