@@ -11,8 +11,6 @@ class Product extends Model
 
   protected $fillable = ['slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'cover_photo_filename', 'is_active'];
 
-  protected $with = ['productVariants'];
-
   public function getRouteKeyName(): string
   {
     return 'slug';
@@ -23,8 +21,8 @@ class Product extends Model
     return $this->hasMany(ProductVariant::class);
   }
 
-  public function scopeActiveProducts($query)
+  public function translations(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
-    return $query->where('is_active', true);
+    return $this->hasMany(TranslationsProduct::class);
   }
 }

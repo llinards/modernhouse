@@ -4,7 +4,7 @@
     @foreach($allActiveProducts as $key => $product)
       <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between"
                style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
-        <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
+        <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
         <div class="text-center d-flex flex-column justify-content-end align-items-center">
           <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
              class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>

@@ -1,8 +1,8 @@
-@extends('app', ['title' => $product->{'name_'.app()->getLocale()}, 'index' => false])
+@extends('app', ['title' => $product->translations[0]->name, 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
-      <h1 class="fw-bold text-center text-uppercase title">{{ $product->{'name_'.app()->getLocale()} }}</h1>
+      <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
       @include('includes.status-messages')
       <div>
         <ul class="nav mt-4 nav-tabs d-flex product-variant-titles">

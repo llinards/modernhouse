@@ -10,7 +10,7 @@
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allActiveProducts as $product)
           <a class="nav-link index text-center p-3"
-             href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>
+             href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
         @endforeach
       </div>
     @endif
@@ -44,8 +44,8 @@
         <ul class="navbar-nav">
           @foreach($allActiveProducts as $product)
             <li class="nav-item">
-              <a class="nav-link text-center {{ request()->is($product->slug) ? 'nav-link-active' : '' }}"
-                 href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->{'name_'.app()->getLocale()} }}</a>
+              <a class="nav-link text-center"
+                 href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
             </li>
           @endforeach
         </ul>
