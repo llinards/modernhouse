@@ -63,7 +63,14 @@ class ProductController extends Controller
 
   public function show(Product $product)
   {
-    return view('admin.product.edit', compact('product'));
+    $productContent = Product::select('id', 'is_active', 'slug', 'cover_photo_filename')
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
+      ->findOrFail($product->id);
+    return view('admin.product.edit')->with('product', $productContent);
   }
 
   public function update(UpdateProductRequest $data, ProductService $productService)
