@@ -16,7 +16,7 @@ class HomeController extends Controller
   //TODO:check why the first paramter is required to be $language
   public function show($language, Product $product)
   {
-    $product = Product::select('id', 'slug', 'name_lv', 'name_en', 'name_no', 'name_se')
+    $product = Product::select('id', 'slug')
       ->with([
         'productVariants' => function ($query) {
           $query->select('id', 'product_id', 'slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'price_basic',
@@ -29,6 +29,9 @@ class HomeController extends Controller
           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
         },
       ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
       ->where('is_active', 1)
       ->findOrFail($product->id);
     return view('product')->with('product', $product);
