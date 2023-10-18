@@ -24,14 +24,16 @@
                       class="card-title text-center">{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h3>
                     <hr>
                     @if(count($product->productVariants) != 0)
-                      @foreach($product->productVariants as $variant)
-                        <div class="my-2 text-center">
+                      <div class="row">
+                        @foreach($product->productVariants as $variant)
+                          <div class="col-6 my-2 text-center">
                           <span
                             class="badge {{ $variant->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $variant->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-                          <h5 class="">{{ $variant->{'name_'.app()->getLocale()} }}</h5>
-                          <a href="/admin/product-variant/{{ $variant->id }}/edit" class="">Rediģēt</a>
-                        </div>
-                      @endforeach
+                            <h5 class="">{{ $variant->{'name_'.app()->getLocale()} }}</h5>
+                            <a href="/admin/product-variant/{{ $variant->id }}/edit" class="">Rediģēt</a>
+                          </div>
+                        @endforeach
+                      </div>
                     @else
                       <p>Nav pievienoti varianti.</p>
                     @endif
