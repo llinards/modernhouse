@@ -15,7 +15,13 @@ class ProductVariantController extends Controller
 {
   public function create()
   {
-    $allProducts = Product::all();
+    $allProducts = Product::select('id')
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
+      ->get();
     return view('admin.product-variant.create', compact('allProducts'));
   }
 

@@ -2,8 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Product;
-use Illuminate\Support\Facades\View;
+use App\View\Composers\AllActiveProductsComposer;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
    *
    * @return void
    */
-  public function register()
+  public function register(): void
   {
     //
   }
@@ -23,9 +22,12 @@ class AppServiceProvider extends ServiceProvider
    *
    * @return void
    */
-  public function boot()
+  public function boot(): void
   {
-    $allActiveProducts = Product::where('is_active', true)->get();
-    View::share('allActiveProducts', $allActiveProducts);
+    view()->composer([
+      'product', 'request-consultation', 'news.index', 'news.show', 'gallery', 'about-us', 'contact-us',
+      'privacy-policy'
+    ],
+      AllActiveProductsComposer::class);
   }
 }

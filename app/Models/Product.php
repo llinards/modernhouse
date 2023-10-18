@@ -11,8 +11,6 @@ class Product extends Model
 
   protected $fillable = ['slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'cover_photo_filename', 'is_active'];
 
-  protected $with = ['productVariants'];
-
   public function getRouteKeyName(): string
   {
     return 'slug';

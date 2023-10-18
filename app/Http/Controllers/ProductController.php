@@ -12,7 +12,34 @@ class ProductController extends Controller
 {
   public function index()
   {
-    $allProducts = Product::all();
+    $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename')
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
+      ->where('is_active', true)
+      ->get();
+    return view('home', compact('allActiveProducts'));
+  }
+
+  public function indexAdmin()
+  {
+    $allProducts = Product::select('id', 'slug', 'cover_photo_filename', 'is_active')
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
+      ->with([
+        'productVariants' => function ($query) {
+          $query->select('id', 'product_id', 'name_lv', 'name_en', 'name_no', 'name_se', 'is_active')->orderBy('order');
+        }
+      ])
+      ->get();
     return view('admin.index', compact('allProducts'));
   }
 

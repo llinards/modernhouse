@@ -20,7 +20,8 @@
                   <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}"
                        class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h3 class="card-title text-center">{{ $product->{'name_'.app()->getLocale()} }}</h3>
+                    <h3
+                      class="card-title text-center">{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h3>
                     <hr>
                     @if(count($product->productVariants) != 0)
                       @foreach($product->productVariants as $variant)

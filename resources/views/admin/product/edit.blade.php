@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Rediģēt - {{ $product->{'name_'.app()->getLocale()} }}</h2>
+        <h2 class="text-center">Rediģēt - {{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
@@ -26,6 +26,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-name" class="form-label">Nosaukums</label>
+                  {{--                  TODO: Update this one after all entries are in the DB--}}
                   <input type="text" class="form-control" id="product-name"
                          value="{{ $product->{'name_'.app()->getLocale()} }}" name="product-name"
                          oninput="generateSlug()">
