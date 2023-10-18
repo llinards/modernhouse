@@ -16,7 +16,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes();
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-  Route::get('/', [\App\Http\Controllers\ProductController::class, 'index']);
+  Route::get('/', [\App\Http\Controllers\ProductController::class, 'indexAdmin']);
   Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create']);
   Route::post('/', [\App\Http\Controllers\ProductController::class, 'store']);
   Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show']);
@@ -76,9 +76,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
 
 Route::middleware('setLanguage')->group(function () {
-  Route::get('{language?}/', static function () {
-    return view('home');
-  });
+  Route::get('{language?}/', [\App\Http\Controllers\ProductController::class, 'index']);
+
   Route::get('{language?}/about-us', static function () {
     return view('about-us');
   });
@@ -89,7 +88,7 @@ Route::middleware('setLanguage')->group(function () {
   });
 
   Route::post('{language?}/request-consultation',
-    [\App\Http\Controllers\HomeController::class, 'submitConsultation']);
+    [\App\Http\Controllers\HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
 
   Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
   Route::get('{language?}/news/{news}', [\App\Http\Controllers\NewsController::class, 'show']);

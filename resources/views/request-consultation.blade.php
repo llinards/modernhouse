@@ -11,18 +11,16 @@
                   action="/{{app()->getLocale()}}/request-consultation">
               @csrf
               <x-honeypot/>
-              @if(count($allActiveProducts) > 0)
-                <div class="mb-3">
-                  <label for="product" class="form-label fw-bold">@lang('product interested')*</label>
-                  <select class="form-select" name="product-variant" id="product"
-                          aria-label="Default select example">
-                    @foreach($allActiveProducts as $product)
-                      <option
-                        value="{{ $product->{'name_'.app()->getLocale()} }}">{{ $product->{'name_'.app()->getLocale()} }}</option>
-                    @endforeach
-                  </select>
-                </div>
-              @endif
+              <div class="mb-3">
+                <label for="product" class="form-label fw-bold">@lang('product interested')*</label>
+                <select class="form-select" name="product-variant" id="product"
+                        aria-label="Default select example">
+                  @foreach($allActiveProducts as $product)
+                    <option
+                      value="{{ $product->translations[0]->name }}">{{ $product->translations[0]->name }}</option>
+                  @endforeach
+                </select>
+              </div>
               <div class="mb-3">
                 <label for="first-name" class="form-label fw-bold">@lang('first name')*</label>
                 <input type="text" name="first-name" class="form-control" id="first-name"

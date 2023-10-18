@@ -16,10 +16,10 @@
                 @csrf
                 @method('PATCH')
                 <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
-                <div class="mb-3">
-                  <h4>Pieder pie kategorijas -
-                    <strong>{{ $productVariant->product->{'name_'.app()->getLocale()} }}</strong></h4>
-                </div>
+                {{--                <div class="mb-3">--}}
+                {{--                  <h4>Pieder pie kategorijas ---}}
+                {{--                    <strong>{{ $productVariant->product->{'name_'.app()->getLocale()} }}</strong></h4>--}}
+                {{--                </div>--}}
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="{{ $productVariant->is_active }}"

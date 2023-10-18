@@ -5,13 +5,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4 class="text-center">{{$product->{'name_'.app()->getLocale()} }}</h4>
+        <h4 class="text-center">{{ $product->translations[0]->name }}</h4>
         <form id="request-product-info" method="POST"
               action="/{{app()->getLocale()}}/{{$product->slug}}">
           @csrf
           <x-honeypot/>
           <input type="text" class="visually-hidden" name="product-name"
-                 value="{{ $product->{'name_'.app()->getLocale()} }}"/>
+                 value="{{ $product->translations[0]->name }}"/>
           @if(count($product->productVariants) !== 1)
             <div class="mb-3">
               <label for="product-variant" class="form-label fw-bold">@lang('product variant')*</label>

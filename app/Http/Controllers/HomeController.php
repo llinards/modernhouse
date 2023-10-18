@@ -24,6 +24,11 @@ class HomeController extends Controller
             1)->where('name_'.app()->getLocale(), 'not like', 'Nav tulkojuma!')->orderBy('order');
         }
       ])
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
       ->where('is_active', 1)
       ->findOrFail($product->id);
     return view('product')->with('product', $product);
