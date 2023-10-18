@@ -29,8 +29,6 @@ class ProductService
   {
     $this->setSlug($data['product-slug']);
     $this->product = Product::create([
-      //TODO: delete this
-      'name_lv' => 'empty',
       'slug' => $this->slug,
       'cover_photo_filename' => basename($data['product-cover-photo'][0]),
       'is_active' => false
