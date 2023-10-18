@@ -26,9 +26,9 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-name" class="form-label">Nosaukums</label>
-                  {{--                  TODO: Update this one after all entries are in the DB--}}
                   <input type="text" class="form-control" id="product-name"
-                         value="{{ $product->{'name_'.app()->getLocale()} }}" name="product-name"
+                         value="{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}"
+                         name="product-name"
                          oninput="generateSlug()">
                 </div>
                 @if(app()->getLocale() === 'lv')
