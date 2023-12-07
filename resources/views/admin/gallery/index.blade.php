@@ -16,7 +16,7 @@
             @endif
             @include('includes.status-messages')
             @foreach($galleryContents as $galleryItem)
-              <div class="col-lg-3 p-2">
+              <div class="col-lg-4 p-2">
                 <div class="card position-relative">
                   <div class="card-body">
                     <p class="card-title text-center">{{ $galleryItem->translations[0]->title ?? 'Nav tulkojuma!' }}</p>
@@ -33,6 +33,7 @@
                 @include('admin.gallery.delete-modal')
               </div>
             @endforeach
+            {{ $galleryContents->links('pagination::bootstrap-5') }}
           </div>
         </div>
       </div>

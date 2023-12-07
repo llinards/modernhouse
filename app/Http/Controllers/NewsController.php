@@ -32,7 +32,7 @@ class NewsController extends Controller
     $news = NewsContent::select('id', 'title')
       ->where('language', Lang::locale())
       ->orderBy('created_at', 'desc')
-      ->get();
+      ->paginate(12);
     return view('admin.news.index', compact('news'));
   }
 
