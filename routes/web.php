@@ -13,7 +13,7 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/', [\App\Http\Controllers\ProductController::class, 'indexAdmin']);
