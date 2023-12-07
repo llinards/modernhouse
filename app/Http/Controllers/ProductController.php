@@ -57,6 +57,9 @@ class ProductController extends Controller
       $productService->addImage($data['product-cover-photo']);
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -89,6 +92,9 @@ class ProductController extends Controller
       }
       return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }

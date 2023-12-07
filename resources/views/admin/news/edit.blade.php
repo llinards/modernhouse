@@ -39,7 +39,7 @@
                             <i class="bi bi-x"></i>
                           </a>
                           <img class="img-fluid mb-2"
-                               src="{{ asset('storage/news/'.Str::slug($news->title).'/'.$image->image_location) }}"
+                               src="{{ asset('storage/news/'.$news->slug.'/'.$image->image_location) }}"
                                alt="">
                         </div>
                       @endforeach

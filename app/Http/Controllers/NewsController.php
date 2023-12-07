@@ -51,6 +51,9 @@ class NewsController extends Controller
       }
       return redirect('/admin/news')->with('success', 'Jaunums pievienots');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -89,6 +92,9 @@ class NewsController extends Controller
       }
       return redirect('/admin/news')->with('success', 'Jaunums atjaunināts!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
