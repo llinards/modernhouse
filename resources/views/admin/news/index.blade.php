@@ -14,7 +14,7 @@
             </div>
             @include('includes.status-messages')
             @foreach($news as $newsItem)
-              <div class="col-lg-3 p-2">
+              <div class="col-lg-4 p-2">
                 <div class="card position-relative">
                   <div class="card-body">
                     <p class="card-title text-center">{{ $newsItem->title }}</p>

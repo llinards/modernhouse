@@ -40,7 +40,7 @@ class GalleryController extends Controller
         },
       ])
       ->orderBy('created_at', 'desc')
-      ->get();
+      ->paginate(12);
     return view('admin.gallery.index', compact('galleryContents'));
   }
 
