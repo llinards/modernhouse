@@ -36,7 +36,8 @@ class ProductController extends Controller
       ])
       ->with([
         'productVariants' => function ($query) {
-          $query->select('id', 'product_id', 'name_lv', 'name_en', 'name_no', 'name_se', 'is_active')->orderBy('order');
+          $query->select('id', 'product_id', 'name_lv', 'name_en', 'name_no', 'name_se',
+            'is_active')->orderBy('name_'.app()->getLocale());
         }
       ])
       ->get();
