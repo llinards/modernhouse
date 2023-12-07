@@ -95,10 +95,10 @@ class GalleryController extends Controller
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      Log::error($e);
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
