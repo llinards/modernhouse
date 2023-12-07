@@ -57,6 +57,9 @@ class GalleryController extends Controller
       $galleryService->addImage($data['gallery-images']);
       return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -92,6 +95,9 @@ class GalleryController extends Controller
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
