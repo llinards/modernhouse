@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductVariantRequest;
 use App\Http\Requests\UpdateProductVariantRequest;
+use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantAreaDetail;
@@ -13,6 +14,38 @@ use Illuminate\Support\Str;
 
 class ProductVariantController extends Controller
 {
+  //TODO:check why the first paramter is required to be $language
+  public function index($language, Product $product)
+  {
+    $product = Product::select('id', 'slug')
+      ->with([
+        'productVariants' => function ($query) {
+          $query->select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area', 'building_area',
+            'price_full')->where('is_active', 1);
+          $query->with([
+            'translations' => function ($query) {
+              $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
+                app()->getLocale())->orderBy('name');
+            },
+          ]);
+          $query->whereHas('translations', function ($query) {
+            $query->where('language', app()->getLocale());
+          });
+        }
+      ])
+      ->with([
+        'translations' => function ($query) {
+          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+        },
+      ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
+      ->where('is_active', 1)
+      ->findOrFail($product->id);
+    return view('product')->with('product', $product);
+  }
+
   public function create()
   {
     $allProducts = Product::select('id')
@@ -25,30 +58,15 @@ class ProductVariantController extends Controller
     return view('admin.product-variant.create', compact('allProducts'));
   }
 
-  public function store(StoreProductVariantRequest $data)
+  public function store(StoreProductVariantRequest $data, ProductVariantService $productVariantService)
   {
-    $productVariantSlug = Str::slug($data['product-variant-name']);
     try {
-      $newProductVariant = ProductVariant::create([
-        'name_'.app()->getLocale() => $data['product-variant-name'],
-        'slug' => $productVariantSlug,
-        'price_basic' => $data['product-variant-basic-price'],
-        'price_full' => $data['product-variant-full-price'],
-        'description_'.app()->getLocale() => $data['product-variant-description'],
-        'product_id' => $data['product-id'],
-        'is_active' => false
-      ]);
-      foreach ($data['product-variant-images'] as $image) {
-        $fileName = basename($image);
-        Storage::disk('public')->move($image,
-          'product-images/'.$newProductVariant->product->slug.'/'.$productVariantSlug.'/'.$fileName);
-        $newProductVariant->productVariantImages()->create([
-          'filename' => $fileName
-        ]);
-      }
+      $productVariantService->addProductVariant($data);
+      $productVariantService->addTranslation($data);
+      $productVariantService->addImage($data['product-variant-images']);
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

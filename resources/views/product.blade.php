@@ -10,8 +10,8 @@
             @foreach($product->productVariants as $variant)
               <li class="nav-item">
                 <button class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab"
-                        data-bs-target="#{{Str::slug($variant->slug)}}"
-                        type="button">{{ $variant->{'name_'.app()->getLocale()} }}</button>
+                        data-bs-target="#{{$variant->slug}}"
+                        type="button">{{ $variant->translations[0]->name}}</button>
               </li>
             @endforeach
           @endif
@@ -88,14 +88,11 @@
                       </h2>
                     </div>
                     <div class="product-short-description">
-                      <p>{!! $variant->{'description_'.app()->getLocale()} !!}</p>
+                      <p>{!! $variant->translations[0]->description !!}</p>
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
-                          @foreach($variant->productVariantAreaDetails as $productVariantAreaDetail)
-                            <p>{{ $productVariantAreaDetail->{'name_'.app()->getLocale()} }}
-                              : {{ $productVariantAreaDetail->square_meters }}
-                              m<sup>2</sup></p>
-                          @endforeach
+                          <p>@lang('living space') : {{ $variant->living_area }} m<sup>2</sup></p>
+                          <p>@lang('construction area') : {{ $variant->building_area }} m<sup>2</sup></p>
                         </div>
                         @if($variant->productVariantDetails->count() > 0)
                           <hr class="m-1">

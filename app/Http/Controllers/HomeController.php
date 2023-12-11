@@ -6,37 +6,12 @@ use App\Http\Requests\ContactUsRequest;
 use App\Http\Services\KlaviyoService;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
-use App\Models\Product;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-  //TODO:check why the first paramter is required to be $language
-  public function show($language, Product $product)
-  {
-    $product = Product::select('id', 'slug')
-      ->with([
-        'productVariants' => function ($query) {
-          $query->select('id', 'product_id', 'slug', 'name_lv', 'name_en', 'name_no', 'name_se', 'price_basic',
-            'price_full', 'description_lv', 'description_en', 'description_no', 'description_se')->where('is_active',
-            1)->where('name_'.app()->getLocale(), 'not like', 'Nav tulkojuma!')->orderBy('name_'.app()->getLocale());
-        }
-      ])
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->where('is_active', 1)
-      ->findOrFail($product->id);
-    return view('product')->with('product', $product);
-  }
-
   //TODO:check why the first paramter is required to be $language
   public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
   {
