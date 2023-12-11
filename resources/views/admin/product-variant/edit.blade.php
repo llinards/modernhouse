@@ -18,7 +18,7 @@
                 <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
                 {{--                <div class="mb-3">--}}
                 {{--                  <h4>Pieder pie kategorijas ---}}
-                {{--                    <strong>{{ $productVariant->product->{'name_'.app()->getLocale()} }}</strong></h4>--}}
+                {{--                    <strong>{{ $productVariant->product->translation[0]->name}}</strong></h4>--}}
                 {{--                </div>--}}
                 <div class="mb-3">
                   <div class="form-check">
@@ -86,6 +86,20 @@
                                value="" class="form-control">
                       </div>
                     @endif
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="product-variant-living-area" class="form-label">Dzīvojamā platība</label>
+                      <input type="text" name="product-variant-living-area"
+                             value="{{ $productVariant->living_area }}" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label for="product-variant-building-area" class="form-label">Apbūves platība</label>
+                      <input type="text" name="product-variant-building-area"
+                             value="{{ $productVariant->building_area }}" class="form-control">
+                    </div>
                   </div>
                 </div>
                 <div class="mb-3">
