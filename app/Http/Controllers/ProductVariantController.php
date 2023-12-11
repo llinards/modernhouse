@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
-use App\Models\ProductVariantAreaDetail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -76,55 +75,22 @@ class ProductVariantController extends Controller
     return view('admin.product-variant.edit', compact('productVariant'));
   }
 
-  public function update(UpdateProductVariantRequest $data)
+  public function update(UpdateProductVariantRequest $data, ProductVariantService $productVariantService)
   {
     try {
-      $productVariantToUpdate = ProductVariant::findOrFail($data->id);
-      $productVariantSlug = app()->getLocale() === 'lv' ? Str::slug($data['product-variant-name']) : $productVariantToUpdate->slug;
-
-      if ((app()->getLocale() === 'lv') && $productVariantSlug !== $productVariantToUpdate->slug) {
-        $newProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantSlug;
-        $oldProductVariantImageDirectory = 'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantToUpdate->slug;
-        Storage::disk('public')->makeDirectory($newProductVariantImageDirectory);
-        Storage::disk('public')->move($oldProductVariantImageDirectory, $newProductVariantImageDirectory);
+      $productVariantService->updateProductVariant($data);
+      $translation = $productVariantService->getTranslation();
+      if ($translation) {
+        $productVariantService->updateTranslation($translation, $data);
+      } else {
+        $productVariantService->addTranslation($data);
       }
-      $productVariantToUpdate->update([
-        'name_'.app()->getLocale() => $data['product-variant-name'],
-        'slug' => $productVariantSlug,
-        'price_basic' => $data['product-variant-basic-price'],
-        'price_full' => $data['product-variant-full-price'],
-        'description_'.app()->getLocale() => $data['product-variant-description'],
-        'is_active' => isset($data['product-variant-available']),
-      ]);
-      foreach ($data['product-variant-area-details-name'] as $key => $productVariantAreaDetail) {
-        if (isset($data['product-variant-area-details-id'][$key])) {
-          $productVariantAreaDetailToUpdate = ProductVariantAreaDetail::find($data['product-variant-area-details-id'][$key]);
-          $productVariantAreaDetailToUpdate->update([
-            'name_'.app()->getLocale() => $data['product-variant-area-details-name'][$key],
-            'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id']
-          ]);
-        } else {
-          ProductVariantAreaDetail::create([
-            'name_'.app()->getLocale() => $data['product-variant-area-details-name'][$key],
-            'square_meters' => $data['product-variant-area-details-square-meters'][$key],
-            'product_variant_id' => $data['id']
-          ]);
-        }
-      }
-      if (isset($data['product-variant-images'])) {
-        foreach ($data['product-variant-images'] as $image) {
-          $fileName = basename($image);
-          Storage::disk('public')->move($image,
-            'product-images/'.$productVariantToUpdate->product->slug.'/'.$productVariantToUpdate->slug.'/'.$fileName);
-          $productVariantToUpdate->productVariantImages()->create([
-            'filename' => $fileName
-          ]);
-        }
+      if ($data->has(['product-variant-images'])) {
+        $productVariantService->addImage($data['product-variant-images']);
       }
       return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

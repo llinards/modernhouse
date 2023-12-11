@@ -36,7 +36,7 @@ class ProductVariantService
       'living_area' => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],
       'is_active' => false,
-      //delete this
+      //TODO: delete this
       'name_'.app()->getLocale() => 'empty',
       'description_'.app()->getLocale() => 'empty'
     ]);
@@ -60,5 +60,36 @@ class ProductVariantService
         'filename' => basename($image)
       ]);
     }
+  }
+
+  public function updateProductVariant(object $data): void
+  {
+    $fileService = new FileService();
+    $this->productVariant = $this->getProductVariant($data['id']);
+    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-variant-name'] : $this->productVariant->slug);
+    $isSlugChanged = $this->productVariant->slug !== $this->slug;
+    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+      $fileService->moveDirectory('product-images/'.$this->productVariant->product->slug.'/'.$this->productVariant->slug,
+        'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
+    }
+    $this->productVariant->update([
+      'slug' => $this->slug,
+      'price_basic' => $data['product-variant-basic-price'],
+      'price_full' => $data['product-variant-full-price'],
+      'living_area' => $data['product-variant-living-area'],
+      'building_area' => $data['product-variant-building-area'],
+      'is_active' => isset($data['product-variant-available']),
+      //TODO: delete this
+      'name_'.app()->getLocale() => 'empty',
+      'description_'.app()->getLocale() => 'empty'
+    ]);
+  }
+
+  public function updateTranslation($translation, $data): void
+  {
+    $translation->update([
+      'name' => $data['product-variant-name'],
+      'description' => $data['product-variant-description']
+    ]);
   }
 }
