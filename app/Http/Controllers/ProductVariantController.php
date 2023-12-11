@@ -8,8 +8,6 @@ use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ProductVariantController extends Controller
 {
@@ -72,6 +70,7 @@ class ProductVariantController extends Controller
 
   public function show(ProductVariant $productVariant)
   {
+//    return $productVariant;
     return view('admin.product-variant.edit', compact('productVariant'));
   }
 
@@ -95,14 +94,13 @@ class ProductVariantController extends Controller
     }
   }
 
-  public function destroy(ProductVariant $productVariant)
+  public function destroy(ProductVariant $productVariant, ProductVariantService $productVariantService)
   {
     try {
-      Storage::disk('public')->deleteDirectory('product-images/'.$productVariant->product->slug.'/'.Str::slug($productVariant->name));
-      $productVariant->delete();
+      $productVariantService->destroyProductVariant($productVariant);
       return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

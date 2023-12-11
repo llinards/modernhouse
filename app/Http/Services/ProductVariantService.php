@@ -92,4 +92,12 @@ class ProductVariantService
       'description' => $data['product-variant-description']
     ]);
   }
+
+  public function destroyProductVariant(object $data): void
+  {
+    $this->productVariant = $this->getProductVariant($data->id);
+    $fileService = new FileService();
+    $fileService->destroyDirectory('product-images/'.$this->productVariant->product->slug.'/'.$this->productVariant->slug);
+    $this->productVariant->delete();
+  }
 }
