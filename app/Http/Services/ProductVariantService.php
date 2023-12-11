@@ -36,9 +36,6 @@ class ProductVariantService
       'living_area' => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],
       'is_active' => false,
-      //TODO: delete this
-      'name_'.app()->getLocale() => 'empty',
-      'description_'.app()->getLocale() => 'empty'
     ]);
   }
 
@@ -79,9 +76,6 @@ class ProductVariantService
       'living_area' => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],
       'is_active' => isset($data['product-variant-available']),
-      //TODO: delete this
-      'name_'.app()->getLocale() => 'empty',
-      'description_'.app()->getLocale() => 'empty'
     ]);
   }
 
