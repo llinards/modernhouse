@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Tehniskā informācija - {{ $productVariant->{'name_'.app()->getLocale()} }}</h2>
+        <h2 class="text-center">Tehniskā informācija</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
