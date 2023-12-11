@@ -19,7 +19,7 @@
                       aria-label="Default select example">
                 @foreach($product->productVariants as $variant)
                   <option
-                    value="{{ $variant->{'name_'.app()->getLocale()} }}">{{ $variant->{'name_'.app()->getLocale()} }}</option>
+                    value="{{ $variant->translations[0]->name }}">{{ $variant->translations[0]->name }}</option>
                 @endforeach
               </select>
             </div>
