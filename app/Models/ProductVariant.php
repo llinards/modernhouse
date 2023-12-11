@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductVariant extends Model
 {
   protected $fillable = [
-    'slug', 'name_lv', 'name_en', 'name_se', 'name_no', 'price_basic', 'price_full', 'description_lv', 'description_en',
-    'description_se', 'description_no', 'product_id', 'is_active', 'building_area', 'living_area'
+    'slug', 'price_basic', 'price_full', 'product_id', 'is_active', 'building_area', 'living_area'
   ];
   use HasFactory;
 
