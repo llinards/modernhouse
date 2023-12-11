@@ -70,8 +70,18 @@ class ProductVariantController extends Controller
 
   public function show(ProductVariant $productVariant)
   {
-//    return $productVariant;
-    return view('admin.product-variant.edit', compact('productVariant'));
+    $product = $productVariant->product;
+    $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_full',
+      'living_area', 'building_area', 'price_full')
+      ->with([
+        'translations' => function ($query) {
+          $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
+            app()->getLocale());
+
+        },
+      ])
+      ->findOrFail($productVariant->id);
+    return view('admin.product-variant.edit', compact('productVariant', 'product'));
   }
 
   public function update(UpdateProductVariantRequest $data, ProductVariantService $productVariantService)

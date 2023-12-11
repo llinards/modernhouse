@@ -4,7 +4,8 @@
     @include('includes.admin-navbar')
     <section class="all-products">
       <div class="all-products-title my-5">
-        <h2 class="text-center">Rediģēt - {{ $productVariant->{'name_'.app()->getLocale()} }}</h2>
+        <h2 class="text-center">Rediģēt
+          - {{ $productVariant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h2>
       </div>
       <div class="all-products-content my-5">
         <div class="container">
@@ -33,7 +34,7 @@
                 <div class="mb-3">
                   <label for="product-variant-name" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="product-variant-name"
-                         value="{{ $productVariant->{'name_'.app()->getLocale()} }}"
+                         value="{{ $productVariant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}"
                          name="product-variant-name">
                 </div>
                 <div class="mb-3">
@@ -60,36 +61,6 @@
                 </div>
                 <div class="mb-3">
                   <div class="row">
-                    @if (count($productVariant->productVariantAreaDetails) !== 0)
-                      @foreach($productVariant->productVariantAreaDetails as $productVariantAreaDetail)
-                        <div class="col-6">
-                          <input name="product-variant-area-details-id[]" id="product-variant-area-details-id"
-                                 value="{{ $productVariantAreaDetail->id }}" class="visually-hidden">
-                          <input type="text" name="product-variant-area-details-name[]"
-                                 value="{{ $productVariantAreaDetail->{'name_'.app()->getLocale()} }}"
-                                 class="form-control mb-2">
-                          <input type="text" name="product-variant-area-details-square-meters[]"
-                                 value="{{ $productVariantAreaDetail->square_meters }}" class="form-control">
-                        </div>
-                      @endforeach
-                    @else
-                      <div class="col-6">
-                        <input type="text" name="product-variant-area-details-name[]"
-                               value="@lang('living space')" class="form-control mb-2">
-                        <input type="text" name="product-variant-area-details-square-meters[]"
-                               value="" class="form-control">
-                      </div>
-                      <div class="col-6">
-                        <input type="text" name="product-variant-area-details-name[]"
-                               value="@lang('construction area')" class="form-control mb-2">
-                        <input type="text" name="product-variant-area-details-square-meters[]"
-                               value="" class="form-control">
-                      </div>
-                    @endif
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="row">
                     <div class="col-6">
                       <label for="product-variant-living-area" class="form-label">Dzīvojamā platība</label>
                       <input type="text" name="product-variant-living-area"
@@ -106,7 +77,7 @@
                   <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description"
                             id="product-variant-description">
-                    {{ $productVariant->{'description_'.app()->getLocale()} }}
+                    {{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}
                   </textarea>
                 </div>
                 <div class="mb-3" id="product-variant-images">
@@ -122,7 +93,7 @@
                             <i class="bi bi-x"></i>
                           </a>
                           <img class="img-fluid mb-2"
-                               src="{{ asset('storage/product-images/'.$productVariant->product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
+                               src="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
                                alt="">
                         </div>
                       @endforeach
