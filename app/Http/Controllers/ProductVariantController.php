@@ -18,11 +18,11 @@ class ProductVariantController extends Controller
       ->with([
         'productVariants' => function ($query) {
           $query->select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area', 'building_area',
-            'price_full')->where('is_active', 1);
+            'price_full')->where('is_active', 1)->orderBy('slug');
           $query->with([
             'translations' => function ($query) {
               $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
-                app()->getLocale())->orderBy('name');
+                app()->getLocale());
             },
           ]);
           $query->whereHas('translations', function ($query) {
