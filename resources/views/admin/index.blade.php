@@ -29,7 +29,7 @@
                           <div class="col-6 my-2 text-center">
                           <span
                             class="badge {{ $variant->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $variant->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-                            <h5 class="">{{ $variant->{'name_'.app()->getLocale()} }}</h5>
+                            <h5 class="">{{ $variant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h5>
                             <a href="/admin/product-variant/{{ $variant->id }}/edit" class="">Rediģēt</a>
                           </div>
                         @endforeach
