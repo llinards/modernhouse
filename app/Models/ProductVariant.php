@@ -9,7 +9,7 @@ class ProductVariant extends Model
 {
   protected $fillable = [
     'slug', 'name_lv', 'name_en', 'name_se', 'name_no', 'price_basic', 'price_full', 'description_lv', 'description_en',
-    'description_se', 'description_no', 'product_id', 'is_active'
+    'description_se', 'description_no', 'product_id', 'is_active', 'building_area', 'living_area'
   ];
   use HasFactory;
 
@@ -45,6 +45,11 @@ class ProductVariant extends Model
   public function productVariantOptionsByCategory()
   {
     return $this->productVariantOptions()->orderBy('option_category');
+  }
+
+  public function translations(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(TranslationsProductVariants::class);
   }
 
 }

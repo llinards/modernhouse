@@ -103,7 +103,7 @@ Route::middleware('setLanguage')->group(function () {
   Route::post('{language?}/contact-us',
     [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
-  Route::get('{language?}/{product}', [\App\Http\Controllers\HomeController::class, 'show']);
+  Route::get('{language?}/{product}', [\App\Http\Controllers\ProductVariantController::class, 'index']);
   Route::post('{language?}/{product}',
     [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
 });

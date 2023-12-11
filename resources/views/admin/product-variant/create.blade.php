@@ -45,6 +45,20 @@
                   </div>
                 </div>
                 <div class="mb-3">
+                  <div class="row">
+                    <div class="col-6">
+                      <label for="product-variant-living-area" class="form-label">Dzīvojamā platība</label>
+                      <input type="text" name="product-variant-living-area"
+                             value="{{ old('product-variant-living-area') }}" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label for="product-variant-building-area" class="form-label">Apbūves platība</label>
+                      <input type="text" name="product-variant-building-area"
+                             value="{{ old('product-variant-building-area') }}" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="product-variant-description"
                             id="product-variant-description">

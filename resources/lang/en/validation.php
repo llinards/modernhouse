@@ -43,6 +43,14 @@ return [
     'product-variant-name' => [
       'required' => 'Nav norādīts nosaukums.'
     ],
+    'product-variant-living-area' => [
+      'required' => 'Nav norādīta dzīvojamā platība.',
+      'numeric' => 'Dzīvojamā platība drīkst saturēt tikai ciparus.'
+    ],
+    'product-variant-building-area' => [
+      'required' => 'Nav norādīta būvējamā platība.',
+      'numeric' => 'Būvējamā platība drīkst saturēt tikai ciparus.'
+    ],
     'product-variant-basic-price' => [
       'required' => 'Nav norādīta rūpnīcas komplektācijas summa.',
       'numeric' => 'Rūpnīcas komplektācijas summa drīkst saturēt tikai ciparus.'
