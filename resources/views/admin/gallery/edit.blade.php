@@ -21,7 +21,7 @@
                       <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
                              value="{{ $galleryContent->is_video }}" {{ $galleryContent->is_video ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-type">
-                        Video galerija
+                        <i class="bi bi-camera-video-fill"></i> Video galerija
                       </label>
                     </div>
                   </div>
@@ -30,7 +30,7 @@
                       <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned"
                              value="{{ $galleryContent->is_pinned }}" {{ $galleryContent->is_pinned ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-pinned">
-                        Rādīt galeriju kā pirmo
+                        <i class="bi bi-pin-angle"></i> Rādīt galeriju kā pirmo
                       </label>
                     </div>
                   </div>
