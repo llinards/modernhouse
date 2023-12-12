@@ -1,7 +1,7 @@
-<form action="/admin/news/{{ $newsItem->id }}/delete" method="POST">
+<form action="/admin/news/{{ $news->id }}/delete" method="POST">
   @csrf
   @method('DELETE')
-  <div class="modal fade" id="delete-news-modal-{{$newsItem->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="delete-news-modal-{{$news->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

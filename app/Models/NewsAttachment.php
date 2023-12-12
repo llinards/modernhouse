@@ -11,8 +11,8 @@ class NewsAttachment extends Model
 
   protected $fillable = ['attachment_location', 'news_content_id'];
 
-  public function newsContent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+  public function news(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
-    return $this->belongsTo(NewsContent::class);
+    return $this->belongsTo(News::class);
   }
 }

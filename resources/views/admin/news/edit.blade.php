@@ -29,10 +29,10 @@
                 <div class="mb-3" id="news-images">
                   <p>Esošās bildes</p>
                   <div class="row">
-                    @if(count($news->newsImages) === 0)
+                    @if(count($news->images) === 0)
                       <p>Nav pievienotas bildes!</p>
                     @else
-                      @foreach($news->newsImages as $image)
+                      @foreach($news->images as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
                              href="{{ URL::to('/admin/news/image/'.$image->id.'/delete') }}">
@@ -49,10 +49,10 @@
                 <div class="mb-3" id="news-attachments">
                   <p>Esošie pielikumi</p>
                   <div class="row">
-                    @if(count($news->newsAttachments) === 0)
+                    @if(count($news->attachments) === 0)
                       <p>Nav pievienoti pielikumi!</p>
                     @else
-                      @foreach($news->newsAttachments as $attachment)
+                      @foreach($news->attachments as $attachment)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
                              href="{{ URL::to('/admin/news/attachment/'.$attachment->id.'/delete') }}">
