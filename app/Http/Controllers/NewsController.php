@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
 use App\Http\Services\NewsService;
+use App\Models\News;
 use App\Models\NewsAttachment;
-use App\Models\NewsContent;
 use App\Models\NewsImage;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -15,25 +15,25 @@ class NewsController extends Controller
 {
   public function index()
   {
-    $news = NewsContent::select('id', 'title', 'slug')
+    $allNews = News::select('id', 'title', 'slug')
       ->with([
-        'newsImages' => function ($query) {
-          $query->select('image_location', 'news_content_id');
+        'images' => function ($query) {
+          $query->select('image_location', 'news_id');
         },
       ])
       ->where('language', app()->getLocale())
       ->orderBy('created_at', 'desc')
       ->get();
-    return view('news.index', compact('news'));
+    return view('news.index', compact('allNews'));
   }
 
   public function indexAdmin()
   {
-    $news = NewsContent::select('id', 'title')
+    $allNews = News::select('id', 'title')
       ->where('language', Lang::locale())
       ->orderBy('created_at', 'desc')
       ->paginate(12);
-    return view('admin.news.index', compact('news'));
+    return view('admin.news.index', compact('allNews'));
   }
 
   public function create()
@@ -59,23 +59,23 @@ class NewsController extends Controller
     }
   }
 
-  public function show($language, NewsContent $news)
+  public function show($language, News $news)
   {
-    $newsItem = NewsContent::select('id', 'title', 'content', 'slug')
+    $news = News::select('id', 'title', 'content', 'slug')
       ->with([
-        'newsImages' => function ($query) {
-          $query->select('image_location', 'news_content_id');
+        'images' => function ($query) {
+          $query->select('image_location', 'news_id');
         },
-        'newsAttachments' => function ($query) {
-          $query->select('attachment_location', 'news_content_id');
+        'attachments' => function ($query) {
+          $query->select('attachment_location', 'news_id');
         },
       ])
       ->where('language', $language)
       ->findOrFail($news->id);
-    return view('news.show', compact('newsItem'));
+    return view('news.show', compact('news'));
   }
 
-  public function showAdmin(NewsContent $news)
+  public function showAdmin(News $news)
   {
     return view('admin.news.edit', compact('news'));
   }
@@ -100,7 +100,7 @@ class NewsController extends Controller
     }
   }
 
-  public function destroy(NewsContent $news, NewsService $newsService)
+  public function destroy(News $news, NewsService $newsService)
   {
     try {
       $newsService->destroyNews($news);
