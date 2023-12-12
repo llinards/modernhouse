@@ -12,36 +12,27 @@ class ProductVariant extends Model
   ];
   use HasFactory;
 
-  protected $with = [
-    'productVariantImages', 'productVariantAreaDetails', 'productVariantDetails', 'productVariantOptions'
-  ];
-
   public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(Image::class);
   }
 
-  public function product()
+  public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
     return $this->belongsTo(Product::class);
   }
 
-  public function productVariantAreaDetails()
-  {
-    return $this->hasMany(ProductVariantAreaDetail::class);
-  }
-
-  public function productVariantDetails()
+  public function productVariantDetails(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(ProductVariantDetail::class);
   }
 
-  public function productVariantOptions()
+  public function productVariantOptions(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(ProductVariantOption::class);
   }
 
-  public function productVariantOptionsByCategory()
+  public function productVariantOptionsByCategory(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->productVariantOptions()->orderBy('option_category');
   }

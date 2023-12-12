@@ -15,13 +15,13 @@ class NewsContent extends Model
   }
 
   protected $fillable = ['title', 'slug', 'content', 'language'];
-  
-  public function newsImages()
+
+  public function newsImages(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(NewsImage::class);
   }
 
-  public function newsAttachments()
+  public function newsAttachments(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(NewsAttachment::class);
   }
