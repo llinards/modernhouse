@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GalleryImage extends Model
+class TranslationsGallery extends Model
 {
-  protected $fillable = ['filename', 'gallery_id'];
+  protected $fillable = [
+    'title',
+    'content',
+    'language',
+    'gallery_id'
+  ];
 
   public function gallery(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {

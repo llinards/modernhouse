@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GalleryContent extends Model
+class Gallery extends Model
 {
   protected $fillable = ['slug', 'is_video', 'is_pinned'];
 
-  public function galleryImages(): \Illuminate\Database\Eloquent\Relations\HasMany
+  public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(GalleryImage::class);
   }
 
   public function translations(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
-    return $this->hasMany(TranslationsGalleryContent::class);
+    return $this->hasMany(TranslationsGallery::class);
   }
 }

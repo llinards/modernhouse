@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGalleryContentRequest extends FormRequest
+class UpdateGalleryRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -26,7 +26,6 @@ class StoreGalleryContentRequest extends FormRequest
     return [
       'gallery-title' => 'required',
       'gallery-content' => '',
-      'gallery-images' => 'required',
       'gallery-type' => '',
       'gallery-pinned' => '',
     ];
