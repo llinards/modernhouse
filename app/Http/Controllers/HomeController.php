@@ -6,9 +6,11 @@ use App\Http\Requests\ContactUsRequest;
 use App\Http\Services\KlaviyoService;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -51,5 +53,30 @@ class HomeController extends Controller
       Log::error($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
+  }
+
+  public function storeTemporaryUpload(Request $data): string
+  {
+    $fileTypes = ['product-cover-photo', 'product-variant-images', 'gallery-images', 'news-images', 'news-attachments'];
+    foreach ($fileTypes as $fileType) {
+      if ($data->hasFile($fileType)) {
+        $files = $data->file($fileType);
+        foreach ($files as $file) {
+          if ($fileType === 'product-cover-photo') {
+            $fileName = 'cover.'.$file->getClientOriginalExtension();
+          } else {
+            $fileName = $file->getClientOriginalName();
+          }
+          return $file->storeAs('uploads/temp', $fileName, 'public');
+        }
+      }
+    }
+    return '';
+  }
+
+  public function destroyTemporaryUpload(Request $data): string
+  {
+    Storage::delete('public/'.$data->getContent());
+    return '';
   }
 }

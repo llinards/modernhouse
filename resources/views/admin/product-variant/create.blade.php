@@ -60,10 +60,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-description" class="form-label">Apraksts</label>
-                  <textarea rows="5" class="form-control" name="product-variant-description"
-                            id="product-variant-description">
-                    {{ old('product-variant-description') }}
-                  </textarea>
+                  <x-description-text-area
+                    :name="'product-variant-description'">{{ old('product-variant-description') }}</x-description-text-area>
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-images" class="form-label">Bildes</label>
@@ -82,10 +80,6 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('product-variant-description', {
-      removeButtons: removeButtons = 'Source,Save,Templates,SelectAll,Scayt,NewPage,Preview,Print,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,TextColor,Maximize,About,ShowBlocks,BGColor,Format,Font,FontSize'
-    });
-
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);

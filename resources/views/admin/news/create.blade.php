@@ -23,9 +23,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="news-content" class="form-label">Apraksts</label>
-                  <textarea rows="5" class="form-control" name="news-content" id="news-content">
-                    {{ old('news-content') }}
-                  </textarea>
+                  <x-description-text-area
+                    :name="'news-content'">{{ old('news-content') }}</x-description-text-area>
                 </div>
                 <div class="row mb-3">
                   <div class="col">
@@ -52,10 +51,6 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('news-content', {
-      removeButtons: removeButtons = 'Save,Templates,SelectAll,Scayt,NewPage,Preview,Print,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,TextColor,Maximize,About,ShowBlocks,BGColor,Format,Font,FontSize',
-      allowedContent: true
-    });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.registerPlugin(FilePondPluginImagePreview);

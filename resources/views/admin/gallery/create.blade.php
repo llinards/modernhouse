@@ -38,9 +38,8 @@
                 </div>
                 <div class="mb-3">
                   <label for="gallery-content" class="form-label">Apraksts</label>
-                  <textarea rows="5" class="form-control" name="gallery-content" id="gallery-content">
-                    {{ old('gallery-content') }}
-                  </textarea>
+                  <x-description-text-area
+                    :name="'gallery-content'">{{ old('gallery-content') }}</x-description-text-area>
                 </div>
                 <div class="mb-3">
                   <label for="gallery-images" class="form-label">Bildes</label>
@@ -59,9 +58,6 @@
     </section>
   </div>
   <script>
-    CKEDITOR.replace('gallery-content', {
-      removeButtons: removeButtons = 'Source,Save,Templates,SelectAll,Scayt,NewPage,Preview,Print,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,TextColor,Maximize,About,ShowBlocks,BGColor,Format,Font,FontSize'
-    });
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginImagePreview);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
