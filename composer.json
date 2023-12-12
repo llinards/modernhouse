@@ -13,6 +13,7 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "klaviyo/api": "^5.1",
     "laravel/framework": "^10.0",
+    "laravel/pulse": "^1.0@beta",
     "laravel/sanctum": "^3.2",
     "laravel/telescope": "^4.9",
     "laravel/tinker": "^2.5",
@@ -70,6 +71,6 @@
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "beta",
   "prefer-stable": true
 }
