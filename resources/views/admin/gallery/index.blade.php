@@ -18,8 +18,21 @@
             @foreach($galleryContents as $galleryItem)
               <div class="col-lg-4 p-2">
                 <div class="card position-relative">
+                  <div class="card-header">
+                    @if($galleryItem->is_pinned)
+                      <i class="bi bi-pin-angle-fill"></i>
+                    @endif
+                    @if($galleryItem->is_video)
+                      <i class="bi bi-camera-video-fill"></i>
+                    @else
+                      <i class="bi bi-image-fill"></i>
+                    @endif
+                  </div>
                   <div class="card-body">
-                    <p class="card-title text-center">{{ $galleryItem->translations[0]->title ?? 'Nav tulkojuma!' }}</p>
+                    <p class="card-title text-center">
+
+                      {{ $galleryItem->translations[0]->title ?? 'Nav tulkojuma!' }}
+                    </p>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
                       <a href="/admin/gallery/{{ $galleryItem->id }}/edit" class="btn btn-dark m-1">Rediģēt</a>
