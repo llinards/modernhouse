@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Models\NewsContent;
+use App\Models\News;
 use Illuminate\Support\Str;
 
 class NewsService
@@ -17,13 +17,13 @@ class NewsService
 
   private function getNews(string $id): object
   {
-    return NewsContent::findOrFail($id);
+    return News::findOrFail($id);
   }
 
   public function addNews(object $data): void
   {
     $this->setSlug($data['news-title']);
-    $this->news = NewsContent::create([
+    $this->news = News::create([
       'title' => $data['news-title'],
       'slug' => $this->slug,
       'content' => $data['news-content'],
@@ -36,7 +36,7 @@ class NewsService
     foreach ($images as $image) {
       $fileService = new FileService();
       $fileService->storeFile($image, 'news/'.$this->slug);
-      $this->news->newsImages()->create([
+      $this->news->images()->create([
         'image_location' => basename($image)
       ]);
     }
@@ -47,7 +47,7 @@ class NewsService
     foreach ($attachments as $attachment) {
       $fileService = new FileService();
       $fileService->storeFile($attachment, 'news/'.$this->slug);
-      $this->news->newsAttachments()->create([
+      $this->news->attachments()->create([
         'attachment_location' => basename($attachment)
       ]);
     }
@@ -80,14 +80,14 @@ class NewsService
   public function destroyImage(object $data): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($data->image_location, 'news/'.$data->newsContent->slug);
+    $fileService->destroyFile($data->image_location, 'news/'.$data->news->slug);
     $data->delete();
   }
 
   public function destroyAttachment(object $data): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($data->attachment_location, 'news/'.$data->newsContent->slug);
+    $fileService->destroyFile($data->attachment_location, 'news/'.$data->news->slug);
     $data->delete();
   }
 }
