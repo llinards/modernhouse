@@ -76,9 +76,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
     [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
 
-  //UploadController
-  Route::post('/upload', [\App\Http\Controllers\UploadController::class, 'store']);
-  Route::delete('/upload', [\App\Http\Controllers\UploadController::class, 'destroy']);
+  //HomeController
+  Route::post('/upload', [\App\Http\Controllers\HomeController::class, 'storeTemporaryUpload']);
+  Route::delete('/upload', [\App\Http\Controllers\HomeController::class, 'destroyTemporaryUpload']);
 });
 
 Route::middleware('setLanguage')->group(function () {
