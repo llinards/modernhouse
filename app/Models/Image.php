@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = ['filename', 'product_variant_id'];
-    use HasFactory;
+  protected $fillable = ['filename', 'product_variant_id'];
+  use HasFactory;
 
-    public function productVariant()
-    {
-      return $this->belongsTo(ProductVariant::class);
-    }
+  public function productVariant(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+  {
+    return $this->belongsTo(ProductVariant::class);
+  }
 }

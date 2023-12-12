@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsAttachment extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = ['attachment_location', 'news_content_id'];
+  protected $fillable = ['attachment_location', 'news_content_id'];
 
-    public function newsContent()
-    {
-      return $this->belongsTo(NewsContent::class);
-    }
+  public function newsContent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+  {
+    return $this->belongsTo(NewsContent::class);
+  }
 }

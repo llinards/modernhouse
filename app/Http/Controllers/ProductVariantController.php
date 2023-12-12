@@ -26,6 +26,24 @@ class ProductVariantController extends Controller
                 app()->getLocale());
             },
           ]);
+          $query->with([
+            'productVariantImages' => function ($query) {
+              $query->select('product_variant_id', 'filename');
+            },
+          ]);
+          $query->with([
+            'productVariantDetails' => function ($query) {
+              $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count', 'language')->where('language',
+                app()->getLocale());
+            },
+          ]);
+          $query->with([
+            'productVariantOptions' => function ($query) {
+              $query->select('product_variant_id', 'option_title', 'option_category', 'options',
+                'language')->where('language',
+                app()->getLocale());
+            },
+          ]);
           $query->whereHas('translations', function ($query) {
             $query->where('language', app()->getLocale());
           });
