@@ -4,7 +4,7 @@
     @include('includes.admin-navbar')
     <section>
       <div class="my-5">
-        <h2 class="text-center">Rediģēt - {{ $galleryContent->translations[0]->title ?? 'Nav tulkojuma!' }}</h2>
+        <h2 class="text-center">Rediģēt - {{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}</h2>
       </div>
       <div class="my-5">
         <div class="container">
@@ -14,12 +14,12 @@
               <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
-                <input name="id" class="visually-hidden" value="{{ $galleryContent->id }}">
+                <input name="id" class="visually-hidden" value="{{ $gallery->id }}">
                 <div class="row mb-3">
                   <div class="col-6">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
-                             value="{{ $galleryContent->is_video }}" {{ $galleryContent->is_video ? 'checked' : '' }}>
+                             value="{{ $gallery->is_video }}" {{ $gallery->is_video ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-type">
                         <i class="bi bi-camera-video-fill"></i> Video galerija
                       </label>
@@ -28,7 +28,7 @@
                   <div class="col-6">
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned"
-                             value="{{ $galleryContent->is_pinned }}" {{ $galleryContent->is_pinned ? 'checked' : '' }}>
+                             value="{{ $gallery->is_pinned }}" {{ $gallery->is_pinned ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-pinned">
                         <i class="bi bi-pin-angle"></i> Rādīt galeriju kā pirmo
                       </label>
@@ -38,34 +38,34 @@
                 <div class="mb-3">
                   <label for="gallery-title" class="form-label">Nosaukums</label>
                   <input type="text" class="form-control" id="gallery-title"
-                         value="{{ $galleryContent->translations[0]->title ?? 'Nav tulkojuma!' }}"
+                         value="{{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}"
                          name="gallery-title">
                 </div>
                 <div class="mb-3">
                   <label for="gallery-content" class="form-label">Apraksts</label>
                   <textarea rows="5" class="form-control" name="gallery-content" id="gallery-content">
-                    {{ $galleryContent->translations[0]->content ?? 'Nav tulkojuma!' }}
+                    {{ $gallery->translations[0]->content ?? 'Nav tulkojuma!' }}
                   </textarea>
                 </div>
                 <div class="mb-3" id="gallery-images">
                   <p>Esošās bildes / video</p>
                   <div class="row">
-                    @if(count($galleryContent->galleryImages) === 0)
+                    @if(count($gallery->images) === 0)
                       <p>Nav pievienotas bildes!</p>
                     @else
-                      @foreach($galleryContent->galleryImages as $image)
+                      @foreach($gallery->images as $image)
                         <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                           <a class="btn btn-danger btn-sm mb-1"
                              href="{{ URL::to('/admin/gallery/'.$image->id.'/delete') }}">
                             <i class="bi bi-x"></i>
                           </a>
-                          @if($galleryContent->is_video)
+                          @if($gallery->is_video)
                             <video class="img-fluid mb-2" controls
-                                   src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
+                                   src="{{ asset('storage/gallery/'.$gallery->slug.'/'.$image->filename) }}"
                             />
                           @else
                             <img class="img-fluid mb-2"
-                                 src="{{ asset('storage/gallery/'.$galleryContent->slug.'/'.$image->filename) }}"
+                                 src="{{ asset('storage/gallery/'.$gallery->slug.'/'.$image->filename) }}"
                                  alt="">
                           @endif
                         </div>

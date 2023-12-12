@@ -12,14 +12,14 @@ class ProductVariant extends Model
   ];
   use HasFactory;
 
-  public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasMany
-  {
-    return $this->hasMany(Image::class);
-  }
-
   public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
     return $this->belongsTo(Product::class);
+  }
+
+  public function productVariantImages(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(ProductVariantImage::class);
   }
 
   public function productVariantDetails(): \Illuminate\Database\Eloquent\Relations\HasMany

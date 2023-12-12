@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreGalleryContentRequest;
-use App\Http\Requests\UpdateGalleryContentRequest;
+use App\Http\Requests\StoreGalleryRequest;
+use App\Http\Requests\UpdateGalleryRequest;
 use App\Http\Services\GalleryService;
-use App\Models\GalleryContent;
+use App\Models\Gallery;
 use App\Models\GalleryImage;
 use Illuminate\Support\Facades\Log;
 
@@ -13,13 +13,13 @@ class GalleryController extends Controller
 {
   public function index()
   {
-    $galleryContents = GalleryContent::select('id', 'slug', 'is_video')
+    $galleries = Gallery::select('id', 'slug', 'is_video')
       ->with([
-        'galleryImages' => function ($query) {
-          $query->select('filename', 'gallery_content_id');
+        'images' => function ($query) {
+          $query->select('filename', 'gallery_id');
         },
         'translations' => function ($query) {
-          $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
+          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
         },
       ])
       ->whereHas('translations', function ($query) {
@@ -28,21 +28,21 @@ class GalleryController extends Controller
       ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
       ->get();
-    return view('gallery', compact('galleryContents'));
+    return view('gallery', compact('galleries'));
   }
 
   public function indexAdmin()
   {
-    $galleryContents = GalleryContent::select('id', 'slug', 'is_pinned', 'is_video')
+    $galleries = Gallery::select('id', 'slug', 'is_pinned', 'is_video')
       ->with([
         'translations' => function ($query) {
-          $query->select('title', 'gallery_content_id')->where('language', app()->getLocale());
+          $query->select('title', 'gallery_id')->where('language', app()->getLocale());
         },
       ])
       ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
       ->paginate(12);
-    return view('admin.gallery.index', compact('galleryContents'));
+    return view('admin.gallery.index', compact('galleries'));
   }
 
   public function create()
@@ -50,7 +50,7 @@ class GalleryController extends Controller
     return view('admin.gallery.create');
   }
 
-  public function store(StoreGalleryContentRequest $data, GalleryService $galleryService)
+  public function store(StoreGalleryRequest $data, GalleryService $galleryService)
   {
     try {
       $galleryService->addGallery($data);
@@ -66,22 +66,22 @@ class GalleryController extends Controller
     }
   }
 
-  public function show(GalleryContent $gallery)
+  public function show(Gallery $gallery)
   {
-    $galleryContent = GalleryContent::select('id', 'slug', 'is_video', 'is_pinned')
+    $gallery = Gallery::select('id', 'slug', 'is_video', 'is_pinned')
       ->with([
         'translations' => function ($query) {
-          $query->select('title', 'content', 'gallery_content_id')->where('language', app()->getLocale());
+          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
         },
-        'galleryImages' => function ($query) {
-          $query->select('id', 'filename', 'gallery_content_id');
+        'images' => function ($query) {
+          $query->select('id', 'filename', 'gallery_id');
         }
       ])
       ->findOrFail($gallery->id);
-    return view('admin.gallery.edit', compact('galleryContent'));
+    return view('admin.gallery.edit', compact('gallery'));
   }
 
-  public function update(UpdateGalleryContentRequest $data, GalleryService $galleryService)
+  public function update(UpdateGalleryRequest $data, GalleryService $galleryService)
   {
     try {
       $galleryService->updateGallery($data);
@@ -104,7 +104,7 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroy(GalleryContent $gallery, GalleryService $galleryService)
+  public function destroy(Gallery $gallery, GalleryService $galleryService)
   {
     try {
       $galleryService->destroyGallery($gallery);

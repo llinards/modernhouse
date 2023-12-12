@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductVariantRequest;
 use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
-use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductVariantImage;
 use Illuminate\Support\Facades\Log;
 
 class ProductVariantController extends Controller
@@ -134,7 +134,7 @@ class ProductVariantController extends Controller
     }
   }
 
-  public function destroyImage(Image $image, ProductVariantService $productVariantService)
+  public function destroyImage(ProductVariantImage $image, ProductVariantService $productVariantService)
   {
     try {
       $productVariantService->destroyImage($image);

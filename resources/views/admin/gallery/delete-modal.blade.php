@@ -1,7 +1,7 @@
-<form action="/admin/gallery/{{ $galleryItem->id }}/delete" method="POST">
+<form action="/admin/gallery/{{ $gallery->id }}/delete" method="POST">
   @csrf
   @method('DELETE')
-  <div class="modal fade" id="delete-gallery-modal-{{$galleryItem->id}}" tabindex="-1"
+  <div class="modal fade" id="delete-gallery-modal-{{$gallery->id}}" tabindex="-1"
        aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
