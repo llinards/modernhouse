@@ -20,7 +20,7 @@ class ProductVariantOptionController extends Controller
       }
       return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -52,7 +52,7 @@ class ProductVariantOptionController extends Controller
       }
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -63,7 +63,7 @@ class ProductVariantOptionController extends Controller
       $productVariantOption->delete();
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

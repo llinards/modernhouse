@@ -18,7 +18,7 @@ class ImageController extends Controller
       Storage::disk('public')->delete('product-images/'.$product.'/'.$productVariant.'/'.$image->filename);
       return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda!');
     }
   }

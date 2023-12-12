@@ -47,7 +47,7 @@ class ProductVariantDetailController extends Controller
       ]);
       return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -58,7 +58,7 @@ class ProductVariantDetailController extends Controller
       $productVariantDetail->delete();
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
