@@ -11,7 +11,7 @@ class NewsImage extends Model
 
   protected $fillable = ['image_location', 'news_content_id'];
 
-  public function newsContent()
+  public function newsContent(): \Illuminate\Database\Eloquent\Relations\BelongsTo
   {
     return $this->belongsTo(NewsContent::class);
   }

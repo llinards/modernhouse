@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductVariantRequest;
 use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Log;
@@ -22,6 +23,24 @@ class ProductVariantController extends Controller
           $query->with([
             'translations' => function ($query) {
               $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
+                app()->getLocale());
+            },
+          ]);
+          $query->with([
+            'productVariantImages' => function ($query) {
+              $query->select('product_variant_id', 'filename');
+            },
+          ]);
+          $query->with([
+            'productVariantDetails' => function ($query) {
+              $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count', 'language')->where('language',
+                app()->getLocale());
+            },
+          ]);
+          $query->with([
+            'productVariantOptions' => function ($query) {
+              $query->select('product_variant_id', 'option_title', 'option_category', 'options',
+                'language')->where('language',
                 app()->getLocale());
             },
           ]);
@@ -109,6 +128,17 @@ class ProductVariantController extends Controller
     try {
       $productVariantService->destroyProductVariant($productVariant);
       return redirect('/admin')->with('success', 'Dzēsts!');
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroyImage(Image $image, ProductVariantService $productVariantService)
+  {
+    try {
+      $productVariantService->destroyImage($image);
+      return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
