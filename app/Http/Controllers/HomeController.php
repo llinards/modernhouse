@@ -23,7 +23,7 @@ class HomeController extends Controller
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -34,7 +34,7 @@ class HomeController extends Controller
       Mail::to('info@modern-house.lv')->send(new ContactUsSubmitted($data->input()));
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
-      Log::debug($e);
+      Log::error($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
