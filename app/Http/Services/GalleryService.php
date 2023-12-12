@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use App\Models\GalleryContent;
+use App\Models\Gallery;
 use Illuminate\Support\Str;
 
 class GalleryService
@@ -17,7 +17,7 @@ class GalleryService
 
   private function getGallery(string $id): object
   {
-    return GalleryContent::findOrFail($id);
+    return Gallery::findOrFail($id);
   }
 
   public function getTranslation()
@@ -28,7 +28,7 @@ class GalleryService
   public function addGallery(object $data): void
   {
     $this->setSlug($data['gallery-title']);
-    $this->gallery = GalleryContent::create([
+    $this->gallery = Gallery::create([
       'slug' => $this->slug,
       'is_video' => isset($data['gallery-type']),
       'is_pinned' => isset($data['gallery-pinned'])
@@ -41,7 +41,7 @@ class GalleryService
     foreach ($images as $image) {
       $fileService = new FileService();
       $fileService->storeFile($image, 'gallery/'.$this->slug);
-      $this->gallery->galleryImages()->create([
+      $this->gallery->images()->create([
         'filename' => basename($image)
       ]);
     }
@@ -91,7 +91,7 @@ class GalleryService
   public function destroyImage(object $data): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($data->filename, 'gallery/'.$data->galleryContent->slug);
+    $fileService->destroyFile($data->filename, 'gallery/'.$data->gallery->slug);
     $data->delete();
   }
 }
