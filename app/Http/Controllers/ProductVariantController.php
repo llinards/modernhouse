@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductVariantRequest;
 use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Support\Facades\Log;
@@ -109,6 +110,17 @@ class ProductVariantController extends Controller
     try {
       $productVariantService->destroyProductVariant($productVariant);
       return redirect('/admin')->with('success', 'Dzēsts!');
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroyImage(Image $image, ProductVariantService $productVariantService)
+  {
+    try {
+      $productVariantService->destroyImage($image);
+      return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');

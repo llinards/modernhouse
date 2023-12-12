@@ -94,4 +94,12 @@ class ProductVariantService
     $fileService->destroyDirectory('product-images/'.$this->productVariant->product->slug.'/'.$this->productVariant->slug);
     $this->productVariant->delete();
   }
+
+  public function destroyImage(object $data): void
+  {
+    $fileService = new FileService();
+    $fileService->destroyFile($data->filename,
+      'product-images/'.$data->productVariant->product->slug.'/'.$data->productVariant->slug);
+    $data->delete();
+  }
 }
