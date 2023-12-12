@@ -18,7 +18,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type">
                       <label class="form-check-label" for="gallery-type">
-                        Video galerija
+                        <i class="bi bi-camera-video-fill"></i> Video galerija
                       </label>
                     </div>
                   </div>
@@ -26,7 +26,7 @@
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned">
                       <label class="form-check-label" for="gallery-pinned">
-                        Rādīt galeriju kā pirmo
+                        <i class="bi bi-pin-angle"></i> Rādīt galeriju kā pirmo
                       </label>
                     </div>
                   </div>

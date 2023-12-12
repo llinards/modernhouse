@@ -28,17 +28,18 @@ class GalleryController extends Controller
       ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
       ->get();
-    return view('gallery')->with('galleryContents', $galleryContents);
+    return view('gallery', compact('galleryContents'));
   }
 
   public function indexAdmin()
   {
-    $galleryContents = GalleryContent::select('id', 'slug')
+    $galleryContents = GalleryContent::select('id', 'slug', 'is_pinned', 'is_video')
       ->with([
         'translations' => function ($query) {
           $query->select('title', 'gallery_content_id')->where('language', app()->getLocale());
         },
       ])
+      ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
       ->paginate(12);
     return view('admin.gallery.index', compact('galleryContents'));
