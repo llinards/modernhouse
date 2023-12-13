@@ -17,7 +17,7 @@
                   <label for="product-id" class="form-label">Izvēlies kategoriju</label>
                   <select class="form-select" name="product-id" id="product-id">
                     <option selected>Izvēlies...</option>
-                    @foreach($allProducts as $product)
+                    @foreach($products as $product)
                       <option
                         value="{{ $product->id }}">{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</option>
                     @endforeach

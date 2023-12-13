@@ -10,7 +10,7 @@
         <div class="container">
           <div class="row justify-content-between">
             @include('includes.status-messages')
-            @foreach($allProducts as $product)
+            @foreach($products as $product)
               <div class="col-lg-4 p-2">
                 <div class="card position-relative">
                   <div class="position-absolute">
