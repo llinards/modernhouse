@@ -100,7 +100,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-variant-images" class="form-label">Pievienot jaunas bildes</label>
-                  <input class="form-control" type="file" id="product-variant-images" name="product-variant-images[]">
+                  <x-file-upload :name="'product-variant-images'"/>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   </p>
@@ -122,23 +122,4 @@
       </div>
     </section>
   </div>
-  <script>
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.registerPlugin(FilePondPluginFileValidateSize);
-    FilePond.create(document.querySelector('input[id="product-variant-images"]'));
-    FilePond.setOptions({
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      allowMultiple: true,
-      allowReorder: true,
-      maxFileSize: '500KB',
-      allowImagePreview: true,
-      acceptedFileTypes: ['image/*'],
-    });
-  </script>
 @endsection
