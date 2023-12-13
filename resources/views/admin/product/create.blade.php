@@ -27,7 +27,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-cover-photo" class="form-label">Produkta pirmās lapas bilde</label>
-                  <input class="form-control" type="file" id="product-cover-photo" name="product-cover-photo[]">
+                  <x-file-upload :name="'product-cover-photo'" :required="'true'"/>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
                   </p>
@@ -42,23 +42,6 @@
     </section>
   </div>
   <script>
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.registerPlugin(FilePondPluginFileValidateSize);
-    FilePond.create(document.querySelector('input[id="product-cover-photo"]'));
-    FilePond.setOptions({
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      required: true,
-      maxFileSize: '500KB',
-      allowImagePreview: true,
-      acceptedFileTypes: ['image/*'],
-    });
-
     function generateSlug() {
       const productName = document.getElementById('product-name').value.trim().toLowerCase();
       const slug = productName
