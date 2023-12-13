@@ -14,14 +14,14 @@ class ProductVariantController extends Controller
 {
   public function create()
   {
-    $allProducts = Product::select('id')
+    $products = Product::select('id')
       ->with([
         'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+          $query->select('name', 'product_id')->where('language', app()->getLocale());
         },
       ])
       ->get();
-    return view('admin.product-variant.create', compact('allProducts'));
+    return view('admin.product-variant.create', compact('products'));
   }
 
   public function store(StoreProductVariantRequest $data, ProductVariantService $productVariantService)
