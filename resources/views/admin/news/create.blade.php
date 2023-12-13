@@ -28,11 +28,13 @@
                 </div>
                 <div class="row mb-3">
                   <div class="col">
+                    {{--                    TODO: Update this to use the new file upload component--}}
                     <label for="news-images" class="form-label">Bildes</label>
                     <input class="form-control" type="file" id="news-images" name="news-images[]">
                     </p>
                   </div>
                   <div class="col">
+                    {{--                    TODO: Update this to use the new file upload component--}}
                     <label for="news-attachments" class="form-label">Pielikumi</label>
                     <input class="form-control" type="file" id="news-attachments" name="news-attachments[]">
                     </p>
