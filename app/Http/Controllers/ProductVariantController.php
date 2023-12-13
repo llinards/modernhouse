@@ -12,56 +12,6 @@ use Illuminate\Support\Facades\Log;
 
 class ProductVariantController extends Controller
 {
-  //TODO:check why the first paramter is required to be $language
-  public function index($language, Product $product)
-  {
-    $product = Product::select('id', 'slug')
-      ->with([
-        'productVariants' => function ($query) {
-          $query->select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area', 'building_area',
-            'price_full')->where('is_active', 1)->orderBy('slug');
-          $query->with([
-            'translations' => function ($query) {
-              $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
-                app()->getLocale());
-            },
-          ]);
-          $query->with([
-            'productVariantImages' => function ($query) {
-              $query->select('product_variant_id', 'filename');
-            },
-          ]);
-          $query->with([
-            'productVariantDetails' => function ($query) {
-              $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count', 'language')->where('language',
-                app()->getLocale());
-            },
-          ]);
-          $query->with([
-            'productVariantOptions' => function ($query) {
-              $query->select('product_variant_id', 'option_title', 'option_category', 'options',
-                'language')->where('language',
-                app()->getLocale());
-            },
-          ]);
-          $query->whereHas('translations', function ($query) {
-            $query->where('language', app()->getLocale());
-          });
-        }
-      ])
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->where('is_active', 1)
-      ->findOrFail($product->id);
-    return view('product')->with('product', $product);
-  }
-
   public function create()
   {
     $allProducts = Product::select('id')

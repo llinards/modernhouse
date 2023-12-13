@@ -20,7 +20,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/', [\App\Http\Controllers\ProductController::class, 'indexAdmin']);
   Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create']);
   Route::post('/', [\App\Http\Controllers\ProductController::class, 'store']);
-  Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'show']);
+  Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'showAdmin']);
   Route::patch('/', [\App\Http\Controllers\ProductController::class, 'update']);
   Route::delete('/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
@@ -109,7 +109,7 @@ Route::middleware('setLanguage')->group(function () {
   Route::post('{language?}/contact-us',
     [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
-  Route::get('{language?}/{product}', [\App\Http\Controllers\ProductVariantController::class, 'index']);
+  Route::get('{language?}/{product}', [\App\Http\Controllers\ProductController::class, 'show']);
   Route::post('{language?}/{product}',
     [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
 });
