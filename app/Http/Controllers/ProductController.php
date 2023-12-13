@@ -29,7 +29,7 @@ class ProductController extends Controller
 
   public function indexAdmin()
   {
-    $allProducts = Product::select('id', 'slug', 'cover_photo_filename', 'is_active')
+    $products = Product::select('id', 'slug', 'cover_photo_filename', 'is_active')
       ->with([
         'translations' => function ($query) {
           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
@@ -47,7 +47,7 @@ class ProductController extends Controller
         }
       ])
       ->get();
-    return view('admin.index', compact('allProducts'));
+    return view('admin.index', compact('products'));
   }
 
   public function create()
@@ -123,14 +123,14 @@ class ProductController extends Controller
 
   public function showAdmin(Product $product)
   {
-    $productContent = Product::select('id', 'is_active', 'slug', 'cover_photo_filename')
+    $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename')
       ->with([
         'translations' => function ($query) {
           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
         },
       ])
       ->findOrFail($product->id);
-    return view('admin.product.edit')->with('product', $productContent);
+    return view('admin.product.edit', compact('product'));
   }
 
   public function update(UpdateProductRequest $data, ProductService $productService)
