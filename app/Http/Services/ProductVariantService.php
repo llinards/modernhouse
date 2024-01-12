@@ -51,11 +51,13 @@ class ProductVariantService
   public function addImage(array $images): void
   {
     foreach ($images as $image) {
-      $fileService = new FileService();
-      $fileService->storeFile($image, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
-      $this->productVariant->productVariantImages()->create([
-        'filename' => basename($image)
-      ]);
+      if ($image !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($image, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
+        $this->productVariant->productVariantImages()->create([
+          'filename' => basename($image)
+        ]);
+      }
     }
   }
 

@@ -46,8 +46,10 @@ class ProductService
   public function addImage(array $images): void
   {
     foreach ($images as $image) {
-      $fileService = new FileService();
-      $fileService->storeFile($image, 'product-images/'.$this->slug);
+      if ($image !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($image, 'product-images/'.$this->slug);
+      }
     }
   }
 
