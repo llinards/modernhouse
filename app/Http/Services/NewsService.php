@@ -34,22 +34,26 @@ class NewsService
   public function addImage(array $images): void
   {
     foreach ($images as $image) {
-      $fileService = new FileService();
-      $fileService->storeFile($image, 'news/'.$this->slug);
-      $this->news->images()->create([
-        'image_location' => basename($image)
-      ]);
+      if ($image !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($image, 'news/'.$this->slug);
+        $this->news->images()->create([
+          'image_location' => basename($image)
+        ]);
+      }
     }
   }
 
   public function addAttachment(array $attachments): void
   {
     foreach ($attachments as $attachment) {
-      $fileService = new FileService();
-      $fileService->storeFile($attachment, 'news/'.$this->slug);
-      $this->news->attachments()->create([
-        'attachment_location' => basename($attachment)
-      ]);
+      if ($attachment !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($attachment, 'news/'.$this->slug);
+        $this->news->attachments()->create([
+          'attachment_location' => basename($attachment)
+        ]);
+      }
     }
   }
 

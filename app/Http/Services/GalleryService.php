@@ -39,11 +39,13 @@ class GalleryService
   public function addImage(array $images): void
   {
     foreach ($images as $image) {
-      $fileService = new FileService();
-      $fileService->storeFile($image, 'gallery/'.$this->slug);
-      $this->gallery->images()->create([
-        'filename' => basename($image)
-      ]);
+      if ($image !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($image, 'gallery/'.$this->slug);
+        $this->gallery->images()->create([
+          'filename' => basename($image)
+        ]);
+      }
     }
   }
 
