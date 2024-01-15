@@ -5,7 +5,7 @@
       <video playsinline autoplay muted loop poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
         <source src="{{asset('storage/introduction-video/introduction-video.mp4')}}" type="video/mp4">
       </video>
-      <h2 class="fw-bold text-center text-uppercase title z-1">Moduļu un koka karkasu māju ražotājs</h2>
+      <h2 class="fw-bold text-center text-uppercase title z-1">@lang('introduction-title')</h2>
       <div class="d-flex flex-column align-items-center z-1">
         <a href="/{{ app()->getLocale()}}/request-consultation"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
