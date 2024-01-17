@@ -8,6 +8,14 @@
   h1.title {
     font-size: $title-font-size-mobile;
   }
+
+  #home {
+    section#introduction-video {
+      h2.title {
+        padding-top: 125px;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -28,7 +36,7 @@
 
 
   .product-variant-titles button,
-  .product-variant-option-titles button{
+  .product-variant-option-titles button {
     font-size: $product-variant-titles-font-size-mobile;
   }
 
