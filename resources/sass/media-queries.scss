@@ -13,6 +13,14 @@
       padding-top: 125px;
     }
   }
+
+  #landing-page {
+    #about-project {
+      h3.title {
+        font-size: $title-3rd-font-size-mobile;
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {

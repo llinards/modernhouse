@@ -77,6 +77,56 @@
         </div>
       </div>
     </section>
+    <section id="about-project">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+        <h1 class="fw-bold title mb-3 text-center">Par projektu</h1>
+        <div class="row mt-4">
+          <div class="col-6 d-flex align-items-center flex-column">
+            <div class="mb-3">
+              <img width="75" height="auto" src="{{asset('storage/landing-pages/icons/card.svg')}}"/>
+            </div>
+            <div>
+              <h3 class="fw-bold title text-center">305 000 EUR</h3>
+              <hr class="m-1">
+            </div>
+            <p>cena no</p>
+          </div>
+          <div class="col-6 d-flex align-items-center flex-column">
+            <div class="mb-3">
+              <img width="75" height="auto" class="img-fluid"
+                   src="{{asset('storage/landing-pages/icons/bed.svg')}}"/>
+            </div>
+            <div>
+              <h3 class="fw-bold title text-center">101 - 180 m<sup>2</sup></h3>
+              <hr class="m-1">
+            </div>
+            <p>dzīvojamā platība</p>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-6 d-flex align-items-center flex-column">
+            <div class="mb-3">
+              <img src="{{asset('storage/landing-pages/icons/bed.svg')}}"/>
+            </div>
+            <div>
+              <h3 class="fw-bold title text-center">3 guļamistabas</h3>
+              <hr class="m-1">
+            </div>
+            <p>istabas</p>
+          </div>
+          <div class="col-6 d-flex align-items-center flex-column">
+            <div class="mb-3">
+              <img src="{{asset('storage/landing-pages/icons/check.svg')}}"/>
+            </div>
+            <div>
+              <h3 class="fw-bold title text-center">A + klase</h3>
+              <hr class="m-1">
+            </div>
+            <p>energoefektivitāte</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section>
       @include('includes.footer')
     </section>
