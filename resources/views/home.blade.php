@@ -1,13 +1,14 @@
 @extends('app', ['index' => true])
 @section('content')
   <article id="home">
-    <section id="introduction-video" class="d-flex flex-column justify-content-between position-relative">
-      <video playsinline autoplay muted loop poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
+    <section id="introduction" class="d-flex flex-column justify-content-between position-relative">
+      <video class="introduction-video" playsinline autoplay muted loop
+             poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
         <source src="{{asset('storage/introduction-video/introduction-video.mp4')}}" type="video/mp4">
       </video>
-      <div class="position-relative d-flex justify-content-center align-items-center h-100 w-100">
+      <div class="position-relative d-flex justify-content-center align-items-center h-100 w-100 z-1">
         <h2
-          class="fw-bold text-center text-uppercase title introduction-title z-1 text-white">@lang('introduction-title')</h2>
+          class="fw-bold text-center text-uppercase title introduction-title">@lang('introduction-title')</h2>
       </div>
       <div class="d-flex flex-column align-items-center z-1">
         <a href="/{{ app()->getLocale()}}/request-consultation"
@@ -62,7 +63,7 @@
         <p class="text-center">@lang('choose order contact text 2')</p>
       </div>
     </section>
-    <section id="footer">
+    <section>
       @include('includes.footer')
     </section>
   </article>

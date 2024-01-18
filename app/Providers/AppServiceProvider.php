@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
   {
     view()->composer([
       'product', 'request-consultation', 'news.index', 'news.show', 'gallery', 'about-us', 'contact-us',
-      'privacy-policy'
+      'privacy-policy', 'landing-pages.svires-ielas-projekts-sigulda'
     ],
       AllActiveProductsComposer::class);
   }

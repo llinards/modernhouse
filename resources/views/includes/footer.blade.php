@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer>
   <div class="container-xxl h-100">
     <div class="row align-items-center h-100 text-md-start text-center">
       <div class="col-md-7 col-12 pt-md-0 pt-2">

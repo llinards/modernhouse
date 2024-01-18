@@ -4,12 +4,8 @@
   overflow-y: scroll;
   height: 100%;
 
-  h1.title {
+  .title {
     color: white;
-    padding-top: 150px;
-  }
-
-  h2.title {
     padding-top: 150px;
   }
 
@@ -22,24 +18,24 @@
     height: 100%;
   }
 
-  section#introduction-video {
-    video {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  section:last-of-type {
+    height: auto;
   }
 
-  section#choose-order-contact {
+  .introduction-video {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #choose-order-contact {
     padding-top: 60px;
-  }
-}
 
-#choose-order-contact {
-  img {
-    width: 100px;
+    img {
+      width: 100px;
+    }
   }
 }
