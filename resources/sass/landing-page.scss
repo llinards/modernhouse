@@ -1,0 +1,26 @@
+#landing-page {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100%;
+
+  #introduction {
+    .title {
+      color: white;
+      padding-top: 150px;
+    }
+  }
+
+  section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    background-position: center center;
+    height: 100%;
+
+    &:last-of-type {
+      height: auto;
+    }
+  }
+}

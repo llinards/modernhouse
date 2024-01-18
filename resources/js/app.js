@@ -3,6 +3,8 @@ import Splide from '@splidejs/splide';
 import 'filepond/dist/filepond.min.css';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 
+window.Splide = Splide;
+
 require('fslightbox');
 
 const galleryImages = document.querySelectorAll('#gallery-images');
