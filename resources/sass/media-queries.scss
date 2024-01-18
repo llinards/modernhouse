@@ -8,18 +8,14 @@
   h1.title {
     font-size: $title-font-size-mobile;
   }
-
-  #home {
-    section#introduction-video {
-      h2.title {
-        padding-top: 125px;
-      }
+  section#introduction {
+    h2.title {
+      padding-top: 125px;
     }
   }
 }
 
 @media (max-width: 768px) {
-  #home section#footer,
   footer {
     height: 300px;
   }

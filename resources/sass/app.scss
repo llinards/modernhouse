@@ -1,6 +1,3 @@
-// Fonts
-//@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
-
 @font-face {
   font-family: 'TipoTypeRegular';
   src: url('/storage/fonts/TipoTypeRegular.otf') format('opentype');
@@ -26,12 +23,9 @@ html {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  //overflow-y: hidden;
 }
 
 body {
-  //font-family: "Montserrat", sans-serif;
   font-family: "TipoTypeRegular", sans-serif;
 }
 
@@ -181,7 +175,6 @@ label {
   color: $primary-color;
 }
 
-#home section#footer,
 footer {
   height: 225px;
 }
