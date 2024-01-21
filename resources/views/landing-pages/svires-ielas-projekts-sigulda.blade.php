@@ -212,7 +212,7 @@
       {{--      </div>--}}
     </section>
     <section id="around-neighborhood" class="d-flex flex-column">
-      <h2 class="fw-bold title text-center mb-3 pt-5">Iepazīsti apkaimi</h2>
+      <h2 class="fw-bold title text-center mb-3 pt-3">Iepazīsti apkaimi</h2>
       <div class="h-100 mb-3">
         <iframe src="https://snazzymaps.com/embed/564387" width="100%" height="100%"></iframe>
       </div>
@@ -233,6 +233,64 @@
           <div class="col-lg-3 col-6 text-center">
             <h3 class="title">1,6 km</h3>
             <p class="fw-bold">pilsētas centrs</p>
+          </div>
+          <div>
+            <hr class="m-3">
+          </div>
+          <a href="#"
+             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+          >Rezervēt privātmāju</a>
+        </div>
+      </div>
+    </section>
+    <section id="full-project">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-5">
+            <h2 class="fw-bold title mb-3">No pamatiem<br/>līdz atslēgai</h2>
+            <p class="mb-3">Energoefektīva koka karkasa zviedru kvalitātes ģimenes māja ar trīs guļamistabām, plaša
+              dzīvojamā telpa apvienota ar virtuvi, trīs sanmezgliem –
+              divi ar dušu un viens ar veļas telpu.</p>
+            <p class="mb-3"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
+              ārējā apdare apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
+            <p class="mb-3"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
+              krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
+              iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
+            <p><strong>KOMUNIKĀCIJAS</strong><br/>
+              elektrība, santehnika, rekuperācijas iekārta, gaiss- ūdens siltumsūknis ar siltajām grīdām.</p>
+          </div>
+          <div class="col-lg-7 d-lg-flex d-none flex-column justify-content-center">
+            <img src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg')}}"/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <img class="full-size-image-background"
+           src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}}"
+           alt="">
+    </section>
+    <section id="available-projects" class="d-flex flex-column">
+      <div class="h-100 mb-3">
+        karte
+      </div>
+      <div class="container-xxl mb-5">
+        <div class="row justify-content-evenly">
+          <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
+            <h3 class="title">1</h3>
+            <p class="fw-bold">privātmāja</p>
+          </div>
+          <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
+            <h3 class="title">6</h3>
+            <p class="fw-bold">projekti</p>
+          </div>
+          <div class="col-lg-3 col-6 text-center">
+            <h3 class="title">20</h3>
+            <p class="fw-bold">zemes gabali</p>
+          </div>
+          <div class="col-lg-3 col-6 text-center">
+            <h3 class="title">2 - 4</h3>
+            <p class="fw-bold">guļamistabas</p>
           </div>
           <div>
             <hr class="m-3">
