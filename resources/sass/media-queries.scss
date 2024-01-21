@@ -27,6 +27,12 @@
   footer {
     height: 300px;
   }
+
+  #landing-page {
+    h3.title {
+      font-size: $title-3rd-font-size-mobile;
+    }
+  }
 }
 
 @media (max-width: 570px) {
