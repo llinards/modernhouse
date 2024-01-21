@@ -3,7 +3,7 @@
   <div id="landing-page">
     <section id="introduction" class="d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="fw-bold text-center text-uppercase title">svīres ielas projekts,<br/>siguldā</h1>
+      <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
       <div class="text-center d-flex flex-column justify-content-end align-items-center">
         <a href="#"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
@@ -156,6 +156,90 @@
             </div>
             <h3 class="title fw-bold">līdz atslēgai</h3>
           </div>
+        </div>
+      </div>
+    </section>
+    {{--    TODO: In progress..--}}
+    <section id="gallery">
+      <h1>gallerija in progress</h1>
+      {{--      <div id="landing-page-galleries">--}}
+      {{--        <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">--}}
+      {{--          <div class="splide__track">--}}
+      {{--            <ul class="splide__list">--}}
+      {{--              <li class="splide__slide">--}}
+      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
+      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}">--}}
+      {{--                  <img class="img-fluid"--}}
+      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}"--}}
+      {{--                       alt="Svires ielas projekts, Siguldā">--}}
+      {{--                </a>--}}
+      {{--              </li>--}}
+      {{--              <li class="splide__slide">--}}
+      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
+      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}">--}}
+      {{--                  <img class="img-fluid"--}}
+      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}"--}}
+      {{--                       alt="Svires ielas projekts, Siguldā">--}}
+      {{--                </a>--}}
+      {{--              </li>--}}
+      {{--              <li class="splide__slide">--}}
+      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
+      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}">--}}
+      {{--                  <img class="img-fluid"--}}
+      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}"--}}
+      {{--                       alt="Svires ielas projekts, Siguldā">--}}
+      {{--                </a>--}}
+      {{--              </li>--}}
+      {{--              <li class="splide__slide">--}}
+      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
+      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}">--}}
+      {{--                  <img class="img-fluid"--}}
+      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}"--}}
+      {{--                       alt="Svires ielas projekts, Siguldā">--}}
+      {{--                </a>--}}
+      {{--              </li>--}}
+      {{--              <li class="splide__slide">--}}
+      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
+      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}">--}}
+      {{--                  <img class="img-fluid"--}}
+      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}"--}}
+      {{--                       alt="Svires ielas projekts, Siguldā">--}}
+      {{--                </a>--}}
+      {{--              </li>--}}
+      {{--            </ul>--}}
+      {{--          </div>--}}
+      {{--        </div>--}}
+      {{--      </div>--}}
+    </section>
+    <section id="around-neighborhood" class="d-flex flex-column">
+      <h2 class="fw-bold title text-center mb-3 pt-5">Iepazīsti apkaimi</h2>
+      <div class="h-100 mb-3">
+        <iframe src="https://snazzymaps.com/embed/564387" width="100%" height="100%"></iframe>
+      </div>
+      <div class="container-xxl mb-5">
+        <div class="row justify-content-evenly">
+          <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
+            <h3 class="title">2,3 km</h3>
+            <p class="fw-bold">T/C "Šokolāde"</p>
+          </div>
+          <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
+            <h3 class="title">600 m</h3>
+            <p class="fw-bold">Siguldas Sporta skola</p>
+          </div>
+          <div class="col-lg-3 col-6 text-center">
+            <h3 class="title">2,4 km</h3>
+            <p class="fw-bold">Siguldas Valsts ģimnāzija</p>
+          </div>
+          <div class="col-lg-3 col-6 text-center">
+            <h3 class="title">1,6 km</h3>
+            <p class="fw-bold">pilsētas centrs</p>
+          </div>
+          <div>
+            <hr class="m-3">
+          </div>
+          <a href="#"
+             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+          >Rezervēt privātmāju</a>
         </div>
       </div>
     </section>
