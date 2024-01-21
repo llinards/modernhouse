@@ -4,7 +4,7 @@
     <section id="introduction" class="d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
-      <div class="text-center d-flex flex-column justify-content-end align-items-center">
+      <div class="text-center d-flex flex-column align-items-center">
         <a href="#"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
         >Rezervēt privātmāju</a>
