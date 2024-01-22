@@ -17,20 +17,22 @@
     <section id="about-project">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="col-lg-5">
-            <h2 class="fw-bold title mb-3">Par projektu</h2>
-            <p class="mb-3">Piedāvājam veikt rezervācijas jaunā dzīvojamajā projektā Siguldā, Svīres ielā - vienstāvīgu
-              privātmāju iegādei. Ir iespējams izvēlēties no 5 zemesgabaliem, VAJAG TEKSTU PAR PĀRĒJIEM ZEMES GABALIEM
-              UN
-              PĀRĒJĀM OPCIJĀM!!!!</p>
-            <p class="mb-3">Jaunais privātmāju dzīvojamais projekts atradīsies lieliskā un klusā vietā. Šeit Tev būs
-              iespēja baudīt
-              ģimeniskas pastaigas projekta izveidotajā parkā, gan arī radīt atmiņas bērnu aptūas laukumā.</p>
-            <p class="mb-3">1. kārtas ietvaros tiks uzbūvētas 5 vienstāvīgas, energoefektīvas un ilgtspējīgas
-              privātmājas,
-              kas nodrošinās māju sajūtu pilsētā! VAJAG TEKSTU PAR MĀJAS SAJŪTU UN ĢIMENI
-              Projektu plānots nodot ekspluatācijā 2024. gada beigās.</p>
-            <p class="mb-3">2.kārta VAJAG TEKSTU Izvēlies no 20 zemesgabaliem, no kuriem 5 ir pieejami jau.....</p>
+          <div class="col-lg-5 d-flex flex-column justify-content-evenly">
+            <div class="mb-4">
+              <h2 class="fw-bold title">Par projektu</h2>
+            </div>
+            <div>
+              <p class="mb-4">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres ielā.</p>
+              <p class="mb-4">
+                Jaunais privātmāju dzīvojamais rajons atradīsies lieliskā un klusā vietā. Šeit būs iespēja baudīt
+                ģimeniskas pastaigas projekta izveidotajā parka, kā arī radīt atmiņas bērnu atpūtas laukumā.</p>
+              <p class="mb-4">Šajā projektā varat izvēlēties no kāda no pieciem zemes gabaliem ar vienstāvīgu
+                privātmāju, kuras plānots nodot ekspluatācijā 2024. gada beigās.
+              </p>
+              <p>Tāpat pieejami vēl vairāki brīvi zemes gabali, kuros iespējams uzbūvēt kādu mājokli no
+                mūsu piedāvājuma klāsta, Jūsu jau esošu ilgi loloto sapni vai arī varam palīdzēt ar savu pieredzi un
+                kopīgi izstrādāt individuālu projektu tieši Jums.</p>
+            </div>
           </div>
           <div class="col-lg-7 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-3">
             <div class="row">
@@ -246,18 +248,22 @@
     <section id="full-project">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="col-lg-5">
-            <h2 class="fw-bold title mb-3">No pamatiem<br/>līdz atslēgai</h2>
-            <p class="mb-3">Energoefektīva koka karkasa zviedru kvalitātes ģimenes māja ar trīs guļamistabām, plaša
-              dzīvojamā telpa apvienota ar virtuvi, trīs sanmezgliem –
-              divi ar dušu un viens ar veļas telpu.</p>
-            <p class="mb-3"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
-              ārējā apdare apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
-            <p class="mb-3"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
-              krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
-              iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
-            <p><strong>KOMUNIKĀCIJAS</strong><br/>
-              elektrība, santehnika, rekuperācijas iekārta, gaiss- ūdens siltumsūknis ar siltajām grīdām.</p>
+          <div class="col-lg-5 d-flex flex-column justify-content-evenly">
+            <div class="mb-4">
+              <h2 class="fw-bold title">No pamatiem<br/>līdz atslēgai</h2>
+            </div>
+            <div>
+              <p class="mb-4">Energoefektīva koka karkasa zviedru kvalitātes ģimenes māja ar trīs guļamistabām, plaša
+                dzīvojamā telpa apvienota ar virtuvi, trīs sanmezgliem –
+                divi ar dušu un viens ar veļas telpu.</p>
+              <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
+                ārējā apdare apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
+              <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
+                krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
+                iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
+              <p><strong>KOMUNIKĀCIJAS</strong><br/>
+                elektrība, santehnika, rekuperācijas iekārta, gaiss- ūdens siltumsūknis ar siltajām grīdām.</p>
+            </div>
           </div>
           <div class="col-lg-7 d-lg-flex d-none flex-column justify-content-center">
             <img src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg')}}"/>
