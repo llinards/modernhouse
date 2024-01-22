@@ -112,5 +112,11 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/{product}', [\App\Http\Controllers\ProductController::class, 'show']);
   Route::post('{language?}/{product}',
     [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
+
+  //Landing pages
+
+  Route::get('{language?}/projekti/svires-ielas-projekts-sigulda', static function () {
+    return view('landing-pages.svires-ielas-projekts-sigulda');
+  });
 });
 

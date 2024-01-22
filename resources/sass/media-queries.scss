@@ -8,20 +8,30 @@
   h1.title {
     font-size: $title-font-size-mobile;
   }
+  section#introduction {
+    h2.title {
+      padding-top: 125px;
+    }
+  }
 
-  #home {
-    section#introduction-video {
-      h2.title {
-        padding-top: 125px;
+  #landing-page {
+    #about-project {
+      h3.title {
+        font-size: $title-3rd-font-size-mobile;
       }
     }
   }
 }
 
 @media (max-width: 768px) {
-  #home section#footer,
   footer {
     height: 300px;
+  }
+
+  #landing-page {
+    h3.title {
+      font-size: $title-3rd-font-size-mobile;
+    }
   }
 }
 

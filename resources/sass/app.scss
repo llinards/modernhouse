@@ -1,6 +1,3 @@
-// Fonts
-//@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
-
 @font-face {
   font-family: 'TipoTypeRegular';
   src: url('/storage/fonts/TipoTypeRegular.otf') format('opentype');
@@ -26,12 +23,9 @@ html {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
-  //overflow-y: hidden;
 }
 
 body {
-  //font-family: "Montserrat", sans-serif;
   font-family: "TipoTypeRegular", sans-serif;
 }
 
@@ -42,6 +36,9 @@ $title-font-size-mobile: 38px;
 
 $title-2nd-font-size: 42px;
 $title-2nd-font-size-mobile: 32px;
+
+$title-3rd-font-size: 36px;
+$title-3rd-font-size-mobile: 23px;
 
 $product-variant-titles-font-size: 24px;
 $product-variant-titles-font-size-mobile: 15px;
@@ -99,6 +96,10 @@ h1.title {
 
 h2.title {
   font-size: $title-2nd-font-size;
+}
+
+h3.title {
+  font-size: $title-3rd-font-size;
 }
 
 .btn-primary,
@@ -181,7 +182,6 @@ label {
   color: $primary-color;
 }
 
-#home section#footer,
 footer {
   height: 225px;
 }
@@ -208,5 +208,6 @@ footer {
 @import "./about-us.scss";
 @import "./contact-us.scss";
 @import './gallery.scss';
+@import './landing-page.scss';
 
 @import "./media-queries.scss";
