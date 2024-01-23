@@ -48,6 +48,13 @@
     }
   }
 
+  #quality-standards {
+    .row:last-of-type {
+      bottom: 5%;
+      align-self: center;
+    }
+  }
+
   .full-size-image-background {
     width: 100%;
     height: 100%;

@@ -362,7 +362,7 @@
     </section>
     <section id="quality-standards"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-around">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
           <div class="offset-lg-6 col-lg-6 col-12 p-4">
             <h2 class="fw-bold title text-white mb-4">Skandināvu<br/>kvalitātes standarti</h2>
@@ -376,7 +376,7 @@
               piesaistīt klientus, kuriem ir svarīga kvalitāte!</p>
           </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row position-absolute">
           <a href="#"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Tehniskā specifikācija</a>
