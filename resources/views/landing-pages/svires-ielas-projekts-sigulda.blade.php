@@ -214,7 +214,9 @@
       {{--      </div>--}}
     </section>
     <section id="around-neighborhood" class="d-flex flex-column">
-      <h2 class="fw-bold title text-center mb-3 pt-3">Iepazīsti apkaimi</h2>
+      <div class="mb-4 pt-3">
+        <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
+      </div>
       <div class="h-100 mb-3">
         <iframe src="https://snazzymaps.com/embed/564387" width="100%" height="100%"></iframe>
       </div>
@@ -307,47 +309,78 @@
         </div>
       </div>
     </section>
-    <section id="live-in-sigulda" class="d-flex align-items-center"
+    <section id="live-in-sigulda"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
-      <div class="col-lg-5 col-12 p-3">
-        <h2 class="fw-bold title text-white mb-4">Kāpēc dzīvot<br/>Siguldā?</h2>
-        <ul class="p-0 m-0">
-          <li class="d-flex justify-content-between">
-            <div class="ml-3">
-              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
-            </div>
-            <p class="text-white mb-3">Dabas bagātība - Sigulda piedāvā mierīgu un drošu vidi, kas ir ideāla ģimenēm.
-              Ainavas, parki un
-              daudzās pastaigu takas sniedz iespēju baudīt dabas skaistumu un tās piedāvāto relaksējošo mieru.</p>
-          </li>
-          <li class="d-flex justify-content-between">
-            <div class="mr-3">
-              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
-            </div>
-            <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes,
-              tostarp skolas un
-              bērnudārzus, kā arī sporta, mākslas un mūzikas skolas, kas veicina bērnu attīstību un nodrošina viņu
-              labu sagatavotību nākotnei.
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-6 col-12 p-4">
+            <h2 class="fw-bold title text-white mb-4">Kāpēc dzīvot<br/>Siguldā?</h2>
+            <ul class="p-0 m-0">
+              <li class="d-flex justify-content-between">
+                <div class="ml-3">
+                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                </div>
+                <p class="text-white mb-3">Dabas bagātība - Sigulda piedāvā mierīgu un drošu vidi, kas ir ideāla
+                  ģimenēm.
+                  Ainavas, parki un
+                  daudzās pastaigu takas sniedz iespēju baudīt dabas skaistumu un tās piedāvāto relaksējošo mieru.</p>
+              </li>
+              <li class="d-flex justify-content-between">
+                <div class="mr-3">
+                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                </div>
+                <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes,
+                  tostarp skolas un
+                  bērnudārzus, kā arī sporta, mākslas un mūzikas skolas, kas veicina bērnu attīstību un nodrošina viņu
+                  labu sagatavotību nākotnei.
+                </p>
+              </li>
+              <li class="d-flex justify-content-between">
+                <div class="mr-3">
+                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                </div>
+                <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
+                  iespējām, kas ir
+                  piemērotas kā bērniem tā piegušajiem un veicina aktīvu un veselīgu dzīvesveidu.</p>
+              </li>
+              <li class="d-flex justify-content-between">
+                <div class="mr-3">
+                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                </div>
+                <p class="text-white">Kultūras un sabiedriskā dzīve - Sigulda regulāri rīko dažādus kultūras un
+                  sabiedriskos pasākumus,
+                  piedāvājot ģimenēm iespēju piedalīties kopīgās aktivitātēs un veicināt savstarpējo saikni ar pilsētas
+                  kopienas locekļiem.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      citāts
+    </section>
+    <section id="quality-standards"
+             style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-around">
+        <div class="row">
+          <div class="offset-lg-6 col-lg-6 col-12 p-4">
+            <h2 class="fw-bold title text-white mb-4">Skandināvu<br/>kvalitātes standarti</h2>
+            <p class="text-white mb-4">
+              MODERN HOUSE realizē projektus, kuri ir veidoti ar kvalitāti, estētiku, komfortu un ilgtspējību.</p>
+            <p class="text-white mb-4">Mūsu vairāk kā 10 gadu ilgā pieredze un nodotās 500 + koka karkasa mājas
+              Zviedrijā,
+              kalpo kā kvalitātes zīme, ko piedāvājam saviem klientiem Latvijā.
             </p>
-          </li>
-          <li class="d-flex justify-content-between">
-            <div class="mr-3">
-              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
-            </div>
-            <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
-              iespējām, kas ir
-              piemērotas kā bērniem tā piegušajiem un veicina aktīvu un veselīgu dzīvesveidu.</p>
-          </li>
-          <li class="d-flex justify-content-between">
-            <div class="mr-3">
-              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
-            </div>
-            <p class="text-white">Kultūras un sabiedriskā dzīve - Sigulda regulāri rīko dažādus kultūras un
-              sabiedriskos pasākumus,
-              piedāvājot ģimenēm iespēju piedalīties kopīgās aktivitātēs un veicināt savstarpējo saikni ar pilsētas
-              kopienas locekļiem.</p>
-          </li>
-        </ul>
+            <p class="text-white">Projektos izvēlamies strādāt tikai ar labākajiem materiāliem un tieši tāpēc vēlamies
+              piesaistīt klientus, kuriem ir svarīga kvalitāte!</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <a href="#"
+             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+          >Tehniskā specifikācija</a>
+        </div>
       </div>
     </section>
     <section>
