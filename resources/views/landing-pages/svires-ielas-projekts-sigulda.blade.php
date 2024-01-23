@@ -78,7 +78,7 @@
             <div class="row mt-lg-5 mt-4">
               <div class="col-6 text-center">
                 <img class="about-project-icon mb-lg-3 mb-2"
-                     src="{{asset('storage/landing-pages/icons/map-pin-line copy.svg')}}"
+                     src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                      alt="">
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
@@ -143,7 +143,7 @@
         <div class="row mt-lg-5 mt-4">
           <div class="col-6 text-center">
             <img class="about-project-icon mb-lg-3 mb-2"
-                 src="{{asset('storage/landing-pages/icons/map-pin-line copy.svg')}}"
+                 src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                  alt="">
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
@@ -305,6 +305,49 @@
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Rezervēt privātmāju</a>
         </div>
+      </div>
+    </section>
+    <section id="live-in-sigulda" class="d-flex align-items-center"
+             style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
+      <div class="col-lg-5 col-12 p-3">
+        <h2 class="fw-bold title text-white mb-4">Kāpēc dzīvot<br/>Siguldā?</h2>
+        <ul class="p-0 m-0">
+          <li class="d-flex justify-content-between">
+            <div class="ml-3">
+              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+            </div>
+            <p class="text-white mb-3">Dabas bagātība - Sigulda piedāvā mierīgu un drošu vidi, kas ir ideāla ģimenēm.
+              Ainavas, parki un
+              daudzās pastaigu takas sniedz iespēju baudīt dabas skaistumu un tās piedāvāto relaksējošo mieru.</p>
+          </li>
+          <li class="d-flex justify-content-between">
+            <div class="mr-3">
+              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+            </div>
+            <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes,
+              tostarp skolas un
+              bērnudārzus, kā arī sporta, mākslas un mūzikas skolas, kas veicina bērnu attīstību un nodrošina viņu
+              labu sagatavotību nākotnei.
+            </p>
+          </li>
+          <li class="d-flex justify-content-between">
+            <div class="mr-3">
+              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+            </div>
+            <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
+              iespējām, kas ir
+              piemērotas kā bērniem tā piegušajiem un veicina aktīvu un veselīgu dzīvesveidu.</p>
+          </li>
+          <li class="d-flex justify-content-between">
+            <div class="mr-3">
+              <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+            </div>
+            <p class="text-white">Kultūras un sabiedriskā dzīve - Sigulda regulāri rīko dažādus kultūras un
+              sabiedriskos pasākumus,
+              piedāvājot ģimenēm iespēju piedalīties kopīgās aktivitātēs un veicināt savstarpējo saikni ar pilsētas
+              kopienas locekļiem.</p>
+          </li>
+        </ul>
       </div>
     </section>
     <section>
