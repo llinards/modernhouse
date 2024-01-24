@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
@@ -115,8 +116,7 @@ Route::middleware('setLanguage')->group(function () {
 
   //Landing pages
 
-  Route::get('{language?}/projekti/svires-ielas-projekts-sigulda', static function () {
-    return view('landing-pages.svires-ielas-projekts-sigulda');
-  });
+  Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
+    [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 });
 

@@ -11,19 +11,6 @@
     }
   }
 
-  section {
-    background-size: cover;
-    background-repeat: no-repeat;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    background-position: center center;
-    height: 100%;
-
-    &:last-of-type {
-      height: auto;
-    }
-  }
-
   .about-project-icon {
     width: 50px;
     height: 50px;
@@ -53,6 +40,12 @@
       bottom: 5%;
       align-self: center;
     }
+  }
+
+  .quot-element {
+    font-size: 80px;
+    color: $primary-color;
+    height: 65px;
   }
 
   .full-size-image-background {

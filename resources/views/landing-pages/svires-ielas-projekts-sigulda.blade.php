@@ -1,7 +1,7 @@
 @extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
   <div id="landing-page">
-    <section id="introduction" class="d-flex flex-column justify-content-between"
+    <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center">
@@ -14,7 +14,7 @@
         </a>
       </div>
     </section>
-    <section id="about-project">
+    <section id="about-project" class="full-height-section">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -98,7 +98,7 @@
         </div>
       </div>
     </section>
-    <section id="about-project-mobile" class="d-md-none d-block">
+    <section id="about-project-mobile" class="full-height-section d-md-none d-block">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-evenly">
         <div class="row">
           <div class="col-6 text-center">
@@ -161,59 +161,57 @@
         </div>
       </div>
     </section>
-    {{--    TODO: In progress..--}}
-    <section id="gallery">
-      <h1>gallerija in progress</h1>
-      {{--      <div id="landing-page-galleries">--}}
-      {{--        <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">--}}
-      {{--          <div class="splide__track">--}}
-      {{--            <ul class="splide__list">--}}
-      {{--              <li class="splide__slide">--}}
-      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
-      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}">--}}
-      {{--                  <img class="img-fluid"--}}
-      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}"--}}
-      {{--                       alt="Svires ielas projekts, Siguldā">--}}
-      {{--                </a>--}}
-      {{--              </li>--}}
-      {{--              <li class="splide__slide">--}}
-      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
-      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}">--}}
-      {{--                  <img class="img-fluid"--}}
-      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}"--}}
-      {{--                       alt="Svires ielas projekts, Siguldā">--}}
-      {{--                </a>--}}
-      {{--              </li>--}}
-      {{--              <li class="splide__slide">--}}
-      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
-      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}">--}}
-      {{--                  <img class="img-fluid"--}}
-      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}"--}}
-      {{--                       alt="Svires ielas projekts, Siguldā">--}}
-      {{--                </a>--}}
-      {{--              </li>--}}
-      {{--              <li class="splide__slide">--}}
-      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
-      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}">--}}
-      {{--                  <img class="img-fluid"--}}
-      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}"--}}
-      {{--                       alt="Svires ielas projekts, Siguldā">--}}
-      {{--                </a>--}}
-      {{--              </li>--}}
-      {{--              <li class="splide__slide">--}}
-      {{--                <a data-fslightbox="svires-ielas-projekts"--}}
-      {{--                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}">--}}
-      {{--                  <img class="img-fluid"--}}
-      {{--                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}"--}}
-      {{--                       alt="Svires ielas projekts, Siguldā">--}}
-      {{--                </a>--}}
-      {{--              </li>--}}
-      {{--            </ul>--}}
-      {{--          </div>--}}
-      {{--        </div>--}}
-      {{--      </div>--}}
+    <section id="gallery" class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex align-items-center" id="landing-page-galleries">
+        <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}">
+                  <img class=""
+                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}"
+                       alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}">
+                  <img class=""
+                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}"
+                       alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}">
+                  <img class=""
+                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/03.jpg') }}"
+                       alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}">
+                  <img class=""
+                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/04.jpg') }}"
+                       alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}">
+                  <img class=""
+                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/05.jpg') }}"
+                       alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="around-neighborhood" class="d-flex flex-column">
+    <section id="around-neighborhood" class="full-height-section d-flex flex-column">
       <div class="mb-4 pt-3">
         <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
       </div>
@@ -247,7 +245,7 @@
         </div>
       </div>
     </section>
-    <section id="full-project">
+    <section id="full-project" class="full-height-section">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -273,12 +271,12 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="full-height-section">
       <img class="full-size-image-background"
            src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}}"
            alt="">
     </section>
-    <section id="available-projects" class="d-flex flex-column">
+    <section id="available-projects" class="full-height-section d-flex flex-column">
       <div class="h-100 mb-3">
         karte
       </div>
@@ -309,7 +307,7 @@
         </div>
       </div>
     </section>
-    <section id="live-in-sigulda"
+    <section id="live-in-sigulda" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
@@ -357,10 +355,24 @@
         </div>
       </div>
     </section>
-    <section>
-      citāts
+    <section class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-9 col-12 ceo-quot">
+            <p class="quot-element">“</p>
+            <div class="mx-4">
+              <h3 class="fw-bold title text-uppercase mb-4">MĒS SEVI DEFINĒJĀM KĀ UZŅĒMUMU, KURA PAMATĀ IR
+                PROFESIONĀLA
+                RAŽOŠANAS UN MONTĀŽAS PIEEJA, UN MŪSU
+                GALVENAIS MĒRĶIS IR RADĪT MĀJU SAJŪTU KOPĀ!</h3>
+              <p class="text-uppercase fw-bold">Helvijs Ervalds</p>
+              <p class="text-uppercase">Modern House CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-    <section id="quality-standards"
+    <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
@@ -377,13 +389,22 @@
           </div>
         </div>
         <div class="row position-absolute">
-          <a href="#"
+          <a href="#technical-specification"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Tehniskā specifikācija</a>
         </div>
       </div>
     </section>
-    <section>
+    {{--    <section id="technical-specification">--}}
+    {{--      <div class="container-xxl w-100 h-100">--}}
+    {{--        <div class="row">--}}
+    {{--          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>--}}
+    {{--          <x-product-variant-option-buttons :productVariant="$productVariant"/>--}}
+    {{--          <x-product-variant-options :productVariant="$productVariant"/>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--    </section>--}}
+    <section class="footer">
       @include('includes.footer')
     </section>
   </div>
@@ -392,7 +413,7 @@
     landingPageGalleryImages.forEach((image) => {
       const main = new Splide('#' + image.firstElementChild.id, {
         type: 'fade',
-        pagination: false,
+        pagination: true,
         lazyLoad: 'nearby',
         heightRatio: 0.5,
       });
