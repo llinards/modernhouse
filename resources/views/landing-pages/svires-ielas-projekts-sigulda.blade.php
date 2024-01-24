@@ -377,12 +377,21 @@
           </div>
         </div>
         <div class="row position-absolute">
-          <a href="#"
+          <a href="#technical-specification"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Tehniskā specifikācija</a>
         </div>
       </div>
     </section>
+    {{--    <section id="technical-specification">--}}
+    {{--      <div class="container-xxl w-100 h-100">--}}
+    {{--        <div class="row">--}}
+    {{--          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>--}}
+    {{--          <x-product-variant-option-buttons :productVariant="$productVariant"/>--}}
+    {{--          <x-product-variant-options :productVariant="$productVariant"/>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--    </section>--}}
     <section class="footer">
       @include('includes.footer')
     </section>
