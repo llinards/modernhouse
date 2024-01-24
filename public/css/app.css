@@ -12825,6 +12825,11 @@ footer hr {
   bottom: 5%;
   align-self: center;
 }
+#landing-page .quot-element {
+  font-size: 80px;
+  color: #3f3f3f;
+  height: 65px;
+}
 #landing-page .full-size-image-background {
   width: 100%;
   height: 100%;

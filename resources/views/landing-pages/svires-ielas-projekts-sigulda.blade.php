@@ -358,7 +358,21 @@
       </div>
     </section>
     <section class="full-height-section">
-      citāts
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-9 col-12 ceo-quot">
+            <p class="quot-element">“</p>
+            <div class="mx-4">
+              <h3 class="fw-bold title text-uppercase mb-4">MĒS SEVI DEFINĒJĀM KĀ UZŅĒMUMU, KURA PAMATĀ IR
+                PROFESIONĀLA
+                RAŽOŠANAS UN MONTĀŽAS PIEEJA, UN MŪSU
+                GALVENAIS MĒRĶIS IR RADĪT MĀJU SAJŪTU KOPĀ!</h3>
+              <p class="text-uppercase fw-bold">Helvijs Ervalds</p>
+              <p class="text-uppercase">Modern House CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
