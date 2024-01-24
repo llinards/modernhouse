@@ -1,7 +1,7 @@
 @extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
   <div id="landing-page">
-    <section id="introduction" class="d-flex flex-column justify-content-between"
+    <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center">
@@ -14,7 +14,7 @@
         </a>
       </div>
     </section>
-    <section id="about-project">
+    <section id="about-project" class="full-height-section">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -98,7 +98,7 @@
         </div>
       </div>
     </section>
-    <section id="about-project-mobile" class="d-md-none d-block">
+    <section id="about-project-mobile" class="full-height-section d-md-none d-block">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-evenly">
         <div class="row">
           <div class="col-6 text-center">
@@ -162,7 +162,7 @@
       </div>
     </section>
     {{--    TODO: In progress..--}}
-    <section id="gallery">
+    <section id="gallery" class="full-height-section">
       <h1>gallerija in progress</h1>
       {{--      <div id="landing-page-galleries">--}}
       {{--        <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">--}}
@@ -213,7 +213,7 @@
       {{--        </div>--}}
       {{--      </div>--}}
     </section>
-    <section id="around-neighborhood" class="d-flex flex-column">
+    <section id="around-neighborhood" class="full-height-section d-flex flex-column">
       <div class="mb-4 pt-3">
         <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
       </div>
@@ -247,7 +247,7 @@
         </div>
       </div>
     </section>
-    <section id="full-project">
+    <section id="full-project" class="full-height-section">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -273,12 +273,12 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="full-height-section">
       <img class="full-size-image-background"
            src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}}"
            alt="">
     </section>
-    <section id="available-projects" class="d-flex flex-column">
+    <section id="available-projects" class="full-height-section d-flex flex-column">
       <div class="h-100 mb-3">
         karte
       </div>
@@ -309,7 +309,7 @@
         </div>
       </div>
     </section>
-    <section id="live-in-sigulda"
+    <section id="live-in-sigulda" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
@@ -357,10 +357,10 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="full-height-section">
       citāts
     </section>
-    <section id="quality-standards"
+    <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
@@ -383,7 +383,7 @@
         </div>
       </div>
     </section>
-    <section>
+    <section class="footer">
       @include('includes.footer')
     </section>
   </div>
