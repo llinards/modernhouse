@@ -5,8 +5,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4 class="text-center">{{ $product->translations[0]->name }}</h4>
-        <form id="request-product-info" method="POST"
+        <form method="POST"
               action="/{{app()->getLocale()}}/{{$product->slug}}">
           @csrf
           <x-honeypot/>
@@ -59,20 +58,8 @@
           <textarea class="form-control mb-3" name="customers-question" id="customers-question" rows="3">
             {{ old('customers-question') }}
           </textarea>
-          <div class="mb-3 d-flex align-items-center">
-            <input class="form-check-input m-0" type="checkbox" value="1" id="customer-agrees-for-data-processing"
-                   name="customer-agrees-for-data-processing"
-            >
-            <label for="customer-agrees-for-data-processing"
-                   class="form-label mb-0 d-block mx-2">@lang('data processing agreement')</label>
-          </div>
-          <div class="modal-footer d-flex justify-content-center">
-            <div class="spinner-border visually-hidden" id="submit-product-info-callback-loading" role="status">
-            </div>
-            <button type="submit" id="submit-product-info-callback"
-                    class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">@lang('send')
-            </button>
-          </div>
+          <x-agree-data-processing-input/>
+          <x-submit-button/>
         </form>
       </div>
     </div>
