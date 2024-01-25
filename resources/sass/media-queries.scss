@@ -15,22 +15,6 @@
   }
 
   #landing-page {
-    section {
-      margin-top: 4rem;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      &:nth-child(2) {
-        margin-top: 2rem;
-      }
-
-      &:nth-child(11) {
-        margin-top: 2rem;
-      }
-    }
-
     #about-project {
       h3.title {
         font-size: $title-3rd-font-size-mobile;
@@ -51,10 +35,6 @@
 
     p {
       font-size: 14px;
-    }
-
-    .around-neighborhood-map {
-      height: 300px;
     }
 
     #live-in-sigulda,

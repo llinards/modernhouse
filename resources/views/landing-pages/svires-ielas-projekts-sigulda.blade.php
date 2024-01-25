@@ -1,7 +1,7 @@
 @extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
-  <article id="landing-page">
-    <section id="introduction" class="d-flex flex-column justify-content-between"
+  <div id="landing-page">
+    <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center">
@@ -14,8 +14,8 @@
         </a>
       </div>
     </section>
-    <section id="about-project">
-      <div class="container-xxl">
+    <section id="about-project" class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
             <div class="mb-4">
@@ -34,7 +34,7 @@
                 kopīgi izstrādāt individuālu projektu tieši Jums.</p>
             </div>
           </div>
-          <div class="col-lg-7 d-flex flex-column justify-content-center mt-lg-0 mt-4">
+          <div class="col-lg-7 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-3">
             <div class="row">
               <div class="col-6 text-center">
                 <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
@@ -98,8 +98,71 @@
         </div>
       </div>
     </section>
-    <section id="gallery">
-      <div class="container-xxl" id="landing-page-galleries">
+    <section id="about-project-mobile" class="full-height-section d-md-none d-block">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-evenly">
+        <div class="row">
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
+                 alt="">
+            <p>dzīvojamā platība</p>
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">101 - 180 m<sup>2</sup></h3>
+          </div>
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
+                 alt="">
+            <p>plānotās cenas</p>
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">305 000 EUR</h3>
+          </div>
+        </div>
+        <div class="row mt-lg-5 mt-4">
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/bed.svg')}}"
+                 alt="">
+            <p>istabas</p>
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">3 guļamistabas</h3>
+          </div>
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
+                 alt="">
+            <p>energoefektivitāte</p>
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">A + klase</h3>
+          </div>
+        </div>
+        <div class="row mt-lg-5 mt-4">
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2"
+                 src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
+                 alt="">
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">labiekārtota teritorija</h3>
+          </div>
+          <div class="col-6 text-center">
+            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
+                 alt="">
+            <div class="mx-auto text-center w-75">
+              <hr class="m-1">
+            </div>
+            <h3 class="title fw-bold">līdz atslēgai</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="gallery" class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex align-items-center" id="landing-page-galleries">
         <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">
           <div class="splide__track">
             <ul class="splide__list">
@@ -148,14 +211,14 @@
         </div>
       </div>
     </section>
-    <section id="around-neighborhood">
-      <div class="mb-4">
+    <section id="around-neighborhood" class="full-height-section d-flex flex-column">
+      <div class="mb-4 pt-3">
         <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
       </div>
-      <div class="mb-4 around-neighborhood-map">
+      <div class="h-100 mb-3">
         <iframe src="https://snazzymaps.com/embed/564387" width="100%" height="100%"></iframe>
       </div>
-      <div class="container-xxl">
+      <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
             <h3 class="title">2,3 km</h3>
@@ -182,8 +245,8 @@
         </div>
       </div>
     </section>
-    <section id="full-project">
-      <div class="container-xxl">
+    <section id="full-project" class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
             <div class="mb-4">
@@ -208,14 +271,16 @@
         </div>
       </div>
     </section>
-    <section id="full-size-image">
-      <img class=""
+    <section class="full-height-section">
+      <img class="full-size-image-background"
            src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}}"
            alt="">
     </section>
-    <section id="available-projects">
-      <div class="container-xxl">
-        te būs karte
+    <section id="available-projects" class="full-height-section d-flex flex-column">
+      <div class="h-100 mb-3">
+        karte
+      </div>
+      <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
             <h3 class="title">1</h3>
@@ -242,7 +307,7 @@
         </div>
       </div>
     </section>
-    <section id="live-in-sigulda"
+    <section id="live-in-sigulda" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
@@ -290,8 +355,8 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="container-xxl">
+    <section class="full-height-section">
+      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-9 col-12 ceo-quot">
             <p class="quot-element">“</p>
@@ -307,7 +372,7 @@
         </div>
       </div>
     </section>
-    <section id="quality-standards"
+    <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
       <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
@@ -330,38 +395,19 @@
         </div>
       </div>
     </section>
-    <section id="technical-specification">
-      <div class="container-xxl">
-        <div class="row">
-          <h2 class="fw-bold title text-center mb-2">Tehniskā specifikācija</h2>
-          <x-product-variant-option-buttons :productVariant="$productVariant"/>
-          <x-product-variant-options :productVariant="$productVariant"/>
-        </div>
-      </div>
-    </section>
-    <section>
-      interjera koncepts te būs
-    </section>
-    <section>
-      <div class="container-xxl">
-        <div class="mb-lg-2 mb-4 text-center">
-          <h2 class="fw-bold title">Piepildi sapni par māju Siguldā!</h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
-            {{--            pievienot subject un info message--}}
-            <x-contact-us-form/>
-          </div>
-          <div class="col-lg-6 order-first order-lg-last d-flex justify-content-center align-items-between flex-column">
-            <x-staff/>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
+    {{--    <section id="technical-specification">--}}
+    {{--      <div class="container-xxl w-100 h-100">--}}
+    {{--        <div class="row">--}}
+    {{--          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>--}}
+    {{--          <x-product-variant-option-buttons :productVariant="$productVariant"/>--}}
+    {{--          <x-product-variant-options :productVariant="$productVariant"/>--}}
+    {{--        </div>--}}
+    {{--      </div>--}}
+    {{--    </section>--}}
+    <section class="footer">
       @include('includes.footer')
     </section>
-  </article>
+  </div>
   <script type="module">
     const landingPageGalleryImages = document.querySelectorAll('#landing-page-galleries');
     landingPageGalleryImages.forEach((image) => {
