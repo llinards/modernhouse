@@ -8,14 +8,14 @@
         <a href="#"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
         >Rezervēt privātmāju</a>
-        <a href="#about-project"
+        <a href="#technical-specification"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
         </a>
       </div>
     </section>
     <section id="about-project" class="full-height-section">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
             <div class="mb-4">
@@ -99,7 +99,7 @@
       </div>
     </section>
     <section id="about-project-mobile" class="full-height-section d-md-none d-block">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-evenly">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-evenly">
         <div class="row">
           <div class="col-6 text-center">
             <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
@@ -162,7 +162,7 @@
       </div>
     </section>
     <section id="gallery" class="full-height-section">
-      <div class="container-xxl w-100 h-100 d-flex align-items-center" id="landing-page-galleries">
+      <div class="container-xxl h-100 d-flex align-items-center" id="landing-page-galleries">
         <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">
           <div class="splide__track">
             <ul class="splide__list">
@@ -246,7 +246,7 @@
       </div>
     </section>
     <section id="full-project" class="full-height-section">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
             <div class="mb-4">
@@ -277,9 +277,7 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="h-100 mb-3">
-        karte
-      </div>
+      <div class="h-100"></div>
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
@@ -309,7 +307,7 @@
     </section>
     <section id="live-in-sigulda" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/016.jpg')}})">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-6 col-12 p-4">
             <h2 class="fw-bold title text-white mb-4">Kāpēc dzīvot<br/>Siguldā?</h2>
@@ -356,7 +354,7 @@
       </div>
     </section>
     <section class="full-height-section">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-9 col-12 ceo-quot">
             <p class="quot-element">“</p>
@@ -374,7 +372,7 @@
     </section>
     <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/013.jpg')}})">
-      <div class="container-xxl w-100 h-100 d-flex flex-column justify-content-center position-relative">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
           <div class="offset-lg-6 col-lg-6 col-12 p-4">
             <h2 class="fw-bold title text-white mb-4">Skandināvu<br/>kvalitātes standarti</h2>
@@ -395,15 +393,15 @@
         </div>
       </div>
     </section>
-    {{--    <section id="technical-specification">--}}
-    {{--      <div class="container-xxl w-100 h-100">--}}
-    {{--        <div class="row">--}}
-    {{--          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>--}}
-    {{--          <x-product-variant-option-buttons :productVariant="$productVariant"/>--}}
-    {{--          <x-product-variant-options :productVariant="$productVariant"/>--}}
-    {{--        </div>--}}
-    {{--      </div>--}}
-    {{--    </section>--}}
+    <section id="technical-specification">
+      <div class="container-xxl h-100">
+        <div class="row">
+          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>
+          <x-product-variant-option-buttons :productVariant="$productVariant"/>
+          <x-product-variant-options :productVariant="$productVariant"/>
+        </div>
+      </div>
+    </section>
     <section class="footer">
       @include('includes.footer')
     </section>
