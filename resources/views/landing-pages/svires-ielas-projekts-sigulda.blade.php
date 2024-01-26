@@ -8,7 +8,7 @@
         <a href="#"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
         >Rezervēt privātmāju</a>
-        <a href="#about-project"
+        <a href="#technical-specification"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
         </a>
@@ -394,7 +394,7 @@
       </div>
     </section>
     <section id="technical-specification">
-      <div class="container-xxl w-100 h-100">
+      <div class="container-xxl h-100">
         <div class="row">
           <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>
           <x-product-variant-option-buttons :productVariant="$productVariant"/>

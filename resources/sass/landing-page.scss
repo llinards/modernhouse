@@ -1,6 +1,6 @@
 #landing-page {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   overflow-y: scroll;
   height: 100%;
 
@@ -52,5 +52,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  #technical-specification,
+  .footer {
+    scroll-snap-align: none;
   }
 }
