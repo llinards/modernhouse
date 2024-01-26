@@ -54,6 +54,10 @@
     object-fit: cover;
   }
 
+  .section {
+    scroll-snap-align: start;
+  }
+
   #technical-specification,
   .footer {
     scroll-snap-align: none;
