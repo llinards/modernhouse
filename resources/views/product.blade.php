@@ -58,18 +58,7 @@
                 <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
                   <div>
                     <h2 class="fw-bold text-center title">@lang('choose option')</h2>
-                    <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
-                      <li class="nav-item">
-                        <button class="nav-link active basic-variant-title" data-bs-toggle="tab"
-                                data-bs-target="#basic-{{$productVariant->slug}}" type="button">@lang('basic')
-                        </button>
-                      </li>
-                      <li class="nav-item">
-                        <button class="nav-link full-variant-title" data-bs-toggle="tab"
-                                data-bs-target="#full-{{$productVariant->slug}}" type="button">@lang('full')
-                        </button>
-                      </li>
-                    </ul>
+                    <x-product-variant-option-buttons :productVariant="$productVariant"/>
                     <div class="mt-4 mb-2">
                       <h2
                         class="text-center fw-bold basic-variant-price title show active basic-{{$productVariant->slug}}">
@@ -127,57 +116,8 @@
                   </div>
                 </div>
                 @if(count($productVariant->productVariantOptions) > 0)
-                  <div class="tab-content product-variant-option mt-4">
-                    <h3 class="fw-bold text-center my-2">@lang('tech specs')</h3>
-                    <div class="tab-pane fade show active" id="basic-{{$productVariant->slug}}">
-                      <div class="accordion accordion-flush">
-                        @foreach($productVariant->productVariantOptions as $option)
-                          @if($option->product_variant_id === $productVariant->id && $option->option_category === 'Basic')
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed variant-button" type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#{{Str::slug($option->option_title)}}"
-                                        aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
-                                  {{ $option->option_title }}
-                                </button>
-                              </h2>
-                              <div id="{{Str::slug($option->option_title)}}"
-                                   class="accordion-collapse collapse product-variant-option-content">
-                                <div class="accordion-body">
-                                  {!! $option->options !!}
-                                </div>
-                              </div>
-                            </div>
-                          @endif
-                        @endforeach
-                      </div>
-                    </div>
-                    <div class="tab-pane fade" id="full-{{$productVariant->slug}}">
-                      <div class="accordion accordion-flush">
-                        @foreach($productVariant->productVariantOptions as $option)
-                          @if($option->product_variant_id === $productVariant->id && $option->option_category === 'Full')
-                            <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                <button class="accordion-button collapsed variant-button" type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#{{Str::slug($option->option_title)}}"
-                                        aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
-                                  {{ $option->option_title }}
-                                </button>
-                              </h2>
-                              <div id="{{Str::slug($option->option_title)}}"
-                                   class="accordion-collapse collapse product-variant-option-content">
-                                <div class="accordion-body">
-                                  {!! $option->options !!}
-                                </div>
-                              </div>
-                            </div>
-                          @endif
-                        @endforeach
-                      </div>
-                    </div>
-                  </div>
+                  <h3 class="fw-bold text-center mt-4 mb-1">@lang('tech specs')</h3>
+                  <x-product-variant-options :productVariant="$productVariant"/>
                 @endif
               </div>
             </div>
@@ -206,20 +146,5 @@
         }
       })
     })
-
-    let isConsentToProcessData = false;
-    let consentToProcessDataCheckbox = document.getElementById('customer-agrees-for-data-processing');
-    const submitBtn = document.getElementById('submit-product-info-callback');
-    consentToProcessDataCheckbox.checked = false;
-
-    submitBtn.addEventListener('click', () => {
-      submitBtn.classList.add('visually-hidden');
-      document.getElementById('submit-product-info-callback-loading').classList.remove('visually-hidden');
-    });
-
-    consentToProcessDataCheckbox.addEventListener('change', (e) => {
-      isConsentToProcessData = e.srcElement.checked;
-      isConsentToProcessData ? submitBtn.classList.remove('disabled') : submitBtn.classList.add('disabled');
-    });
   </script>
 @endsection

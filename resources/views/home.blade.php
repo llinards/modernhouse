@@ -1,7 +1,7 @@
 @extends('app', ['index' => true])
 @section('content')
   <article id="home">
-    <section id="introduction" class="d-flex flex-column justify-content-between position-relative">
+    <section id="introduction" class="full-height-section d-flex flex-column justify-content-between position-relative">
       <video class="introduction-video" playsinline autoplay muted loop
              poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
         <source src="{{asset('storage/introduction-video/introduction-video.mp4')}}" type="video/mp4">
@@ -21,7 +21,7 @@
       </div>
     </section>
     @foreach($allActiveProducts as $key => $product)
-      <section id="{{$product->slug}}" class="d-flex flex-column justify-content-between"
+      <section id="{{$product->slug}}" class="full-height-section d-flex flex-column justify-content-between"
                style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
         <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
         <div class="text-center d-flex flex-column justify-content-end align-items-center">
@@ -40,7 +40,8 @@
         </div>
       </section>
     @endforeach
-    <section id="choose-order-contact" class="d-flex justify-content-center align-items-center flex-column">
+    <section id="choose-order-contact"
+             class="full-height-section d-flex justify-content-center align-items-center flex-column">
       <div class="m-2">
         <div class="text-center">
           <img src="{{ asset('storage/icons/house-line.png') }}"/>
@@ -63,7 +64,7 @@
         <p class="text-center">@lang('choose order contact text 2')</p>
       </div>
     </section>
-    <section>
+    <section class="footer">
       @include('includes.footer')
     </section>
   </article>

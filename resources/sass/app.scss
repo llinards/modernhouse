@@ -102,6 +102,23 @@ h3.title {
   font-size: $title-3rd-font-size;
 }
 
+section.full-height-section,
+section.footer {
+  background-size: cover;
+  background-repeat: no-repeat;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background-position: center center;
+}
+
+section.full-height-section {
+  height: 100%;
+}
+
+section.footer {
+  height: auto;
+}
+
 .btn-primary,
 .btn-secondary {
   width: 328px;

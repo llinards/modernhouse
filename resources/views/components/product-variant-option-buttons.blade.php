@@ -1,0 +1,14 @@
+<div>
+  <ul class="nav nav-tabs d-flex product-variant-option-titles flex-nowrap">
+    <li class="nav-item">
+      <button class="nav-link active" data-bs-toggle="tab"
+              data-bs-target="#basic-{{$productVariant->slug}}" type="button">@lang('basic')
+      </button>
+    </li>
+    <li class="nav-item">
+      <button class="nav-link" data-bs-toggle="tab"
+              data-bs-target="#full-{{$productVariant->slug}}" type="button">@lang('full')
+      </button>
+    </li>
+  </ul>
+</div>
