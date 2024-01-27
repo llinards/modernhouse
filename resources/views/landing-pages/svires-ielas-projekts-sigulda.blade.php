@@ -394,15 +394,33 @@
       </div>
     </section>
     <section id="technical-specification">
-      <div class="container-xxl h-100">
+      <div class="container-xxl">
         <div class="row">
-          <h2 class="fw-bold title text-center mb-2 pt-4">Tehniskā specifikācija</h2>
+          <div class="my-4 text-center">
+            <h2 class="fw-bold title">Tehniskā specifikācija</h2>
+          </div>
           <x-product-variant-option-buttons :productVariant="$productVariant"/>
           <x-product-variant-options :productVariant="$productVariant"/>
         </div>
       </div>
     </section>
-    <section class="footer">
+    {{--    In progress--}}
+    <section id="contact-us">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="my-4 text-center">
+            <h2 class="fw-bold title">Piepildi sapni par māju Siguldā</h2>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
+            <x-contact-us-form/>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
+            <x-staff/>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer mt-5">
       @include('includes.footer')
     </section>
   </div>
