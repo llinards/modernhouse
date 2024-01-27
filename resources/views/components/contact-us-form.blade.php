@@ -1,4 +1,4 @@
-<form method="POST" class="w-100" action="/{{app()->getLocale()}}/contact-us">
+<form method="POST" action="/{{app()->getLocale()}}/contact-us">
   @include('includes.status-messages')
   @csrf
   <x-honeypot/>
