@@ -4,10 +4,18 @@
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center title">Piepildi sapni par māju<br/>Siguldā!</h1>
-      <div class="text-center d-flex flex-column align-items-center">
-        <a href="#contact-us"
-           class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
-        >Rezervēt privātmāju</a>
+      <div class="text-center d-flex flex-column align-items-center position-relative">
+        <div class="">
+          <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
+            <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="">
+            <p class="ml-3 text-white fw-bold">Svīres iela, Sigulda</p>
+          </div>
+          <div class="">
+            <a href="#contact-us"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+            >Rezervēt privātmāju</a>
+          </div>
+        </div>
         <a href="#about-project"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
