@@ -413,7 +413,7 @@
               <h2 class="fw-bold title">Piepildi sapni par māju Siguldā</h2>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
+              {{--              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>--}}
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
               <x-staff/>
