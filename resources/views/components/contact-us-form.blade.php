@@ -3,7 +3,7 @@
   @csrf
   <x-honeypot/>
   <input type="text" class="visually-hidden" name="subject"
-         value="Jauna ziņa no mājaslapas (kontaktu sadaļas)">
+         value="{{ $subject }}">
   <div class="mb-3">
     <label for="first-name" class="form-label fw-bold">@lang('first name')*</label>
     <input type="text" name="first-name" class="form-control" id="first-name"
