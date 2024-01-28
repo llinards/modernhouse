@@ -1,4 +1,8 @@
 .modern-house-staff {
+  p:first-of-type {
+    color: $primary-color;
+  }
+
   p {
     color: $paragraph-font-color;
     font-size: $paragraph-font-size;

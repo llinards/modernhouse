@@ -3,12 +3,12 @@
   <div id="landing-page">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
+      <h1 class="fw-bold text-center title">Piepildi sapni par māju<br/>Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center">
-        <a href="#"
+        <a href="#contact-us"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
         >Rezervēt privātmāju</a>
-        <a href="#technical-specification"
+        <a href="#about-project"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
         </a>
@@ -299,7 +299,7 @@
           <div>
             <hr class="m-3">
           </div>
-          <a href="#"
+          <a href="#contact-us"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Rezervēt privātmāju</a>
         </div>
@@ -375,15 +375,14 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
           <div class="offset-lg-6 col-lg-6 col-12 p-4">
-            <h2 class="fw-bold title text-white mb-4">Skandināvu<br/>kvalitātes standarti</h2>
+            <h2 class="fw-bold title text-white mb-4">Kāpēc izvēlēties MODERN HOUSE?</h2>
             <p class="text-white mb-4">
-              MODERN HOUSE realizē projektus, kuri ir veidoti ar kvalitāti, estētiku, komfortu un ilgtspējību.</p>
-            <p class="text-white mb-4">Mūsu vairāk kā 10 gadu ilgā pieredze un nodotās 500 + koka karkasa mājas
-              Zviedrijā,
-              kalpo kā kvalitātes zīme, ko piedāvājam saviem klientiem Latvijā.
-            </p>
-            <p class="text-white">Projektos izvēlamies strādāt tikai ar labākajiem materiāliem un tieši tāpēc vēlamies
-              piesaistīt klientus, kuriem ir svarīga kvalitāte!</p>
+              MODERN HOUSE realize projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējīgu.
+              Strādājam tikai un vienīgi ar augstvērtīgiem materiāliem, kuru ražotāji piedāvā uzticamus un pārbaudītus
+              risinājumus , cenšoties radīt izturīgas un ilgtspējīgas mājas. Mūsu prioritāte ir nodrošināt klientiem ne
+              tikai vizuālu un funkcionālu baudu, bet arī ilgtermiņa vērtību, izmantojot visdrošākās tehnoloģijas mājas
+              ilgtspējībai un energoefektivitātei. Mēs uzskatām, ka kvalitatīvs būvniecības process veicina gan mājas,
+              gan apkārtējās vides labklājību.</p>
           </div>
         </div>
         <div class="row position-absolute">
@@ -406,13 +405,13 @@
         </div>
       </section>
       <section id="contact-us">
-        <div class="container-xxl">
+        <div class="container-xxl position-relative">
           <div class="row">
             <div class="my-4 text-center">
               <h2 class="fw-bold title">Piepildi sapni par māju Siguldā</h2>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-              {{--              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>--}}
+              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
               <x-staff/>
