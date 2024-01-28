@@ -6,7 +6,7 @@
              poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
         <source src="{{asset('storage/introduction-video/introduction-video.mp4')}}" type="video/mp4">
       </video>
-      <div class="position-relative d-flex justify-content-center align-items-center h-100 w-100 z-1">
+      <div class="d-flex justify-content-center align-items-center h-100 w-100 z-1">
         <h2
           class="fw-bold text-center text-uppercase title introduction-title">@lang('introduction-title')</h2>
       </div>
