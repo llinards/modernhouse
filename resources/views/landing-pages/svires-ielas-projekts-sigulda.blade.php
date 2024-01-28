@@ -1,6 +1,6 @@
 @extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
-  <div id="landing-page" class="scroll-snap-type-y-mandatory">
+  <div id="landing-page">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
@@ -405,7 +405,6 @@
           </div>
         </div>
       </section>
-      {{--    In progress--}}
       <section id="contact-us">
         <div class="container-xxl">
           <div class="row">
@@ -413,7 +412,7 @@
               <h2 class="fw-bold title">Piepildi sapni par māju Siguldā</h2>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
+              {{--              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>--}}
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
               <x-staff/>
@@ -421,7 +420,7 @@
           </div>
         </div>
       </section>
-      <section class="footer mt-5">
+      <section class="mt-5">
         @include('includes.footer')
       </section>
     </div>
@@ -436,23 +435,6 @@
         heightRatio: 0.5,
       });
       main.mount();
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const landingPage = document.querySelector('#landing-page');
-      const technicalSpecification = document.querySelector('#non-scroll-type-sections');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          console.log(entry);
-          if (entry.isIntersecting) {
-            landingPage.classList.remove('scroll-snap-type-y-mandatory');
-          } else {
-            landingPage.classList.add('scroll-snap-type-y-mandatory');
-          }
-        });
-      }, {threshold: 0.1});
-      observer.observe(technicalSpecification);
     });
   </script>
 @endsection
