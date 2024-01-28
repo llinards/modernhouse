@@ -12814,6 +12814,8 @@ footer hr {
 #landing-page #full-project img {
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #landing-page #live-in-sigulda .col-lg-6.col-12,
 #landing-page #quality-standards .col-lg-6.col-12 {
