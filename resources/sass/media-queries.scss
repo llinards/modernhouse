@@ -20,6 +20,12 @@
         font-size: $title-3rd-font-size-mobile;
       }
     }
+
+    #introduction {
+      .location {
+        position: static;
+      }
+    }
   }
 }
 

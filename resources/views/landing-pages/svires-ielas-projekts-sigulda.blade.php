@@ -3,12 +3,20 @@
   <div id="landing-page">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="fw-bold text-center text-uppercase title">Piepildi sapni par māju<br/>Siguldā!</h1>
-      <div class="text-center d-flex flex-column align-items-center">
-        <a href="#"
-           class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
-        >Rezervēt privātmāju</a>
-        <a href="#technical-specification"
+      <h1 class="fw-bold text-center title">Piepildi sapni par māju<br/>Siguldā!</h1>
+      <div class="text-center d-flex flex-column align-items-center position-relative">
+        <div class="">
+          <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
+            <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="">
+            <p class="ml-3 text-white fw-bold">Svīres iela, Sigulda</p>
+          </div>
+          <div class="">
+            <a href="#contact-us"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+            >Rezervēt privātmāju</a>
+          </div>
+        </div>
+        <a href="#about-project"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
         </a>
@@ -299,7 +307,7 @@
           <div>
             <hr class="m-3">
           </div>
-          <a href="#"
+          <a href="#contact-us"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Rezervēt privātmāju</a>
         </div>
@@ -375,15 +383,14 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
           <div class="offset-lg-6 col-lg-6 col-12 p-4">
-            <h2 class="fw-bold title text-white mb-4">Skandināvu<br/>kvalitātes standarti</h2>
+            <h2 class="fw-bold title text-white mb-4">Kāpēc izvēlēties MODERN HOUSE?</h2>
             <p class="text-white mb-4">
-              MODERN HOUSE realizē projektus, kuri ir veidoti ar kvalitāti, estētiku, komfortu un ilgtspējību.</p>
-            <p class="text-white mb-4">Mūsu vairāk kā 10 gadu ilgā pieredze un nodotās 500 + koka karkasa mājas
-              Zviedrijā,
-              kalpo kā kvalitātes zīme, ko piedāvājam saviem klientiem Latvijā.
-            </p>
-            <p class="text-white">Projektos izvēlamies strādāt tikai ar labākajiem materiāliem un tieši tāpēc vēlamies
-              piesaistīt klientus, kuriem ir svarīga kvalitāte!</p>
+              MODERN HOUSE realize projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējīgu.
+              Strādājam tikai un vienīgi ar augstvērtīgiem materiāliem, kuru ražotāji piedāvā uzticamus un pārbaudītus
+              risinājumus , cenšoties radīt izturīgas un ilgtspējīgas mājas. Mūsu prioritāte ir nodrošināt klientiem ne
+              tikai vizuālu un funkcionālu baudu, bet arī ilgtermiņa vērtību, izmantojot visdrošākās tehnoloģijas mājas
+              ilgtspējībai un energoefektivitātei. Mēs uzskatām, ka kvalitatīvs būvniecības process veicina gan mājas,
+              gan apkārtējās vides labklājību.</p>
           </div>
         </div>
         <div class="row position-absolute">
@@ -405,14 +412,216 @@
           </div>
         </div>
       </section>
-      <section id="contact-us">
+      <section id="interior-concept" class="mt-5">
+        <div class="container-xxl d-flex flex-column justify-content-center">
+          <div class="row">
+            <div class="col-lg-5 d-flex flex-column justify-content-evenly">
+              <div class="mb-4">
+                <h2 class="fw-bold title">Interjera koncepts</h2>
+              </div>
+              <div>
+                <p class="mb-4">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
+                  radot harmonisku un mājīgu vidi ikvienai mājai.
+                  Mēs pievēršam uzmanību minimālistiskiem un funkcionāliem dizaina elementiem, izmantojot dabīgus un
+                  ilgtspējīgus materiālus.</p>
+                <p class="mb-4">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
+                  pēc saviem priekšstatiem. Piedāvājumā ietilpst dažādas opcijas un akcenti, lai klienti varētu
+                  personalizēt savu mājokli, pievienojot un mainot elementus pēc savām vēlmēm.</p>
+                <p>Tādējādi mūsu dizains ir atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
+                  risinājumus, lai mūsu klienti varētu izpaust savu personīgo stilu un iecerēto dzīvesveidu savā jaunajā
+                  mājoklī.</p>
+              </div>
+            </div>
+            <div class="col-lg-7 d-flex flex-column justify-content-center mt-lg-0 mt-4" id="landing-page-galleries">
+              <div id="interior-concept-gallery-main-carousel" class="splide">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <li class="splide__slide">
+                      <a data-fslightbox="interior-concept-gallery"
+                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}">
+                        <img class=""
+                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/01.jpg') }}"
+                             alt="Svires ielas projekts, Siguldā">
+                      </a>
+                    </li>
+                    <li class="splide__slide">
+                      <a data-fslightbox="interior-concept-gallery"
+                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}">
+                        <img class=""
+                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/02.jpg') }}"
+                             alt="Svires ielas projekts, Siguldā">
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="faq" class="mt-5">
         <div class="container-xxl">
           <div class="row">
             <div class="my-4 text-center">
+              <h2 class="fw-bold title">Biežāk uzdotie jautājumi</h2>
+            </div>
+            <div class="tab-content product-variant-option mt-2">
+              <div class="tab-pane fade show active">
+                <div class="accordion accordion-flush">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}">
+                        Vai ir iespējams veikt izmaiņas māju projektos?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Jā, projektus varam gan pielāgot Jūsu vēlmēm, gan izstrādāt ko pilnīgi individuālu.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}">
+                        Vai piedāvājat arī būvatļaujas saskaņošanu?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Jā, pēc atsevišķas vienošanās varam veikt visas dokumentācijas lietas sākot ar būvatļaujas
+                        saskaņošanu, līdz ēkas nodošanai ekspluatācijā.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}">
+                        Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un
+                        interjera izvēlēs?
+                      </button>
+                    </h2>
+                    <div
+                      id="{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}"
+                      class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Jā, Jums būs iespēja pilnībā pielāgot mājas interjeru savām vēlmēm. Darba kārtībā saskaņosim ar
+                        Jums visus iekšdarbu materiālus un krāsas. Tādas lietas kā flīzes, grīdas segumu, elektro
+                        iekārtas, vannas istabu aprīkojumu varēsiet izvēlēties no mūsu piedāvājuma vai mūsu sadarbības
+                        partneriem vai arī no kāda Jūsu izvēlēta piegādātāja.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Kas ietilpst mājas komplektācijā')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Kas ietilpst mājas komplektācijā')}}">
+                        Kas ietilpst mājas komplektācijā?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Kas ietilpst mājas komplektācijā')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Ar mājas tehnisko specifikāciju un iekļauto lietu raksturojumu iespējams iepazīties mūsu
+                        mājaslapā zem katra attiecīgā produkta, izvēloties attiecīgo komplektāciju.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}">
+                        Vai ir iespējams apskatīt arī kādu gatavu produktu?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Iepriekš saskaņojot varam vienoties par apskati kādā mūsu jau pabeigtā projektā un vienmēr esam
+                        atvērti Jums izrādīt arī kādu vēl būvniecības stadijā esošu projektu, kas ir ļoti laba iespēja
+                        apskatīt no kā māja sastāv.
+                        Pie mums ražotnē Siguldā, Lauku ielā 1 ir apskatāmas arī Demo moduļu mājas un ar lielāko prieku
+                        arī parādīsim un pastāstīsim par pašu ražošanas procesu.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}">
+                        Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Ja izvēlaties kādu mūsu piedāvājumā esošu produktu, izpildes termiņš moduļu mājai būtu 10 – 12
+                        nedēļas, attiecīgi veicot izmaiņas vai pasūtot individuāli izstrādātu projektu, šis termiņš var
+                        nedaudz pieaugt.
+                        Privātmājām darbu izpildes termiņš no būvatļaujas saņemšanas un darbu uzsākšanas objektā līdz
+                        pabeigtai mājai ir 4 – 5 mēneši atkarībā no mājas lieluma.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed variant-button" type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#{{Str::slug('Kāda ir apmaksas kārtība')}}"
+                              aria-expanded="false"
+                              aria-controls="{{Str::slug('Kāda ir apmaksas kārtība')}}">
+                        Kāda ir apmaksas kārtība?
+                      </button>
+                    </h2>
+                    <div id="{{Str::slug('Kāda ir apmaksas kārtība')}}"
+                         class="accordion-collapse collapse product-variant-option-content">
+                      <div class="accordion-body">
+                        Moduļu mājām apmaksas kārtība ir sekojoša:<br/>
+                        10% no līguma summas – pie līguma parakstīšanas;<br/>
+                        40% no līguma summas – pirms moduļu mājas ražošanas darbu uzsākšanas;<br/>
+                        30% no līguma summa – pirms iekšējo apdares darbu uzsākšanas;<br/>
+                        10% no līguma summas – pēc pieņemšanas/nodošanas akta parakstīšanas.<br/>
+                        Privātmājām apmaksas kārtība tiek saskaņota pirms līguma slēgšanas, atkarībā no veicamo darbu
+                        apjoma un pasūtītāja finansējuma veida.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact-us" class="mt-5">
+        <div class="container-xxl position-relative">
+          <div class="row">
+            <div class="mb-4 text-center">
               <h2 class="fw-bold title">Piepildi sapni par māju Siguldā</h2>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-              {{--              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>--}}
+              <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
               <x-staff/>
