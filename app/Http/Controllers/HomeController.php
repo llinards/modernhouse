@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
 {
@@ -34,10 +36,10 @@ class HomeController extends Controller
   {
     try {
       Mail::to('info@modern-house.lv')->send(new ContactUsSubmitted($data->input()));
-      return back()->with('success', Lang::get('message has been sent'));
+      return Redirect::to(URL::previous()."#contact-us")->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
-      return back()->with('error', Lang::get('message has not been sent'));
+      return Redirect::to(URL::previous()."#contact-us")->with('error', Lang::get('message has not been sent'));
     }
   }
 
