@@ -265,7 +265,7 @@
                 dzīvojamā telpa apvienota ar virtuvi, trīs sanmezgliem –
                 divi ar dušu un viens ar veļas telpu.</p>
               <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
-                ārējā apdare apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
+                ārējā apdare, apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
               <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
                 krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
                 iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
@@ -285,7 +285,7 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="container-xxl mt-lg-5 mt-0 mb-3 overflow-x-scroll">
+      <div class="container-xxl mt-5 mb-3 overflow-x-scroll">
         <img class="map" src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}" alt="">
       </div>
       <div class="container-xxl mb-5">
@@ -398,6 +398,146 @@
         </div>
       </div>
     </section>
+    <section id="interior-concept" class="full-height-section">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col-lg-5 d-flex flex-column justify-content-evenly">
+            <div class="mb-4">
+              <h2 class="fw-bold title">Interjera koncepts</h2>
+            </div>
+            <div>
+              <p class="mb-4">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
+                radot harmonisku un mājīgu vidi ikvienai mājai.
+                Mēs pievēršam uzmanību minimālistiskiem un funkcionāliem dizaina elementiem, izmantojot dabīgus un
+                ilgtspējīgus materiālus.</p>
+              <p class="mb-4">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
+                pēc saviem priekšstatiem. Piedāvājumā ietilpst dažādas opcijas un akcenti, lai klienti varētu
+                personalizēt savu mājokli, pievienojot un mainot elementus pēc savām vēlmēm.</p>
+              <p>Tādējādi mūsu dizains ir atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
+                risinājumus, lai mūsu klienti varētu izpaust savu personīgo stilu un iecerēto dzīvesveidu savā jaunajā
+                mājoklī.</p>
+            </div>
+          </div>
+          <div class="col-lg-7 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-4"
+               id="landing-page-galleries">
+            <div id="interior-concept-gallery-main-carousel" class="splide">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
+                      <img class=""
+                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
+                           alt="Svires ielas projekts, Siguldā">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="interior-concept-mobile" class="full-height-section d-md-none d-block">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
+        <div id="landing-page-galleries">
+          <div id="interior-concept-mobile-gallery-main-carousel" class="splide">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
+                    <img class=""
+                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
+                         alt="Svires ielas projekts, Siguldā">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div id="non-scroll-type-sections">
       <section id="technical-specification">
         <div class="container-xxl">
@@ -407,85 +547,6 @@
             </div>
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <x-product-variant-options :productVariant="$productVariant"/>
-          </div>
-        </div>
-      </section>
-      <section id="interior-concept" class="mt-5">
-        <div class="container-xxl d-flex flex-column justify-content-center">
-          <div class="row">
-            <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-              <div class="mb-4">
-                <h2 class="fw-bold title">Interjera koncepts</h2>
-              </div>
-              <div>
-                <p class="mb-4">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
-                  radot harmonisku un mājīgu vidi ikvienai mājai.
-                  Mēs pievēršam uzmanību minimālistiskiem un funkcionāliem dizaina elementiem, izmantojot dabīgus un
-                  ilgtspējīgus materiālus.</p>
-                <p class="mb-4">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
-                  pēc saviem priekšstatiem. Piedāvājumā ietilpst dažādas opcijas un akcenti, lai klienti varētu
-                  personalizēt savu mājokli, pievienojot un mainot elementus pēc savām vēlmēm.</p>
-                <p>Tādējādi mūsu dizains ir atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
-                  risinājumus, lai mūsu klienti varētu izpaust savu personīgo stilu un iecerēto dzīvesveidu savā jaunajā
-                  mājoklī.</p>
-              </div>
-            </div>
-            <div class="col-lg-7 d-flex flex-column justify-content-center mt-lg-0 mt-4" id="landing-page-galleries">
-              <div id="interior-concept-gallery-main-carousel" class="splide">
-                <div class="splide__track">
-                  <ul class="splide__list">
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                    <li class="splide__slide">
-                      <a data-fslightbox="interior-concept-gallery"
-                         href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
-                        <img class=""
-                             data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
-                             alt="Svires ielas projekts, Siguldā">
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -671,7 +732,6 @@
         type: 'fade',
         pagination: true,
         lazyLoad: 'nearby',
-        heightRatio: 0.5,
       });
       main.mount();
     });
