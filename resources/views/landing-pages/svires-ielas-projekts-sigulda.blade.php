@@ -285,7 +285,7 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="h-75 mb-3 overflow-x-scroll">
+      <div class="h-75 mt-lg-3 mt-0 mb-3 overflow-x-scroll">
         <img class="map" src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}" alt="">
       </div>
       <div class="container-xxl mb-5">
