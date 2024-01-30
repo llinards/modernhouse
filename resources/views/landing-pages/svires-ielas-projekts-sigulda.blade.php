@@ -8,7 +8,7 @@
         <div class="">
           <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
             <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="">
-            <p class="ml-3 text-white fw-bold">Svīres iela, Sigulda</p>
+            <p class="ml-3 text-white fw-bold">Svīres ielas projekts</p>
           </div>
           <div class="">
             <a href="#contact-us"
@@ -285,7 +285,9 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="h-100"></div>
+      <div class="h-75 mb-3 overflow-x-scroll">
+        <img class="map" src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}" alt="">
+      </div>
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
