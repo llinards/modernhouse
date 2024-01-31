@@ -285,8 +285,17 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="container-xxl mt-5 mb-3 overflow-x-scroll">
+      <div class="container-xxl mt-5 mb-3 overflow-x-scroll position-relative">
         <img class="map" src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}" alt="">
+        <div class="available-projects">
+          @include('includes.available-project-modal')
+          <button id="available-project-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
+                  class="available-project" type="button"/>
+          <button id="available-project-land-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
+                  class="available-project" type="button"/>
+          <button id="available-project-asset-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
+                  class="available-project" type="button"/>
+        </div>
       </div>
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
@@ -735,6 +744,26 @@
       });
       main.mount();
     });
+
+    const availableProjects = document.querySelectorAll('.available-project');
+    const modal = document.getElementById('available-project-modal');
+
+    availableProjects.forEach((project) => {
+      project.addEventListener('click', () => {
+        const content = document.querySelector('#' + project.id + '-content');
+        if (content) {
+          content.classList.toggle('visually-hidden');
+        }
+      });
+    });
+
+    modal.addEventListener('hidden.bs.modal', () => {
+      const contents = document.querySelectorAll('.available-projects-content > div');
+      contents.forEach((content) => {
+        content.classList.add('visually-hidden');
+      });
+    });
+
   </script>
 @endsection
 

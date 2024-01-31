@@ -51,6 +51,64 @@
       object-fit: contain;
       //overflow-x: scroll;
     }
+
+    .available-projects {
+      @keyframes circle-animation {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.25);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      img {
+        width: 30px;
+      }
+
+      .modal-content {
+        background-color: #000000;
+      }
+
+      .modal-close-btn {
+        button {
+          background-color: #fff;
+          opacity: 1;
+        }
+      }
+
+      button.available-project {
+        padding: 0;
+        position: absolute;
+        background-color: #fff;
+        border: 3px solid rgba(0, 0, 0, 0.25);
+        height: 20px;
+        border-radius: 50%;
+        width: 20px;
+        animation: circle-animation 2s infinite;
+        outline: none;
+        box-shadow: none;
+        vertical-align: middle;
+      }
+
+      #available-project-1 {
+        top: 20px;
+        left: 14%;
+      }
+
+      #available-project-land-1 {
+        top: 20px;
+        left: 21%;
+      }
+
+      #available-project-asset-1 {
+        top: 50%;
+        left: 50%;
+      }
+    }
   }
 
   #live-in-sigulda,
