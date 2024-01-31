@@ -45,69 +45,47 @@
       padding-right: 0;
     }
 
-    .map {
+    #map {
       height: 100%;
-      min-width: 100%;
-      object-fit: contain;
-      //overflow-x: scroll;
+      width: 100%;
+      background-color: white;
     }
 
-    .available-projects {
-      @keyframes circle-animation {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.25);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
+    .leaflet-container .leaflet-control-attribution {
+      display: none;
+    }
 
-      img {
-        width: 30px;
+    @keyframes circle-animation {
+      0% {
+        transform: scale(1);
       }
-
-      .modal-content {
-        background-color: #000000;
+      50% {
+        transform: scale(1.25);
       }
-
-      .modal-close-btn {
-        button {
-          background-color: #fff;
-          opacity: 1;
-        }
+      100% {
+        transform: scale(1);
       }
+    }
 
-      button.available-project {
-        padding: 0;
-        position: absolute;
+    .map-marker div {
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff;
+      border: 3px solid rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      animation: circle-animation 2s infinite;
+    }
+    
+    .modal-content {
+      background-color: #000000;
+    }
+
+    .modal-close-btn {
+      button {
         background-color: #fff;
-        border: 3px solid rgba(0, 0, 0, 0.25);
-        height: 20px;
-        border-radius: 50%;
-        width: 20px;
-        animation: circle-animation 2s infinite;
-        outline: none;
-        box-shadow: none;
-        vertical-align: middle;
+        opacity: 1;
       }
 
-      #available-project-1 {
-        top: 20px;
-        left: 14%;
-      }
-
-      #available-project-land-1 {
-        top: 20px;
-        left: 21%;
-      }
-
-      #available-project-asset-1 {
-        top: 50%;
-        left: 50%;
-      }
     }
   }
 

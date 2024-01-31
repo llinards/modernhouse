@@ -285,16 +285,12 @@
            alt="">
     </section>
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="container-xxl mt-5 mb-3 overflow-x-scroll position-relative">
-        <img class="map" src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}" alt="">
-        <div class="available-projects">
+      <div class="container-xxl h-100 mt-5 mb-3 overflow-x-scroll position-relative">
+        <div class="h-100 overflow-x-scroll position-relative">
+          <div class="h-100">
+            <div id="map"></div>
+          </div>
           @include('includes.available-project-modal')
-          <button id="available-project-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
-                  class="available-project" type="button"/>
-          <button id="available-project-land-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
-                  class="available-project" type="button"/>
-          <button id="available-project-asset-1" data-bs-toggle="modal" data-bs-target="#available-project-modal"
-                  class="available-project" type="button"/>
         </div>
       </div>
       <div class="container-xxl mb-5">
@@ -745,20 +741,62 @@
       main.mount();
     });
 
-    const availableProjects = document.querySelectorAll('.available-project');
     const modal = document.getElementById('available-project-modal');
+    const mapImageUrl = '{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}';
+    const map = L.map('map', {
+      crs: L.CRS.Simple,
+      maxZoom: 1,
+      minZoom: -1,
+    });
+    const bounds = [[0, 0], [600, 1320]];
+    const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
 
-    availableProjects.forEach((project) => {
-      project.addEventListener('click', () => {
-        const content = document.querySelector('#' + project.id + '-content');
-        if (content) {
-          content.classList.toggle('visually-hidden');
-        }
-      });
+
+    map.fitBounds(bounds);
+    map.setMaxBounds(bounds);
+    map.setView([600, 0], 0);
+
+
+    const mapMarker = L.divIcon({
+      className: 'map-marker', // Your custom CSS class
+      // popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
+      html: '<div></div>'
+    });
+
+    const availableProjectOne = L.marker([525, 150], {title: "Svīres iela 1", icon: mapMarker}).addTo(map);
+    const availableLandOne = L.marker([400, 175], {icon: mapMarker}).addTo(map);
+    const availableAssetOne = L.marker([325, 650], {icon: mapMarker}).addTo(map);
+
+    availableProjectOne.on('click', function () {
+      const modal = document.getElementById('available-project-modal');
+      const modalContent = document.getElementById('available-project-1-content');
+      const bootstrapModal = new bootstrap.Modal(modal);
+
+      bootstrapModal.show();
+      modalContent.classList.remove('visually-hidden');
+    });
+
+    availableLandOne.on('click', function () {
+      const modal = document.getElementById('available-project-modal');
+      const modalContent = document.getElementById('available-project-land-1-content');
+      const bootstrapModal = new bootstrap.Modal(modal);
+
+      bootstrapModal.show();
+      modalContent.classList.remove('visually-hidden');
+    });
+
+    availableAssetOne.on('click', function () {
+      const modal = document.getElementById('available-project-modal');
+      const modalContent = document.getElementById('available-project-asset-1-content');
+      const bootstrapModal = new bootstrap.Modal(modal);
+
+      bootstrapModal.show();
+      modalContent.classList.remove('visually-hidden');
     });
 
     modal.addEventListener('hidden.bs.modal', () => {
       const contents = document.querySelectorAll('.available-projects-content > div');
+      console.log(contents);
       contents.forEach((content) => {
         content.classList.add('visually-hidden');
       });

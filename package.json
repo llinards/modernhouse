@@ -24,6 +24,7 @@
         "filepond": "^4.30.4",
         "filepond-plugin-file-validate-size": "^2.2.8",
         "filepond-plugin-image-preview": "^4.6.11",
-        "fslightbox": "^3.4.1"
+        "fslightbox": "^3.4.1",
+        "leaflet": "^1.9.4"
     }
 }
