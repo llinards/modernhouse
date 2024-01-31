@@ -110,9 +110,9 @@
                     </div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
-                    <button
-                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
-                      data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
+                    <button id="request-product-info-modal"
+                            class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                    >@lang('customer order')</button>
                   </div>
                 </div>
                 @if(count($productVariant->productVariantOptions) > 0)
@@ -128,7 +128,7 @@
     </div>
   </div>
   @include('includes.footer')
-  <script>
+  <script type="module">
     document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
       selectedVariant.addEventListener('show.bs.tab', () => {
         const targetClass = selectedVariant.dataset.bsTarget
@@ -145,6 +145,11 @@
           currentVariantPrice.classList.toggle('active');
         }
       })
+    })
+
+    const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
+    document.getElementById('request-product-info-modal').addEventListener('click', () => {
+      requestProductInfoModal.show();
     })
   </script>
 @endsection
