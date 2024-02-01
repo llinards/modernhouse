@@ -181,81 +181,81 @@
             <ul class="splide__list">
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/1.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/1.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/1.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/1.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/2.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/2.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/2.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/2.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/3.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/3.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/3.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/3.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/4.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/4.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/4.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/4.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/5.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/5.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/5.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/5.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/6.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/6.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/6.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/6.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/7.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/7.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/7.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/7.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/8.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/8.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/8.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/8.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/9.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/9.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/9.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/9.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/10.jpg') }}">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/10.jpg') }}">
                   <img
-                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/10.jpg') }}"
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/10.jpg') }}"
                     alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
