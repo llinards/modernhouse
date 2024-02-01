@@ -6,7 +6,7 @@
       <div class="mt-4">
         <div class="row">
           <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
-            <x-contact-us-form :subject="'Jauna ziņa no mājaslapas (kontaktu sadaļas)'"/>
+            <x-contact-us-form :hideCompanyField="false" :subject="'Jauna ziņa no mājaslapas (kontaktu sadaļas)'"/>
           </div>
           <div class="col-lg-6 order-first order-lg-last d-flex justify-content-center align-items-between flex-column">
             <x-staff/>
