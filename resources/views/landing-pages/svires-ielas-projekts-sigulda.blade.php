@@ -863,13 +863,14 @@
       maxZoom: 1,
       minZoom: -1,
       scrollWheelZoom: false,
+      zoomControl: false,
     });
     const bounds = [[0, 0], [600, 1320]];
     const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
     const mapMarker = L.divIcon({
       className: 'map-marker', // Your custom CSS class
       // popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
-      html: `<div></div>`
+      html: '<div></div>',
     });
 
     map.fitBounds(bounds);
