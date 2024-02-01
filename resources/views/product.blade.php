@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->translations[0]->name, 'index' => false])
+@extends('layouts.app', ['title' => $product->translations[0]->name, 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
@@ -18,7 +18,8 @@
         </ul>
         <div class="tab-content">
           @foreach($productVariants as $productVariant)
-            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{$productVariant->slug}}">
+            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                 id="{{$productVariant->slug}}">
               <div class="row">
                 <div class="col-lg-7 mt-4">
                   <section id="{{$productVariant->slug}}-main-carousel" class="splide">
@@ -80,8 +81,10 @@
                       <p>{!! $productVariant->translations[0]->description !!}</p>
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
-                          <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup></p>
-                          <p>@lang('construction area') : {{ $productVariant->building_area }} m<sup>2</sup></p>
+                          <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup>
+                          </p>
+                          <p>@lang('construction area') : {{ $productVariant->building_area }}
+                            m<sup>2</sup></p>
                         </div>
                         @if($productVariant->productVariantDetails->count() > 0)
                           <hr class="m-1">
@@ -110,9 +113,9 @@
                     </div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
-                    <button
-                      class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
-                      data-bs-toggle="modal" data-bs-target="#request-product-info">@lang('customer order')</button>
+                    <button id="{{$productVariant->slug}}"
+                            class="btn btn-primary fw-light d-flex justify-content-center align-items-center request-product-info-modal"
+                    >@lang('customer order')</button>
                   </div>
                 </div>
                 @if(count($productVariant->productVariantOptions) > 0)
@@ -128,7 +131,7 @@
     </div>
   </div>
   @include('includes.footer')
-  <script>
+  <script type="module">
     document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
       selectedVariant.addEventListener('show.bs.tab', () => {
         const targetClass = selectedVariant.dataset.bsTarget
@@ -144,6 +147,14 @@
           currentVariantPrice.classList.toggle('show');
           currentVariantPrice.classList.toggle('active');
         }
+      })
+    })
+
+    const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
+    const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
+    requestProductInfoButtons.forEach((requestProductInfoButton) => {
+      requestProductInfoButton.addEventListener('click', () => {
+        requestProductInfoModal.show();
       })
     })
   </script>

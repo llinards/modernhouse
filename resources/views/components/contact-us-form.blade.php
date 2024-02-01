@@ -23,10 +23,12 @@
     <input type="tel" name="phone-number" class="form-control" id="phone-number"
            value="{{ old('phone-number') }}">
   </div>
-  <div class="mb-3">
-    <label for="company" class="form-label fw-bold">@lang('company')</label>
-    <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
-  </div>
+  @if(!$hideCompanyField)
+    <div class="mb-3">
+      <label for="company" class="form-label fw-bold">@lang('company')</label>
+      <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">
+    </div>
+  @endif
   <label for="customers-question" class="form-label fw-bold">@lang('questions')</label>
   <textarea class="form-control mb-3" name="customers-question" id="customers-question" rows="3">
                 {{ old('customers-question') }}

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -31,30 +31,40 @@
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas komplektācijai</label>
-                      <input type="text" name="product-variant-basic-price" id="product-variant-basic-price"
-                             value="{{ old('product-variant-basic-price') }}" class="form-control">
+                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas
+                        komplektācijai</label>
+                      <input type="text" name="product-variant-basic-price"
+                             id="product-variant-basic-price"
+                             value="{{ old('product-variant-basic-price') }}"
+                             class="form-control">
                     </div>
                     <div class="col-6">
-                      <label for="product-variant-full-price" class="form-label">Cena pilnai komplektācijai</label>
-                      <input type="text" name="product-variant-full-price" id="product-variant-full-price"
+                      <label for="product-variant-full-price" class="form-label">Cena pilnai
+                        komplektācijai</label>
+                      <input type="text" name="product-variant-full-price"
+                             id="product-variant-full-price"
                              value="{{ old('product-variant-full-price') }}" class="form-control">
                     </div>
-                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc
+                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies -
+                      <strong>Cena pēc
                         individuālā pieprasījuma.</strong></p>
                   </div>
                 </div>
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-living-area" class="form-label">Dzīvojamā platība</label>
+                      <label for="product-variant-living-area" class="form-label">Dzīvojamā
+                        platība</label>
                       <input type="text" name="product-variant-living-area"
-                             value="{{ old('product-variant-living-area') }}" class="form-control">
+                             value="{{ old('product-variant-living-area') }}"
+                             class="form-control">
                     </div>
                     <div class="col-6">
-                      <label for="product-variant-building-area" class="form-label">Apbūves platība</label>
+                      <label for="product-variant-building-area" class="form-label">Apbūves
+                        platība</label>
                       <input type="text" name="product-variant-building-area"
-                             value="{{ old('product-variant-building-area') }}" class="form-control">
+                             value="{{ old('product-variant-building-area') }}"
+                             class="form-control">
                     </div>
                   </div>
                 </div>
@@ -66,8 +76,10 @@
                 <div class="mb-3">
                   <label for="product-variant-images" class="form-label">Bildes</label>
                   <x-file-upload :name="'product-variant-images'" :required="'true'"/>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   </p>
                 </div>
                 <a href="/admin" class="btn btn-dark">Atpakaļ</a>

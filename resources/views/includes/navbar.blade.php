@@ -98,7 +98,6 @@
       <div class="navbar-modal-footer d-flex flex-column align-items-center">
         <p class="text-center small">Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
         <p class="small">@lang('modern house registration number'): 40203251766</p>
-        <p class="mt-2 small">&copy; {{ date('Y') }} "Modern House" SIA</p>
       </div>
     </div>
   </div>

@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\URL;
 
 class ContactUsRequest extends FormRequest
 {
@@ -31,5 +34,17 @@ class ContactUsRequest extends FormRequest
       'company' => 'max:100',
       'customer-agrees-for-data-processing' => 'accepted'
     ];
+  }
+
+  protected function failedValidation(Validator $validator)
+  {
+    throw new HttpResponseException(
+      redirect($this->redirectTo())->withErrors($validator)
+    );
+  }
+
+  public function redirectTo()
+  {
+    return URL::previous().'/#contact-us';
   }
 }

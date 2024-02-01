@@ -1,36 +1,116 @@
 #landing-page {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
+
+  @keyframes circle-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
   #introduction {
     .title {
       color: white;
       padding-top: 150px;
     }
+
+    .location {
+      position: absolute;
+      top: 9%;
+      left: 75%;
+    }
+
+    .location-name {
+      font-size: 16px;
+    }
+
+    .location-icon {
+      padding-right: 12px;
+      width: 30px;
+    }
   }
 
-  .about-project-icon {
+  .icons {
     width: 50px;
     height: 50px;
   }
 
-  #full-project {
-    img {
-      height: 100%;
-      width: 100%;
+  .map-size {
+    height: 100%;
+    width: 100%;
+  }
+
+  #available-projects-map {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .full-container-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .leaflet-control-attribution {
+    display: none;
+  }
+
+  #available-projects {
+    .container-xxl:first-of-type {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .map-marker div {
+      width: 20px;
+      height: 20px;
+      background-color: #ffffff;
+      border: 3px solid rgba(0, 0, 0, 0.25);
+      border-radius: 50%;
+      animation: circle-animation 2s infinite;
+    }
+
+    .modal-content {
+      border-radius: 0;
+      background-color: $primary-color;
+    }
+
+    .modal-close-btn {
+      button {
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 
-  #live-in-sigulda,
-  #quality-standards {
-    .col-lg-6.col-12 {
-      background-color: rgba(0, 0, 0, 0.5);
+  .col-with-background {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .checkmark-icon-as-list-item {
+    padding-right: 12px;
+    width: 40px;
+  }
+
+  #ceo-quot {
+    p {
+      color: $primary-color;
     }
 
-    img {
-      padding-right: 12px;
-      width: 40px;
+    .quot-element {
+      font-size: 80px;
+      height: 65px;
     }
   }
 
@@ -41,19 +121,7 @@
     }
   }
 
-  .quot-element {
-    font-size: 80px;
-    color: $primary-color;
-    height: 65px;
+  #non-scroll-type-sections {
+    scroll-snap-align: start;
   }
-
-  .full-size-image-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.scroll-snap-type-y-mandatory {
-  scroll-snap-type: y mandatory;
 }

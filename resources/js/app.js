@@ -1,7 +1,12 @@
-require('bootstrap');
 import Splide from '@splidejs/splide';
 import 'filepond/dist/filepond.min.css';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import * as bootstrap from 'bootstrap'
+import L from 'leaflet';
+
+window.L = L;
+
+window.bootstrap = bootstrap;
 
 window.Splide = Splide;
 

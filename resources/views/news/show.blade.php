@@ -1,4 +1,4 @@
-@extends('app', ['title' => $news->title, 'index' => false])
+@extends('layouts.app', ['title' => $news->title, 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">

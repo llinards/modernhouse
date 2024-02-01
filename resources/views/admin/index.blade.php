@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -30,7 +30,8 @@
                           <span
                             class="badge {{ $variant->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $variant->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
                             <h5 class="">{{ $variant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h5>
-                            <a href="/admin/product-variant/{{ $variant->id }}/edit" class="">Rediģēt</a>
+                            <a href="/admin/product-variant/{{ $variant->id }}/edit"
+                               class="">Rediģēt</a>
                           </div>
                         @endforeach
                       </div>

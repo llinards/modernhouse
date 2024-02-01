@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -20,16 +20,20 @@
                 </div>
                 <div class="mb-3">
                   <label for="product-slug" class="form-label">Produkta ID</label>
-                  <input type="text" class="form-control" id="product-slug" name="product-slug" oninput="updateUrl()">
+                  <input type="text" class="form-control" id="product-slug" name="product-slug"
+                         oninput="updateUrl()">
                   <p class="class">Produkta lapas adrese būs - {{env('APP_URL')}}/<strong><span
                         id="product-slug-url"></span></strong>
                   </p>
                 </div>
                 <div class="mb-3">
-                  <label for="product-cover-photo" class="form-label">Produkta pirmās lapas bilde</label>
+                  <label for="product-cover-photo" class="form-label">Produkta pirmās lapas
+                    bilde</label>
                   <x-file-upload :name="'product-cover-photo'" :required="'true'"/>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   </p>
                 </div>
                 <a href="/admin" class="btn btn-dark">Atpakaļ</a>

@@ -1,4 +1,4 @@
-@extends('app', ['title' => Lang::get('about'), 'index' => false])
+@extends('layouts.app', ['title' => Lang::get('about'), 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">

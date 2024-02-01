@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -18,7 +18,8 @@
                 <div class="row mb-3">
                   <div class="col-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gallery-type" name="gallery-type"
+                      <input class="form-check-input" type="checkbox" id="gallery-type"
+                             name="gallery-type"
                              value="{{ $gallery->is_video }}" {{ $gallery->is_video ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-type">
                         <i class="bi bi-camera-video-fill"></i> Video galerija
@@ -27,7 +28,8 @@
                   </div>
                   <div class="col-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gallery-pinned" name="gallery-pinned"
+                      <input class="form-check-input" type="checkbox" id="gallery-pinned"
+                             name="gallery-pinned"
                              value="{{ $gallery->is_pinned }}" {{ $gallery->is_pinned ? 'checked' : '' }}>
                       <label class="form-check-label" for="gallery-pinned">
                         <i class="bi bi-pin-angle"></i> Rādīt galeriju kā pirmo
@@ -75,8 +77,10 @@
                 <div class="mb-3">
                   <label for="gallery-images" class="form-label">Bildes</label>
                   <x-file-upload :name="'gallery-images'"/>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   </p>
                 </div>
                 <a href="/admin/gallery" class="btn btn-dark">Atpakaļ</a>
