@@ -14,7 +14,7 @@
           <p class="text-white small my-3">Plānots nodot ekspluatācijā 2024.gada beigās</p>
           <div class="d-flex justify-content-center">
             <a href="#"
-               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+               class="btn btn-third fw-light d-flex justify-content-center align-items-center"
             >Apskatīt privātmāju</a>
           </div>
         </div>
@@ -24,7 +24,7 @@
           <p class="text-white small my-3">Iespējama daļēja nomaksa atsevišķi vienojoties</p>
           <div class="d-flex justify-content-center">
             <a href="#"
-               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+               class="btn btn-third fw-light d-flex justify-content-center align-items-center"
             >Apskatīt māju katalogu</a>
           </div>
         </div>

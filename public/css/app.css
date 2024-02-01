@@ -13071,7 +13071,8 @@ section.footer {
 }
 
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-third {
   width: 328px;
   height: 48px;
   border-radius: 32px;
@@ -13084,7 +13085,8 @@ section.footer {
   border-color: transparent;
 }
 
-.btn-secondary {
+.btn-secondary,
+.btn-third {
   background-color: white;
   color: #3f3f3f;
   border-color: transparent;
@@ -13092,12 +13094,16 @@ section.footer {
 
 .btn-primary:hover,
 .btn-secondary:hover,
+.btn-third:hover,
 .btn-primary:focus,
 .btn-secondary:focus,
+.btn-third:focus,
 .btn-primary:active,
 .btn-secondary:active,
+.btn-third:active,
 .btn-primary:first-child:active,
-.btn-secondary:first-child:active {
+.btn-secondary:first-child:active,
+.btn-third:first-child:active {
   border-color: #3f3f3f;
   box-shadow: 0 0 20px 0 #3f3f3f;
 }
@@ -13115,6 +13121,14 @@ section.footer {
 .btn-secondary:active,
 .btn-secondary:first-child:active {
   background-color: #3f3f3f;
+  color: white;
+}
+
+.btn-third:hover,
+.btn-third:focus,
+.btn-third:active,
+.btn-third:first-child:active {
+  background-color: #919191;
   color: white;
 }
 
