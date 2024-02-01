@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body available-projects-content pt-0">
         <div id="available-project-content" class="visually-hidden text-center">
-          <h2 class="text-white mb-3"></h2>
+          <h2 class="text-white mb-3">Pieejams projekts: </h2>
           <p class="text-white">Dzīvojamā platība 112,02 m<sup>2</sup></p>
           <p class="text-white">Apbūves platība 229 m<sup>2</sup></p>
           <p class="text-white">Ārtelpu platība 92,36 m<sup>2</sup></p>
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div id="available-project-land-content" class="visually-hidden text-center">
-          <h2 class="text-white mb-3">Pieejams zemes gabals un projekts pēc individuāla pieprasījuma</h2>
+          <h2 class="text-white mb-3"></h2>
           <p class="text-white">Zemes gabala cena 50 000 EUR*</p>
           <p class="text-white">Zemes gabala platība 1200 m<sup>2</sup></p>
           <p class="text-white small my-3">* Iespējama daļēja nomaksa atsevišķi vienojoties</p>

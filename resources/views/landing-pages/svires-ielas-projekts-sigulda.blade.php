@@ -40,7 +40,8 @@
                 mūsu tipveida projektiem, kā arī piedāvājam iespēju īstenot Jūsu sapņu māju, kopīgi radot individuālu
                 projektu.
               </p>
-              <p>Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem, kura cena ir 50 000 EUR,
+              <p>Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem ar platību 1200
+                m<sup>2</sup>, kura cena ir 50 000 EUR,
                 iespējama arī daļēja nomaksa atsevišķi vienojoties. Brīvos zemes gabalus iespējams aplūkot Svīres ielā
                 vai arī projekta <a class="read-more" href="#available-projects">digitālajā kartē</a>.</p>
             </div>
@@ -59,7 +60,7 @@
               <div class="col-6 text-center">
                 <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
                      alt="Card icon">
-                <p>plānotās cenas</p>
+                <p>cena no</p>
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
@@ -125,7 +126,7 @@
           <div class="col-6 text-center">
             <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
                  alt="Card icon">
-            <p>plānotās cenas</p>
+            <p>cena no</p>
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
@@ -354,7 +355,7 @@
           </div>
           <div class="col-lg-3 col-6 text-center">
             <h3 class="title">50 000 EUR</h3>
-            <p class="fw-bold">zemes gabala cena</p>
+            <p class="fw-bold">1200 m<sup>2</sup> zemes gabala cena</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
             <h3 class="title">30.08.2024.</h3>
@@ -857,6 +858,7 @@
     });
 
     const modal = document.getElementById('available-project-modal');
+    const modalContents = document.querySelectorAll('.available-projects-content > div');
     const mapImageUrl = '{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}';
     const map = L.map('available-projects-map', {
       crs: L.CRS.Simple,
@@ -880,53 +882,131 @@
       window.dispatchEvent(new Event("resize"));
     }, 500);
 
-    function addMarkerToMap(coords, title, modalId, contentId) {
+    const markersData = [
+      {
+        coords: [525, 150],
+        title: "Svīres iela 1",
+        contentId: 'available-project-content'
+      },
+      {
+        coords: [525, 275],
+        title: "Svīres iela 2",
+        contentId: 'available-project-content'
+      },
+      {
+        coords: [525, 475],
+        title: "Svīres iela 4",
+        contentId: 'available-project-content'
+      },
+      {
+        coords: [525, 575],
+        title: "Svīres iela 5",
+        contentId: 'available-project-content'
+      },
+      {
+        coords: [525, 675],
+        title: "Svīres iela 6",
+        contentId: 'available-project-content'
+      },
+      {
+        coords: [525, 925],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [400, 175],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [390, 385],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [390, 475],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [390, 570],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [390, 750],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [430, 1175],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [300, 200],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [250, 385],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [250, 570],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [250, 750],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [330, 1175],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [95, 500],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [95, 580],
+        title: "Pieejams zemes gabals un projekts pēc individuāla pieprasījuma",
+        contentId: 'available-project-land-content'
+      },
+      {
+        coords: [325, 655],
+        title: "Parks un bērnu laukums",
+        contentId: 'available-project-asset-content'
+      },
+      {
+        coords: [100, 150],
+        title: "Prettrokšņu valnis",
+        contentId: 'available-project-asset-content'
+      },
+    ];
+    markersData.forEach(({coords, title, contentId}) => {
       const marker = L.marker(coords, {title: title, icon: mapMarker}).addTo(map);
 
       marker.on('click', function () {
-        const modal = document.getElementById(modalId);
         const modalContent = document.getElementById(contentId);
-        modalContent.firstElementChild.textContent = title;
+        modalContent.firstElementChild.textContent += title;
         const bootstrapModal = new bootstrap.Modal(modal);
 
         bootstrapModal.show();
         modalContent.classList.remove('visually-hidden');
       });
-    }
-
-    addMarkerToMap([525, 150], "Svīres iela 1", 'available-project-modal', 'available-project-content');
-    addMarkerToMap([525, 275], "Svīres iela 2", 'available-project-modal', 'available-project-content');
-    addMarkerToMap([525, 475], "Svīres iela 4", 'available-project-modal', 'available-project-content');
-    addMarkerToMap([525, 575], "Svīres iela 5", 'available-project-modal', 'available-project-content');
-    addMarkerToMap([525, 675], "Svīres iela 6", 'available-project-modal', 'available-project-content');
-
-    addMarkerToMap([525, 925], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([400, 175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([390, 385], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([390, 475], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([390, 570], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([390, 750], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([430, 1175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-
-    addMarkerToMap([300, 200], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([250, 385], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([250, 570], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([250, 750], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([330, 1175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-
-    addMarkerToMap([95, 500], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-    addMarkerToMap([95, 580], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
-
-    addMarkerToMap([325, 655], "Parks un bērnu laukums", 'available-project-modal', 'available-project-asset-content');
-    addMarkerToMap([100, 150], "Prettrokšņu valnis", 'available-project-modal', 'available-project-asset-content');
+    });
 
     modal.addEventListener('hidden.bs.modal', () => {
-      const contents = document.querySelectorAll('.available-projects-content > div');
-      contents.forEach((content) => {
+      modalContents.forEach((content) => {
         content.classList.add('visually-hidden');
       });
     });
-
   </script>
 @endsection
 
