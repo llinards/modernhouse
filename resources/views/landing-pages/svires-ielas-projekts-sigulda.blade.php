@@ -869,7 +869,7 @@
     const mapMarker = L.divIcon({
       className: 'map-marker', // Your custom CSS class
       // popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
-      html: '<div></div>'
+      html: `<div></div>`
     });
 
     map.fitBounds(bounds);
