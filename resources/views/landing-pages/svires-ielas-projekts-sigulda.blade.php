@@ -885,27 +885,27 @@
     const markersData = [
       {
         coords: [525, 150],
-        title: "Svīres iela 1",
+        title: "Pieejams projekts Svīres iela 1",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 275],
-        title: "Svīres iela 2",
+        title: "Pieejams projekts Svīres iela 2",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 475],
-        title: "Svīres iela 4",
+        title: "Pieejams projekts Svīres iela 4",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 575],
-        title: "Svīres iela 5",
+        title: "Pieejams projekts Svīres iela 5",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 675],
-        title: "Svīres iela 6",
+        title: "Pieejams projekts Svīres iela 6",
         contentId: 'available-project-content'
       },
       {
@@ -994,7 +994,7 @@
 
       marker.on('click', function () {
         const modalContent = document.getElementById(contentId);
-        modalContent.firstElementChild.textContent += title;
+        modalContent.firstElementChild.textContent = title;
         const bootstrapModal = new bootstrap.Modal(modal);
 
         bootstrapModal.show();
