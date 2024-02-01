@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -20,9 +20,11 @@
                     <p class="card-title text-center">{{ $news->title }}</p>
                     <hr>
                     <div class="d-flex justify-content-center mt-4">
-                      <a href="/admin/news/{{ $news->id }}/edit" class="btn btn-dark m-1">Rediģēt</a>
+                      <a href="/admin/news/{{ $news->id }}/edit"
+                         class="btn btn-dark m-1">Rediģēt</a>
                       <button type="button" data-bs-toggle="modal"
-                              data-bs-target="#delete-news-modal-{{$news->id}}" class="btn btn-danger m-1">
+                              data-bs-target="#delete-news-modal-{{$news->id}}"
+                              class="btn btn-danger m-1">
                         Dzēst
                       </button>
                     </div>

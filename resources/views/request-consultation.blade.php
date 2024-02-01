@@ -1,4 +1,4 @@
-@extends('app', ['title' => Lang::get('request consultation'), 'index' => false])
+@extends('layouts.app', ['title' => Lang::get('request consultation'), 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
@@ -33,7 +33,8 @@
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label fw-bold">@lang('email')*</label>
-                <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control" id="email"
+                       value="{{ old('email') }}">
               </div>
               <div class="mb-3">
                 <label for="phone-number" class="form-label fw-bold">@lang('phone number')*</label>

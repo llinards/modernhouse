@@ -1,7 +1,8 @@
-@extends('app', ['index' => true])
+@extends('layouts.app', ['index' => true])
 @section('content')
   <article id="home">
-    <section id="introduction" class="full-height-section d-flex flex-column justify-content-between position-relative">
+    <section id="introduction"
+             class="full-height-section d-flex flex-column justify-content-between position-relative">
       <video class="introduction-video" playsinline autoplay muted loop
              poster="{{asset('storage/introduction-video/video-cover.jpg')}}">
         <source src="{{asset('storage/introduction-video/introduction-video.mp4')}}" type="video/mp4">

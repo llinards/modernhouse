@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -23,7 +23,8 @@
                 {{--                </div>--}}
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="{{ $productVariant->is_active }}"
+                    <input class="form-check-input" type="checkbox"
+                           value="{{ $productVariant->is_active }}"
                            id="product-variant-available"
                            name="product-variant-available" {{ $productVariant->is_active ? 'checked' : '' }} >
                     <label class="form-check-label" for="product-variant-available">
@@ -40,16 +41,21 @@
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas komplektācijai</label>
-                      <input type="text" name="product-variant-basic-price" id="product-variant-basic-price"
+                      <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas
+                        komplektācijai</label>
+                      <input type="text" name="product-variant-basic-price"
+                             id="product-variant-basic-price"
                              value="{{ $productVariant->price_basic }}" class="form-control">
                     </div>
                     <div class="col-6">
-                      <label for="product-variant-full-price" class="form-label">Cena pilnai komplektācijai</label>
-                      <input type="text" name="product-variant-full-price" id="product-variant-full-price"
+                      <label for="product-variant-full-price" class="form-label">Cena pilnai
+                        komplektācijai</label>
+                      <input type="text" name="product-variant-full-price"
+                             id="product-variant-full-price"
                              value="{{ $productVariant->price_full }}" class="form-control">
                     </div>
-                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies - <strong>Cena pēc
+                    <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies -
+                      <strong>Cena pēc
                         individuālā pieprasījuma.</strong></p>
                   </div>
                 </div>
@@ -62,12 +68,14 @@
                 <div class="mb-3">
                   <div class="row">
                     <div class="col-6">
-                      <label for="product-variant-living-area" class="form-label">Dzīvojamā platība</label>
+                      <label for="product-variant-living-area" class="form-label">Dzīvojamā
+                        platība</label>
                       <input type="text" name="product-variant-living-area"
                              value="{{ $productVariant->living_area }}" class="form-control">
                     </div>
                     <div class="col-6">
-                      <label for="product-variant-building-area" class="form-label">Apbūves platība</label>
+                      <label for="product-variant-building-area" class="form-label">Apbūves
+                        platība</label>
                       <input type="text" name="product-variant-building-area"
                              value="{{ $productVariant->building_area }}" class="form-control">
                     </div>
@@ -99,19 +107,25 @@
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="product-variant-images" class="form-label">Pievienot jaunas bildes</label>
+                  <label for="product-variant-images" class="form-label">Pievienot jaunas
+                    bildes</label>
                   <x-file-upload :name="'product-variant-images'"/>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   </p>
                 </div>
                 <div class="d-flex justify-content-between">
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-variant-modal"
+                  <button type="button" data-bs-toggle="modal"
+                          data-bs-target="#delete-product-variant-modal"
                           class="btn btn-danger">Dzēst
                   </button>
                   <div class="d-flex">
                     <a href="/admin" class="btn btn-dark">Atpakaļ</a>
-                    <button type="submit" form="update-product-variant" class="btn btn-success mx-1">Atjaunot</button>
+                    <button type="submit" form="update-product-variant"
+                            class="btn btn-success mx-1">Atjaunot
+                    </button>
                   </div>
                 </div>
               </form>

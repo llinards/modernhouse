@@ -1,4 +1,4 @@
-@extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
+@extends('layouts.landing-page-app', ['title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
   <div id="landing-page">
     {{--    Introduction--}}

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -14,11 +14,13 @@
               <form action="/admin/news" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="alert alert-secondary mx-0 my-2" role="alert">
-                  <p>Jaunums, ko pievienosi būs pieejams tikai {{ strtoupper(Lang::locale()) }} valodā.</p>
+                  <p>Jaunums, ko pievienosi būs pieejams tikai {{ strtoupper(Lang::locale()) }}
+                    valodā.</p>
                 </div>
                 <div class="mb-3">
                   <label for="news-title" class="form-label">Nosaukums</label>
-                  <input type="text" class="form-control" id="news-title" value="{{ old('news-title') }}"
+                  <input type="text" class="form-control" id="news-title"
+                         value="{{ old('news-title') }}"
                          name="news-title">
                 </div>
                 <div class="mb-3">
@@ -36,11 +38,14 @@
                   <div class="col">
                     {{--                    TODO: Update this to use the new file upload component--}}
                     <label for="news-attachments" class="form-label">Pielikumi</label>
-                    <input class="form-control" type="file" id="news-attachments" name="news-attachments[]">
+                    <input class="form-control" type="file" id="news-attachments"
+                           name="news-attachments[]">
                     </p>
                   </div>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
                 </div>
                 <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>

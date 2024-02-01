@@ -1,4 +1,4 @@
-@extends('app', ['title' => $product->translations[0]->name, 'index' => false])
+@extends('layouts.app', ['title' => $product->translations[0]->name, 'index' => false])
 @section('content')
   <div class="container-xxl mb-4">
     <div class="row">
@@ -18,7 +18,8 @@
         </ul>
         <div class="tab-content">
           @foreach($productVariants as $productVariant)
-            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{$productVariant->slug}}">
+            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                 id="{{$productVariant->slug}}">
               <div class="row">
                 <div class="col-lg-7 mt-4">
                   <section id="{{$productVariant->slug}}-main-carousel" class="splide">
@@ -80,8 +81,10 @@
                       <p>{!! $productVariant->translations[0]->description !!}</p>
                       <div class="product-details">
                         <div class="product-details-header d-flex justify-content-between">
-                          <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup></p>
-                          <p>@lang('construction area') : {{ $productVariant->building_area }} m<sup>2</sup></p>
+                          <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup>
+                          </p>
+                          <p>@lang('construction area') : {{ $productVariant->building_area }}
+                            m<sup>2</sup></p>
                         </div>
                         @if($productVariant->productVariantDetails->count() > 0)
                           <hr class="m-1">

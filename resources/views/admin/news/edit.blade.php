@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     @include('includes.admin-navbar')
@@ -73,11 +73,14 @@
                   <div class="col">
                     <label for="news-attachments" class="form-label">Pielikumi</label>
                     {{--                    TODO: Update this to use the new file upload component--}}
-                    <input class="form-control" type="file" id="news-attachments" name="news-attachments[]">
+                    <input class="form-control" type="file" id="news-attachments"
+                           name="news-attachments[]">
                     </p>
                   </div>
-                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā izmērā.</p>
-                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/" target="_blank">compressor.io</a>
+                  <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                  <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                    target="_blank">compressor.io</a>
                   <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
                 </div>
                 <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>
