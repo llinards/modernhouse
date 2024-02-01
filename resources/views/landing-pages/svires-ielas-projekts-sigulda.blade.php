@@ -869,9 +869,13 @@
     const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
     const mapMarker = L.divIcon({
       className: 'map-marker', // Your custom CSS class
-      // popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
       html: '<div></div>',
     });
+
+    setTimeout(function () {
+      console.log('works');
+      window.dispatchEvent(new Event("resize"));
+    }, 500);
 
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
@@ -896,7 +900,6 @@
 
     modal.addEventListener('hidden.bs.modal', () => {
       const contents = document.querySelectorAll('.available-projects-content > div');
-      console.log(contents);
       contents.forEach((content) => {
         content.classList.add('visually-hidden');
       });
