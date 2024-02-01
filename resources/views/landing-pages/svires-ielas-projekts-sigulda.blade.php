@@ -876,6 +876,10 @@
     map.setMaxBounds(bounds);
     map.setView([600, 0], 0);
 
+    setTimeout(function () {
+      window.dispatchEvent(new Event("resize"));
+    }, 500);
+
     function addMarkerToMap(coords, title, modalId, contentId) {
       const marker = L.marker(coords, {title: title, icon: mapMarker}).addTo(map);
 
