@@ -80,8 +80,10 @@
 
     .modal-close-btn {
       button {
-        background-color: #fff;
-        opacity: 1;
+        background: none;
+        border: none;
+        outline: none;
+        box-shadow: none;
       }
     }
   }

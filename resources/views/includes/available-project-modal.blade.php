@@ -3,7 +3,9 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-close-btn d-flex justify-content-end p-3">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-lg text-white"></i>
+        </button>
       </div>
       <div class="modal-body available-projects-content pt-0">
         <div id="available-project-1-content" class="visually-hidden text-center">
@@ -20,8 +22,9 @@
         </div>
         <div id="available-project-land-1-content" class="visually-hidden text-center">
           <h2 class="text-white mb-3">Pieejams zemes gabals un projekts pēc individuāla pieprasījuma</h2>
-          <p class="text-white">Zemes gabala cena 50 000 EUR</p>
-          <p class="text-white small my-3">Iespējama daļēja nomaksa atsevišķi vienojoties</p>
+          <p class="text-white">Zemes gabala cena 50 000 EUR*</p>
+          <p class="text-white">Zemes gabala platība 1200 m<sup>2</sup></p>
+          <p class="text-white small my-3">* Iespējama daļēja nomaksa atsevišķi vienojoties</p>
           <div class="d-flex justify-content-center">
             <a href="#"
                class="btn btn-third fw-light d-flex justify-content-center align-items-center"
