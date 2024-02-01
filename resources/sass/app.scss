@@ -32,6 +32,7 @@ body {
 }
 
 $primary-color: #3f3f3f;
+$primary-color-hover: #919191;
 
 $title-font-size: 56px;
 $title-font-size-mobile: 38px;
@@ -119,6 +120,16 @@ section.full-height-section {
 
 section.footer {
   height: auto;
+}
+
+.read-more {
+  color: $primary-color;
+  //text-decoration: none;
+  font-weight: 700;
+
+  &:hover {
+    color: $primary-color-hover;
+  }
 }
 
 .btn-primary,

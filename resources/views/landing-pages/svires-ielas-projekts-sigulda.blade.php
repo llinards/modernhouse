@@ -1,20 +1,19 @@
 @extends('app', ['index' => null, 'title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
   <div id="landing-page">
+    {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <h1 class="fw-bold text-center title">Piepildi sapni par <br/>māju Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center position-relative">
-        <div class="">
-          <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
-            <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="">
-            <p class="ml-3 text-white fw-bold">Svīres ielas projekts</p>
-          </div>
-          <div class="">
-            <a href="#contact-us"
-               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
-            >Pieteikties konsultācijai</a>
-          </div>
+        <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
+          <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
+          <p class="location-name ml-3 text-white fw-bold">Svīres ielas projekts</p>
+        </div>
+        <div>
+          <a href="#contact-us"
+             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+          >Pieteikties konsultācijai</a>
         </div>
         <a href="#about-project"
            class="pb-lg-5 pb-4 pt-3">
@@ -22,6 +21,7 @@
         </a>
       </div>
     </section>
+    {{--    About project--}}
     <section id="about-project" class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
@@ -32,21 +32,24 @@
             <div>
               <p class="mb-4">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres ielā.</p>
               <p class="mb-4">
-                Jaunais privātmāju dzīvojamais rajons atradīsies lieliskā un klusā vietā. Šeit būs iespēja baudīt
-                ģimeniskas pastaigas projekta izveidotajā parka, kā arī radīt atmiņas bērnu atpūtas laukumā.</p>
-              <p class="mb-4">Šajā projektā varat izvēlēties no kāda no pieciem zemes gabaliem ar vienstāvīgu
-                privātmāju, kuras plānots nodot ekspluatācijā 2024. gada beigās.
+                Jaunais privātmāju dzīvojamais projekts atradīsies lieliskā un klusā vietā. Šeit būs iespēja baudīt
+                ģimeniskas pastaigas projekta izveidotajā parkā, kā arī radīt atmiņas bērnu atpūtas laukumā.
+                Šajā projektā varat izvēlēties kādu no pieciem zemes gabaliem ar vienstāvīgu privātmāju, kuras plānots
+                nodot ekspluatācijā 2024. gada beigās.</p>
+              <p class="mb-4">Tāpat pieejami vēl vairāki brīvi zemes gabali, kuros iespējams uzbūvēt kādu mājokli no
+                mūsu tipveida projektiem, kā arī piedāvājam iespēju īstenot Jūsu sapņu māju, kopīgi radot individuālu
+                projektu.
               </p>
-              <p>Tāpat pieejami vēl vairāki brīvi zemes gabali, kuros iespējams uzbūvēt kādu mājokli no
-                mūsu piedāvājuma klāsta, Jūsu jau esošu ilgi loloto sapni vai arī varam palīdzēt ar savu pieredzi un
-                kopīgi izstrādāt individuālu projektu tieši Jums.</p>
+              <p>Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem, kura cena ir 50 000 EUR,
+                iespējama arī daļēja nomaksa atsevišķi vienojoties. Brīvos zemes gabalus iespējams aplūkot Svīres ielā
+                vai arī projekta <a class="read-more" href="#available-projects">digitālajā kartē</a>.</p>
             </div>
           </div>
           <div class="col-lg-7 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-3">
             <div class="row">
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
-                     alt="">
+                <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
+                     alt="House icon">
                 <p>dzīvojamā platība</p>
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
@@ -54,48 +57,48 @@
                 <h3 class="title fw-bold">101 - 180 m<sup>2</sup></h3>
               </div>
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
-                     alt="">
+                <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
+                     alt="Card icon">
                 <p>plānotās cenas</p>
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">305 000 EUR</h3>
+                <h3 class="title fw-bold">249 000 EUR</h3>
               </div>
             </div>
             <div class="row mt-lg-5 mt-4">
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/bed.svg')}}"
-                     alt="">
-                <p>istabas</p>
+                <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/bed.svg')}}"
+                     alt="Bed icon">
+                <p>guļamistabas</p>
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">3 guļamistabas</h3>
+                <h3 class="title fw-bold">3 - 4</h3>
               </div>
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
-                     alt="">
+                <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
+                     alt="Checkmark icon">
                 <p>energoefektivitāte</p>
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">A + klase</h3>
+                <h3 class="title fw-bold">A klase</h3>
               </div>
             </div>
             <div class="row mt-lg-5 mt-4">
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2"
+                <img class="icons mb-lg-3 mb-2"
                      src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
-                     alt="">
+                     alt="Location icon">
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
                 <h3 class="title fw-bold">labiekārtota teritorija</h3>
               </div>
               <div class="col-6 text-center">
-                <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
-                     alt="">
+                <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
+                     alt="Key icon">
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
@@ -106,12 +109,13 @@
         </div>
       </div>
     </section>
-    <section id="about-project-mobile" class="full-height-section d-md-none d-block">
+    {{--    About project (mobile only)--}}
+    <section class="full-height-section d-md-none d-block">
       <div class="container-xxl h-100 d-flex flex-column justify-content-evenly">
         <div class="row">
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
-                 alt="">
+            <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/house.svg')}}"
+                 alt="House icon">
             <p>dzīvojamā platība</p>
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
@@ -119,48 +123,48 @@
             <h3 class="title fw-bold">101 - 180 m<sup>2</sup></h3>
           </div>
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
-                 alt="">
+            <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
+                 alt="Card icon">
             <p>plānotās cenas</p>
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">305 000 EUR</h3>
+            <h3 class="title fw-bold">249 000 EUR</h3>
           </div>
         </div>
         <div class="row mt-lg-5 mt-4">
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/bed.svg')}}"
-                 alt="">
-            <p>istabas</p>
+            <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/bed.svg')}}"
+                 alt="Bed icon">
+            <p>guļamistabas</p>
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">3 guļamistabas</h3>
+            <h3 class="title fw-bold">3 - 4</h3>
           </div>
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
-                 alt="">
+            <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
+                 alt="Checkmark icon">
             <p>energoefektivitāte</p>
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">A + klase</h3>
+            <h3 class="title fw-bold">A klase</h3>
           </div>
         </div>
         <div class="row mt-lg-5 mt-4">
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2"
+            <img class="icons mb-lg-3 mb-2"
                  src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
-                 alt="">
+                 alt="Map icon">
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
             <h3 class="title fw-bold">labiekārtota teritorija</h3>
           </div>
           <div class="col-6 text-center">
-            <img class="about-project-icon mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
-                 alt="">
+            <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
+                 alt="Key icon">
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
@@ -169,49 +173,90 @@
         </div>
       </div>
     </section>
-    <section id="gallery" class="full-height-section">
+    {{--    Gallery--}}
+    <section class="full-height-section">
       <div class="container-xxl h-100 d-flex align-items-center" id="landing-page-galleries">
         <div id="svires-ielas-projekts-gallery-main-carousel" class="splide">
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/1.jpg') }}">
-                  <img class=""
-                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/1.jpg') }}"
-                       alt="Svires ielas projekts, Siguldā">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/1.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/1.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/2.jpg') }}">
-                  <img class=""
-                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/2.jpg') }}"
-                       alt="Svires ielas projekts, Siguldā">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/2.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/2.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/3.jpg') }}">
-                  <img class=""
-                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/3.jpg') }}"
-                       alt="Svires ielas projekts, Siguldā">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/3.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/3.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/4.jpg') }}">
-                  <img class=""
-                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/4.jpg') }}"
-                       alt="Svires ielas projekts, Siguldā">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/4.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/4.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
               <li class="splide__slide">
                 <a data-fslightbox="svires-ielas-projekts"
-                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/5.jpg') }}">
-                  <img class=""
-                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/5.jpg') }}"
-                       alt="Svires ielas projekts, Siguldā">
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/5.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/5.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/6.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/6.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/7.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/7.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/8.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/8.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/9.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/9.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
+                </a>
+              </li>
+              <li class="splide__slide">
+                <a data-fslightbox="svires-ielas-projekts"
+                   href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/10.jpg') }}">
+                  <img
+                    data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/gallery/10.jpg') }}"
+                    alt="Svires ielas projekts, Siguldā">
                 </a>
               </li>
             </ul>
@@ -219,18 +264,19 @@
         </div>
       </div>
     </section>
-    <section id="around-neighborhood" class="full-height-section d-flex flex-column">
+    {{--    Explore neighbourhood--}}
+    <section class="full-height-section d-flex flex-column">
       <div class="mb-4 pt-3">
         <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
       </div>
       <div class="h-100 mb-3">
-        <iframe src="https://snazzymaps.com/embed/564387" width="100%" height="100%"></iframe>
+        <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>
       </div>
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
-            <h3 class="title">2,3 km</h3>
-            <p class="fw-bold">T/C "Šokolāde"</p>
+            <h3 class="title">1,8 km</h3>
+            <p class="fw-bold">Pirmsskolas izglītības iestāde "Saulīte"</p>
           </div>
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
             <h3 class="title">600 m</h3>
@@ -241,19 +287,20 @@
             <p class="fw-bold">Siguldas Valsts ģimnāzija</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
-            <h3 class="title">1,6 km</h3>
+            <h3 class="title">2,1 km</h3>
             <p class="fw-bold">pilsētas centrs</p>
           </div>
           <div>
             <hr class="m-3">
           </div>
-          <a href="#"
+          <a href="#contact-us"
              class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
           >Pieteikties konsultācijai</a>
         </div>
       </div>
     </section>
-    <section id="full-project" class="full-height-section">
+    {{--    Full project house--}}
+    <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -261,35 +308,37 @@
               <h2 class="fw-bold title">No pamatiem<br/>līdz atslēgai</h2>
             </div>
             <div>
-              <p class="mb-4">Energoefektīva koka karkasa zviedru kvalitātes ģimenes māja ar trīs guļamistabām, plaša
-                dzīvojamā telpa apvienota ar virtuvi, trīs sanmezgliem –
-                divi ar dušu un viens ar veļas telpu.</p>
+              <p class="mb-4">Energoefektīva koka karkasa vienstāvīga ģimenes māja ar terasi, noliktavu un auto novietni
+                divām automašīnām. Mājā ir plānotas trīs guļamistabas, plaša dzīvojamā telpa, kas ir apvienota ar
+                virtuvi un augstajiem griestiem līdz jumta konstrukcijai, pārējā mājas daļā griestu augstums 2,70m.
+                Pārējās telpas – vannas istaba un dušas telpa ar tualeti, kā arī tehniskā telpa.</p>
               <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
-                ārējā apdare, apzaļumots, nobruģēts pagalms, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
+                Ārējā apdare, labiekārtota teritorija, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
               <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
-                krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
+                Krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
                 iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
               <p><strong>KOMUNIKĀCIJAS</strong><br/>
-                elektrība, santehnika, rekuperācijas iekārta, gaiss- ūdens siltumsūknis ar siltajām grīdām.</p>
+                Elektrība, santehnika, rekuperācijas iekārta, gaiss - ūdens siltumsūknis ar siltajām grīdām.</p>
             </div>
           </div>
           <div class="col-lg-7 d-lg-flex d-none flex-column justify-content-center">
-            <img src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/7.jpg')}}"/>
+            <img class="full-container-image"
+                 src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/7.jpg')}}"/>
           </div>
         </div>
       </div>
     </section>
+    {{--    Full screen image divider--}}
     <section class="full-height-section">
-      <img class="full-size-image-background"
+      <img class="full-container-image"
            src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/8.jpg')}}"
-           alt="">
+           alt="Svīres ielas projekts, Siguldā">
     </section>
+    {{--    Available projects (digital map)--}}
     <section id="available-projects" class="full-height-section d-flex flex-column">
-      <div class="container-xxl h-100 mt-5 mb-3 overflow-x-scroll position-relative">
-        <div class="h-100 overflow-x-scroll position-relative">
-          <div class="h-100">
-            <div id="map"></div>
-          </div>
+      <div class="container-xxl h-100 mt-5 mb-3">
+        <div class="h-100">
+          <div id="available-projects-map" class="map-size"></div>
           @include('includes.available-project-modal')
         </div>
       </div>
@@ -320,16 +369,20 @@
         </div>
       </div>
     </section>
-    <section id="live-in-sigulda" class="full-height-section"
+    {{--    Reasons to live in Sigulda--}}
+    <section class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/9.jpg')}})">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="col-lg-6 col-12 p-4">
-            <h2 class="fw-bold title text-white mb-4">Kāpēc dzīvot Siguldā?</h2>
+          <div class="col-lg-6 col-12 p-4 col-with-background">
+            <div class="mb-4">
+              <h2 class="fw-bold title text-white">Kāpēc dzīvot Siguldā?</h2>
+            </div>
             <ul class="p-0 m-0">
               <li class="d-flex justify-content-between">
                 <div class="ml-3">
-                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                  <img class="checkmark-icon-as-list-item"
+                       src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Sigulda piedāvā mierīgu un drošu vidi, kas ir piemērota ģimenēm. Ainavas,
                   parki un daudzās pastaigu takas sniedz iespēju baudīt dabas skaistumu un tās piedāvāto relaksējošo
@@ -338,7 +391,8 @@
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                  <img class="checkmark-icon-as-list-item"
+                       src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes
                   -bērnudārzus, sporta, mākslas un mūzikas skolas, kas veicina bērnu attīstību un izaugsmi.
@@ -346,14 +400,16 @@
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                  <img class="checkmark-icon-as-list-item"
+                       src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
                   iespējām, kas ir piemērotas ikvienam! Sigulda veicina aktīvu un veselīgu dzīvesveidu.</p>
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="">
+                  <img class="checkmark-icon-as-list-item"
+                       src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white">Kultūras un sabiedriskā dzīve - pilsēta regulāri rīko dažādus kultūras un
                   sabiedriskos pasākumus, piedāvājot ģimenēm iespēju piedalīties kopīgās aktivitātēs un veicināt
@@ -364,6 +420,7 @@
         </div>
       </div>
     </section>
+    {{--    CEO quot--}}
     <section id="ceo-quot" class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
@@ -374,19 +431,22 @@
                 PROFESIONĀLA
                 RAŽOŠANAS UN MONTĀŽAS PIEEJA, UN MŪSU
                 GALVENAIS MĒRĶIS IR RADĪT MĀJU SAJŪTU KOPĀ!</h3>
-              <p class="text-uppercase fw-bold">Helvijs Ervalds</p>
+              <p class="text-uppercase">Helvijs Ervalds</p>
               <p class="text-uppercase">Modern House CEO</p>
             </div>
           </div>
         </div>
       </div>
     </section>
+    {{--    Why choose MH--}}
     <section id="quality-standards" class="full-height-section"
              style="background-image:url({{asset('storage/landing-pages/svires-ielas-projekts-sigulda/10.jpg')}})">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
-          <div class="offset-lg-6 col-lg-6 col-12 p-4">
-            <h2 class="fw-bold title text-white mb-4">Kāpēc izvēlēties MODERN HOUSE?</h2>
+          <div class="offset-lg-6 col-lg-6 col-12 p-4 col-with-background">
+            <div class="mb-4">
+              <h2 class="fw-bold title text-white">Kāpēc izvēlēties MODERN HOUSE?</h2>
+            </div>
             <p class="text-white mb-4">
               MODERN HOUSE realize projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējīgu.
               Strādājam tikai un vienīgi ar augstvērtīgiem materiāliem, kuru ražotāji piedāvā uzticamus un pārbaudītus
@@ -403,7 +463,8 @@
         </div>
       </div>
     </section>
-    <section id="interior-concept" class="full-height-section">
+    {{--    Interior concept--}}
+    <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
@@ -431,49 +492,73 @@
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                   <li class="splide__slide">
                     <a data-fslightbox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
-                      <img class=""
-                           data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
-                           alt="Svires ielas projekts, Siguldā">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
+                        alt="Interior concept for Modern House projects">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}"
+                        alt="Interior concept for Modern House projects">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}"
+                        alt="Interior concept for Modern House projects">
+                    </a>
+                  </li>
+                  <li class="splide__slide">
+                    <a data-fslightbox="interior-concept-gallery"
+                       href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}">
+                      <img
+                        data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}"
+                        alt="Interior concept for Modern House projects">
                     </a>
                   </li>
                 </ul>
@@ -483,58 +568,83 @@
         </div>
       </div>
     </section>
-    <section id="interior-concept-mobile" class="full-height-section d-md-none d-block">
+    {{--    Interior concept gallery (mobile only)--}}
+    <section class="full-height-section d-md-none d-block">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div id="landing-page-galleries">
           <div id="interior-concept-mobile-gallery-main-carousel" class="splide">
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-gallery"
+                  <a data-fslightbox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
-                    <img class=""
-                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
-                         alt="Svires ielas projekts, Siguldā">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
+                      alt="Interior concept for Modern House projects">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-mobile-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}"
+                      alt="Interior concept for Modern House projects">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-mobile-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}"
+                      alt="Interior concept for Modern House projects">
+                  </a>
+                </li>
+                <li class="splide__slide">
+                  <a data-fslightbox="interior-concept-mobile-gallery"
+                     href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}">
+                    <img
+                      data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}"
+                      alt="Interior concept for Modern House projects">
                   </a>
                 </li>
               </ul>
@@ -544,6 +654,7 @@
       </div>
     </section>
     <div id="non-scroll-type-sections">
+      {{--      Technical specification--}}
       <section id="technical-specification">
         <div class="container-xxl">
           <div class="row">
@@ -555,7 +666,8 @@
           </div>
         </div>
       </section>
-      <section id="faq" class="mt-5">
+      {{--      FAQ--}}
+      <section class="mt-5">
         <div class="container-xxl">
           <div class="row">
             <div class="my-4 text-center">
@@ -615,7 +727,7 @@
                       class="accordion-collapse collapse product-variant-option-content">
                       <div class="accordion-body">
                         Jā, Jums būs iespēja pilnībā pielāgot mājas interjeru savām vēlmēm. Darba kārtībā saskaņosim ar
-                        Jums visus iekšdarbu materiālus un krāsas. Tādas lietas kā flīzes, grīdas segumu, elektro
+                        Jums visus iekšdarbu dizainu un materiālus. Tādas lietas kā flīzes, grīdas segumu, elektro
                         iekārtas, vannas istabu aprīkojumu varēsiet izvēlēties no mūsu piedāvājuma vai mūsu sadarbības
                         partneriem vai arī no kāda Jūsu izvēlēta piegādātāja.
                       </div>
@@ -654,9 +766,8 @@
                       <div class="accordion-body">
                         Iepriekš saskaņojot varam vienoties par apskati kādā mūsu jau pabeigtā projektā un vienmēr esam
                         atvērti Jums izrādīt arī kādu vēl būvniecības stadijā esošu projektu, kas ir ļoti laba iespēja
-                        apskatīt no kā māja sastāv.
-                        Pie mums ražotnē Siguldā, Lauku ielā 1 ir apskatāmas arī Demo moduļu mājas un ar lielāko prieku
-                        arī parādīsim un pastāstīsim par pašu ražošanas procesu.
+                        apskatīt no kā māja sastāv. Pie mums ražotnē Siguldā, Lauku ielā 1 ir apskatāmas arī demo moduļu
+                        mājas un ar lielāko prieku arī parādīsim un pastāstīsim par pašu ražošanas procesu.
                       </div>
                     </div>
                   </div>
@@ -673,11 +784,11 @@
                     <div id="{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}"
                          class="accordion-collapse collapse product-variant-option-content">
                       <div class="accordion-body">
-                        Ja izvēlaties kādu mūsu piedāvājumā esošu produktu, izpildes termiņš moduļu mājai būtu 10 – 12
-                        nedēļas, attiecīgi veicot izmaiņas vai pasūtot individuāli izstrādātu projektu, šis termiņš var
-                        nedaudz pieaugt.
-                        Privātmājām darbu izpildes termiņš no būvatļaujas saņemšanas un darbu uzsākšanas objektā līdz
-                        pabeigtai mājai ir 4 – 5 mēneši atkarībā no mājas lieluma.
+                        Ja izvēlaties kādu no mūsu tipveida piedāvājumā esošu produktu, izpildes termiņš moduļu mājai
+                        būtu 10 – 14 nedēļas, attiecīgi veicot izmaiņas vai pasūtot individuāli izstrādātu projektu, šis
+                        termiņš var nedaudz pieaugt. Privātmājām darbu izpildes
+                        termiņš no būvatļaujas saņemšanas un darbu uzsākšanas objektā līdz pabeigtai mājai ir 4 – 6
+                        mēneši atkarībā no izvēlētā projekta.
                       </div>
                     </div>
                   </div>
@@ -710,6 +821,7 @@
           </div>
         </div>
       </section>
+      {{--      Contact us--}}
       <section id="contact-us" class="mt-5">
         <div class="container-xxl position-relative">
           <div class="row">
@@ -725,6 +837,8 @@
           </div>
         </div>
       </section>
+      {{--Footer--}}
+      {{--      TODO: On safari jump to the section when reached the bottom--}}
       <section class="mt-5">
         @include('includes.footer')
       </section>
@@ -743,56 +857,40 @@
 
     const modal = document.getElementById('available-project-modal');
     const mapImageUrl = '{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/map.jpg')}}';
-    const map = L.map('map', {
+    const map = L.map('available-projects-map', {
       crs: L.CRS.Simple,
       maxZoom: 1,
       minZoom: -1,
+      scrollWheelZoom: false,
     });
     const bounds = [[0, 0], [600, 1320]];
     const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
-
-
-    map.fitBounds(bounds);
-    map.setMaxBounds(bounds);
-    map.setView([600, 0], 0);
-
-
     const mapMarker = L.divIcon({
       className: 'map-marker', // Your custom CSS class
       // popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
       html: '<div></div>'
     });
 
-    const availableProjectOne = L.marker([525, 150], {title: "Svīres iela 1", icon: mapMarker}).addTo(map);
-    const availableLandOne = L.marker([400, 175], {icon: mapMarker}).addTo(map);
-    const availableAssetOne = L.marker([325, 650], {icon: mapMarker}).addTo(map);
+    map.fitBounds(bounds);
+    map.setMaxBounds(bounds);
+    map.setView([600, 0], 0);
 
-    availableProjectOne.on('click', function () {
-      const modal = document.getElementById('available-project-modal');
-      const modalContent = document.getElementById('available-project-1-content');
-      const bootstrapModal = new bootstrap.Modal(modal);
+    function addMarkerToMap(coords, title, modalId, contentId) {
+      const marker = L.marker(coords, {title: title, icon: mapMarker}).addTo(map);
 
-      bootstrapModal.show();
-      modalContent.classList.remove('visually-hidden');
-    });
+      marker.on('click', function () {
+        const modal = document.getElementById(modalId);
+        const modalContent = document.getElementById(contentId);
+        const bootstrapModal = new bootstrap.Modal(modal);
 
-    availableLandOne.on('click', function () {
-      const modal = document.getElementById('available-project-modal');
-      const modalContent = document.getElementById('available-project-land-1-content');
-      const bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+        modalContent.classList.remove('visually-hidden');
+      });
+    }
 
-      bootstrapModal.show();
-      modalContent.classList.remove('visually-hidden');
-    });
-
-    availableAssetOne.on('click', function () {
-      const modal = document.getElementById('available-project-modal');
-      const modalContent = document.getElementById('available-project-asset-1-content');
-      const bootstrapModal = new bootstrap.Modal(modal);
-
-      bootstrapModal.show();
-      modalContent.classList.remove('visually-hidden');
-    });
+    addMarkerToMap([525, 150], "Svīres iela 1", 'available-project-modal', 'available-project-1-content');
+    addMarkerToMap([400, 175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-1-content');
+    addMarkerToMap([325, 650], "Parks un atkritumu šķirošanas laukums", 'available-project-modal', 'available-project-asset-1-content');
 
     modal.addEventListener('hidden.bs.modal', () => {
       const contents = document.querySelectorAll('.available-projects-content > div');

@@ -4,6 +4,18 @@
   overflow-y: scroll;
   height: 100%;
 
+  @keyframes circle-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.25);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
   #introduction {
     .title {
       color: white;
@@ -14,10 +26,10 @@
       position: absolute;
       top: 9%;
       left: 75%;
+    }
 
-      p {
-        font-size: 16px;
-      }
+    .location-name {
+      font-size: 16px;
     }
 
     .location-icon {
@@ -26,45 +38,31 @@
     }
   }
 
-  .about-project-icon {
+  .icons {
     width: 50px;
     height: 50px;
   }
 
-  #full-project {
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+  .map-size {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+  }
+
+  .full-container-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .leaflet-control-attribution {
+    display: none;
   }
 
   #available-projects {
     .container-xxl:first-of-type {
       padding-left: 0;
       padding-right: 0;
-    }
-
-    #map {
-      height: 100%;
-      width: 100%;
-      background-color: white;
-    }
-
-    .leaflet-container .leaflet-control-attribution {
-      display: none;
-    }
-
-    @keyframes circle-animation {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.25);
-      }
-      100% {
-        transform: scale(1);
-      }
     }
 
     .map-marker div {
@@ -75,9 +73,9 @@
       border-radius: 50%;
       animation: circle-animation 2s infinite;
     }
-    
+
     .modal-content {
-      background-color: #000000;
+      background-color: $primary-color;
     }
 
     .modal-close-btn {
@@ -85,27 +83,16 @@
         background-color: #fff;
         opacity: 1;
       }
-
     }
   }
 
-  #live-in-sigulda,
-  #quality-standards {
-    .col-lg-6.col-12 {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    img {
-      padding-right: 12px;
-      width: 40px;
-    }
+  .col-with-background {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
-  #quality-standards {
-    .row:last-of-type {
-      bottom: 5%;
-      align-self: center;
-    }
+  .checkmark-icon-as-list-item {
+    padding-right: 12px;
+    width: 40px;
   }
 
   #ceo-quot {
@@ -119,11 +106,11 @@
     }
   }
 
-
-  .full-size-image-background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  #quality-standards {
+    .row:last-of-type {
+      bottom: 5%;
+      align-self: center;
+    }
   }
 
   #non-scroll-type-sections {
