@@ -872,11 +872,6 @@
       html: '<div></div>',
     });
 
-    //TODO: Why this is happening on the server,safari
-    // setTimeout(function () {
-    //   window.dispatchEvent(new Event("resize"));
-    // }, 500);
-
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
     map.setView([600, 0], 0);
@@ -887,6 +882,7 @@
       marker.on('click', function () {
         const modal = document.getElementById(modalId);
         const modalContent = document.getElementById(contentId);
+        modalContent.firstElementChild.textContent = title;
         const bootstrapModal = new bootstrap.Modal(modal);
 
         bootstrapModal.show();
@@ -894,9 +890,31 @@
       });
     }
 
-    addMarkerToMap([525, 150], "Svīres iela 1", 'available-project-modal', 'available-project-1-content');
-    addMarkerToMap([400, 175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-1-content');
-    addMarkerToMap([325, 650], "Parks un atkritumu šķirošanas laukums", 'available-project-modal', 'available-project-asset-1-content');
+    addMarkerToMap([525, 150], "Svīres iela 1", 'available-project-modal', 'available-project-content');
+    addMarkerToMap([525, 275], "Svīres iela 2", 'available-project-modal', 'available-project-content');
+    addMarkerToMap([525, 475], "Svīres iela 4", 'available-project-modal', 'available-project-content');
+    addMarkerToMap([525, 575], "Svīres iela 5", 'available-project-modal', 'available-project-content');
+    addMarkerToMap([525, 675], "Svīres iela 6", 'available-project-modal', 'available-project-content');
+
+    addMarkerToMap([525, 925], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([400, 175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([390, 385], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([390, 475], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([390, 570], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([390, 750], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([430, 1175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+
+    addMarkerToMap([300, 200], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([250, 385], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([250, 570], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([250, 750], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([330, 1175], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+
+    addMarkerToMap([95, 500], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+    addMarkerToMap([95, 580], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
+
+    addMarkerToMap([325, 655], "Parks un atkritumu šķirošanas laukums", 'available-project-modal', 'available-project-asset-content');
+    addMarkerToMap([100, 150], "Prettrokšņu valnis", 'available-project-modal', 'available-project-asset-content');
 
     modal.addEventListener('hidden.bs.modal', () => {
       const contents = document.querySelectorAll('.available-projects-content > div');
