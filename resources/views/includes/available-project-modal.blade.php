@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body available-projects-content pt-0">
         <div id="available-project-content" class="visually-hidden text-center">
-          <h2 class="text-white mb-3">Pieejams projekts: </h2>
+          <h2 class="text-white mb-3"></h2>
           <p class="text-white">Dzīvojamā platība 112,02 m<sup>2</sup></p>
           <p class="text-white">Apbūves platība 229 m<sup>2</sup></p>
           <p class="text-white">Ārtelpu platība 92,36 m<sup>2</sup></p>
