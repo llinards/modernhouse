@@ -113,8 +113,8 @@
                     </div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
-                    <button id="request-product-info-modal"
-                            class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                    <button id="{{$productVariant->slug}}"
+                            class="btn btn-primary fw-light d-flex justify-content-center align-items-center request-product-info-modal"
                     >@lang('customer order')</button>
                   </div>
                 </div>
@@ -151,8 +151,11 @@
     })
 
     const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
-    document.getElementById('request-product-info-modal').addEventListener('click', () => {
-      requestProductInfoModal.show();
+    const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
+    requestProductInfoButtons.forEach((requestProductInfoButton) => {
+      requestProductInfoButton.addEventListener('click', () => {
+        requestProductInfoModal.show();
+      })
     })
   </script>
 @endsection
