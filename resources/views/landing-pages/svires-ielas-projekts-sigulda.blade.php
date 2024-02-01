@@ -338,7 +338,7 @@
     <section id="available-projects" class="full-height-section d-flex flex-column">
       <div class="container-xxl h-100 mt-5 mb-3">
         <div class="h-100">
-          <div id="available-projects-map" class="map-size"></div>
+          <div id="available-projects-map"></div>
           @include('includes.available-project-modal')
         </div>
       </div>
@@ -872,10 +872,10 @@
       html: '<div></div>',
     });
 
-    setTimeout(function () {
-      console.log('works');
-      window.dispatchEvent(new Event("resize"));
-    }, 500);
+    //TODO: Why this is happening on the server,safari
+    // setTimeout(function () {
+    //   window.dispatchEvent(new Event("resize"));
+    // }, 500);
 
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
