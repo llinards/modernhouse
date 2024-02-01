@@ -917,7 +917,7 @@
     addMarkerToMap([95, 500], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
     addMarkerToMap([95, 580], "Brīvais zemes gabals", 'available-project-modal', 'available-project-land-content');
 
-    addMarkerToMap([325, 655], "Parks un atkritumu šķirošanas laukums", 'available-project-modal', 'available-project-asset-content');
+    addMarkerToMap([325, 655], "Parks un bērnu laukums", 'available-project-modal', 'available-project-asset-content');
     addMarkerToMap([100, 150], "Prettrokšņu valnis", 'available-project-modal', 'available-project-asset-content');
 
     modal.addEventListener('hidden.bs.modal', () => {
