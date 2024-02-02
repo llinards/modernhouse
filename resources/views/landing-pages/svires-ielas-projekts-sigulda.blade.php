@@ -865,8 +865,13 @@
       maxZoom: 1,
       minZoom: -1,
       scrollWheelZoom: false,
-      zoomControl: false,
+      zoomControl: false
     });
+
+    L.control.zoom({
+      position: 'bottomright'
+    }).addTo(map);
+
     const bounds = [[0, 0], [600, 1320]];
     const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
     const mapMarker = L.divIcon({
@@ -876,7 +881,7 @@
 
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
-    map.setView([600, 0], 0);
+    map.setView([300, 660], 0);
 
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
