@@ -1,14 +1,22 @@
 import Splide from '@splidejs/splide';
-import 'filepond/dist/filepond.min.css';
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+import * as FilePond from 'filepond';
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
+
 import * as bootstrap from 'bootstrap'
 import L from 'leaflet';
 
-window.L = L;
+window.Splide = Splide;
+
+window.FilePond = FilePond;
+window.FilePondPluginFileValidateType = FilePondPluginFileValidateType;
+window.FilePondPluginImagePreview = FilePondPluginImagePreview;
+window.FilePondPluginFileValidateSize = FilePondPluginFileValidateSize;
 
 window.bootstrap = bootstrap;
-
-window.Splide = Splide;
+window.L = L;
 
 require('fslightbox');
 

@@ -1,6 +1,6 @@
 <input class="form-control file-upload" type="file" id="{{ $name }}" name="{{ $name }}[]" required="{{ $required }}">
 
-<script>
+<script type="module">
   const fileUpload = document.querySelector('.file-upload');
   const fileId = fileUpload.getAttribute('id');
 
@@ -52,7 +52,7 @@
       allowMultiple: true
     }
   };
-  
+
   if (optionsConfig[fileId]) {
     Object.assign(options, optionsConfig[fileId]);
   }
