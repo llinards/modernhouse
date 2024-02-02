@@ -901,22 +901,22 @@
       },
       {
         coords: [525, 275],
-        title: "Pieejams projekts Svīres iela 2",
+        title: "Pieejams projekts Svīres iela 3",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 475],
-        title: "Pieejams projekts Svīres iela 4",
+        title: "Pieejams projekts Svīres iela 7",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 575],
-        title: "Pieejams projekts Svīres iela 5",
+        title: "Pieejams projekts Svīres iela 9",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 675],
-        title: "Pieejams projekts Svīres iela 6",
+        title: "Pieejams projekts Svīres iela 11",
         contentId: 'available-project-content'
       },
       {
