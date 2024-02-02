@@ -300,6 +300,12 @@
         </div>
       </div>
     </section>
+    {{--    Full screen image divider--}}
+    <section class="full-height-section">
+      <img class="full-container-image"
+           src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/6.jpg')}}"
+           alt="Svīres ielas projekts, Siguldā">
+    </section>
     {{--    Full project house--}}
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
@@ -331,7 +337,7 @@
     </section>
     {{--    Full screen image divider--}}
     <section class="full-height-section">
-      <img loading="lazy" class="full-container-image"
+      <img class="full-container-image"
            src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/8.jpg')}}"
            alt="Svīres ielas projekts, Siguldā">
     </section>
@@ -382,7 +388,7 @@
             <ul class="p-0 m-0">
               <li class="d-flex justify-content-between">
                 <div class="ml-3">
-                  <img loading="lazy" class="checkmark-icon-as-list-item"
+                  <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Sigulda piedāvā mierīgu un drošu vidi, kas ir piemērota ģimenēm. Ainavas,
@@ -392,7 +398,7 @@
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img loading="lazy" class="checkmark-icon-as-list-item"
+                  <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes
@@ -401,7 +407,7 @@
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img loading="lazy" class="checkmark-icon-as-list-item"
+                  <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
@@ -409,7 +415,7 @@
               </li>
               <li class="d-flex justify-content-between">
                 <div class="mr-3">
-                  <img loading="lazy" class="checkmark-icon-as-list-item"
+                  <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
                 <p class="text-white">Kultūras un sabiedriskā dzīve - pilsēta regulāri rīko dažādus kultūras un
@@ -865,8 +871,13 @@
       maxZoom: 1,
       minZoom: -1,
       scrollWheelZoom: false,
-      zoomControl: false,
+      zoomControl: false
     });
+
+    L.control.zoom({
+      position: 'bottomright'
+    }).addTo(map);
+
     const bounds = [[0, 0], [600, 1320]];
     const image = L.imageOverlay(mapImageUrl, bounds).addTo(map);
     const mapMarker = L.divIcon({
@@ -876,7 +887,7 @@
 
     map.fitBounds(bounds);
     map.setMaxBounds(bounds);
-    map.setView([600, 0], 0);
+    map.setView([300, 660], 0);
 
     setTimeout(function () {
       window.dispatchEvent(new Event("resize"));
@@ -890,22 +901,22 @@
       },
       {
         coords: [525, 275],
-        title: "Pieejams projekts Svīres iela 2",
+        title: "Pieejams projekts Svīres iela 3",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 475],
-        title: "Pieejams projekts Svīres iela 4",
+        title: "Pieejams projekts Svīres iela 7",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 575],
-        title: "Pieejams projekts Svīres iela 5",
+        title: "Pieejams projekts Svīres iela 9",
         contentId: 'available-project-content'
       },
       {
         coords: [525, 675],
-        title: "Pieejams projekts Svīres iela 6",
+        title: "Pieejams projekts Svīres iela 11",
         contentId: 'available-project-content'
       },
       {
