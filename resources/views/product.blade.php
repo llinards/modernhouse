@@ -150,6 +150,34 @@
       })
     })
 
+    const galleries = document.querySelectorAll('.tab-pane .row .col-lg-7.mt-4');
+    galleries.forEach((gallery) => {
+      const main = new Splide('#' + gallery.firstElementChild.id, {
+        type: 'fade',
+        pagination: false,
+        lazyLoad: 'sequential',
+      });
+
+      const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
+        fixedWidth: 100,
+        fixedHeight: 60,
+        gap: 10,
+        arrows: false,
+        pagination: false,
+        isNavigation: true,
+        lazyLoad: 'sequential',
+        breakpoints: {
+          600: {
+            fixedWidth: 60,
+            fixedHeight: 44,
+          },
+        },
+      });
+      main.sync(thumbnails);
+      main.mount();
+      thumbnails.mount();
+    });
+
     const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
     const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
     requestProductInfoButtons.forEach((requestProductInfoButton) => {
