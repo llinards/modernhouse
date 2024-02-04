@@ -86,7 +86,7 @@
                   <x-description-text-area
                     :name="'product-variant-description'">{{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}</x-description-text-area>
                 </div>
-                <div class="mb-3" id="product-variant-images">
+                <div class="mb-3" id="all-product-variant-images">
                   <p>Esošās bildes</p>
                   <div class="row">
                     @if(count($productVariant->productVariantImages) === 0)

@@ -48,7 +48,7 @@
                   <x-description-text-area
                     :name="'gallery-content'"> {{ $gallery->translations[0]->content ?? 'Nav tulkojuma!' }}</x-description-text-area>
                 </div>
-                <div class="mb-3" id="gallery-images">
+                <div class="mb-3" id="all-gallery-images">
                   <p>Esošās bildes / video</p>
                   <div class="row">
                     @if(count($gallery->images) === 0)

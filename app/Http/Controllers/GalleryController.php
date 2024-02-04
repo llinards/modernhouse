@@ -119,7 +119,7 @@ class GalleryController extends Controller
   {
     try {
       $galleryService->destroyImage($image);
-      return redirect()->to(app('url')->previous()."#gallery-images")->with('success', 'Bilde dzēsta!');
+      return redirect()->to(app('url')->previous()."#all-gallery-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
