@@ -465,7 +465,7 @@
         </div>
         <div class="row position-absolute">
           <a href="#technical-specification"
-             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
           >Tehniskā specifikācija</a>
         </div>
       </div>
