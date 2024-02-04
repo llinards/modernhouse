@@ -12,8 +12,8 @@
           <a class="nav-link index text-center p-3"
              href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
         @endforeach
-        {{--        <a class="nav-link index text-center p-3"--}}
-        {{--           href="/lv/projekti/svires-ielas-projekts-sigulda" target="_blank">@lang('projects')</a>--}}
+        <a class="nav-link index text-center p-3"
+           href="/lv/projekti/svires-ielas-projekts-sigulda" target="_blank">@lang('projects')</a>
       </div>
     @endif
     <button type="button" name="menu" class="navbar-toggler py-4">
@@ -50,10 +50,10 @@
                  href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
             </li>
           @endforeach
-          {{--          <li class="nav-item">--}}
-          {{--            <a class="nav-link text-center"--}}
-          {{--               href="/lv/projekti/svires-ielas-projekts-sigulda" target="_blank">@lang('projects')</a>--}}
-          {{--          </li>--}}
+          <li class="nav-item">
+            <a class="nav-link text-center"
+               href="/lv/projekti/svires-ielas-projekts-sigulda" target="_blank">@lang('projects')</a>
+          </li>
         </ul>
       </div>
       <div class="nav-items">
