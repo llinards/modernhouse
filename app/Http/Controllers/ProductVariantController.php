@@ -88,7 +88,7 @@ class ProductVariantController extends Controller
   {
     try {
       $productVariantService->destroyImage($image);
-      return redirect()->to(app('url')->previous()."#product-variant-images")->with('success', 'Bilde dzēsta!');
+      return redirect()->to(app('url')->previous()."#all-product-variant-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
