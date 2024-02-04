@@ -57,7 +57,7 @@
       </div>
     </section>
   </div>
-  <script>
+  <script type="module">
     FilePond.registerPlugin(FilePondPluginFileValidateType);
     FilePond.registerPlugin(FilePondPluginFileValidateSize);
     FilePond.registerPlugin(FilePondPluginImagePreview);

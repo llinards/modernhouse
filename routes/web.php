@@ -23,6 +23,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::post('/', [\App\Http\Controllers\ProductController::class, 'store']);
   Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'showAdmin']);
   Route::patch('/', [\App\Http\Controllers\ProductController::class, 'update']);
+  Route::get('/{product}/video/delete', [\App\Http\Controllers\ProductController::class, 'destroyVideo']);
   Route::delete('/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
 
   //GalleryController

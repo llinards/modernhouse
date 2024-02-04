@@ -36,6 +36,13 @@
                                                                     target="_blank">compressor.io</a>
                   </p>
                 </div>
+                <div class="mb-3">
+                  <label for="product-cover-video" class="form-label">Produkta pirmās lapas
+                    video</label>
+                  <x-file-upload :name="'product-cover-video'"/>
+                  <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
+                    izmērā.</p>
+                </div>
                 <a href="/admin" class="btn btn-dark">Atpakaļ</a>
                 <button type="submit" class="btn btn-success">Pievienot</button>
               </form>

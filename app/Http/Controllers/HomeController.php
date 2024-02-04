@@ -59,7 +59,10 @@ class HomeController extends Controller
 
   public function storeTemporaryUpload(Request $data): string
   {
-    $fileTypes = ['product-cover-photo', 'product-variant-images', 'gallery-images', 'news-images', 'news-attachments'];
+    $fileTypes = [
+      'product-cover-photo', 'product-cover-video', 'product-variant-images', 'gallery-images', 'news-images',
+      'news-attachments'
+    ];
     foreach ($fileTypes as $fileType) {
       if ($data->hasFile($fileType)) {
         $files = $data->file($fileType);

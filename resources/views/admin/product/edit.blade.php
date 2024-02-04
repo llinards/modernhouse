@@ -45,10 +45,30 @@
                   </div>
                 @endif
                 <div class="mb-3">
-                  <p>Esošā pirmās lapas bilde</p>
-                  <img class="img-fluid w-50"
-                       src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}"
-                       alt=""/>
+                  <div class="row">
+                    <div class="col-6">
+                      <p>Esošā pirmās lapas bilde</p>
+                      <img class="img-fluid"
+                           src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}"
+                           alt=""/>
+                    </div>
+                    @if($product->cover_video_filename)
+                      <div class="col-6">
+                        <p>Esošais pirmās lapas video</p>
+                        <video class="img-fluid" controls muted>
+                          <source
+                            src="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_video_filename)}}"
+                            type="video/mp4">
+                        </video>
+                        <div>
+                          <a class="btn btn-danger btn-sm mb-1"
+                             href="{{ URL::to('/admin/'.$product->slug.'/video/delete') }}">
+                            Noņemt video kā galveno kategorijas skatu
+                          </a>
+                        </div>
+                      </div>
+                    @endif
+                  </div>
                 </div>
                 <div class="mb-3">
                   <label for="product-cover-photo" class="form-label">Produkta pirmās lapas
@@ -59,6 +79,13 @@
                   <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
                                                                     target="_blank">compressor.io</a>
                   </p>
+                </div>
+                <div class="mb-3">
+                  <label for="product-cover-video" class="form-label">Produkta pirmās lapas
+                    video</label>
+                  <x-file-upload :name="'product-cover-video'"/>
+                  <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
+                    izmērā.</p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-modal"

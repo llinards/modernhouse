@@ -40,15 +40,9 @@
 
   <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
-  @if(!isset($index))
-    <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
-    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-    <script
-      src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-    <script
-      src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
-  @endif
+  {{--TODO: Move this to NPM--}}
+  <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+
   @if(App::environment('production'))
     <meta name="facebook-domain-verification" content="6f9uyw6o900t8gvvu9fhtwmn938qse"/>
   @endif

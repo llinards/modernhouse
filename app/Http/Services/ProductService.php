@@ -31,6 +31,7 @@ class ProductService
     $this->product = Product::create([
       'slug' => $this->slug,
       'cover_photo_filename' => basename($data['product-cover-photo'][0]),
+      'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : null,
       'is_active' => false
     ]);
   }
@@ -43,12 +44,12 @@ class ProductService
     ]);
   }
 
-  public function addImage(array $images): void
+  public function addMedia(array $media): void
   {
-    foreach ($images as $image) {
-      if ($image !== null) {
+    foreach ($media as $mediaItem) {
+      if ($mediaItem !== null) {
         $fileService = new FileService();
-        $fileService->storeFile($image, 'product-images/'.$this->slug);
+        $fileService->storeFile($mediaItem, 'product-images/'.$this->slug);
       }
     }
   }
@@ -65,6 +66,7 @@ class ProductService
     $this->product->update([
       'slug' => $this->slug,
       'cover_photo_filename' => isset($data['product-cover-photo'][0]) ? basename($data['product-cover-photo'][0]) : $this->product->cover_photo_filename,
+      'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : $this->product->cover_video_filename,
       'is_active' => isset($data['product-available'])
     ]);
   }
@@ -74,6 +76,14 @@ class ProductService
     $translation->update([
       'name' => $data['product-name'],
     ]);
+  }
+
+  public function destroyVideo(object $data): void
+  {
+    $this->product = $this->getProduct($data->id);
+    $fileService = new FileService();
+    $fileService->destroyFile($this->product->cover_video_filename, 'product-images/'.$this->product->slug);
+    $this->product->update(['cover_video_filename' => null]);
   }
 
   public function destroyProduct(object $data): void
