@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
   public function index()
   {
-    $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename')
+    $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
       ->with([
         'translations' => function ($query) {
           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
@@ -60,7 +60,10 @@ class ProductController extends Controller
     try {
       $productService->addProduct($data);
       $productService->addTranslation($data);
-      $productService->addImage($data['product-cover-photo']);
+      $productService->addMedia($data['product-cover-photo']);
+      if ($data->has('product-cover-video')) {
+        $productService->addMedia($data['product-cover-video']);
+      }
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
@@ -123,7 +126,7 @@ class ProductController extends Controller
 
   public function showAdmin(Product $product)
   {
-    $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename')
+    $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename', 'cover_video_filename')
       ->with([
         'translations' => function ($query) {
           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
@@ -144,7 +147,10 @@ class ProductController extends Controller
         $productService->addTranslation($data);
       }
       if ($data->has(['product-cover-photo'])) {
-        $productService->addImage($data['product-cover-photo']);
+        $productService->addMedia($data['product-cover-photo']);
+      }
+      if ($data->has(['product-cover-video'])) {
+        $productService->addMedia($data['product-cover-video']);
       }
       return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
@@ -161,6 +167,17 @@ class ProductController extends Controller
     try {
       $productService->destroyProduct($product);
       return redirect('/admin')->with('success', 'Dzēsts!');
+    } catch (\Exception $e) {
+      Log::error($e);
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function destroyVideo(Product $product, ProductService $productService)
+  {
+    try {
+      $productService->destroyVideo($product);
+      return back()->with('success', 'Video dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');

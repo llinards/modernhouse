@@ -1,14 +1,11 @@
 <input class="form-control file-upload" type="file" id="{{ $name }}" name="{{ $name }}[]" required="{{ $required }}">
 
 <script type="module">
-  const fileUpload = document.querySelector('.file-upload');
+  const fileUpload = document.getElementById('{{$name}}');
   const fileId = fileUpload.getAttribute('id');
-
   FilePond.registerPlugin(FilePondPluginFileValidateType);
   FilePond.registerPlugin(FilePondPluginImagePreview);
   FilePond.registerPlugin(FilePondPluginFileValidateSize);
-  FilePond.create(fileUpload);
-
   const options = {
     server: {
       url: '/admin/upload',
@@ -20,7 +17,6 @@
     allowReorder: true,
     allowImagePreview: true,
   };
-
   const optionsConfig = {
     "gallery-images": {
       labelIdle: 'Pievienot bildes vai video',
@@ -32,6 +28,11 @@
       labelIdle: 'Pievienot bildi',
       maxFileSize: '500KB',
       acceptedFileTypes: ['image/*']
+    },
+    "product-cover-video": {
+      labelIdle: 'Pievienot video',
+      maxFileSize: '50MB',
+      acceptedFileTypes: ['video/mp4']
     },
     "news-images": {
       labelIdle: 'Pievienot bildes',
@@ -52,12 +53,9 @@
       allowMultiple: true
     }
   };
-
   if (optionsConfig[fileId]) {
     Object.assign(options, optionsConfig[fileId]);
   }
-
   options.required = fileUpload.getAttribute('required') === 'true';
-
-  FilePond.setOptions(options);
+  FilePond.create(fileUpload, options);
 </script>

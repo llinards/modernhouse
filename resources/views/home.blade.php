@@ -22,24 +22,50 @@
       </div>
     </section>
     @foreach($allActiveProducts as $key => $product)
-      <section id="{{$product->slug}}" class="full-height-section d-flex flex-column justify-content-between"
-               style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
-        <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
-        <div class="text-center d-flex flex-column justify-content-end align-items-center">
-          <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
-             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>
-          <a href="/{{ app()->getLocale()}}/request-consultation"
-             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
-          >@lang('request consultation')</a>
-          @php
-            ++$key;
-          @endphp
-          <a href="#{{ $loop->last ? 'choose-order-contact' : $allActiveProducts[$key]->slug }}"
-             class="pb-lg-5 pb-4 pt-3">
-            <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
-          </a>
-        </div>
-      </section>
+      @if($product->cover_video_filename)
+        <section id="{{$product->slug}}"
+                 class="full-height-section d-flex flex-column justify-content-between position-relative">
+          <video class="introduction-video" playsinline autoplay muted loop
+                 poster="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}">
+            <source src="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_video_filename)}}"
+                    type="video/mp4">
+          </video>
+          <h1 class="fw-bold text-center text-uppercase title z-1">{{ $product->translations[0]->name }}</h1>
+          <div class="text-center d-flex flex-column justify-content-end align-items-center z-1">
+            <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>
+            <a href="/{{ app()->getLocale()}}/request-consultation"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+            >@lang('request consultation')</a>
+            @php
+              ++$key;
+            @endphp
+            <a href="#{{ $loop->last ? 'choose-order-contact' : $allActiveProducts[$key]->slug }}"
+               class="pb-lg-5 pb-4 pt-3">
+              <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
+            </a>
+          </div>
+        </section>
+      @else
+        <section id="{{$product->slug}}" class="full-height-section d-flex flex-column justify-content-between"
+                 style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
+          <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
+          <div class="text-center d-flex flex-column justify-content-end align-items-center">
+            <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>
+            <a href="/{{ app()->getLocale()}}/request-consultation"
+               class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+            >@lang('request consultation')</a>
+            @php
+              ++$key;
+            @endphp
+            <a href="#{{ $loop->last ? 'choose-order-contact' : $allActiveProducts[$key]->slug }}"
+               class="pb-lg-5 pb-4 pt-3">
+              <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
+            </a>
+          </div>
+        </section>
+      @endif
     @endforeach
     <section id="choose-order-contact"
              class="full-height-section d-flex justify-content-center align-items-center flex-column">
