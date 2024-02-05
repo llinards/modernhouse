@@ -26,24 +26,32 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <div class="mb-4">
+            <div class="mb-2">
               <h2 class="fw-bold title">Par projektu</h2>
             </div>
             <div>
-              <p class="mb-4">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres ielā.</p>
-              <p class="mb-4">
+              <p class="mb-2">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres
+                ielā.</p>
+              <p class="mb-2">
                 Jaunais privātmāju dzīvojamais projekts atradīsies lieliskā un klusā vietā. Šeit būs iespēja baudīt
                 ģimeniskas pastaigas projekta izveidotajā parkā, kā arī radīt atmiņas bērnu atpūtas laukumā.
                 Šajā projektā varat izvēlēties kādu no pieciem zemes gabaliem ar vienstāvīgu privātmāju, kuras plānots
                 nodot ekspluatācijā 2024. gada beigās.</p>
-              <p class="mb-4">Tāpat pieejami vēl vairāki brīvi zemes gabali, kuros iespējams uzbūvēt kādu mājokli no
+              <p class="mb-2">Tāpat pieejami vēl vairāki brīvi zemes gabali, kuros iespējams uzbūvēt kādu
+                mājokli no
                 mūsu tipveida projektiem, kā arī piedāvājam iespēju īstenot Jūsu sapņu māju, kopīgi radot individuālu
                 projektu.
               </p>
-              <p>Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem ar platību 1200
+              <p class="mb-5">Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem ar
+                platību 1200
                 m<sup>2</sup>, kura cena ir 50 000 EUR,
                 iespējama arī daļēja nomaksa atsevišķi vienojoties. Brīvos zemes gabalus iespējams aplūkot Svīres ielā
-                vai arī projekta <a class="read-more" href="#available-projects">digitālajā kartē</a>.</p>
+                vai arī projekta digitālajā kartē.</p>
+              <div class="d-flex justify-content-center">
+                <a href="#available-projects"
+                   class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                >Digitālā karte</a>
+              </div>
             </div>
           </div>
           <div class="col-lg-7 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-3">
@@ -311,17 +319,18 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <div class="mb-4">
+            <div class="mb-2">
               <h2 class="fw-bold title">No pamatiem<br/>līdz atslēgai</h2>
             </div>
             <div>
-              <p class="mb-4">Energoefektīva koka karkasa vienstāvīga ģimenes māja ar terasi, noliktavu un auto novietni
+              <p class="mb-2">Energoefektīva koka karkasa vienstāvīga ģimenes māja ar terasi, noliktavu un auto
+                novietni
                 divām automašīnām. Mājā ir plānotas trīs guļamistabas, plaša dzīvojamā telpa, kas ir apvienota ar
                 virtuvi un augstajiem griestiem līdz jumta konstrukcijai, pārējā mājas daļā griestu augstums 2,70m.
                 Pārējās telpas – vannas istaba un dušas telpa ar tualeti, kā arī tehniskā telpa.</p>
-              <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
+              <p class="mb-2"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI ĀRDARBI</strong><br/>
                 Ārējā apdare, labiekārtota teritorija, uzstādīta sēta un automātiskie iebraucamie vārti.</p>
-              <p class="mb-4"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
+              <p class="mb-2"><strong>MĀJAI BŪS PILNĪBĀ PABEIGTI IEKŠDARBI</strong><br/>
                 Krāsotas sienas, griesti, noflīzēti un aprīkoti sanmezgli, ieklāts grīdas segums, uzstādīta virtuves
                 iekārta ar virtuves tehniku, masīvkoka iekšdurvis, iebūvējamie gaismekļi sanmezglos un gaitenī.</p>
               <p><strong>KOMUNIKĀCIJAS</strong><br/>
