@@ -3,45 +3,43 @@
     <h2 class="text-center">Tehniskā informācija</h2>
   </x-slot>
   <x-slot name="content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-7 col-12">
-          <div class="mb-5">
-            <button class="btn btn-success" onclick="addNewProductVariantOption();">+</button>
-          </div>
-          @include('includes.status-messages')
-          @if (count($allProductVariantOptions) !== 0)
-            <form action="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
-                  method="POST"
-                  enctype="multipart/form-data">
-              @csrf
-              @method('PATCH')
-              <div class="row" id="product-variant-option-editor-section">
-                @foreach($allProductVariantOptions as $key => $productVariantOption)
-                  <x-product-variant-option-update :key="$key"
-                                                   :productVariantOption="$productVariantOption"
-                                                   :productVariant="$productVariant"/>
-                @endforeach
-              </div>
-              <a href="/admin/product-variant/{{ $productVariant->id }}/edit"
-                 class="btn btn-dark">Atpakaļ</a>
-              <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
-            </form>
-          @else
-            <form action="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
-                  method="POST"
-                  enctype="multipart/form-data">
-              @csrf
-              <div class="row" id="product-variant-option-editor-section">
-                <x-product-variant-option-create :productVariant="$productVariant"/>
-              </div>
-              <a href="/admin/product-variant/{{ $productVariant->id }}/edit"
-                 class="btn btn-dark">Atpakaļ</a>
-              <button type="submit"
-                      class="btn btn-success mx-1">{{ count($allProductVariantOptions) !== 0 ? 'Atjaunot' : 'Pievienot' }}</button>
-            </form>
-          @endif
+    <div class="row justify-content-center">
+      <div class="col-lg-7 col-12">
+        <div class="mb-5">
+          <button class="btn btn-success" onclick="addNewProductVariantOption();">+</button>
         </div>
+        @include('includes.status-messages')
+        @if (count($allProductVariantOptions) !== 0)
+          <form action="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
+                method="POST"
+                enctype="multipart/form-data">
+            @csrf
+            @method('PATCH')
+            <div class="row" id="product-variant-option-editor-section">
+              @foreach($allProductVariantOptions as $key => $productVariantOption)
+                <x-product-variant-option-update :key="$key"
+                                                 :productVariantOption="$productVariantOption"
+                                                 :productVariant="$productVariant"/>
+              @endforeach
+            </div>
+            <a href="/admin/product-variant/{{ $productVariant->id }}/edit"
+               class="btn btn-dark">Atpakaļ</a>
+            <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
+          </form>
+        @else
+          <form action="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
+                method="POST"
+                enctype="multipart/form-data">
+            @csrf
+            <div class="row" id="product-variant-option-editor-section">
+              <x-product-variant-option-create :productVariant="$productVariant"/>
+            </div>
+            <a href="/admin/product-variant/{{ $productVariant->id }}/edit"
+               class="btn btn-dark">Atpakaļ</a>
+            <button type="submit"
+                    class="btn btn-success mx-1">{{ count($allProductVariantOptions) !== 0 ? 'Atjaunot' : 'Pievienot' }}</button>
+          </form>
+        @endif
       </div>
     </div>
     <div class="col-6 visually-hidden empty-editor">

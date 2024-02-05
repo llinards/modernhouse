@@ -32,7 +32,9 @@
       {{ $header }}
     </div>
     <div class="my-5">
-      {{ $content }}
+      <div class="container">
+        {{ $content }}
+      </div>
     </div>
   </section>
 </div>
