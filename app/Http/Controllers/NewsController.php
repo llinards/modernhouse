@@ -115,7 +115,7 @@ class NewsController extends Controller
   {
     try {
       $newsService->destroyImage($image);
-      return redirect()->to(app('url')->previous()."#news-images")->with('success', 'Bilde dzēsta!');
+      return redirect()->to(app('url')->previous()."#all-news-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
@@ -126,7 +126,7 @@ class NewsController extends Controller
   {
     try {
       $newsService->destroyAttachment($attachment);
-      return redirect()->to(app('url')->previous()."#news-attachments")->with('success', 'Pielikums dzēsts!');
+      return redirect()->to(app('url')->previous()."#all-news-attachments")->with('success', 'Pielikums dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
