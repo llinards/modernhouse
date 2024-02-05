@@ -14,6 +14,7 @@
   "maintenance": "Notiek modernizācijas darbi!",
   "be right back": "Būsim drīz atpakaļ.",
   "404 error": "Lapa nav atrasta!",
+  "500 error": "Notikusi kļūda!<br/>Mēģini vēlreiz.",
   "page does not exist": "Šāda lapa neeksistē.",
   "message has been sent": "Paldies! Ziņa ir nosūtīta!",
   "message has not been sent": "Kļūda! Ziņa nav nosūtīta! Mēģini vēlreiz.",

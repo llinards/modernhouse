@@ -14,6 +14,7 @@
   "maintenance": "Maintenance!",
   "be right back": "We'll be right back!",
   "404 error": "Page not found!",
+  "500 error": "Something went down! Try again.",
   "page does not exist": "Page does not exist.",
   "message has been sent": "Thank you! Your message has been sent. We will contact you as soon as possible.",
   "message has not been sent": "Something went wrong! Your message has not been sent. Please try again later.",
