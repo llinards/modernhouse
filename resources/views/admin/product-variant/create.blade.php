@@ -1,6 +1,6 @@
 <x-admin-layout>
   <x-slot name="header">
-    <h2 class="text-center">Pievienot jaunu moduli/māju</h2>
+    Pievienot jaunu moduli/māju
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">

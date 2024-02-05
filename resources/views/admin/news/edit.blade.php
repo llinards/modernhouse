@@ -1,6 +1,6 @@
 <x-admin-layout>
   <x-slot name="header">
-    <h2 class="text-center">Rediģēt - {{ $news->title }}</h2>
+    Rediģēt - {{ $news->title }}
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">

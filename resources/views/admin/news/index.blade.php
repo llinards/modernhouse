@@ -1,6 +1,6 @@
 <x-admin-layout>
   <x-slot name="header">
-    <h2 class="text-center">Aktualitātes</h2>
+    Aktualitātes
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">

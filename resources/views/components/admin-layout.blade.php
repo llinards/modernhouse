@@ -24,12 +24,14 @@
 
   <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
-<body class="antialiased" oncontextmenu="return false">
+<body class="antialiased">
 <div class="container">
   @include('includes.admin-navbar')
   <section>
     <div class="mt-5">
-      {{ $header }}
+      <h2 class="text-center">
+        {{ $header }}
+      </h2>
     </div>
     <div class="my-5">
       <div class="container">

@@ -1,6 +1,6 @@
 <x-admin-layout>
   <x-slot name="header">
-    <h2 class="text-center">Tehniskā informācija</h2>
+    Tehniskā informācija
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">

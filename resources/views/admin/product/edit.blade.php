@@ -1,7 +1,7 @@
 <x-admin-layout>
   <x-slot name="header">
-    <h2 class="text-center">Rediģēt
-      - {{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h2>
+    Rediģēt
+    - {{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">
