@@ -107,7 +107,7 @@
   </div>
 </nav>
 
-<script>
+<script type="module">
   const menu = document.querySelector(".navbar-toggler");
   const menuLinks = document.querySelectorAll("#navbar-modal .nav-link");
 

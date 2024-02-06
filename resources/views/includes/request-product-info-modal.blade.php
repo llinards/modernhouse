@@ -18,7 +18,7 @@
                       aria-label="Default select example">
                 @foreach($productVariants as $productVariant)
                   <option
-                    value="{{ $productVariant->translations[0]->name }}">{{ $productVariant->translations[0]->name }}</option>
+                    value="{{ $productVariant->translations[0]->name }}" {{ $currentProductVariant->translations[0]->name === $productVariant->translations[0]->name ? 'selected' : '' }}>{{ $productVariant->translations[0]->name }}</option>
                 @endforeach
               </select>
             </div>

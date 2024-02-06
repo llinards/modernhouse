@@ -25,8 +25,7 @@ class AppServiceProvider extends ServiceProvider
   public function boot(): void
   {
     view()->composer([
-      'product', 'request-consultation', 'news.index', 'news.show', 'gallery', 'about-us', 'contact-us',
-      'privacy-policy', 'landing-pages.svires-ielas-projekts-sigulda'
+      'layouts.app',
     ],
       AllActiveProductsComposer::class);
   }

@@ -1,12 +1,11 @@
-.product-variant-titles,
-.product-variant-option-titles {
-  border: none;
-  justify-content: space-evenly;
-
-  button.nav-link {
+.buttons-content-switch {
+  button.nav-link,
+  a.nav-link {
     border-color: transparent;
     border: none;
     padding: 0.5rem;
+    font-size: $product-variant-titles-font-size;
+    letter-spacing: $product-variant-titles-letter-spacing;
 
     &.active {
       border-bottom: 4px solid $navbar-item-hover-font-color;
@@ -29,12 +28,6 @@
   p:last-child {
     padding: 0;
   }
-}
-
-.product-variant-titles button,
-.product-variant-option-titles button {
-  font-size: $product-variant-titles-font-size;
-  letter-spacing: $product-variant-titles-letter-spacing;
 }
 
 .nav-tabs .nav-link:hover,
@@ -121,8 +114,6 @@
 }
 
 .product-details {
-  //max-width: 328px;
-  //margin: 0 auto;
   li {
     list-style: none;
     font-size: $product-variant-description-font-size;
