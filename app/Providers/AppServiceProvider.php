@@ -24,8 +24,9 @@ class AppServiceProvider extends ServiceProvider
    */
   public function boot(): void
   {
+//    TODO: Should be addressed
     view()->composer([
-      'layouts.app',
+      'request-consultation', 'layouts.app'
     ],
       AllActiveProductsComposer::class);
   }
