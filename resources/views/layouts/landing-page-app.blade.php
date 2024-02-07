@@ -57,7 +57,7 @@
       gtag('config', 'G-DJX1GVY8KK');
 
       function trackFormSubmit(event) {
-        gtag('event', 'svires_submit_form', {
+        gtag('event', event, {
           'event_category': event,
           'event_label': 'Submit Form'
         });
