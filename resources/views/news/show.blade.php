@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
           <div
             class="col-lg-8"
-            id="gallery-images">
+            id="news-images">
             <section id="news-show-{{$news->slug}}-main-carousel" class="splide">
               <div class="splide__track">
                 <ul class="splide__list">
@@ -44,4 +44,14 @@
     </div>
   </div>
   @include('includes.footer')
+  <script type="module">
+    const newsImages = document.getElementById('news-images');
+    const main = new Splide('#' + newsImages.firstElementChild.id, {
+      type: 'fade',
+      pagination: false,
+      lazyLoad: 'nearby',
+      heightRatio: 0.5,
+    });
+    main.mount();
+  </script>
 @endsection
