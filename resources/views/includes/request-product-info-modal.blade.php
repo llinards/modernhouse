@@ -59,7 +59,7 @@
             {{ old('customers-question') }}
           </textarea>
           <x-agree-data-processing-input/>
-          <x-submit-button/>
+          <x-submit-button onclick="trackFormSubmit('form_submit_product_page');"/>
         </form>
       </div>
     </div>
