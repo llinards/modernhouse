@@ -845,7 +845,7 @@
               <h2 class="fw-bold title">Piepildi sapni, piesakies konsultācijai!</h2>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-              <x-contact-us-form :formId="'Konsultācijas forma - Svīres ielas projekts, Siguldā'"
+              <x-contact-us-form :formId="'Forma - Svīres ielas projekts, Siguldā'"
                                  :hideCompanyField="true"
                                  :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
             </div>

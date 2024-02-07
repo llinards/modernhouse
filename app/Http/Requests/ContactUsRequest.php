@@ -45,6 +45,6 @@ class ContactUsRequest extends FormRequest
 
   public function redirectTo()
   {
-    return URL::previous().'/#contact-us';
+    return URL::previous().'#contact-us';
   }
 }
