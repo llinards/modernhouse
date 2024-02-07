@@ -43,7 +43,7 @@
               </div>
               <x-agree-data-processing-input/>
               <div class="d-flex align-items-center flex-column">
-                <x-submit-button :class="'mb-2'"/>
+                <x-submit-button onclick="trackFormSubmit('form_submit_consultation');" :class="'mb-2'"/>
                 <div>
                   <a class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
                      href="/{{ app()->getLocale()}}/"
