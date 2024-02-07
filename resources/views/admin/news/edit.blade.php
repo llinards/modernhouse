@@ -25,7 +25,7 @@
                   <x-description-text-area
                     :name="'news-content'"> {{ $news->content }}</x-description-text-area>
                 </div>
-                <div class="mb-3" id="news-images">
+                <div class="mb-3" id="all-news-images">
                   <p>Esošās bildes</p>
                   <div class="row">
                     @if(count($news->images) === 0)
@@ -45,7 +45,7 @@
                     @endif
                   </div>
                 </div>
-                <div class="mb-3" id="news-attachments">
+                <div class="mb-3" id="all-news-attachments">
                   <p>Esošie pielikumi</p>
                   <div class="row">
                     @if(count($news->attachments) === 0)
@@ -66,16 +66,11 @@
                 <div class="row mb-3">
                   <div class="col">
                     <label for="news-images" class="form-label">Bildes</label>
-                    {{--                    TODO: Update this to use the new file upload component--}}
-                    <input class="form-control" type="file" id="news-images" name="news-images[]">
-                    </p>
+                    <x-file-upload :name="'news-images'"/>
                   </div>
                   <div class="col">
                     <label for="news-attachments" class="form-label">Pielikumi</label>
-                    {{--                    TODO: Update this to use the new file upload component--}}
-                    <input class="form-control" type="file" id="news-attachments"
-                           name="news-attachments[]">
-                    </p>
+                    <x-file-upload :name="'news-attachments'"/>
                   </div>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
                     izmērā.</p>
@@ -92,37 +87,4 @@
       </div>
     </section>
   </div>
-  <script type="module">
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
-    FilePond.registerPlugin(FilePondPluginFileValidateSize);
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.create(document.querySelector('input[id="news-images"]'), {
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      allowMultiple: true,
-      allowReorder: true,
-      allowFileSizeValidation: true,
-      allowImagePreview: true,
-      maxFileSize: "512KB",
-      acceptedFileTypes: ['image/*'],
-    });
-
-    FilePond.create(document.querySelector('input[id="news-attachments"]'), {
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      allowMultiple: true,
-      allowReorder: true,
-      allowFileSizeValidation: true,
-      maxFileSize: "50MB",
-      acceptedFileTypes: ['application/pdf'],
-    });
-  </script>
 @endsection

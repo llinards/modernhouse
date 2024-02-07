@@ -30,17 +30,12 @@
                 </div>
                 <div class="row mb-3">
                   <div class="col">
-                    {{--                    TODO: Update this to use the new file upload component--}}
                     <label for="news-images" class="form-label">Bildes</label>
-                    <input class="form-control" type="file" id="news-images" name="news-images[]">
-                    </p>
+                    <x-file-upload :name="'news-images'" :required="true"/>
                   </div>
                   <div class="col">
-                    {{--                    TODO: Update this to use the new file upload component--}}
                     <label for="news-attachments" class="form-label">Pielikumi</label>
-                    <input class="form-control" type="file" id="news-attachments"
-                           name="news-attachments[]">
-                    </p>
+                    <x-file-upload :name="'news-attachments'"/>
                   </div>
                   <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
                     izmērā.</p>
@@ -57,38 +52,4 @@
       </div>
     </section>
   </div>
-  <script type="module">
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
-    FilePond.registerPlugin(FilePondPluginFileValidateSize);
-    FilePond.registerPlugin(FilePondPluginImagePreview);
-    FilePond.create(document.querySelector('input[id="news-images"]'), {
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      required: true,
-      allowMultiple: true,
-      allowReorder: true,
-      allowFileSizeValidation: true,
-      allowImagePreview: true,
-      maxFileSize: "512KB",
-      acceptedFileTypes: ['image/*'],
-    });
-
-    FilePond.create(document.querySelector('input[id="news-attachments"]'), {
-      server: {
-        url: '/admin/upload',
-        headers: {
-          'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        }
-      },
-      allowMultiple: true,
-      allowReorder: true,
-      allowFileSizeValidation: true,
-      maxFileSize: "50MB",
-      acceptedFileTypes: ['application/pdf'],
-    });
-  </script>
 @endsection
