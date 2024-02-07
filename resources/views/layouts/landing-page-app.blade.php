@@ -54,7 +54,16 @@
       }
 
       gtag('js', new Date());
-      gtag('config', 'G-DJX1GVY8KK'); </script>
+      gtag('config', 'G-DJX1GVY8KK');
+
+      function trackFormSubmit(event) {
+        gtag('event', 'svires_submit_form', {
+          'event_category': event,
+          'event_label': 'Submit Form'
+        });
+      }
+
+    </script>
     <!-- Facebook Pixel Code -->
     <script>
       !function (f, b, e, v, n, t, s) {
