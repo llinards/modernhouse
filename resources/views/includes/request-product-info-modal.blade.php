@@ -1,8 +1,11 @@
-<div class="modal fade" id="request-product-info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="request-product-info" tabindex="-1" aria-labelledby="Request product info modal"
+     aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-close-btn d-flex justify-content-end p-3">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          <i class="bi bi-x-lg text-black"></i>
+        </button>
       </div>
       <div class="modal-body">
         <form method="POST"
