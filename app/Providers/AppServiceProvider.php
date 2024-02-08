@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Composers\AllActiveProductsComposer;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -24,10 +25,12 @@ class AppServiceProvider extends ServiceProvider
    */
   public function boot(): void
   {
+//    TODO: Should be addressed
     view()->composer([
-      'product', 'request-consultation', 'news.index', 'news.show', 'gallery', 'about-us', 'contact-us',
-      'privacy-policy', 'landing-pages.svires-ielas-projekts-sigulda'
+      'request-consultation', 'layouts.app'
     ],
       AllActiveProductsComposer::class);
+
+    Paginator::useBootstrapFive();
   }
 }

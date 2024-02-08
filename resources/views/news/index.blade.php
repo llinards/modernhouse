@@ -14,7 +14,7 @@
               </div>
             </div>
             <div class="col-lg-8 d-flex order-first order-lg-last justify-content-center flex-column "
-                 id="gallery-images">
+                 id="news-images">
               <section id="news-index-{{$news->slug}}-main-carousel" class="splide">
                 <div class="splide__track">
                   <ul class="splide__list">
@@ -35,4 +35,16 @@
     </div>
   </div>
   @include('includes.footer')
+  <script type="module">
+    const newsImages = document.querySelectorAll('#news-images');
+    newsImages.forEach((image) => {
+      const main = new Splide('#' + image.firstElementChild.id, {
+        type: 'fade',
+        pagination: false,
+        lazyLoad: 'nearby',
+        heightRatio: 0.5,
+      });
+      main.mount();
+    });
+  </script>
 @endsection

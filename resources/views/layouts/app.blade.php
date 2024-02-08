@@ -40,8 +40,6 @@
 
   <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
-  {{--TODO: Move this to NPM--}}
-  <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
 
   @if(App::environment('production'))
     <meta name="facebook-domain-verification" content="6f9uyw6o900t8gvvu9fhtwmn938qse"/>

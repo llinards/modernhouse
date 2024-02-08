@@ -74,6 +74,7 @@ class ProductController extends Controller
     }
   }
 
+//  TODO: Remove
   public function show($language, Product $product)
   {
     $productVariants = ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area',

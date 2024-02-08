@@ -47,4 +47,17 @@
     </div>
   </div>
   @include('includes.footer')
+  <script type="module">
+    const galleryImages = document.querySelectorAll('#gallery-images');
+    galleryImages.forEach((image) => {
+      const main = new Splide('#' + image.firstElementChild.id, {
+        type: 'fade',
+        pagination: false,
+        lazyLoad: 'nearby',
+        heightRatio: 0.5,
+      });
+      main.mount();
+    });
+  </script>
 @endsection
+
