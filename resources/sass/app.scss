@@ -212,6 +212,10 @@ section.footer {
   border-color: $primary-color;
 }
 
+.btn-close:focus {
+  box-shadow: none;
+}
+
 //.content-product {
 //  position: absolute;
 //  top: 30px;
@@ -219,6 +223,28 @@ section.footer {
 
 .modern-house-logo {
   width: 80px;
+}
+
+.modal-close-btn {
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.alert-danger,
+.alert-success {
+  border: none;
 }
 
 .modal-footer {

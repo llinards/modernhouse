@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Composers\AllActiveProductsComposer;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
       'request-consultation', 'layouts.app'
     ],
       AllActiveProductsComposer::class);
+
+    Paginator::useBootstrapFive();
   }
 }
