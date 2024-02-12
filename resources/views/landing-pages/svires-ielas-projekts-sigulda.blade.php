@@ -195,7 +195,8 @@
                 <img class="swedbank-logo mb-3" src="{{asset('storage/landing-pages/icons/swedbank-logo.svg')}}"
                      alt="Swedbank logo">
               </div>
-              <p class="mb-3">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar kodu
+              <p class="mb-3 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
+                kodu
                 "MODERNHOUSE".</p>
               <div class="d-flex justify-content-center">
                 <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
@@ -211,7 +212,8 @@
                 <img class="seb-logo mb-3" src="{{asset('storage/landing-pages/icons/seb-logo.jpg')}}"
                      alt="SEB bank logo">
               </div>
-              <p class="mb-3">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar kodu
+              <p class="mb-3 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
+                kodu
                 "MODERNHOUSE".</p>
               <div class="d-flex justify-content-center">
                 <a href="https://www.seb.lv/" target="_blank"
