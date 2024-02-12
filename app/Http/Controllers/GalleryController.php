@@ -13,24 +13,22 @@ class GalleryController extends Controller
 {
   public function index()
   {
-//    $galleries = Gallery::select('id', 'slug', 'is_video')
-//      ->with([
-//        'images' => function ($query) {
-//          $query->select('filename', 'gallery_id');
-//        },
-//        'translations' => function ($query) {
-//          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
-//        },
-//      ])
-//      ->whereHas('translations', function ($query) {
-//        $query->where('language', app()->getLocale());
-//      })
-//      ->orderByDesc('is_pinned')
-//      ->orderBy('created_at', 'desc')
-//      ->take(3)
-//      ->get();
-//    return view('gallery', compact('galleries'));
-    return view('gallery');
+    $galleries = Gallery::select('id', 'slug', 'is_video')
+      ->with([
+        'images' => function ($query) {
+          $query->select('filename', 'gallery_id');
+        },
+        'translations' => function ($query) {
+          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
+        },
+      ])
+      ->whereHas('translations', function ($query) {
+        $query->where('language', app()->getLocale());
+      })
+      ->orderByDesc('is_pinned')
+      ->orderBy('created_at', 'desc')
+      ->get();
+    return view('gallery', compact('galleries'));
   }
 
   public function indexAdmin()
