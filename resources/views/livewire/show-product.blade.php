@@ -118,6 +118,8 @@
               <h3 class="fw-bold text-center mt-4 mb-1">@lang('tech specs')</h3>
               <x-product-variant-options :productVariant="$productVariant"/>
             @endif
+            <h3 class="fw-bold text-center mt-4 mb-1">Biežāk uzdotie jautājumi</h3>
+            <x-faq/>
           </div>
         @endif
       </div>
