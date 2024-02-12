@@ -182,6 +182,47 @@
         </div>
       </div>
     </section>
+    {{--    Partnership--}}
+    <section class="full-height-section">
+      <div class="container-xxl h-100 d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="mb-5 text-center">
+            <h2 class="fw-bold title">Māju finansējuma<br/>partneri</h2>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-evenly">
+            <div>
+              <div class="text-center">
+                <img class="swedbank-logo mb-3" src="{{asset('storage/landing-pages/icons/swedbank-logo.svg')}}"
+                     alt="Swedbank logo">
+              </div>
+              <p class="mb-3">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar kodu
+                "MODERNHOUSE".</p>
+              <div class="d-flex justify-content-center">
+                <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
+                   target="_blank"
+                   class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                >Pieteikties konsultācijai</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex flex-column justify-content-evenly mt-lg-0 mt-5">
+            <div>
+              <div class="text-center">
+                <img class="seb-logo mb-3" src="{{asset('storage/landing-pages/icons/seb-logo.jpg')}}"
+                     alt="SEB bank logo">
+              </div>
+              <p class="mb-3">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar kodu
+                "MODERNHOUSE".</p>
+              <div class="d-flex justify-content-center">
+                <a href="https://www.seb.lv/" target="_blank"
+                   class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                >Pieteikties konsultācijai</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     {{--    Gallery--}}
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex align-items-center" id="landing-page-galleries">
