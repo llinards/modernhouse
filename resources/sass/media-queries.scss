@@ -40,7 +40,7 @@
     }
 
     p {
-      font-size: 14px;
+      font-size: $landing-page-paragraph-font-size-mobile;
     }
 
     .checkmark-icon-as-list-item {
@@ -52,6 +52,18 @@
 @media (max-width: 570px) {
   .modern-house-logo {
     width: 65px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-third {
+    width: 290px;
+    height: 42px;
+    font-size: $button-font-size-mobile;
+  }
+
+  label {
+    font-size: $label-font-size-mobile;
   }
 
   h2.title {
@@ -68,6 +80,14 @@
 
   .modern-house-location-map {
     height: 250px;
+  }
+}
+
+@media (max-width: 320px) {
+  #landing-page {
+    p {
+      font-size: $landing-page-paragraph-font-size-xs-mobile;
+    }
   }
 }
 
