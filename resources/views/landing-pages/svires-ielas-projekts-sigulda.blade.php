@@ -186,7 +186,7 @@
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="mb-5 text-center">
+          <div class="mb-lg-5 mb-3 text-center">
             <h2 class="fw-bold title">Māju finansējuma<br/>partneri</h2>
           </div>
           <div class="col-lg-6 d-flex flex-column justify-content-evenly">
@@ -206,7 +206,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 d-flex flex-column justify-content-evenly mt-lg-0 mt-5">
+          <div class="col-lg-6 d-flex flex-column justify-content-evenly mt-lg-0 mt-4">
             <div>
               <div class="text-center">
                 <img class="seb-logo mb-3" src="{{asset('storage/landing-pages/icons/seb-logo.jpg')}}"
