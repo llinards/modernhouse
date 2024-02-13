@@ -2,9 +2,6 @@
   .navbar-links-desktop {
     display: none !important;
   }
-  .btn-main {
-    max-width: 290px;
-  }
   h1.title {
     font-size: $title-font-size-mobile;
   }
@@ -30,6 +27,14 @@
 }
 
 @media (max-width: 768px) {
+  #home {
+    #choose-order-contact {
+      img {
+        width: 75px;
+      }
+    }
+  }
+
   footer {
     height: 300px;
   }
