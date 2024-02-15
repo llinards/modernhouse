@@ -464,9 +464,9 @@
               <h2 class="fw-bold title text-white">Kāpēc izvēlēties MODERN HOUSE?</h2>
             </div>
             <p class="text-white mb-4">
-              MODERN HOUSE realize projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējīgu.
+              MODERN HOUSE realizē projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējīgu.
               Strādājam tikai un vienīgi ar augstvērtīgiem materiāliem, kuru ražotāji piedāvā uzticamus un pārbaudītus
-              risinājumus , cenšoties radīt izturīgas un ilgtspējīgas mājas. Mūsu prioritāte ir nodrošināt klientiem ne
+              risinājumus, cenšoties radīt izturīgas un ilgtspējīgas mājas. Mūsu prioritāte ir nodrošināt klientiem ne
               tikai vizuālu un funkcionālu baudu, bet arī ilgtermiņa vērtību, izmantojot visdrošākās tehnoloģijas mājas
               ilgtspējībai un energoefektivitātei. Mēs uzskatām, ka kvalitatīvs būvniecības process veicina gan mājas,
               gan apkārtējās vides labklājību.</p>
