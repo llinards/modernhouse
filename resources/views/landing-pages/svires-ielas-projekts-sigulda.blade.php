@@ -186,16 +186,16 @@
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="mb-lg-5 mb-3 text-center">
-            <h2 class="fw-bold title">Māju finansējuma<br/>partneri</h2>
+          <div class="mb-lg-5 mb-5 text-center">
+            <h2 class="fw-bold title">Māju finansējuma<br/>partneris</h2>
           </div>
-          <div class="col-lg-6 d-flex flex-column justify-content-evenly">
+          <div class="col-lg-12 d-flex flex-column justify-content-evenly">
             <div>
               <div class="text-center">
                 <img class="swedbank-logo mb-3" src="{{asset('storage/landing-pages/icons/swedbank-logo.svg')}}"
                      alt="Swedbank logo">
               </div>
-              <p class="mb-3 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
+              <p class="mb-5 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
                 kodu
                 "MODERNHOUSE".</p>
               <div class="d-flex justify-content-center">
@@ -206,7 +206,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 d-flex flex-column justify-content-evenly mt-lg-0 mt-4">
+          <div class="col-lg-6 d-none flex-column justify-content-evenly mt-lg-0 mt-4">
             <div>
               <div class="text-center">
                 <img class="seb-logo mb-3" src="{{asset('storage/landing-pages/icons/seb-logo.jpg')}}"
