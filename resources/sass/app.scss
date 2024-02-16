@@ -46,6 +46,12 @@ $title-2nd-font-size-mobile: 32px;
 $title-3rd-font-size: 36px;
 $title-3rd-font-size-mobile: 23px;
 
+$button-font-size: 17px;
+$button-font-size-mobile: 14px;
+
+$label-font-size: 16px;
+$label-font-size-mobile: 14px;
+
 $product-variant-titles-font-size: 24px;
 $product-variant-titles-font-size-mobile: 15px;
 
@@ -62,6 +68,9 @@ $navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
+
+$landing-page-paragraph-font-size-mobile: 14px;
+$landing-page-paragraph-font-size-xs-mobile: 12px;
 
 h1,
 h2,
@@ -139,7 +148,7 @@ section.footer {
   width: 328px;
   height: 48px;
   border-radius: 32px;
-  font-size: 17px;
+  font-size: $button-font-size;
   letter-spacing: 1.6px;
 }
 
@@ -251,6 +260,17 @@ section.footer {
 
 label {
   color: $primary-color;
+  font-size: $label-font-size;
+}
+
+.swedbank-logo {
+  width: 300px;
+  height: auto;
+}
+
+.seb-logo {
+  width: 142px;
+  height: auto;
 }
 
 footer {
