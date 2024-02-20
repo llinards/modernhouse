@@ -200,7 +200,7 @@
                 "MODERNHOUSE".</p>
               <div class="d-flex justify-content-center">
                 <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
-                   target="_blank"
+                   target="_blank" id="apply-consultation-swedbank"
                    class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
                 >Pieteikties konsultācijai</a>
               </div>
@@ -770,6 +770,10 @@
         lazyLoad: 'nearby',
       });
       main.mount();
+    });
+
+    document.getElementById('apply-consultation-swedbank').addEventListener('click', () => {
+      trackFormSubmit('apply_consultation_swedbank');
     });
 
     const modal = document.getElementById('available-project-modal');
