@@ -34,7 +34,7 @@ body {
   font-family: "TipoTypeRegular", sans-serif;
 }
 
-$primary-color: #3f3f3f;
+$primary-color: #000000;
 $primary-color-hover: #919191;
 
 $title-font-size: 56px;
@@ -58,12 +58,12 @@ $product-variant-titles-font-size-mobile: 15px;
 $product-variant-titles-letter-spacing: 1.6px;
 
 $product-variant-description-font-size: 12px;
-$product-variant-description-font-color: #919191;
+$product-variant-description-font-color: $primary-color;
 
-$paragraph-font-color: #919191;
+//$paragraph-font-color: #919191;
 $paragraph-font-size: 16px;
 
-$navbar-item-font-color: #3f3f3f;
+$navbar-item-font-color: $primary-color;
 $navbar-item-hover-font-color: #919191;
 $navbar-item-font-weigth: 500;
 $navbar-item-letter-spacing: 0;
