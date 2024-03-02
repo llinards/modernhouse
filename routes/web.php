@@ -111,9 +111,7 @@ Route::middleware('setLanguage')->group(function () {
   });
   Route::post('{language?}/contact-us',
     [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
-
-//  Route::get('{language?}/{product}', [\App\Http\Controllers\ProductController::class, 'show']);
-
+  
   //Landing pages
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);

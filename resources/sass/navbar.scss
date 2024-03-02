@@ -93,6 +93,10 @@
   color: $navbar-item-hover-font-color;
 }
 
+.nav-link:focus-visible {
+  box-shadow: $primary-color-focus-box-shadow;
+}
+
 .nav-link-active {
   color: $navbar-item-hover-font-color;
   border-bottom: 2px solid $navbar-item-hover-font-color;
