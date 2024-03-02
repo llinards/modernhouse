@@ -135,15 +135,6 @@ section.footer {
   height: auto;
 }
 
-//.read-more {
-//  color: $primary-color;
-//  //text-decoration: none;
-//  font-weight: 700;
-//
-//  &:hover {
-//    color: $primary-color-hover;
-//  }
-//}
 
 .btn-primary,
 .btn-secondary,
@@ -237,9 +228,26 @@ section.footer {
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
 
+.form-control,
+.form-select {
+  border-color: $primary-color;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: $primary-color-focus-box-shadow;
+  border-color: $primary-color;
+}
+
+//.form-control:focus-visible {}
+
+.form-check-input {
+  border-color: $primary-color;
+}
+
 .form-check-input:focus {
   border-color: $primary-color;
-  box-shadow: none;
+  box-shadow: $primary-color-focus-box-shadow;
 }
 
 .form-check-input:checked {
@@ -255,11 +263,6 @@ section.footer {
 .btn-close:focus {
   box-shadow: none;
 }
-
-//.content-product {
-//  position: absolute;
-//  top: 30px;
-//}
 
 .modern-house-logo {
   width: 80px;
