@@ -13221,14 +13221,6 @@ section.footer {
   height: auto;
 }
 
-.read-more {
-  color: #000000;
-  font-weight: 700;
-}
-.read-more:hover {
-  color: #919191;
-}
-
 .btn-primary,
 .btn-secondary,
 .btn-third {
@@ -13247,48 +13239,75 @@ section.footer {
 .btn-secondary,
 .btn-third {
   background-color: white;
+  border: none;
   color: #000000;
-  border-color: transparent;
 }
 
-.btn-primary:hover,
-.btn-secondary:hover,
-.btn-third:hover,
-.btn-primary:focus,
-.btn-secondary:focus,
-.btn-third:focus,
-.btn-primary:active,
-.btn-secondary:active,
-.btn-third:active,
-.btn-primary:first-child:active,
-.btn-secondary:first-child:active,
-.btn-third:first-child:active {
+.btn-primary:hover {
   border-color: #000000;
-  box-shadow: 0 0 20px 0 #000000;
-}
-
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary:first-child:active {
   background-color: white;
   color: #000000;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus,
-.btn-secondary:active,
-.btn-secondary:first-child:active {
+.btn-secondary:hover {
+  border: none;
   background-color: #000000;
   color: white;
 }
 
-.btn-third:hover,
-.btn-third:focus,
-.btn-third:active,
-.btn-third:first-child:active {
-  background-color: #919191;
+.btn-third:hover {
+  border: none;
+  background-color: #000000;
   color: white;
+  box-shadow: 0 0 10px 0 white;
+}
+
+.btn-primary:active,
+.btn.btn-primary:active,
+.btn-primary:first-child:active {
+  border-color: #000000;
+  box-shadow: 0 0 20px 0 #000000;
+  background-color: white;
+  color: #000000;
+}
+
+.btn-secondary:active,
+.btn.btn-secondary:active,
+.btn-secondary:first-child:active {
+  border: none;
+  box-shadow: none;
+  background-color: #000000;
+  color: white;
+}
+
+.btn-third:active,
+.btn.btn-third:active,
+.btn-third:first-child:active {
+  border: none;
+  box-shadow: 0 0 10px 0 white;
+  background-color: #000000;
+  color: white;
+}
+
+.btn-primary:focus-visible {
+  background-color: #000000;
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary:focus-visible {
+  background-color: white;
+  color: #000000;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.btn-third:focus-visible {
+  background-color: white;
+  color: #000000;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
 }
 
 .form-check-input:focus {

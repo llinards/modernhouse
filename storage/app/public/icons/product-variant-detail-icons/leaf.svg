@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>leaf</title>
-    <g id="DESKTOP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Modulis_Lund_Pilna" transform="translate(-1243.000000, -805.000000)">
-            <g id="leaf" transform="translate(1243.000000, 805.000000)">
-                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
-                <line x1="15" y1="9" x2="3.75" y2="20.25" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
-                <path d="M6,18 C1.5,10.5 7.5,3 20.25,3.75 C21,16.5 13.5,22.5 6,18 Z" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<rect id="Rectangle" class="st0" width="24" height="24"/>
+<line id="Path" class="st1" x1="15" y1="9" x2="3.8" y2="20.2"/>
+<path id="Path_00000082351231353659511800000003966889525242318237_" class="st1" d="M6,18C1.5,10.5,7.5,3,20.2,3.8
+	C21,16.5,13.5,22.5,6,18z"/>
 </svg>

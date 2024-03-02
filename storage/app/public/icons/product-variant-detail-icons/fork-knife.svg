@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>fork-knife</title>
-    <g id="DESKTOP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Modulis_Lund_Pilna" transform="translate(-1243.000000, -721.000000)">
-            <g id="fork-knife" transform="translate(1243.000000, 721.000000)">
-                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
-                <line x1="7.89479167" y1="3" x2="7.89479167" y2="6.75" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
-                <line x1="7.89479167" y1="10.875" x2="7.89479167" y2="21" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></line>
-                <path d="M10.5,3 L11.25,7.5 C11.25,9.36396101 9.73896101,10.8749999 7.875,10.8749999 C6.01103899,10.8749999 4.5,9.36396101 4.5,7.5 L5.25,3" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M19.125,15 L13.875,15 C13.875,15 15,4.5 19.125,3 L19.125,21" id="Path" stroke="#3F3F3F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 28.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<rect id="Rectangle" class="st0" width="24" height="24"/>
+<line id="Path" class="st1" x1="7.9" y1="3" x2="7.9" y2="6.8"/>
+<line id="Path_00000052100580612075290350000011411424056023936161_" class="st1" x1="7.9" y1="10.9" x2="7.9" y2="21"/>
+<path id="Path_00000170250481996691805070000016339640318569759403_" class="st1" d="M10.5,3l0.8,4.5c0,1.9-1.5,3.4-3.4,3.4
+	S4.5,9.4,4.5,7.5L5.2,3"/>
+<path id="Path_00000158718368928170069970000017047054516504616071_" class="st1" d="M19.1,15h-5.2c0,0,1.1-10.5,5.2-12v18"/>
 </svg>
