@@ -1,6 +1,6 @@
 @extends('layouts.landing-page-app', ['title' => 'Svīres ielas projekts, Siguldā'])
 @section('content')
-  <div id="landing-page">
+  <div id="landing-page" class="position-relative">
     {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
@@ -824,8 +824,19 @@
         @include('includes.footer')
       </section>
     </div>
+    <div id="button-up" class="position-fixed visually-hidden d-flex justify-content-center align-items-center">
+      <a href="#introduction" class="d-flex justify-content-center align-items-center">
+        <img width="20" height="20" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
+      </a>
+    </div>
   </div>
   <script type="module">
+    const buttonUp = document.getElementById('button-up');
+
+    document.getElementById('landing-page').onscroll = () => {
+      buttonUp.classList.remove('visually-hidden');
+    }
+    
     const landingPageGalleryImages = document.querySelectorAll('#landing-page-galleries');
     landingPageGalleryImages.forEach((image) => {
       const main = new Splide('#' + image.firstElementChild.id, {
