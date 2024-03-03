@@ -131,7 +131,7 @@
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body">
             Moduļu mājām apmaksas kārtība ir sekojoša:<br/>
-            10% no līguma summas – pie līguma parakstīšanas;<br/>
+            20% no līguma summas – pie līguma parakstīšanas;<br/>
             40% no līguma summas – pirms moduļu mājas ražošanas darbu uzsākšanas;<br/>
             30% no līguma summa – pirms iekšējo apdares darbu uzsākšanas;<br/>
             10% no līguma summas – pēc pieņemšanas/nodošanas akta parakstīšanas.<br/>
