@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="h-100 w-100 overflow-x-hidden" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,7 +94,7 @@
     </noscript>
   @endif
 </head>
-<body class="antialiased" oncontextmenu="return false">
+<body class="antialiased w-100 h-100 overflow-x-hidden" oncontextmenu="return false">
 @yield('content')
 </body>
 </html>
