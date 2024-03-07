@@ -550,10 +550,10 @@
           <div class="col-lg-9 col-12 ceo-quot">
             <p class="quot-element">“</p>
             <div class="mx-4">
-              <h3 class="fw-bold title text-uppercase mb-4">MĒS SEVI DEFINĒJĀM KĀ UZŅĒMUMU, KURA PAMATĀ IR
-                PROFESIONĀLA
-                RAŽOŠANAS UN MONTĀŽAS PIEEJA, UN MŪSU
-                GALVENAIS MĒRĶIS IR RADĪT MĀJU SAJŪTU KOPĀ!</h3>
+              <h3 class="fw-bold title text-uppercase mb-4">mēs sevi definējam kā uzņēmumu, kura pamatā ir
+                profesionāla
+                ražošanas un montāžas pieeja, un mūsu
+                galvenais mērķis ir radīt māju sajūtu kopā!</h3>
               <p class="text-uppercase">Helvijs Ervalds</p>
               <p class="text-uppercase">Modern House CEO</p>
             </div>
@@ -602,7 +602,7 @@
               <p class="mb-4">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
                 pēc saviem priekšstatiem. Piedāvājumā ietilpst dažādas opcijas un akcenti, lai klienti varētu
                 personalizēt savu mājokli, pievienojot un mainot elementus pēc savām vēlmēm.</p>
-              <p>Tādējādi mūsu dizains ir atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
+              <p>Tādējādi mūsu dizains atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
                 risinājumus, lai mūsu klienti varētu izpaust savu personīgo stilu un iecerēto dzīvesveidu savā jaunajā
                 mājoklī.</p>
             </div>
@@ -836,7 +836,7 @@
     document.getElementById('landing-page').onscroll = () => {
       buttonUp.classList.remove('visually-hidden');
     }
-    
+
     const landingPageGalleryImages = document.querySelectorAll('#landing-page-galleries');
     landingPageGalleryImages.forEach((image) => {
       const main = new Splide('#' + image.firstElementChild.id, {
