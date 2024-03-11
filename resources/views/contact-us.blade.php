@@ -5,7 +5,7 @@
     <div class="row my-4">
       <div class="col-lg-8 d-flex flex-column justify-content-center">
         <div>
-          <h3 class="title mb-2">@lang('contact us title 1')</h3>
+          <h2 class="title mb-2">@lang('contact us title 1')</h2>
           <p>@lang('contact us content 1')</p>
         </div>
       </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="row my-4 justify-content-center">
       <div class="mb-2">
-        <h3 class="title text-center">@lang('apply to consultation and learn more')</h3>
+        <h2 class="title text-center">@lang('apply to consultation and learn more')</h2>
       </div>
       <div class="col-lg-6">
         <x-contact-us-form :formId="'form_submit_contact_us'" :hideCompanyField="false"
