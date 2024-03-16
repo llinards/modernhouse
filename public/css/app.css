@@ -13466,6 +13466,11 @@ footer hr {
   filter: opacity(0.5);
 }
 
+.overflow-hidden-height-100 {
+  overflow: hidden;
+  height: 100%;
+}
+
 .nav-link,
 .dropdown-item {
   color: #000000;
