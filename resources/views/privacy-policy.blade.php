@@ -1,16 +1,12 @@
-@extends('layouts.app', ['title' => Lang::get('privacy-policy'), 'index' => false])
-@section('content')
-  <div class="container-xxl mb-4">
+<x-layouts.app :title="Lang::get('privacy policy')">
+  <x-slot name="header">
+    <h1 class="text-center text-uppercase title">@lang('privacy policy')</h1>
+  </x-slot>
+  <x-slot name="content">
     <div class="row">
-      <h1 class="fw-bold text-center text-uppercase title">@lang('privacy-policy')</h1>
-      <div class="mt-4">
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center align-items-start flex-column">
-            @lang('privacy policy')
-          </div>
-        </div>
+      <div class="col-lg-12 d-flex justify-content-center align-items-start flex-column">
+        @lang('privacy policy content')
       </div>
     </div>
-  </div>
-  @include('includes.footer')
-@endsection
+  </x-slot>
+</x-layouts.app>
