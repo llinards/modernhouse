@@ -76,7 +76,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}"
-               href="/{{app()->getLocale()}}/privacy-policy">@lang('privacy-policy')</a>
+               href="/{{app()->getLocale()}}/privacy-policy">@lang('privacy policy')</a>
           </li>
         </ul>
       </div>
