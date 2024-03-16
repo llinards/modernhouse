@@ -1,8 +1,9 @@
-@extends('layouts.app', ['title' => Lang::get('contact'), 'index' => false])
-@section('content')
-  <div class="container-xxl mb-4">
-    <h1 class="fw-bold text-center text-uppercase title">@lang('contact')</h1>
-    <div class="row my-4">
+<x-layouts.app :title="Lang::get('contact')">
+  <x-slot name="header">
+    <h1 class="text-center text-uppercase title">@lang('contact')</h1>
+  </x-slot>
+  <x-slot name="content">
+    <div class="row">
       <div class="col-lg-8 d-flex flex-column justify-content-center">
         <div>
           <h2 class="title mb-2">@lang('contact us title 1')</h2>
@@ -19,7 +20,7 @@
                 height="500px" style="border:none;"></iframe>
       </div>
     </div>
-    <div class="row my-4 justify-content-center">
+    <div class="row mt-4 justify-content-center">
       <div class="mb-2">
         <h2 class="title text-center">@lang('apply to consultation and learn more')</h2>
       </div>
@@ -28,6 +29,5 @@
                            :subject="'Jauna ziņa no mājaslapas (kontaktu sadaļas)'"/>
       </div>
     </div>
-  </div>
-  @include('includes.footer')
-@endsection
+  </x-slot>
+</x-layouts.app>
