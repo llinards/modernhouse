@@ -100,6 +100,7 @@ Route::middleware('setLanguage')->group(function () {
     [\App\Http\Controllers\HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
 
   Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
+
   Route::get('{language?}/news/{news}', [\App\Http\Controllers\NewsController::class, 'show']);
 
   Route::get('{language?}/privacy-policy', static function () {
@@ -111,17 +112,15 @@ Route::middleware('setLanguage')->group(function () {
   });
   Route::post('{language?}/contact-us',
     [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
-  
+
   //Landing pages
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
   Route::get('{language?}/{product}/', ShowProduct::class);
+
   Route::get('{language?}/{product}/{productVariant:slug}', ShowProduct::class);
 
   Route::post('{language?}/{product}',
     [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
-
-
 });
-
