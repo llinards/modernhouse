@@ -3,6 +3,7 @@
   <div class="container-xxl mb-4">
     <div class="row">
       <h1 class="fw-bold text-center text-uppercase title">@lang('news')</h1>
+      
       <div class="mt-4 gallery">
         @foreach($allNews as $news)
           <div class="row mt-5">

@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Tehniskā informācija
   </x-slot>
@@ -68,7 +68,7 @@
       </div>
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>
 
 <script>
   let currentEditorId = document.querySelectorAll('.product-variant-option-editors').length - 1;

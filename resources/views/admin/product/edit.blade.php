@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Rediģēt
     - {{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}
@@ -96,7 +96,7 @@
       </div>
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>
 {{--TODO: Re-use this script--}}
 <script>
   function generateSlug() {

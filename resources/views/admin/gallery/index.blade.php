@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     <h2 class="text-center">Galerijas</h2>
   </x-slot>
@@ -47,4 +47,4 @@
       </div>
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>

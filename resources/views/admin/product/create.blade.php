@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Pievienot jaunu māju/moduli
   </x-slot>
@@ -44,7 +44,7 @@
       </div>
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>
 
 <script>
   function generateSlug() {

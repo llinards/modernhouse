@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Rediģēt
     - {{ $productVariant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}
@@ -128,5 +128,5 @@
       </div>
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>
 

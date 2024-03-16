@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Aktualitātes
   </x-slot>
@@ -30,4 +30,4 @@
       @endforeach
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>

@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layouts.admin>
   <x-slot name="header">
     Visas mājas/moduļi
   </x-slot>
@@ -43,4 +43,4 @@
       @endforeach
     </div>
   </x-slot>
-</x-admin-layout>
+</x-layouts.admin>
