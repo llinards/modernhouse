@@ -1,6 +1,6 @@
 <x-layouts.app :title="Lang::get('news')">
   <x-slot name="header">
-    <h1 class="fw-bold text-center text-uppercase title">@lang('news')</h1>
+    <h1 class="text-center text-uppercase title">@lang('news')</h1>
   </x-slot>
   <x-slot name="content">
     @foreach($allNews as $news)
