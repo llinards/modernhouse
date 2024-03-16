@@ -13398,7 +13398,8 @@ footer hr {
   height: 100dvh;
 }
 
-.news-item:first-child {
+.news-item:first-child,
+.gallery-item:first-child {
   margin-top: 0 !important;
 }
 
