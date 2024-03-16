@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
   {
 //    TODO: Should be addressed
     view()->composer([
-      'request-consultation', 'layouts.app', 'components.layouts.home', 'components.layouts.app'
+      'request-consultation', 'components.layouts.home', 'components.layouts.app'
     ],
       AllActiveProductsComposer::class);
 
