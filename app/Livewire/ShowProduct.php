@@ -28,8 +28,7 @@ class ShowProduct extends Component
   public function render()
   {
     return view('livewire.show-product')
-      ->extends('layouts.app', ['index' => false])
-      ->section('content')
+      ->layout('components.layouts.app')
       ->title($this->product->translations[0]->name);
   }
 
