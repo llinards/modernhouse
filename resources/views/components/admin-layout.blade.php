@@ -10,18 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <meta name="author" content="{{ config('app.name') }}">
+  <title>{{ config('app.name')}}</title>
 
-  <meta property="og:url" content=" {{Request::url()}}"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}"/>
-  <meta property="og:image" content="{{ asset('storage/logo/mh-og-logo.jpeg') }}"/>
-
-  <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
   {{--TODO: Move this to NPM--}}
   <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
-
   <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 <body class="antialiased">
