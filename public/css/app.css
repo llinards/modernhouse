@@ -13398,6 +13398,10 @@ footer hr {
   height: 100dvh;
 }
 
+.news-item:first-child {
+  margin-top: 0 !important;
+}
+
 .mobile-navbar {
   z-index: 10;
 }
@@ -13659,10 +13663,6 @@ footer hr {
 .modern-house-staff a {
   color: #000000;
   font-size: 16px;
-}
-
-.gallery div.row:first-child {
-  margin-top: 0 !important;
 }
 
 #landing-page {

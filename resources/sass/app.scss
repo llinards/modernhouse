@@ -23,13 +23,6 @@
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
-//body,
-//html {
-//  height: 100%;
-//  width: 100%;
-//  overflow-x: hidden;
-//}
-
 body {
   font-family: "TipoTypeRegular", sans-serif;
 }
@@ -329,12 +322,15 @@ footer {
   height: 100dvh;
 }
 
+.news-item:first-child {
+  margin-top: 0 !important;
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
 @import "./about-us.scss";
 @import "./contact-us.scss";
-@import './gallery.scss';
 @import './landing-page.scss';
 
 @import "./media-queries.scss";

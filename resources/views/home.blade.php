@@ -1,5 +1,4 @@
-@extends('layouts.app', ['index' => true])
-@section('content')
+<x-layouts.home>
   <article id="home">
     <section id="introduction"
              class="full-height-section d-flex flex-column justify-content-between position-relative">
@@ -95,4 +94,4 @@
       @include('includes.footer')
     </section>
   </article>
-@endsection
+</x-layouts.home>

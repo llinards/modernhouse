@@ -1,12 +1,12 @@
-<nav class="mobile-navbar {{ $index ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
+<nav class="mobile-navbar {{ isset($home) ? 'position-fixed navbar-index' : 'navbar-product-page' }} w-100">
   <div class="container-xxl d-flex justify-content-between">
     <div class="logo py-4">
       <a class="navbar-brand" href="/{{app()->getLocale()}}">
-        <img src="{{ $index ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}"
+        <img src="{{ isset($home) ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}"
              class="modern-house-logo" alt="Modern House logo">
       </a>
     </div>
-    @if($index && (count($allActiveProducts) > 1))
+    @if(isset($home) && (count($allActiveProducts) > 1))
       <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
         @foreach($allActiveProducts as $product)
           <a class="nav-link index text-center p-3"
@@ -17,9 +17,9 @@
       </div>
     @endif
     <button type="button" name="menu" class="navbar-toggler py-4">
-      <div class="bar1 {{ $index ? 'bar-index' : '' }}"></div>
-      <div class="bar2 {{ $index ? 'bar-index' : '' }}"></div>
-      <div class="bar3 {{ $index ? 'bar-index' : '' }}"></div>
+      <div class="bar1 {{ isset($home) ? 'bar-index' : '' }}"></div>
+      <div class="bar2 {{ isset($home) ? 'bar-index' : '' }}"></div>
+      <div class="bar3 {{ isset($home) ? 'bar-index' : '' }}"></div>
     </button>
   </div>
 
