@@ -133,32 +133,16 @@
 
   }
 
-  menuLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      if (menu.classList.contains('open')) {
-        closeMenu();
-      } else {
-        openMenu();
-        document.querySelector('.content.backdrop').addEventListener('click', () => {
-          closeMenu();
-          for (let item of menu.children) {
-            item.classList.remove("change");
-          }
-        })
-      }
-      for (let item of menu.children) {
-        item.classList.toggle("change");
-      }
-    });
-  });
-
-  menu.addEventListener("click", () => {
+  function toggleOpenCloseMenu() {
     if (menu.classList.contains('open')) {
       closeMenu();
+      document.documentElement.classList.remove('overflow-hidden-height-100');
     } else {
       openMenu();
+      document.documentElement.classList.add('overflow-hidden-height-100');
       document.querySelector('.content.backdrop').addEventListener('click', () => {
         closeMenu();
+        document.documentElement.classList.remove('overflow-hidden-height-100');
         for (let item of menu.children) {
           item.classList.remove("change");
         }
@@ -167,5 +151,15 @@
     for (let item of menu.children) {
       item.classList.toggle("change");
     }
+  }
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      toggleOpenCloseMenu()
+    });
+  });
+
+  menu.addEventListener("click", () => {
+    toggleOpenCloseMenu();
   });
 </script>
