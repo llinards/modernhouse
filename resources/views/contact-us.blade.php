@@ -6,8 +6,7 @@
     <div class="row">
       <div class="col-lg-8 d-flex flex-column justify-content-center">
         <div>
-          <h2 class="title mb-2">@lang('contact us title 1')</h2>
-          <p>@lang('contact us content 1')</p>
+          @lang('contact us content')
         </div>
       </div>
       <div class="col-lg-4 d-flex flex-column mt-lg-0 mt-4">
