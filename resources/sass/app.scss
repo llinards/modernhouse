@@ -327,6 +327,10 @@ footer {
   margin-top: 0 !important;
 }
 
+.splide__pagination__page.is-active {
+  background: black;
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
