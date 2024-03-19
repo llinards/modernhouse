@@ -148,6 +148,7 @@
         type: 'fade',
         pagination: false,
         lazyLoad: 'sequential',
+        rewind: true,
       });
       const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
         fixedWidth: 100,
