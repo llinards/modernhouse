@@ -11,13 +11,11 @@
     }
   }
 
-  #landing-page {
-    #about-project {
-      h3.title {
-        font-size: $title-3rd-font-size-mobile;
-      }
-    }
+  h3.title {
+    font-size: $title-3rd-font-size-mobile;
+  }
 
+  #landing-page {
     #introduction {
       .location {
         position: static;
@@ -40,10 +38,6 @@
   }
 
   #landing-page {
-    h3.title {
-      font-size: $title-3rd-font-size-mobile;
-    }
-
     p {
       font-size: $landing-page-paragraph-font-size-mobile;
     }
@@ -74,8 +68,7 @@
   h2.title {
     font-size: $title-2nd-font-size-mobile;
   }
-
-
+  
   .buttons-content-switch {
     button.nav-link,
     a.nav-link {

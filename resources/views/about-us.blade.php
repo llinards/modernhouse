@@ -4,44 +4,68 @@
   </x-slot>
   <x-slot name="content">
     <div class="row">
-      <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-        <img class="img-fluid" src="{{ asset('storage/about-us/one.jpg') }}"/>
+      <div class="row mb-4 mx-auto">
+        <div
+          class="col-12 container-with-image-background p-lg-5 py-5 d-flex flex-column justify-content-center align-items-center"
+          style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/about-us/1.jpg')}})">
+          <h3 class="title mb-2 text-center text-white">@lang('about us title one')</h3>
+          <p class="text-center text-white">@lang('about us content one')</p>
+        </div>
       </div>
-      <div class="col-lg-6 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-4">
-        <h2 class="fw-bold title mb-2">@lang('about us title 1 1')</h2>
-        <p class="pb-2">@lang('about us content 1 1')</p>
-        <p class="pb-2">@lang('about us content 1 2')</p>
-        <p>@lang('about us content 1 3')</p>
+      <div class="row mb-4 mx-auto">
+        <div
+          class="col-12 container-with-image-background p-lg-5 py-5 d-flex flex-column justify-content-center align-items-center"
+          style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/about-us/2.jpg')}})">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-6 col-12">
+              <h3 class="title mb-2 text-center text-white text-uppercase">@lang('about us title two')</h3>
+              <p class="text-center text-white">@lang('about us content two')</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4 mx-auto">
+        <div
+          class="col-12 container-with-image-background p-lg-5 py-5 d-flex flex-column justify-content-center align-items-center"
+          style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/about-us/3.jpg')}})">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <h3 class="title mb-2 text-center text-white text-uppercase">@lang('about us title three')</h3>
+              <p class="text-center text-white">@lang('about us content three')</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4 mx-auto">
+        <div
+          class="col-lg-8 col-12 container-with-image-background p-lg-5 py-5 d-flex flex-column justify-content-center">
+          <p class="quot-element">“</p>
+          <div class="mx-4">
+            <h3 class="fw-bold title text-uppercase mb-4">@lang('ceo quot')</h3>
+            <p class="text-uppercase">@lang('helvijs')</p>
+            <p class="text-uppercase">@lang('ceo')</p>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-4 flex-lg-row flex-column mx-auto">
+        <div class="col-lg-5 col-12 d-flex align-items-center justify-content-center interior-concept-box py-lg-5 pt-5">
+          <h3 class="title text-white">@lang('about us title five')</h3>
+        </div>
+        <div class="col-lg-7 col-12 interior-concept-box p-lg-5 py-5">
+          <p class="mb-2 text-white">@lang('about us content five one')</p>
+          <p class="text-white">@lang('about us content five two')</p>
+        </div>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-lg-6 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-4">
-        <h2 class="fw-bold title mb-2">@lang('about us title 2 1')</h2>
-        <p>@lang('about us content 2 1')</p>
-      </div>
-      <div class="col-lg-6 d-flex order-first order-lg-last justify-content-center align-items-center flex-column">
-        <img class="img-fluid" src="{{ asset('storage/about-us/two.jpg') }}"/>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
-        <img class="img-fluid" src="{{ asset('storage/about-us/three.jpg') }}"/>
-      </div>
-      <div class="col-lg-6 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-4">
-        <h2 class="fw-bold title mb-2">@lang('about us title 3 1')</h2>
-        <p>@lang('about us content 3 1')</p>
-        <p>@lang('about us content 3 2')</p>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="mb-2">
+          <h2 class="title text-center">@lang('apply to consultation and learn more')</h2>
+        </div>
+        <x-contact-us-form :formId="'form_submit_about_us'" :hideCompanyField="false"
+                           :subject="'Jauna ziņa no mājaslapas (par mums sadaļas)'"/>
       </div>
     </div>
-    <div class="row mt-5">
-      <div class="col-lg-6 d-flex justify-content-center align-items-start flex-column ceo-quot">
-        <h5 class="fw-bold mb-2">@lang('about us title 4 1')</h5>
-        <p>Helvijs Ervalds</p>
-        <p>Modern House CEO</p>
-      </div>
-      <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column mt-lg-0 mt-4">
-        <img class="img-fluid" src="{{ asset('storage/about-us/four.jpg') }}"/>
-      </div>
     </div>
   </x-slot>
 </x-layouts.app>
