@@ -52,6 +52,7 @@
       pagination: false,
       lazyLoad: 'nearby',
       heightRatio: 0.5,
+      rewind: true
     });
     main.mount();
   });
