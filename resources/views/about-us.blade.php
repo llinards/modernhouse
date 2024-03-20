@@ -57,8 +57,8 @@
               <h3 class="title text-white">@lang('about us title five')</h3>
             </div>
             <div class="col-lg-7 col-12 p-lg-5 py-5">
-              <p class="mb-2 text-white">@lang('about us content five one')</p>
-              <p class="text-white">@lang('about us content five two')</p>
+              <p class="mb-2 text-white text-center">@lang('about us content five one')</p>
+              <p class="text-white text-center">@lang('about us content five two')</p>
             </div>
           </div>
         </div>
