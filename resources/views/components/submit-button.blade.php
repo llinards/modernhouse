@@ -2,7 +2,7 @@
 <div class="spinner-border visually-hidden" id="loading" role="status">
 </div>
 <button type="submit" id="submit"
-        class="btn btn-primary disabled fw-light d-flex justify-content-center align-items-center">
+        class="btn btn-primary disabled d-flex justify-content-center align-items-center">
   @lang('send')
 </button>
 </div>
