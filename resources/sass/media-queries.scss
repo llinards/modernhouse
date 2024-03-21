@@ -22,6 +22,9 @@
       }
     }
   }
+  .container-with-image-background:last-of-type {
+    background-position: 75%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -68,7 +71,7 @@
   h2.title {
     font-size: $title-2nd-font-size-mobile;
   }
-  
+
   .buttons-content-switch {
     button.nav-link,
     a.nav-link {
