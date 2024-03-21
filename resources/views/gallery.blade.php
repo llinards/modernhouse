@@ -1,12 +1,12 @@
 <x-layouts.app :title="Lang::get('gallery')">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">@lang('gallery')</h1>
+    @lang('gallery')
   </x-slot>
   <x-slot name="content">
     @foreach($galleries as $gallery)
       <div class="row mt-4 gallery-item">
         <div class="col-lg-3 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
-          <h2 class="title mb-2">{{ $gallery->translations[0]->title }}</h2>
+          <h2 class="mb-2">{{ $gallery->translations[0]->title }}</h2>
           <p>{!! $gallery->translations[0]->content !!}</p>
         </div>
         @if($gallery->is_video)

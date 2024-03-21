@@ -1,6 +1,6 @@
 <x-layouts.app :title="Lang::get('contact')">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">@lang('contact')</h1>
+    @lang('contact')
   </x-slot>
   <x-slot name="content">
     <div class="row">
@@ -21,7 +21,7 @@
     </div>
     <div class="row mt-4 justify-content-center">
       <div class="mb-2">
-        <h2 class="title text-center">@lang('apply to consultation and learn more')</h2>
+        <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
       </div>
       <div class="col-lg-6">
         <x-contact-us-form :formId="'form_submit_contact_us'" :hideCompanyField="false"

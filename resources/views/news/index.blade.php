@@ -1,15 +1,15 @@
 <x-layouts.app :title="Lang::get('news')">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">@lang('news')</h1>
+    @lang('news')
   </x-slot>
   <x-slot name="content">
     @foreach($allNews as $news)
       <div class="row mt-4 news-item">
         <div class="col-lg-4 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
-          <h2 class="title mb-2">{{ $news->title }}</h2>
+          <h2 class="mb-2">{{ $news->title }}</h2>
           <div class="d-flex w-100 justify-content-lg-between justify-content-center mt-2 flex-wrap">
             <a href="/{{app()->getLocale()}}/news/{{$news->slug}}"
-               class="btn btn-primary fw-light d-flex justify-content-center align-items-center ">@lang('read more')</a>
+               class="btn btn-primary d-flex justify-content-center align-items-center ">@lang('read more')</a>
           </div>
         </div>
         <div class="col-lg-8 d-flex order-first order-lg-last justify-content-center flex-column "

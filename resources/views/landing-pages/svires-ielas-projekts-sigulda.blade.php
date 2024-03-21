@@ -4,7 +4,7 @@
     {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="fw-bold text-center title">Piepildi sapni par <br/>māju Siguldā!</h1>
+      <h1 class="text-center">Piepildi sapni par <br/>māju Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center position-relative">
         <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
           <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
@@ -26,9 +26,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <div class="mb-2">
-              <h2 class="fw-bold title">Par projektu</h2>
-            </div>
+            <h2 class="mb-2">Par projektu</h2>
             <div>
               <p class="mb-2">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres
                 ielā.</p>
@@ -63,7 +61,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">101 - 180 m<sup>2</sup></h3>
+                <h3>101 - 180 m<sup>2</sup></h3>
               </div>
               <div class="col-6 text-center">
                 <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
@@ -72,7 +70,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">249 000 EUR</h3>
+                <h3>249 000 EUR</h3>
               </div>
             </div>
             <div class="row mt-lg-5 mt-4">
@@ -83,7 +81,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">3 - 4</h3>
+                <h3>3 - 4</h3>
               </div>
               <div class="col-6 text-center">
                 <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
@@ -92,7 +90,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">A klase</h3>
+                <h3>A klase</h3>
               </div>
             </div>
             <div class="row mt-lg-5 mt-4">
@@ -103,7 +101,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">labiekārtota teritorija</h3>
+                <h3>labiekārtota teritorija</h3>
               </div>
               <div class="col-6 text-center">
                 <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
@@ -111,7 +109,7 @@
                 <div class="mx-auto text-center w-75">
                   <hr class="m-1">
                 </div>
-                <h3 class="title fw-bold">līdz atslēgai</h3>
+                <h3>līdz atslēgai</h3>
               </div>
             </div>
           </div>
@@ -129,7 +127,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">101 - 180 m<sup>2</sup></h3>
+            <h3>101 - 180 m<sup>2</sup></h3>
           </div>
           <div class="col-6 text-center">
             <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/card.svg')}}"
@@ -138,7 +136,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">249 000 EUR</h3>
+            <h3>249 000 EUR</h3>
           </div>
         </div>
         <div class="row mt-lg-5 mt-4">
@@ -149,7 +147,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">3 - 4</h3>
+            <h3>3 - 4</h3>
           </div>
           <div class="col-6 text-center">
             <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/check.svg')}}"
@@ -158,7 +156,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">A klase</h3>
+            <h3>A klase</h3>
           </div>
         </div>
         <div class="row mt-lg-5 mt-4">
@@ -169,7 +167,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">labiekārtota teritorija</h3>
+            <h3>labiekārtota teritorija</h3>
           </div>
           <div class="col-6 text-center">
             <img class="icons mb-lg-3 mb-2" src="{{asset('storage/landing-pages/icons/key.svg')}}"
@@ -177,7 +175,7 @@
             <div class="mx-auto text-center w-75">
               <hr class="m-1">
             </div>
-            <h3 class="title fw-bold">līdz atslēgai</h3>
+            <h3>līdz atslēgai</h3>
           </div>
         </div>
       </div>
@@ -186,9 +184,7 @@
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="mb-lg-5 mb-5 text-center">
-            <h2 class="fw-bold title">Māju finansējuma<br/>partneris</h2>
-          </div>
+          <h2 class="mb-lg-5 mb-5 text-center">Māju finansējuma<br/>partneris</h2>
           <div class="col-lg-12 d-flex flex-column justify-content-evenly">
             <div>
               <div class="text-center">
@@ -201,7 +197,7 @@
               <div class="d-flex justify-content-center">
                 <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
                    target="_blank" id="apply-consultation-swedbank"
-                   class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                   class="btn btn-primary d-flex justify-content-center align-items-center"
                 >Pieteikties konsultācijai</a>
               </div>
             </div>
@@ -398,35 +394,33 @@
     </section>
     {{--    Explore neighbourhood--}}
     <section class="full-height-section d-flex flex-column">
-      <div class="mb-4 pt-3">
-        <h2 class="fw-bold title text-center">Iepazīsti apkaimi</h2>
-      </div>
+      <h2 class="mb-4 pt-3 text-center">Iepazīsti apkaimi</h2>
       <div class="h-100 mb-3">
         <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>
       </div>
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
-            <h3 class="title">1,8 km</h3>
+            <h3>1,8 km</h3>
             <p class="fw-bold">Pirmsskolas izglītības iestāde "Saulīte"</p>
           </div>
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
-            <h3 class="title">600 m</h3>
+            <h3>600 m</h3>
             <p class="fw-bold">Siguldas Sporta skola</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
-            <h3 class="title">2,4 km</h3>
+            <h3>2,4 km</h3>
             <p class="fw-bold">Siguldas Valsts ģimnāzija</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
-            <h3 class="title">2,1 km</h3>
+            <h3>2,1 km</h3>
             <p class="fw-bold">pilsētas centrs</p>
           </div>
           <div>
             <hr class="m-3">
           </div>
           <a href="#contact-us"
-             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+             class="btn btn-primary d-flex justify-content-center align-items-center"
           >Pieteikties konsultācijai</a>
         </div>
       </div>
@@ -442,9 +436,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <div class="mb-2">
-              <h2 class="fw-bold title">No pamatiem<br/>līdz atslēgai</h2>
-            </div>
+            <h2 class="mb-2">No pamatiem<br/>līdz atslēgai</h2>
             <div>
               <p class="mb-2">Energoefektīva koka karkasa vienstāvīga ģimenes māja ar terasi, noliktavu un auto
                 novietni
@@ -484,26 +476,26 @@
       <div class="container-xxl mb-5">
         <div class="row justify-content-evenly">
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
-            <h3 class="title">48</h3>
+            <h3>48</h3>
             <p class="fw-bold">zemes gabali</p>
           </div>
           <div class="col-lg-3 col-6 mb-lg-0 mb-3 text-center">
-            <h3 class="title">26</h3>
+            <h3>26</h3>
             <p class="fw-bold">rezervēti</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
-            <h3 class="title">50 000 EUR</h3>
+            <h3>50 000 EUR</h3>
             <p class="fw-bold">1200 m<sup>2</sup> zemes gabala cena</p>
           </div>
           <div class="col-lg-3 col-6 text-center">
-            <h3 class="title">30.08.2024.</h3>
+            <h3>30.08.2024.</h3>
             <p class="fw-bold">plānots pabeigt projekta infrastruktūru</p>
           </div>
           <div>
             <hr class="m-3">
           </div>
           <a href="#contact-us"
-             class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+             class="btn btn-primary d-flex justify-content-center align-items-center"
           >Pieteikties konsultācijai</a>
         </div>
       </div>
@@ -514,9 +506,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-6 col-12 p-4 col-with-background">
-            <div class="mb-4">
-              <h2 class="fw-bold title text-white">Kāpēc dzīvot Siguldā?</h2>
-            </div>
+            <h2 class="mb-4 text-white">Kāpēc dzīvot Siguldā?</h2>
             <ul class="p-0 m-0">
               <li class="d-flex justify-content-between">
                 <div class="ml-3">
@@ -563,16 +553,8 @@
     <section id="ceo-quot" class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <div class="col-lg-9 col-12 ceo-quot">
-            <p class="quot-element">“</p>
-            <div class="mx-4">
-              <h3 class="fw-bold title text-uppercase mb-4">mēs sevi definējam kā uzņēmumu, kura pamatā ir
-                profesionāla
-                ražošanas un montāžas pieeja, un mūsu
-                galvenais mērķis ir radīt māju sajūtu kopā!</h3>
-              <p class="text-uppercase">Helvijs Ervalds</p>
-              <p class="text-uppercase">Modern House CEO</p>
-            </div>
+          <div class="col-lg-9 col-12">
+            <x-ceo-quot/>
           </div>
         </div>
       </div>
@@ -583,9 +565,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center position-relative">
         <div class="row">
           <div class="offset-lg-6 col-lg-6 col-12 p-4 col-with-background">
-            <div class="mb-4">
-              <h2 class="fw-bold title text-white">Kāpēc izvēlēties MODERN HOUSE?</h2>
-            </div>
+            <h2 class="mb-4 text-white">Kāpēc izvēlēties MODERN HOUSE?</h2>
             <p class="text-white mb-4">
               MODERN HOUSE realizē projektus, kuri veidoti ar kvalitāti, estētiku, komfortu un ilgtspējību.
               Strādājam tikai un vienīgi ar augstvērtīgiem materiāliem, kuru ražotāji piedāvā uzticamus un pārbaudītus
@@ -597,7 +577,7 @@
         </div>
         <div class="row position-absolute">
           <a href="#technical-specification"
-             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+             class="btn btn-secondary d-flex justify-content-center align-items-center"
           >Tehniskā specifikācija</a>
         </div>
       </div>
@@ -607,9 +587,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <div class="mb-4">
-              <h2 class="fw-bold title">Interjera koncepts</h2>
-            </div>
+            <h2 class="mb-4">Interjera koncepts</h2>
             <div>
               <p class="mb-4">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
                 radot harmonisku un mājīgu vidi ikvienai mājai.
@@ -797,9 +775,7 @@
       <section id="technical-specification">
         <div class="container-xxl">
           <div class="row">
-            <div class="my-4 text-center">
-              <h2 class="fw-bold title">Tehniskā specifikācija</h2>
-            </div>
+            <h2 class="my-4 text-center">Tehniskā specifikācija</h2>
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <x-product-variant-options :productVariant="$productVariant"/>
           </div>
@@ -809,9 +785,7 @@
       <section class="mt-5">
         <div class="container-xxl">
           <div class="row">
-            <div class="my-4 text-center">
-              <h2 class="fw-bold title">Biežāk uzdotie jautājumi</h2>
-            </div>
+            <h2 class="my-4 text-center">Biežāk uzdotie jautājumi</h2>
             <x-faq/>
           </div>
         </div>
@@ -820,9 +794,7 @@
       <section id="contact-us" class="mt-5">
         <div class="container-xxl position-relative">
           <div class="row">
-            <div class="mb-4 text-center">
-              <h2 class="fw-bold title">Piepildi sapni, piesakies konsultācijai!</h2>
-            </div>
+            <h2 class="mb-4 text-center">Piepildi sapni, piesakies konsultācijai!</h2>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
               <x-contact-us-form :formId="'form_submit_svire'"
                                  :hideCompanyField="true"

@@ -1,6 +1,6 @@
 <x-layouts.app :title="$news->title">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">{{ $news->title }}</h1>
+    {{ $news->title }}
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">

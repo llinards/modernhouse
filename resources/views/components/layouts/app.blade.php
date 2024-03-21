@@ -8,7 +8,9 @@
 <div class="content">
   <div class="container-xxl mb-4">
     <div class="row">
-      {{ $header }}
+      <h1 class="text-center text-uppercase">
+        {{ $header }}
+      </h1>
       <div class="mt-4">
         {{ $content }}
       </div>

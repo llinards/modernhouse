@@ -8,7 +8,7 @@
       </video>
       <div class="d-flex justify-content-center align-items-center h-100 w-100 z-1">
         <h2
-          class="fw-bold text-center text-uppercase title introduction-title">@lang('introduction-title')</h2>
+          class="text-center text-uppercase text-white">@lang('introduction-title')</h2>
       </div>
       <div class="d-flex flex-column align-items-center z-1">
         <a href="/{{ app()->getLocale()}}/request-consultation"
@@ -29,7 +29,7 @@
             <source src="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_video_filename)}}"
                     type="video/mp4">
           </video>
-          <h1 class="fw-bold text-center text-uppercase title z-1">{{ $product->translations[0]->name }}</h1>
+          <h1 class="text-center text-uppercase text-white z-1">{{ $product->translations[0]->name }}</h1>
           <div class="text-center d-flex flex-column justify-content-end align-items-center z-1">
             <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
                class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>
@@ -48,7 +48,7 @@
       @else
         <section id="{{$product->slug}}" class="full-height-section d-flex flex-column justify-content-between"
                  style="background-image: url('{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}')">
-          <h1 class="fw-bold text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
+          <h1 class="text-center text-uppercase text-white">{{ $product->translations[0]->name }}</h1>
           <div class="text-center d-flex flex-column justify-content-end align-items-center">
             <a href="/{{ app()->getLocale()}}/{{$product->slug }}"
                class="btn btn-secondary fw-light d-flex justify-content-center align-items-center mb-2">@lang('feature details')</a>

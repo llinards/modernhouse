@@ -2,18 +2,25 @@
   .navbar-links-desktop {
     display: none !important;
   }
-  h1.title {
+
+  h1 {
     font-size: $title-font-size-mobile;
   }
-  section#introduction {
-    h2.title {
+
+  h2 {
+    font-size: $title-2nd-font-size-mobile;
+  }
+
+  h3 {
+    font-size: $title-3rd-font-size-mobile;
+  }
+
+  #home {
+    h2:first-of-type {
       padding-top: 125px;
     }
   }
 
-  h3.title {
-    font-size: $title-3rd-font-size-mobile;
-  }
 
   #landing-page {
     #introduction {
@@ -24,6 +31,11 @@
   }
   .container-with-image-background:last-of-type {
     background-position: 75%;
+  }
+
+  .quot-element {
+    font-size: 30px !important;
+    height: 20px;
   }
 }
 
@@ -85,10 +97,35 @@
 }
 
 @media (max-width: 320px) {
+  h1 {
+    font-size: $title-font-size-xs-mobile;
+  }
+
+  h2 {
+    font-size: $title-2nd-font-size-xs-mobile;
+  }
+
+  h3 {
+    font-size: $title-3rd-font-size-xs-mobile;
+  }
+
+  #home {
+    #choose-order-contact {
+      img {
+        width: 50px;
+      }
+    }
+  }
+
   #landing-page {
     p {
       font-size: $landing-page-paragraph-font-size-xs-mobile;
     }
+  }
+
+  .swedbank-logo {
+    width: 225px;
+    height: auto;
   }
 }
 

@@ -1,6 +1,6 @@
 <x-layouts.app :title="Lang::get('privacy policy')">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">@lang('privacy policy')</h1>
+    @lang('privacy policy')
   </x-slot>
   <x-slot name="content">
     <div class="row">

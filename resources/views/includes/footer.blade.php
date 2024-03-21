@@ -5,11 +5,11 @@
         <img class="modern-house-logo" src="{{ asset('storage/logo/logo-white.png') }} " alt="Modern House Logo">
       </div>
       <div class="col-md-2 col-6">
-        <h4 class="mb-2 fw-bold">@lang('address')</h4>
+        <h4 class="mb-2">@lang('address')</h4>
         <p class="small">Lauku iela 1, Sigulda,<br/> Siguldas nov., LV-2150</p>
       </div>
       <div class="col-md-2 col-6">
-        <h4 class="mb-2 fw-bold">@lang('contact us')</h4>
+        <h4 class="mb-2">@lang('contact us')</h4>
         <p class="small">info@modern-house.lv</p>
         <p class="small">+371 25666622</p>
       </div>

@@ -13185,16 +13185,16 @@ p {
   transform: rotate(180deg);
 }
 
-h1.title, .title.h1 {
+h1, .h1 {
   font-size: 56px;
 }
 
-h2.title, .title.h2 {
+h2, .h2 {
   font-size: 42px;
 }
 
-h3.title, .title.h3 {
-  font-size: 36px;
+h3, .h3 {
+  font-size: 32px;
 }
 
 section.full-height-section,
@@ -13527,10 +13527,6 @@ footer hr {
   overflow-y: scroll;
   height: 100%;
 }
-#home .title {
-  color: white;
-  padding-top: 150px;
-}
 #home .introduction-video {
   -o-object-fit: cover;
      object-fit: cover;
@@ -13540,8 +13536,16 @@ footer hr {
   top: 0;
   left: 0;
 }
+#home h1, #home .h1,
+#home h2,
+#home .h2 {
+  padding-top: 150px;
+}
 #home #choose-order-contact {
   padding-top: 60px;
+}
+#home #choose-order-contact h2, #home #choose-order-contact .h2 {
+  padding-top: 0;
 }
 #home #choose-order-contact img {
   width: 100px;
@@ -13649,9 +13653,6 @@ footer hr {
   border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
   border-width: 0 0 var(--bs-list-group-border-width);
 }
-.product-variant-option-content h5:not(:first-child), .product-variant-option-content .h5:not(:first-child) {
-  margin-top: 16px;
-}
 
 .product-details li {
   list-style: none;
@@ -13673,11 +13674,7 @@ footer hr {
 
 .container-with-image-background {
   background-position: center;
-  height: 550px;
-}
-
-.interior-concept-box {
-  background-color: black;
+  min-height: 550px;
 }
 
 .modern-house-staff p {
@@ -13715,7 +13712,7 @@ footer hr {
     transform: scale(1);
   }
 }
-#landing-page #introduction .title {
+#landing-page #introduction h1, #landing-page #introduction .h1 {
   color: white;
   padding-top: 150px;
 }
@@ -13787,17 +13784,27 @@ footer hr {
   .navbar-links-desktop {
     display: none !important;
   }
-  h1.title, .title.h1 {
+  h1, .h1 {
     font-size: 38px;
   }
-  section#introduction h2.title, section#introduction .title.h2 {
-    padding-top: 125px;
+  h2, .h2 {
+    font-size: 32px;
   }
-  h3.title, .title.h3 {
-    font-size: 23px;
+  h3, .h3 {
+    font-size: 22px;
+  }
+  #home h2:first-of-type, #home .h2:first-of-type {
+    padding-top: 125px;
   }
   #landing-page #introduction .location {
     position: static;
+  }
+  .container-with-image-background:last-of-type {
+    background-position: 75%;
+  }
+  .quot-element {
+    font-size: 30px !important;
+    height: 20px;
   }
 }
 @media (max-width: 768px) {
@@ -13840,8 +13847,24 @@ footer hr {
   }
 }
 @media (max-width: 320px) {
+  h1, .h1 {
+    font-size: 32px;
+  }
+  h2, .h2 {
+    font-size: 26px;
+  }
+  h3, .h3 {
+    font-size: 20px;
+  }
+  #home #choose-order-contact img {
+    width: 50px;
+  }
   #landing-page p {
     font-size: 12px;
+  }
+  .swedbank-logo {
+    width: 225px;
+    height: auto;
   }
 }
 @media (min-width: 1400px) {

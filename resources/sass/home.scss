@@ -4,11 +4,6 @@
   overflow-y: scroll;
   height: 100%;
 
-  .title {
-    color: white;
-    padding-top: 150px;
-  }
-
   .introduction-video {
     object-fit: cover;
     height: 100%;
@@ -18,8 +13,17 @@
     left: 0;
   }
 
+  h1,
+  h2 {
+    padding-top: 150px;
+  }
+
   #choose-order-contact {
     padding-top: 60px;
+
+    h2 {
+      padding-top: 0;
+    }
 
     img {
       width: 100px;

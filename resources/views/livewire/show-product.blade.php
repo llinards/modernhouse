@@ -1,6 +1,6 @@
 <div>
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">{{ $product->translations[0]->name }}</h1>
+    {{ $product->translations[0]->name }}
   </x-slot>
   <x-slot name="content">
     @include('includes.status-messages')
@@ -54,18 +54,18 @@
         </div>
         <div class="col-lg-5 mt-4 d-flex flex-column justify-content-between">
           <div>
-            <h2 class="fw-bold text-center title">@lang('choose option')</h2>
+            <h2 class="text-center">@lang('choose option')</h2>
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <div class="mt-4 mb-2">
               <h2
-                class="text-center fw-bold basic-variant-price title show active basic-{{$productVariant->slug}}">
+                class="text-center basic-variant-price show active basic-{{$productVariant->slug}}">
                 @if($productVariant->price_basic != 0.00)
                   EUR {{ number_format($productVariant->price_basic, 2, ',', ' ') }}
                 @else
                   @lang('individual price')
                 @endif
               </h2>
-              <h2 class="text-center fw-bold full-variant-price title full-{{$productVariant->slug}}">
+              <h2 class="text-center full-variant-price full-{{$productVariant->slug}}">
                 @if($productVariant->price_full != 0.00)
                   EUR {{ number_format($productVariant->price_full, 2, ',', ' ') }}
                 @else
@@ -115,11 +115,11 @@
           </div>
         </div>
         @if(count($productVariant->productVariantOptions) > 0)
-          <h3 class="fw-bold text-center mt-4 mb-1">@lang('tech specs')</h3>
+          <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
           <x-product-variant-options :productVariant="$productVariant"/>
         @endif
         @if(app()->getLocale() === 'lv')
-          <h3 class="fw-bold text-center mt-4 mb-1">Biežāk uzdotie jautājumi</h3>
+          <h3 class="text-center mt-4 mb-1">Biežāk uzdotie jautājumi</h3>
           <x-faq/>
         @endif
       </div>

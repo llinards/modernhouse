@@ -1,6 +1,6 @@
 <x-layouts.app :title="Lang::get('request consultation')">
   <x-slot name="header">
-    <h1 class="text-center text-uppercase title">@lang('request consultation')</h1>
+    @lang('request consultation')
   </x-slot>
   <x-slot name="content">
     <div class="row">
@@ -44,7 +44,7 @@
           <div class="d-flex align-items-center flex-column">
             <x-submit-button onclick="trackFormSubmit('form_submit_consultation');" :class="'mb-2'"/>
             <div>
-              <a class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+              <a class="btn btn-primary d-flex justify-content-center align-items-center"
                  href="/{{ app()->getLocale()}}/"
               >@lang('back')
               </a>
