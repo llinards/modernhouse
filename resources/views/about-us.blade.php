@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center mx-auto">
         <div class="col-lg-6">
           <div class="mb-2">
             <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
