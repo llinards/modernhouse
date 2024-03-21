@@ -3,24 +3,11 @@
     display: none !important;
   }
 
-  h1 {
-    font-size: $title-font-size-mobile;
-  }
-
-  h2 {
-    font-size: $title-2nd-font-size-mobile;
-  }
-
-  h3 {
-    font-size: $title-3rd-font-size-mobile;
-  }
-
   #home {
     h2:first-of-type {
       padding-top: 125px;
     }
   }
-
 
   #landing-page {
     #introduction {
@@ -40,6 +27,19 @@
 }
 
 @media (max-width: 768px) {
+  h1 {
+    font-size: $title-font-size-mobile;
+  }
+
+  h2 {
+    font-size: $title-2nd-font-size-mobile;
+  }
+
+  h3 {
+    font-size: $title-3rd-font-size-mobile;
+  }
+
+
   #home {
     #choose-order-contact {
       img {
