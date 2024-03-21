@@ -73,44 +73,42 @@
                 @endif
               </h2>
             </div>
-            <div class="product-short-description">
+            <div class="product-variant-description mx-auto">
               <p>{!! $productVariant->translations[0]->description !!}</p>
-              <div class="product-details">
-                <div class="product-details-header d-flex justify-content-between">
-                  <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup>
-                  </p>
-                  <p>@lang('construction area') : {{ $productVariant->building_area }}
-                    m<sup>2</sup></p>
-                </div>
-                @if($productVariant->productVariantDetails->count() > 0)
-                  <hr class="m-1">
-                  <ul class="product-details-content p-0 m-0">
-                    @foreach($productVariant->productVariantDetails as $productVariantDetail)
-                      <li class="d-flex justify-content-between">
-                        <div>
-                          <img
-                            src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
-                        </div>
-                        <div>
-                          <img
-                            src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
-                          @if($productVariantDetail->count === 0)
-                            <span class="invisible">-</span>
-                          @else
-                            {{ $productVariantDetail->count }}
-                          @endif
-                        </div>
-                      </li>
-                    @endforeach
-                  </ul>
-                  <hr class="m-1 mb-3">
-                @endif
+              <div class="d-flex justify-content-between">
+                <p>@lang('living space') : {{ $productVariant->living_area }} m<sup>2</sup>
+                </p>
+                <p>@lang('construction area') : {{ $productVariant->building_area }}
+                  m<sup>2</sup></p>
               </div>
+              @if($productVariant->productVariantDetails->count() > 0)
+                <hr class="m-1">
+                <ul class="product-variant-details p-0 m-0">
+                  @foreach($productVariant->productVariantDetails as $productVariantDetail)
+                    <li class="d-flex justify-content-between">
+                      <div>
+                        <img
+                          src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>{{ $productVariantDetail->name }}
+                      </div>
+                      <div>
+                        <img
+                          src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"/>
+                        @if($productVariantDetail->count === 0)
+                          <span class="invisible">-</span>
+                        @else
+                          {{ $productVariantDetail->count }}
+                        @endif
+                      </div>
+                    </li>
+                  @endforeach
+                </ul>
+                <hr class="m-1 mb-3">
+              @endif
             </div>
           </div>
           <div class="d-flex flex-column align-items-center">
             <button id="{{$productVariant->slug}}"
-                    class="btn btn-primary fw-light d-flex justify-content-center align-items-center request-product-info-modal"
+                    class="btn btn-primary d-flex justify-content-center align-items-center request-product-info-modal"
             >@lang('customer order')</button>
           </div>
         </div>

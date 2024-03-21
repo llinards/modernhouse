@@ -26,7 +26,7 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <h2 class="mb-2">Par projektu</h2>
+            <h2 class="mb-4">Par projektu</h2>
             <div>
               <p class="mb-2">Piedāvājam veikt rezervācijas jaunā dzīvojamo māju projektā Siguldā, Svīres
                 ielā.</p>
@@ -40,7 +40,7 @@
                 mūsu tipveida projektiem, kā arī piedāvājam iespēju īstenot Jūsu sapņu māju, kopīgi radot individuālu
                 projektu.
               </p>
-              <p class="mb-5">Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem ar
+              <p class="mb-4">Šajā projektā arī ir iespējams iegādāties kādu no brīvajiem zemes gabaliem ar
                 platību 1200
                 m<sup>2</sup>, kura cena ir 50 000 EUR,
                 iespējama arī daļēja nomaksa atsevišķi vienojoties. Brīvos zemes gabalus iespējams aplūkot Svīres ielā
@@ -184,14 +184,14 @@
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
-          <h2 class="mb-lg-5 mb-5 text-center">Māju finansējuma<br/>partneris</h2>
+          <h2 class="mb-4 text-center">Māju finansējuma<br/>partneris</h2>
           <div class="col-lg-12 d-flex flex-column justify-content-evenly">
             <div>
               <div class="text-center">
-                <img class="swedbank-logo mb-3" src="{{asset('storage/landing-pages/icons/swedbank-logo.svg')}}"
+                <img class="swedbank-logo mb-2" src="{{asset('storage/landing-pages/icons/swedbank-logo.svg')}}"
                      alt="Swedbank logo">
               </div>
-              <p class="mb-5 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
+              <p class="mb-4 text-center">Saņem konsultāciju par mājas finansējuma iespējām, aizpildot pieteikumu ar
                 kodu
                 "MODERNHOUSE".</p>
               <div class="d-flex justify-content-center">
@@ -513,7 +513,7 @@
                   <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
-                <p class="text-white mb-3">Sigulda piedāvā mierīgu un drošu vidi, kas ir piemērota ģimenēm. Ainavas,
+                <p class="text-white mb-2">Sigulda piedāvā mierīgu un drošu vidi, kas ir piemērota ģimenēm. Ainavas,
                   parki un daudzās pastaigu takas sniedz iespēju baudīt dabas skaistumu un tās piedāvāto relaksējošo
                   mieru.
                 </p>
@@ -523,7 +523,7 @@
                   <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
-                <p class="text-white mb-3">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes
+                <p class="text-white mb-2">Labas izglītības iespējas - Sigulda piedāvā kvalitatīvas izglītības iestādes
                   -bērnudārzus, sporta, mākslas un mūzikas skolas, kas veicina bērnu attīstību un izaugsmi.
                 </p>
               </li>
@@ -532,7 +532,7 @@
                   <img class="checkmark-icon-as-list-item"
                        src="{{asset('storage/landing-pages/icons/check-white.svg')}}" alt="White checkmark icon">
                 </div>
-                <p class="text-white mb-3">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
+                <p class="text-white mb-2">Aktīvās atpūtas iespējas - pilsēta ir bagāta ar dažādām aktivitātēm un sporta
                   iespējām, kas ir piemērotas ikvienam! Sigulda veicina aktīvu un veselīgu dzīvesveidu.</p>
               </li>
               <li class="d-flex justify-content-between">
@@ -589,11 +589,11 @@
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
             <h2 class="mb-4">Interjera koncepts</h2>
             <div>
-              <p class="mb-4">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
+              <p class="mb-2">MODERN HOUSE interjera dizains izceļas ar vienkāršumu, estētiku un dabīgo apgaismojumu,
                 radot harmonisku un mājīgu vidi ikvienai mājai.
                 Mēs pievēršam uzmanību minimālistiskiem un funkcionāliem dizaina elementiem, izmantojot dabīgus un
                 ilgtspējīgus materiālus.</p>
-              <p class="mb-4">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
+              <p class="mb-2">Dizains tiek veidots, ņemot vērā klienta individuālās vēlmes ar iespēju pielāgot māju
                 pēc saviem priekšstatiem. Piedāvājumā ietilpst dažādas opcijas un akcenti, lai klienti varētu
                 personalizēt savu mājokli, pievienojot un mainot elementus pēc savām vēlmēm.</p>
               <p>Tādējādi mūsu dizains atbilst ne tikai uz modernajām tendencēm, bet arī sniedz elastīgus
@@ -785,7 +785,7 @@
       <section class="mt-5">
         <div class="container-xxl">
           <div class="row">
-            <h2 class="my-4 text-center">Biežāk uzdotie jautājumi</h2>
+            <h2 class="mb-4 text-center">Biežāk uzdotie jautājumi</h2>
             <x-faq/>
           </div>
         </div>

@@ -39,7 +39,21 @@
     font-size: $title-3rd-font-size-mobile;
   }
 
+  p {
+    font-size: $paragraph-font-size-mobile;
+  }
 
+  .product-variant-option-content {
+    li,
+    p {
+      font-size: $paragraph-font-size-mobile;
+      padding: 8px
+    }
+  }
+  .variant-button {
+    font-size: $paragraph-font-size-mobile;
+  }
+  
   #home {
     #choose-order-contact {
       img {
@@ -53,10 +67,6 @@
   }
 
   #landing-page {
-    p {
-      font-size: $landing-page-paragraph-font-size-mobile;
-    }
-
     .checkmark-icon-as-list-item {
       width: 30px;
     }
@@ -78,10 +88,6 @@
 
   label {
     font-size: $label-font-size-mobile;
-  }
-
-  h2.title {
-    font-size: $title-2nd-font-size-mobile;
   }
 
   .buttons-content-switch {
@@ -109,17 +115,27 @@
     font-size: $title-3rd-font-size-xs-mobile;
   }
 
+  p,
+  p.small, {
+    font-size: $paragraph-font-size-xs-mobile;
+  }
+
+  .product-variant-option-content {
+    li,
+    p {
+      font-size: $paragraph-font-size-xs-mobile;
+    }
+  }
+
+  .variant-button {
+    font-size: $paragraph-font-size-xs-mobile;
+  }
+
   #home {
     #choose-order-contact {
       img {
         width: 50px;
       }
-    }
-  }
-
-  #landing-page {
-    p {
-      font-size: $landing-page-paragraph-font-size-xs-mobile;
     }
   }
 
