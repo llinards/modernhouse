@@ -7,6 +7,7 @@
       <div class="col-md-2 col-6">
         <h4 class="mb-2">@lang('address')</h4>
         <p class="small">Lauku iela 1, Sigulda,<br/> Siguldas nov., LV-2150</p>
+        <p class="small">@lang('modern house registration number'): 40203251766</p>
       </div>
       <div class="col-md-2 col-6">
         <h4 class="mb-2">@lang('contact us')</h4>

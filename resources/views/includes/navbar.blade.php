@@ -95,10 +95,6 @@
           <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
         </div>
       </div>
-      <div class="navbar-modal-footer d-flex flex-column align-items-center">
-        <p class="text-center small">Lauku iela 1, Sigulda, Siguldas nov., LV-2150</p>
-        <p class="small">@lang('modern house registration number'): 40203251766</p>
-      </div>
     </div>
   </div>
 </nav>

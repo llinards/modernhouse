@@ -53,7 +53,7 @@
   .variant-button {
     font-size: $paragraph-font-size-mobile;
   }
-  
+
   #home {
     #choose-order-contact {
       img {
@@ -76,6 +76,11 @@
 @media (max-width: 570px) {
   .modern-house-logo {
     width: 65px;
+  }
+
+  .nav-link,
+  .dropdown-item {
+    font-size: $navbar-item-font-size-mobile;
   }
 
   .btn-primary,
