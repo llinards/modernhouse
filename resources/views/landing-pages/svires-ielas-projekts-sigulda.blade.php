@@ -785,7 +785,7 @@
       <section class="mt-5">
         <div class="container-xxl">
           <div class="row">
-            <h2 class="mb-4 text-center">Biežāk uzdotie jautājumi</h2>
+            <h2 class="mb-4 text-center">@lang('faq')</h2>
             <x-faq/>
           </div>
         </div>

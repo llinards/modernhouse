@@ -117,7 +117,7 @@
           <x-product-variant-options :productVariant="$productVariant"/>
         @endif
         @if(app()->getLocale() === 'lv')
-          <h3 class="text-center mt-4 mb-1">Biežāk uzdotie jautājumi</h3>
+          <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
           <x-faq/>
         @endif
       </div>

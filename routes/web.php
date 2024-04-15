@@ -107,6 +107,10 @@ Route::middleware('setLanguage')->group(function () {
     return view('privacy-policy');
   });
 
+  Route::get('{language?}/faq', static function () {
+    return view('faq');
+  });
+
   Route::get('{language?}/contact-us', static function () {
     return view('contact-us');
   });
