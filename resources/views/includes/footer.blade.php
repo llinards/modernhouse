@@ -13,6 +13,7 @@
         <h4 class="mb-2">@lang('contact us')</h4>
         <p class="small">info@modern-house.lv</p>
         <p class="small">+371 25666622</p>
+        <p class="small invisible">+371 25666622</p>
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
         <div class="p-2">
