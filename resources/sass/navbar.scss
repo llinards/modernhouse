@@ -102,7 +102,9 @@
 .nav-link-active {
   color: $navbar-item-hover-font-color;
   border-bottom: 2px solid $navbar-item-hover-font-color;
-  padding-bottom: 0;
+  padding-bottom: 0.25rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .navbar-modal-social-network-icons i {

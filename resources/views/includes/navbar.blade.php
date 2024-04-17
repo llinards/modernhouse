@@ -46,7 +46,7 @@
         <ul class="navbar-nav">
           @foreach($allActiveProducts as $product)
             <li class="nav-item">
-              <a class="nav-link text-center"
+              <a class="nav-link text-center {{ Request::is('*/'.$product->slug.'*') ? 'nav-link-active' : '' }}"
                  href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
             </li>
           @endforeach
@@ -59,29 +59,29 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('news') ? 'nav-link-active' : '' }}"
+            <a class="nav-link text-center {{ Request::is('*/news*') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/news">@lang('news')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('gallery') ? 'nav-link-active' : '' }}"
+            <a class="nav-link text-center {{ Request::is('*/gallery') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/gallery">@lang('gallery')</a>
           </li>
           @if(app()->getLocale() === 'lv')
             <li class="nav-item">
-              <a class="nav-link text-center {{ request()->is('faq') ? 'nav-link-active' : '' }}"
+              <a class="nav-link text-center {{ Request::is('*/faq') ? 'nav-link-active' : '' }}"
                  href="/{{app()->getLocale()}}/faq">@lang('faq')</a>
             </li>
           @endif
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('about-us') ? 'nav-link-active' : '' }}"
+            <a class="nav-link text-center {{ Request::is('*/about-us') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/about-us">@lang('about')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('contact-us') ? 'nav-link-active' : '' }}"
+            <a class="nav-link text-center {{ Request::is('*/contact-us') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/contact-us">@lang('contact')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center {{ request()->is('privacy-policy') ? 'nav-link-active' : '' }}"
+            <a class="nav-link text-center {{ Request::is('*/privacy-policy') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/privacy-policy">@lang('privacy policy')</a>
           </li>
         </ul>
