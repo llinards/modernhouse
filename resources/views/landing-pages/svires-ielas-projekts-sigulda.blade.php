@@ -4,7 +4,7 @@
     {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="text-center">Piepildi sapni par <br/>māju Siguldā!</h1>
+      <h1 class="text-center text-white">Piepildi sapni par <br/>māju Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center position-relative">
         <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
           <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
@@ -12,7 +12,7 @@
         </div>
         <div>
           <a href="#contact-us"
-             class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
+             class="btn btn-secondary d-flex justify-content-center align-items-center"
           >Pieteikties konsultācijai</a>
         </div>
         <a href="#about-project"
@@ -824,6 +824,12 @@
     document.getElementById('landing-page').onscroll = () => {
       buttonUp.classList.remove('visually-hidden');
     }
+
+    buttonUp.addEventListener('click', () => {
+      setTimeout(() => {
+        buttonUp.classList.add('visually-hidden');
+      }, 1500);
+    });
 
     const landingPageGalleryImages = document.querySelectorAll('#landing-page-galleries');
     landingPageGalleryImages.forEach((image) => {
