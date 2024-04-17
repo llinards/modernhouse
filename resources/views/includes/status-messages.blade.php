@@ -1,7 +1,6 @@
 @if($errors->any())
   <div class="alert alert-danger mx-0 my-2" role="alert">
     <button type="button" class="btn-close float-end" data-bs-dismiss="alert" aria-label="Close"></button>
-    @lang('error')<br/>
     <ul>
       @foreach($errors->all() as $error)
         <li>{{ $error }}</li>
