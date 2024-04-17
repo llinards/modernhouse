@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdd951ad5762affcc95bd7f8f5be5b5b",
+    "content-hash": "5c3502b44bd42891e051c1a6566b2af0",
     "packages": [
         {
             "name": "brick/math",
@@ -1443,16 +1443,16 @@
         },
         {
             "name": "klaviyo/api",
-            "version": "5.2.0",
+            "version": "7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/klaviyo/klaviyo-api-php.git",
-                "reference": "71043b39312cf9144fa60a23715b4b636246db8f"
+                "reference": "faf76abaf785dfd7b5c9794dacc34188548bb6f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/klaviyo/klaviyo-api-php/zipball/71043b39312cf9144fa60a23715b4b636246db8f",
-                "reference": "71043b39312cf9144fa60a23715b4b636246db8f",
+                "url": "https://api.github.com/repos/klaviyo/klaviyo-api-php/zipball/faf76abaf785dfd7b5c9794dacc34188548bb6f6",
+                "reference": "faf76abaf785dfd7b5c9794dacc34188548bb6f6",
                 "shasum": ""
             },
             "require": {
@@ -1492,9 +1492,9 @@
             ],
             "support": {
                 "issues": "https://github.com/klaviyo/klaviyo-api-php/issues",
-                "source": "https://github.com/klaviyo/klaviyo-api-php/tree/v5.2.0"
+                "source": "https://github.com/klaviyo/klaviyo-api-php/tree/v7.1.2"
             },
-            "time": "2023-09-15T19:47:14+00:00"
+            "time": "2024-04-09T16:18:34+00:00"
         },
         {
             "name": "laravel/framework",

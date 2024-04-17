@@ -36,8 +36,18 @@ class KlaviyoService
                   'email' => $request['email'],
                   'phone_number' => $request['phone-number'],
                   'subscriptions' => [
-                    'email' => ['MARKETING'],
-                    'sms' => ['MARKETING']
+                    'email' => [
+                      'marketing' => [
+                        'consent' => 'SUBSCRIBED',
+                        'consented_at' => date('Y-m-d\TH:i:sO'),
+                      ]
+                    ],
+                    'sms' => [
+                      'marketing' => [
+                        'consent' => 'SUBSCRIBED',
+                        'consented_at' => date('Y-m-d\TH:i:sO'),
+                      ]
+                    ]
                   ]
                 ]
               ]
