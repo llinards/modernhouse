@@ -122,9 +122,7 @@ return [
   'key' => env('APP_KEY'),
 
   'cipher' => 'AES-256-CBC',
-
-  'klaviyo_api_key' => env('KLAVIYO_API_KEY'),
-
+  
   /*
   |--------------------------------------------------------------------------
   | Autoloaded Service Providers

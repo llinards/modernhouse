@@ -12,7 +12,7 @@ class KlaviyoService
 
   private function getApiKey()
   {
-    return config('app.klaviyo_api_key');
+    return config('klaviyo.api_key');
   }
 
   public function __construct()

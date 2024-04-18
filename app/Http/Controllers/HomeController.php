@@ -22,7 +22,7 @@ class HomeController extends Controller
     try {
       $profileId = $klaviyoService->createProfile($request);
       if ($profileId) {
-        $klaviyoService->subscribeProfile($profileId, 'XpkjqM', $request);
+        $klaviyoService->subscribeProfile($profileId, config('klaviyo.list_id_request_product_info'), $request);
       }
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
       return back()->with('success', Lang::get('message has been sent'));
@@ -48,7 +48,7 @@ class HomeController extends Controller
     try {
       $profileId = $klaviyoService->createProfile($data);
       if ($profileId) {
-        $klaviyoService->subscribeProfile($profileId, 'W3jiWs', $data);
+        $klaviyoService->subscribeProfile($profileId, config('klaviyo.list_id_request_consultation'), $data);
       }
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
