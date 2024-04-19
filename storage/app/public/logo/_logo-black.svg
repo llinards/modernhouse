@@ -1,64 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
-	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
-	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
-	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
-	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
-	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
-	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
-	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
-	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
-]>
-<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 595.28 595.28"
-	 style="enable-background:new 0 0 595.28 595.28;" xml:space="preserve">
+  <!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+  <!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+  <!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+  <!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+  <!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+  <!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+  <!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+  <!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+  ]>
+<svg version="1.1" id="Layer_1" xmlns:i="&ns_ai;"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 595.28 595.28"
+     style="enable-background:new 0 0 595.28 595.28;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#010101;}
 </style>
-<switch>
+  <switch>
 	<foreignObject requiredExtensions="&ns_ai;" x="0" y="0" width="1" height="1">
-		<i:aipgfRef  xlink:href="#adobe_illustrator_pgf">
+		<i:aipgfRef xlink:href="#adobe_illustrator_pgf">
 		</i:aipgfRef>
 	</foreignObject>
-	<g i:extraneous="self">
+    <g i:extraneous="self">
 		<g>
 			<path class="st0" d="M365.85,378.99H98.05V237.56l133.9-149.03l133.9,149.03V378.99z M103.18,373.86h257.55V239.52L231.95,96.19
 				L103.18,239.52V373.86z"/>
-			<path class="st0" d="M497.18,378.99h-267.8V237.56l133.9-149.03l133.9,149.03V378.99z M234.51,373.86h257.55V239.52L363.29,96.19
+      <path class="st0" d="M497.18,378.99h-267.8V237.56l133.9-149.03l133.9,149.03V378.99z M234.51,373.86h257.55V239.52L363.29,96.19
 				L234.51,239.52V373.86z"/>
-			<g>
+      <g>
 				<path class="st0" d="M105.41,417.13l-1.76-2.47c0.09,2.03,0.09,3.97,0.09,5.91v40.68h-6.53v-64.59h0.09l28.24,37.06l28.24-37.06
 					h0.09v64.59h-6.53v-40.68c0-1.94,0-3.88,0.09-5.91c-0.88,1.41-2.29,3.26-3.44,4.94l-18.44,23.91L105.41,417.13z"/>
-				<path class="st0" d="M205.74,396.66c18.27,0,32.3,14.47,32.3,32.83c0,18.44-13.85,32.83-32.3,32.83
+        <path class="st0" d="M205.74,396.66c18.27,0,32.3,14.47,32.3,32.83c0,18.44-13.85,32.83-32.3,32.83
 					c-18.35,0-32.3-14.38-32.3-32.83C173.44,411.31,187.39,396.66,205.74,396.66z M205.74,456.04c14.82,0,25.41-11.47,25.41-26.56
 					c0-15.09-10.59-26.56-25.41-26.56c-14.74,0-25.5,11.47-25.5,26.56C180.24,444.57,191,456.04,205.74,456.04z"/>
-				<path class="st0" d="M257.62,461.25v-63.53h17.56c18.97,0,33.53,12.18,33.53,31.77c0,19.59-14.38,31.77-33.18,31.77H257.62z
+        <path class="st0" d="M257.62,461.25v-63.53h17.56c18.97,0,33.53,12.18,33.53,31.77c0,19.59-14.38,31.77-33.18,31.77H257.62z
 					 M264.33,403.37v52.24h11.21c14.91,0,26.3-10.15,26.3-26.12c0-15.97-11.47-26.12-26.74-26.12H264.33z"/>
-				<path class="st0" d="M328.21,461.25v-63.53h38.3v5.65h-31.59v22.85h26.74v5.74h-26.74v23.65h32.91v5.65H328.21z"/>
-				<path class="st0" d="M407.18,397.72c13.41,0,21.62,7.06,21.62,18.88c0,9.62-6,15.88-13.94,17.82l14.91,26.83h-7.5l-14.03-25.85
+        <path class="st0" d="M328.21,461.25v-63.53h38.3v5.65h-31.59v22.85h26.74v5.74h-26.74v23.65h32.91v5.65H328.21z"/>
+        <path class="st0" d="M407.18,397.72c13.41,0,21.62,7.06,21.62,18.88c0,9.62-6,15.88-13.94,17.82l14.91,26.83h-7.5l-14.03-25.85
 					h-14.47v25.85h-6.71v-63.53H407.18z M393.77,403.37v26.47h13.59c9.18,0,14.65-4.94,14.65-13.24c0-8.21-5.65-13.24-15.09-13.24
 					H393.77z"/>
-				<path class="st0" d="M457.48,415.63c-0.62-0.71-1.32-1.5-1.85-2.21c0,1.76,0.09,3.62,0.09,5.65v42.18h-6.71v-64.59h0.09
+        <path class="st0" d="M457.48,415.63c-0.62-0.71-1.32-1.5-1.85-2.21c0,1.76,0.09,3.62,0.09,5.65v42.18h-6.71v-64.59h0.09
 					l40.5,46.68l1.85,2.21c0-1.76-0.09-3.53-0.09-5.65v-42.18h6.71v64.59h-0.09L457.48,415.63z"/>
 			</g>
-			<g>
+      <g>
 				<path class="st0" d="M248.6,506.28v-13.42h-15.67v13.42h-2.29v-28.41h2.29v13.06h15.67v-13.06h2.25v28.41H248.6z"/>
-				<path class="st0" d="M272.99,477.39c8.17,0,14.36,6.55,14.36,14.68c0,8.21-6.16,14.68-14.36,14.68
+        <path class="st0" d="M272.99,477.39c8.17,0,14.36,6.55,14.36,14.68c0,8.21-6.16,14.68-14.36,14.68
 					c-8.21,0-14.36-6.47-14.36-14.68C258.62,483.98,264.78,477.39,272.99,477.39z M272.99,504.62c7.06,0,12-5.49,12-12.55
 					c0-7.02-4.93-12.55-12-12.55c-7.02,0-12.04,5.52-12.04,12.55C260.95,499.13,265.96,504.62,272.99,504.62z"/>
-				<path class="st0" d="M315.09,496.65c0,6.35-3.87,10.1-10.34,10.1c-6.51,0-10.38-3.75-10.38-10.1v-18.78h2.29v18.7
+        <path class="st0" d="M315.09,496.65c0,6.35-3.87,10.1-10.34,10.1c-6.51,0-10.38-3.75-10.38-10.1v-18.78h2.29v18.7
 					c0,5.05,3.04,8.05,8.09,8.05s8.09-3,8.09-8.05v-18.7h2.25V496.65z"/>
-				<path class="st0" d="M321.84,505.05v-2.33c1.78,0.83,4.62,1.93,7.85,1.93c3.83,0,6.83-1.82,6.83-4.97c0-3.12-1.5-4.77-6.75-6.67
+        <path class="st0" d="M321.84,505.05v-2.33c1.78,0.83,4.62,1.93,7.85,1.93c3.83,0,6.83-1.82,6.83-4.97c0-3.12-1.5-4.77-6.75-6.67
 					c-5.84-2.09-7.93-4.58-7.93-8.48c0-4.58,4.02-7.14,8.8-7.14c2.8,0,5.29,0.79,6.75,1.5v2.25c-1.54-0.71-4.22-1.66-6.71-1.66
 					c-3.79,0-6.55,1.93-6.55,4.97c0,2.76,1.34,4.7,6.67,6.63c5.88,2.09,8.01,4.42,8.01,8.48c0,4.54-3.87,7.18-9.08,7.18
 					C326.49,506.75,323.61,505.88,321.84,505.05z"/>
-				<path class="st0" d="M346.11,506.28v-28.41h16.85v1.93h-14.56v11.13h12.39v1.93h-12.39v11.48h15.15v1.93H346.11z"/>
+        <path class="st0" d="M346.11,506.28v-28.41h16.85v1.93h-14.56v11.13h12.39v1.93h-12.39v11.48h15.15v1.93H346.11z"/>
 			</g>
 		</g>
 	</g>
 </switch>
-<i:aipgf  id="adobe_illustrator_pgf" i:pgfEncoding="zstd/base64" i:pgfVersion="24">
+  <i:aipgf id="adobe_illustrator_pgf" i:pgfEncoding="zstd/base64" i:pgfVersion="24">
 	<![CDATA[
 	KLUv/QBYtOgDDlcFPwstwNRMkza4Z6yAUFwhkZCowdBTkiICov//1zF5ZIrs7m0fCc9DQP6KooCh
 KDoQCw5pCk8KaIOIVxCzxCo7PluMsk0P3cvniNkMnT2LXrBEcKpH+2yK+9cc2rEwS0vEmLdCZ1md
@@ -101,7 +102,7 @@ NqhBtKAFKUhBCUoQghB0OplMSUlISEdHRkVFRESlY2ioUUYZXVRRRRNF9H3dLBZ7tVap1HbaGMYs
 RjGJSQxiPp4cnBubGprOTKNxNBdeePHFF4hFYpFYKBaKxWKxWDAWjEVj0VgMYxhllEEMYhTDGMY4
 xjGQgYxkJMMMM844A8E4EIwEI8FQMBSMBYPBYDAajAZjGtNoow1qUKMa1bCGNa5xDWxkIxtuuPHG
 G4gGopFoJBqKhqKxaCwajAaj0WiYy+R63EhGLlKRiUTk05mJeWlZSdmcbCADF6jABCLwaExEPDQs
-JCweg41j3OIUlzjE/Xx5eHd2dL25hjFsYQpLGMJutjS0M7MystpYoxi1KEUlClEvFx2Yi0QCkXjC
+Jweg41j3OIUlzjE/Xx5eHd2dL25hjFsYQpLGMJutjS0M7MystpYoxi1KEUlClEvFx2Yi0QCkXjC
 iUxg4hKWqAQlmphEA8FALBCHApFAIBBHGJEIRBzCEIUgRBGDaJzxxRVPHPHfz+Pvdno/b5jhhRVO
 GOHbTqPP5sNqjgrmKMBx2C3MSAYyjmGMoxjEKGMYjQVjsVgoFokFYvGFF7nAxS1sUQtadDGLhoKh
 WCgUCoTiCitSgYpTmKIUpKhiFI0EI7FIKBKJxFHBUYDjwJujgiNDjgkE0ABBggMKDrhAAmOROCok
