@@ -1,3 +1,8 @@
+@props([
+  'companyField' => true,
+  'subject' => $subject,
+  'formId' => $formId
+])
 <form method="POST" action="/{{app()->getLocale()}}/contact-us">
   @include('includes.status-messages')
   @csrf
@@ -23,7 +28,7 @@
     <input type="tel" name="phone-number" class="form-control" id="phone-number"
            value="{{ old('phone-number') }}">
   </div>
-  @if(!$hideCompanyField)
+  @if($companyField)
     <div class="mb-3">
       <label for="company" class="form-label fw-bold">@lang('company')</label>
       <input type="text" name="company" class="form-control" id="company" value="{{ old('company') }}">

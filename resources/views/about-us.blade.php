@@ -63,7 +63,7 @@
           <div class="mb-2">
             <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
           </div>
-          <x-contact-us-form :formId="'form_submit_about_us'" :hideCompanyField="false"
+          <x-contact-us-form :formId="'form_submit_about_us'"
                              :subject="'Jauna ziņa no mājaslapas (par mums sadaļas)'"/>
         </div>
       </div>

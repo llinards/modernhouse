@@ -24,7 +24,7 @@
         <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
       </div>
       <div class="col-lg-6">
-        <x-contact-us-form :formId="'form_submit_contact_us'" :hideCompanyField="false"
+        <x-contact-us-form :formId="'form_submit_contact_us'"
                            :subject="'Jauna ziņa no mājaslapas (kontaktu sadaļas)'"/>
       </div>
     </div>

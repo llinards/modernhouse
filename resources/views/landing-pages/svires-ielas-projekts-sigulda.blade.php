@@ -797,7 +797,7 @@
             <h2 class="mb-4 text-center">Piepildi sapni, piesakies konsultācijai!</h2>
             <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
               <x-contact-us-form :formId="'form_submit_svire'"
-                                 :hideCompanyField="true"
+                                 :companyField="false"
                                  :subject="'Jauna ziņa no mājaslapas (Svīres ielas projekta sadaļas)'"/>
             </div>
             <div class="col-lg-6 d-flex justify-content-center align-items-between flex-column mt-lg-0 mt-4">
