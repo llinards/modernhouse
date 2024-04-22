@@ -2,15 +2,70 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class OpenDays extends Component
 {
+  public bool $introductionScreen = true;
+  public bool $registerScreen = false;
+  public bool $successScreen = false;
+
+  #[Validate('required', message: 'Vārds ir obligāts.')]
+  #[Validate('string', message: 'Vārds drīkst sastāvēt tikai no burtiem.')]
+  #[Validate('max:255', message: 'Vārds ir aizdomīgi garš.')]
+  #[Validate('alpha', message: 'Vārds drīkst sastāvēt tikai no burtiem.')]
+  public string $firstName = '';
+
+  #[Validate('required', message: 'Uzvārds ir obligāts.')]
+  #[Validate('string', message: 'Uzvārds drīkst sastāvēt tikai no burtiem.')]
+  #[Validate('max:255', message: 'Uzvārds ir aizdomīgi garš.')]
+  #[Validate('alpha', message: 'Uzvārds drīkst sastāvēt tikai no burtiem.')]
+  public string $lastName = '';
+
+  #[Validate('required', message: 'Datums ir obligāts.')]
+  #[Validate('in:1.jūlijs,2.jūlijs', message: 'Pieteikties var tikai 1.jūlijā vai 2.jūlijā.')]
+  public string $date = '';
+
+  #[Validate('required', message: 'Laiks ir obligāts.')]
+  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
+  public string $time = '';
+
+  #[Validate('required', message: 'Telefona numurs ir obligāts.')]
+  #[Validate('max:255', message: 'Telefona numurs ir aizdomīgi garš.')]
+  #[Validate('regex:/^([0-9\s\-\+\(\)]*)$/', message: 'Telefona numurs drīkst sastāvēt tikai no cipariem.')]
+  #[Validate('min:8', message: 'Telefona numurs nedrīkst būt īsāks par 8 cipariem.')]
+  public string $phoneNumber = '';
+
+  #[Validate('required', message: 'E-pasts ir obligāts.')]
+  #[Validate('email', message: 'E-pasts nav derīgs.')]
+  public string $email = '';
+
+  public string $questions = '';
+
+  #[Validate('accepted', message: 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai reģistrētos.')]
+  public bool $consentToProcessPersonalData = false;
+
+  public function showRegisterScreen(): void
+  {
+    $this->introductionScreen = false;
+    $this->registerScreen = true;
+  }
+
+  public function register(): void
+  {
+    // klaviyo
+    // send email
+    $this->validate();
+    $this->registerScreen = false;
+    $this->successScreen = true;
+  }
+
   public function render()
   {
     if (app()->getLocale() !== 'lv') {
       abort(404);
     }
-    return view('livewire.open-days')->layout('components.layouts.single-view');
+    return view('livewire.open-days')->title('Atvērto durvju dienas Svīres ielā')->layout('components.layouts.single-view');
   }
 }

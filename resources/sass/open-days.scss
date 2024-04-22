@@ -1,9 +1,9 @@
-.open-days-introduction {
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+#open-days {
+  .introduction,
+  .thank-you {
+    min-height: 100dvh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 }

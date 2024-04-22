@@ -123,7 +123,7 @@ Route::middleware('setLanguage')->group(function () {
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
   //Open Days Svires Iela
-  Route::get('{language?}/atverto-durvju-dienas', OpenDays::class);
+  Route::get('{language?}/atverto-durvju-dienas-svires-iela', OpenDays::class);
 
   Route::get('{language?}/{product}/', ShowProduct::class);
 
