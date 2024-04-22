@@ -4,8 +4,8 @@
   @include('includes.layout-head')
 </head>
 <body class="antialiased" oncontextmenu="return false">
-<div class="content mb-4">
-  {{$content}}
+<div class="content">
+  {{ $slot }}
 </div>
 <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RFwwRz"></script>
 </body>

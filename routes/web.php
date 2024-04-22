@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingPageController;
+use App\Livewire\OpenDays;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -122,12 +123,7 @@ Route::middleware('setLanguage')->group(function () {
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
   //Open Days Svires Iela
-  Route::get('{language?}/atverto-durvju-dienas', static function () {
-    if (app()->getLocale() === 'lv') {
-      return view('open-days.open-days-2024-svires-iela');
-    }
-    abort(404);
-  });
+  Route::get('{language?}/atverto-durvju-dienas', OpenDays::class);
 
   Route::get('{language?}/{product}/', ShowProduct::class);
 
