@@ -2,6 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Http\Services\KlaviyoService;
+use App\Mail\OpenDayRegistration;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -52,13 +57,28 @@ class OpenDays extends Component
     $this->registerScreen = true;
   }
 
-  public function register(): void
+  public function register(KlaviyoService $klaviyoService): void
   {
-    // klaviyo
-    // send email
     $this->validate();
-    $this->registerScreen = false;
-    $this->successScreen = true;
+    try {
+      $data = [
+        'email' => $this->email,
+        'phone-number' => $this->phoneNumber,
+        'first-name' => $this->firstName,
+        'last-name' => $this->lastName,
+        'company' => ''
+      ];
+//      $profileId = $klaviyoService->createProfile($data);
+//      if ($profileId) {
+//        $klaviyoService->subscribeProfile($profileId, config('klaviyo.list_id_register_open_days'), $data);
+//      }
+      $this->registerScreen = false;
+      $this->successScreen = true;
+      Mail::to('info@modern-house.lv')->send(new OpenDayRegistration($this->all()));
+    } catch (\Exception $e) {
+      Log::error($e);
+      session()->flash('error', Lang::get('message has not been sent'));
+    }
   }
 
   public function render()
