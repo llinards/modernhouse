@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
 use App\Mail\CustomerRegisteredForOpenDays;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -33,7 +34,7 @@ class OpenDays extends Component
   public string $date = '';
 
   #[Validate('required', message: 'Laiks ir obligāts.')]
-  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
+  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
   public string $time = '';
 
   #[Validate('required', message: 'Telefona numurs ir obligāts.')]
@@ -50,6 +51,13 @@ class OpenDays extends Component
 
   #[Validate('accepted', message: 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai reģistrētos.')]
   public bool $consentToProcessPersonalData = false;
+
+  public function mount(Request $request)
+  {
+    if ($request->query('register') === 'true') {
+      $this->showRegisterScreen();
+    }
+  }
 
   public function showRegisterScreen(): void
   {

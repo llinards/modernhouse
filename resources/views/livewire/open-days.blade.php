@@ -62,6 +62,8 @@
                   <option value="15:00">15:00</option>
                   <option value="16:00">16:00</option>
                   <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
                 </select>
               </div>
             </div>
@@ -88,13 +90,19 @@
                        class="form-label mb-0 d-block mx-2">Piekrītu, ka mani iesniegtie dati tiek apstrādāti un
                   uzglabāti.</label>
               </div>
-              <div class="d-flex justify-content-center">
+              <div class="d-flex align-items-center flex-column">
                 <button type="submit" x-bind:disabled="!isConsentToProcessData"
                         onclick="trackFormSubmit('form_submit_atverto_durvju_diena_svire');"
-                        class="btn btn-primary d-flex justify-content-center align-items-center">
+                        class="btn btn-primary d-flex justify-content-center align-items-center mb-2">
                   <div wire:loading class="spinner-border mx-2" id="loading" role="status"></div>
                   <span wire:loading.remove>Reģistrēties</span>
                 </button>
+                <div>
+                  <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center"
+                          onclick="window.history.back();"
+                  >@lang('back')
+                  </button>
+                </div>
               </div>
             </div>
           </form>
