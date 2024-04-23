@@ -8,6 +8,7 @@
 <link rel="manifest" href="/site.webmanifest">
 
 <meta name="author" content="{{ config('app.name') }}">
+<meta name="locale" content="{{ app()->getLocale() }}">
 @if(app()->getLocale() === 'en')
   <meta name="description"
         content="Energy-efficient modular houses and modular saunas. Full cycle timber frame house construction. Demo houses available for viewing and purchase or individual project development.">

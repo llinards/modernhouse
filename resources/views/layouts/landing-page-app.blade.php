@@ -5,6 +5,8 @@
 </head>
 <body class="antialiased w-100 h-100 overflow-x-hidden" oncontextmenu="return false">
 @yield('content')
-@include('includes.register-for-open-days-modal')
+@if(app()->getLocale() === 'lv')
+  @include('includes.register-for-open-days-modal')
+@endif
 </body>
 </html>

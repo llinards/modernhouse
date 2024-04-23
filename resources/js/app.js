@@ -24,6 +24,10 @@ window.L = L;
 
 
 const registerForOpenDaysModal = document.getElementById('register-for-open-days-modal');
-setTimeout(() => {
-  new bootstrap.Modal(registerForOpenDaysModal).show();
-}, 1000);
+const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
+
+if (locale === 'lv') {
+  setTimeout(() => {
+    new bootstrap.Modal(registerForOpenDaysModal).show();
+  }, 1000);
+}
