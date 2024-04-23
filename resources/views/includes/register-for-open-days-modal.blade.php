@@ -61,7 +61,7 @@
   const lastVisit = localStorage.getItem('lastVisit');
   const now = new Date().getTime();
   const differenceInDays = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
-  const setLocaleStorage = () => {
+  const setLocalStorage = () => {
     localStorage.setItem('lastVisit', new Date().getTime());
   }
 
@@ -71,9 +71,9 @@
     }, 1000);
   }
   registerForOpenDaysModal.addEventListener('click', (e) => {
-    setLocaleStorage();
+    setLocalStorage();
   });
   document.getElementById('register-for-open-days-modal').addEventListener('hidden.bs.modal', function (event) {
-    setLocaleStorage();
+    setLocalStorage();
   });
 </script>
