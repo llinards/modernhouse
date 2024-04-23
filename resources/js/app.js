@@ -21,3 +21,9 @@ window.fslightbox = fslightbox;
 
 window.bootstrap = bootstrap;
 window.L = L;
+
+
+const registerForOpenDaysModal = document.getElementById('register-for-open-days-modal');
+setTimeout(() => {
+  new bootstrap.Modal(registerForOpenDaysModal).show();
+}, 1000);

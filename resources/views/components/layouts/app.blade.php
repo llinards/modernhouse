@@ -18,6 +18,7 @@
   </div>
   @include('includes.footer')
 </div>
+@include('includes.register-for-open-days-modal')
 <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RFwwRz"></script>
 </body>
 </html>

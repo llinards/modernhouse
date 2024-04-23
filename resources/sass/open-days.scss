@@ -7,3 +7,22 @@
     background-position: center center;
   }
 }
+
+#register-for-open-days-modal {
+  .modal-body {
+    padding-bottom: 58px;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  li {
+    list-style: none;
+
+    img {
+      padding-right: 0.5rem;
+      margin-left: -3px;
+    }
+  }
+}
