@@ -335,7 +335,7 @@
                                   Uzvārds - <strong>{{$data['lastName']}}</strong></p>
                                 <p
                                   style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                  Telefona numurs: - <strong>{{$data['phoneNumber']}}</strong></p>
+                                  Telefona numurs - <strong>{{$data['phoneNumber']}}</strong></p>
                                 <p
                                   style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
                                   E-pasts - <strong>{{$data['email']}}</strong></p>
@@ -345,11 +345,9 @@
                                 <p
                                   style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
                                   Laiks - <strong>{{$data['time']}}</strong></p>
-                                @if (isset($data['questions']))
-                                  <p
-                                    style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                    Jautājums - <strong>{{$data['questions']}}</strong></p>
-                                @endif
+                                <p
+                                  style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+                                  Jautājums - <strong>{{$data['questions']}}</strong></p>
                               </td>
                             </tr>
                           </table>
