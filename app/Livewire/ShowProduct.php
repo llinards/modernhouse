@@ -39,7 +39,7 @@ class ShowProduct extends Component
 
   private function getProductVariant(string $productVariant)
   {
-    return $this->productVariants->where('slug', $productVariant)->first();
+    return $this->productVariants->where('slug', $productVariant)->first() ?? abort(404);
   }
 
   private function getProduct(Product $product)
