@@ -44,7 +44,8 @@
                 </ul>
               </div>
               <div class="d-flex justify-content-center">
-                <a href="{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela?register=true"
+                <a href="/{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela?register=true"
+                   id="register-open-days"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
@@ -54,3 +55,25 @@
     </div>
   </div>
 </div>
+<script>
+  const registerForOpenDaysModal = document.getElementById('register-for-open-days-modal');
+  const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
+  const lastVisit = localStorage.getItem('lastVisit');
+  const now = new Date().getTime();
+  const differenceInDays = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
+  const setLocaleStorage = () => {
+    localStorage.setItem('lastVisit', new Date().getTime());
+  }
+
+  if (locale === 'lv' && (differenceInDays > 1 || !lastVisit)) {
+    setTimeout(() => {
+      new bootstrap.Modal(registerForOpenDaysModal).show();
+    }, 1000);
+  }
+  registerForOpenDaysModal.addEventListener('click', (e) => {
+    setLocaleStorage();
+  });
+  document.getElementById('register-for-open-days-modal').addEventListener('hidden.bs.modal', function (event) {
+    setLocaleStorage();
+  });
+</script>
