@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
-use App\Mail\OpenDayRegistration;
+use App\Mail\CustomerRegisteredForOpenDays;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -61,6 +61,8 @@ class OpenDays extends Component
   {
     $this->validate();
     try {
+      //TODO: klaviyo integration
+      Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
       $data = [
         'email' => $this->email,
         'phone-number' => $this->phoneNumber,
@@ -74,7 +76,6 @@ class OpenDays extends Component
 //      }
       $this->registerScreen = false;
       $this->successScreen = true;
-      Mail::to('info@modern-house.lv')->send(new OpenDayRegistration($this->all()));
     } catch (\Exception $e) {
       Log::error($e);
       session()->flash('error', Lang::get('message has not been sent'));

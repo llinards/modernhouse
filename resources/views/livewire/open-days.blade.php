@@ -116,7 +116,7 @@
           <div class="d-flex justify-content-center">
             <a href="/"
                class="btn btn-primary d-flex justify-content-center align-items-center"
-            >Atpakaļ
+            >Uz sākumu
             </a>
           </div>
         </div>

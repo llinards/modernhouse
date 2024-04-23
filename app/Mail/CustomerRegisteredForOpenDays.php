@@ -8,7 +8,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class OpenDayRegistration extends Mailable
+class CustomerRegisteredForOpenDays extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -38,7 +38,7 @@ class OpenDayRegistration extends Mailable
   public function content(): Content
   {
     return new Content(
-      view: 'emails.open-day-registration'
+      view: 'emails.customer-registered-for-open-days',
     );
   }
 
