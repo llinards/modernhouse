@@ -14,7 +14,7 @@ return [
     ],
     'phone-number' => [
       'required' => 'Telefonnummer är obligatoriskt.',
-      'regex' => 'Telefonnummer kan endast innehålla siffror.',
+      'phone' => 'Telefonnummer måste innehålla lands- och/eller regionskod.',
       'max' => 'Telefonnummer är misstänkt långt.'
     ],
     'company' => [

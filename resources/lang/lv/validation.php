@@ -14,8 +14,8 @@ return [
     ],
     'phone-number' => [
       'required' => 'Pieteikumā ir jānorāda telefona numurs.',
-      'regex' => 'Telefona numurs drīkst saturēt tikai ciparus.',
-      'max' => 'Telefona numurs ir aizdomīgi garš.'
+      'max' => 'Telefona numurs ir aizdomīgi garš.',
+      'phone' => 'Telefona numurs jānorāda ar valsts un/vai reģiona kodu.',
     ],
     'company' => [
       'max' => 'Kompānijas nosaukums ir aizdomīgi garš.'

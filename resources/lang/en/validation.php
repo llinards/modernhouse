@@ -14,7 +14,7 @@ return [
     ],
     'phone-number' => [
       'required' => 'Phone number is required.',
-      'regex' => 'Phone number can only contain numbers.',
+      'phone' => 'Phone number must contain country and/or region code.',
       'max' => 'Phone number is suspiciously long.'
     ],
     'company' => [

@@ -68,14 +68,12 @@ class OpenDaysRegistration extends Component
   {
     $this->validate();
     try {
-      //TODO: klaviyo integration
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
       $data = [
         'email' => $this->email,
         'phone-number' => $this->phoneNumber,
         'first-name' => $this->firstName,
         'last-name' => $this->lastName,
-        'company' => ''
       ];
 //      $profileId = $klaviyoService->createProfile($data);
 //      if ($profileId) {
