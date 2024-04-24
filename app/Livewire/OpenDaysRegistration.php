@@ -4,18 +4,17 @@ namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
 use App\Mail\CustomerRegisteredForOpenDays;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class OpenDays extends Component
+class OpenDaysRegistration extends Component
 {
-  public bool $introductionScreen = true;
-  public bool $registerScreen = false;
-  public bool $successScreen = false;
+  public bool $introductionView = true;
+  public bool $registerView = false;
+  public bool $successView = false;
 
   #[Validate('required', message: 'Vārds ir obligāts.')]
   #[Validate('string', message: 'Vārds drīkst sastāvēt tikai no burtiem.')]
@@ -52,17 +51,17 @@ class OpenDays extends Component
   #[Validate('accepted', message: 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai reģistrētos.')]
   public bool $consentToProcessPersonalData = false;
 
-  public function mount(Request $request)
+  public function mount(string $register = ''): void
   {
-    if ($request->query('register') === 'true') {
-      $this->showRegisterScreen();
+    if ($register) {
+      $this->showRegisterView();
     }
   }
 
-  public function showRegisterScreen(): void
+  public function showRegisterView(): void
   {
-    $this->introductionScreen = false;
-    $this->registerScreen = true;
+    $this->introductionView = false;
+    $this->registerView = true;
   }
 
   public function register(KlaviyoService $klaviyoService): void
@@ -82,8 +81,8 @@ class OpenDays extends Component
 //      if ($profileId) {
 //        $klaviyoService->subscribeProfile($profileId, config('klaviyo.list_id_register_open_days'), $data);
 //      }
-      $this->registerScreen = false;
-      $this->successScreen = true;
+      $this->registerView = false;
+      $this->successView = true;
     } catch (\Exception $e) {
       Log::error($e);
       session()->flash('error', Lang::get('message has not been sent'));
@@ -95,6 +94,6 @@ class OpenDays extends Component
     if (app()->getLocale() !== 'lv') {
       abort(404);
     }
-    return view('livewire.open-days')->title('Atvērto durvju dienas Svīres ielā')->layout('components.layouts.single-view');
+    return view('livewire.open-days-registration')->title('Atvērto durvju dienas Svīres ielā')->layout('components.layouts.single-view');
   }
 }

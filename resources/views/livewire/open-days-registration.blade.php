@@ -1,5 +1,5 @@
-<div id="open-days">
-  @if($introductionScreen)
+<div id="open-days-registration">
+  @if($introductionView)
     <section class="introduction d-flex flex-column justify-content-around"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
       <div class="text-center">
@@ -7,13 +7,13 @@
         <h1 class="text-white text-uppercase">modern house<br/>atvērto durvju dienas</h1>
       </div>
       <div class="text-center d-flex justify-content-center">
-        <button type="button" wire:click="showRegisterScreen"
+        <button type="button" wire:click="showRegisterView"
                 class="btn btn-primary d-flex justify-content-center align-items-center"
         >Reģistrēties
         </button>
       </div>
     </section>
-  @elseif($registerScreen)
+  @elseif($registerView)
     <section class="container-xxl mt-4 mb-4">
       <div class="row justify-content-center">
         <div class="col-lg-7 col-md-10">
@@ -109,8 +109,8 @@
         </div>
       </div>
     </section>
-  @elseif($successScreen)
-    <section class="thank-you d-flex flex-column justify-content-center">
+  @elseif($successView)
+    <section class="success d-flex flex-column justify-content-center">
       <div class="row justify-content-center mx-auto">
         <div class="col-lg-7 col-md-10">
           <div class="text-center">

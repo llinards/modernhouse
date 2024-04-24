@@ -13793,24 +13793,24 @@ footer hr {
   scroll-snap-align: start;
 }
 
-#open-days .introduction,
-#open-days .thank-you {
+#open-days-registration .introduction,
+#open-days-registration .success {
   min-height: 100dvh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-#register-for-open-days-modal .modal-body {
+#open-days-invitation-modal .modal-body {
   padding-bottom: 58px;
 }
-#register-for-open-days-modal ul {
+#open-days-invitation-modal ul {
   padding-left: 0;
 }
-#register-for-open-days-modal li {
+#open-days-invitation-modal li {
   list-style: none;
 }
-#register-for-open-days-modal li img {
+#open-days-invitation-modal li img {
   padding-right: 0.5rem;
   margin-left: -3px;
 }

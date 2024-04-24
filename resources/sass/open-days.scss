@@ -1,6 +1,6 @@
-#open-days {
+#open-days-registration {
   .introduction,
-  .thank-you {
+  .success {
     min-height: 100dvh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
   }
 }
 
-#register-for-open-days-modal {
+#open-days-invitation-modal {
   .modal-body {
     padding-bottom: 58px;
   }

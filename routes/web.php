@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LandingPageController;
-use App\Livewire\OpenDays;
+use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -122,8 +122,9 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
-  //Open Days Svires Iela
-  Route::get('{language?}/atverto-durvju-dienas-svires-iela', OpenDays::class);
+  //Registration for Open Days at Svires Iela
+  Route::get('{language?}/atverto-durvju-dienas-svires-iela/{register?}',
+    OpenDaysRegistration::class)->name('registration-for-open-days-at-svires-iela');
 
   Route::get('{language?}/{product}/', ShowProduct::class);
 

@@ -1,4 +1,4 @@
-<div class="modal fade" id="register-for-open-days-modal" tabindex="-1"
+<div class="modal fade" id="open-days-invitation-modal" tabindex="-1"
      aria-labelledby="Register for open days at Modern House"
      aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -44,8 +44,8 @@
                 </ul>
               </div>
               <div class="d-flex justify-content-center">
-                <a href="/{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela?register=true"
-                   id="register-open-days"
+                <a href="{{route('registration-for-open-days-at-svires-iela', [app()->getLocale(), 'register'])}}"
+                   id="register-for-open-days"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
@@ -56,7 +56,7 @@
   </div>
 </div>
 <script>
-  const registerForOpenDaysModal = document.getElementById('register-for-open-days-modal');
+  const registerForOpenDaysModal = document.getElementById('open-days-invitation-modal');
   const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
   const lastVisit = localStorage.getItem('lastVisit');
   const now = new Date().getTime();
@@ -68,12 +68,12 @@
   if (locale === 'lv' && (differenceInDays > 1 || !lastVisit)) {
     setTimeout(() => {
       new bootstrap.Modal(registerForOpenDaysModal).show();
-    }, 1000);
+    }, 3000);
   }
-  registerForOpenDaysModal.addEventListener('click', (e) => {
+  document.getElementById('register-for-open-days').addEventListener('click', () => {
     setLocalStorage();
   });
-  document.getElementById('register-for-open-days-modal').addEventListener('hidden.bs.modal', function (event) {
+  registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
     setLocalStorage();
   });
 </script>
