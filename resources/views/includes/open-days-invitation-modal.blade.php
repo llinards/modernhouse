@@ -59,10 +59,6 @@
   const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
   const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
   const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
-
-  console.log(declinedOpenDaysRegistration);
-  console.log(acceptedOpenDaysRegistration);
-
   const now = new Date().getTime();
   const differenceInDays = Math.floor((now - declinedOpenDaysRegistration) / (1000 * 60 * 60 * 24));
 
