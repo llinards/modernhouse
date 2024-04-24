@@ -45,7 +45,6 @@
               </div>
               <div class="d-flex justify-content-center">
                 <a href="{{route('registration-for-open-days-at-svires-iela', [app()->getLocale(), 'register'])}}"
-                   id="register-for-open-days"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
@@ -58,22 +57,21 @@
 <script>
   const registerForOpenDaysModal = document.getElementById('open-days-invitation-modal');
   const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
-  const lastVisit = localStorage.getItem('lastVisit');
-  const now = new Date().getTime();
-  const differenceInDays = Math.floor((now - lastVisit) / (1000 * 60 * 60 * 24));
-  const setLocalStorage = () => {
-    localStorage.setItem('lastVisit', new Date().getTime());
-  }
+  const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
+  const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
 
-  if (locale === 'lv' && (differenceInDays > 1 || !lastVisit)) {
+  console.log(declinedOpenDaysRegistration);
+  console.log(acceptedOpenDaysRegistration);
+
+  const now = new Date().getTime();
+  const differenceInDays = Math.floor((now - declinedOpenDaysRegistration) / (1000 * 60 * 60 * 24));
+
+  if (locale === 'lv' && (differenceInDays > 7 || !declinedOpenDaysRegistration)) {
     setTimeout(() => {
       new bootstrap.Modal(registerForOpenDaysModal).show();
     }, 3000);
   }
-  document.getElementById('register-for-open-days').addEventListener('click', () => {
-    setLocalStorage();
-  });
   registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
-    setLocalStorage();
+    localStorage.setItem('declinedOpenDaysRegistration', new Date().getTime());
   });
 </script>
