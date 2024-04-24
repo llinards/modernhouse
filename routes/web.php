@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProductController;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
@@ -20,34 +24,34 @@ Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
   //ProductController
-  Route::get('/', [\App\Http\Controllers\ProductController::class, 'indexAdmin']);
-  Route::get('/create', [\App\Http\Controllers\ProductController::class, 'create']);
-  Route::post('/', [\App\Http\Controllers\ProductController::class, 'store']);
-  Route::get('/{product}/edit', [\App\Http\Controllers\ProductController::class, 'showAdmin']);
-  Route::patch('/', [\App\Http\Controllers\ProductController::class, 'update']);
-  Route::get('/{product}/video/delete', [\App\Http\Controllers\ProductController::class, 'destroyVideo']);
-  Route::delete('/{product}/delete', [\App\Http\Controllers\ProductController::class, 'destroy']);
+  Route::get('/', [ProductController::class, 'indexAdmin']);
+  Route::get('/create', [ProductController::class, 'create']);
+  Route::post('/', [ProductController::class, 'store']);
+  Route::get('/{product}/edit', [ProductController::class, 'showAdmin']);
+  Route::patch('/', [ProductController::class, 'update']);
+  Route::get('/{product}/video/delete', [ProductController::class, 'destroyVideo']);
+  Route::delete('/{product}/delete', [ProductController::class, 'destroy']);
 
   //GalleryController
-  Route::get('/gallery', [\App\Http\Controllers\GalleryController::class, 'indexAdmin']);
-  Route::get('/gallery/create', [\App\Http\Controllers\GalleryController::class, 'create']);
-  Route::post('/gallery', [\App\Http\Controllers\GalleryController::class, 'store']);
-  Route::get('/gallery/{gallery}/edit', [\App\Http\Controllers\GalleryController::class, 'show']);
-  Route::patch('/gallery', [\App\Http\Controllers\GalleryController::class, 'update']);
-  Route::get('/gallery/{image}/delete', [\App\Http\Controllers\GalleryController::class, 'destroyImage']);
-  Route::delete('/gallery/{gallery}/delete', [\App\Http\Controllers\GalleryController::class, 'destroy']);
+  Route::get('/gallery', [GalleryController::class, 'indexAdmin']);
+  Route::get('/gallery/create', [GalleryController::class, 'create']);
+  Route::post('/gallery', [GalleryController::class, 'store']);
+  Route::get('/gallery/{gallery}/edit', [GalleryController::class, 'show']);
+  Route::patch('/gallery', [GalleryController::class, 'update']);
+  Route::get('/gallery/{image}/delete', [GalleryController::class, 'destroyImage']);
+  Route::delete('/gallery/{gallery}/delete', [GalleryController::class, 'destroy']);
 
   //NewsController
-  Route::get('/news', [\App\Http\Controllers\NewsController::class, 'indexAdmin']);
-  Route::get('/news/create', [\App\Http\Controllers\NewsController::class, 'create']);
-  Route::post('/news', [\App\Http\Controllers\NewsController::class, 'store']);
-  Route::get('/news/{news:id}/edit', [\App\Http\Controllers\NewsController::class, 'showAdmin']);
-  Route::patch('/news', [\App\Http\Controllers\NewsController::class, 'update']);
+  Route::get('/news', [NewsController::class, 'indexAdmin']);
+  Route::get('/news/create', [NewsController::class, 'create']);
+  Route::post('/news', [NewsController::class, 'store']);
+  Route::get('/news/{news:id}/edit', [NewsController::class, 'showAdmin']);
+  Route::patch('/news', [NewsController::class, 'update']);
   Route::get('/news/image/{image:id}/delete',
-    [\App\Http\Controllers\NewsController::class, 'destroyNewsImage']);
+    [NewsController::class, 'destroyNewsImage']);
   Route::get('/news/attachment/{attachment:id}/delete',
-    [\App\Http\Controllers\NewsController::class, 'destroyNewsAttachment']);
-  Route::delete('/news/{news:id}/delete', [\App\Http\Controllers\NewsController::class, 'destroy']);
+    [NewsController::class, 'destroyNewsAttachment']);
+  Route::delete('/news/{news:id}/delete', [NewsController::class, 'destroy']);
 
   //ProductVariantController
   Route::get('/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
@@ -81,28 +85,28 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
 
   //HomeController
-  Route::post('/upload', [\App\Http\Controllers\HomeController::class, 'storeTemporaryUpload']);
-  Route::delete('/upload', [\App\Http\Controllers\HomeController::class, 'destroyTemporaryUpload']);
+  Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
+  Route::delete('/upload', [HomeController::class, 'destroyTemporaryUpload']);
 });
 
 Route::middleware('setLanguage')->group(function () {
-  Route::get('{language?}/', [\App\Http\Controllers\ProductController::class, 'index']);
+  Route::get('{language?}/', [ProductController::class, 'index']);
 
   Route::get('{language?}/about-us', static function () {
     return view('about-us');
   });
-  Route::get('{language?}/gallery', [\App\Http\Controllers\GalleryController::class, 'index']);
+  Route::get('{language?}/gallery', [GalleryController::class, 'index']);
 
   Route::get('{language?}/request-consultation', static function () {
     return view('request-consultation');
   });
 
   Route::post('{language?}/request-consultation',
-    [\App\Http\Controllers\HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
+    [HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
 
-  Route::get('{language?}/news', [\App\Http\Controllers\NewsController::class, 'index']);
+  Route::get('{language?}/news', [NewsController::class, 'index']);
 
-  Route::get('{language?}/news/{news}', [\App\Http\Controllers\NewsController::class, 'show']);
+  Route::get('{language?}/news/{news}', [NewsController::class, 'show']);
 
   Route::get('{language?}/privacy-policy', static function () {
     return view('privacy-policy');
@@ -116,7 +120,7 @@ Route::middleware('setLanguage')->group(function () {
     return view('contact-us');
   });
   Route::post('{language?}/contact-us',
-    [\App\Http\Controllers\HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
+    [HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
   //Landing pages
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
@@ -126,10 +130,8 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/atverto-durvju-dienas-svires-iela/{register?}',
     OpenDaysRegistration::class)->name('registration-for-open-days-at-svires-iela');
 
-  Route::get('{language?}/{product}/', ShowProduct::class);
-
-  Route::get('{language?}/{product}/{productVariant:slug}', ShowProduct::class);
+  Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class);
 
   Route::post('{language?}/{product}',
-    [\App\Http\Controllers\HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
+    [HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
 });
