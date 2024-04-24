@@ -66,7 +66,7 @@
   const now = new Date().getTime();
   const differenceInDays = Math.floor((now - declinedOpenDaysRegistration) / (1000 * 60 * 60 * 24));
 
-  if (locale === 'lv' && (differenceInDays > 7 || !declinedOpenDaysRegistration)) {
+  if (locale === 'lv' && ((differenceInDays > 7 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
     setTimeout(() => {
       new bootstrap.Modal(registerForOpenDaysModal).show();
     }, 3000);
