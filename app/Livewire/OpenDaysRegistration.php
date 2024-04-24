@@ -38,7 +38,7 @@ class OpenDaysRegistration extends Component
 
   #[Validate('required', message: 'Telefona numurs ir obligāts.')]
   #[Validate('max:255', message: 'Telefona numurs ir aizdomīgi garš.')]
-  #[Validate('regex:/^([0-9\s\-\+\(\)]*)$/', message: 'Telefona numurs drīkst sastāvēt tikai no cipariem.')]
+  #[Validate('phone', message: 'Telefona numurs jānorāda ar valsts un/vai reģiona kodu. Piemēram, +371 12345678.')]
   #[Validate('min:8', message: 'Telefona numurs nedrīkst būt īsāks par 8 cipariem.')]
   public string $phoneNumber = '';
 
@@ -69,16 +69,14 @@ class OpenDaysRegistration extends Component
     $this->validate();
     try {
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-      $data = [
+//      TODO: This should be fixed
+      $request = [
         'email' => $this->email,
         'phone-number' => $this->phoneNumber,
         'first-name' => $this->firstName,
         'last-name' => $this->lastName,
       ];
-//      $profileId = $klaviyoService->createProfile($data);
-//      if ($profileId) {
-//        $klaviyoService->subscribeProfile($profileId, config('klaviyo.list_id_register_open_days'), $data);
-//      }
+//      $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
       $this->registerView = false;
       $this->successView = true;
     } catch (\Exception $e) {
