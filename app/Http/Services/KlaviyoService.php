@@ -83,7 +83,7 @@ class KlaviyoService
           'phone_number' => $request['phone-number'],
           'first_name' => $request['first-name'],
           'last_name' => $request['last-name'],
-          'organization' => $request['company'],
+          'organization' => $request['company'] ?? '',
         ]
       ]
     ];
