@@ -21,7 +21,15 @@ class KlaviyoService
       $this->getApiKey());
   }
 
-  public function subscribeProfile($profileId, $listId, $request)
+  public function storeProfile($request, $listId): void
+  {
+    $profileId = $this->createProfile($request);
+    if ($profileId) {
+      $this->subscribeProfile($profileId, $listId, $request);
+    }
+  }
+
+  private function subscribeProfile($profileId, $listId, $request): void
   {
     $data = [
       'data' => [
@@ -69,11 +77,12 @@ class KlaviyoService
       Log::info('Profile subscribed!');
     } catch (ApiException $e) {
       Log::error($e->getResponseBody());
+      Log::error('Profile subscription failed!');
     }
 
   }
 
-  public function createProfile($request)
+  private function createProfile($request)
   {
     $data = [
       'data' => [
@@ -98,6 +107,7 @@ class KlaviyoService
         return $profileId['errors'][0]['meta']['duplicate_profile_id'];
       } else {
         Log::error($e->getResponseBody());
+        Log::error('Profile creation failed!');
         throw new \RuntimeException('Profile not created!');
       }
     }
