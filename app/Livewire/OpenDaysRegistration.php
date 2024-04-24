@@ -9,9 +9,15 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
+use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 
 class OpenDaysRegistration extends Component
 {
+  use UsesSpamProtection;
+
+  public HoneypotData $extraFields;
+
   public bool $introductionView = true;
   public bool $registerView = false;
   public bool $successView = false;
@@ -56,6 +62,7 @@ class OpenDaysRegistration extends Component
     if ($register) {
       $this->showRegisterView();
     }
+    $this->extraFields = new HoneypotData();
   }
 
   public function showRegisterView(): void
@@ -66,6 +73,7 @@ class OpenDaysRegistration extends Component
 
   public function register(KlaviyoService $klaviyoService): void
   {
+    $this->protectAgainstSpam();
     $this->validate();
     try {
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));

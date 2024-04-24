@@ -29,6 +29,7 @@
           </div>
           @include('includes.status-messages')
           <form wire:submit="register">
+            <x-honeypot livewire-model="extraFields"/>
             <input type="text" class="visually-hidden" name="subject"
                    value="Pieteikums atvērto durvju dienām Svīres ielas projektā">
             <div class="row mb-3">
