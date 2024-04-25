@@ -3,7 +3,7 @@
 <head>
   @include('includes.layout-head')
 </head>
-<body class="antialiased h-100 w-100 overflow-x-hidden" oncontextmenu="return false">
+<body class="antialiased h-100 w-100 overflow-x-hidden overflow-y-hidden" oncontextmenu="return false">
 @include('includes.navbar', ['home' => true])
 <div class="content w-100 h-100">
   {{ $slot }}
