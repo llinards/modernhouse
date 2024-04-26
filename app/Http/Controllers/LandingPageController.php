@@ -6,11 +6,6 @@ use App\Models\ProductVariant;
 
 class LandingPageController extends Controller
 {
-  private function landingPageProducts()
-  {
-
-  }
-
   public function sviresIelasProjektsSigulda($language)
   {
     if ($language === 'lv') {
@@ -31,7 +26,7 @@ class LandingPageController extends Controller
   public function atvertoDurvjuDienasSviresIela($language)
   {
     if ($language === 'lv') {
-      return 'works';
+      return view('landing-pages.atverto-durvju-dienas-svires-iela');
     }
     abort(404);
   }
