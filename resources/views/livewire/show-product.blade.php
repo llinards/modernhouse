@@ -82,7 +82,7 @@
                   m<sup>2</sup></p>
               </div>
               @if($productVariant->productVariantDetails->count() > 0)
-                <hr class="m-1">
+                <hr class="my-1">
                 <ul class="product-variant-details p-0 m-0">
                   @foreach($productVariant->productVariantDetails as $productVariantDetail)
                     <li class="d-flex justify-content-between">
@@ -102,7 +102,7 @@
                     </li>
                   @endforeach
                 </ul>
-                <hr class="m-1 mb-3">
+                <hr class="my-1 mb-3">
               @endif
             </div>
           </div>
