@@ -14,9 +14,9 @@ class OpenDaysRegistration extends Component
   public string $date = '';
   public string $time = '';
 
-  public function mount(string $register = ''): void
+  public function mount(string $pieteikties = ''): void
   {
-    if ($register) {
+    if ($pieteikties) {
       $this->showRegisterView();
     }
   }

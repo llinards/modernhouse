@@ -44,7 +44,7 @@
                 </ul>
               </div>
               <div class="d-flex justify-content-center">
-                <a href="{{route('registration-for-open-days-at-svires-iela', [app()->getLocale(), 'register'])}}"
+                <a href="{{route('registration-for-open-days-at-svires-iela', [app()->getLocale(), 'pieteikties'])}}"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>

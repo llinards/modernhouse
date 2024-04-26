@@ -126,8 +126,11 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
-  //Registration for Open Days at Svires Iela
-  Route::get('{language?}/atverto-durvju-dienas-svires-iela/{register?}',
+  Route::get('{language?}/atverto-durvju-dienas-svires-iela',
+    [LandingPageController::class, 'atvertoDurvjuDienasSviresIela']);
+
+  //Registration form for Open Days at Svires Iela
+  Route::get('{language?}/pieteikums-atverto-durvju-dienam-svires-iela/{pieteikties?}',
     OpenDaysRegistration::class)->name('registration-for-open-days-at-svires-iela');
 
   Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class);

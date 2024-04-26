@@ -27,4 +27,12 @@ class LandingPageController extends Controller
     }
     abort(404);
   }
+
+  public function atvertoDurvjuDienasSviresIela($language)
+  {
+    if ($language === 'lv') {
+      return 'works';
+    }
+    abort(404);
+  }
 }
