@@ -7,8 +7,8 @@
       <h1 class="text-center text-white">Piepildi sapni par <br/>māju Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center position-relative">
         <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
-          <img class="location-icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
-          <p class="location-name ml-3 text-white fw-bold">Svīres ielas projekts</p>
+          <img class="icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
+          <p class="ml-3 text-white fw-bold">Svīres ielas projekts</p>
         </div>
         <div>
           <a href="#contact-us"
