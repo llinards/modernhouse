@@ -82,12 +82,14 @@
               <div wire:loading class="spinner-border mx-2" id="loading" role="status"></div>
               <span wire:loading.remove>Reģistrēties</span>
             </button>
-            <div>
-              <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center"
-                      onclick="window.history.back();"
-              >@lang('back')
-              </button>
-            </div>
+            @if($isBackButtonVisible)
+              <div>
+                <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center"
+                        onclick="window.history.back();"
+                >@lang('back')
+                </button>
+              </div>
+            @endif
           </div>
         </div>
       </form>
