@@ -53,6 +53,8 @@ class OpenDaysRegistrationForm extends Component
   #[Validate('accepted', message: 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai reģistrētos.')]
   public bool $consentToProcessPersonalData = false;
 
+  public bool $isBackButtonVisible;
+
   public function register(KlaviyoService $klaviyoService): void
   {
     $this->protectAgainstSpam();
@@ -74,8 +76,9 @@ class OpenDaysRegistrationForm extends Component
     }
   }
 
-  public function mount()
+  public function mount(bool $isBackButtonVisible = true)
   {
+    $this->isBackButtonVisible = $isBackButtonVisible;
     $this->extraFields = new HoneypotData();
   }
 
