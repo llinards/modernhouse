@@ -25,19 +25,19 @@
                 <ul>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
-                      <img src="{{asset('storage/open-days/calendar-check.svg')}}" alt="Calendar icon">
+                      <img src="{{asset('storage/icons/calendar-check.svg')}}" alt="Calendar icon">
                       <p>1. un 2. jūlijs</p>
                     </div>
                   </li>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
-                      <img src="{{asset('storage/open-days/clock.svg')}}" alt="Clock icon">
+                      <img src="{{asset('storage/icons/clock.svg')}}" alt="Clock icon">
                       <p>10:00 - 19:00</p>
                     </div>
                   </li>
                   <li>
                     <div class="d-flex align-items-center">
-                      <img src="{{asset('storage/open-days/map-pin-line-3.svg')}}" alt="Map pin">
+                      <img src="{{asset('storage/icons/map-pin-line-3.svg')}}" alt="Map pin">
                       <p>Sigulda, Svīres iela</p>
                     </div>
                   </li>
