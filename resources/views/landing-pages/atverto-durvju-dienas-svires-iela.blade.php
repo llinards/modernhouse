@@ -177,9 +177,17 @@
       </div>
     </section>
     {{--    Explore neighbourhood--}}
-    <section class="full-height-section d-flex flex-column justify-content-center">
-      <div class="h-75 mb-3">
+    <section id="map" class="full-height-section d-flex flex-column justify-content-center">
+      <div class="h-75">
         <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>
+      </div>
+      <div class="d-flex flex-wrap justify-content-center mt-4 gap-2">
+        <a href="https://www.waze.com/en/live-map/directions?to=ll.57.14237745%2C24.87469912"
+           class="btn btn-primary d-flex justify-content-center align-items-center"
+        >Waze</a>
+        <a href="https://maps.app.goo.gl/te6FfLaa14RT6syJ8" target="_blank"
+           class="btn btn-primary d-flex justify-content-center align-items-center"
+        >Google Maps</a>
       </div>
     </section>
     {{--    Full project house--}}
