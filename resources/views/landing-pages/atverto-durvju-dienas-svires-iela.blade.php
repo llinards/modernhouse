@@ -182,7 +182,7 @@
         <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>
       </div>
       <div class="d-flex flex-wrap justify-content-center mt-4 gap-2">
-        <a href="https://www.waze.com/en/live-map/directions?to=ll.57.14237745%2C24.87469912"
+        <a href="waze://www.waze.com/en/live-map/directions?to=ll.57.14237745%2C24.87469912" target="_blank"
            class="btn btn-primary d-flex justify-content-center align-items-center"
         >Waze</a>
         <a href="https://maps.app.goo.gl/te6FfLaa14RT6syJ8" target="_blank"
@@ -190,7 +190,7 @@
         >Google Maps</a>
       </div>
     </section>
-    {{--    Full project house--}}
+    {{--    Agenda--}}
     <section class="full-height-section">
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
