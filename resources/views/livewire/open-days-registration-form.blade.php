@@ -1,4 +1,4 @@
-<section class="container-xxl mt-4 mb-4">
+<section class="container-xxl my-4">
   <div class="row justify-content-center">
     <div class="col-lg-7 col-md-10">
       <div class="text-center">
@@ -101,4 +101,3 @@
     localStorage.setItem('acceptedOpenDaysRegistration', 'true');
   });
 </script>
-
