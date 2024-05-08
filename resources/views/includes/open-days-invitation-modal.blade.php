@@ -44,7 +44,7 @@
                 </ul>
               </div>
               <div class="d-flex justify-content-center">
-                <a href="{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela#contact-us"
+                <a href="/{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela#contact-us"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
