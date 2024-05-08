@@ -26,13 +26,13 @@
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/calendar-check.svg')}}" alt="Calendar icon">
-                      <p>1. un 2. jūlijs</p>
+                      <p>5., 6. un 7. jūlijs</p>
                     </div>
                   </li>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/clock.svg')}}" alt="Clock icon">
-                      <p>10:00 - 19:00</p>
+                      <p>10:00 - 18:00</p>
                     </div>
                   </li>
                   <li>
