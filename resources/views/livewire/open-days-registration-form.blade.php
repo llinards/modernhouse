@@ -7,7 +7,7 @@
             <img class="modern-house-logo" src="{{asset('storage/logo/logo-black.png')}}" alt="MH logo">
           </a>
           <h4 class="mt-4 mb-2">Gaidīsim Jūs ciemos uz atvērtajām durvju dienām<br/>
-            MODERN HOUSE projektā Svīres ielā Siguldā š.g. 1. un 2.jūlijā.
+            MODERN HOUSE projektā Svīres ielā Siguldā š.g. 5., 6. un 7.jūlijā.
           </h4>
           <p class="mb-4">Izvēlies sev ērtāko dienu un laiku, un
             piesaki savu apmeklējumu.</p>
@@ -32,8 +32,9 @@
               <label for="date" class="form-label fw-bold">Datums*</label>
               <select class="form-select" wire:model="date" name="date">
                 <option selected disabled value="">Izvēlies datumu</option>
-                <option value="1.jūlijs">1.jūlijs</option>
-                <option value="2.jūlijs">2.jūlijs</option>
+                <option value="5.jūlijs">5.jūlijs</option>
+                <option value="6.jūlijs">6.jūlijs</option>
+                <option value="7.jūlijs">7.jūlijs</option>
               </select>
             </div>
             <div class="col-6">
@@ -49,7 +50,6 @@
                 <option value="16:00">16:00</option>
                 <option value="17:00">17:00</option>
                 <option value="18:00">18:00</option>
-                <option value="19:00">19:00</option>
               </select>
             </div>
           </div>
