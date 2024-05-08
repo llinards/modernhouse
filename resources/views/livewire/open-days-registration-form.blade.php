@@ -1,4 +1,4 @@
-<section class="container-xxl">
+<div class="container-xxl">
   @if($registerView)
     <div class="row justify-content-center">
       <div class="col-lg-7 col-md-10">
@@ -97,7 +97,7 @@
       </div>
     </div>
   @elseif($successView)
-    <div class="success row justify-content-center align-items-center mx-auto">
+    <div class="row justify-content-center align-items-center mx-auto success">
       <div class="col-lg-7 col-md-10">
         <div class="text-center">
           <a href="/">
@@ -116,7 +116,7 @@
       </div>
     </div>
   @endif
-</section>
+</div>
 <script>
   addEventListener('submit', () => {
     localStorage.setItem('acceptedOpenDaysRegistration', 'true');
