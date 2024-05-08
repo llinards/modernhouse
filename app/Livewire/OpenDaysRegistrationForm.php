@@ -17,6 +17,8 @@ class OpenDaysRegistrationForm extends Component
   use UsesSpamProtection;
 
   public HoneypotData $extraFields;
+  public bool $registerView = true;
+  public bool $successView = false;
 
   #[Validate('required', message: 'Vārds ir obligāts.')]
   #[Validate('string', message: 'Vārds drīkst sastāvēt tikai no burtiem.')]
@@ -69,11 +71,20 @@ class OpenDaysRegistrationForm extends Component
         'last-name' => $this->lastName,
       ];
 //      $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
-      $this->dispatch('registration-successful', $this->date, $this->time);
+//      $this->dispatch('registration-successful', $this->date, $this->time);
+      $this->showSuccessView($this->date, $this->time);
     } catch (\Exception $e) {
       Log::error($e);
       session()->flash('error', Lang::get('message has not been sent'));
     }
+  }
+
+  public function showSuccessView(string $date, string $time): void
+  {
+    $this->date = $date;
+    $this->time = $time;
+    $this->registerView = false;
+    $this->successView = true;
   }
 
   public function mount(bool $isBackButtonVisible = true)

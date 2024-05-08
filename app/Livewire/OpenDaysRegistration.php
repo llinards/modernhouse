@@ -2,14 +2,13 @@
 
 namespace App\Livewire;
 
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class OpenDaysRegistration extends Component
 {
   public bool $introductionView = true;
   public bool $registerView = false;
-  public bool $successView = false;
+//  public bool $successView = false;
 
   public string $date = '';
   public string $time = '';
@@ -27,14 +26,14 @@ class OpenDaysRegistration extends Component
     $this->registerView = true;
   }
 
-  #[On('registration-successful')]
-  public function showSuccessView(string $date, string $time): void
-  {
-    $this->date = $date;
-    $this->time = $time;
-    $this->registerView = false;
-    $this->successView = true;
-  }
+//  #[On('registration-successful')]
+//  public function showSuccessView(string $date, string $time): void
+//  {
+//    $this->date = $date;
+//    $this->time = $time;
+//    $this->registerView = false;
+//    $this->successView = true;
+//  }
 
   public function render()
   {
