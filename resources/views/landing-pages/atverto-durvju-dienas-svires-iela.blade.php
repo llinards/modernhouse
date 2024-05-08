@@ -1,5 +1,4 @@
-@extends('layouts.landing-page-app', ['title' => 'Atvērto durvju dienas Svīres ielā, Siguldā'])
-@section('content')
+<x-layouts.landing-page :title="'Atvērto durvju dienas Svīres ielā, Siguldā'">
   <div id="landing-page" class="position-relative">
     {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
@@ -250,5 +249,4 @@
       window.dispatchEvent(new Event("resize"));
     }, 500);
   </script>
-@endsection
-
+</x-layouts.landing-page>
