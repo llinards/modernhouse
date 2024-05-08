@@ -67,22 +67,6 @@
   }
 
   #landing-page {
-    .financiers-logo {
-      .swedbank-logo {
-        width: 150px;
-      }
-
-      .seb-logo {
-        width: 75px;
-      }
-    }
-
-    .partnership-logo {
-      img {
-        width: 75px;
-      }
-    }
-
     #button-up {
       right: 10px;
     }
@@ -90,6 +74,16 @@
     .checkmark-icon-as-list-item {
       width: 30px;
     }
+  }
+
+  .swedbank-logo {
+    width: 225px;
+    height: auto;
+  }
+
+  .seb-logo {
+    width: 100px;
+    height: auto;
   }
 }
 
@@ -171,6 +165,11 @@
 
   .swedbank-logo {
     width: 225px;
+    height: auto;
+  }
+
+  .seb-logo {
+    width: 100px;
     height: auto;
   }
 }

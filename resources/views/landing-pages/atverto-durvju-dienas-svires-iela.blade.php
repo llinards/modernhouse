@@ -120,55 +120,19 @@
         <div class="row mb-4">
           <h2 class="mb-4 text-center">Finansētāji</h2>
           <div class="col-lg-12 d-flex flex-column justify-content-evenly">
-            <div class="row financiers-logo">
-              <div class="col-6 text-center">
-                <img class="swedbank-logo mb-2" src="{{asset('storage/icons/swedbank-logo.svg')}}"
-                     alt="Swedbank logo">
+            <div class="row">
+              <div class="col-12 col-sm-6 text-center">
+                <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
+                   target="_blank">
+                  <img class="swedbank-logo mb-2" src="{{asset('storage/icons/swedbank-logo.svg')}}"
+                       alt="Swedbank logo">
+                </a>
               </div>
-              <div class="col-6 text-center">
-                <img class="seb-logo mb-2" src="{{asset('storage/icons/seb-logo.jpg')}}"
-                     alt="SEB logo">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <h2 class="mb-4 text-center">Sadarbībā ar</h2>
-          <div class="col-lg-12 d-flex flex-column justify-content-evenly">
-            <div class="row mb-4 partnership-logo">
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-            </div>
-            <div class="row partnership-logo">
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
-              </div>
-              <div class="col-6 col-md-3 text-center">
-                <img class="mb-2" src="{{asset('storage/logo/logo-black.png')}}"
-                     alt="">
+              <div class="col-12 col-sm-6 text-center">
+                <a href="https://www.seb.lv/" target="_blank">
+                  <img class="seb-logo mb-2" src="{{asset('storage/icons/seb-logo.jpg')}}"
+                       alt="SEB logo">
+                </a>
               </div>
             </div>
           </div>
