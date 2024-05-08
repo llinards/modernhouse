@@ -19,7 +19,7 @@
               class="col-12 col-lg-5 d-flex flex-column justify-content-center align-items-center">
               <div>
                 <div class="mb-2 mt-4 mt-lg-0">
-                  <h2 class="text-uppercase mb-2">aicinām</h2>
+                  <h2 class="text-uppercase text-center mb-2">aicinām</h2>
                   <p>uz MODERN HOUSE Svīres ielas<br/>projekta atvērtajām durvju dienām</p>
                 </div>
                 <ul>
