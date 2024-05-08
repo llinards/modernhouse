@@ -215,9 +215,7 @@
     <div id="non-scroll-type-sections">
       {{--      Contact us--}}
       <section id="contact-us">
-        <div class="container-xxl position-relative">
-          <livewire:open-days-registration-form :isBackButtonVisible="false"/>
-        </div>
+        <livewire:open-days-registration-form :isBackButtonVisible="false"/>
       </section>
       {{--Footer--}}
       {{--      TODO: On safari jump to the section when reached the bottom--}}
