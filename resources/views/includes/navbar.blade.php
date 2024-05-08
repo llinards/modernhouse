@@ -55,12 +55,12 @@
           @if(app()->getLocale() === 'lv')
             <li class="nav-item">
               <a class="nav-link text-center"
-                 href="{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"
+                 href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"
                  target="_blank">@lang('projects')</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-center"
-                 href="{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela"
+                 href="/{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela"
                  target="_blank">Atvērto durvju dienas Svīres ielā</a>
             </li>
           @endif
