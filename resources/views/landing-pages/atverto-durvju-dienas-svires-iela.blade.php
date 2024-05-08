@@ -160,10 +160,10 @@
       <div class="container-xxl h-100 d-flex flex-column justify-content-center">
         <div class="row">
           <div class="col-lg-5 d-flex flex-column justify-content-evenly">
-            <h2 class="mb-2">Atvērto durvju dienu programma</h2>
+            <h2 class="mb-4">Atvērto durvju dienu programma</h2>
             <ul class="open-days-agenda">
               <li class="mb-2">Sarunas ar MODERN HOUSE komandu</li>
-              <li class="mb-2">Sarunas ar arhitektu, kontruktoru, projektu vadītāju, pārdošanas vadītāju un citiem
+              <li class="mb-2">Sarunas ar arhitektu, konstruktoru, projektu vadītāju, pārdošanas vadītāju un citiem
                 MODERN HOUSE komandas pārstāvjiem
               </li>
               <li class="mb-2">Sarunas ar Swedbank un SEB bankas pārstāvjiem</li>
