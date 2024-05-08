@@ -33,11 +33,11 @@ class OpenDaysRegistrationForm extends Component
   public string $lastName = '';
 
   #[Validate('required', message: 'Datums ir obligāts.')]
-  #[Validate('in:1.jūlijs,2.jūlijs', message: 'Pieteikties var tikai 1.jūlijā vai 2.jūlijā.')]
+  #[Validate('in:5.jūlijs,6.jūlijs,7.jūlijs', message: 'Pieteikties var tikai 1.jūlijā vai 2.jūlijā.')]
   public string $date = '';
 
   #[Validate('required', message: 'Laiks ir obligāts.')]
-  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
+  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
   public string $time = '';
 
   #[Validate('required', message: 'Telefona numurs ir obligāts.')]
