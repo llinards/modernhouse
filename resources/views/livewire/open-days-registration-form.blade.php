@@ -1,6 +1,6 @@
 <div class="container-xxl">
   @if($registerView)
-    <div class="row justify-content-center">
+    <div class="row justify-content-center py-4">
       <div class="col-lg-7 col-md-10">
         <div class="text-center">
           <a href="/">

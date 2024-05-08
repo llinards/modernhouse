@@ -181,7 +181,7 @@
     </section>
     <div id="non-scroll-type-sections">
       {{--      Contact us--}}
-      <section id="contact-us" class="py-4">
+      <section id="contact-us">
         <livewire:open-days-registration-form :isBackButtonVisible="false"/>
       </section>
       {{--Footer--}}

@@ -14,8 +14,6 @@
       </div>
     </section>
   @elseif($registerView)
-    <section class="my-4">
-      <livewire:open-days-registration-form/>
-    </section>
+    <livewire:open-days-registration-form/>
   @endif
 </div>
