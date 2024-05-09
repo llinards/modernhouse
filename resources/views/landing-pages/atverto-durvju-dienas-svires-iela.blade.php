@@ -124,7 +124,8 @@
           <div class="col-lg-12 d-flex flex-column justify-content-evenly">
             <div class="row">
               <div class="col-12 col-sm-6 text-center">
-                <a href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
+                <a id="apply-consultation-swedbank"
+                   href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"
                    target="_blank">
                   <img class="swedbank-logo mb-2" src="{{asset('storage/icons/swedbank-logo.svg')}}"
                        alt="Swedbank logo">
