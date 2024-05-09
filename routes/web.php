@@ -87,6 +87,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   //HomeController
   Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
   Route::delete('/upload', [HomeController::class, 'destroyTemporaryUpload']);
+  Route::get('/open-days-submissions', [HomeController::class, 'showOpenDaysSubmissions']);
 });
 
 Route::middleware('setLanguage')->group(function () {

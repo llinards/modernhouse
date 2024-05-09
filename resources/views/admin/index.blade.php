@@ -4,6 +4,9 @@
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">
+      <div class="d-flex justify-content-center mt-2 mb-4">
+        <a href="/admin/open-days-submissions" class="btn btn-dark">Pieteikumi atvērto durvju dienai Svīres ielā</a>
+      </div>
       @include('includes.status-messages')
       @foreach($products as $product)
         <div class="col-lg-4 p-2">
