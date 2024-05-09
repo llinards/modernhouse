@@ -143,7 +143,8 @@
       </div>
     </section>
     {{--    Explore neighbourhood--}}
-    <section id="map" class="full-height-section d-flex flex-column justify-content-center">
+    <section id="map" class="full-height-section d-flex flex-column justify-content-center py-2">
+      <h2 class="text-center mb-4">Atrodi mūs kartē</h2>
       <div class="h-75">
         <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>
       </div>
