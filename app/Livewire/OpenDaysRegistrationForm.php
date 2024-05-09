@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
 use App\Mail\CustomerRegisteredForOpenDays;
+use App\Models\OpenDaysRegistration;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -63,6 +64,7 @@ class OpenDaysRegistrationForm extends Component
     $this->validate();
     try {
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
+      OpenDaysRegistration::class::create($this->all());
 //      TODO: This should be fixed
       $request = [
         'email' => $this->email,
