@@ -45,7 +45,7 @@
                 Swedbank un SEB. Būs iespēja iepazīties arī ar citu MODERN HOUSE projektu māju klientiem.</p>
               <p class="mb-2">Svīres ielas projekta būvniecība rit pilnā sparā un iedzīvotāji savās jaunajās mājas varēs
                 ievākties jau šī gada rudenī. Projektu veido A klases energoefektivitātes 5 privātmājas. Projektā kopā
-                ir 53 apbūves gabaliem no kuriem jau 28 ir rezervēti.
+                ir 53 apbūves gabali no kuriem jau 28 ir rezervēti.
               </p>
               <p class="mb-2">Atnāciet un iepazīstaties ar mūsu darba procesu un mūsu jaunāko projektu Siguldā! Atvērsim
                 durvis Jūsu sapņu mājai kopā!</p>
