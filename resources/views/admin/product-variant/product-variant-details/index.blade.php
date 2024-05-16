@@ -11,19 +11,19 @@
         </div>
         @include('includes.status-messages')
         <div class="row">
-          @foreach($allProductVariantDetails as $productVariantDetail)
+          @foreach($productVariantDetails as $productVariantDetail)
             <div class="col-6 text-center">
               <div class="mb-3">
                 <h5>{{ $productVariantDetail->name }}</h5>
-                <img
-                  src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                <img
-                  src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"
-                  alt="">
+                <img width="25"
+                     src="{{ $productVariantDetail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                <img width="25"
+                     src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetail->icon.'.svg') }}"
+                     alt="">
                 <p>Skaits: {{ $productVariantDetail->count }}</p>
                 <a
                   href="{{ URL::to('/admin/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}"
-                  class="btn btn-danger">Dzēst</a>
+                  class="btn btn-danger mt-2">Dzēst</a>
               </div>
             </div>
           @endforeach

@@ -35,7 +35,7 @@
           </div>
           <div class="mb-3">
             <p>Esošās ikonas</p>
-            @foreach($allProductVariantDetailIcons as $productVariantDetailIcon)
+            @foreach($productVariantDetailIcons as $productVariantDetailIcon)
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio"
                        value="{{$productVariantDetailIcon->name}}"
@@ -43,9 +43,9 @@
                        name="product-variant-detail-icon">
                 <label class="form-check-label"
                        for="product-variant-detail-icon-{{$productVariantDetailIcon->id}}">
-                  <img
-                    src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetailIcon->name) }}"
-                    alt="">
+                  <img width="75"
+                       src="{{ asset('storage/icons/product-variant-detail-icons/'.$productVariantDetailIcon->name) }}"
+                       alt="">
                 </label>
               </div>
             @endforeach

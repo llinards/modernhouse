@@ -27,7 +27,7 @@ class StoreProductVariantDetail extends FormRequest
       'product-variant-id' => ['required', 'numeric'],
       'product-variant-detail-name' => 'required',
       'product-variant-detail-count' => ['required', 'numeric'],
-      'product-variant-detail-new-icon' => 'mimes:svg,png',
+      'product-variant-detail-new-icon' => 'mimes:svg',
     ];
   }
 }

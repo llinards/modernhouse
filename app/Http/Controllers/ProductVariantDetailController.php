@@ -12,17 +12,16 @@ class ProductVariantDetailController extends Controller
 {
   public function index(ProductVariant $productVariant)
   {
-    $allProductVariantDetails = $productVariant->productVariantDetails->where('language', app()->getLocale());
+    $productVariantDetails = $productVariant->productVariantDetails->where('language', app()->getLocale());
     return view('admin.product-variant.product-variant-details.index',
-      compact('productVariant', 'allProductVariantDetails'));
+      compact('productVariant', 'productVariantDetails'));
   }
 
   public function create(ProductVariant $productVariant)
   {
-    $allProductVariantDetails = $productVariant->productVariantDetails;
-    $allProductVariantDetailIcons = ProductVariantDetailIcon::all();
+    $productVariantDetailIcons = ProductVariantDetailIcon::all();
     return view('admin.product-variant.product-variant-details.create',
-      compact('productVariant', 'allProductVariantDetails', 'allProductVariantDetailIcons'));
+      compact('productVariant', 'productVariantDetailIcons'));
   }
 
   public function store(StoreProductVariantDetail $data)
