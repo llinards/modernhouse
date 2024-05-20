@@ -56,8 +56,8 @@ class KlaviyoService
                         'consented_at' => date('Y-m-d\TH:i:sO'),
                       ]
                     ]
-                  ]
-                ]
+                  ],
+                ],
               ]
             ]
           ]
@@ -79,7 +79,6 @@ class KlaviyoService
       Log::error($e->getResponseBody());
       Log::error('Profile subscription failed!');
     }
-
   }
 
   private function createProfile($request)
@@ -93,8 +92,11 @@ class KlaviyoService
           'first_name' => $request['first-name'],
           'last_name' => $request['last-name'],
           'organization' => $request['company'] ?? '',
-        ]
-      ]
+          "properties" => [
+            "atvertoDurvjuDienasPieteikums" => $request['date-time'] ?? null,
+          ],
+        ],
+      ],
     ];
     try {
       $response = $this->klaviyo->Profiles->createProfile($data);

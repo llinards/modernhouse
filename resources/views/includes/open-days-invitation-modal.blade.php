@@ -55,6 +55,7 @@
   </div>
 </div>
 <script>
+  // TODO: redeclaration of const registerForOpenDaysModal
   const registerForOpenDaysModal = document.getElementById('open-days-invitation-modal');
   const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
   const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');

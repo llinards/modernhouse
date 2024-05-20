@@ -71,6 +71,7 @@ class OpenDaysRegistrationForm extends Component
         'phone-number' => $this->phoneNumber,
         'first-name' => $this->firstName,
         'last-name' => $this->lastName,
+        'date-time' => $this->date.', '.$this->time,
       ];
       $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
 //      $this->dispatch('registration-successful', $this->date, $this->time);
