@@ -16,4 +16,9 @@ class OpenDaysRegistration extends Model
     'questions',
     'consentToProcessPersonalData',
   ];
+
+  public function scopeOrderByDateTime($query)
+  {
+    return $query->orderBy('date', 'asc')->orderBy('time', 'asc');
+  }
 }

@@ -9,7 +9,8 @@ class OpenDaysRegistrationController extends Controller
 {
   public function index()
   {
-    $submissions = OpenDaysRegistration::orderBy('date', 'asc')->orderBy('time', 'asc')->get();
+    $submissions = OpenDaysRegistration::orderByDateTime()->get();
+//    return $submissions;
     return view('admin.open-days-registration', compact('submissions'));
   }
 
