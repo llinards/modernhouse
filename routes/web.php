@@ -91,6 +91,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
   //OpenDaysRegistrationControlller
   Route::get('/open-days-submissions', [OpenDaysRegistrationController::class, 'index']);
+  Route::get('/open-days-submissions/export', [OpenDaysRegistrationController::class, 'export']);
   Route::delete('/open-days-submissions/{openDaysRegistration}/delete',
     [OpenDaysRegistrationController::class, 'destroy']);
 });

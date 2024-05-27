@@ -8,6 +8,10 @@
         <div class="alert alert-secondary" role="alert">
           Izskatās, ka pagaidām nav pieteikumu!
         </div>
+      @else
+        <div class="d-flex justify-content-center mt-2 mb-2">
+          <a href="/admin/open-days-submissions/export" class="btn btn-dark">Lejupielādēt Excel formātā</a>
+        </div>
       @endif
       <table class="table table-striped">
         <thead>
