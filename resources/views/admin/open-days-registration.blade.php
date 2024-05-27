@@ -19,6 +19,7 @@
           <th scope="col">Laiks</th>
           <th scope="col">Telefona numurs</th>
           <th scope="col">Jautājumi</th>
+          <th scope="col"/>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +32,15 @@
             <td>{{ $submission->time }}</td>
             <td>{{ $submission->phoneNumber }}</td>
             <td>{{ $submission->questions }}</td>
+            <form action="/admin/open-days-submissions/{{$submission->id}}/delete" method="POST">
+              @csrf
+              @method('DELETE')
+              <td>
+                <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu?');" class="btn btn-dark"
+                        type="submit"><i
+                    class="bi bi-trash text-white"></i></button>
+            </form>
+            </td>
           </tr>
         @endforeach
         </tbody>

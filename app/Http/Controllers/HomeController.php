@@ -6,7 +6,6 @@ use App\Http\Requests\ContactUsRequest;
 use App\Http\Services\KlaviyoService;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
-use App\Models\OpenDaysRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
@@ -50,12 +49,6 @@ class HomeController extends Controller
       Log::error($e);
       return back()->with('error', Lang::get('message has not been sent'));
     }
-  }
-
-  public function showOpenDaysSubmissions()
-  {
-    $submissions = OpenDaysRegistration::orderBy('date', 'asc')->orderBy('time', 'asc')->get();
-    return view('admin.open-days-registration', compact('submissions'));
   }
 
   public function storeTemporaryUpload(Request $data): string

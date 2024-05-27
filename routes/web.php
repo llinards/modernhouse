@@ -4,6 +4,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
@@ -87,7 +88,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   //HomeController
   Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
   Route::delete('/upload', [HomeController::class, 'destroyTemporaryUpload']);
-  Route::get('/open-days-submissions', [HomeController::class, 'showOpenDaysSubmissions']);
+
+  //OpenDaysRegistrationControlller
+  Route::get('/open-days-submissions', [OpenDaysRegistrationController::class, 'index']);
+  Route::delete('/open-days-submissions/{openDaysRegistration}/delete',
+    [OpenDaysRegistrationController::class, 'destroy']);
 });
 
 Route::middleware('setLanguage')->group(function () {
