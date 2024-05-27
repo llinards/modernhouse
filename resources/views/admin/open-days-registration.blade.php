@@ -23,13 +23,20 @@
         </tr>
         </thead>
         <tbody>
+        @php
+          $previousSubmission = null;
+        @endphp
         @foreach($submissions as $submission)
+          @php
+            $isDuplicate = $previousSubmission && $previousSubmission->date === $submission->date && $previousSubmission->time === $submission->time;
+            $previousSubmission = $submission;
+          @endphp
           <tr>
             <th scope="row">{{$submission->id}}</th>
             <td>{{ $submission->firstName }}</td>
             <td>{{ $submission->lastName }}</td>
-            <td>{{ $submission->date }}</td>
-            <td>{{ $submission->time }}</td>
+            <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->date }}</td>
+            <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->time }}</td>
             <td>{{ $submission->phoneNumber }}</td>
             <td>{{ $submission->questions }}</td>
             <form action="/admin/open-days-submissions/{{$submission->id}}/delete" method="POST">
