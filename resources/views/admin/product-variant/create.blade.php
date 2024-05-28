@@ -48,7 +48,7 @@
           <div class="mb-3">
             <div class="row">
               <div class="col-6">
-                <label for="product-variant-living-area" class="form-label">Dzīvojamā
+                <label for="product-variant-living-area" class="form-label">Iekštelpu
                   platība</label>
                 <input type="text" name="product-variant-living-area"
                        value="{{ old('product-variant-living-area') }}"
@@ -56,7 +56,7 @@
               </div>
               <div class="col-6">
                 <label for="product-variant-building-area" class="form-label">Apbūves
-                  platība</label>
+                  laukums</label>
                 <input type="text" name="product-variant-building-area"
                        value="{{ old('product-variant-building-area') }}"
                        class="form-control">
