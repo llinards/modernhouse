@@ -32,7 +32,8 @@
         @endphp
         @foreach($submissions as $submission)
           @php
-            $isDuplicate = $previousSubmission && $previousSubmission->date === $submission->date && $previousSubmission->time === $submission->time;
+            // $isDuplicate = $previousSubmission && $previousSubmission->date === $submission->date && $previousSubmission->time === $submission->time;
+            $isDuplicate = false;
             $previousSubmission = $submission;
           @endphp
           <tr>
