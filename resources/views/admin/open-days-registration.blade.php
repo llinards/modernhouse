@@ -16,7 +16,6 @@
       <table class="table table-striped">
         <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Vārds</th>
           <th scope="col">Uzvārds</th>
           <th scope="col">Datums</th>
@@ -37,7 +36,6 @@
             $previousSubmission = $submission;
           @endphp
           <tr>
-            <th scope="row">{{$submission->id}}</th>
             <td>{{ $submission->firstName }}</td>
             <td>{{ $submission->lastName }}</td>
             <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->date }}</td>
