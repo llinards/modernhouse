@@ -5,6 +5,5 @@
 </head>
 <body class="antialiased w-100 h-100 overflow-x-hidden" oncontextmenu="return false">
 @yield('content')
-@include('includes.open-days-invitation-modal')
 </body>
 </html>
