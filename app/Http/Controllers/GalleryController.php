@@ -27,7 +27,7 @@ class GalleryController extends Controller
       })
       ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
-      ->get();
+      ->simplePaginate(5);
     return view('gallery', compact('galleries'));
   }
 

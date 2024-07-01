@@ -42,6 +42,7 @@
         @endif
       </div>
     @endforeach
+    {{ $galleries->links()}}
   </x-slot>
 </x-layouts.app>
 <script type="module">

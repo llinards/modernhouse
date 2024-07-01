@@ -102,6 +102,7 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/about-us', static function () {
     return view('about-us');
   });
+  
   Route::get('{language?}/gallery', [GalleryController::class, 'index']);
 
   Route::get('{language?}/request-consultation', static function () {
