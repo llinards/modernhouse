@@ -30,7 +30,12 @@ class GalleryController extends Controller
       ->simplePaginate(5);
     return view('gallery', compact('galleries'));
   }
-  
+
+  public function indexAdmin()
+  {
+    return view('admin.gallery.index');
+  }
+
   public function create()
   {
     return view('admin.gallery.create');
