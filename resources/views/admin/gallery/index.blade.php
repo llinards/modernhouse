@@ -3,50 +3,48 @@
     <h2 class="text-center">Galerijas</h2>
   </x-slot>
   <x-slot name="content">
-    <div class="container">
-      <div class="row justify-content-between">
-        @if(app()->getLocale() == 'lv')
-          <div class="mb-2">
-            <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
-          </div>
-        @endif
-        @include('includes.status-messages')
-        @foreach($galleries as $gallery)
-          <div class="col-lg-4 p-2">
-            <div class="card position-relative">
-              <div class="card-header d-flex justify-content-between align-content-center">
-                <div>
-                  @if($gallery->is_pinned)
-                    <i class="bi bi-pin-angle-fill"></i>
-                  @endif
-                  @if($gallery->is_video)
-                    <i class="bi bi-camera-video-fill"></i>
-                  @else
-                    <i class="bi bi-image-fill"></i>
-                  @endif
-                </div>
-                <div class="d-flex">
-                  <a href="/admin/gallery/{{ $gallery->id }}/edit" title="Rediģēt" class="btn py-0">
-                    <i class="bi bi-pencil-square"></i>
-                  </a>
-                  <button type="button" title="Dzēst" data-bs-toggle="modal"
-                          data-bs-target="#delete-gallery-modal-{{$gallery->id}}"
-                          class="btn p-0">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+    <div class="row justify-content-between">
+      @if(app()->getLocale() == 'lv')
+        <div class="mb-2">
+          <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
+        </div>
+      @endif
+      @include('includes.status-messages')
+      @foreach($galleries as $gallery)
+        <div class="col-lg-4 p-2">
+          <div class="card position-relative">
+            <div class="card-header d-flex justify-content-between align-content-center">
+              <div>
+                @if($gallery->is_pinned)
+                  <i class="bi bi-pin-angle-fill"></i>
+                @endif
+                @if($gallery->is_video)
+                  <i class="bi bi-camera-video-fill"></i>
+                @else
+                  <i class="bi bi-image-fill"></i>
+                @endif
               </div>
-              <div class="card-body">
-                <p class="card-title text-center">
-                  {{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}
-                </p>
+              <div class="d-flex">
+                <a href="/admin/gallery/{{ $gallery->id }}/edit" title="Rediģēt" class="btn py-0">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+                <button type="button" title="Dzēst" data-bs-toggle="modal"
+                        data-bs-target="#delete-gallery-modal-{{$gallery->id}}"
+                        class="btn p-0">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
               </div>
             </div>
-            @include('admin.gallery.delete-modal')
+            <div class="card-body">
+              <p class="card-title text-center">
+                {{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}
+              </p>
+            </div>
           </div>
-        @endforeach
-        {{ $galleries->links('pagination::bootstrap-5') }}
-      </div>
+          @include('admin.gallery.delete-modal')
+        </div>
+      @endforeach
+      {{ $galleries->links('pagination::bootstrap-5') }}
     </div>
   </x-slot>
 </x-layouts.admin>

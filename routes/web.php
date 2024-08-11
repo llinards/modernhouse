@@ -34,7 +34,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::delete('/{product}/delete', [ProductController::class, 'destroy']);
 
   //GalleryController
-  Route::get('/gallery', [GalleryController::class, 'indexAdmin']);
+//  Route::get('/gallery', [GalleryController::class, 'indexAdmin']);
+  Route::get('/gallery', App\Livewire\Admin\GalleryIndex::class);
   Route::get('/gallery/create', [GalleryController::class, 'create']);
   Route::post('/gallery', [GalleryController::class, 'store']);
   Route::get('/gallery/{gallery}/edit', [GalleryController::class, 'show']);
@@ -102,7 +103,7 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/about-us', static function () {
     return view('about-us');
   });
-  
+
   Route::get('{language?}/gallery', [GalleryController::class, 'index']);
 
   Route::get('{language?}/request-consultation', static function () {
