@@ -41,7 +41,7 @@ class GalleryController extends Controller
       ])
       ->orderByDesc('is_pinned')
       ->orderBy('created_at', 'desc')
-      ->paginate(12);
+      ->paginate(15);
     return view('admin.gallery.index', compact('galleries'));
   }
 

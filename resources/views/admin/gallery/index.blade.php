@@ -14,30 +14,32 @@
         @foreach($galleries as $gallery)
           <div class="col-lg-4 p-2">
             <div class="card position-relative">
-              <div class="card-header">
-                @if($gallery->is_pinned)
-                  <i class="bi bi-pin-angle-fill"></i>
-                @endif
-                @if($gallery->is_video)
-                  <i class="bi bi-camera-video-fill"></i>
-                @else
-                  <i class="bi bi-image-fill"></i>
-                @endif
+              <div class="card-header d-flex justify-content-between align-content-center">
+                <div>
+                  @if($gallery->is_pinned)
+                    <i class="bi bi-pin-angle-fill"></i>
+                  @endif
+                  @if($gallery->is_video)
+                    <i class="bi bi-camera-video-fill"></i>
+                  @else
+                    <i class="bi bi-image-fill"></i>
+                  @endif
+                </div>
+                <div class="d-flex">
+                  <a href="/admin/gallery/{{ $gallery->id }}/edit" title="Rediģēt" class="btn py-0">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <button type="button" title="Dzēst" data-bs-toggle="modal"
+                          data-bs-target="#delete-gallery-modal-{{$gallery->id}}"
+                          class="btn p-0">
+                    <i class="bi bi-trash-fill"></i>
+                  </button>
+                </div>
               </div>
               <div class="card-body">
                 <p class="card-title text-center">
-
                   {{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}
                 </p>
-                <hr>
-                <div class="d-flex justify-content-center mt-4">
-                  <a href="/admin/gallery/{{ $gallery->id }}/edit" class="btn btn-dark m-1">Rediģēt</a>
-                  <button type="button" data-bs-toggle="modal"
-                          data-bs-target="#delete-gallery-modal-{{$gallery->id}}"
-                          class="btn btn-danger m-1">
-                    Dzēst
-                  </button>
-                </div>
               </div>
             </div>
             @include('admin.gallery.delete-modal')
