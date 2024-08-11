@@ -26,6 +26,7 @@
     "filepond-plugin-file-validate-type": "^1.2.8",
     "filepond-plugin-image-preview": "^4.6.12",
     "fslightbox": "^3.4.1",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "livewire-sortable": "^1.0.0"
   }
 }

@@ -24,9 +24,8 @@
         </thead>
         <tbody wire:sortable="updateOrder">
         @foreach($galleries as $gallery)
-          <tr wire:sortable.item="{{ $gallery->id }}" wire:key="gallery-{{ $gallery->id }}">
-            <td wire:sortable.handle
-                class="align-middle">{!! $gallery->is_pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '' !!}</td>
+          <tr wire:sortable.item="{{ $gallery->id }}" wire:key="task-{{ $gallery->id }}" wire:sortable.handle>
+            <td class="align-middle">{!! $gallery->is_pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '' !!}</td>
             <td
               class="align-middle">{!! $gallery->is_video ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
             <td class="align-middle">{{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}</td>
