@@ -26,7 +26,8 @@ class GalleryController extends Controller
         $query->where('language', app()->getLocale());
       })
       ->orderByDesc('is_pinned')
-      ->orderBy('created_at', 'desc')
+      ->orderBy('order')
+      ->orderByDesc('created_at')
       ->simplePaginate(5);
     return view('gallery', compact('galleries'));
   }

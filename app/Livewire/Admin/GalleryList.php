@@ -9,20 +9,25 @@ class GalleryList extends Component
 {
   public object $galleries;
 
-  public function updateOrder($galleries)
+  public function updateOrder($galleries): void
   {
-    return $galleries;
+    foreach ($galleries as $gallery) {
+      Gallery::findOrFail($gallery['value'])->update(['order' => $gallery['order']]);
+    }
+    $this->mount();
+    session()->flash('success', 'Galerijas secība atjaunota');
   }
 
   public function mount()
   {
-    $this->galleries = Gallery::select('id', 'slug', 'is_pinned', 'is_video', 'created_at', 'updated_at')
+    $this->galleries = Gallery::select('id', 'slug', 'is_pinned', 'is_video', 'created_at', 'updated_at', 'order')
       ->with([
         'translations' => function ($query) {
           $query->select('title', 'gallery_id')->where('language', app()->getLocale());
         },
       ])
       ->orderByDesc('is_pinned')
+      ->orderBy('order')
       ->orderByDesc('created_at')
       ->get();
   }
