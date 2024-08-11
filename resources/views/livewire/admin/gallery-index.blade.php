@@ -4,12 +4,12 @@
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">
+      @include('includes.status-messages')
       @if(app()->getLocale() == 'lv')
-        <div class="mb-2">
+        <div class="my-2">
           <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
         </div>
       @endif
-      @include('includes.status-messages')
       <table class="table table-striped">
         <thead>
         <tr>
@@ -22,13 +22,14 @@
           <th scope="col"></th>
         </tr>
         </thead>
-        <tbody>
+        <tbody wire:sortable="updateOrder">
         @foreach($galleries as $gallery)
-          <tr>
-            <td class="align-middle">{!! $gallery->is_pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '' !!}</td>
+          <tr wire:sortable.item="{{ $gallery->id }}" wire:key="gallery-{{ $gallery->id }}">
+            <td wire:sortable.handle
+                class="align-middle">{!! $gallery->is_pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '' !!}</td>
             <td
               class="align-middle">{!! $gallery->is_video ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
-            <td class="align-middle"> {{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}</td>
+            <td class="align-middle">{{ $gallery->translations[0]->title ?? 'Nav tulkojuma!' }}</td>
             <td class="align-middle">{{ \Carbon\Carbon::parse($gallery->created_at)->format('d-m-Y') }}</td>
             <td class="align-middle">{{ \Carbon\Carbon::parse($gallery->updated_at)->format('d-m-Y') }}</td>
             <td class="align-middle">
@@ -37,11 +38,14 @@
               </a>
             </td>
             <td class="align-middle">
-              <button type="button" title="Dzēst" data-bs-toggle="modal"
-                      data-bs-target="#delete-gallery-modal-{{$gallery->id}}"
-                      class="btn p-0">
-                <i class="bi bi-trash-fill"></i>
-              </button>
+              <form action="/admin/gallery/{{ $gallery->id }}/delete" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" title="Dzēst" onclick="return confirm('Vai tiešām vēlies dzēst galeriju?')"
+                        class="btn p-0">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </form>
             </td>
           </tr>
         @endforeach

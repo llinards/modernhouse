@@ -6,6 +6,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
+use App\Livewire\Admin\GalleryIndex;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::delete('/{product}/delete', [ProductController::class, 'destroy']);
 
   //GalleryController
-//  Route::get('/gallery', [GalleryController::class, 'indexAdmin']);
-  Route::get('/gallery', App\Livewire\Admin\GalleryIndex::class);
+  Route::get('/gallery', GalleryIndex::class);
   Route::get('/gallery/create', [GalleryController::class, 'create']);
   Route::post('/gallery', [GalleryController::class, 'store']);
   Route::get('/gallery/{gallery}/edit', [GalleryController::class, 'show']);

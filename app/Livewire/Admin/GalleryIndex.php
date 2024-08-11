@@ -22,6 +22,11 @@ class GalleryIndex extends Component
       ->get();
   }
 
+  public function updateOrder($galleries)
+  {
+    return $galleries;
+  }
+
   public function render()
   {
     return view('livewire.admin.gallery-index')->layout('components.layouts.admin');

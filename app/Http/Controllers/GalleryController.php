@@ -30,21 +30,7 @@ class GalleryController extends Controller
       ->simplePaginate(5);
     return view('gallery', compact('galleries'));
   }
-
-  public function indexAdmin()
-  {
-    $galleries = Gallery::select('id', 'slug', 'is_pinned', 'is_video')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('title', 'gallery_id')->where('language', app()->getLocale());
-        },
-      ])
-      ->orderByDesc('is_pinned')
-      ->orderBy('created_at', 'desc')
-      ->paginate(15);
-    return view('admin.gallery.index', compact('galleries'));
-  }
-
+  
   public function create()
   {
     return view('admin.gallery.create');
