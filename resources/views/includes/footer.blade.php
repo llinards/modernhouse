@@ -30,7 +30,11 @@
         </div>
       </div>
       <hr class="m-0">
-      <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }} | @lang('all rights reserved')</p>
+      <div class="d-flex justify-content-center justify-content-md-between flex-wrap flex-md-nowrap">
+        <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }} | @lang('all rights reserved')</p>
+        <p class="small">@lang('Developed by') <a href="https://slmedia.lv" class="text-white" target="_blank">S&L Media
+            SIA</a></p>
+      </div>
     </div>
   </div>
 </footer>
