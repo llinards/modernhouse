@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
-use App\Models\ProductVariantImage;
 use Illuminate\Support\Facades\Log;
 
 class ProductVariantController extends Controller
@@ -78,17 +77,6 @@ class ProductVariantController extends Controller
     try {
       $productVariantService->destroyProductVariant($productVariant);
       return redirect('/admin')->with('success', 'Dzēsts!');
-    } catch (\Exception $e) {
-      Log::error($e);
-      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
-    }
-  }
-
-  public function destroyImage(ProductVariantImage $image, ProductVariantService $productVariantService)
-  {
-    try {
-      $productVariantService->destroyImage($image);
-      return redirect()->to(app('url')->previous()."#all-product-variant-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');

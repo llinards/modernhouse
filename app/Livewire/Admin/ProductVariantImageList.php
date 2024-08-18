@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Admin;
 
+use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantImage;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ProductVariantImageList extends Component
@@ -20,6 +22,18 @@ class ProductVariantImageList extends Component
 
     $this->mount($this->product, $this->productVariant);
     session()->flash('success', 'Galerijas secība atjaunota');
+  }
+
+  public function deleteImage(ProductVariantImage $image, ProductVariantService $productVariantService): void
+  {
+    try {
+      $productVariantService->destroyImage($image);
+      $this->mount($this->product, $this->productVariant);
+      session()->flash('success', 'Bilde dzēsta');
+    } catch (\Exception $e) {
+      Log::error($e);
+      session()->flash('error', 'Kļūda! Mēģini vēlreiz.');
+    }
   }
 
   public function mount(Product $product, ProductVariant $productVariant): void

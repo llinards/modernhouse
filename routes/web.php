@@ -60,8 +60,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/product-variant/{productVariant}/edit',
     [\App\Http\Controllers\ProductVariantController::class, 'show']);
   Route::patch('/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'update']);
-  Route::get('/product-variant/image/{image}/delete',
-    [\App\Http\Controllers\ProductVariantController::class, 'destroyImage']);
   Route::delete('/product-variant/{productVariant}/delete',
     [\App\Http\Controllers\ProductVariantController::class, 'destroy']);
 
