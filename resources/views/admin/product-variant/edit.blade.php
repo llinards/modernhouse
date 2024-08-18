@@ -81,26 +81,7 @@
             <x-description-text-area
               :name="'product-variant-description'">{{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}</x-description-text-area>
           </div>
-          <div class="mb-3" id="all-product-variant-images">
-            <p>Esošās bildes</p>
-            <div class="row">
-              @if(count($productVariant->productVariantImages) === 0)
-                <p>Nav pievienotas bildes!</p>
-              @else
-                @foreach($productVariant->productVariantImages as $image)
-                  <div class="col-lg-4 col-md-3 col-sm-6 col-6">
-                    <a class="btn btn-danger btn-sm mb-1"
-                       href="{{ URL::to('/admin/product-variant/image/'.$image->id.'/delete') }}">
-                      <i class="bi bi-x"></i>
-                    </a>
-                    <img class="img-fluid mb-2"
-                         src="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
-                         alt="">
-                  </div>
-                @endforeach
-              @endif
-            </div>
-          </div>
+          <livewire:admin.product-variant-image-list :product="$product" :productVariant="$productVariant"/>
           <div class="mb-3">
             <label for="product-variant-images" class="form-label">Pievienot jaunas
               bildes</label>
