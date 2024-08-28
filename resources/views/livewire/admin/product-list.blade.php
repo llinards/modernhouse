@@ -1,40 +1,66 @@
-<div class="row mt-2" wire:sortable="updateOrder">
+<div class="row mt-2">
   @include('includes.status-messages')
-  @foreach($products as $product)
-    <div class="col-lg-4 p-2" wire:sortable.item="{{ $product->id }}"
-         wire:key="product-{{ $product->id }}" wire:sortable.handle>
-      <div class="card position-relative">
-        <div class="position-absolute">
-                    <span
-                      class="badge {{ $product->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $product->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-        </div>
-        <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}"
-             class="card-img-top">
-        <div class="card-body">
-          <h3
-            class="card-title text-center">{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h3>
-          <hr>
+
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th colspan="6"></th>
+    </tr>
+    </thead>
+    <tbody wire:sortable="updateOrder">
+    @foreach($products as $product)
+      <tr wire:key="product-{{ $product->id }}" wire:sortable.item="{{ $product->id }}">
+        <td class="align-middle">
+                        <span class="badge {{ $product->is_active ? 'bg-success' : 'bg-danger' }}">
+                            {{ $product->is_active ? 'Aktīvs' : 'Nav aktīvs' }}
+                        </span>
+        </td>
+        {{--        ATjaunot,lai rāda--}}
+        <td
+          class="align-middle">{!! $product->cover_video_filename ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
+        <td class="align-middle" wire:sortable.handle>
+          <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename) }}"
+               class="img-thumbnail" style="max-width: 100px;">
+        </td>
+        <td class="align-middle">
+          <h5>{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h5>
+        </td>
+        <td class="align-middle">
+          <a href="/admin/{{ $product->slug }}/edit" title="Rediģēt" class="btn">
+            <i class="bi bi-pencil-square"></i>
+          </a>
+        </td>
+        <td class="align-middle">
           @if(count($product->productVariants) != 0)
-            <div class="row">
-              @foreach($product->productVariants as $variant)
-                <div class="col-6 my-2 text-center">
-                          <span
-                            class="badge {{ $variant->is_active ? 'text-bg-success' : 'text-bg-danger' }}">{{ $variant->is_active ? 'Aktīvs' : ' Nav aktīvs' }}</span>
-                  <h5 class="">{{ $variant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</h5>
-                  <a href="/admin/product-variant/{{ $variant->id }}/edit"
-                     class="">Rediģēt</a>
-                </div>
-              @endforeach
+            <div x-data="{ expanded: false }">
+              <button @click="expanded = !expanded" class="btn btn-sm btn-outline-secondary"
+                      :class="{ 'mb-2': expanded }">
+                <span x-text="expanded ? 'Paslēpt variantus' : 'Rādīt variantus'"></span>
+                ({{ count($product->productVariants) }})
+              </button>
+              <div x-show="expanded">
+                <ul class="list-unstyled">
+                  @foreach($product->productVariants as $variant)
+                    <li class="mb-2">
+                                                <span
+                                                  class="badge {{ $variant->is_active ? 'bg-success' : 'bg-danger' }}">
+                                                    {{ $variant->is_active ? 'Aktīvs' : 'Nav aktīvs' }}
+                                                </span>
+                      {{ $variant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}
+                      <a href="/admin/product-variant/{{ $variant->id }}/edit" title="Rediģēt" class="btn px-1 py-0">
+                        <i class="bi bi-pencil-square"></i>
+                      </a>
+                    </li>
+                  @endforeach
+                </ul>
+              </div>
             </div>
           @else
             <p>Nav pievienoti varianti.</p>
           @endif
-          <hr>
-          <div class="all-products-content-buttons d-flex justify-content-center mt-4">
-            <a href="/admin/{{ $product->slug }}/edit" class="btn btn-dark">Rediģēt</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  @endforeach
+        </td>
+      </tr>
+    @endforeach
+    </tbody>
+  </table>
 </div>
