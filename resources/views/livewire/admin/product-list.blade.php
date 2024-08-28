@@ -15,7 +15,6 @@
                             {{ $product->is_active ? 'Aktīvs' : 'Nav aktīvs' }}
                         </span>
         </td>
-        {{--        ATjaunot,lai rāda--}}
         <td
           class="align-middle">{!! $product->cover_video_filename ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
         <td class="align-middle" wire:sortable.handle>

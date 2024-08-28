@@ -13,39 +13,42 @@ class ProductController extends Controller
   public function index()
   {
     $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->where('is_active', true)
-      ->get();
+                                ->with([
+                                  'translations' => function ($query) {
+                                    $query->select('name', 'product_id', 'language')->where('language',
+                                      app()->getLocale());
+                                  },
+                                ])
+                                ->whereHas('translations', function ($query) {
+                                  $query->where('language', app()->getLocale());
+                                })
+                                ->where('is_active', true)
+                                ->get();
+
     return view('home', compact('allActiveProducts'));
   }
 
   public function indexAdmin()
   {
-    $products = Product::select('id', 'slug', 'cover_photo_filename', 'is_active')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-        },
-      ])
-      ->with([
-        'productVariants' => function ($query) {
-          $query->select('id', 'product_id', 'slug', 'is_active')->orderBy('slug');
-          $query->with([
-            'translations' => function ($query) {
-              $query->select('product_variant_id', 'name', 'language')->where('language',
-                app()->getLocale());
-            },
-          ]);
-        }
-      ])
-      ->get();
+    $products = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename', 'is_active')
+                       ->with([
+                         'translations' => function ($query) {
+                           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+                         },
+                       ])
+                       ->with([
+                         'productVariants' => function ($query) {
+                           $query->select('id', 'product_id', 'slug', 'is_active')->orderBy('slug');
+                           $query->with([
+                             'translations' => function ($query) {
+                               $query->select('product_variant_id', 'name', 'language')->where('language',
+                                 app()->getLocale());
+                             },
+                           ]);
+                         },
+                       ])
+                       ->get();
+
     return view('admin.index', compact('products'));
   }
 
@@ -63,12 +66,14 @@ class ProductController extends Controller
       if ($data->has('product-cover-video')) {
         $productService->addMedia($data['product-cover-video']);
       }
+
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -76,12 +81,13 @@ class ProductController extends Controller
   public function showAdmin(Product $product)
   {
     $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename', 'cover_video_filename')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-        },
-      ])
-      ->findOrFail($product->id);
+                      ->with([
+                        'translations' => function ($query) {
+                          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
+                        },
+                      ])
+                      ->findOrFail($product->id);
+
     return view('admin.product.edit', compact('product'));
   }
 
@@ -101,12 +107,14 @@ class ProductController extends Controller
       if ($data->has(['product-cover-video'])) {
         $productService->addMedia($data['product-cover-video']);
       }
+
       return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -115,9 +123,11 @@ class ProductController extends Controller
   {
     try {
       $productService->destroyProduct($product);
+
       return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -126,9 +136,11 @@ class ProductController extends Controller
   {
     try {
       $productService->destroyVideo($product);
+
       return back()->with('success', 'Video dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
