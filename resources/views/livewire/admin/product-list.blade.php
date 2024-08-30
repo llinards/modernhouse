@@ -4,12 +4,15 @@
   <table class="table table-hover">
     <thead class="thead-dark">
     <tr>
-      <th colspan="6"></th>
+      <th colspan="7"></th>
     </tr>
     </thead>
     <tbody wire:sortable="updateOrder">
     @foreach($products as $product)
       <tr wire:key="product-{{ $product->id }}" wire:sortable.item="{{ $product->id }}">
+        <td class="align-middle" wire:sortable.handle>
+          <i class="bi bi-arrows-move"></i>
+        </td>
         <td class="align-middle">
                         <span class="badge {{ $product->is_active ? 'bg-success' : 'bg-danger' }}">
                             {{ $product->is_active ? 'Aktīvs' : 'Nav aktīvs' }}
@@ -17,7 +20,7 @@
         </td>
         <td
           class="align-middle">{!! $product->cover_video_filename ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
-        <td class="align-middle" wire:sortable.handle>
+        <td class="align-middle">
           <img src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename) }}"
                class="img-thumbnail" style="max-width: 100px;">
         </td>
