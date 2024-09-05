@@ -8,26 +8,41 @@
         <a href="/admin/news/create" class="btn btn-success">Pievienot jaunu</a>
       </div>
       @include('includes.status-messages')
-      @foreach($allNews as $news)
-        <div class="col-lg-4 p-2">
-          <div class="card position-relative">
-            <div class="card-header d-flex justify-content-end align-content-center">
-              <a href="/admin/news/{{ $news->id }}/edit" title="Rediģēt" class="btn py-0">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Nosaukums</th>
+          <th scope="col">Izveidots</th>
+          <th scope="col">Rediģēts</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($allNews as $news)
+          <tr>
+            <td class="align-middle">{{ $news->title }}</td>
+            <td class="align-middle">{{ \Carbon\Carbon::parse($news->created_at)->format('d-m-Y') }}</td>
+            <td class="align-middle">{{ \Carbon\Carbon::parse($news->updated_at)->format('d-m-Y') }}</td>
+            <td class="align-middle">
+              <a href="/admin/news/{{ $news->id }}/edit" title="Rediģēt" class="btn">
                 <i class="bi bi-pencil-square"></i>
               </a>
-              <button type="button" title="Dzēst" data-bs-toggle="modal"
-                      data-bs-target="#delete-news-modal-{{$news->id}}"
-                      class="btn p-0">
-                <i class="bi bi-trash-fill"></i>
-              </button>
-            </div>
-            <div class="card-body">
-              <p class="card-title text-center">{{ $news->title }}</p>
-            </div>
-          </div>
-          @include('admin.news.delete-modal')
-        </div>
-      @endforeach
+            </td>
+            <td class="align-middle">
+              <form action="/admin/news/{{ $news->id }}/delete" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" title="Dzēst" onclick="return confirm('Vai tiešām vēlies dzēst aktualitāti?')"
+                        class="btn p-0">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+        @endforeach
+        </tbody>
+      </table>
     </div>
   </x-slot>
 </x-layouts.admin>

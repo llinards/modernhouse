@@ -16,23 +16,25 @@ class NewsController extends Controller
   public function index()
   {
     $allNews = News::select('id', 'title', 'slug')
-      ->with([
-        'images' => function ($query) {
-          $query->select('image_location', 'news_id');
-        },
-      ])
-      ->where('language', app()->getLocale())
-      ->orderBy('created_at', 'desc')
-      ->get();
+                   ->with([
+                     'images' => function ($query) {
+                       $query->select('image_location', 'news_id');
+                     },
+                   ])
+                   ->where('language', app()->getLocale())
+                   ->orderBy('created_at', 'desc')
+                   ->get();
+
     return view('news.index', compact('allNews'));
   }
 
   public function indexAdmin()
   {
-    $allNews = News::select('id', 'title')
-      ->where('language', Lang::locale())
-      ->orderBy('created_at', 'desc')
-      ->paginate(12);
+    $allNews = News::select('id', 'title', 'created_at', 'updated_at')
+                   ->where('language', Lang::locale())
+                   ->orderBy('created_at', 'desc')
+                   ->paginate(12);
+
     return view('admin.news.index', compact('allNews'));
   }
 
@@ -49,12 +51,14 @@ class NewsController extends Controller
       if ($data->has('news-attachments')) {
         $newsService->addAttachment($data['news-attachments']);
       }
+
       return redirect('/admin/news')->with('success', 'Jaunums pievienots');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -62,16 +66,17 @@ class NewsController extends Controller
   public function show($language, News $news)
   {
     $news = News::select('id', 'title', 'content', 'slug')
-      ->with([
-        'images' => function ($query) {
-          $query->select('image_location', 'news_id');
-        },
-        'attachments' => function ($query) {
-          $query->select('attachment_location', 'news_id');
-        },
-      ])
-      ->where('language', $language)
-      ->findOrFail($news->id);
+                ->with([
+                  'images'      => function ($query) {
+                    $query->select('image_location', 'news_id');
+                  },
+                  'attachments' => function ($query) {
+                    $query->select('attachment_location', 'news_id');
+                  },
+                ])
+                ->where('language', $language)
+                ->findOrFail($news->id);
+
     return view('news.show', compact('news'));
   }
 
@@ -90,12 +95,14 @@ class NewsController extends Controller
       if ($data->has('news-attachments')) {
         $newsService->addAttachment($data['news-attachments']);
       }
+
       return redirect('/admin/news')->with('success', 'Jaunums atjaunināts!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -104,9 +111,11 @@ class NewsController extends Controller
   {
     try {
       $newsService->destroyNews($news);
+
       return redirect('/admin/news')->with('success', 'Jaunums dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -115,9 +124,11 @@ class NewsController extends Controller
   {
     try {
       $newsService->destroyImage($image);
+
       return redirect()->to(app('url')->previous()."#all-news-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -126,9 +137,11 @@ class NewsController extends Controller
   {
     try {
       $newsService->destroyAttachment($attachment);
+
       return redirect()->to(app('url')->previous()."#all-news-attachments")->with('success', 'Pielikums dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
