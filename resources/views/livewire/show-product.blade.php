@@ -58,59 +58,60 @@
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <div class="mb-2">
               <div class="basic-variant-price basic-{{$productVariant->slug}} show active">
-                <div class="mt-3 d-flex flex-column">
-                  <div class="d-flex">
-                    <img width="25" height="25"
-                         src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Pamatu uzstādīšana un piegāde</p>
-                  </div>
-                  <div class="d-flex">
-                    <img width="25" height="25"
-                         src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Jumts un logi</p>
-                  </div>
-                  <div class="d-flex">
-                    <img width="25" height="25"
-                         src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Pabeigta visa ārēja apdare</p>
-                  </div>
-                </div>
                 <h3
-                  class="text-center">
+                  class="text-center mt-3">
                   @if($productVariant->price_basic != 0.00)
                     @lang('price from') EUR {{ number_format($productVariant->price_basic, 2, ',', ' ') }}
                   @else
                     @lang('individual price')
                   @endif
                 </h3>
-              </div>
-              <div class="full-variant-price full-{{$productVariant->slug}}">
                 <div class="mt-3 d-flex flex-column">
-                  <div class="d-flex">
+                  <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Pamatu uzstādīšana un piegāde</p>
                   </div>
-                  <div class="d-flex">
+                  <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Jumts un logi</p>
                   </div>
-                  <div class="d-flex">
+                  <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Pabeigta visa arējā un iekšējā apdare</p>
+                    <p class="small text-nowrap">Pabeigta visa ārēja apdare</p>
                   </div>
                 </div>
-                <h3 class="text-center">
+              </div>
+              <div class="full-variant-price full-{{$productVariant->slug}}">
+                <h3 class="text-center mt-3">
                   @if($productVariant->price_full != 0.00)
                     @lang('price from') EUR {{ number_format($productVariant->price_full, 2, ',', ' ') }}
                   @else
                     @lang('individual price')
                   @endif
                 </h3>
+                <div class="mt-3 d-flex flex-column">
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small text-nowrap">Pamatu uzstādīšana un piegāde</p>
+                  </div>
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small text-nowrap">Jumts un logi</p>
+                  </div>
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small text-nowrap">Pabeigta visa arējā un iekšējā apdare</p>
+                  </div>
+                </div>
               </div>
             </div>
+            <hr class="my-1">
             <div class="product-variant-description mx-auto">
               <p>{!! $productVariant->translations[0]->description !!}</p>
               <div class="d-flex justify-content-between">

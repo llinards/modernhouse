@@ -13696,6 +13696,15 @@ footer hr {
   display: none;
 }
 
+.product-variant-options-included img {
+  max-width: 25px;
+  height: 25px;
+  padding-right: 0.5rem;
+}
+.product-variant-options-included p {
+  font-size: 12px;
+}
+
 .container-with-image-background {
   background-position: center;
   min-height: 550px;

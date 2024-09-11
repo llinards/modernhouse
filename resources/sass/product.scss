@@ -132,3 +132,15 @@
 .full-variant-price:not(.show) {
   display: none;
 }
+
+.product-variant-options-included {
+  img {
+    max-width: 25px;
+    height: 25px;
+    padding-right: 0.5rem;
+  }
+
+  p {
+    font-size: $product-variant-description-font-size;
+  }
+}
