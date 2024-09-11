@@ -26,7 +26,7 @@
           <div class="mb-3">
             <div class="row">
               <div class="col-6">
-                <label for="product-variant-basic-price" class="form-label">Cena rūpnīcas
+                <label for="product-variant-basic-price" class="form-label">Cena bāzes
                   komplektācijai</label>
                 <input type="text" name="product-variant-basic-price"
                        id="product-variant-basic-price"
