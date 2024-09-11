@@ -58,18 +58,18 @@
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <div class="mb-2">
               <div class="basic-variant-price basic-{{$productVariant->slug}} show active">
-                <div class="mt-3 d-flex flex-column mx-auto w-50">
-                  <div class="d-flex justify-content-start">
+                <div class="mt-3 d-flex flex-column">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Pamatu uzstādīšana un piegāde</p>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Jumts un logi</p>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Pabeigta visa ārēja apdare</p>
@@ -85,18 +85,18 @@
                 </h3>
               </div>
               <div class="full-variant-price full-{{$productVariant->slug}}">
-                <div class="mt-3 d-flex flex-column mx-auto w-50">
-                  <div class="d-flex justify-content-start">
+                <div class="mt-3 d-flex flex-column">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Pamatu uzstādīšana un piegāde</p>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Jumts un logi</p>
                   </div>
-                  <div class="d-flex justify-content-start">
+                  <div class="d-flex">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
                     <p class="small text-nowrap">Pabeigta visa arējā un iekšējā apdare</p>
