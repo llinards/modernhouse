@@ -31,10 +31,8 @@
         <p>{!! $news->content !!}</p>
         <div class="d-flex justify-content-lg-between justify-content-center mt-4 flex-wrap">
           @foreach($news->attachments as $attachment)
-            <a class="nav-link text-center m-lg-0 m-1" target="_blank"
-               href="{{ asset('storage/news/'.$news->slug.'/'.$attachment->attachment_location) }}">
-              <i class="bi bi-download"></i>
-              <p class="small">{{basename($attachment->attachment_location)}}</p></a>
+            <x-download-attachment :href="asset('storage/news/'.$news->slug.'/'.$attachment->attachment_location)"
+                                   :filename="basename($attachment->attachment_location)"/>
           @endforeach
         </div>
       </div>

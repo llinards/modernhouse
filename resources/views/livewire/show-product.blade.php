@@ -173,6 +173,13 @@
           <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
           <x-product-variant-options :productVariant="$productVariant"/>
         @endif
+        @if($productVariant->productVariantAttachments->isNotEmpty())
+          @foreach($productVariant->productVariantAttachments as $attachment)
+            <x-download-attachment
+              :href="asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$attachment->filename)"
+              :filename="__('Download attachment')"/>
+          @endforeach
+        @endif
         @if(app()->getLocale() === 'lv')
           <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
           <x-faq/>

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductVariant extends Model
 {
   protected $fillable = [
-    'slug', 'price_basic', 'price_full', 'product_id', 'is_active', 'building_area', 'living_area'
+    'slug', 'price_basic', 'price_full', 'product_id', 'is_active', 'building_area', 'living_area',
   ];
   use HasFactory;
 
@@ -42,4 +42,8 @@ class ProductVariant extends Model
     return $this->hasMany(TranslationsProductVariants::class);
   }
 
+  public function productVariantAttachments(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(ProductVariantAttachment::class);
+  }
 }

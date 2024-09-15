@@ -14,7 +14,7 @@ class ShowProduct extends Component
 
   public function mount(Product $product, string $productVariant = '')
   {
-    $this->product = $this->getProduct($product);
+    $this->product         = $this->getProduct($product);
     $this->productVariants = $this->getProductVariants($this->product);
     if (count($this->productVariants) > 0) {
       if ($productVariant) {
@@ -45,16 +45,16 @@ class ShowProduct extends Component
   private function getProduct(Product $product)
   {
     return Product::select('id', 'slug')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id')->where('language', app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->where('is_active', 1)
-      ->findOrFail($product->id);
+                  ->with([
+                    'translations' => function ($query) {
+                      $query->select('name', 'product_id')->where('language', app()->getLocale());
+                    },
+                  ])
+                  ->whereHas('translations', function ($query) {
+                    $query->where('language', app()->getLocale());
+                  })
+                  ->where('is_active', 1)
+                  ->findOrFail($product->id);
   }
 
   private function getProductVariants(Product $product)
@@ -62,35 +62,42 @@ class ShowProduct extends Component
     return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area',
       'building_area',
       'price_full')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('product_variant_id', 'name', 'description')->where('language',
-            app()->getLocale());
-        },
-      ])
-      ->with([
-        'productVariantImages' => function ($query) {
-          $query->select('product_variant_id', 'filename');
-        },
-      ])
-      ->with([
-        'productVariantDetails' => function ($query) {
-          $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language',
-            app()->getLocale());
-        },
-      ])
-      ->with([
-        'productVariantOptions' => function ($query) {
-          $query->select('product_variant_id', 'option_title', 'option_category', 'options')->where('language',
-            app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->where('is_active', 1)
-      ->where('product_id', $product->id)
-      ->orderBy('slug')
-      ->get();
+                         ->with([
+                           'translations' => function ($query) {
+                             $query->select('product_variant_id', 'name', 'description')->where('language',
+                               app()->getLocale());
+                           },
+                         ])
+                         ->with([
+                           'productVariantImages' => function ($query) {
+                             $query->select('product_variant_id', 'filename');
+                           },
+                         ])
+                         ->with([
+                           'productVariantDetails' => function ($query) {
+                             $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language',
+                               app()->getLocale());
+                           },
+                         ])
+                         ->with([
+                           'productVariantOptions' => function ($query) {
+                             $query->select('product_variant_id', 'option_title', 'option_category',
+                               'options')->where('language',
+                               app()->getLocale());
+                           },
+                         ])
+                         ->with([
+                           'productVariantAttachments' => function ($query) {
+                             $query->select('product_variant_id', 'filename', 'language')->where('language',
+                               app()->getLocale());
+                           },
+                         ])
+                         ->whereHas('translations', function ($query) {
+                           $query->where('language', app()->getLocale());
+                         })
+                         ->where('is_active', 1)
+                         ->where('product_id', $product->id)
+                         ->orderBy('slug')
+                         ->get();
   }
 }
