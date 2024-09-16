@@ -44,13 +44,14 @@
   }
 
   .product-variant-option-content {
-    li,
     p {
       font-size: $paragraph-font-size-mobile;
       padding: 8px
     }
   }
-  .variant-button {
+
+  .variant-button,
+  .product-variant-option-content td {
     font-size: $paragraph-font-size-mobile;
   }
 
@@ -145,13 +146,13 @@
   }
 
   .product-variant-option-content {
-    li,
     p {
       font-size: $paragraph-font-size-xs-mobile;
     }
   }
 
-  .variant-button {
+  .variant-button,
+  .product-variant-option-content td {
     font-size: $paragraph-font-size-xs-mobile;
   }
 

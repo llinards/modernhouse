@@ -51,13 +51,9 @@
   border: none;
 }
 
-.variant-button {
+.variant-button,
+.product-variant-option-content td {
   font-size: $paragraph-font-size;
-}
-
-.variant-button:not(.collapsed) {
-  background-color: $primary-color;
-  color: white;
 }
 
 .variant-button:focus {
@@ -65,53 +61,18 @@
   box-shadow: none;
 }
 
+.variant-button:not(.collapsed) {
+  background-color: $primary-color;
+  color: white;
+}
+
 .variant-button:not(.collapsed)::after {
-  background-image: var(--bs-accordion-btn-icon);
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round'><path d='M2 5L8 11L14 5'/></svg>");
 }
 
 .product-variant-option-content {
-  ul {
-    border-radius: 0;
-    --bs-list-group-color: #212529;
-    --bs-list-group-bg: #fff;
-    --bs-list-group-border-color: rgba(0, 0, 0, 0.125);
-    --bs-list-group-border-width: 1px;
-    --bs-list-group-border-radius: 0.375rem;
-    --bs-list-group-item-padding-x: 1rem;
-    --bs-list-group-item-padding-y: 0.5rem;
-    --bs-list-group-action-color: #495057;
-    --bs-list-group-action-hover-color: #495057;
-    --bs-list-group-action-hover-bg: #f8f9fa;
-    --bs-list-group-action-active-color: #212529;
-    --bs-list-group-action-active-bg: #e9ecef;
-    --bs-list-group-disabled-color: #6c757d;
-    --bs-list-group-disabled-bg: #fff;
-    --bs-list-group-active-color: #fff;
-    --bs-list-group-active-bg: #0d6efd;
-    --bs-list-group-active-border-color: #0d6efd;
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-  }
-
   p {
     padding: 8px 0px;
-  }
-
-  li {
-    position: relative;
-    display: block;
-    padding: 8px 0px;
-    color: $primary-color;
-    text-decoration: none;
-    background-color: var(--bs-list-group-bg);
-    font-size: $paragraph-font-size;
-
-    &:not(:last-child) {
-      border: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color);
-      border-width: 0 0 var(--bs-list-group-border-width);
-    }
   }
 }
 
