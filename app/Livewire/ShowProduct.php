@@ -60,8 +60,7 @@ class ShowProduct extends Component
   private function getProductVariants(Product $product)
   {
     return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area',
-      'building_area',
-      'price_full')
+      'building_area')
                          ->with([
                            'translations' => function ($query) {
                              $query->select('product_variant_id', 'name', 'description')->where('language',
@@ -81,9 +80,14 @@ class ShowProduct extends Component
                          ])
                          ->with([
                            'productVariantOptions' => function ($query) {
-                             $query->select('product_variant_id', 'option_title', 'option_category',
-                               'options')->where('language',
-                               app()->getLocale());
+                             $query->select('id', 'product_variant_id', 'option_title')->where('language',
+                               app()->getLocale())
+                                   ->with([
+                                     'productVariantOptionDetails' => function ($query) {
+                                       $query->select('product_variant_option_id', 'detail', 'has_in_basic',
+                                         'has_in_full');
+                                     },
+                                   ]);
                            },
                          ])
                          ->with([

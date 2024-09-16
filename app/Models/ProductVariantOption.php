@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductVariantOption extends Model
 {
-  protected $fillable = ['option_title', 'option_category', 'options', 'product_variant_id', 'language'];
+  protected $fillable = ['option_title', 'product_variant_id', 'language'];
 
-  use HasFactory;
+  public function productVariantOptionDetails(): \Illuminate\Database\Eloquent\Relations\HasMany
+  {
+    return $this->hasMany(ProductVariantOptionDetail::class);
+  }
 }
