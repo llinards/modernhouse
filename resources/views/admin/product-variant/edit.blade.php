@@ -12,10 +12,6 @@
           @csrf
           @method('PATCH')
           <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
-          {{--                <div class="mb-3">--}}
-          {{--                  <h4>Pieder pie kategorijas ---}}
-          {{--                    <strong>{{ $productVariant->product->translation[0]->name}}</strong></h4>--}}
-          {{--                </div>--}}
           <div class="mb-3">
             <div class="form-check">
               <input class="form-check-input" type="checkbox"
@@ -91,6 +87,12 @@
             <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
                                                               target="_blank">compressor.io</a>
             </p>
+          </div>
+          <div class="mb-3">
+            <label for="product-variant-attachments" class="form-label">Pielikums</label>
+            <x-file-upload :name="'product-variant-attachments'"/>
+            <p class="small">Pievienojot jaunu pielikumu, ja eksistē iepriekšējais, tas tiks aizvietots.</p>
+            <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
           </div>
           <div class="d-flex justify-content-between">
             <button type="button" data-bs-toggle="modal"

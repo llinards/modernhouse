@@ -29,22 +29,22 @@ class ProductVariantService
   {
     $this->setSlug($data['product-variant-name']);
     $this->productVariant = ProductVariant::create([
-      'slug' => $this->slug,
-      'price_basic' => $data['product-variant-basic-price'],
-      'price_full' => $data['product-variant-full-price'],
-      'product_id' => $data['product-id'],
-      'living_area' => $data['product-variant-living-area'],
+      'slug'          => $this->slug,
+      'price_basic'   => $data['product-variant-basic-price'],
+      'price_full'    => $data['product-variant-full-price'],
+      'product_id'    => $data['product-id'],
+      'living_area'   => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],
-      'is_active' => false,
+      'is_active'     => false,
     ]);
   }
 
   public function addTranslation(object $data): void
   {
     $this->productVariant->translations()->create([
-      'name' => $data['product-variant-name'],
+      'name'        => $data['product-variant-name'],
       'description' => $data['product-variant-description'],
-      'language' => app()->getLocale()
+      'language'    => app()->getLocale(),
     ]);
   }
 
@@ -55,15 +55,41 @@ class ProductVariantService
         $fileService = new FileService();
         $fileService->storeFile($image, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
         $this->productVariant->productVariantImages()->create([
-          'filename' => basename($image)
+          'filename' => basename($image),
         ]);
+      }
+    }
+  }
+
+  public function addAttachment(array $attachments): void
+  {
+    foreach ($attachments as $attachment) {
+      if ($attachment !== null) {
+        $fileService = new FileService();
+
+        $existingAttachment = $this->productVariant->productVariantAttachments()
+                                                   ->where('language', app()->getLocale())
+                                                   ->first();
+        if ($existingAttachment) {
+          $fileService->destroyFile($existingAttachment->filename,
+            'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
+          $existingAttachment->update([
+            'filename' => basename($attachment),
+          ]);
+        } else {
+          $this->productVariant->productVariantAttachments()->create([
+            'filename' => basename($attachment),
+            'language' => app()->getLocale(),
+          ]);
+        }
+        $fileService->storeFile($attachment, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
       }
     }
   }
 
   public function updateProductVariant(object $data): void
   {
-    $fileService = new FileService();
+    $fileService          = new FileService();
     $this->productVariant = $this->getProductVariant($data['id']);
     $this->setSlug(app()->getLocale() === 'lv' ? $data['product-variant-name'] : $this->productVariant->slug);
     $isSlugChanged = $this->productVariant->slug !== $this->slug;
@@ -72,27 +98,27 @@ class ProductVariantService
         'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
     }
     $this->productVariant->update([
-      'slug' => $this->slug,
-      'price_basic' => $data['product-variant-basic-price'],
-      'price_full' => $data['product-variant-full-price'],
-      'living_area' => $data['product-variant-living-area'],
+      'slug'          => $this->slug,
+      'price_basic'   => $data['product-variant-basic-price'],
+      'price_full'    => $data['product-variant-full-price'],
+      'living_area'   => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],
-      'is_active' => isset($data['product-variant-available']),
+      'is_active'     => isset($data['product-variant-available']),
     ]);
   }
 
   public function updateTranslation($translation, $data): void
   {
     $translation->update([
-      'name' => $data['product-variant-name'],
-      'description' => $data['product-variant-description']
+      'name'        => $data['product-variant-name'],
+      'description' => $data['product-variant-description'],
     ]);
   }
 
   public function destroyProductVariant(object $data): void
   {
     $this->productVariant = $this->getProductVariant($data->id);
-    $fileService = new FileService();
+    $fileService          = new FileService();
     $fileService->destroyDirectory('product-images/'.$this->productVariant->product->slug.'/'.$this->productVariant->slug);
     $this->productVariant->delete();
   }

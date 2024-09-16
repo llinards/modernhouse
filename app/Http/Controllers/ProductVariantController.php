@@ -14,12 +14,13 @@ class ProductVariantController extends Controller
   public function create()
   {
     $products = Product::select('id')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('name', 'product_id')->where('language', app()->getLocale());
-        },
-      ])
-      ->get();
+                       ->with([
+                         'translations' => function ($query) {
+                           $query->select('name', 'product_id')->where('language', app()->getLocale());
+                         },
+                       ])
+                       ->get();
+
     return view('admin.product-variant.create', compact('products'));
   }
 
@@ -29,26 +30,32 @@ class ProductVariantController extends Controller
       $productVariantService->addProductVariant($data);
       $productVariantService->addTranslation($data);
       $productVariantService->addImage($data['product-variant-images']);
+      if ($data->has(['product-variant-attachments'])) {
+        $productVariantService->addAttachment($data['product-variant-attachments']);
+      }
+
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
   public function show(ProductVariant $productVariant)
   {
-    $product = $productVariant->product;
+    $product        = $productVariant->product;
     $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_full',
       'living_area', 'building_area', 'price_full')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('product_variant_id', 'name', 'description', 'language')->where('language',
-            app()->getLocale());
+                                    ->with([
+                                      'translations' => function ($query) {
+                                        $query->select('product_variant_id', 'name', 'description',
+                                          'language')->where('language',
+                                          app()->getLocale());
+                                      },
+                                    ])
+                                    ->findOrFail($productVariant->id);
 
-        },
-      ])
-      ->findOrFail($productVariant->id);
     return view('admin.product-variant.edit', compact('productVariant', 'product'));
   }
 
@@ -65,9 +72,14 @@ class ProductVariantController extends Controller
       if ($data->has(['product-variant-images'])) {
         $productVariantService->addImage($data['product-variant-images']);
       }
+      if ($data->has(['product-variant-attachments'])) {
+        $productVariantService->addAttachment($data['product-variant-attachments']);
+      }
+
       return redirect('/admin')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -76,9 +88,11 @@ class ProductVariantController extends Controller
   {
     try {
       $productVariantService->destroyProductVariant($productVariant);
+
       return redirect('/admin')->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }

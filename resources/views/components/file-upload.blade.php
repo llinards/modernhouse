@@ -51,7 +51,12 @@
       maxFileSize: '500KB',
       acceptedFileTypes: ['image/*'],
       allowMultiple: true
-    }
+    },
+    "product-variant-attachments": {
+      labelIdle: 'Pievienot pielikumu',
+      maxFileSize: '50MB',
+      acceptedFileTypes: ['application/pdf'],
+    },
   };
   if (optionsConfig[fileId]) {
     Object.assign(options, optionsConfig[fileId]);

@@ -77,6 +77,11 @@
                                                               target="_blank">compressor.io</a>
             </p>
           </div>
+          <div class="mb-3">
+            <label for="product-variant-attachments" class="form-label">Pielikums</label>
+            <x-file-upload :name="'product-variant-attachments'"/>
+            <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
+          </div>
           <a href="/admin" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>

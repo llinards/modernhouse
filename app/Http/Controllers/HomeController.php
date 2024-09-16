@@ -22,9 +22,11 @@ class HomeController extends Controller
     try {
       $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_product_info'));
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
+
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -33,9 +35,11 @@ class HomeController extends Controller
   {
     try {
       Mail::to('info@modern-house.lv')->send(new ContactUsSubmitted($data->input()));
+
       return Redirect::to(URL::previous()."#contact-us")->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+
       return Redirect::to(URL::previous()."#contact-us")->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -44,9 +48,11 @@ class HomeController extends Controller
   {
     try {
       $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
+
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', Lang::get('message has not been sent'));
     }
   }
@@ -55,7 +61,7 @@ class HomeController extends Controller
   {
     $fileTypes = [
       'product-cover-photo', 'product-cover-video', 'product-variant-images', 'gallery-images', 'news-images',
-      'news-attachments'
+      'news-attachments', 'product-variant-attachments',
     ];
     foreach ($fileTypes as $fileType) {
       if ($data->hasFile($fileType)) {
@@ -66,16 +72,19 @@ class HomeController extends Controller
           } else {
             $fileName = $file->getClientOriginalName();
           }
+
           return $file->storeAs('uploads/temp', $fileName, 'public');
         }
       }
     }
+
     return '';
   }
 
   public function destroyTemporaryUpload(Request $data): string
   {
     Storage::delete('public/'.$data->getContent());
+
     return '';
   }
 }
