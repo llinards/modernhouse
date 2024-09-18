@@ -31,6 +31,7 @@
             <select class="form-select" name="product-variant-option" id="product-variant-option"
                     aria-label="Default select example">
               <option value="Basic" selected>@lang('basic')</option>
+              <option value="Middle">@lang('middle')</option>
               <option value="Full">@lang('full')</option>
             </select>
           </div>

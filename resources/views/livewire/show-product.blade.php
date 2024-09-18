@@ -91,6 +91,38 @@
                   </div>
                 </div>
               </div>
+              <div class="middle-variant-price middle-{{$productVariant->slug}}">
+                <h3 class="text-center mt-3">
+                  @if($productVariant->price_middle != 0.00)
+                    @lang('price from') EUR {{ number_format($productVariant->price_middle, 2, ',', ' ') }}
+                  @else
+                    @lang('individual price')
+                  @endif
+                </h3>
+                <div class="mt-3 d-flex flex-column">
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small">Pamatu izbūve</p>
+                  </div>
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small">Komunikāciju (ūdens, kanalizācijas, siltās grīdas, elektrības pievads)
+                      izbūve pamatos</p>
+                  </div>
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small">Mājas konstrukciju montāža</p>
+                  </div>
+                  <div class="d-flex product-variant-options-included">
+                    <img width="25" height="25"
+                         src="{{ asset('storage/icons/check.svg')}}"/>
+                    <p class="small">Pilnībā pabeigti ārējās apdares darbi</p>
+                  </div>
+                </div>
+              </div>
               <div class="full-variant-price full-{{$productVariant->slug}}">
                 <h3 class="text-center mt-3">
                   @if($productVariant->price_full != 0.00)
@@ -189,21 +221,16 @@
     <script type="module">
       document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
         selectedVariant.addEventListener('show.bs.tab', () => {
-          const targetClass = selectedVariant.dataset.bsTarget
+          const targetClass = selectedVariant.dataset.bsTarget;
           const currentVariantPrice = document.querySelector('.' + targetClass.replace('#', ''));
           if (currentVariantPrice) {
-            if (currentVariantPrice.nextElementSibling) {
-              currentVariantPrice.nextElementSibling.classList.toggle('show');
-              currentVariantPrice.nextElementSibling.classList.toggle('active');
-            } else if (currentVariantPrice.previousElementSibling) {
-              currentVariantPrice.previousElementSibling.classList.toggle('show');
-              currentVariantPrice.previousElementSibling.classList.toggle('active');
-            }
-            currentVariantPrice.classList.toggle('show');
-            currentVariantPrice.classList.toggle('active');
+            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price').forEach((element) => {
+              element.classList.remove('show', 'active');
+            });
+            currentVariantPrice.classList.add('show', 'active');
           }
-        })
-      })
+        });
+      });
 
       const gallery = document.getElementById('product-variant-gallery');
       const main = new Splide('#' + gallery.firstElementChild.id, {
