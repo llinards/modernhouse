@@ -55,13 +55,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
   //ProductVariantOptionController
   Route::get('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'show']);
-  Route::patch('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'update']);
-  Route::post('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'store']);
-  Route::get('/product-variant/{productVariant}/product-variant-options/{productVariantOption}',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy']);
+    [\App\Http\Controllers\ProductVariantOptionController::class, 'index']);
 
   //ProductVariantDetailController
   Route::get('/product-variant/{productVariant}/product-variant-details',

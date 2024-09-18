@@ -103,28 +103,28 @@
                   <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Pamatu izbūve</p>
+                    <p class="small">Pamatu izbūve</p>
                   </div>
                   <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija)
+                    <p class="small">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija)
                       izbūve</p>
                   </div>
                   <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Mājas konstrukciju montāža</p>
+                    <p class="small">Mājas konstrukciju montāža</p>
                   </div>
                   <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Pilnībā pabeigti iekšējās un ārējās apdares darbi</p>
+                    <p class="small">Pilnībā pabeigti iekšējās un ārējās apdares darbi</p>
                   </div>
                   <div class="d-flex product-variant-options-included">
                     <img width="25" height="25"
                          src="{{ asset('storage/icons/check.svg')}}"/>
-                    <p class="small text-nowrap">Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas</p>
+                    <p class="small">Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas</p>
                   </div>
                 </div>
               </div>
