@@ -5,7 +5,9 @@
 @endif
 <p>Komplektācija:
   @if($data['product-variant-option'] == 'Basic')
-    <strong>Rūpnīcas</strong>
+    <strong>Bāzes</strong>
+  @elseif($data['product-variant-option'] == 'Middle')
+    <strong>Pelēkā apdare</strong>
   @else
     <strong>Pilna</strong>
   @endif
