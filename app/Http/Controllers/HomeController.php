@@ -61,7 +61,7 @@ class HomeController extends Controller
   {
     $fileTypes = [
       'product-cover-photo', 'product-cover-video', 'product-variant-images', 'gallery-images', 'news-images',
-      'news-attachments', 'product-variant-attachments',
+      'news-attachments', 'product-variant-attachments', 'product-variant-options-excel',
     ];
     foreach ($fileTypes as $fileType) {
       if ($data->hasFile($fileType)) {

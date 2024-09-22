@@ -85,6 +85,7 @@ class ShowProduct extends Component
                                    ->with([
                                      'productVariantOptionDetails' => function ($query) {
                                        $query->select('product_variant_option_id', 'detail', 'has_in_basic',
+                                         'has_in_middle',
                                          'has_in_full');
                                      },
                                    ]);

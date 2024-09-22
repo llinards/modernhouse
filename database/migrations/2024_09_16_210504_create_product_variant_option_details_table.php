@@ -14,6 +14,7 @@ return new class extends Migration {
       $table->id();
       $table->string('detail');
       $table->boolean('has_in_basic');
+      $table->boolean('has_in_middle');
       $table->boolean('has_in_full');
       $table->foreignId('product_variant_option_id')->references('id')->on('product_variant_options')->onDelete('cascade');
       $table->timestamps();

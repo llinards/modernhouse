@@ -55,7 +55,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
   //ProductVariantOptionController
   Route::get('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'index']);
+    [\App\Http\Controllers\ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
+  Route::post('/product-variant/{productVariant}/product-variant-options',
+    [\App\Http\Controllers\ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
 
   //ProductVariantDetailController
   Route::get('/product-variant/{productVariant}/product-variant-details',

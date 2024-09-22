@@ -18,19 +18,24 @@
                 <thead>
                 <tr>
                   <th scope="col"></th>
-                  <th class="text-center" scope="col">@lang('basic')</th>
-                  <th class="text-center" scope="col">@lang('full')</th>
+                  <th class="text-center align-middle" scope="col">@lang('basic')</th>
+                  <th class="text-center align-middle" scope="col">@lang('middle')</th>
+                  <th class="text-center align-middle" scope="col">@lang('full')</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($option->productVariantOptionDetails as $detail)
                   <tr>
                     <td>{{ $detail->detail }}</td>
-                    <td class="text-center">
+                    <td class="text-center align-middle">
                       <img width="25" height="25"
                            src="{{ $detail->has_in_basic ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
                     </td>
-                    <td class="text-center">
+                    <td class="text-center align-middle">
+                      <img width="25" height="25"
+                           src="{{ $detail->has_in_middle ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                    </td>
+                    <td class="text-center align-middle">
                       <img width="25" height="25"
                            src="{{ $detail->has_in_full ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
                     </td>

@@ -57,6 +57,11 @@
       maxFileSize: '50MB',
       acceptedFileTypes: ['application/pdf'],
     },
+    "product-variant-options-excel": {
+      labelIdle: 'Pievienot Excel failu',
+      maxFileSize: '50MB',
+      acceptedFileTypes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
+    }
   };
   if (optionsConfig[fileId]) {
     Object.assign(options, optionsConfig[fileId]);
