@@ -39,8 +39,7 @@
                        value="{{ $productVariant->price_basic }}" class="form-control">
               </div>
               <div class="col-4">
-                <label for="product-variant-middle-price" class="form-label">Cena pelēkās apdares
-                  komplektācijai</label>
+                <label for="product-variant-middle-price" class="form-label">Cena pelēkai apdarei</label>
                 <input type="text" name="product-variant-middle-price"
                        id="product-variant-middle-price"
                        value="{{ $productVariant->price_middle }}" class="form-control">
