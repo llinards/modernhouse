@@ -59,7 +59,8 @@ class ShowProduct extends Component
 
   private function getProductVariants(Product $product)
   {
-    return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_full', 'living_area',
+    return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle', 'price_full',
+      'living_area',
       'building_area')
                          ->with([
                            'translations' => function ($query) {
