@@ -38,7 +38,7 @@ class ProductVariantOptionImport implements ToCollection
 
   private function isTitleRow(Collection $row): bool
   {
-    return str_contains($row[self::TITLE_COLUMN], 'Title');
+    return str_contains($row[self::TITLE_COLUMN] ?? '', 'Title');
   }
 
   private function createProductVariantOption(Collection $row): void
@@ -51,16 +51,16 @@ class ProductVariantOptionImport implements ToCollection
 
   private function createProductVariantOptionDetail(Collection $row): void
   {
-    if (empty(trim($row[self::DETAIL_COLUMN])) || ! $this->currentOption) {
+    if (empty(trim($row[self::DETAIL_COLUMN] ?? '')) || ! $this->currentOption) {
       return;
     }
 
     ProductVariantOptionDetail::create([
       'product_variant_option_id' => $this->currentOption->id,
-      'detail'                    => trim($row[self::DETAIL_COLUMN]),
-      'has_in_basic'              => ! empty(trim($row[self::BASIC_COLUMN])),
-      'has_in_middle'             => ! empty(trim($row[self::MIDDLE_COLUMN])),
-      'has_in_full'               => ! empty(trim($row[self::FULL_COLUMN])),
+      'detail'                    => trim($row[self::DETAIL_COLUMN] ?? ''),
+      'has_in_basic'              => ! empty(trim($row[self::BASIC_COLUMN] ?? '')),
+      'has_in_middle'             => ! empty(trim($row[self::MIDDLE_COLUMN] ?? '')),
+      'has_in_full'               => ! empty(trim($row[self::FULL_COLUMN] ?? '')),
     ]);
   }
 }

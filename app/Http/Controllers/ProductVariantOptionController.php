@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\FileService;
 use App\Imports\ProductVariantOptionImport;
 use App\Models\ProductVariant;
 use Illuminate\Http\Request;
@@ -20,6 +21,9 @@ class ProductVariantOptionController extends Controller
     try {
       Excel::import(new ProductVariantOptionImport($data['product-variant-id']),
         storage_path('app/public/'.$data['product-variant-options-excel'][0]));
+
+      $fileService = new FileService();
+      $fileService->destroyFile(basename($data['product-variant-options-excel'][0]), 'uploads/temp');
 
       return back()->with('success', 'Tehniskā specifikācija importēta!');
     } catch (\Exception $e) {
