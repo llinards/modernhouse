@@ -58,6 +58,16 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     [\App\Http\Controllers\ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
   Route::post('/product-variant/{productVariant}/product-variant-options',
     [\App\Http\Controllers\ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
+  Route::delete('/product-variant/{productVariant}/product-variant-options/delete',
+    [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy'])->name('product-variant-options.destroy');
+  Route::delete('/product-variant/product-variant-options/{productVariantOption}/delete',
+    [
+      \App\Http\Controllers\ProductVariantOptionController::class, 'destroyProductVariantOption',
+    ])->name('product-variant-options.destroy-product-variant-option');
+  Route::delete('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/delete',
+    [
+      \App\Http\Controllers\ProductVariantOptionController::class, 'destroyProductVariantOptionDetail',
+    ])->name('product-variant-options.destroy-product-variant-option-detail');
 
   //ProductVariantDetailController
   Route::get('/product-variant/{productVariant}/product-variant-details',
