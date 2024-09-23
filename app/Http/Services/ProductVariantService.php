@@ -31,6 +31,7 @@ class ProductVariantService
     $this->productVariant = ProductVariant::create([
       'slug'          => $this->slug,
       'price_basic'   => $data['product-variant-basic-price'],
+      'price_middle'  => $data['product-variant-middle-price'],
       'price_full'    => $data['product-variant-full-price'],
       'product_id'    => $data['product-id'],
       'living_area'   => $data['product-variant-living-area'],
@@ -100,6 +101,7 @@ class ProductVariantService
     $this->productVariant->update([
       'slug'          => $this->slug,
       'price_basic'   => $data['product-variant-basic-price'],
+      'price_middle'  => $data['product-variant-middle-price'],
       'price_full'    => $data['product-variant-full-price'],
       'living_area'   => $data['product-variant-living-area'],
       'building_area' => $data['product-variant-building-area'],

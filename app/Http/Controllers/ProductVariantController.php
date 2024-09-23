@@ -45,8 +45,8 @@ class ProductVariantController extends Controller
   public function show(ProductVariant $productVariant)
   {
     $product        = $productVariant->product;
-    $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_full',
-      'living_area', 'building_area', 'price_full')
+    $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_middle', 'price_full',
+      'living_area', 'building_area')
                                     ->with([
                                       'translations' => function ($query) {
                                         $query->select('product_variant_id', 'name', 'description',

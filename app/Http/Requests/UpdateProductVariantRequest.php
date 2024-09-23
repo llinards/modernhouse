@@ -24,13 +24,14 @@ class UpdateProductVariantRequest extends FormRequest
   public function rules()
   {
     return [
-      'id' => ['required', 'numeric'],
-      'product-variant-name' => 'required',
-      'product-variant-basic-price' => ['required', 'numeric'],
-      'product-variant-full-price' => ['required', 'numeric'],
-      'product-variant-living-area' => ['required', 'numeric'],
+      'id'                            => ['required', 'numeric'],
+      'product-variant-name'          => 'required',
+      'product-variant-basic-price'   => ['required', 'numeric'],
+      'product-variant-middle-price'  => ['required', 'numeric'],
+      'product-variant-full-price'    => ['required', 'numeric'],
+      'product-variant-living-area'   => ['required', 'numeric'],
       'product-variant-building-area' => ['required', 'numeric'],
-      'product-variant-description' => 'required',
+      'product-variant-description'   => 'required',
     ];
   }
 }

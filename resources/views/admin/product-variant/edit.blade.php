@@ -31,14 +31,21 @@
           </div>
           <div class="mb-3">
             <div class="row">
-              <div class="col-6">
+              <div class="col-4">
                 <label for="product-variant-basic-price" class="form-label">Cena bāzes
                   komplektācijai</label>
                 <input type="text" name="product-variant-basic-price"
                        id="product-variant-basic-price"
                        value="{{ $productVariant->price_basic }}" class="form-control">
               </div>
-              <div class="col-6">
+              <div class="col-4">
+                <label for="product-variant-middle-price" class="form-label">Cena pelēkās apdares
+                  komplektācijai</label>
+                <input type="text" name="product-variant-middle-price"
+                       id="product-variant-middle-price"
+                       value="{{ $productVariant->price_middle }}" class="form-control">
+              </div>
+              <div class="col-4">
                 <label for="product-variant-full-price" class="form-label">Cena pilnai
                   komplektācijai</label>
                 <input type="text" name="product-variant-full-price"
