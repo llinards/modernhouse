@@ -776,7 +776,6 @@
         <div class="container-xxl">
           <div class="row">
             <h2 class="my-4 text-center">Tehniskā specifikācija</h2>
-            <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <x-product-variant-options :productVariant="$productVariant"/>
           </div>
         </div>

@@ -643,7 +643,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 
 /*!
- * FilePond 4.31.3
+ * FilePond 4.31.4
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit https://pqina.nl/filepond/ for details.
  */
@@ -13623,7 +13623,8 @@ footer hr {
 }
 
 .variant-button,
-.product-variant-option-content td {
+.product-variant-option-content td,
+.product-variant-option-content th {
   font-size: 16px;
 }
 
@@ -13834,7 +13835,8 @@ footer hr {
     padding: 8px;
   }
   .variant-button,
-  .product-variant-option-content td {
+  .product-variant-option-content td,
+  .product-variant-option-content th {
     font-size: 14px;
   }
   #home #choose-order-contact img {
@@ -13906,7 +13908,8 @@ footer hr {
     font-size: 12px;
   }
   .variant-button,
-  .product-variant-option-content td {
+  .product-variant-option-content td,
+  .product-variant-option-content th {
     font-size: 12px;
   }
   #home #choose-order-contact img {
