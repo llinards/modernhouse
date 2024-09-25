@@ -24,10 +24,22 @@ class UpdateProductVariantOptionsRequest extends FormRequest
   public function rules()
   {
     return [
-      'id.*' => ['required', 'numeric'],
-      'product-variant-option-title.*' => 'required',
-      'product-variant-option-category.*' => 'required|in:Basic,Full',
-      'product-variant-option-description.*' => 'required'
+      'id'                            => ['required', 'numeric'],
+      'product_variant_option_detail' => 'required',
+    ];
+  }
+
+  /**
+   * Get the error messages for the defined validation rules.
+   *
+   * @return array<string, string>
+   */
+  public function messages()
+  {
+    return [
+      'id.required'                            => 'Kļūda! Mēģini vēlreiz.',
+      'id.numeric'                             => 'Kļūda! Mēģini vēlreiz.',
+      'product_variant_option_detail.required' => 'Opcijas nosaukums ir obligāts.',
     ];
   }
 }

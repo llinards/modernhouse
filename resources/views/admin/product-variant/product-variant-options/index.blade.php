@@ -46,17 +46,23 @@
                     <ul class="list-unstyled">
                       @foreach($productVariantOption->productVariantOptionDetails as $detail)
                         <li class="d-flex align-items-center mb-2">
+                          @include('admin.product-variant.product-variant-options.edit-modal', ['detail' => $detail])
+                          <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                  data-bs-target="#edit-product-variant-detail-modal-{{ $detail->id }}">
+                            <i class="bi bi-pencil text-white"></i>
+                          </button>
                           <form
                             action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['productVariantOptionDetail' => $detail->id]) }}"
-                            method="POST" class="d-inline">
+                            method="POST" class="d-inline px-1">
                             @csrf
                             @method('DELETE')
-                            <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu?');" class="btn btn-dark"
+                            <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu?');"
+                                    class="btn btn-danger"
                                     type="submit">
                               <i class="bi bi-trash text-white"></i>
                             </button>
                           </form>
-                          <div class="px-1">
+                          <div class="">
                             {{ $detail->detail }}
                           </div>
                         </li>

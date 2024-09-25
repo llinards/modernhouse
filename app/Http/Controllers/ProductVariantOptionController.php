@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProductVariantOptionsRequest;
 use App\Http\Services\FileService;
 use App\Http\Services\ProductVariantOptionService;
 use App\Imports\ProductVariantOptionImport;
@@ -42,6 +43,19 @@ class ProductVariantOptionController extends Controller
       $this->fileService->destroyFile(basename($data['product-variant-options-excel'][0]), 'uploads/temp');
 
       return back()->with('success', 'Tehniskā specifikācija importēta!');
+    } catch (\Exception $e) {
+      Log::error($e);
+
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function updateProductVariantOptionDetail(UpdateProductVariantOptionsRequest $data)
+  {
+    try {
+      $this->productVariantOptionService->updateProductVariantOptionDetail($data);
+
+      return back()->with('success', 'Opcija atjaunota!');
     } catch (\Exception $e) {
       Log::error($e);
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductVariantOptionController;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
@@ -55,18 +56,23 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
   //ProductVariantOptionController
   Route::get('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
+    [ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
   Route::post('/product-variant/{productVariant}/product-variant-options',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
+    [ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
+  Route::patch('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/update',
+    [
+      ProductVariantOptionController::class, 'updateProductVariantOptionDetail',
+    ])->name('product-variant-options.update-product-variant-option-detail');
+
   Route::delete('/product-variant/{productVariant}/product-variant-options/delete',
-    [\App\Http\Controllers\ProductVariantOptionController::class, 'destroy'])->name('product-variant-options.destroy');
+    [ProductVariantOptionController::class, 'destroy'])->name('product-variant-options.destroy');
   Route::delete('/product-variant/product-variant-options/{productVariantOption}/delete',
     [
-      \App\Http\Controllers\ProductVariantOptionController::class, 'destroyProductVariantOption',
+      ProductVariantOptionController::class, 'destroyProductVariantOption',
     ])->name('product-variant-options.destroy-product-variant-option');
   Route::delete('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/delete',
     [
-      \App\Http\Controllers\ProductVariantOptionController::class, 'destroyProductVariantOptionDetail',
+      ProductVariantOptionController::class, 'destroyProductVariantOptionDetail',
     ])->name('product-variant-options.destroy-product-variant-option-detail');
 
   //ProductVariantDetailController
