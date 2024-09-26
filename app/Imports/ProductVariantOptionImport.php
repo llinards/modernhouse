@@ -17,6 +17,8 @@ class ProductVariantOptionImport implements ToCollection
   private const FULL_COLUMN = 4;
 
   protected int $productVariantId;
+  protected int $currentProductVariantOptionPosition = 1;
+  protected int $currentProductVariantOptionDetailPosition = 1;
 
   private ?ProductVariantOption $currentOption = null;
 
@@ -43,10 +45,12 @@ class ProductVariantOptionImport implements ToCollection
 
   private function createProductVariantOption(Collection $row): void
   {
-    $this->currentOption = ProductVariantOption::create([
+    $this->currentOption                             = ProductVariantOption::create([
       'option_title'       => trim($row[self::OPTION_TITLE_COLUMN]),
       'product_variant_id' => $this->productVariantId,
+      'order'              => $this->currentProductVariantOptionPosition++,
     ]);
+    $this->currentProductVariantOptionDetailPosition = 1;
   }
 
   private function createProductVariantOptionDetail(Collection $row): void
@@ -61,6 +65,7 @@ class ProductVariantOptionImport implements ToCollection
       'has_in_basic'              => ! empty(trim($row[self::BASIC_COLUMN] ?? '')),
       'has_in_middle'             => ! empty(trim($row[self::MIDDLE_COLUMN] ?? '')),
       'has_in_full'               => ! empty(trim($row[self::FULL_COLUMN] ?? '')),
+      'order'                     => $this->currentProductVariantOptionDetailPosition++,
     ]);
   }
 }
