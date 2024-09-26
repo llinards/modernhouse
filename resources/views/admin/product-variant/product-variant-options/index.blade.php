@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row justify-content-center mt-5">
-      @if(count($productVariantOptions) === 0)
+      @if(count($productVariant->productVariantOptions) === 0)
         <div class="col-lg-7 col-12">
           <div class="alert alert-secondary" role="alert">
             Izskatās, ka pagaidām tehniskā informācija nav pievienota.
@@ -26,66 +26,7 @@
         </div>
       @else
         <div class="col-12">
-          <table class="table table-striped">
-            <thead>
-            <tr>
-              <th scope="col">Nosaukums</th>
-              <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($productVariantOptions as $productVariantOption)
-              <tr>
-                <td>
-                  <button class="btn btn-dark" type="button" data-bs-toggle="collapse"
-                          data-bs-target="#collapse{{ $productVariantOption->id }}" aria-expanded="false"
-                          aria-controls="collapse{{ $productVariantOption->id }}">
-                    {{ $productVariantOption->option_title }}
-                  </button>
-                  <div class="collapse mt-2" id="collapse{{ $productVariantOption->id }}">
-                    <ul class="list-unstyled">
-                      @foreach($productVariantOption->productVariantOptionDetails as $detail)
-                        <li class="d-flex align-items-center mb-2">
-                          @include('admin.product-variant.product-variant-options.edit-modal', ['detail' => $detail])
-                          <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                                  data-bs-target="#edit-product-variant-detail-modal-{{ $detail->id }}">
-                            <i class="bi bi-pencil text-white"></i>
-                          </button>
-                          <form
-                            action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['productVariantOptionDetail' => $detail->id]) }}"
-                            method="POST" class="d-inline px-1">
-                            @csrf
-                            @method('DELETE')
-                            <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu?');"
-                                    class="btn btn-danger"
-                                    type="submit">
-                              <i class="bi bi-trash text-white"></i>
-                            </button>
-                          </form>
-                          <div class="">
-                            {{ $detail->detail }}
-                          </div>
-                        </li>
-                      @endforeach
-                    </ul>
-                  </div>
-                </td>
-                <td>
-                  <form
-                    action="{{route('product-variant-options.destroy-product-variant-option', ['productVariantOption' => $productVariantOption->id])}}"
-                    method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu?');" class="btn btn-dark"
-                            type="submit">
-                      <i class="bi bi-trash text-white"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
-            @endforeach
-            </tbody>
-          </table>
+          <livewire:admin.product-variant-option-detail-list :productVariant="$productVariant"/>
           <div class="d-flex justify-content-center">
             <form
               action="{{route('product-variant-options.destroy', ['productVariant' => $productVariant->id])}}"

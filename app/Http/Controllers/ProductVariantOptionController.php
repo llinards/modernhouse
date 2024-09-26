@@ -26,21 +26,15 @@ class ProductVariantOptionController extends Controller
 
   public function index(ProductVariant $productVariant)
   {
-    $productVariantOptions = ProductVariantOption::where('product_variant_id', $productVariant->id)
-                                                 ->where('language', app()->getLocale())
-                                                 ->get();
-
-    return view('admin.product-variant.product-variant-options.index',
-      compact('productVariant', 'productVariantOptions'));
+    return view('admin.product-variant.product-variant-options.index', compact('productVariant'));
   }
 
   public function import(Request $data)
   {
     try {
-      Excel::import(new ProductVariantOptionImport($data['product-variant-id']),
-        storage_path('app/public/'.$data['product-variant-options-excel'][0]));
-
-      $this->fileService->destroyFile(basename($data['product-variant-options-excel'][0]), 'uploads/temp');
+      $filePath = storage_path('app/public/'.$data['product-variant-options-excel'][0]);
+      Excel::import(new ProductVariantOptionImport($data['product-variant-id']), $filePath);
+      $this->fileService->destroyFile(basename($filePath), 'uploads/temp');
 
       return back()->with('success', 'Tehniskā specifikācija importēta!');
     } catch (\Exception $e) {
@@ -65,23 +59,20 @@ class ProductVariantOptionController extends Controller
 
   public function destroy(ProductVariant $productVariant)
   {
-    return $this->destroyEntity(function () use ($productVariant) {
-      $this->productVariantOptionService->destroyProductVariantOptions($productVariant);
-    });
+    return $this->destroyEntity(fn(
+    ) => $this->productVariantOptionService->destroyProductVariantOptions($productVariant));
   }
 
   public function destroyProductVariantOption(ProductVariantOption $productVariantOption)
   {
-    return $this->destroyEntity(function () use ($productVariantOption) {
-      $this->productVariantOptionService->destroyProductVariantOption($productVariantOption);
-    });
+    return $this->destroyEntity(fn(
+    ) => $this->productVariantOptionService->destroyProductVariantOption($productVariantOption));
   }
 
   public function destroyProductVariantOptionDetail(ProductVariantOptionDetail $productVariantOptionDetail)
   {
-    return $this->destroyEntity(function () use ($productVariantOptionDetail) {
-      $this->productVariantOptionService->destroyProductVariantOptionDetail($productVariantOptionDetail);
-    });
+    return $this->destroyEntity(fn(
+    ) => $this->productVariantOptionService->destroyProductVariantOptionDetail($productVariantOptionDetail));
   }
 
   private function destroyEntity(callable $callback)
