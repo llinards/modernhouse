@@ -7,7 +7,7 @@ use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 use Livewire\Component;
 
-class ProductVariantOptionDetailList extends Component
+class ProductVariantOptionList extends Component
 {
   public ProductVariant $productVariant;
   public object $productVariantOptions;
@@ -43,7 +43,7 @@ class ProductVariantOptionDetailList extends Component
 
   public function render()
   {
-    return view('livewire.admin.product-variant-option-detail-list');
+    return view('livewire.admin.product-variant-option-list');
   }
 }
 

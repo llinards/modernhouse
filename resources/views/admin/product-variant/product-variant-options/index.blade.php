@@ -26,7 +26,7 @@
         </div>
       @else
         <div class="col-12">
-          <livewire:admin.product-variant-option-detail-list :productVariant="$productVariant"/>
+          <livewire:admin.product-variant-option-list :productVariant="$productVariant"/>
           <div class="d-flex justify-content-center">
             <form
               action="{{route('product-variant-options.destroy', ['productVariant' => $productVariant->id])}}"

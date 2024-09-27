@@ -10,7 +10,7 @@
   @foreach($productVariantOptions as $productVariantOption)
     <tr wire:key="product-variant-option-{{ $productVariantOption->id }}"
         wire:sortable.item="{{ $productVariantOption->id }}">
-      <td wire:sortable.handle>
+      <td class="align-middle" wire:sortable.handle>
         <i class="bi bi-arrows-move"></i>
       </td>
       <td>
