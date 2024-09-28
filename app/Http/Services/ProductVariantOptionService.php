@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 
+use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 
 class ProductVariantOptionService
@@ -21,6 +22,14 @@ class ProductVariantOptionService
   public function destroyProductVariantOptions(object $productVariant): void
   {
     $productVariant->productVariantOptions()->delete();
+  }
+
+  public function updateProductVariantOption(object $data): void
+  {
+    $productVariantOption = ProductVariantOption::findOrFail($data['id']);
+    $productVariantOption->update([
+      'option_title' => $data['product_variant_option'],
+    ]);
   }
 
   public function updateProductVariantOptionDetail(object $data): void
