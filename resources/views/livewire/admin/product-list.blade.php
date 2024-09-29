@@ -1,6 +1,5 @@
 <div class="row mt-2">
   @include('includes.status-messages')
-
   <table class="table table-hover">
     <thead class="thead-dark">
     <tr>

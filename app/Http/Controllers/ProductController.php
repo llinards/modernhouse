@@ -30,26 +30,7 @@ class ProductController extends Controller
 
   public function indexAdmin()
   {
-    $products = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename', 'is_active')
-                       ->with([
-                         'translations' => function ($query) {
-                           $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-                         },
-                       ])
-                       ->with([
-                         'productVariants' => function ($query) {
-                           $query->select('id', 'product_id', 'slug', 'is_active')->orderBy('slug');
-                           $query->with([
-                             'translations' => function ($query) {
-                               $query->select('product_variant_id', 'name', 'language')->where('language',
-                                 app()->getLocale());
-                             },
-                           ]);
-                         },
-                       ])
-                       ->get();
-
-    return view('admin.index', compact('products'));
+    return view('admin.index');
   }
 
   public function create()

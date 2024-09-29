@@ -14,13 +14,31 @@ class ProductList extends Component
     foreach ($products as $product) {
       Product::findOrFail($product['value'])->update(['order' => $product['order']]);
     }
-    $this->mount($this->products);
+    $this->mount();
     session()->flash('success', 'Secība atjaunota.');
   }
 
-  public function mount(object $products): void
+  public function mount(): void
   {
-    $this->products = $products;
+    $this->products = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename', 'is_active')
+                             ->with([
+                               'translations' => function ($query) {
+                                 $query->select('name', 'product_id', 'language')->where('language',
+                                   app()->getLocale());
+                               },
+                             ])
+                             ->with([
+                               'productVariants' => function ($query) {
+                                 $query->select('id', 'product_id', 'slug', 'is_active')->orderBy('slug');
+                                 $query->with([
+                                   'translations' => function ($query) {
+                                     $query->select('product_variant_id', 'name', 'language')->where('language',
+                                       app()->getLocale());
+                                   },
+                                 ]);
+                               },
+                             ])
+                             ->get();
   }
 
   public function render()

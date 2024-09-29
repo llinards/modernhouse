@@ -7,7 +7,7 @@
       <div class="text-center">
         <a href="/admin/open-days-submissions" class="btn btn-dark">Pieteikumi atvērto durvju dienai Svīres ielā</a>
       </div>
-      <livewire:admin.product-list :products="$products"/>
+      <livewire:admin.product-list/>
     </div>
   </x-slot>
 </x-layouts.admin>
