@@ -1,5 +1,6 @@
 <div class="accordion accordion-flush" wire:sortable="updateProductVariantOptionOrder"
      wire:sortable-group="updateProductVariantOptionDetailOrder">
+  @include('includes.status-messages')
   @foreach($productVariantOptions as $productVariantOption)
     <div class="accordion-item" wire:key="product-variant-option-{{ $productVariantOption->id }}"
          wire:sortable.item="{{ $productVariantOption->id }}">

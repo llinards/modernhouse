@@ -5,7 +5,6 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
-        @include('includes.status-messages')
         <form action="{{ route('product-variant-options.import', ['productVariant' => $productVariant->id]) }}"
               method="POST">
           @csrf
