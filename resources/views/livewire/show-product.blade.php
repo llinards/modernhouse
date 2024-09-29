@@ -68,7 +68,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas')
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
@@ -103,7 +103,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas')
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
@@ -140,7 +140,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas')
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"

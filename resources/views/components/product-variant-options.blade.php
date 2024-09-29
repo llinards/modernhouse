@@ -25,21 +25,28 @@
                 </thead>
                 <tbody>
                 @foreach($option->productVariantOptionDetails as $detail)
-                  <tr>
-                    <td>{{ $detail->detail }}</td>
-                    <td class="text-center align-middle">
-                      <img width="25" height="25"
-                           src="{{ $detail->has_in_basic ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                    </td>
-                    <td class="text-center align-middle">
-                      <img width="25" height="25"
-                           src="{{ $detail->has_in_middle ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                    </td>
-                    <td class="text-center align-middle">
-                      <img width="25" height="25"
-                           src="{{ $detail->has_in_full ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                    </td>
-                  </tr>
+                  @if(str_contains($detail->detail, '*'))
+                    <tr>
+                      <td colspan="4">
+                        <p class="small">{{$detail->detail}}</p></td>
+                    </tr>
+                  @else
+                    <tr>
+                      <td>{{ $detail->detail }}</td>
+                      <td class="text-center align-middle">
+                        <img width="25" height="25"
+                             src="{{ $detail->has_in_basic ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                      </td>
+                      <td class="text-center align-middle">
+                        <img width="25" height="25"
+                             src="{{ $detail->has_in_middle ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                      </td>
+                      <td class="text-center align-middle">
+                        <img width="25" height="25"
+                             src="{{ $detail->has_in_full ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                      </td>
+                    </tr>
+                  @endif
                 @endforeach
                 </tbody>
               </table>
