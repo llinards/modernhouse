@@ -14,7 +14,7 @@
 
   <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
   {{--TODO: Move this to NPM--}}
-  <script src="//cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+  <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
   <script src="{{ mix('/js/app.js') }}" defer></script>
   <script src="{{ mix('/js/admin.js') }}" defer></script>
 </head>
