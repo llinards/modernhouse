@@ -25,6 +25,11 @@
         </div>
       @else
         <div class="col-12">
+          @include('admin.product-variant.product-variant-options.store-modal', ['productVariant' => $productVariant])
+          <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                  data-bs-target="#store-product-variant-option-modal">
+            <i class="bi bi-plus text-white"></i> Pievienot kategoriju
+          </button>
           <livewire:admin.product-variant-option-list :productVariant="$productVariant"/>
           <div class="d-flex justify-content-center">
             <form

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductVariantOptionRequest;
 use App\Http\Requests\UpdateProductVariantOptionDetailRequest;
 use App\Http\Requests\UpdateProductVariantOptionRequest;
 use App\Http\Services\FileService;
@@ -45,12 +46,12 @@ class ProductVariantOptionController extends Controller
     }
   }
 
-  public function updateProductVariantOptionDetail(UpdateProductVariantOptionDetailRequest $data)
+  public function storeProductVariantOption(StoreProductVariantOptionRequest $data)
   {
     try {
-      $this->productVariantOptionService->updateProductVariantOptionDetail($data);
+      $this->productVariantOptionService->storeProductVariantOption($data);
 
-      return back()->with('success', 'Opcija atjaunota!');
+      return back()->with('success', 'Kategorija pievienota!');
     } catch (\Exception $e) {
       Log::error($e);
 
@@ -62,6 +63,19 @@ class ProductVariantOptionController extends Controller
   {
     try {
       $this->productVariantOptionService->updateProductVariantOption($data);
+
+      return back()->with('success', 'Opcija atjaunota!');
+    } catch (\Exception $e) {
+      Log::error($e);
+
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function updateProductVariantOptionDetail(UpdateProductVariantOptionDetailRequest $data)
+  {
+    try {
+      $this->productVariantOptionService->updateProductVariantOptionDetail($data);
 
       return back()->with('success', 'Opcija atjaunota!');
     } catch (\Exception $e) {

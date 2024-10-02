@@ -8,20 +8,13 @@ use App\Models\ProductVariantOptionDetail;
 
 class ProductVariantOptionService
 {
-
-  public function destroyProductVariantOption(object $productVariantOption): void
+  public function storeProductVariantOption(object $data): void
   {
-    $productVariantOption->delete();
-  }
-
-  public function destroyProductVariantOptionDetail(object $productVariantOptionDetail): void
-  {
-    $productVariantOptionDetail->delete();
-  }
-
-  public function destroyProductVariantOptions(object $productVariant): void
-  {
-    $productVariant->productVariantOptions()->delete();
+    ProductVariantOption::create([
+      'product_variant_id' => $data['id'],
+      'option_title'       => $data['product_variant_option'],
+      'language'           => app()->getLocale(),
+    ]);
   }
 
   public function updateProductVariantOption(object $data): void
@@ -41,5 +34,20 @@ class ProductVariantOptionService
       'has_in_middle' => isset($data['has_in_middle']),
       'has_in_full'   => isset($data['has_in_full']),
     ]);
+  }
+
+  public function destroyProductVariantOption(object $productVariantOption): void
+  {
+    $productVariantOption->delete();
+  }
+
+  public function destroyProductVariantOptionDetail(object $productVariantOptionDetail): void
+  {
+    $productVariantOptionDetail->delete();
+  }
+
+  public function destroyProductVariantOptions(object $productVariant): void
+  {
+    $productVariant->productVariantOptions()->delete();
   }
 }

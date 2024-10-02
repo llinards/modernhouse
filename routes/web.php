@@ -59,6 +59,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     [ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
   Route::post('/product-variant/{productVariant}/product-variant-options',
     [ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
+  Route::post('/product-variant/product-variant-options/create',
+    [
+      ProductVariantOptionController::class, 'storeProductVariantOption',
+    ])->name('product-variant-options.store-product-variant-option');
   Route::patch('/product-variant/product-variant-options/{productVariantOption}/update',
     [
       ProductVariantOptionController::class, 'updateProductVariantOption',
