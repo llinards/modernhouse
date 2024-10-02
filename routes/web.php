@@ -63,6 +63,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     [
       ProductVariantOptionController::class, 'storeProductVariantOption',
     ])->name('product-variant-options.store-product-variant-option');
+  Route::post('/product-variant/product-variant-options/product-variant-option-detail/create',
+    [
+      ProductVariantOptionController::class, 'storeProductVariantOptionDetail',
+    ])->name('product-variant-options.store-product-variant-option-detail');
   Route::patch('/product-variant/product-variant-options/{productVariantOption}/update',
     [
       ProductVariantOptionController::class, 'updateProductVariantOption',

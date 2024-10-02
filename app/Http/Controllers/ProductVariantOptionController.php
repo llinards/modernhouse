@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductVariantOptionRequest;
-use App\Http\Requests\UpdateProductVariantOptionDetailRequest;
-use App\Http\Requests\UpdateProductVariantOptionRequest;
+use App\Http\Requests\ProductVariantOptionDetailRequest;
+use App\Http\Requests\ProductVariantOptionRequest;
 use App\Http\Services\FileService;
 use App\Http\Services\ProductVariantOptionService;
 use App\Imports\ProductVariantOptionImport;
@@ -46,12 +45,12 @@ class ProductVariantOptionController extends Controller
     }
   }
 
-  public function storeProductVariantOption(StoreProductVariantOptionRequest $data)
+  public function storeProductVariantOption(ProductVariantOptionRequest $data)
   {
     try {
       $this->productVariantOptionService->storeProductVariantOption($data);
 
-      return back()->with('success', 'Kategorija pievienota!');
+      return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       Log::error($e);
 
@@ -59,7 +58,20 @@ class ProductVariantOptionController extends Controller
     }
   }
 
-  public function updateProductVariantOption(UpdateProductVariantOptionRequest $data)
+  public function storeProductVariantOptionDetail(ProductVariantOptionDetailRequest $data)
+  {
+    try {
+      $this->productVariantOptionService->storeProductVariantOptionDetail($data);
+
+      return back()->with('success', 'Pievienots!');
+    } catch (\Exception $e) {
+      Log::error($e);
+
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function updateProductVariantOption(ProductVariantOptionRequest $data)
   {
     try {
       $this->productVariantOptionService->updateProductVariantOption($data);
@@ -72,7 +84,7 @@ class ProductVariantOptionController extends Controller
     }
   }
 
-  public function updateProductVariantOptionDetail(UpdateProductVariantOptionDetailRequest $data)
+  public function updateProductVariantOptionDetail(ProductVariantOptionDetailRequest $data)
   {
     try {
       $this->productVariantOptionService->updateProductVariantOptionDetail($data);

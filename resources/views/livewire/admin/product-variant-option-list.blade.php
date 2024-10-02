@@ -36,6 +36,11 @@
            class="accordion-collapse collapse product-variant-option-content">
         <div class="accordion-body p-0 mt-2">
           <ul wire:sortable-group.item-group="{{ $productVariantOption->id }}">
+            @include('admin.product-variant.product-variant-options.product-variant-option-details.store-modal', ['productVariantOption' => $productVariantOption])
+            <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal"
+                    data-bs-target="#store-product-variant-option-detail-modal">
+              <i class="bi bi-plus text-white"></i> Pievienot ierakstu
+            </button>
             @foreach($productVariantOption->productVariantOptionDetails as $detail)
               <li wire:key="product-variant-option-{{ $detail->id }}" wire:sortable-group.item="{{ $detail->id}}"
                   class="d-flex align-items-center mb-2">

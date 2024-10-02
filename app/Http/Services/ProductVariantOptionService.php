@@ -17,6 +17,17 @@ class ProductVariantOptionService
     ]);
   }
 
+  public function storeProductVariantOptionDetail(object $data): void
+  {
+    ProductVariantOptionDetail::create([
+      'product_variant_option_id' => $data['id'],
+      'detail'                    => $data['product_variant_option_detail'],
+      'has_in_basic'              => isset($data['has_in_basic']),
+      'has_in_middle'             => isset($data['has_in_middle']),
+      'has_in_full'               => isset($data['has_in_full']),
+    ]);
+  }
+
   public function updateProductVariantOption(object $data): void
   {
     $productVariantOption = ProductVariantOption::findOrFail($data['id']);

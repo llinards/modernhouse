@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductVariantOptionRequest extends FormRequest
+class ProductVariantOptionDetailRequest extends FormRequest
 {
   /**
    * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class StoreProductVariantOptionRequest extends FormRequest
   public function rules()
   {
     return [
-      'id'                     => ['required', 'numeric'],
-      'product_variant_option' => 'required',
+      'id'                            => ['required', 'numeric'],
+      'product_variant_option_detail' => 'required',
     ];
   }
 
@@ -37,9 +37,9 @@ class StoreProductVariantOptionRequest extends FormRequest
   public function messages()
   {
     return [
-      'id.required'                     => 'Kļūda! Mēģini vēlreiz.',
-      'id.numeric'                      => 'Kļūda! Mēģini vēlreiz.',
-      'product_variant_option.required' => 'Kategorijas nosaukums ir obligāts.',
+      'id.required'                            => 'Kļūda! Mēģini vēlreiz.',
+      'id.numeric'                             => 'Kļūda! Mēģini vēlreiz.',
+      'product_variant_option_detail.required' => 'Nosaukums ir obligāts.',
     ];
   }
 }

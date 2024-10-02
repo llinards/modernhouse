@@ -14,7 +14,7 @@
           <div class="mb-3">
             <input type="text" class="form-control"
                    name="product_variant_option"
-                   value="">
+                   value="" required>
           </div>
           <div class="d-flex justify-content-end">
             <button type="submit" class="btn btn-success">Saglabāt</button>
