@@ -48,6 +48,7 @@ class ProductVariantOptionImport implements ToCollection
     $this->currentOption                             = ProductVariantOption::create([
       'option_title'       => trim($row[self::OPTION_TITLE_COLUMN]),
       'product_variant_id' => $this->productVariantId,
+      'language'           => app()->getLocale(),
       'order'              => $this->currentProductVariantOptionPosition++,
     ]);
     $this->currentProductVariantOptionDetailPosition = 1;
