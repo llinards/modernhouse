@@ -2,12 +2,10 @@
 
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariantOptionController;
-use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -141,17 +139,6 @@ Route::middleware('setLanguage')->group(function () {
   });
   Route::post('{language?}/contact-us',
     [HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
-
-  //Landing pages
-  Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
-    [LandingPageController::class, 'sviresIelasProjektsSigulda']);
-
-  Route::get('{language?}/atverto-durvju-dienas-svires-iela',
-    [LandingPageController::class, 'atvertoDurvjuDienasSviresIela']);
-
-  //Registration form for Open Days at Svires Iela
-  Route::get('{language?}/pieteikums-atverto-durvju-dienam-svires-iela/{pieteikties?}',
-    OpenDaysRegistration::class)->name('registration-for-open-days-at-svires-iela');
 
   Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class);
 
