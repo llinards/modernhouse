@@ -68,7 +68,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
+                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
@@ -103,7 +103,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
+                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
@@ -140,7 +140,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && app()->getLocale() === 'lv')
+                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
@@ -223,10 +223,8 @@
               :filename="__('Download attachment')"/>
           @endforeach
         @endif
-        @if(app()->getLocale() === 'lv')
-          <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-          <x-faq/>
-        @endif
+        <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+        <x-faq/>
       </div>
     @endif
     <script type="module">
