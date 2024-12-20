@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
 use App\Http\Services\KlaviyoService;
+use App\Mail\ConsultationSubmitted;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
 use Illuminate\Http\Request;
@@ -20,8 +21,8 @@ class HomeController extends Controller
   public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
   {
     try {
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_product_info'));
-      Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
+//      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_product_info'));
+      Mail::to('info@modern-house.ie')->send(new RequestedProductInfo($request->input()));
 
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
@@ -34,7 +35,7 @@ class HomeController extends Controller
   public function submitContactUs(ContactUsRequest $data)
   {
     try {
-      Mail::to('info@modern-house.lv')->send(new ContactUsSubmitted($data->input()));
+      Mail::to('info@modern-house.ie')->send(new ContactUsSubmitted($data->input()));
 
       return Redirect::to(URL::previous()."#contact-us")->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
@@ -44,10 +45,11 @@ class HomeController extends Controller
     }
   }
 
-  public function submitConsultation(ContactUsRequest $request, KlaviyoService $klaviyoService)
+  public function submitConsultation(ContactUsRequest $data, KlaviyoService $klaviyoService)
   {
     try {
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
+//      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
+      Mail::to('info@modern-house.ie')->send(new ConsultationSubmitted($data->input()));
 
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {

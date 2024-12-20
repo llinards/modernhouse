@@ -1,29 +1,29 @@
-<h4>Automātiskais e-pasts no Modern House</h4>
-<p>Ir pienākusi jauna ziņa no klienta par - <strong>{{ $data['product-name'] }}.</strong></p>
+<h4>Automatic email from Modern House</h4>
+<p>A new message has arrived from the client about - <strong>{{ $data['product-name'] }}.</strong></p>
 @if (isset($data['product-variant']))
-  <p>Variants: <strong>{{ $data['product-variant'] }}</strong></p>
+  <p>Variant: <strong>{{ $data['product-variant'] }}</strong></p>
 @endif
-<p>Komplektācija:
+<p>Configuration:
   @if($data['product-variant-option'] == 'Basic')
-    <strong>Bāzes</strong>
+    <strong>Basic</strong>
   @elseif($data['product-variant-option'] == 'Middle')
-    <strong>Pelēkā apdare</strong>
+    <strong>Gray finish</strong>
   @else
-    <strong>Pilna</strong>
+    <strong>Full</strong>
   @endif
 </p>
-<p>Vārds: <strong>{{ $data['first-name'] }}</strong></p>
-<p>Uzvārds: <strong>{{ $data['last-name'] }}</strong></p>
-<p>E-pasts: <strong>{{ $data['email'] }}</strong></p>
-<p>Kontakttālrunis: <strong>{{ $data['phone-number'] }}</strong></p>
+<p>First Name: <strong>{{ $data['first-name'] }}</strong></p>
+<p>Last Name: <strong>{{ $data['last-name'] }}</strong></p>
+<p>Email: <strong>{{ $data['email'] }}</strong></p>
+<p>Contact Phone: <strong>{{ $data['phone-number'] }}</strong></p>
 @if (isset($data['company']))
-  <p>Uzņēmums: <strong>{{ $data['company'] }}</strong></p>
+  <p>Company: <strong>{{ $data['company'] }}</strong></p>
 @endif
 @if (isset($data['customers-question']))
-  <p>Klienta jautājums: <strong>{{ $data['customers-question'] }}</strong></p>
+  <p>Customer's Question: <strong>{{ $data['customers-question'] }}</strong></p>
 @endif
 @if (isset($data['customer-agrees-for-data-processing']))
-  <p>Klients mājaslapā ir devis apstiprinājumu datu apstrādei un uzglabāšanai.</p>
+  <p>The client has given consent for data processing and storage on the website.</p>
 @endif
 
-<p>Jautājums iesūtīts: {{ gmdate('Y-m-d h:i:s', time() + 3 * 60 * 60) }}</p>
+<p>Question submitted: {{ gmdate('Y-m-d h:i:s', time() + 3 * 60 * 60) }}</p>

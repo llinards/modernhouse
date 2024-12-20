@@ -103,7 +103,7 @@
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
-          <a href="mailto:info@modern-house.lv" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+          <a href="mailto:info@modern-house.ie" class="nav-link" target="_blank"><i class="bi bi-envelope-fill"></i></a>
         </div>
       </div>
     </div>
