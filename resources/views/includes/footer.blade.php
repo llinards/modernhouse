@@ -6,14 +6,14 @@
       </div>
       <div class="col-md-2 col-6">
         <h4 class="mb-2">@lang('address')</h4>
-        <p class="small">1st Floor Office, Edenderry Business Campus<br/>Edenderry, Co.Offaly</p>
-        <p class="small">@lang('modern house registration number'): 40203251766</p>
+        <p class="small">601 1st Floor Office, Edenderry Business Campus<br/>Edenderry, Co.Offaly, Ireland</p>
+        {{--        <p class="small">@lang('modern house registration number'): 40203251766</p>--}}
       </div>
       <div class="col-md-2 col-6">
         <h4 class="mb-2">@lang('contact us')</h4>
         <p class="small">info@modern-house.ie</p>
-        <p class="small">+353833691499</p>
-        <p class="small">+353858770578</p>
+        <p class="small">+353 83 369 1499</p>
+        <p class="small">+353 85 877 0578</p>
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
         <div class="p-2">

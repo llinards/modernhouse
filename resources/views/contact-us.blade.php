@@ -15,7 +15,7 @@
     </div>
     <div class="row mt-4 justify-content-center">
       <div class="col-lg-12">
-        <iframe src="https://snazzymaps.com/embed/446182" width="100%"
+        <iframe src="https://snazzymaps.com/embed/670143" width="100%"
                 height="500px" style="border:none;"></iframe>
       </div>
     </div>
