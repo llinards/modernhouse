@@ -73,23 +73,23 @@
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <p class="small">Foundation Construction</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Komunikāciju (ūdens, kanalizācijas, siltās grīdas, elektrības pievads)
-                        izbūve pamatos</p>
+                      <p class="small">Installation of utilities (water, sewage, underfloor heating, electrical
+                        connections) in the foundations</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <p class="small">Assembly of house structures</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti ārējās apdares darbi</p>
+                      <p class="small">Completion of exterior finishing works</p>
                     </div>
                   </div>
                 @endif
@@ -108,25 +108,22 @@
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <p class="small">Foundation Construction</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija) instalāciju
-                        izbūve</p>
+                      <p class="small">Installation of water, sewage, electricity, and ventilation systems</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <p class="small">Assembly of House Structures</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti ārējās apdares darbi un veikta plākšņu materiālu (OSB,
-                        saplāksnis,
-                        ģipškartons) montāža</p>
+                      <p class="small">Installation of panel materials (OSB, plywood, drywall)</p>
                     </div>
                   </div>
                 @endif
@@ -145,28 +142,27 @@
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <p class="small">Foundation Construction</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija)
-                        izbūve</p>
+                      <p class="small">Water, sewage, electricity, and ventilation system construction</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <p class="small">House Structure Assembly</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti iekšējās un ārējās apdares darbi</p>
+                      <p class="small">Complete Interior and Exterior Finishing Works</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25"
                            src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas</p>
+                      <p class="small">Installed Kitchen with Appliances and Furnished Bathrooms</p>
                     </div>
                   </div>
                 @endif

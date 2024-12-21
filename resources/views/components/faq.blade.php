@@ -5,17 +5,17 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}"
+                  data-bs-target="#{{Str::slug('Is it Possible to Make Changes to House Designs')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}">
-            Vai ir iespējams veikt izmaiņas māju projektos?
+                  aria-controls="{{Str::slug('Is it Possible to Make Changes to House Designs')}}">
+            Is it Possible to Make Changes to House Designs?
           </button>
         </h2>
-        <div id="{{Str::slug('Vai ir iespējams veikt izmaiņas māju projektos?')}}"
+        <div id="{{Str::slug('Is it Possible to Make Changes to House Designs')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Jā, projektus varam gan pielāgot Jūsu vēlmēm, gan izstrādāt ko pilnīgi individuālu.
+              Yes, we can adapt the designs to your preferences or create something entirely custom.
             </p>
           </div>
         </div>
@@ -24,18 +24,18 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}"
+                  data-bs-target="#{{Str::slug('Do you also offer coordination of building permits')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}">
-            Vai piedāvājat arī būvatļaujas saskaņošanu?
+                  aria-controls="{{Str::slug('Do you also offer coordination of building permits')}}">
+            Do you also offer coordination of building permits??
           </button>
         </h2>
-        <div id="{{Str::slug('Vai piedāvājat arī būvatļaujas saskaņošanu')}}"
+        <div id="{{Str::slug('Do you also offer coordination of building permits')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Jā, pēc atsevišķas vienošanās varam veikt visas dokumentācijas lietas sākot ar būvatļaujas
-              saskaņošanu, līdz ēkas nodošanai ekspluatācijā.
+              Yes, by separate agreement, we can handle all documentation tasks, from coordinating the building permit
+              to the building’s commissioning.
             </p>
           </div>
         </div>
@@ -44,22 +44,22 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}"
+                  data-bs-target="#{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}">
-            Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un
-            interjera izvēlēs?
+                  aria-controls="{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}">
+            Will we have the option to make changes to finishing materials and interior choices if we choose the house
+            in full completion?
           </button>
         </h2>
         <div
-          id="{{Str::slug('Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs')}}"
+          id="{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}"
           class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Jā, Jums būs iespēja pilnībā pielāgot mājas interjeru savām vēlmēm. Darba kārtībā saskaņosim ar
-              Jums visus iekšdarbu dizainu un materiālus. Tādas lietas kā flīzes, grīdas segumu, elektro
-              iekārtas, vannas istabu aprīkojumu varēsiet izvēlēties no mūsu piedāvājuma vai mūsu sadarbības
-              partneriem vai arī no kāda Jūsu izvēlēta piegādātāja.
+              Yes, you will have the opportunity to fully customize the interior of the house to your preferences. We
+              will coordinate all interior designs and materials with you during the process. Items such as tiles,
+              flooring, electrical appliances, and bathroom fixtures can be selected from our offer, our partners, or
+              any supplier of your choice.
             </p>
           </div>
         </div>
@@ -68,18 +68,18 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Kas ietilpst mājas komplektācijā')}}"
+                  data-bs-target="#{{Str::slug('What is included in the house package')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Kas ietilpst mājas komplektācijā')}}">
-            Kas ietilpst mājas komplektācijā?
+                  aria-controls="{{Str::slug('What is included in the house package')}}">
+            What is included in the house package?
           </button>
         </h2>
-        <div id="{{Str::slug('Kas ietilpst mājas komplektācijā')}}"
+        <div id="{{Str::slug('What is included in the house package')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Ar mājas tehnisko specifikāciju un iekļauto lietu raksturojumu iespējams iepazīties mūsu
-              mājaslapā zem katra attiecīgā produkta, izvēloties attiecīgo komplektāciju.
+              You can find the house’s technical specifications and descriptions of included items on our website under
+              each respective product, by selecting the appropriate package.
             </p>
           </div>
         </div>
@@ -88,20 +88,21 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}"
+                  data-bs-target="#{{Str::slug('Is it possible to view any completed products')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}">
-            Vai ir iespējams apskatīt arī kādu gatavu produktu?
+                  aria-controls="{{Str::slug('Is it possible to view any completed products')}}">
+            Is it possible to view any completed products?
           </button>
         </h2>
-        <div id="{{Str::slug('Vai ir iespējams apskatīt arī kādu gatavu produktu')}}"
+        <div id="{{Str::slug('Is it possible to view any completed products')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Iepriekš saskaņojot varam vienoties par apskati kādā mūsu jau pabeigtā projektā un vienmēr esam
-              atvērti Jums izrādīt arī kādu vēl būvniecības stadijā esošu projektu, kas ir ļoti laba iespēja
-              apskatīt no kā māja sastāv. Pie mums ražotnē Siguldā, Lauku ielā 1 ir apskatāmas arī demo moduļu
-              mājas un ar lielāko prieku arī parādīsim un pastāstīsim par pašu ražošanas procesu.
+              By prior arrangement, we can arrange a visit to one of our completed projects. We are always open to
+              showing you a project that is still under construction, which is a great opportunity to see what the house
+              consists of. At our factory in 601 1st Floor Office, Edenderry Business Campus
+              Edenderry, Co.Offaly, Ireland, you can also view demo modular homes, and we would
+              be happy to show and explain the manufacturing process to you.
             </p>
           </div>
         </div>
@@ -110,21 +111,20 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}"
+                  data-bs-target="#{{Str::slug('What is the expected timeline when ordering a house from you')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}">
-            Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju?
+                  aria-controls="{{Str::slug('What is the expected timeline when ordering a house from you')}}">
+            What is the expected timeline when ordering a house from you?
           </button>
         </h2>
-        <div id="{{Str::slug('Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju')}}"
+        <div id="{{Str::slug('What is the expected timeline when ordering a house from you')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Ja izvēlaties kādu no mūsu tipveida piedāvājumā esošu produktu, izpildes termiņš moduļu mājai
-              būtu 10 – 14 nedēļas, attiecīgi veicot izmaiņas vai pasūtot individuāli izstrādātu projektu, šis
-              termiņš var nedaudz pieaugt. Privātmājām darbu izpildes
-              termiņš no būvatļaujas saņemšanas un darbu uzsākšanas objektā līdz pabeigtai mājai ir 4 – 6
-              mēneši atkarībā no izvēlētā projekta.
+              If you choose one of our standard products from the offering, the completion time for a modular house
+              would be 10 to 14 weeks. If changes are made or a custom-designed project is ordered, the timeline may
+              slightly increase. For private homes, the construction timeline from receiving the building permit and
+              starting work on-site to the completed house is 4 to 6 months, depending on the chosen project.
             </p>
           </div>
         </div>
@@ -133,23 +133,22 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Kāda ir apmaksas kārtība')}}"
+                  data-bs-target="#{{Str::slug('What is the payment procedure')}}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Kāda ir apmaksas kārtība')}}">
-            Kāda ir apmaksas kārtība?
+                  aria-controls="{{Str::slug('What is the payment procedure')}}">
+            What is the payment procedure?
           </button>
         </h2>
-        <div id="{{Str::slug('Kāda ir apmaksas kārtība')}}"
+        <div id="{{Str::slug('What is the payment procedure')}}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
             <p>
-              Moduļu mājām apmaksas kārtība ir sekojoša:<br/>
-              20% no līguma summas – pie līguma parakstīšanas;<br/>
-              40% no līguma summas – pirms moduļu mājas ražošanas darbu uzsākšanas;<br/>
-              30% no līguma summa – pirms iekšējo apdares darbu uzsākšanas;<br/>
-              10% no līguma summas – pēc pieņemšanas/nodošanas akta parakstīšanas.<br/>
-              Privātmājām apmaksas kārtība tiek saskaņota pirms līguma slēgšanas, atkarībā no veicamo darbu
-              apjoma un pasūtītāja finansējuma veida.
+              20% of the contract amount – upon signing the contract<br/>
+              40% of the contract amount – before the start of the modular house production<br/>
+              30% of the contract amount – before the start of interior finishing work<br/>
+              10% of the contract amount – after signing the acceptance/handover certificate<br/>
+              For private houses, the payment procedure is agreed upon before signing the contract, depending on the
+              scope of work and the customer’s financing method.
             </p>
           </div>
         </div>
