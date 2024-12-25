@@ -14,21 +14,22 @@ class GalleryController extends Controller
   public function index()
   {
     $galleries = Gallery::select('id', 'slug', 'is_video')
-      ->with([
-        'images' => function ($query) {
-          $query->select('filename', 'gallery_id');
-        },
-        'translations' => function ($query) {
-          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
-        },
-      ])
-      ->whereHas('translations', function ($query) {
-        $query->where('language', app()->getLocale());
-      })
-      ->orderByDesc('is_pinned')
-      ->orderBy('order')
-      ->orderByDesc('created_at')
-      ->simplePaginate(5);
+                        ->with([
+                          'images'       => function ($query) {
+                            $query->select('filename', 'gallery_id');
+                          },
+                          'translations' => function ($query) {
+                            $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
+                          },
+                        ])
+                        ->whereHas('translations', function ($query) {
+                          $query->where('language', app()->getLocale());
+                        })
+                        ->orderByDesc('is_pinned')
+                        ->orderBy('order')
+                        ->orderByDesc('created_at')
+                        ->simplePaginate(5);
+
     return view('gallery', compact('galleries'));
   }
 
@@ -48,12 +49,14 @@ class GalleryController extends Controller
       $galleryService->addGallery($data);
       $galleryService->addTranslation($data);
       $galleryService->addImage($data['gallery-images']);
+
       return redirect('/admin/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -61,15 +64,16 @@ class GalleryController extends Controller
   public function show(Gallery $gallery)
   {
     $gallery = Gallery::select('id', 'slug', 'is_video', 'is_pinned')
-      ->with([
-        'translations' => function ($query) {
-          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
-        },
-        'images' => function ($query) {
-          $query->select('id', 'filename', 'gallery_id');
-        }
-      ])
-      ->findOrFail($gallery->id);
+                      ->with([
+                        'translations' => function ($query) {
+                          $query->select('title', 'content', 'gallery_id')->where('language', app()->getLocale());
+                        },
+                        'images'       => function ($query) {
+                          $query->select('id', 'filename', 'gallery_id');
+                        },
+                      ])
+                      ->findOrFail($gallery->id);
+
     return view('admin.gallery.edit', compact('gallery'));
   }
 
@@ -86,12 +90,14 @@ class GalleryController extends Controller
       if ($data->has(['gallery-images'])) {
         $galleryService->addImage($data['gallery-images']);
       }
-      return back()->with('success', 'Atjaunots!');
+
+      return redirect('/admin/gallery')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
       }
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -100,9 +106,11 @@ class GalleryController extends Controller
   {
     try {
       $galleryService->destroyGallery($gallery);
+
       return back()->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
@@ -111,9 +119,11 @@ class GalleryController extends Controller
   {
     try {
       $galleryService->destroyImage($image);
+
       return redirect()->to(app('url')->previous()."#all-gallery-images")->with('success', 'Bilde dzēsta!');
     } catch (\Exception $e) {
       Log::error($e);
+
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
