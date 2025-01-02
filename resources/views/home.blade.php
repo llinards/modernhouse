@@ -93,5 +93,46 @@
     <section class="footer">
       @include('includes.footer')
     </section>
+    <div id="home-call-btn"
+         class="position-fixed d-flex flex-column justify-content-center align-items-center z-2">
+      <a href="tel:+353833691499" class="d-flex justify-content-center align-items-center">
+        <i
+          class="bi bi-telephone text-white"></i>
+      </a>
+    </div>
+    <div id="home-email-btn"
+         class="position-fixed d-flex flex-column justify-content-center align-items-center z-2">
+      <a href="mailto:info@modern-house.ie" class="d-flex justify-content-center align-items-center">
+        <i
+          class="bi bi-envelope text-white"></i>
+      </a>
+    </div>
   </article>
 </x-layouts.home>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const homeCallBtn = document.getElementById("home-call-btn");
+    const homeEmailBtn = document.getElementById("home-email-btn");
+    const footer = document.querySelector("footer");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            homeCallBtn.style.setProperty("display", "none", "important");
+            homeEmailBtn.style.setProperty("display", "none", "important");
+          } else {
+            homeCallBtn.style.setProperty("display", "flex", "important");
+            homeEmailBtn.style.setProperty("display", "flex", "important");
+          }
+        });
+      },
+      {
+        root: document.querySelector("#home"),
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(footer);
+  });
+</script>
