@@ -13584,11 +13584,11 @@ footer hr {
 }
 #home #home-call-btn {
   bottom: 5%;
-  right: 30px;
+  right: 12px;
 }
 #home #home-email-btn {
   bottom: 12%;
-  right: 30px;
+  right: 12px;
 }
 
 .buttons-content-switch button.nav-link,
@@ -13860,11 +13860,11 @@ footer hr {
   }
   #home #home-call-btn {
     right: 15px;
-    bottom: 240px;
+    bottom: 15px;
   }
   #home #home-email-btn {
-    right: 15px;
-    bottom: 180px;
+    left: 15px;
+    bottom: 15px;
   }
   footer {
     height: 350px;
