@@ -17,7 +17,11 @@
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
         <div class="p-2">
-          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i
+          <a href="https://www.tiktok.com/@modern_house_ireland" class="nav-link" target="_blank"><i
+              class="bi bi-tiktok text-white"></i></a>
+        </div>
+        <div class="p-2">
+          <a href="https://www.instagram.com/modernhouse_ireland/" class="nav-link" target="_blank"><i
               class="bi bi-instagram text-white"></i></a>
         </div>
         <div class="p-2">

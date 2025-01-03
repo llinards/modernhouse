@@ -93,7 +93,12 @@
       </div>
       <div class="d-flex navbar-modal-social-network-icons">
         <div class="p-1">
-          <a href="https://www.instagram.com/housemodern_2021/" class="nav-link" target="_blank"><i
+          <a href="https://www.tiktok.com/@modern_house_ireland" class="nav-link" target="_blank"><i
+              class="bi bi-tiktok"></i></a>
+        </div>
+        <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
+        <div class="p-1">
+          <a href="https://www.instagram.com/modernhouse_ireland/" class="nav-link" target="_blank"><i
               class="bi bi-instagram"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
