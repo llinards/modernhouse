@@ -25,7 +25,7 @@
               class="bi bi-instagram text-white"></i></a>
         </div>
         <div class="p-2">
-          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i
+          <a href="https://www.facebook.com/profile.php?id=61571019609255" class="nav-link" target="_blank"><i
               class="bi bi-facebook text-white"></i></a>
         </div>
         <div class="p-2">

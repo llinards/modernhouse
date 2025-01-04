@@ -103,7 +103,7 @@
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
         <div class="p-1">
-          <a href="https://www.facebook.com/ModernHouseLV" class="nav-link" target="_blank"><i
+          <a href="https://www.facebook.com/profile.php?id=61571019609255" class="nav-link" target="_blank"><i
               class="bi bi-facebook"></i></a>
         </div>
         <div class="p-1 navbar-modal-social-network-icon-dividers">|</div>
