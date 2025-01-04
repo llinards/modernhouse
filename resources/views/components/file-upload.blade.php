@@ -42,7 +42,7 @@
     },
     "news-attachments": {
       labelIdle: 'Pievienot pielikumus',
-      maxFileSize: '50MB',
+      maxFileSize: '60MB',
       acceptedFileTypes: ['application/pdf'],
       allowMultiple: true
     },
