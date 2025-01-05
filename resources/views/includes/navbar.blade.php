@@ -133,7 +133,7 @@
   function openMenu() {
     menu.classList.add('open');
     if (window.screen.width <= 990) {
-      document.getElementById('navbar-modal').style.width = '100%';
+      document.getElementById('navbar-modal').style.width = '80%';
     } else {
       document.getElementById('navbar-modal').style.width = '40%';
     }
