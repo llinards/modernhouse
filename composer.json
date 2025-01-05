@@ -11,7 +11,6 @@
     "php": "^8.2",
     "doctrine/dbal": "^4.0",
     "guzzlehttp/guzzle": "^7.0.1",
-    "klaviyo/api": "^7.1.2",
     "laravel/framework": "^11.0",
     "laravel/pulse": "^1.0@beta",
     "laravel/sanctum": "^4.0",
