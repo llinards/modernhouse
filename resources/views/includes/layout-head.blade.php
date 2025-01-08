@@ -17,7 +17,7 @@
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}"/>
 
-<meta property="og:image" content="{{ asset('storage/logo/mh-og-logo.jpeg') }}"/>
+<meta property="og:image" content="{{ asset('storage/logo/mh-og-logo.jpg') }}"/>
 
 <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>

@@ -6,13 +6,13 @@
     <h5 class="pb-1">@lang('ingus')</h5>
     {{--    <p class="text-uppercase">@lang('ceo')</p>--}}
     <a class="nav-link" href="mailto:ingus@modern-house.ie">ingus@modern-house.ie</a>
-    <p>+353 83 369 1499</p>
+    <p>+353 83 480 1610</p>
   </div>
   <div class="col-6 text-center">
     <h5 class="fw-bold pb-1">@lang('gerard')</h5>
     {{--    <p>@lang('sales specialist')</p>--}}
     <a class="nav-link" href="mailto:ger@modern-house.ie">ger@modern-house.ie</a>
-    <p>+353 85 877 0578</p>
+    <p>+353 83 854 9155</p>
   </div>
 </div>
 <div class="row mt-4">
