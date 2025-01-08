@@ -11,9 +11,15 @@
       </div>
       <div class="col-md-2 col-6">
         <h4 class="mb-2">@lang('contact us')</h4>
-        <p class="small">info@modern-house.ie</p>
-        <p class="small">+353 83 369 1499</p>
-        <p class="small">+353 85 877 0578</p>
+        <p class="small">
+          <i class="bi bi-envelope-fill text-white"></i> info@modern-house.ie
+        </p>
+        <p class="small">
+          <i class="bi bi-telephone text-white"></i> +353 83 369 1499
+        </p>
+        <p class="small">
+          <i class="bi bi-telephone text-white"></i> +353 85 877 0578
+        </p>
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
         <div class="p-2">
