@@ -76,7 +76,7 @@ class ProductVariantController extends Controller
         $productVariantService->addAttachment($data['product-variant-attachments']);
       }
 
-      return redirect('/admin')->with('success', 'Atjaunots!');
+      return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       Log::error($e);
 
