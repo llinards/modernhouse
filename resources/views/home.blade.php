@@ -95,7 +95,7 @@
     </section>
     <div id="home-call-btn"
          class="position-fixed d-flex flex-column justify-content-center align-items-center z-2">
-      <a href="tel:+353833691499" class="d-flex justify-content-center align-items-center">
+      <a href="tel:+353834801610" class="d-flex justify-content-center align-items-center">
         <i
           class="bi bi-telephone text-white"></i>
       </a>
