@@ -87,7 +87,7 @@
           <img src="{{ asset('storage/icons/handshake.png') }}"/>
         </div>
         <h2 class="text-uppercase text-center">@lang('choose order contact title 3')</h2>
-        <p class="text-center">@lang('choose order contact text 2')</p>
+        <p class="text-center">@lang('choose order contact text 3')</p>
       </div>
     </section>
     <section class="footer">
