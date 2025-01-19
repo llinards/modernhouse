@@ -71,5 +71,19 @@
   "refresh": "Refresh",
   "next": "Next",
   "Developed by": "Developed by",
-  "Download attachment": "Download attachment"
+  "Download attachment": "Download attachment",
+  "change_house_designs": "Is it Possible to Make Changes to House Designs?",
+  "change_house_designs_answer": "Yes, we can adapt the designs to your preferences or create something entirely custom.",
+  "building_permits": "Do you also offer coordination of building permits?",
+  "building_permits_answer": "Yes, by separate agreement, we can handle all documentation tasks, from coordinating the building permit to the building’s commissioning.",
+  "interior_choices": "Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion?",
+  "interior_choices_answer": "Yes, you will have the opportunity to fully customize the interior of the house to your preferences. We will coordinate all interior designs and materials with you during the process. Items such as tiles, flooring, electrical appliances, and bathroom fixtures can be selected from our offer, our partners, or any supplier of your choice.",
+  "house_package": "What is included in the house package?",
+  "house_package_answer": "You can find the house’s technical specifications and descriptions of included items on our website under each respective product, by selecting the appropriate package.",
+  "view_products": "Is it possible to view any completed products?",
+  "view_products_answer": "By prior arrangement, we can arrange a visit to one of our completed projects. We are always open to showing you a project that is still under construction, which is a great opportunity to see what the house consists of. At our factory in 601 1st Floor Office, Edenderry Business Campus, Edenderry, Co.Offaly, Ireland, you can also view demo modular homes, and we would be happy to show and explain the manufacturing process to you.",
+  "timeline": "What is the expected timeline when ordering a house from you?",
+  "timeline_answer": "If you choose one of our standard products from the offering, the completion time for a modular house would be 10 to 14 weeks. If changes are made or a custom-designed project is ordered, the timeline may slightly increase. For private homes, the construction timeline from receiving the building permit and starting work on-site to the completed house is 4 to 6 months, depending on the chosen project.",
+  "payment_procedure": "What is the payment procedure?",
+  "payment_procedure_answer": "20% of the contract amount – upon signing the contract<br/>40% of the contract amount – before the start of the modular house production<br/>30% of the contract amount – before the start of interior finishing work<br/>10% of the contract amount – after signing the acceptance/handover certificate<br/>For private houses, the payment procedure is agreed upon before signing the contract, depending on the scope of work and the customer’s financing method."
 }
