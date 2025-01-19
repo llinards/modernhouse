@@ -228,7 +228,7 @@
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/1.png') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/1.png') }}"
@@ -236,7 +236,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/2.png') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/2.png') }}"
@@ -244,7 +244,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/3.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/3.jpg') }}"
@@ -252,7 +252,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/4.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/4.jpg') }}"
@@ -260,7 +260,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/5.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/5.jpg') }}"
@@ -268,7 +268,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/6.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/6.jpg') }}"
@@ -276,7 +276,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/7.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/7.jpg') }}"
@@ -284,7 +284,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/8.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/8.jpg') }}"
@@ -292,7 +292,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/9.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/9.jpg') }}"
@@ -300,7 +300,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/10.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/10.jpg') }}"
@@ -308,7 +308,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/11.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/11.jpg') }}"
@@ -316,7 +316,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/12.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/12.jpg') }}"
@@ -324,7 +324,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/13.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/13.jpg') }}"
@@ -332,7 +332,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/14.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/14.jpg') }}"
@@ -340,7 +340,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/15.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/15.jpg') }}"
@@ -348,7 +348,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/16.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/16.jpg') }}"
@@ -356,7 +356,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/17.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/17.jpg') }}"
@@ -364,7 +364,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/18.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/18.jpg') }}"
@@ -372,7 +372,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/19.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/19.jpg') }}"
@@ -380,7 +380,7 @@
                 </a>
               </li>
               <li class="splide__slide">
-                <a data-fslightbox="svires-ielas-projekts"
+                <a data-fancybox="svires-ielas-projekts"
                    href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/20.jpg') }}">
                   <img
                     data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/galerija/20.jpg') }}"
@@ -607,7 +607,7 @@
               <div class="splide__track">
                 <ul class="splide__list">
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
@@ -615,7 +615,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
@@ -623,7 +623,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
@@ -631,7 +631,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
@@ -639,7 +639,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
@@ -647,7 +647,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
@@ -655,7 +655,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}"
@@ -663,7 +663,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}"
@@ -671,7 +671,7 @@
                     </a>
                   </li>
                   <li class="splide__slide">
-                    <a data-fslightbox="interior-concept-gallery"
+                    <a data-fancybox="interior-concept-gallery"
                        href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}">
                       <img
                         data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}"
@@ -693,7 +693,7 @@
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/1.jpg') }}"
@@ -701,7 +701,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/2.jpg') }}"
@@ -709,7 +709,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/3.jpg') }}"
@@ -717,7 +717,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/4.jpg') }}"
@@ -725,7 +725,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/5.jpg') }}"
@@ -733,7 +733,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/6.jpg') }}"
@@ -741,7 +741,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/7.jpg') }}"
@@ -749,7 +749,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/8.jpg') }}"
@@ -757,7 +757,7 @@
                   </a>
                 </li>
                 <li class="splide__slide">
-                  <a data-fslightbox="interior-concept-mobile-gallery"
+                  <a data-fancybox="interior-concept-mobile-gallery"
                      href="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}">
                     <img
                       data-splide-lazy="{{ asset('storage/landing-pages/svires-ielas-projekts-sigulda/interjera-koncepts/9.jpg') }}"
@@ -1000,6 +1000,7 @@
         content.classList.add('visually-hidden');
       });
     });
+    Fancybox.bind("[data-fancybox]", {});
   </script>
 @endsection
 
