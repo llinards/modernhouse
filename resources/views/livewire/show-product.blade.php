@@ -223,7 +223,7 @@
               :filename="__('Download attachment')"/>
           @endforeach
         @endif
-        @if(app()->getLocale() === 'lv')
+        @if(app()->getLocale() === 'lv' || app()->getLocale() === 'en')
           <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
           <x-faq/>
         @endif
