@@ -2,11 +2,61 @@
     {{ $slot }}
                     </textarea>
 
-<script>
-  const textArea = document.querySelector('.description-text-area');
-  CKEDITOR.replace(textArea, {
-    removeButtons: removeButtons = 'Save,Templates,SelectAll,Scayt,NewPage,Preview,Print,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,CopyFormatting,RemoveFormat,Outdent,Indent,Blockquote,CreateDiv,JustifyCenter,JustifyLeft,JustifyRight,JustifyBlock,Language,BidiRtl,BidiLtr,Image,Flash,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,TextColor,Maximize,About,ShowBlocks,BGColor,Format,Font,FontSize',
-    allowedContent: true
-  });
+<script type="module">
+  const LICENSE_KEY = 'GPL';
+  const editorConfig = {
+    toolbar: {
+      items: [
+        'sourceEditing',
+        'showBlocks',
+        '|',
+        'bold',
+        'italic',
+        'underline',
+        'strikethrough',
+        'superscript',
+        '|',
+        'link',
+        'blockQuote',
+        '|',
+        'bulletedList',
+        'numberedList'
+      ],
+      shouldNotGroupWhenFull: false
+    },
+    plugins: [
+      AutoLink,
+      Autosave,
+      BlockQuote,
+      Bold,
+      Essentials,
+      Italic,
+      Link,
+      List,
+      Paragraph,
+      ShowBlocks,
+      SourceEditing,
+      Strikethrough,
+      Superscript,
+      TextTransformation,
+      Underline
+    ],
+    licenseKey: LICENSE_KEY,
+    link: {
+      addTargetToExternalLinks: true,
+      defaultProtocol: 'https://',
+      decorators: {
+        toggleDownloadable: {
+          mode: 'manual',
+          label: 'Downloadable',
+          attributes: {
+            download: 'file'
+          }
+        }
+      }
+    },
+  };
+
+  ClassicEditor.create(document.querySelector('.description-text-area'), editorConfig);
 </script>
 
