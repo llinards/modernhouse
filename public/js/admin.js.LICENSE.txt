@@ -1,3 +1,13 @@
+/* istanbul ignore else -- @preserve */
+
+/* istanbul ignore else: This is always true because otherwise it would not register a reducer callback. -- @preserve */
+
+/* istanbul ignore if -- @preserve */
+
+/* istanbul ignore next -- @preserve */
+
+/* istanbul ignore next: static function definition -- @preserve */
+
 /*!
  * FilePond 4.32.7
  * Licensed under MIT, https://opensource.org/licenses/MIT/
@@ -20,4 +30,14 @@
  * FilePondPluginImagePreview 4.6.12
  * Licensed under MIT, https://opensource.org/licenses/MIT/
  * Please visit https://pqina.nl/filepond/ for details.
+ */
+
+/**
+ * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
+ */
+
+/**
+ * @license Copyright (c) 2003-2024, CKSource Holding sp. z o.o. All rights reserved.
+ * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
