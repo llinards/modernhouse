@@ -25,7 +25,7 @@
               <ul class="splide__list">
                 @foreach($productVariant->productVariantImages as $image)
                   <li class="splide__slide">
-                    <a data-fslightbox="{{$productVariant->slug}}"
+                    <a data-fancybox="{{$productVariant->slug}}" data-fslightbox="{{$productVariant->slug}}"
                        href="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}">
                       <img class="img-fluid"
                            data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
@@ -251,8 +251,8 @@
       main.mount();
       thumbnails.mount();
 
-      refreshFsLightbox();
-
+      Fancybox.bind("[data-fancybox]", {});
+      
       const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
       const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
       requestProductInfoButtons.forEach((requestProductInfoButton) => {

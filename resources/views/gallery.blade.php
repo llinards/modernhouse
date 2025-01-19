@@ -27,7 +27,7 @@
                 <ul class="splide__list">
                   @foreach($gallery->images as $image)
                     <li class="splide__slide">
-                      <a data-fslightbox="{{$gallery->slug}}"
+                      <a data-fancybox="{{$gallery->slug}}"
                          href="{{ asset('storage/gallery/'. $gallery->slug . '/' .$image->filename) }}">
                         <img class="img-fluid"
                              data-splide-lazy="{{ asset('storage/gallery/'. $gallery->slug . '/' .$image->filename) }}"
@@ -57,4 +57,5 @@
     });
     main.mount();
   });
+  Fancybox.bind("[data-fancybox]", {});
 </script>
