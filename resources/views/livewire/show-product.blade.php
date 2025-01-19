@@ -71,25 +71,20 @@
                 @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Komunikāciju (ūdens, kanalizācijas, siltās grīdas, elektrības pievads)
-                        izbūve pamatos</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti ārējās apdares darbi</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('external_finish_completed')</p>
                     </div>
                   </div>
                 @endif
@@ -106,27 +101,20 @@
                 @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija) instalāciju
-                        izbūve</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('internal_utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti ārējās apdares darbi un veikta plākšņu materiālu (OSB,
-                        saplāksnis,
-                        ģipškartons) montāža</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('external_finish_with_panels')</p>
                     </div>
                   </div>
                 @endif
@@ -143,30 +131,24 @@
                 @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pamatu izbūve</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija)
-                        izbūve</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('internal_utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Mājas konstrukciju montāža</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Pilnībā pabeigti iekšējās un ārējās apdares darbi</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('complete_internal_and_external_finish')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('kitchen_and_bathroom_setup')</p>
                     </div>
                   </div>
                 @endif
