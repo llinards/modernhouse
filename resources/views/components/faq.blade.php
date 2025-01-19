@@ -5,151 +5,124 @@
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Is it Possible to Make Changes to House Designs')}}"
+                  data-bs-target="#{{ Str::slug(__('change_house_designs')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Is it Possible to Make Changes to House Designs')}}">
-            Is it Possible to Make Changes to House Designs?
+                  aria-controls="{{ Str::slug(__('change_house_designs')) }}">
+            {{ __('change_house_designs') }}
           </button>
         </h2>
-        <div id="{{Str::slug('Is it Possible to Make Changes to House Designs')}}"
+        <div id="{{ Str::slug(__('change_house_designs')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              Yes, we can adapt the designs to your preferences or create something entirely custom.
-            </p>
+            <p>{{ __('change_house_designs_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Do you also offer coordination of building permits')}}"
+                  data-bs-target="#{{ Str::slug(__('building_permits')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Do you also offer coordination of building permits')}}">
-            Do you also offer coordination of building permits??
+                  aria-controls="{{ Str::slug(__('building_permits')) }}">
+            {{ __('building_permits') }}
           </button>
         </h2>
-        <div id="{{Str::slug('Do you also offer coordination of building permits')}}"
+        <div id="{{ Str::slug(__('building_permits')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              Yes, by separate agreement, we can handle all documentation tasks, from coordinating the building permit
-              to the building’s commissioning.
-            </p>
+            <p>{{ __('building_permits_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}"
+                  data-bs-target="#{{ Str::slug(__('interior_choices')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}">
-            Will we have the option to make changes to finishing materials and interior choices if we choose the house
-            in full completion?
+                  aria-controls="{{ Str::slug(__('interior_choices')) }}">
+            {{ __('interior_choices') }}
           </button>
         </h2>
-        <div
-          id="{{Str::slug('Will we have the option to make changes to finishing materials and interior choices if we choose the house in full completion')}}"
-          class="accordion-collapse collapse product-variant-option-content">
+        <div id="{{ Str::slug(__('interior_choices')) }}"
+             class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              Yes, you will have the opportunity to fully customize the interior of the house to your preferences. We
-              will coordinate all interior designs and materials with you during the process. Items such as tiles,
-              flooring, electrical appliances, and bathroom fixtures can be selected from our offer, our partners, or
-              any supplier of your choice.
-            </p>
+            <p>{{ __('interior_choices_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('What is included in the house package')}}"
+                  data-bs-target="#{{ Str::slug(__('house_package')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('What is included in the house package')}}">
-            What is included in the house package?
+                  aria-controls="{{ Str::slug(__('house_package')) }}">
+            {{ __('house_package') }}
           </button>
         </h2>
-        <div id="{{Str::slug('What is included in the house package')}}"
+        <div id="{{ Str::slug(__('house_package')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              You can find the house’s technical specifications and descriptions of included items on our website under
-              each respective product, by selecting the appropriate package.
-            </p>
+            <p>{{ __('house_package_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('Is it possible to view any completed products')}}"
+                  data-bs-target="#{{ Str::slug(__('view_products')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('Is it possible to view any completed products')}}">
-            Is it possible to view any completed products?
+                  aria-controls="{{ Str::slug(__('view_products')) }}">
+            {{ __('view_products') }}
           </button>
         </h2>
-        <div id="{{Str::slug('Is it possible to view any completed products')}}"
+        <div id="{{ Str::slug(__('view_products')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              By prior arrangement, we can arrange a visit to one of our completed projects. We are always open to
-              showing you a project that is still under construction, which is a great opportunity to see what the house
-              consists of. At our factory in 601 1st Floor Office, Edenderry Business Campus
-              Edenderry, Co.Offaly, Ireland, you can also view demo modular homes, and we would
-              be happy to show and explain the manufacturing process to you.
-            </p>
+            <p>{{ __('view_products_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('What is the expected timeline when ordering a house from you')}}"
+                  data-bs-target="#{{ Str::slug(__('timeline')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('What is the expected timeline when ordering a house from you')}}">
-            What is the expected timeline when ordering a house from you?
+                  aria-controls="{{ Str::slug(__('timeline')) }}">
+            {{ __('timeline') }}
           </button>
         </h2>
-        <div id="{{Str::slug('What is the expected timeline when ordering a house from you')}}"
+        <div id="{{ Str::slug(__('timeline')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              If you choose one of our standard products from the offering, the completion time for a modular house
-              would be 10 to 14 weeks. If changes are made or a custom-designed project is ordered, the timeline may
-              slightly increase. For private homes, the construction timeline from receiving the building permit and
-              starting work on-site to the completed house is 4 to 6 months, depending on the chosen project.
-            </p>
+            <p>{{ __('timeline_answer') }}</p>
           </div>
         </div>
       </div>
+
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed variant-button" type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#{{Str::slug('What is the payment procedure')}}"
+                  data-bs-target="#{{ Str::slug(__('payment_procedure')) }}"
                   aria-expanded="false"
-                  aria-controls="{{Str::slug('What is the payment procedure')}}">
-            What is the payment procedure?
+                  aria-controls="{{ Str::slug(__('payment_procedure')) }}">
+            {{ __('payment_procedure') }}
           </button>
         </h2>
-        <div id="{{Str::slug('What is the payment procedure')}}"
+        <div id="{{ Str::slug(__('payment_procedure')) }}"
              class="accordion-collapse collapse product-variant-option-content">
           <div class="accordion-body px-md-4 p-2">
-            <p>
-              20% of the contract amount – upon signing the contract<br/>
-              40% of the contract amount – before the start of the modular house production<br/>
-              30% of the contract amount – before the start of interior finishing work<br/>
-              10% of the contract amount – after signing the acceptance/handover certificate<br/>
-              For private houses, the payment procedure is agreed upon before signing the contract, depending on the
-              scope of work and the customer’s financing method.
-            </p>
+            <p>{!! __('payment_procedure_answer')  !!}</p>
           </div>
         </div>
       </div>
