@@ -12,7 +12,7 @@
             <ul class="splide__list">
               @foreach($news->images as $image)
                 <li class="splide__slide">
-                  <a data-fslightbox="{{$news->slug}}"
+                  <a data-fancybox="{{$news->slug}}"
                      href="{{ asset('storage/news/'.$news->slug.'/'.$image->image_location) }}">
                     <img class="img-fluid"
                          data-splide-lazy="{{ asset('storage/news/'.$news->slug.'/'.$image->image_location) }}"
@@ -51,4 +51,5 @@
     heightRatio: 0.5,
   });
   main.mount();
+  Fancybox.bind("[data-fancybox]", {});
 </script>
