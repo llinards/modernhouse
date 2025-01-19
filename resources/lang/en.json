@@ -86,5 +86,13 @@
   "timeline": "What is the expected timeline when ordering a house from you?",
   "timeline_answer": "If you choose one of our standard products from the offering, the completion time for a modular house would be 10 to 14 weeks. If changes are made or a custom-designed project is ordered, the timeline may slightly increase. For private homes, the construction timeline from receiving the building permit and starting work on-site to the completed house is 4 to 6 months, depending on the chosen project.",
   "payment_procedure": "What is the payment procedure?",
-  "payment_procedure_answer": "20% of the contract amount – upon signing the contract<br/>40% of the contract amount – before the start of the modular house production<br/>30% of the contract amount – before the start of interior finishing work<br/>10% of the contract amount – after signing the acceptance/handover certificate<br/>For private houses, the payment procedure is agreed upon before signing the contract, depending on the scope of work and the customer’s financing method."
+  "payment_procedure_answer": "20% of the contract amount – upon signing the contract<br/>40% of the contract amount – before the start of the modular house production<br/>30% of the contract amount – before the start of interior finishing work<br/>10% of the contract amount – after signing the acceptance/handover certificate<br/>For private houses, the payment procedure is agreed upon before signing the contract, depending on the scope of work and the customer’s financing method.",
+  "foundation_construction": "Foundation construction",
+  "utility_installation": "Installation of utilities (water, sewerage, underfloor heating, electricity supply) in the foundations",
+  "house_structure_installation": "Assembly of house structures",
+  "external_finish_completed": "Fully completed external finish works",
+  "internal_utility_installation": "Installation of internal utilities (water, sewerage, electricity, ventilation)",
+  "external_finish_with_panels": "Fully completed external finish and installation of panel materials (OSB, plywood, drywall)",
+  "complete_internal_and_external_finish": "Fully completed internal and external finish works",
+  "kitchen_and_bathroom_setup": "Installed kitchen equipment with appliances and furnished bathrooms"
 }
