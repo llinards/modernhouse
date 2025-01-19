@@ -72,5 +72,19 @@
   "refresh": "Atjaunot",
   "next": "Tālāk",
   "Developed by": "Mājaslapu izstrādāja",
-  "Download attachment": "Lejupielādēt piedāvājumu"
+  "Download attachment": "Lejupielādēt piedāvājumu",
+  "change_house_designs": "Vai ir iespējams veikt izmaiņas māju projektos?",
+  "change_house_designs_answer": "Jā, projektus varam gan pielāgot Jūsu vēlmēm, gan izstrādāt ko pilnīgi individuālu.",
+  "building_permits": "Vai piedāvājat arī būvatļaujas saskaņošanu?",
+  "building_permits_answer": "Jā, pēc atsevišķas vienošanās varam veikt visas dokumentācijas lietas sākot ar būvatļaujas saskaņošanu, līdz ēkas nodošanai ekspluatācijā.",
+  "interior_choices": "Vai izvēloties māju pilnajā komplektācijā mums būs iespēja veikt izmaiņas apdares materiālos un interjera izvēlēs?",
+  "interior_choices_answer": "Jā, Jums būs iespēja pilnībā pielāgot mājas interjeru savām vēlmēm. Darba kārtībā saskaņosim ar Jums visus iekšdarbu dizainu un materiālus. Tādas lietas kā flīzes, grīdas segumu, elektro iekārtas, vannas istabu aprīkojumu varēsiet izvēlēties no mūsu piedāvājuma vai mūsu sadarbības partneriem vai arī no kāda Jūsu izvēlēta piegādātāja.",
+  "house_package": "Kas ietilpst mājas komplektācijā?",
+  "house_package_answer": "Ar mājas tehnisko specifikāciju un iekļauto lietu raksturojumu iespējams iepazīties mūsu mājaslapā zem katra attiecīgā produkta, izvēloties attiecīgo komplektāciju.",
+  "view_products": "Vai ir iespējams apskatīt arī kādu gatavu produktu?",
+  "view_products_answer": "Iepriekš saskaņojot varam vienoties par apskati kādā mūsu jau pabeigtā projektā un vienmēr esam atvērti Jums izrādīt arī kādu vēl būvniecības stadijā esošu projektu, kas ir ļoti laba iespēja apskatīt no kā māja sastāv. Pie mums ražotnē Siguldā, Lauku ielā 1 ir apskatāmas arī demo moduļu mājas un ar lielāko prieku arī parādīsim un pastāstīsim par pašu ražošanas procesu.",
+  "timeline": "Ar kādu termiņu man ir jārēķinās pasūtot no Jums māju?",
+  "timeline_answer": "Ja izvēlaties kādu no mūsu tipveida piedāvājumā esošu produktu, izpildes termiņš moduļu mājai būtu 10 – 14 nedēļas, attiecīgi veicot izmaiņas vai pasūtot individuāli izstrādātu projektu, šis termiņš var nedaudz pieaugt. Privātmājām darbu izpildes termiņš no būvatļaujas saņemšanas un darbu uzsākšanas objektā līdz pabeigtai mājai ir 4 – 6 mēneši atkarībā no izvēlētā projekta.",
+  "payment_procedure": "Kāda ir apmaksas kārtība?",
+  "payment_procedure_answer": "Moduļu mājām apmaksas kārtība ir sekojoša:<br/>20% no līguma summas – pie līguma parakstīšanas;<br/>40% no līguma summas – pirms moduļu mājas ražošanas darbu uzsākšanas;<br/>30% no līguma summas – pirms iekšējo apdares darbu uzsākšanas;<br/>10% no līguma summas – pēc pieņemšanas/nodošanas akta parakstīšanas.<br/>Privātmājām apmaksas kārtība tiek saskaņota pirms līguma slēgšanas, atkarībā no veicamo darbu apjoma un pasūtītāja finansējuma veida."
 }
