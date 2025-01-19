@@ -68,28 +68,23 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Foundation Construction</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Installation of utilities (water, sewage, underfloor heating, electrical
-                        connections) in the foundations</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Assembly of house structures</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Completion of exterior finishing works</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('external_finish_completed')</p>
                     </div>
                   </div>
                 @endif
@@ -103,27 +98,23 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Foundation Construction</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Installation of water, sewage, electricity, and ventilation systems</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('internal_utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Assembly of House Structures</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Installation of panel materials (OSB, plywood, drywall)</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('external_finish_with_panels')</p>
                     </div>
                   </div>
                 @endif
@@ -137,32 +128,27 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Foundation Construction</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('foundation_construction')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Water, sewage, electricity, and ventilation system construction</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('internal_utility_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">House Structure Assembly</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('house_structure_installation')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Complete Interior and Exterior Finishing Works</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('complete_internal_and_external_finish')</p>
                     </div>
                     <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25"
-                           src="{{ asset('storage/icons/check.svg')}}"/>
-                      <p class="small">Installed Kitchen with Appliances and Furnished Bathrooms</p>
+                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                      <p class="small">@lang('kitchen_and_bathroom_setup')</p>
                     </div>
                   </div>
                 @endif
@@ -219,8 +205,10 @@
               :filename="__('Download attachment')"/>
           @endforeach
         @endif
-        <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-        <x-faq/>
+        @if(app()->getLocale() === 'lv' || app()->getLocale() === 'en')
+          <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+          <x-faq/>
+        @endif
       </div>
     @endif
     <script type="module">
