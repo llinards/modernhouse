@@ -71,12 +71,10 @@
             <a class="nav-link text-center {{ Request::is('*/gallery') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/gallery">@lang('gallery')</a>
           </li>
-          @if(app()->getLocale() === 'lv' || app()->getLocale() === 'en')
-            <li class="nav-item">
-              <a class="nav-link text-center {{ Request::is('*/faq') ? 'nav-link-active' : '' }}"
-                 href="/{{app()->getLocale()}}/faq">@lang('faq')</a>
-            </li>
-          @endif
+          <li class="nav-item">
+            <a class="nav-link text-center {{ Request::is('*/faq') ? 'nav-link-active' : '' }}"
+               href="/{{app()->getLocale()}}/faq">@lang('faq')</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link text-center {{ Request::is('*/about-us') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/about-us">@lang('about')</a>

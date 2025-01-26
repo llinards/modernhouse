@@ -68,7 +68,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
@@ -98,7 +98,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
@@ -128,7 +128,7 @@
                   @endif
                 </h3>
                 {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                @if(($product->slug === 'dvinu-majas' || $product->slug === 'privatmajas'))
                   <div class="mt-3 d-flex flex-column">
                     <div class="d-flex product-variant-options-included">
                       <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
@@ -205,10 +205,8 @@
               :filename="__('Download attachment')"/>
           @endforeach
         @endif
-        @if(app()->getLocale() === 'lv' || app()->getLocale() === 'en')
-          <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-          <x-faq/>
-        @endif
+        <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+        <x-faq/>
       </div>
     @endif
     <script type="module">
