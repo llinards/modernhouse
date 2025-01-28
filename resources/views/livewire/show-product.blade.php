@@ -69,7 +69,7 @@
                     @endif
                   </h3>
                   {{--                TODO: Temporary fix--}}
-                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                     <div class="mt-3 d-flex flex-column">
                       <div class="d-flex product-variant-options-included">
                         <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
@@ -101,7 +101,7 @@
                     @endif
                   </h3>
                   {{--                TODO: Temporary fix--}}
-                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                     <div class="mt-3 d-flex flex-column">
                       <div class="d-flex product-variant-options-included">
                         <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
@@ -133,7 +133,7 @@
                     @endif
                   </h3>
                   {{--                TODO: Temporary fix--}}
-                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses'))
                     <div class="mt-3 d-flex flex-column">
                       <div class="d-flex product-variant-options-included">
                         <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
