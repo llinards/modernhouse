@@ -26,9 +26,9 @@ class StoreProductVariantRequest extends FormRequest
     return [
       'product-id'                    => ['required', 'numeric'],
       'product-variant-name'          => 'required',
-      'product-variant-basic-price'   => ['required', 'numeric'],
-      'product-variant-full-price'    => ['required', 'numeric'],
-      'product-variant-middle-price'  => ['required', 'numeric'],
+      'product-variant-basic-price'   => ['nullable', 'numeric'],
+      'product-variant-middle-price'  => ['nullable', 'numeric'],
+      'product-variant-full-price'    => ['nullable', 'numeric'],
       'product-variant-living-area'   => ['required', 'numeric'],
       'product-variant-building-area' => ['required', 'numeric'],
       'product-variant-description'   => 'required',
