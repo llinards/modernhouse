@@ -18,9 +18,15 @@
                 <thead>
                 <tr>
                   <th scope="col"></th>
-                  <th class="text-center align-middle" scope="col">@lang('basic')</th>
-                  <th class="text-center align-middle" scope="col">@lang('middle')</th>
-                  <th class="text-center align-middle" scope="col">@lang('full')</th>
+                  @if($productVariant->price_basic)
+                    <th class="text-center align-middle" scope="col">@lang('basic')</th>
+                  @endif
+                  @if($productVariant->price_middle)
+                    <th class="text-center align-middle" scope="col">@lang('middle')</th>
+                  @endif
+                  @if($productVariant->price_full)
+                    <th class="text-center align-middle" scope="col">@lang('full')</th>
+                  @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -33,18 +39,24 @@
                   @else
                     <tr>
                       <td>{{ $detail->detail }}</td>
-                      <td class="text-center align-middle">
-                        <img width="25" height="25"
-                             src="{{ $detail->has_in_basic ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                      </td>
-                      <td class="text-center align-middle">
-                        <img width="25" height="25"
-                             src="{{ $detail->has_in_middle ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                      </td>
-                      <td class="text-center align-middle">
-                        <img width="25" height="25"
-                             src="{{ $detail->has_in_full ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
-                      </td>
+                      @if($productVariant->price_basic)
+                        <td class="text-center align-middle">
+                          <img width="25" height="25"
+                               src="{{ $detail->has_in_basic ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                        </td>
+                      @endif
+                      @if($productVariant->price_middle)
+                        <td class="text-center align-middle">
+                          <img width="25" height="25"
+                               src="{{ $detail->has_in_middle ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                        </td>
+                      @endif
+                      @if($productVariant->price_full)
+                        <td class="text-center align-middle">
+                          <img width="25" height="25"
+                               src="{{ $detail->has_in_full ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"/>
+                        </td>
+                      @endif
                     </tr>
                   @endif
                 @endforeach
