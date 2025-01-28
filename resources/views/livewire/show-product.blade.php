@@ -58,101 +58,107 @@
             <x-product-variant-option-buttons :productVariant="$productVariant"/>
             <div class="mb-2">
               {{--              TODO: Nepieciešams būs rādīt katram produktu variantam atšķirīgus aprakstus--}}
-              <div class="basic-variant-price basic-{{$productVariant->slug}} show active">
-                <h3
-                  class="text-center mt-3">
-                  @if($productVariant->price_basic != 0.00)
-                    @lang('price from') EUR {{ number_format($productVariant->price_basic, 2, ',', ' ') }}
-                  @else
-                    @lang('individual price')
+              @if($productVariant->price_basic)
+                <div class="basic-variant-price basic-{{$productVariant->slug}} show active">
+                  <h3
+                    class="text-center mt-3">
+                    @if($productVariant->price_basic != 0.00)
+                      @lang('price from') EUR {{ number_format($productVariant->price_basic, 2, ',', ' ') }}
+                    @else
+                      @lang('individual price')
+                    @endif
+                  </h3>
+                  {{--                TODO: Temporary fix--}}
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                    <div class="mt-3 d-flex flex-column">
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('foundation_construction')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('utility_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('house_structure_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('external_finish_completed')</p>
+                      </div>
+                    </div>
                   @endif
-                </h3>
-                {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
-                  <div class="mt-3 d-flex flex-column">
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('foundation_construction')</p>
+                </div>
+              @endif
+              @if($productVariant->price_middle)
+                <div class="middle-variant-price middle-{{$productVariant->slug}}">
+                  <h3 class="text-center mt-3">
+                    @if($productVariant->price_middle != 0.00)
+                      @lang('price from') EUR {{ number_format($productVariant->price_middle, 2, ',', ' ') }}
+                    @else
+                      @lang('individual price')
+                    @endif
+                  </h3>
+                  {{--                TODO: Temporary fix--}}
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                    <div class="mt-3 d-flex flex-column">
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('foundation_construction')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('internal_utility_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('house_structure_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('external_finish_with_panels')</p>
+                      </div>
                     </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('utility_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('house_structure_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('external_finish_completed')</p>
-                    </div>
-                  </div>
-                @endif
-              </div>
-              <div class="middle-variant-price middle-{{$productVariant->slug}}">
-                <h3 class="text-center mt-3">
-                  @if($productVariant->price_middle != 0.00)
-                    @lang('price from') EUR {{ number_format($productVariant->price_middle, 2, ',', ' ') }}
-                  @else
-                    @lang('individual price')
                   @endif
-                </h3>
-                {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
-                  <div class="mt-3 d-flex flex-column">
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('foundation_construction')</p>
+                </div>
+              @endif
+              @if($productVariant->price_full)
+                <div class="full-variant-price full-{{$productVariant->slug}}">
+                  <h3 class="text-center mt-3">
+                    @if($productVariant->price_full != 0.00)
+                      @lang('price from') EUR {{ number_format($productVariant->price_full, 2, ',', ' ') }}
+                    @else
+                      @lang('individual price')
+                    @endif
+                  </h3>
+                  {{--                TODO: Temporary fix--}}
+                  @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
+                    <div class="mt-3 d-flex flex-column">
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('foundation_construction')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('internal_utility_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('house_structure_installation')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('complete_internal_and_external_finish')</p>
+                      </div>
+                      <div class="d-flex product-variant-options-included">
+                        <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
+                        <p class="small">@lang('kitchen_and_bathroom_setup')</p>
+                      </div>
                     </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('internal_utility_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('house_structure_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('external_finish_with_panels')</p>
-                    </div>
-                  </div>
-                @endif
-              </div>
-              <div class="full-variant-price full-{{$productVariant->slug}}">
-                <h3 class="text-center mt-3">
-                  @if($productVariant->price_full != 0.00)
-                    @lang('price from') EUR {{ number_format($productVariant->price_full, 2, ',', ' ') }}
-                  @else
-                    @lang('individual price')
                   @endif
-                </h3>
-                {{--                TODO: Temporary fix--}}
-                @if(($product->slug === 'twin-houses' || $product->slug === 'private-houses') && (app()->getLocale() === 'lv' || app()->getLocale() === 'en'))
-                  <div class="mt-3 d-flex flex-column">
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('foundation_construction')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('internal_utility_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('house_structure_installation')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('complete_internal_and_external_finish')</p>
-                    </div>
-                    <div class="d-flex product-variant-options-included">
-                      <img width="25" height="25" src="{{ asset('storage/icons/check.svg') }}"/>
-                      <p class="small">@lang('kitchen_and_bathroom_setup')</p>
-                    </div>
-                  </div>
-                @endif
-              </div>
+                </div>
+              @endif
             </div>
             <hr class="my-1">
             <div class="product-variant-description mx-auto">
@@ -205,10 +211,8 @@
               :filename="__('Download attachment')"/>
           @endforeach
         @endif
-        @if(app()->getLocale() === 'lv' || app()->getLocale() === 'en')
-          <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-          <x-faq/>
-        @endif
+        <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+        <x-faq/>
       </div>
     @endif
     <script type="module">
