@@ -30,6 +30,9 @@ class ProductVariantController extends Controller
       $productVariantService->addProductVariant($data);
       $productVariantService->addTranslation($data);
       $productVariantService->addImage($data['product-variant-images']);
+      if ($data->has(['product-variant-plan'])) {
+        $productVariantService->addPlan($data['product-variant-plan']);
+      }
       if ($data->has(['product-variant-attachments'])) {
         $productVariantService->addAttachment($data['product-variant-attachments']);
       }
@@ -51,6 +54,12 @@ class ProductVariantController extends Controller
                                       'translations' => function ($query) {
                                         $query->select('product_variant_id', 'name', 'description',
                                           'language')->where('language',
+                                          app()->getLocale());
+                                      },
+                                    ])
+                                    ->with([
+                                      'productVariantPlan' => function ($query) {
+                                        $query->select('product_variant_id', 'filename')->where('language',
                                           app()->getLocale());
                                       },
                                     ])

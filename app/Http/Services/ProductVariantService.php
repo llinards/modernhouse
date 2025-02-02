@@ -62,6 +62,20 @@ class ProductVariantService
     }
   }
 
+  public function addPlan(array $files): void
+  {
+    foreach ($files as $file) {
+      if ($file !== null) {
+        $fileService = new FileService();
+        $fileService->storeFile($file, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug.'/plan');
+        $this->productVariant->productVariantPlan()->create([
+          'filename' => basename($file),
+          'language' => app()->getLocale(),
+        ]);
+      }
+    }
+  }
+
   public function addAttachment(array $attachments): void
   {
     foreach ($attachments as $attachment) {

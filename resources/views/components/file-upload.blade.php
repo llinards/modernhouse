@@ -52,6 +52,12 @@
       acceptedFileTypes: ['image/*'],
       allowMultiple: true
     },
+    "product-variant-plan": {
+      labelIdle: 'Pievienot plānojumu',
+      maxFileSize: '500KB',
+      acceptedFileTypes: ['image/*'],
+      allowMultiple: true
+    },
     "product-variant-attachments": {
       labelIdle: 'Pievienot pielikumu',
       maxFileSize: '50MB',
