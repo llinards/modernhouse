@@ -78,6 +78,9 @@ class ProductVariantController extends Controller
       } else {
         $productVariantService->addTranslation($data);
       }
+      if ($data->has(['product-variant-plan'])) {
+        $productVariantService->addPlan($data['product-variant-plan']);
+      }
       if ($data->has(['product-variant-images'])) {
         $productVariantService->addImage($data['product-variant-images']);
       }
