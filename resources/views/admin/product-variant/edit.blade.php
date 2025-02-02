@@ -67,13 +67,13 @@
               <div class="col-6">
                 <label for="product-variant-living-area" class="form-label">Iekštelpu
                   platība</label>
-                <input type="text" name="product-variant-living-area"
+                <input type="number" step="0.01" name="product-variant-living-area"
                        value="{{ $productVariant->living_area }}" class="form-control">
               </div>
               <div class="col-6">
                 <label for="product-variant-building-area" class="form-label">Apbūves
                   laukums</label>
-                <input type="text" name="product-variant-building-area"
+                <input type="number" step="0.01" name="product-variant-building-area"
                        value="{{ $productVariant->building_area }}" class="form-control">
               </div>
             </div>
@@ -82,6 +82,13 @@
             <label for="product-variant-description" class="form-label">Apraksts</label>
             <x-description-text-area
               :name="'product-variant-description'">{{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}</x-description-text-area>
+          </div>
+          <div class="mb-3">
+            <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
+            <x-file-upload :name="'product-variant-plan'"/>
+            <p class="small">Faila izmēru var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                       target="_blank">compressor.io</a>
+            </p>
           </div>
           <livewire:admin.product-variant-image-list :product="$product" :productVariant="$productVariant"/>
           <div class="mb-3">

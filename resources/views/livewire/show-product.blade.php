@@ -196,10 +196,11 @@
           </div>
           <div class="d-flex flex flex-wrap gap-2 justify-content-center">
             @if($productVariant->productVariantPlan->isNotEmpty())
-              @foreach($productVariant->productVariantPlan as $plan)
-                <a data-fancybox="{{$productVariant->slug}}-plan"
-                   href="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/plan/'.$plan->filename) }}"
-                   class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
+              @foreach($productVariant->productVariantPlan as $index => $plan)
+                <a
+                  class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center {{$loop->first ? '' : 'visually-hidden'}}"
+                  href="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/plan/'.$plan->filename) }}"
+                  data-fancybox="{{$productVariant->slug}}-plan">
                   @lang('View the plan')
                 </a>
               @endforeach
