@@ -194,9 +194,18 @@
               @endif
             </div>
           </div>
-          <div class="d-flex flex-column align-items-center">
+          <div class="d-flex flex flex-wrap gap-2 justify-content-center">
+            @if($productVariant->productVariantPlan->isNotEmpty())
+              @foreach($productVariant->productVariantPlan as $plan)
+                <a data-fancybox="{{$productVariant->slug}}-plan"
+                   href="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/plan/'.$plan->filename) }}"
+                   class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
+                  @lang('View the plan')
+                </a>
+              @endforeach
+            @endif
             <button id="{{$productVariant->slug}}"
-                    class="btn btn-primary d-flex justify-content-center align-items-center request-product-info-modal"
+                    class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center request-product-info-modal"
             >@lang('customer order')</button>
           </div>
         </div>

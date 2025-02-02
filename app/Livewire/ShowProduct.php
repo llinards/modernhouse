@@ -98,6 +98,11 @@ class ShowProduct extends Component
                                app()->getLocale());
                            },
                          ])
+                         ->with([
+                           'productVariantPlan' => function ($query) {
+                             $query->select('product_variant_id', 'filename')->where('language', app()->getLocale());
+                           },
+                         ])
                          ->whereHas('translations', function ($query) {
                            $query->where('language', app()->getLocale());
                          })

@@ -49,6 +49,7 @@
               <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies -
                 <strong>Cena pēc
                   individuālā pieprasījuma.</strong></p>
+              <p class="small">Ja cena netiek <strong>norādīta</strong>, tad klientiem šī komplektācija nerādīsies.</p>
             </div>
           </div>
           <div class="mb-3">
@@ -56,14 +57,14 @@
               <div class="col-6">
                 <label for="product-variant-living-area" class="form-label">Iekštelpu
                   platība</label>
-                <input type="text" name="product-variant-living-area"
+                <input type="number" step="0.01" name="product-variant-living-area"
                        value="{{ old('product-variant-living-area') }}"
                        class="form-control">
               </div>
               <div class="col-6">
                 <label for="product-variant-building-area" class="form-label">Apbūves
                   laukums</label>
-                <input type="text" name="product-variant-building-area"
+                <input type="number" step="0.01" name="product-variant-building-area"
                        value="{{ old('product-variant-building-area') }}"
                        class="form-control">
               </div>
@@ -73,6 +74,13 @@
             <label for="product-variant-description" class="form-label">Apraksts</label>
             <x-description-text-area
               :name="'product-variant-description'">{{ old('product-variant-description') }}</x-description-text-area>
+          </div>
+          <div class="mb-3">
+            <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
+            <x-file-upload :name="'product-variant-plan'" :required="'true'"/>
+            <p class="small">Faila izmēru var samazināt šajā lapā - <a href="https://compressor.io/"
+                                                                       target="_blank">compressor.io</a>
+            </p>
           </div>
           <div class="mb-3">
             <label for="product-variant-images" class="form-label">Bildes</label>
