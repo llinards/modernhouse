@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -69,6 +70,8 @@ class HomeController extends Controller
         foreach ($files as $file) {
           if ($fileType === 'product-cover-photo') {
             $fileName = 'cover.'.$file->getClientOriginalExtension();
+          } elseif ($fileType === 'product-variant-plan') {
+            $fileName = Str::random(10).'.'.$file->getClientOriginalExtension();
           } else {
             $fileName = $file->getClientOriginalName();
           }
