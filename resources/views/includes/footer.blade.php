@@ -7,7 +7,7 @@
       <div class="col-md-2 col-6">
         <p class="small">601 1st Floor Office, Edenderry Business Campus<br/>Edenderry, Co.Offaly, Ireland</p>
         <p class="small">@lang('modern house registration number'): 776549</p>
-        <p class="small">@lang('VAT'): TBD</p>
+        <p class="small">@lang('VAT'): IE4357778BH</p>
       </div>
       <div class="col-md-2 col-6">
         <p class="small">
