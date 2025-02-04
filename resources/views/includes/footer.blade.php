@@ -45,7 +45,7 @@
       <hr class="m-0">
       <div class="d-flex justify-content-center align-content-center flex-column text-center">
         <div>
-          <img class="img-fluid" width="40" src="{{ asset('storage/ireland.png') }}" alt="">
+          <img class="img-fluid" width="30" src="{{ asset('storage/ireland.png') }}" alt="">
         </div>
         <div>
           <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }}
