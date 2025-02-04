@@ -48,7 +48,7 @@
           <img class="img-fluid" width="30" src="{{ asset('storage/ireland.png') }}" alt="">
         </div>
         <div>
-          <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }}
+          <p class="small">&copy; {{ config('app.name') }} {{  date ('Y') }}
             | @lang('all rights reserved')</p>
         </div>
         <div>
