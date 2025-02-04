@@ -43,10 +43,18 @@
         </div>
       </div>
       <hr class="m-0">
-      <div class="d-flex justify-content-center justify-content-md-between flex-wrap flex-md-nowrap">
-        <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }} | @lang('all rights reserved')</p>
-        <p class="small">@lang('Developed by') <a href="https://slmedia.lv" class="text-white" target="_blank">S&L Media
-            SIA</a></p>
+      <div class="d-flex justify-content-center align-content-center flex-column text-center">
+        <div>
+          <img class="img-fluid" width="25" src="{{ asset('storage/ireland.png') }}" alt="">
+        </div>
+        <div>
+          <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }}
+            | @lang('all rights reserved')</p>
+        </div>
+        <div>
+          <p class="small">@lang('Developed by') <a href="https://slmedia.lv" class="text-white" target="_blank">S&L
+              Media</a></p>
+        </div>
       </div>
     </div>
   </div>
