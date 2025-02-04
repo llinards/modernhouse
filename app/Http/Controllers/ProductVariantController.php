@@ -57,12 +57,6 @@ class ProductVariantController extends Controller
                                           app()->getLocale());
                                       },
                                     ])
-                                    ->with([
-                                      'productVariantPlan' => function ($query) {
-                                        $query->select('product_variant_id', 'filename')->where('language',
-                                          app()->getLocale());
-                                      },
-                                    ])
                                     ->findOrFail($productVariant->id);
 
     return view('admin.product-variant.edit', compact('productVariant', 'product'));

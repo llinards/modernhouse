@@ -83,6 +83,7 @@
             <x-description-text-area
               :name="'product-variant-description'">{{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}</x-description-text-area>
           </div>
+          <livewire:admin.product-variant-plan-list :product="$product" :productVariant="$productVariant"/>
           <div class="mb-3">
             <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
             <x-file-upload :name="'product-variant-plan'"/>

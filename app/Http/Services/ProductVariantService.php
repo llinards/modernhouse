@@ -146,4 +146,12 @@ class ProductVariantService
       'product-images/'.$data->productVariant->product->slug.'/'.$data->productVariant->slug);
     $data->delete();
   }
+
+  public function destroyPlan(object $data): void
+  {
+    $fileService = new FileService();
+    $fileService->destroyFile($data->filename,
+      'product-images/'.$data->productVariant->product->slug.'/'.$data->productVariant->slug.'/plan');
+    $data->delete();
+  }
 }

@@ -38,7 +38,7 @@ class ProductVariantImageList extends Component
 
   public function mount(Product $product, ProductVariant $productVariant): void
   {
-    $this->product = $product;
+    $this->product        = $product;
     $this->productVariant = $productVariant;
   }
 
