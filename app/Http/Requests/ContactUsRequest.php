@@ -27,12 +27,12 @@ class ContactUsRequest extends FormRequest
   public function rules()
   {
     return [
-      'first-name' => ['required', 'string', 'max:50'],
-      'last-name' => ['required', 'string', 'max:50'],
-      'email' => ['required', 'email'],
-      'phone-number' => ['required', 'phone', 'max:25'],
-      'company' => 'max:100',
-      'customer-agrees-for-data-processing' => 'accepted'
+      'first-name'                          => ['required', 'string', 'max:50'],
+      'last-name'                           => ['required', 'string', 'max:50'],
+      'email'                               => ['required', 'email'],
+      'phone-number'                        => ['required', 'string', 'max:25'],
+      'company'                             => 'max:100',
+      'customer-agrees-for-data-processing' => 'accepted',
     ];
   }
 
