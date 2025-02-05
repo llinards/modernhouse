@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
-use App\Http\Services\KlaviyoService;
 use App\Mail\ConsultationSubmitted;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
@@ -18,7 +17,7 @@ use Illuminate\Support\Facades\URL;
 class HomeController extends Controller
 {
   //TODO:check why the first paramter is required to be $language
-  public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
+  public function requestProductInfo($language, ContactUsRequest $request)
   {
     try {
 //      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_product_info'));
@@ -45,7 +44,7 @@ class HomeController extends Controller
     }
   }
 
-  public function submitConsultation(ContactUsRequest $data, KlaviyoService $klaviyoService)
+  public function submitConsultation(ContactUsRequest $data)
   {
     try {
 //      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
