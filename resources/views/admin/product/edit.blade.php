@@ -29,16 +29,14 @@
                    name="product-name"
                    oninput="generateSlug()">
           </div>
-          @if(app()->getLocale() === 'lv')
-            <div class="mb-3">
-              <label for="product-slug" class="form-label">Produkta ID</label>
-              <input type="text" class="form-control" id="product-slug"
-                     name="product-slug" oninput="updateUrl()" value="{{ $product->slug }}">
-              <p class="class">Produkta lapas adrese būs - {{env('APP_URL')}}/<strong><span
-                    id="product-slug-url">{{ $product->slug }}</span></strong>
-              </p>
-            </div>
-          @endif
+          <div class="mb-3">
+            <label for="product-slug" class="form-label">Produkta ID</label>
+            <input type="text" class="form-control" id="product-slug"
+                   name="product-slug" oninput="updateUrl()" value="{{ $product->slug }}">
+            <p class="class">Produkta lapas adrese būs - {{env('APP_URL')}}/<strong><span
+                  id="product-slug-url">{{ $product->slug }}</span></strong>
+            </p>
+          </div>
           <div class="mb-3">
             <div class="row">
               <div class="col-6">
