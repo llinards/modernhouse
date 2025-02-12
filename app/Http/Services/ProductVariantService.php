@@ -106,9 +106,9 @@ class ProductVariantService
   {
     $fileService          = new FileService();
     $this->productVariant = $this->getProductVariant($data['id']);
-    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-variant-name'] : $this->productVariant->slug);
+    $this->setSlug($data['product-variant-name']);
     $isSlugChanged = $this->productVariant->slug !== $this->slug;
-    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+    if ($isSlugChanged) {
       $fileService->moveDirectory('product-images/'.$this->productVariant->product->slug.'/'.$this->productVariant->slug,
         'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
     }

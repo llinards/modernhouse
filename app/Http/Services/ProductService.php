@@ -29,18 +29,18 @@ class ProductService
   {
     $this->setSlug($data['product-slug']);
     $this->product = Product::create([
-      'slug' => $this->slug,
+      'slug'                 => $this->slug,
       'cover_photo_filename' => basename($data['product-cover-photo'][0]),
       'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : null,
-      'is_active' => false
+      'is_active'            => false,
     ]);
   }
 
   public function addTranslation(object $data): void
   {
     $this->product->translations()->create([
-      'name' => $data['product-name'],
-      'language' => app()->getLocale()
+      'name'     => $data['product-name'],
+      'language' => app()->getLocale(),
     ]);
   }
 
@@ -56,18 +56,18 @@ class ProductService
 
   public function updateProduct(object $data): void
   {
-    $fileService = new FileService();
+    $fileService   = new FileService();
     $this->product = $this->getProduct($data['id']);
-    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-slug'] : $this->product->slug);
+    $this->setSlug($data['product-slug']);
     $isSlugChanged = $this->product->slug !== $this->slug;
-    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+    if ($isSlugChanged) {
       $fileService->moveDirectory('product-images/'.$this->product->slug, 'product-images/'.$this->slug);
     }
     $this->product->update([
-      'slug' => $this->slug,
+      'slug'                 => $this->slug,
       'cover_photo_filename' => isset($data['product-cover-photo'][0]) ? basename($data['product-cover-photo'][0]) : $this->product->cover_photo_filename,
       'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : $this->product->cover_video_filename,
-      'is_active' => isset($data['product-available'])
+      'is_active'            => isset($data['product-available']),
     ]);
   }
 
@@ -81,7 +81,7 @@ class ProductService
   public function destroyVideo(object $data): void
   {
     $this->product = $this->getProduct($data->id);
-    $fileService = new FileService();
+    $fileService   = new FileService();
     $fileService->destroyFile($this->product->cover_video_filename, 'product-images/'.$this->product->slug);
     $this->product->update(['cover_video_filename' => null]);
   }
@@ -89,7 +89,7 @@ class ProductService
   public function destroyProduct(object $data): void
   {
     $this->product = $this->getProduct($data->id);
-    $fileService = new FileService();
+    $fileService   = new FileService();
     $fileService->destroyDirectory('product-images/'.$this->product->slug);
     $this->product->delete();
   }

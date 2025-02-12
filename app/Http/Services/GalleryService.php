@@ -29,9 +29,9 @@ class GalleryService
   {
     $this->setSlug($data['gallery-title']);
     $this->gallery = Gallery::create([
-      'slug' => $this->slug,
-      'is_video' => isset($data['gallery-type']),
-      'is_pinned' => isset($data['gallery-pinned'])
+      'slug'      => $this->slug,
+      'is_video'  => isset($data['gallery-type']),
+      'is_pinned' => isset($data['gallery-pinned']),
     ]);
   }
 
@@ -43,7 +43,7 @@ class GalleryService
         $fileService = new FileService();
         $fileService->storeFile($image, 'gallery/'.$this->slug);
         $this->gallery->images()->create([
-          'filename' => basename($image)
+          'filename' => basename($image),
         ]);
       }
     }
@@ -52,40 +52,40 @@ class GalleryService
   public function addTranslation(object $data): void
   {
     $this->gallery->translations()->create([
-      'title' => $data['gallery-title'],
-      'content' => $data['gallery-content'],
-      'language' => app()->getLocale()
+      'title'    => $data['gallery-title'],
+      'content'  => $data['gallery-content'],
+      'language' => app()->getLocale(),
     ]);
   }
 
   public function updateGallery(object $data)
   {
-    $fileService = new FileService();
+    $fileService   = new FileService();
     $this->gallery = $this->getGallery($data['id']);
-    $this->setSlug(app()->getLocale() === 'lv' ? $data['gallery-title'] : $this->gallery->slug);
+    $this->setSlug($data['gallery-title']);
     $isSlugChanged = $this->gallery->slug !== $this->slug;
-    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
+    if ($isSlugChanged) {
       $fileService->moveDirectory('gallery/'.$this->gallery->slug, 'gallery/'.$this->slug);
     }
     $this->gallery->update([
-      'slug' => $this->slug,
-      'is_video' => isset($data['gallery-type']),
-      'is_pinned' => isset($data['gallery-pinned'])
+      'slug'      => $this->slug,
+      'is_video'  => isset($data['gallery-type']),
+      'is_pinned' => isset($data['gallery-pinned']),
     ]);
   }
 
   public function updateTranslation($translation, $data): void
   {
     $translation->update([
-      'title' => $data['gallery-title'],
-      'content' => $data['gallery-content']
+      'title'   => $data['gallery-title'],
+      'content' => $data['gallery-content'],
     ]);
   }
 
   public function destroyGallery(object $data): void
   {
     $this->gallery = $this->getGallery($data->id);
-    $fileService = new FileService();
+    $fileService   = new FileService();
     $fileService->destroyDirectory('gallery/'.$this->gallery->slug);
     $this->gallery->delete();
   }
