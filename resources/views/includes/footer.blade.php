@@ -15,13 +15,13 @@
                                                             class="text-white text-decoration-none">info@modern-house.ie</a>
         </p>
         <p class="small">
-          <i class="bi bi-telephone text-white"></i> <a href="https://wa.link/2ojact" target="_blank"
-                                                        class="text-white text-decoration-none">+353 83 480 1610</a>
-        </p>
-        <p class="small">
           <i class="bi bi-telephone text-white"></i> <a href="https://wa.link/by73e7" target="_blank"
                                                         class="text-white text-decoration-none">+353
             83 854 9155</a>
+        </p>
+        <p class="small">
+          <i class="bi bi-telephone text-white"></i> <a href="https://wa.link/2ojact" target="_blank"
+                                                        class="text-white text-decoration-none">+353 83 480 1610</a>
         </p>
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
