@@ -21,8 +21,4 @@
 
 <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
-@if(App::environment('production'))
-@endif
 <script src="{{ mix('/js/app.js') }}" defer></script>
-@if(App::environment('production'))
-@endif

@@ -11,7 +11,22 @@
           @csrf
           <x-honeypot/>
           <div class="mb-3">
-            <label for="product" class="form-label fw-bold">@lang('product interested')*</label>
+            <label for="question_one"
+                   class="form-label fw-bold">@lang('Are you looking to buy in the 3 months, 6 months, 1 year?')
+              *</label>
+            <input type="text" name="question_one" class="form-control" id="question_one"
+                   value="{{ old('question_one') }}">
+          </div>
+          <div class="mb-3">
+            <label for="question_two"
+                   class="form-label fw-bold">@lang('What is your budget?')
+              *</label>
+            <input type="text" name="question_two" class="form-control" id="question_two"
+                   value="{{ old('question_two') }}">
+          </div>
+          <div class="mb-3">
+            <label for="product" class="form-label fw-bold">@lang('Which one of the products are you interested in?')
+              *</label>
             <select class="form-select" name="product-variant" id="product"
                     aria-label="Default select example">
               @foreach($allActiveProducts as $product)
@@ -19,6 +34,13 @@
                   value="{{ $product->translations[0]->name }}">{{ $product->translations[0]->name }}</option>
               @endforeach
             </select>
+          </div>
+          <div class="mb-3">
+            <label for="question_three"
+                   class="form-label fw-bold">@lang('How can we help?')
+              *</label>
+            <input type="text" name="question_three" class="form-control" id="question_three"
+                   value="{{ old('question_two') }}">
           </div>
           <div class="mb-3">
             <label for="first-name" class="form-label fw-bold">@lang('first name')*</label>

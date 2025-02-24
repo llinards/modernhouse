@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
+use App\Http\Requests\RequestConsultationRequest;
 use App\Mail\ConsultationSubmitted;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
@@ -44,7 +45,7 @@ class HomeController extends Controller
     }
   }
 
-  public function submitConsultation(ContactUsRequest $data)
+  public function submitConsultation(RequestConsultationRequest $data)
   {
     try {
 //      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
