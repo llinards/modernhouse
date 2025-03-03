@@ -7,7 +7,6 @@
     font-size: $product-variant-titles-font-size;
     letter-spacing: $product-variant-titles-letter-spacing;
     position: relative;
-    z-index: 100;
 
     &.active {
       border-bottom: 4px solid $navbar-item-hover-font-color;
@@ -112,7 +111,6 @@
 
 .swiper-slide {
   text-align: center;
-  //font-size: 18px;
   background: #fff;
   display: flex;
   justify-content: center;
@@ -129,10 +127,14 @@
 }
 
 .swiper-button-next {
-  right: -5px !important;
+  right: -7px !important;
 }
 
 .swiper-button-prev {
-  left: -5px !important;
+  left: -7px !important;
+}
+
+.swiper-slide .nav-link {
+  pointer-events: auto !important;
 }
 

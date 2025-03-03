@@ -56,14 +56,7 @@
       font-size: $product-variant-titles-font-size-mobile;
     }
   }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    &:after {
-      font-size: $product-variant-titles-font-size-mobile !important;
-    }
-  }
-
+  
   .variant-button,
   .product-variant-option-content td,
   .product-variant-option-content th {
