@@ -271,27 +271,37 @@
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
-
+      
       const swiper = new Swiper('.swiper', {
-        // Optional parameters
         modules: [Navigation],
-        slidesPerView: 3,
+        slidesPerView: 2,
+        preventClicks: false,
+        preventClicksPropagation: false,
+        touchStartPreventDefault: false,
+        breakpoints:
+          {
+            992:
+              {
+                slidesPerView: 5,
+              }
+            ,
+            570:
+              {
+                slidesPerView: 4,
+              }
+            ,
+            425:
+              {
+                slidesPerView: 3,
+              }
+          }
+        ,
 
-        breakpoints: {
-          992: {
-            slidesPerView: 5,
-          },
-          570: {
-            slidesPerView: 4,
-          },
-          
-        },
-
-        // Navigation arrows
         navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+          prevEl:
+            '.swiper-button-prev',
+        }
       });
 
 
