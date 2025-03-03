@@ -4,16 +4,21 @@
   </x-slot>
   <x-slot name="content">
     @include('includes.status-messages')
-    <ul class="nav nav-tabs d-flex justify-content-evenly border-0 buttons-content-switch">
+    <ul class="nav nav-tabs d-flex justify-content-evenly border-0 buttons-content-switch swiper">
       @if(count($productVariants) !== 1)
-        @foreach($productVariants as $productsVariant)
-          <li class="nav-item">
-            <a class="nav-link {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-               wire:navigate.hover
-               href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
-               type="button">{{ $productsVariant->translations[0]->name}}</a>
-          </li>
-        @endforeach
+        <div class="swiper-wrapper">
+          @foreach($productVariants as $productsVariant)
+            <li class="nav-item swiper-slide">
+              <a
+                class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
+                wire:navigate.hover
+                href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
+                type="button">{{ $productsVariant->translations[0]->name}}</a>
+            </li>
+          @endforeach
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       @endif
     </ul>
     @if($productVariant)
@@ -266,6 +271,29 @@
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
+
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        modules: [Navigation],
+        slidesPerView: 3,
+
+        breakpoints: {
+          992: {
+            slidesPerView: 5,
+          },
+          570: {
+            slidesPerView: 4,
+          },
+          
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
 
       const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
       const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');

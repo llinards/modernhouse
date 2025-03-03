@@ -50,6 +50,20 @@
     }
   }
 
+  .buttons-content-switch {
+    button.nav-link,
+    a.nav-link {
+      font-size: $product-variant-titles-font-size-mobile;
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    &:after {
+      font-size: $product-variant-titles-font-size-mobile !important;
+    }
+  }
+
   .variant-button,
   .product-variant-option-content td,
   .product-variant-option-content th {
@@ -126,12 +140,6 @@
     font-size: $label-font-size-mobile;
   }
 
-  .buttons-content-switch {
-    button.nav-link,
-    a.nav-link {
-      font-size: $product-variant-titles-font-size-mobile;
-    }
-  }
 
   .modern-house-location-map {
     height: 250px;
