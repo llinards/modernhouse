@@ -6,6 +6,8 @@
     padding: 0.5rem;
     font-size: $product-variant-titles-font-size;
     letter-spacing: $product-variant-titles-letter-spacing;
+    position: relative;
+    z-index: 100;
 
     &.active {
       border-bottom: 4px solid $navbar-item-hover-font-color;
@@ -107,3 +109,30 @@
     font-size: $product-variant-description-font-size;
   }
 }
+
+.swiper-slide {
+  text-align: center;
+  //font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: $primary-color !important;
+
+  &:after {
+    font-size: $product-variant-titles-font-size !important;
+  }
+}
+
+.swiper-button-next {
+  right: -5px !important;
+}
+
+.swiper-button-prev {
+  left: -5px !important;
+}
+
