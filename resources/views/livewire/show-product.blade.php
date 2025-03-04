@@ -271,39 +271,39 @@
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
+      
+      let activeSwiper = null;
 
-      const swiper = new Swiper('.swiper', {
-        modules: [Navigation],
-        slidesPerView: 2,
-        preventClicks: false,
-        preventClicksPropagation: false,
-        touchStartPreventDefault: false,
-        breakpoints:
-          {
-            992:
-              {
-                slidesPerView: 5,
-              }
-            ,
-            570:
-              {
-                slidesPerView: 4,
-              }
-            ,
-            425:
-              {
-                slidesPerView: 3,
-              }
-          }
-        ,
+      function initSwiper() {
+        const savedIndex = localStorage.getItem('swiperIndex') || 0;
 
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl:
-            '.swiper-button-prev',
+        if (activeSwiper) {
+          activeSwiper.destroy();
         }
-      });
+        activeSwiper = new Swiper('.swiper', {
+          modules: [Navigation],
+          slidesPerView: 2,
+          preventClicks: false,
+          preventClicksPropagation: false,
+          touchStartPreventDefault: false,
+          initialSlide: parseInt(savedIndex),
+          breakpoints: {
+            992: {slidesPerView: 5},
+            570: {slidesPerView: 4},
+            425: {slidesPerView: 3}
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+        activeSwiper.on('slideChange', function () {
+          localStorage.setItem('swiperIndex', activeSwiper.activeIndex);
+        });
+      }
 
+      document.addEventListener('DOMContentLoaded', initSwiper);
+      document.addEventListener('livewire:navigated', initSwiper);
 
       const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
       const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
