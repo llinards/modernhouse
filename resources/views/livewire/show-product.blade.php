@@ -287,7 +287,12 @@
       Fancybox.bind("[data-fancybox]", {});
 
       document.addEventListener('livewire:navigated', () => {
-        const activeSlide = document.querySelector('.nav-link.active').closest('.swiper-slide');
+        const swiperContainer = document.querySelector('.swiper');
+        if (!swiperContainer) return;
+
+        const activeSlide = document.querySelector('.nav-link.active')?.closest('.swiper-slide');
+        if (!activeSlide) return;
+
         const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex) || 0;
 
         const swiper = new Swiper('.swiper', {
@@ -296,11 +301,13 @@
           preventClicks: false,
           preventClicksPropagation: false,
           touchStartPreventDefault: false,
+          initialSlide: activeIndex,
+          slideToClickedSlide: true,
           breakpoints: {
             992: {
               slidesPerView: 5,
             },
-            570: {
+            768: {
               slidesPerView: 4,
             },
             425: {
@@ -316,9 +323,15 @@
               const currentSlidesPerView = this.params.slidesPerView;
               const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
               this.slideTo(pageIndex * currentSlidesPerView, 0, false);
+            },
+            resize: function () {
+              const currentSlidesPerView = this.params.slidesPerView;
+              const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
+              this.slideTo(pageIndex * currentSlidesPerView, 0, false);
             }
           }
         });
+        window.productVariantsSwiper = swiper;
       });
 
       const modal = new bootstrap.Modal('#request-product-info');
