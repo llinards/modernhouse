@@ -8,13 +8,12 @@
       @if(count($productVariants) !== 1)
         <div class="swiper-wrapper">
           @foreach($productVariants as $productsVariant)
-            <li class="nav-item swiper-slide" data-swiper-slide-index="{{ $loop->index }}">
-              <a class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-                 wire:navigate.hover
-                 href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
-                 type="button">
-                {{ $productsVariant->translations[0]->name}}
-              </a>
+            <li class="nav-item swiper-slide">
+              <a
+                class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
+                wire:navigate.hover
+                href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
+                type="button">{{ $productsVariant->translations[0]->name}}</a>
             </li>
           @endforeach
         </div>
@@ -232,38 +231,27 @@
       </div>
     @endif
     <script type="module">
-      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
-        button.addEventListener('show.bs.tab', () => {
-          const targetClass = button.dataset.bsTarget.replace('#', '');
-          const currentVariantPrice = document.querySelector(`.${targetClass}`);
+      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
+        selectedVariant.addEventListener('show.bs.tab', () => {
+          const targetClass = selectedVariant.dataset.bsTarget;
+          const currentVariantPrice = document.querySelector('.' + targetClass.replace('#', ''));
           if (currentVariantPrice) {
-            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price')
-              .forEach(element => element.classList.remove('show', 'active'));
+            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price').forEach((element) => {
+              element.classList.remove('show', 'active');
+            });
             currentVariantPrice.classList.add('show', 'active');
           }
         });
       });
 
       const gallery = document.getElementById('product-variant-gallery');
-
-      const main = new Splide(`#${gallery.firstElementChild.id}`, {
+      const main = new Splide('#' + gallery.firstElementChild.id, {
         type: 'fade',
         pagination: false,
         lazyLoad: 'sequential',
         rewind: true,
-        autoplay: true,
-        interval: 3000,
-        pauseOnHover: true,
-        pauseOnFocus: true,
-        drag: true,
-        breakpoints: {
-          992: {
-            heightRatio: 0.5,
-          },
-        }
       });
-
-      const thumbnails = new Splide(`#${gallery.lastElementChild.id}`, {
+      const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
         fixedWidth: 100,
         fixedHeight: 60,
         gap: 10,
@@ -271,8 +259,6 @@
         pagination: false,
         isNavigation: true,
         lazyLoad: 'sequential',
-        keyboard: true,
-        drag: true,
         breakpoints: {
           600: {
             fixedWidth: 60,
@@ -280,64 +266,52 @@
           },
         },
       });
-
-      main.sync(thumbnails).mount();
+      main.sync(thumbnails);
+      main.mount();
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
 
-      document.addEventListener('livewire:navigated', () => {
-        const swiperContainer = document.querySelector('.swiper');
-        if (!swiperContainer) return;
-
-        const activeSlide = document.querySelector('.nav-link.active')?.closest('.swiper-slide');
-        if (!activeSlide) return;
-
-        const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex) || 0;
-
-        const swiper = new Swiper('.swiper', {
-          modules: [Navigation],
-          slidesPerView: 2,
-          preventClicks: false,
-          preventClicksPropagation: false,
-          touchStartPreventDefault: false,
-          initialSlide: activeIndex,
-          slideToClickedSlide: true,
-          breakpoints: {
-            992: {
-              slidesPerView: 5,
-            },
-            768: {
-              slidesPerView: 4,
-            },
-            425: {
-              slidesPerView: 3,
-            }
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          on: {
-            init: function () {
-              const currentSlidesPerView = this.params.slidesPerView;
-              const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
-              this.slideTo(pageIndex * currentSlidesPerView, 0, false);
-            },
-            resize: function () {
-              const currentSlidesPerView = this.params.slidesPerView;
-              const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
-              this.slideTo(pageIndex * currentSlidesPerView, 0, false);
-            }
+      const swiper = new Swiper('.swiper', {
+        modules: [Navigation],
+        slidesPerView: 2,
+        preventClicks: false,
+        preventClicksPropagation: false,
+        touchStartPreventDefault: false,
+        breakpoints:
+          {
+            992:
+              {
+                slidesPerView: 5,
+              }
+            ,
+            570:
+              {
+                slidesPerView: 4,
+              }
+            ,
+            425:
+              {
+                slidesPerView: 3,
+              }
           }
-        });
-        window.productVariantsSwiper = swiper;
+        ,
+
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl:
+            '.swiper-button-prev',
+        }
       });
 
-      const modal = new bootstrap.Modal('#request-product-info');
-      document.querySelectorAll('.request-product-info-modal').forEach(button => {
-        button.addEventListener('click', () => modal.show());
-      });
+
+      const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
+      const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
+      requestProductInfoButtons.forEach((requestProductInfoButton) => {
+        requestProductInfoButton.addEventListener('click', () => {
+          requestProductInfoModal.show();
+        })
+      })
     </script>
   </x-slot>
 </div>
