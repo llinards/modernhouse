@@ -8,12 +8,13 @@
       @if(count($productVariants) !== 1)
         <div class="swiper-wrapper">
           @foreach($productVariants as $productsVariant)
-            <li class="nav-item swiper-slide">
-              <a
-                class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-                wire:navigate.hover
-                href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
-                type="button">{{ $productsVariant->translations[0]->name}}</a>
+            <li class="nav-item swiper-slide" data-swiper-slide-index="{{ $loop->index }}">
+              <a class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
+                 wire:navigate.hover
+                 href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
+                 type="button">
+                {{ $productsVariant->translations[0]->name}}
+              </a>
             </li>
           @endforeach
         </div>
@@ -285,38 +286,40 @@
 
       Fancybox.bind("[data-fancybox]", {});
 
-      const swiper = new Swiper('.swiper', {
-        modules: [Navigation],
-        slidesPerView: 2,
-        preventClicks: false,
-        preventClicksPropagation: false,
-        touchStartPreventDefault: false,
-        breakpoints:
-          {
-            992:
-              {
-                slidesPerView: 5,
-              }
-            ,
-            570:
-              {
-                slidesPerView: 4,
-              }
-            ,
-            425:
-              {
-                slidesPerView: 3,
-              }
+      document.addEventListener('livewire:navigated', () => {
+        const activeSlide = document.querySelector('.nav-link.active').closest('.swiper-slide');
+        const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex) || 0;
+
+        const swiper = new Swiper('.swiper', {
+          modules: [Navigation],
+          slidesPerView: 2,
+          preventClicks: false,
+          preventClicksPropagation: false,
+          touchStartPreventDefault: false,
+          breakpoints: {
+            992: {
+              slidesPerView: 5,
+            },
+            570: {
+              slidesPerView: 4,
+            },
+            425: {
+              slidesPerView: 3,
+            }
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          on: {
+            init: function () {
+              const currentSlidesPerView = this.params.slidesPerView;
+              const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
+              this.slideTo(pageIndex * currentSlidesPerView, 0, false);
+            }
           }
-        ,
-
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl:
-            '.swiper-button-prev',
-        }
+        });
       });
-
 
       const modal = new bootstrap.Modal('#request-product-info');
       document.querySelectorAll('.request-product-info-modal').forEach(button => {
