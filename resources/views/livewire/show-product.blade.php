@@ -231,27 +231,38 @@
       </div>
     @endif
     <script type="module">
-      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach((selectedVariant) => {
-        selectedVariant.addEventListener('show.bs.tab', () => {
-          const targetClass = selectedVariant.dataset.bsTarget;
-          const currentVariantPrice = document.querySelector('.' + targetClass.replace('#', ''));
+      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
+        button.addEventListener('show.bs.tab', () => {
+          const targetClass = button.dataset.bsTarget.replace('#', '');
+          const currentVariantPrice = document.querySelector(`.${targetClass}`);
           if (currentVariantPrice) {
-            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price').forEach((element) => {
-              element.classList.remove('show', 'active');
-            });
+            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price')
+              .forEach(element => element.classList.remove('show', 'active'));
             currentVariantPrice.classList.add('show', 'active');
           }
         });
       });
 
       const gallery = document.getElementById('product-variant-gallery');
-      const main = new Splide('#' + gallery.firstElementChild.id, {
+
+      const main = new Splide(`#${gallery.firstElementChild.id}`, {
         type: 'fade',
         pagination: false,
         lazyLoad: 'sequential',
         rewind: true,
+        autoplay: true,
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        drag: true,
+        breakpoints: {
+          992: {
+            heightRatio: 0.5,
+          },
+        }
       });
-      const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
+
+      const thumbnails = new Splide(`#${gallery.lastElementChild.id}`, {
         fixedWidth: 100,
         fixedHeight: 60,
         gap: 10,
@@ -259,6 +270,8 @@
         pagination: false,
         isNavigation: true,
         lazyLoad: 'sequential',
+        keyboard: true,
+        drag: true,
         breakpoints: {
           600: {
             fixedWidth: 60,
@@ -266,12 +279,12 @@
           },
         },
       });
-      main.sync(thumbnails);
-      main.mount();
+
+      main.sync(thumbnails).mount();
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
-      
+
       const swiper = new Swiper('.swiper', {
         modules: [Navigation],
         slidesPerView: 2,
@@ -305,13 +318,10 @@
       });
 
 
-      const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
-      const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
-      requestProductInfoButtons.forEach((requestProductInfoButton) => {
-        requestProductInfoButton.addEventListener('click', () => {
-          requestProductInfoModal.show();
-        })
-      })
+      const modal = new bootstrap.Modal('#request-product-info');
+      document.querySelectorAll('.request-product-info-modal').forEach(button => {
+        button.addEventListener('click', () => modal.show());
+      });
     </script>
   </x-slot>
 </div>
