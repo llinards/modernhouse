@@ -289,6 +289,21 @@
       document.addEventListener('livewire:navigated', () => {
         const activeSlide = document.querySelector('.nav-link.active').closest('.swiper-slide');
         const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex) || 0;
+        const isPageReload = !sessionStorage.getItem('swiperInitialized');
+
+        sessionStorage.setItem('swiperInitialized', 'true');
+
+        let initialPosition = 0;
+        if (!isPageReload && sessionStorage.getItem('swiperPosition')) {
+          initialPosition = parseInt(sessionStorage.getItem('swiperPosition'));
+        } else {
+          const viewportWidth = window.innerWidth;
+          const slidesPerView = viewportWidth >= 992 ? 5 :
+            viewportWidth >= 570 ? 4 :
+              viewportWidth >= 425 ? 3 : 2;
+
+          initialPosition = Math.floor(activeIndex / slidesPerView) * slidesPerView;
+        }
 
         const swiper = new Swiper('.swiper', {
           modules: [Navigation],
@@ -296,6 +311,7 @@
           preventClicks: false,
           preventClicksPropagation: false,
           touchStartPreventDefault: false,
+          initialSlide: initialPosition,
           breakpoints: {
             992: {
               slidesPerView: 5,
@@ -312,12 +328,20 @@
             prevEl: '.swiper-button-prev',
           },
           on: {
-            init: function () {
-              const currentSlidesPerView = this.params.slidesPerView;
-              const pageIndex = Math.floor(activeIndex / currentSlidesPerView);
-              this.slideTo(pageIndex * currentSlidesPerView, 0, false);
+            slideChange: function () {
+              sessionStorage.setItem('swiperPosition', this.activeIndex);
             }
           }
+        });
+
+        document.querySelectorAll('.swiper-slide .nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            sessionStorage.setItem('swiperPosition', swiper.activeIndex);
+          });
+        });
+        
+        window.addEventListener('beforeunload', () => {
+          sessionStorage.removeItem('swiperInitialized');
         });
       });
 
