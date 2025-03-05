@@ -4,9 +4,9 @@
   </x-slot>
   <x-slot name="content">
     @include('includes.status-messages')
-    <ul class="nav nav-tabs d-flex justify-content-evenly border-0 buttons-content-switch swiper">
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper">
       @if(count($productVariants) !== 1)
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper justify-content-evenly">
           @foreach($productVariants as $productsVariant)
             <li class="nav-item swiper-slide">
               <a
@@ -271,7 +271,7 @@
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
-      
+
       let activeSwiper = null;
 
       function initSwiper() {
