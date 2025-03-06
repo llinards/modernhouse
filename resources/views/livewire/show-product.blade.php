@@ -4,21 +4,21 @@
   </x-slot>
   <x-slot name="content">
     @include('includes.status-messages')
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper">
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch">
       @if(count($productVariants) !== 1)
-        <div class="swiper-wrapper justify-content-evenly">
-          @foreach($productVariants as $productsVariant)
-            <li class="nav-item swiper-slide">
-              <a
-                class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-                wire:navigate.hover
-                href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
-                type="button">{{ $productsVariant->translations[0]->name}}</a>
-            </li>
-          @endforeach
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        {{--        <div class="justify-content-evenly">--}}
+        @foreach($productVariants as $productsVariant)
+          <li class="nav-item">
+            <a
+              class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
+              wire:navigate.hover
+              href="/{{app()->getLocale()}}/{{$product->slug}}/{{$productsVariant->slug}}"
+              type="button">{{ $productsVariant->translations[0]->name}}</a>
+          </li>
+        @endforeach
+        {{--        </div>--}}
+        {{--        <div class="swiper-button-next"></div>--}}
+        {{--        <div class="swiper-button-prev"></div>--}}
       @endif
     </ul>
     @if($productVariant)
@@ -271,39 +271,6 @@
       thumbnails.mount();
 
       Fancybox.bind("[data-fancybox]", {});
-
-      let activeSwiper = null;
-
-      function initSwiper() {
-        const savedIndex = localStorage.getItem('swiperIndex') || 0;
-
-        if (activeSwiper) {
-          activeSwiper.destroy();
-        }
-        activeSwiper = new Swiper('.swiper', {
-          modules: [Navigation],
-          slidesPerView: 2,
-          preventClicks: false,
-          preventClicksPropagation: false,
-          touchStartPreventDefault: false,
-          initialSlide: parseInt(savedIndex),
-          breakpoints: {
-            992: {slidesPerView: 5},
-            570: {slidesPerView: 4},
-            425: {slidesPerView: 3}
-          },
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          }
-        });
-        activeSwiper.on('slideChange', function () {
-          localStorage.setItem('swiperIndex', activeSwiper.activeIndex);
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', initSwiper);
-      document.addEventListener('livewire:navigated', initSwiper);
 
       const requestProductInfoModal = new bootstrap.Modal('#request-product-info');
       const requestProductInfoButtons = document.querySelectorAll('.request-product-info-modal');
