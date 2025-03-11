@@ -64,7 +64,7 @@
             <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
           </div>
           <x-contact-us-form :formId="'form_submit_about_us'"
-                             :subject="'Jauna ziņa no mājaslapas (par mums sadaļas)'"/>
+                             :subject="'New message from the website (about us page)'"/>
         </div>
       </div>
     </div>
