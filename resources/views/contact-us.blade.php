@@ -25,7 +25,7 @@
       </div>
       <div class="col-lg-6">
         <x-contact-us-form :formId="'form_submit_contact_us'"
-                           :subject="'Jauna ziņa no mājaslapas (kontaktu sadaļas)'"/>
+                           :subject="'New message from the website (contact us page)'"/>
       </div>
     </div>
   </x-slot>
