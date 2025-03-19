@@ -4,6 +4,8 @@ namespace App\Livewire;
 
 use App\Models\Product;
 use App\Models\ProductVariant;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class ShowProduct extends Component
@@ -11,38 +13,38 @@ class ShowProduct extends Component
   public Product $product;
   public ProductVariant|string $productVariant;
   public object $productVariants;
+  public string $productVariantSlug;
 
-  public function mount(Product $product, string $productVariant = '')
+  public function mount(Product $product, string $productVariant = ''): void
   {
     $this->product         = $this->getProduct($product);
     $this->productVariants = $this->getProductVariants($this->product);
-    if (count($this->productVariants) > 0) {
-      if ($productVariant) {
-        $this->productVariant = $this->getProductVariant($productVariant);
-      } else {
-        $this->productVariant = $this->getFirstProductVariant();
-      }
+    if ($this->productVariants->isNotEmpty()) {
+      $this->productVariant = $productVariant
+        ? $this->getProductVariant($productVariant)
+        : $this->productVariants->first();
+    } else {
+      abort(404);
     }
   }
 
-  public function render()
+  public function render(): View
   {
     return view('livewire.show-product')
-      ->layout('components.layouts.app')
-      ->title($this->product->translations[0]->name);
+      ->layout('components.layouts.app', [
+        'header' => $this->product->translations[0]->name,
+      ]);
   }
 
-  private function getFirstProductVariant()
+  public function switchProductVariant(string $productVariant): void
   {
-    return $this->productVariants->first();
+    $this->productVariant     = $this->getProductVariant($productVariant);
+    $this->productVariantSlug = $this->productVariant->slug;
+
+    $this->dispatch('update-url', url: '/'.app()->getLocale().'/'.$this->product->slug.'/'.$this->productVariantSlug);
   }
 
-  private function getProductVariant(string $productVariant)
-  {
-    return $this->productVariants->where('slug', $productVariant)->first() ?? abort(404);
-  }
-
-  private function getProduct(Product $product)
+  private function getProduct(Product $product): Product
   {
     return Product::select('id', 'slug')
                   ->with([
@@ -57,7 +59,12 @@ class ShowProduct extends Component
                   ->findOrFail($product->id);
   }
 
-  private function getProductVariants(Product $product)
+  private function getProductVariant(string $productVariantSlug): ProductVariant
+  {
+    return $this->productVariants->where('slug', $productVariantSlug)->first() ?? abort(404);
+  }
+
+  private function getProductVariants(Product $product): Collection
   {
     return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle', 'price_full',
       'living_area',

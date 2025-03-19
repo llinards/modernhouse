@@ -359,6 +359,16 @@ footer {
   background: black;
 }
 
+.loading-spinner {
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 20;
+
+  .spinner {
+    color: $primary-color;
+    transition: all 0.5s;
+  }
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";
