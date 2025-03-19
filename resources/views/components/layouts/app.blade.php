@@ -12,7 +12,7 @@
         {{ $header }}
       </h1>
       <div class="mt-4">
-        {{ $content }}
+        {{ $slot }}
       </div>
     </div>
   </div>
