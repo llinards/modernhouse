@@ -2,7 +2,7 @@
   <x-slot name="header">
     {{ $news->title }}
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     <div class="row justify-content-center">
       <div
         class="col-lg-8"

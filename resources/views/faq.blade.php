@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('faq')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     <x-faq/>
   </x-slot>
 </x-layouts.app>

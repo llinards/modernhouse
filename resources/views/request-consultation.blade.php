@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('request consultation')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     <div class="row">
       <div class="col-lg-12 d-flex justify-content-center align-items-center flex-column">
         <form method="POST" id="request-consultation-form"

@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('news')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     @foreach($allNews as $news)
       <div class="row mt-4 news-item">
         <div class="col-lg-4 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
