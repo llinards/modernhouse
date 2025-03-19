@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('about')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     <div class="row">
       <div class="row mb-4 mx-auto">
         <div

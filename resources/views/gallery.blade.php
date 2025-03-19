@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('gallery')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     @foreach($galleries as $gallery)
       <div class="row mt-4 gallery-item">
         <div class="col-lg-4 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">

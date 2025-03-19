@@ -2,7 +2,7 @@
   <x-slot name="header">
     @lang('contact')
   </x-slot>
-  <x-slot name="content">
+  <x-slot name="slot">
     <div class="row">
       <div class="col-lg-8 d-flex flex-column justify-content-center">
         <div>
