@@ -1,4 +1,4 @@
-<div id="product-variant-gallery" class="col-lg-7 mt-4">
+<div id="product-variant-gallery" class="col-lg-7">
   <section id="{{$productVariant->slug}}-main-carousel" class="splide">
     <div class="splide__track">
       <ul class="splide__list">

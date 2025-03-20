@@ -89,11 +89,12 @@ class ShowProduct extends Component
 
     $this->productVariantSlug = $this->productVariant->slug;
     $this->dispatch('update-url', url: '/'.app()->getLocale().'/'.$this->product->slug.'/'.$this->productVariantSlug);
+    $this->dispatch('variantChanged', $productVariant);
   }
 
   private function getProduct(Product $product): Product
   {
-    return Product::select('id', 'slug')
+    return Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
                   ->with([
                     'translations' => function ($query) {
                       $query->select('name', 'product_id')->where('language', app()->getLocale());
