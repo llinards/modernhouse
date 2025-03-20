@@ -38,9 +38,56 @@ class ShowProduct extends Component
 
   public function switchProductVariant(string $productVariant): void
   {
-    $this->productVariant     = $this->getProductVariant($productVariant);
-    $this->productVariantSlug = $this->productVariant->slug;
+    $this->productVariant = ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle',
+      'price_full',
+      'living_area',
+      'building_area')
+                                          ->with([
+                                            'translations' => function ($query) {
+                                              $query->select('product_variant_id', 'name',
+                                                'description')->where('language',
+                                                app()->getLocale());
+                                            },
+                                          ])
+                                          ->with([
+                                            'productVariantDetails' => function ($query) {
+                                              $query->select('product_variant_id', 'name', 'hasThis', 'icon',
+                                                'count')->where('language',
+                                                app()->getLocale());
+                                            },
+                                          ])
+                                          ->with([
+                                            'productVariantOptions' => function ($query) {
+                                              $query->select('id', 'product_variant_id',
+                                                'option_title')->where('language',
+                                                app()->getLocale())
+                                                    ->with([
+                                                      'productVariantOptionDetails' => function ($query) {
+                                                        $query->select('product_variant_option_id', 'detail',
+                                                          'has_in_basic',
+                                                          'has_in_middle',
+                                                          'has_in_full');
+                                                      },
+                                                    ]);
+                                            },
+                                          ])
+                                          ->with([
+                                            'productVariantAttachments' => function ($query) {
+                                              $query->select('product_variant_id', 'filename',
+                                                'language')->where('language',
+                                                app()->getLocale());
+                                            },
+                                          ])
+                                          ->with([
+                                            'productVariantPlan' => function ($query) {
+                                              $query->select('product_variant_id', 'filename')->where('language',
+                                                app()->getLocale());
+                                            },
+                                          ])
+                                          ->where('slug', $productVariant)
+                                          ->firstOrFail();
 
+    $this->productVariantSlug = $this->productVariant->slug;
     $this->dispatch('update-url', url: '/'.app()->getLocale().'/'.$this->product->slug.'/'.$this->productVariantSlug);
   }
 
