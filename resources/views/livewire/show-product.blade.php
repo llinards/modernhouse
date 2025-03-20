@@ -1,7 +1,7 @@
 <div>
   @include('includes.status-messages')
   @if(count($productVariants) !== 1)
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch justify-content-between">
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch justify-content-evenly">
       @foreach($productVariants as $index => $productsVariant)
         <li class="nav-item">
           <button
@@ -14,13 +14,27 @@
       @endforeach
     </ul>
   @endif
-
   <div class="position-relative">
     <x-loading-spinner target="switchProductVariant"/>
-    <div class="product-content">
-      <p>
-        {{ $productVariant->translations[0]->name }}
-      </p>
+    @include('includes.request-product-info-modal', ['currentProductVariant' =>$productVariant, $product])
+    <div class="row">
+      <livewire:product.gallery :productVariant="$productVariant" :product="$product"
+                                :key="'gallery-' . $productVariant->id"/>
+      <livewire:product.details :productVariant="$productVariant" :product="$product"
+                                :key="'details-' . $productVariant->id"/>
+      @if($productVariant->productVariantOptions->isNotEmpty())
+        <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
+        <x-product-variant-options :productVariant="$productVariant"/>
+      @endif
+      @if($productVariant->productVariantAttachments->isNotEmpty())
+        @foreach($productVariant->productVariantAttachments as $attachment)
+          <x-download-attachment
+            :href="asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$attachment->filename)"
+            :filename="__('Download attachment')"/>
+        @endforeach
+      @endif
+      <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+      <x-faq/>
     </div>
   </div>
 </div>
