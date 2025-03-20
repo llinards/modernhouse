@@ -89,6 +89,7 @@ class ShowProduct extends Component
 
     $this->productVariantSlug = $this->productVariant->slug;
     $this->dispatch('update-url', url: '/'.app()->getLocale().'/'.$this->product->slug.'/'.$this->productVariantSlug);
+    $this->dispatch('variantChanged', $productVariant);
   }
 
   private function getProduct(Product $product): Product

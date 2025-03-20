@@ -13699,11 +13699,11 @@ footer hr {
 }
 
 .swiper-button-next {
-  right: -7px !important;
+  right: -2px !important;
 }
 
 .swiper-button-prev {
-  left: -7px !important;
+  left: -2px !important;
 }
 
 .swiper-slide .nav-link {
