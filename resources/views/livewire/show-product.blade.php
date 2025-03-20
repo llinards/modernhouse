@@ -45,6 +45,34 @@
     Livewire.on('update-url', params => {
       window.history.pushState({}, '', params.url);
     });
+
+    Livewire.on('variantChanged', variantSlug => {
+      document.querySelectorAll('.swiper-slide .nav-link').forEach(button => {
+        button.classList.remove('active');
+      });
+
+      const activeButton = document.querySelector(`.swiper-slide button[data-variant="${variantSlug}"]`);
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+    });
+
+    const swiper = new Swiper('.swiper', {
+      modules: [Navigation],
+      slidesPerView: 2,
+      preventClicks: false,
+      preventClicksPropagation: false,
+      touchStartPreventDefault: false,
+      breakpoints: {
+        992: {slidesPerView: 5},
+        570: {slidesPerView: 4},
+        // 425: {slidesPerView: 3}
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
   });
 </script>
 @endscript
