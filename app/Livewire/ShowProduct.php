@@ -23,6 +23,8 @@ class ShowProduct extends Component
       $this->productVariant = $productVariant
         ? $this->getProductVariant($productVariant)
         : $this->productVariants->first();
+
+      $this->productVariantSlug = $this->productVariant->slug;
     } else {
       abort(404);
     }
