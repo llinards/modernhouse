@@ -1,7 +1,7 @@
 <div>
   @include('includes.status-messages')
   @if(count($productVariants) !== 1)
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper my-2" wire:ignore>
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
       <div class="swiper-wrapper align-items-center">
         @foreach($productVariants as $index => $productsVariant)
