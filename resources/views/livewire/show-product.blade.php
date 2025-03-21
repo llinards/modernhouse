@@ -5,11 +5,11 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-wrapper align-items-center">
         @foreach($productVariants as $index => $productsVariant)
-          <li class="nav-item swiper-slide">
+          <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
             <button
               class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
               data-variant="{{$productsVariant->slug}}"
-              wire:click="switchProductVariant('{{$productsVariant->slug}}', {{$index}})"
+              wire:click="switchProductVariant('{{$productsVariant->slug}}')"
               wire:loading.attr="disabled"
               wire:target="switchProductVariant"
               type="button">{{ $productsVariant->translations[0]->name}}</button>
@@ -78,6 +78,14 @@
         prevEl: '.swiper-button-prev',
       }
     });
+    
+    const activeVariantSlide = document.querySelector('.swiper-slide .nav-link.active');
+    if (activeVariantSlide) {
+      const slideIndex = activeVariantSlide.closest('.swiper-slide').getAttribute('data-variant-index');
+      if (slideIndex !== null) {
+        swiper.slideTo(parseInt(slideIndex), 0);
+      }
+    }
   });
 </script>
 @endscript
