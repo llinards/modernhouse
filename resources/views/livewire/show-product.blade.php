@@ -1,14 +1,7 @@
 <div>
   @include('includes.status-messages')
-  @if($product->cover_video_filename)
-    <video class="h-100 w-100" playsinline autoplay muted loop
-           poster="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}">
-      <source src="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_video_filename)}}"
-              type="video/mp4">
-    </video>
-  @endif
   @if(count($productVariants) !== 1)
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper my-2" wire:ignore>
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
       <div class="swiper-wrapper align-items-center">
         @foreach($productVariants as $index => $productsVariant)
