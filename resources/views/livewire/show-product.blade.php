@@ -1,17 +1,22 @@
 <div>
   @include('includes.status-messages')
   @if(count($productVariants) !== 1)
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch justify-content-evenly">
-      @foreach($productVariants as $index => $productsVariant)
-        <li class="nav-item">
-          <button
-            class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-            wire:click="switchProductVariant('{{$productsVariant->slug}}', {{$index}})"
-            wire:loading.attr="disabled"
-            wire:target="switchProductVariant"
-            type="button">{{ $productsVariant->translations[0]->name}}</button>
-        </li>
-      @endforeach
+    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-wrapper align-items-center">
+        @foreach($productVariants as $index => $productsVariant)
+          <li class="nav-item swiper-slide">
+            <button
+              class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
+              data-variant="{{$productsVariant->slug}}"
+              wire:click="switchProductVariant('{{$productsVariant->slug}}', {{$index}})"
+              wire:loading.attr="disabled"
+              wire:target="switchProductVariant"
+              type="button">{{ $productsVariant->translations[0]->name}}</button>
+          </li>
+        @endforeach
+      </div>
+      <div class="swiper-button-next"></div>
     </ul>
   @endif
   <div class="position-relative">
@@ -44,6 +49,34 @@
   document.addEventListener('livewire:initialized', () => {
     Livewire.on('update-url', params => {
       window.history.pushState({}, '', params.url);
+    });
+
+    Livewire.on('variantChanged', variantSlug => {
+      document.querySelectorAll('.swiper-slide .nav-link').forEach(button => {
+        button.classList.remove('active');
+      });
+
+      const activeButton = document.querySelector(`.swiper-slide button[data-variant="${variantSlug}"]`);
+      if (activeButton) {
+        activeButton.classList.add('active');
+      }
+    });
+
+    const swiper = new Swiper('.swiper', {
+      modules: [Navigation],
+      slidesPerView: 2,
+      preventClicks: false,
+      preventClicksPropagation: false,
+      touchStartPreventDefault: false,
+      breakpoints: {
+        992: {slidesPerView: 5},
+        570: {slidesPerView: 4},
+        // 425: {slidesPerView: 3}
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
     });
   });
 </script>
