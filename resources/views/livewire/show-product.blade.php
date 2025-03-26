@@ -76,9 +76,54 @@
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
+      },
+      on: {
+        beforeInit: function () {
+          // Store references to the navigation buttons
+          const nextBtn = document.querySelector('.swiper-button-next');
+          const prevBtn = document.querySelector('.swiper-button-prev');
+
+          if (nextBtn && prevBtn) {
+            const nextBtnClone = nextBtn.cloneNode(true);
+            const prevBtnClone = prevBtn.cloneNode(true);
+            nextBtn.parentNode.replaceChild(nextBtnClone, nextBtn);
+            prevBtn.parentNode.replaceChild(prevBtnClone, prevBtn);
+            
+            nextBtnClone.addEventListener('click', function () {
+              const activeSlide = document.querySelector('.swiper-slide .nav-link.active').closest('.swiper-slide');
+              const activeIndex = parseInt(activeSlide.getAttribute('data-variant-index'));
+              const allSlides = document.querySelectorAll('.swiper-slide');
+
+              if (activeIndex < allSlides.length - 1) {
+                const nextSlide = document.querySelector(`.swiper-slide[data-variant-index="${activeIndex + 1}"]`);
+                if (nextSlide) {
+                  const nextButton = nextSlide.querySelector('.nav-link');
+                  if (nextButton) {
+                    nextButton.click();
+                  }
+                }
+              }
+            });
+
+            prevBtnClone.addEventListener('click', function () {
+              const activeSlide = document.querySelector('.swiper-slide .nav-link.active').closest('.swiper-slide');
+              const activeIndex = parseInt(activeSlide.getAttribute('data-variant-index'));
+
+              if (activeIndex > 0) {
+                const prevSlide = document.querySelector(`.swiper-slide[data-variant-index="${activeIndex - 1}"]`);
+                if (prevSlide) {
+                  const prevButton = prevSlide.querySelector('.nav-link');
+                  if (prevButton) {
+                    prevButton.click();
+                  }
+                }
+              }
+            });
+          }
+        }
       }
     });
-    
+
     const activeVariantSlide = document.querySelector('.swiper-slide .nav-link.active');
     if (activeVariantSlide) {
       const slideIndex = activeVariantSlide.closest('.swiper-slide').getAttribute('data-variant-index');
