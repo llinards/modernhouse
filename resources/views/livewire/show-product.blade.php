@@ -3,7 +3,7 @@
   @if(count($productVariants) !== 1)
     <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
-      <div class="swiper-wrapper align-items-center">
+      <div class="swiper-wrapper">
         @foreach($productVariants as $index => $productsVariant)
           <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
             <button
@@ -113,17 +113,6 @@
 
               if (prevSlide) {
                 prevSlide.querySelector('.nav-link').click();
-
-                let slidesToShow;
-                const windowWidth = window.innerWidth;
-
-                if (windowWidth >= 992) {
-                  slidesToShow = 5;
-                } else if (windowWidth >= 570) {
-                  slidesToShow = 4;
-                } else {
-                  slidesToShow = 2;
-                }
 
                 const slidePosition = activeIndex - 1;
 
