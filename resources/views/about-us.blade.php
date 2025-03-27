@@ -58,6 +58,22 @@
           </div>
         </div>
       </div>
+      <div class="row mb-4 flex-lg-row flex-column mx-auto">
+        <div
+          class="col-12 container-with-image-background p-lg-5 d-flex flex-column justify-content-center align-items-center"
+          style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url({{ asset('storage/about-us/5.jpg')}}); background-size: cover; background-position: center;">
+          <div class="row">
+            <div
+              class="col-lg-4 col-12 d-flex align-items-center justify-content-center py-lg-5 pt-5">
+              <img src="{{asset('storage/about-us/mh-furniture-logo.png')}}" alt="about us" class="w-75">
+            </div>
+            <div class="col-lg-8 col-12 p-lg-5 py-5 d-flex align-items-center">
+              <p
+                class="mb-2 text-white text-center">@lang('MODERN HOUSE Furniture - Tavs jaunais mēbeļu ražotājs!<br/>Mēs radām kvalitatīvas un modernas, virtuves, durvis, skapjus, kumodes un citas mēbeles pēc individuāla pasūtījuma! Ja vēlies unikālu un funkcionālu interjeru, mēs parūpēsimies par katru detaļu!')</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row justify-content-center mx-auto">
         <div id="contact-us" class="col-lg-6">
           <div class="mb-2">
