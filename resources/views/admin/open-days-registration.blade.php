@@ -4,12 +4,13 @@
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">
+      @include('includes.status-messages')
       @if(count($submissions) === 0)
         <div class="alert alert-secondary" role="alert">
           Izskatās, ka pagaidām nav pieteikumu!
         </div>
       @else
-        <div class="d-flex justify-content-center mt-2 mb-2">
+        <div class="d-flex justify-content-evenly mt-2 mb-2">
           <a href="/admin/open-days-submissions/export" class="btn btn-dark">Lejupielādēt Excel formātā</a>
         </div>
       @endif
@@ -55,6 +56,16 @@
         @endforeach
         </tbody>
       </table>
+      <div class="d-flex justify-content-evenly mt-2 mb-2">
+        <form action="/admin/open-days-submissions/all/delete" method="POST">
+          @csrf
+          @method('DELETE')
+          <td>
+            <button onclick="return confirm('Vai tiešām vēlies dzēst VISUS ierakstus?');" class="btn btn-danger"
+                    type="submit">Dzēst visus ierakstus
+            </button>
+        </form>
+      </div>
     </div>
   </x-slot>
 </x-layouts.admin>
