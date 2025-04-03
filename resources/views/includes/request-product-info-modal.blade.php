@@ -30,9 +30,15 @@
             <label for="product-variant-option" class="form-label fw-bold">@lang('product variant option')*</label>
             <select class="form-select" name="product-variant-option" id="product-variant-option"
                     aria-label="Default select example">
-              <option value="Basic" selected>@lang('basic')</option>
-              <option value="Middle">@lang('middle')</option>
-              <option value="Full">@lang('full')</option>
+              @if($currentProductVariant->price_basic)
+                <option value="Basic" selected>@lang('basic')</option>
+              @endif
+              @if($currentProductVariant->price_middle)
+                <option value="Middle">@lang('middle')</option>
+              @endif
+              @if($currentProductVariant->price_full)
+                <option value="Full">@lang('full')</option>
+              @endif
             </select>
           </div>
           <div class="mb-3">
