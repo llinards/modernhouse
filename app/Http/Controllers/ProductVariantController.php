@@ -39,6 +39,9 @@ class ProductVariantController extends Controller
 
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
@@ -84,6 +87,9 @@ class ProductVariantController extends Controller
 
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
+      if ($e->getCode() === '23000') {
+        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
+      }
       Log::error($e);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
