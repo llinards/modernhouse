@@ -18,14 +18,15 @@
         @endif
       </div>
     @endif
-    <button type="button" name="menu" class="navbar-toggler py-4">
+    <button type="button" name="menu" class="navbar-toggler py-4" aria-label="Toggle navigation" aria-expanded="false"
+            aria-controls="navbar-modal">
       <div class="bar1 {{ isset($home) ? 'bar-index' : '' }}"></div>
       <div class="bar2 {{ isset($home) ? 'bar-index' : '' }}"></div>
       <div class="bar3 {{ isset($home) ? 'bar-index' : '' }}"></div>
     </button>
   </div>
 
-  <div id="navbar-modal" class="h-100">
+  <div id="navbar-modal" class="h-100" aria-hidden="true">
     <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
       <div class="logo p-0">
         <a class="navbar-brand" href="/">
@@ -109,115 +110,127 @@
 </nav>
 
 <script type="module">
+  // DOM elements
   const menu = document.querySelector(".navbar-toggler");
   const menuLinks = document.querySelectorAll("#navbar-modal .nav-link");
   const navbarIndex = document.querySelector(".navbar-index");
   const indexLinks = document.querySelectorAll(".nav-link.index");
   const logoToggle = document.querySelector(".logo-toggle");
   const barIndexElements = document.querySelectorAll(".bar-index");
+  const navbarModal = document.getElementById('navbar-modal');
+  const contentElement = document.querySelector('.content');
+  const modalContent = document.getElementById('modal-content');
+  const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
+  const navbarLogo = document.querySelector('.mobile-navbar .logo .modern-house-logo');
+
+  // Constants
   const blackLogoSrc = "{{ asset('storage/logo/logo-black.png') }}";
   const whiteLogoSrc = "{{ asset('storage/logo/logo-white.png') }}";
-  const primaryColorHover = "#919191"; // Primary color hover value
+  const primaryColorHover = "#919191";
+  const isSmallScreen = () => window.innerWidth <= 990;
 
-  // Handle link hover events with updated logic
-  if (navbarIndex && indexLinks.length > 0) {
-    // Apply hover states to index links
-    indexLinks.forEach(link => {
-      // When hovering a specific nav link
-      link.addEventListener("mouseenter", (event) => {
-        // Change ALL links to dark color
-        indexLinks.forEach(navLink => {
-          navLink.style.color = "#333";
-        });
-
-        // Change the hovered link to primary-color-hover
-        event.target.style.color = primaryColorHover;
-
-        // Change navbar and other elements
-        barIndexElements.forEach(bar => {
-          bar.style.backgroundColor = "#333";
-        });
-        navbarIndex.style.backgroundColor = "white";
-        if (logoToggle) {
-          logoToggle.src = blackLogoSrc;
-        }
-      });
-    });
-
-    // Add event listener to the navbar itself to reset colors
-    // when mouse leaves the entire navbar area
-    if (navbarIndex) {
-      navbarIndex.addEventListener("mouseleave", () => {
-        // Reset ALL links to white
-        indexLinks.forEach(navLink => {
-          navLink.style.color = "white";
-        });
-
-        barIndexElements.forEach(bar => {
-          bar.style.backgroundColor = "white";
-        });
-        navbarIndex.style.backgroundColor = "rgba(63, 63, 63, .5)";
-        if (logoToggle) {
-          logoToggle.src = whiteLogoSrc;
-        }
-      });
-    }
-  }
-
+  // Menu toggle functions
   function closeMenu() {
     menu.classList.remove('open');
-    document.getElementById('navbar-modal').style.width = '0';
-    document.getElementById('modal-content').style.opacity = '0';
-    document.querySelector('.content').classList.remove('backdrop');
-    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
-    (navbarLinksDesktop) ? navbarLinksDesktop.classList.remove('visually-hidden') : '';
-    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.remove('backdrop');
+    menu.setAttribute('aria-expanded', 'false');
+    navbarModal.style.width = '0';
+    navbarModal.setAttribute('aria-hidden', 'true');
+    modalContent.style.opacity = '0';
 
+    contentElement?.classList.remove('backdrop');
+    navbarLinksDesktop?.classList.remove('visually-hidden');
+    navbarLogo?.classList.remove('backdrop');
+
+    document.documentElement.classList.remove('overflow-hidden-height-100');
+
+    // Reset menu bars
+    Array.from(menu.children).forEach(item => item.classList.remove("change"));
   }
 
   function openMenu() {
     menu.classList.add('open');
-    if (window.screen.width <= 990) {
-      document.getElementById('navbar-modal').style.width = '100%';
-    } else {
-      document.getElementById('navbar-modal').style.width = '40%';
-    }
-    document.getElementById('modal-content').style.opacity = '1';
-    document.querySelector('.content').classList.add('backdrop');
-    const navbarLinksDesktop = document.querySelector('.navbar-links-desktop');
-    (navbarLinksDesktop) ? navbarLinksDesktop.classList.add('visually-hidden') : '';
-    document.querySelector('.mobile-navbar .logo .modern-house-logo').classList.add('backdrop');
+    menu.setAttribute('aria-expanded', 'true');
+    navbarModal.style.width = isSmallScreen() ? '100%' : '40%';
+    navbarModal.setAttribute('aria-hidden', 'false');
+    modalContent.style.opacity = '1';
 
+    contentElement?.classList.add('backdrop');
+    navbarLinksDesktop?.classList.add('visually-hidden');
+    navbarLogo?.classList.add('backdrop');
+
+    document.documentElement.classList.add('overflow-hidden-height-100');
+
+    // Animate menu bars
+    Array.from(menu.children).forEach(item => item.classList.add("change"));
   }
 
-  function toggleOpenCloseMenu() {
+  function toggleMenu() {
     if (menu.classList.contains('open')) {
       closeMenu();
-      document.documentElement.classList.remove('overflow-hidden-height-100');
     } else {
       openMenu();
-      document.documentElement.classList.add('overflow-hidden-height-100');
-      document.querySelector('.content.backdrop').addEventListener('click', () => {
-        closeMenu();
-        document.documentElement.classList.remove('overflow-hidden-height-100');
-        for (let item of menu.children) {
-          item.classList.remove("change");
-        }
-      })
-    }
-    for (let item of menu.children) {
-      item.classList.toggle("change");
     }
   }
 
-  menuLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      toggleOpenCloseMenu()
+  // Navbar index hover effects (consolidated)
+  if (navbarIndex && indexLinks.length > 0) {
+    const setNavbarState = (isHovered, targetElement = null) => {
+      // Set link colors
+      indexLinks.forEach(link => {
+        link.style.color = isHovered ? "#333" : "white";
+      });
+
+      // If hovering a specific link, highlight it
+      if (isHovered && targetElement) {
+        targetElement.style.color = primaryColorHover;
+      }
+
+      // Update UI elements
+      barIndexElements.forEach(bar => {
+        bar.style.backgroundColor = isHovered ? "#333" : "white";
+      });
+
+      navbarIndex.style.backgroundColor = isHovered ? "white" : "rgba(63, 63, 63, .5)";
+
+      if (logoToggle) {
+        logoToggle.src = isHovered ? blackLogoSrc : whiteLogoSrc;
+      }
+    };
+
+    // Add hover events to individual links
+    indexLinks.forEach(link => {
+      link.addEventListener("mouseenter", (event) => setNavbarState(true, event.target));
     });
+
+    // Reset when mouse leaves navbar area
+    navbarIndex.addEventListener("mouseleave", () => setNavbarState(false));
+  }
+
+  // Event listeners
+  menu.addEventListener("click", toggleMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 
-  menu.addEventListener("click", () => {
-    toggleOpenCloseMenu();
+  // Close menu when clicking outside
+  contentElement?.addEventListener('click', (e) => {
+    if (menu.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+
+  // Handle resize events
+  window.addEventListener('resize', () => {
+    if (menu.classList.contains('open')) {
+      navbarModal.style.width = isSmallScreen() ? '100%' : '40%';
+    }
+  });
+
+  // Support keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      closeMenu();
+    }
   });
 </script>
-
