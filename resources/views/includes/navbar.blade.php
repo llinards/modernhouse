@@ -3,7 +3,7 @@
     <div class="logo py-4">
       <a class="navbar-brand" href="/{{app()->getLocale()}}">
         <img src="{{ isset($home) ? asset('storage/logo/logo-white.png') : asset('storage/logo/logo-black.png') }}"
-             class="modern-house-logo" alt="Modern House logo">
+             class="modern-house-logo {{ isset($home) ? 'logo-toggle' : '' }}" alt="Modern House logo">
       </a>
     </div>
     @if(isset($home) && (count($allActiveProducts) > 1))
@@ -111,6 +111,58 @@
 <script type="module">
   const menu = document.querySelector(".navbar-toggler");
   const menuLinks = document.querySelectorAll("#navbar-modal .nav-link");
+  const navbarIndex = document.querySelector(".navbar-index");
+  const indexLinks = document.querySelectorAll(".nav-link.index");
+  const logoToggle = document.querySelector(".logo-toggle");
+  const barIndexElements = document.querySelectorAll(".bar-index");
+  const blackLogoSrc = "{{ asset('storage/logo/logo-black.png') }}";
+  const whiteLogoSrc = "{{ asset('storage/logo/logo-white.png') }}";
+  const primaryColorHover = "#919191"; // Primary color hover value
+
+  // Handle link hover events with updated logic
+  if (navbarIndex && indexLinks.length > 0) {
+    // Apply hover states to index links
+    indexLinks.forEach(link => {
+      // When hovering a specific nav link
+      link.addEventListener("mouseenter", (event) => {
+        // Change ALL links to dark color
+        indexLinks.forEach(navLink => {
+          navLink.style.color = "#333";
+        });
+
+        // Change the hovered link to primary-color-hover
+        event.target.style.color = primaryColorHover;
+
+        // Change navbar and other elements
+        barIndexElements.forEach(bar => {
+          bar.style.backgroundColor = "#333";
+        });
+        navbarIndex.style.backgroundColor = "white";
+        if (logoToggle) {
+          logoToggle.src = blackLogoSrc;
+        }
+      });
+    });
+
+    // Add event listener to the navbar itself to reset colors
+    // when mouse leaves the entire navbar area
+    if (navbarIndex) {
+      navbarIndex.addEventListener("mouseleave", () => {
+        // Reset ALL links to white
+        indexLinks.forEach(navLink => {
+          navLink.style.color = "white";
+        });
+
+        barIndexElements.forEach(bar => {
+          bar.style.backgroundColor = "white";
+        });
+        navbarIndex.style.backgroundColor = "rgba(63, 63, 63, .5)";
+        if (logoToggle) {
+          logoToggle.src = whiteLogoSrc;
+        }
+      });
+    }
+  }
 
   function closeMenu() {
     menu.classList.remove('open');
@@ -168,3 +220,4 @@
     toggleOpenCloseMenu();
   });
 </script>
+

@@ -1,5 +1,6 @@
 .mobile-navbar {
   z-index: 10;
+  transition: background-color 0.3s ease;
 
   .navbar-toggler {
     z-index: 15;
@@ -24,8 +25,10 @@
     background-color: white;
   }
 
-  .bar-index.change {
-    background-color: $primary-color;
+  .bar1.change,
+  .bar2.change,
+  .bar3.change {
+    background-color: $primary-color !important; // Use !important to override inline styles
   }
 
   .bar1.change {
@@ -66,6 +69,7 @@
 
 .navbar-index {
   background-color: rgba(63, 63, 63, .5);
+  transition: background-color 0.3s ease;
 }
 
 .backdrop {
@@ -88,6 +92,13 @@
 
 .nav-link.index {
   color: white;
+  position: relative;
+  z-index: 11;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $primary-color-hover;
+  }
 }
 
 .nav-link:hover,
