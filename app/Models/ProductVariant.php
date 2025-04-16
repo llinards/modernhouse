@@ -10,6 +10,7 @@ class ProductVariant extends Model
 {
   protected $fillable = [
     'slug', 'price_basic', 'price_middle', 'price_full', 'product_id', 'is_active', 'building_area', 'living_area',
+    'menu_icon',
   ];
   use HasFactory;
 
@@ -51,5 +52,12 @@ class ProductVariant extends Model
   public function productVariantAttachments(): \Illuminate\Database\Eloquent\Relations\HasMany
   {
     return $this->hasMany(ProductVariantAttachment::class);
+  }
+
+  protected static function booted()
+  {
+    static::addGlobalScope('slug', function ($query) {
+      $query->orderBy('slug', 'asc');
+    });
   }
 }
