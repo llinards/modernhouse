@@ -13454,36 +13454,38 @@ footer hr {
 .mobile-navbar .navbar-toggler {
   z-index: 15;
   border-color: transparent;
-  cursor: pointer;
 }
 .mobile-navbar .navbar-toggler:focus {
   box-shadow: none;
 }
-.mobile-navbar .navbar-toggler .bar1, .mobile-navbar .navbar-toggler .bar2, .mobile-navbar .navbar-toggler .bar3 {
+.mobile-navbar .bar1,
+.mobile-navbar .bar2,
+.mobile-navbar .bar3 {
   width: 40px;
   height: 4px;
   background-color: #000000;
   margin: 6px 0;
-  transition: transform 0.4s ease, opacity 0.3s ease, background-color 0.3s ease;
+  transition: all 0.5s;
 }
-.mobile-navbar .navbar-toggler .bar1.bar-index, .mobile-navbar .navbar-toggler .bar2.bar-index, .mobile-navbar .navbar-toggler .bar3.bar-index {
+.mobile-navbar .bar-index {
   background-color: white;
 }
-.mobile-navbar .navbar-toggler .bar1.change, .mobile-navbar .navbar-toggler .bar2.change, .mobile-navbar .navbar-toggler .bar3.change {
+.mobile-navbar .bar1.change,
+.mobile-navbar .bar2.change,
+.mobile-navbar .bar3.change {
   background-color: #000000 !important;
 }
-.mobile-navbar .navbar-toggler .bar1.change {
+.mobile-navbar .bar1.change {
   transform: rotate(-45deg) translate(-8px, 8px);
 }
-.mobile-navbar .navbar-toggler .bar2.change {
+.mobile-navbar .bar2.change {
   opacity: 0;
 }
-.mobile-navbar .navbar-toggler .bar3.change {
+.mobile-navbar .bar3.change {
   transform: rotate(45deg) translate(-5px, -5px);
 }
 .mobile-navbar .navbar-links-desktop {
   padding-right: 42px;
-  transition: opacity 0.3s ease;
 }
 .mobile-navbar #navbar-modal {
   position: fixed;
@@ -13491,15 +13493,16 @@ footer hr {
   width: 0;
   top: 0;
   right: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background-color: white;
-  transition: width 0.4s ease-in-out;
+  transition: all 0.5s;
   z-index: 10;
   box-shadow: -6px 1px 11px 0px rgba(0, 0, 0, 0.41);
 }
 .mobile-navbar #navbar-modal #modal-content {
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: all 0.5s;
 }
 
 .navbar-index {
@@ -13508,7 +13511,7 @@ footer hr {
 }
 
 .backdrop {
-  transition: all 0.4s ease;
+  transition: all 0.5s;
   filter: opacity(0.5);
 }
 
@@ -13523,30 +13526,28 @@ footer hr {
   font-weight: 500;
   letter-spacing: 0;
   font-size: 19px;
-  transition: color 0.3s ease, border-color 0.3s ease;
 }
-.nav-link:hover, .nav-link:focus,
-.dropdown-item:hover,
-.dropdown-item:focus {
-  color: #000000;
-}
-.nav-link:focus-visible,
-.dropdown-item:focus-visible {
-  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
-  outline: none;
-}
-.nav-link.index,
-.dropdown-item.index {
+
+.nav-link.index {
   color: white;
   position: relative;
   z-index: 11;
+  transition: color 0.3s ease;
 }
-.nav-link.index:hover,
-.dropdown-item.index:hover {
+.nav-link.index:hover {
   color: #919191;
 }
-.nav-link.nav-link-active,
-.dropdown-item.nav-link-active {
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #000000;
+}
+
+.nav-link:focus-visible {
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.nav-link-active {
   color: #000000;
   border-bottom: 2px solid #000000;
   padding-bottom: 0.25rem;
@@ -13558,18 +13559,16 @@ footer hr {
 .navbar-modal-social-network-icons i {
   font-size: 20px;
 }
-.navbar-modal-social-network-icons .navbar-modal-social-network-icon-dividers {
+
+.navbar-modal-social-network-icon-dividers {
   font-size: 22px;
 }
 
-@media (max-width: 990px) {
-  .mobile-navbar .navbar-links-desktop {
-    padding-right: 20px;
-  }
-  .mobile-navbar #navbar-modal {
-    transition: width 0.3s ease-in-out;
-  }
+.navbar-modal-footer .nav-link {
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
 }
+
 #home {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;

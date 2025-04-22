@@ -5,45 +5,46 @@
   .navbar-toggler {
     z-index: 15;
     border-color: transparent;
-    cursor: pointer;
+  }
 
-    &:focus {
-      box-shadow: none;
-    }
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
 
-    // Menu bars
-    .bar1, .bar2, .bar3 {
-      width: 40px;
-      height: 4px;
-      background-color: $primary-color;
-      margin: 6px 0;
-      transition: transform 0.4s ease, opacity 0.3s ease, background-color 0.3s ease;
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 40px;
+    height: 4px;
+    background-color: $primary-color;
+    margin: 6px 0;
+    transition: all 0.5s;
+  }
 
-      &.bar-index {
-        background-color: white;
-      }
+  .bar-index {
+    background-color: white;
+  }
 
-      &.change {
-        background-color: $primary-color !important; // Override inline styles
-      }
-    }
+  .bar1.change,
+  .bar2.change,
+  .bar3.change {
+    background-color: $primary-color !important; // Use !important to override inline styles
+  }
 
-    .bar1.change {
-      transform: rotate(-45deg) translate(-8px, 8px);
-    }
+  .bar1.change {
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
 
-    .bar2.change {
-      opacity: 0;
-    }
+  .bar2.change {
+    opacity: 0;
+  }
 
-    .bar3.change {
-      transform: rotate(45deg) translate(-5px, -5px);
-    }
+  .bar3.change {
+    transform: rotate(45deg) translate(-5px, -5px);
   }
 
   .navbar-links-desktop {
     padding-right: 42px;
-    transition: opacity 0.3s ease;
   }
 
   #navbar-modal {
@@ -52,15 +53,16 @@
     width: 0;
     top: 0;
     right: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     background-color: white;
-    transition: width 0.4s ease-in-out;
+    transition: all 0.5s;
     z-index: 10;
     box-shadow: -6px 1px 11px 0px rgba(0, 0, 0, 0.41);
 
     #modal-content {
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: all 0.5s;
     }
   }
 }
@@ -70,9 +72,8 @@
   transition: background-color 0.3s ease;
 }
 
-// Shared transitions
 .backdrop {
-  transition: all 0.4s ease;
+  transition: all 0.5s;
   filter: opacity(0.5);
 }
 
@@ -81,63 +82,53 @@
   height: 100%;
 }
 
-// Navigation links styling
 .nav-link,
 .dropdown-item {
   color: $navbar-item-font-color;
   font-weight: $navbar-item-font-weigth;
   letter-spacing: $navbar-item-letter-spacing;
   font-size: $navbar-item-font-size;
-  transition: color 0.3s ease, border-color 0.3s ease;
+}
 
-  &:hover, &:focus {
-    color: $navbar-item-hover-font-color;
-  }
+.nav-link.index {
+  color: white;
+  position: relative;
+  z-index: 11;
+  transition: color 0.3s ease;
 
-  &:focus-visible {
-    box-shadow: $primary-color-focus-box-shadow;
-    outline: none;
-  }
-
-  &.index {
-    color: white;
-    position: relative;
-    z-index: 11;
-
-    &:hover {
-      color: $primary-color-hover;
-    }
-  }
-
-  &.nav-link-active {
-    color: $navbar-item-hover-font-color;
-    border-bottom: 2px solid $navbar-item-hover-font-color;
-    padding-bottom: 0.25rem;
-    width: fit-content;
-    margin: 0 auto;
+  &:hover {
+    color: $primary-color-hover;
   }
 }
 
-// Social media icons
-.navbar-modal-social-network-icons {
-  i {
-    font-size: 20px;
-  }
-
-  .navbar-modal-social-network-icon-dividers {
-    font-size: 22px;
-  }
+.nav-link:hover,
+.nav-link:focus {
+  color: $navbar-item-hover-font-color;
 }
 
-// Responsive adjustments
-@media (max-width: 990px) {
-  .mobile-navbar {
-    .navbar-links-desktop {
-      padding-right: 20px;
-    }
+.nav-link:focus-visible {
+  box-shadow: $primary-color-focus-box-shadow;
+}
 
-    #navbar-modal {
-      transition: width 0.3s ease-in-out;
-    }
+.nav-link-active {
+  color: $navbar-item-hover-font-color;
+  border-bottom: 2px solid $navbar-item-hover-font-color;
+  padding-bottom: 0.25rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.navbar-modal-social-network-icons i {
+  font-size: 20px;
+}
+
+.navbar-modal-social-network-icon-dividers {
+  font-size: 22px;
+}
+
+.navbar-modal-footer {
+  .nav-link {
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
   }
 }
