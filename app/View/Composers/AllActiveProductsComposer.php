@@ -18,7 +18,7 @@ class AllActiveProductsComposer
                                 ])
                                 ->with([
                                   'productVariants' => function ($query) {
-                                    $query->select('id', 'product_id', 'slug')
+                                    $query->select('id', 'product_id', 'slug', 'menu_icon')
                                           ->with([
                                             'translations' => function ($query) {
                                               $query->select('product_variant_id', 'name')->where('language',

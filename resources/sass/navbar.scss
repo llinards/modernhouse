@@ -160,7 +160,7 @@
   color: #000;
   opacity: 1;
   transition: opacity 0.3s ease;
-  background-color: transparent;
+  background-color: transparent !important;
   position: absolute;
 
   &:after {

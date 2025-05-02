@@ -52,4 +52,11 @@ class ProductVariant extends Model
   {
     return $this->hasMany(ProductVariantAttachment::class);
   }
+
+  protected static function booted()
+  {
+    static::addGlobalScope('slug', function ($query) {
+      $query->orderBy('slug', 'asc');
+    });
+  }
 }
