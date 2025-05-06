@@ -67,7 +67,12 @@
       labelIdle: 'Pievienot Excel failu',
       maxFileSize: '50MB',
       acceptedFileTypes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
-    }
+    },
+    "product-variant-menu-icon": {
+      labelIdle: 'Pievienot izvēlnes ikonu pirmajā lapā',
+      maxFileSize: '250KB',
+      acceptedFileTypes: ['image/*'],
+    },
   };
   if (optionsConfig[fileId]) {
     Object.assign(options, optionsConfig[fileId]);

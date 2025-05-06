@@ -40,7 +40,7 @@
                     <div class="submenu-item">
                       <a href="{{app()->getLocale()}}/{{$product->slug}}/{{$productVariant->slug}}">
                         <img class="submenu-item-image"
-                             src="{{$productVariant->menu_icon ? asset('storage/product-images/'.$productVariant->slug.'/'.$productVariant->menu_icon) : asset('storage/icons/default_product_variant_menu_icon.png') }}"/>
+                             src="{{$productVariant->menu_icon ? asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$productVariant->menu_icon) : asset('storage/icons/default_product_variant_menu_icon.png') }}"/>
                         <h4 class="submenu-title">{{$productVariant->translations[0]->name}}</h4>
                       </a>
                     </div>

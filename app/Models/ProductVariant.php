@@ -10,6 +10,7 @@ class ProductVariant extends Model
 {
   protected $fillable = [
     'slug', 'price_basic', 'price_middle', 'price_full', 'product_id', 'is_active', 'building_area', 'living_area',
+    'menu_icon',
   ];
   use HasFactory;
 
