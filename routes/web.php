@@ -148,8 +148,13 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
     [LandingPageController::class, 'sviresIelasProjektsSigulda']);
 
-  Route::get('{language?}/atverto-durvju-dienas-svires-iela',
-    [LandingPageController::class, 'atvertoDurvjuDienasSviresIela']);
+  Route::get('{language?}/modern-house-maju-marsruts-2025', static function ($language) {
+    if ($language === 'lv') {
+      return view('landing-pages.modern-house-maju-marsruts-2025');
+    }
+    abort(404);
+  });
+
 
   //Registration form for Open Days at Svires Iela
   Route::get('{language?}/pieteikums-atverto-durvju-dienam-svires-iela/{pieteikties?}',
