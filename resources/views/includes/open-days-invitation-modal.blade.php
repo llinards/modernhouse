@@ -18,7 +18,7 @@
             <div
               class="col-12 col-lg-4 d-flex flex-column justify-content-center">
               <div class="">
-                <div class="mb-4 mt-4 mt-lg-0">
+                <div class="mb-2 mb-lg-4 mt-2 mt-lg-0">
                   <h2 class="text-uppercase mb-2">aicinām</h2>
                   <p class="mb-2">uz MODERN HOUSE<br/>atvērto durvju dienām</p>
                   <h4 class="text-uppercase">"modern house māju maršruts 2025"</h4>
@@ -44,7 +44,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="d-flex justify-content-start">
+              <div class="d-flex justify-content-center justify-content-lg-start">
                 <a href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025#contact-us" target="_blank"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
