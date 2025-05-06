@@ -13646,7 +13646,7 @@ footer hr {
 }
 .submenu-item-image {
   width: 100px;
-  height: auto;
+  height: 50px;
   border-radius: 4px;
   margin: 0 auto 10px;
   display: block;

@@ -32,12 +32,4 @@ class LandingPageController extends Controller
     }
     abort(404);
   }
-
-  public function atvertoDurvjuDienasSviresIela($language)
-  {
-    if ($language === 'lv') {
-      return view('landing-pages.atverto-durvju-dienas-svires-iela');
-    }
-    abort(404);
-  }
 }

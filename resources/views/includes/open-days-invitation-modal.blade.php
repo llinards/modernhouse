@@ -11,40 +11,41 @@
       <div class="modal-body pt-0">
         <div class="container">
           <div class="row">
-            <div class="col-12 col-lg-7">
+            <div class="col-12 col-lg-8">
               <img class="img-fluid" src="{{asset('storage/open-days/modal-img.jpg')}}"
                    alt="Family living in the Modern House project">
             </div>
             <div
-              class="col-12 col-lg-5 d-flex flex-column justify-content-center align-items-center">
-              <div>
-                <div class="mb-2 mt-4 mt-lg-0">
-                  <h2 class="text-uppercase text-center mb-2">aicinām</h2>
-                  <p>uz MODERN HOUSE Svīres ielas<br/>projekta atvērtajām durvju dienām</p>
+              class="col-12 col-lg-4 d-flex flex-column justify-content-center">
+              <div class="">
+                <div class="mb-4 mt-4 mt-lg-0">
+                  <h2 class="text-uppercase mb-2">aicinām</h2>
+                  <p class="mb-2">uz MODERN HOUSE<br/>atvērto durvju dienām</p>
+                  <h4 class="text-uppercase">"modern house māju maršruts 2025"</h4>
                 </div>
                 <ul>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/calendar-check.svg')}}" alt="Calendar icon">
-                      <p>5., 6. un 7. jūlijs</p>
+                      <p class="mb-0">4. un 5. jūlijā (sestdiena, svētdiena)</p>
                     </div>
                   </li>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/clock.svg')}}" alt="Clock icon">
-                      <p>10:00 - 18:00</p>
+                      <p class="mb-0">10:00 - 19:00</p>
                     </div>
                   </li>
                   <li>
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/map-pin-line-3.svg')}}" alt="Map pin">
-                      <p>Sigulda, Svīres iela</p>
+                      <p class="mb-0">Sigulda, Svīres iela</p>
                     </div>
                   </li>
                 </ul>
               </div>
-              <div class="d-flex justify-content-center">
-                <a href="/{{app()->getLocale()}}/atverto-durvju-dienas-svires-iela#contact-us"
+              <div class="d-flex justify-content-start">
+                <a href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025#contact-us" target="_blank"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
@@ -55,7 +56,6 @@
   </div>
 </div>
 <script>
-  // Check if modal element exists before proceeding
   const registerForOpenDaysModal = document.getElementById('open-days-invitation-modal');
   if (!registerForOpenDaysModal) {
     console.error('Open days modal element not found');
@@ -66,7 +66,6 @@
     const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
     const now = new Date().getTime();
 
-    // Parse the timestamp correctly, defaulting to 0 if null
     const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
     const differenceInDays = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60 * 24)) : Infinity;
 
