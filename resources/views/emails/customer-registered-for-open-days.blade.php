@@ -299,7 +299,8 @@
                             <tr>
                               <td align="left" style="padding:0;Margin:0"><p
                                   style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                  Automātiskais pieteikums atvērto durvju dienām Svīres ielas projektā.<br></p></td>
+                                  Automātiskais pieteikums atvērto durvju dienām "Modern House māju maršruts 2025".<br>
+                                </p></td>
                             </tr>
                           </table>
                         </td>
@@ -347,7 +348,7 @@
                                   Laiks - <strong>{{$data['time']}}</strong></p>
                                 <p
                                   style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                  Jautājums - <strong>{{$data['questions']}}</strong></p>
+                                  Apmeklējuma mērķis - <strong>{{$data['reason']}}</strong></p>
                               </td>
                             </tr>
                           </table>

@@ -21,6 +21,14 @@ class OpenDaysRegistrationForm extends Component
   public bool $registerView = true;
   public bool $successView = false;
 
+  #[Validate('required', message: 'Datums ir obligāts.')]
+  #[Validate('in:4.jūlijs,5.jūlijs', message: 'Pieteikties var tikai 4.jūlijā vai 5.jūlijā.')]
+  public string $date = '';
+
+  #[Validate('required', message: 'Laiks ir obligāts.')]
+  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
+  public string $time = '';
+
   #[Validate('required', message: 'Vārds ir obligāts.')]
   #[Validate('string', message: 'Vārds drīkst sastāvēt tikai no burtiem.')]
   #[Validate('max:255', message: 'Vārds ir aizdomīgi garš.')]
@@ -33,14 +41,6 @@ class OpenDaysRegistrationForm extends Component
   #[Validate('alpha', message: 'Uzvārds drīkst sastāvēt tikai no burtiem.')]
   public string $lastName = '';
 
-  #[Validate('required', message: 'Datums ir obligāts.')]
-  #[Validate('in:5.jūlijs,6.jūlijs,7.jūlijs', message: 'Pieteikties var tikai 1.jūlijā vai 2.jūlijā.')]
-  public string $date = '';
-
-  #[Validate('required', message: 'Laiks ir obligāts.')]
-  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
-  public string $time = '';
-
   #[Validate('required', message: 'Telefona numurs ir obligāts.')]
   #[Validate('max:255', message: 'Telefona numurs ir aizdomīgi garš.')]
   #[Validate('phone', message: 'Telefona numurs jānorāda ar valsts un/vai reģiona kodu. Piemēram, +371 12345678.')]
@@ -51,7 +51,8 @@ class OpenDaysRegistrationForm extends Component
   #[Validate('email', message: 'E-pasts nav derīgs.')]
   public string $email = '';
 
-  public string $questions = '';
+  #[Validate('required', message: 'Lūdzu norādi apmeklējuma mērķi.')]
+  public string $reason = '';
 
   #[Validate('accepted', message: 'Jums ir jāpiekrīt datu apstrādei un uzglabāšanai, lai reģistrētos.')]
   public bool $consentToProcessPersonalData = false;
@@ -67,14 +68,14 @@ class OpenDaysRegistrationForm extends Component
       OpenDaysRegistration::class::create($this->all());
 //      TODO: This should be fixed
       $request = [
-        'email' => $this->email,
+        'email'        => $this->email,
         'phone-number' => $this->phoneNumber,
-        'first-name' => $this->firstName,
-        'last-name' => $this->lastName,
-        'date-time' => $this->date.', '.$this->time,
+        'first-name'   => $this->firstName,
+        'last-name'    => $this->lastName,
+        'date-time'    => $this->date.', '.$this->time,
       ];
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
-//      $this->dispatch('registration-successful', $this->date, $this->time);
+//      $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
+      $this->dispatch('registration-successful', $this->date, $this->time);
       $this->showSuccessView($this->date, $this->time);
     } catch (\Exception $e) {
       Log::error($e);
@@ -84,16 +85,16 @@ class OpenDaysRegistrationForm extends Component
 
   public function showSuccessView(string $date, string $time): void
   {
-    $this->date = $date;
-    $this->time = $time;
+    $this->date         = $date;
+    $this->time         = $time;
     $this->registerView = false;
-    $this->successView = true;
+    $this->successView  = true;
   }
 
   public function mount(bool $isBackButtonVisible = true)
   {
     $this->isBackButtonVisible = $isBackButtonVisible;
-    $this->extraFields = new HoneypotData();
+    $this->extraFields         = new HoneypotData();
   }
 
   public function render()
