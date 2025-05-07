@@ -3,8 +3,8 @@
         {{--    Introduction--}}
         <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
                  style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');backdrop-filter:grayscale(100%);">
-            <div>
-                <h4 class="text-center text-white text-uppercase mb-4 mb-lg-5 introduction-title">Modern House<br/>atvērto
+            <div class="px-2">
+                <h4 class="text-center text-white text-uppercase mb-5 mb-lg-5 introduction-title">Modern House<br/>atvērto
                     durvju dienas
                 </h4>
                 <h2 class="text-center text-white text-uppercase mb-4">“MODERN HOUSE MĀJU MARŠRUTS 2025”</h2>
