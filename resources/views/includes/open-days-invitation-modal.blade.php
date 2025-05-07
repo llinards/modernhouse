@@ -39,7 +39,7 @@
                   <li>
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/map-pin-line-3.svg')}}" alt="Map pin">
-                      <p class="mb-0">Sigulda, Svīres iela</p>
+                      <p class="mb-0">Sigulda, Svīres ielā 3</p>
                     </div>
                   </li>
                 </ul>
