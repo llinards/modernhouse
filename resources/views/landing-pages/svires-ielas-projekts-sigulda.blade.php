@@ -4,7 +4,7 @@
     {{--    Introduction--}}
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image:url('{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/introduction.jpg')}}');">
-      <h1 class="text-center text-white">Piepildi sapni par <br/>māju Siguldā!</h1>
+      <h1 class="text-center text-white introduction-title">Piepildi sapni par <br/>māju Siguldā!</h1>
       <div class="text-center d-flex flex-column align-items-center position-relative">
         <div class="d-flex justify-content-center align-items-center mb-lg-0 mb-3 location">
           <img class="icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">

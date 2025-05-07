@@ -112,6 +112,14 @@
     min-height: calc(100vh - 151px);
   }
 
+  #landing-page {
+    #introduction {
+      .introduction-title {
+        padding-top: 70px;
+      }
+    }
+  }
+
   .modern-house-logo {
     width: 65px;
   }
