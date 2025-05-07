@@ -13,7 +13,7 @@ class OpenDaysRegistration extends Model
     'time',
     'phoneNumber',
     'email',
-    'questions',
+    'reason',
     'consentToProcessPersonalData',
   ];
 

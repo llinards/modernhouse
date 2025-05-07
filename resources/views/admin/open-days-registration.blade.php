@@ -22,7 +22,7 @@
           <th scope="col">Datums</th>
           <th scope="col">Laiks</th>
           <th scope="col">Telefona numurs</th>
-          <th scope="col">Jautājumi</th>
+          <th scope="col">Mērķis</th>
           <th scope="col"/>
         </tr>
         </thead>
@@ -42,7 +42,7 @@
             <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->date }}</td>
             <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->time }}</td>
             <td>{{ $submission->phoneNumber }}</td>
-            <td>{{ $submission->questions }}</td>
+            <td>{{ $submission->reason }}</td>
             <form action="/admin/open-days-submissions/{{$submission->id}}/delete" method="POST">
               @csrf
               @method('DELETE')

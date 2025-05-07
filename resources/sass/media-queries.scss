@@ -11,6 +11,10 @@
 
   #landing-page {
     #introduction {
+      .introduction-title {
+        padding-top: 125px;
+      }
+
       .location {
         position: static;
       }
@@ -39,7 +43,7 @@
     font-size: $title-3rd-font-size-mobile;
   }
 
-  p {
+  p, li {
     font-size: $paragraph-font-size-mobile;
   }
 
@@ -56,7 +60,7 @@
       font-size: $product-variant-titles-font-size-mobile;
     }
   }
-  
+
   .variant-button,
   .product-variant-option-content td,
   .product-variant-option-content th {
@@ -76,6 +80,12 @@
   }
 
   #landing-page {
+    #introduction {
+      .introduction-title {
+        padding-top: 125px;
+      }
+    }
+
     #button-up {
       right: 10px;
     }
@@ -143,7 +153,8 @@
   }
 
   p,
-  p.small, {
+  p.small,
+  li, {
     font-size: $paragraph-font-size-xs-mobile;
   }
 
@@ -186,5 +197,25 @@
       top: 20px;
       transition: all 0.5s;
     }
+  }
+}
+
+@media (min-width: 992px) {
+  .list-item-divider-lg:not(:last-child)::after {
+    content: "|";
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .list-item-divider-lg {
+    margin-right: 15px;
+  }
+
+  .list-item-divider-lg:last-child {
+    margin-right: 0;
   }
 }

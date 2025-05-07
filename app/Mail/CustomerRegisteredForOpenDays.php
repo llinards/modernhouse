@@ -28,7 +28,7 @@ class CustomerRegisteredForOpenDays extends Mailable
   public function envelope(): Envelope
   {
     return new Envelope(
-      subject: 'Pieteikums atvērto durvju dienām Svīres ielas projektā',
+      subject: 'Pieteikums atvērto durvju dienām "Modern House māju maršruts 2025',
     );
   }
 
