@@ -56,20 +56,31 @@
   </div>
 </div>
 <script>
-  // TODO: redeclaration of const registerForOpenDaysModal
   const registerForOpenDaysModal = document.getElementById('open-days-invitation-modal');
-  const locale = document.querySelector('meta[name="locale"]').getAttribute('content');
-  const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
-  const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
-  const now = new Date().getTime();
-  const differenceInDays = Math.floor((now - declinedOpenDaysRegistration) / (1000 * 60 * 60 * 24));
+  if (!registerForOpenDaysModal) {
+    console.error('Open days modal element not found');
+  } else {
+    const localeMetaTag = document.querySelector('meta[name="locale"]');
+    const locale = localeMetaTag ? localeMetaTag.getAttribute('content') : null;
+    const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
+    const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
+    const now = new Date().getTime();
 
-  if (locale === 'lv' && ((differenceInDays > 1 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
-    setTimeout(() => {
-      new bootstrap.Modal(registerForOpenDaysModal).show();
-    }, 3000);
+    const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
+    const differenceInDays = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60 * 24)) : Infinity;
+
+    if (locale === 'lv' && ((differenceInDays > 1 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
+      setTimeout(() => {
+        try {
+          new bootstrap.Modal(registerForOpenDaysModal).show();
+        } catch (error) {
+          console.error('Failed to show modal:', error);
+        }
+      }, 3000);
+    }
+
+    registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
+      localStorage.setItem('declinedOpenDaysRegistration', new Date().getTime().toString());
+    });
   }
-  registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
-    localStorage.setItem('declinedOpenDaysRegistration', new Date().getTime());
-  });
 </script>
