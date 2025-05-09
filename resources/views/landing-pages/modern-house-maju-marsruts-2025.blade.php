@@ -1,6 +1,5 @@
 <x-layouts.landing-page :title="'Atvērto durvju dienas Svīres ielā, Siguldā'">
-    <div id="landing-page" class="position-relative">
-        {{--    Introduction--}}
+    <div id="landing-page" class="position-relative non-fixed">
         <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
                  style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');backdrop-filter:grayscale(100%);">
             <div class="px-2">
@@ -42,145 +41,60 @@
                 </a>
             </div>
         </section>
-        {{--        --}}{{--    About project--}}
-        {{--        <section id="about-project" class="full-height-section">--}}
-        {{--            <div class="container-xxl h-100 d-flex flex-column justify-content-center">--}}
-        {{--                <div class="row">--}}
-        {{--                    <div class="col-lg-6 col-ofs d-flex flex-column justify-content-evenly">--}}
-        {{--                        <h2 class="mb-4">Par atvērtajām durvju dienām</h2>--}}
-        {{--                        <div>--}}
-        {{--                            <p class="mb-2">MODERN HOUSE komanda aicina uz atvērtajām durvju dienām Siguldā, Svīres--}}
-        {{--                                ielas projektā.--}}
-        {{--                                Šis būs piedzīvojums caur māju būvniecības procesu. Pasākuma dienās pastāstīsim par--}}
-        {{--                                būvniecības stadijā--}}
-        {{--                                esošajām privātmājām, kā arī pilnībā pabeigtu Demo māju. Tāpat pasākuma laikā būs--}}
-        {{--                                iespēja uzdot--}}
-        {{--                                tehniskus un praktiskus jautājumus gan projektu vadītājiem, gan citiem MODERN HOUSE--}}
-        {{--                                speciālistiem.--}}
-        {{--                                Mājokļa tirgus situācijas analīzei un tendenču apskatam pasākumā piedalīsies arī banku--}}
-        {{--                                pārstāvji no--}}
-        {{--                                Swedbank un SEB. Būs iespēja iepazīties arī ar citu MODERN HOUSE projektu māju--}}
-        {{--                                klientiem.</p>--}}
-        {{--                            <p class="mb-2">Svīres ielas projekta būvniecība rit pilnā sparā un iedzīvotāji savās--}}
-        {{--                                jaunajās mājas varēs--}}
-        {{--                                ievākties jau šī gada rudenī. Projektu veido A klases energoefektivitātes 5 privātmājas.--}}
-        {{--                                Projektā kopā--}}
-        {{--                                ir 53 apbūves gabali no kuriem jau 28 ir rezervēti.--}}
-        {{--                            </p>--}}
-        {{--                            <p class="mb-2">Atnāciet un iepazīstaties ar mūsu darba procesu un mūsu jaunāko projektu--}}
-        {{--                                Siguldā! Atvērsim--}}
-        {{--                                durvis Jūsu sapņu mājai kopā!</p>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="col-lg-4 offset-lg-2 d-md-flex d-none flex-column justify-content-center mt-lg-0 mt-3">--}}
-        {{--                        <div class="row">--}}
-        {{--                            <div class="col-12 d-flex justify-content-lg-start justify-content-center">--}}
-        {{--                                <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"--}}
-        {{--                                     alt="Calendar icon">--}}
-        {{--                                <h3>5., 6. un 7. jūlijs</h3>--}}
-        {{--                            </div>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="row mt-4">--}}
-        {{--                            <div class="col-12 d-flex justify-content-lg-start justify-content-center">--}}
-        {{--                                <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"--}}
-        {{--                                     alt="Clock icon">--}}
-        {{--                                <h3>10:00 - 18:00</h3>--}}
-        {{--                            </div>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="row mt-4">--}}
-        {{--                            <div class="col-12 d-flex justify-content-lg-start justify-content-center">--}}
-        {{--                                <img class="icons open-days-icons"--}}
-        {{--                                     src="{{asset('storage/icons/map-pin-line-3.svg')}}"--}}
-        {{--                                     alt="Location icon">--}}
-        {{--                                <h3>Svīres iela, Sigulda</h3>--}}
-        {{--                            </div>--}}
-        {{--                        </div>--}}
-        {{--                        <div class="mt-4 d-flex justify-content-lg-start justify-content-center">--}}
-        {{--                            <a href="#contact-us"--}}
-        {{--                               class="btn btn-primary fw-light d-flex justify-content-center align-items-center"--}}
-        {{--                            >Pieteikties</a>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </section>--}}
-        {{--        --}}{{--    About project (mobile only)--}}
-        {{--        <section class="full-height-section d-md-none d-block">--}}
-        {{--            <div class="container-xxl h-100 d-flex flex-column justify-content-center">--}}
-        {{--                <div class="mx-auto">--}}
-        {{--                    <div class="d-flex align-items-center">--}}
-        {{--                        <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"--}}
-        {{--                             alt="Calendar icon">--}}
-        {{--                        <h3>5., 6. un 7. jūlijs</h3>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="d-flex align-items-center mt-2">--}}
-        {{--                        <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"--}}
-        {{--                             alt="Clock icon">--}}
-        {{--                        <h3>10:00 - 18:00</h3>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="d-flex align-items-center mt-2">--}}
-        {{--                        <img class="icons open-days-icons"--}}
-        {{--                             src="{{asset('storage/icons/map-pin-line-3.svg')}}"--}}
-        {{--                             alt="Location icon">--}}
-        {{--                        <h3>Svīres iela, Sigulda</h3>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--                <div class="mt-4 align-self-center">--}}
-        {{--                    <div class="d-flex">--}}
-        {{--                        <a href="#contact-us"--}}
-        {{--                           class="btn btn-primary fw-light d-flex justify-content-center align-items-center"--}}
-        {{--                        >Pieteikties</a>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </section>--}}
-        {{--        --}}{{--    Partnership--}}
-        {{--        <section class="full-height-section">--}}
-        {{--            <div class="container-xxl h-100 d-flex flex-column justify-content-center">--}}
-        {{--                <div class="row mb-4">--}}
-        {{--                    <h2 class="mb-2 text-center">Finansētāji</h2>--}}
-        {{--                    <p class="text-center mb-4">Mājokļa tirgus situācijas analīzei un tendenču apskatam pasākumā--}}
-        {{--                        piedalīsies arī--}}
-        {{--                        banku pārstāvji no--}}
-        {{--                        Swedbank un SEB. </p>--}}
-        {{--                    <div class="col-lg-12 d-flex flex-column justify-content-evenly">--}}
-        {{--                        <div class="row">--}}
-        {{--                            <div class="col-12 col-sm-6 text-center">--}}
-        {{--                                <a id="apply-consultation-swedbank"--}}
-        {{--                                   href="https://www.swedbank.lv/private/credit/loans/home?campaignCode=MODERNHOUSE_1&language=LAT"--}}
-        {{--                                   target="_blank">--}}
-        {{--                                    <img class="swedbank-logo mb-2" src="{{asset('storage/icons/swedbank-logo.svg')}}"--}}
-        {{--                                         alt="Swedbank logo">--}}
-        {{--                                </a>--}}
-        {{--                            </div>--}}
-        {{--                            <div class="col-12 col-sm-6 text-center">--}}
-        {{--                                <a href="https://www.seb.lv/" target="_blank">--}}
-        {{--                                    <img class="seb-logo mb-2" src="{{asset('storage/icons/seb-logo.jpg')}}"--}}
-        {{--                                         alt="SEB logo">--}}
-        {{--                                </a>--}}
-        {{--                            </div>--}}
-        {{--                        </div>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </section>--}}
-        {{--        --}}{{--    Explore neighbourhood--}}
-        {{--        <section id="map" class="full-height-section d-flex flex-column justify-content-center py-2">--}}
-        {{--            <h2 class="text-center mb-4">Atrodi mūs kartē</h2>--}}
-        {{--            <div class="h-75">--}}
-        {{--                <iframe src="https://snazzymaps.com/embed/564387" class="map-size"></iframe>--}}
-        {{--            </div>--}}
-        {{--            <div class="d-flex flex-wrap justify-content-center mt-4 gap-2">--}}
-        {{--                <a href="https://www.waze.com/en/live-map/directions?to=ll.57.14237745%2C24.87469912" target="_blank"--}}
-        {{--                   class="btn btn-primary d-flex justify-content-center align-items-center"--}}
-        {{--                >Waze</a>--}}
-        {{--                <a href="https://maps.app.goo.gl/te6FfLaa14RT6syJ8" target="_blank"--}}
-        {{--                   class="btn btn-primary d-flex justify-content-center align-items-center"--}}
-        {{--                >Google Maps</a>--}}
-        {{--            </div>--}}
-        {{--        </section>--}}
-        {{--        --}}{{--    Agenda--}}
-        {{--        <section class="full-height-section">--}}
+        <section id="about-project" class="pt-4 pt-lg-5">
+            <div class="container d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <h3 class="mb-4">PAR ATVĒRTAJĀM DURVJU DIENĀM – IEPAZĪSTI KVALITĀTI 3 PIETURVIETĀS</h3>
+                        <p class="mb-2">4. un 5. jūlijā aicinām doties īpašā ceļojumā caur MODERN HOUSE mājokļu
+                            risinājumiem. “MODERN HOUSE MĀJU MARŠRUTS 2025” ir atvērto durvju dienu notikums, kur varēsi
+                            klātienē iepazīt 3 atšķirīgus mājokļu projektus, satikt mūsu komandu, esošos klientus un
+                            sajust, kā rodas mājas, kas iedvesmo, kā arī iegādāties savu jauno mājokli!</p>
+                        <p class="mb-2">Tāpat pasākuma laikā būs iespēja uzdot arī tehniskus jautājumus mūsu komandai,
+                            jo tajā piedalīsies projektu vadītāji un citi speciālisti no MODERN HOUSE komandas. Mājokļa
+                            tirgus situācijas analīzei un tendenču apskatam pasākumā piedalīsies arī banku pārstāvji no
+                            Swedbank un SEB. Būs iespēja iepazīties arī citu projektu māju klientiem un aprunāties par
+                            viņu pieredzi.</p>
+                        <p class="mb-2">Atnāciet un iepazīstaties ar mūsu darba procesu un atvērsim durvis Jūsu sapņu
+                            mājai kopā!</p>
+                    </div>
+                    <div class="col-12 col-lg-4 offset-lg-2 d-flex flex-column justify-content-center mt-lg-0 mt-3">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                                <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"
+                                     alt="Calendar icon">
+                                <h3>5., 6. un 7. jūlijs</h3>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mt-lg-4">
+                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                                <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"
+                                     alt="Clock icon">
+                                <h3>10:00 - 18:00</h3>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mt-lg-4">
+                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                                <img class="icons open-days-icons"
+                                     src="{{asset('storage/icons/map-pin-line-3.svg')}}"
+                                     alt="Location icon">
+                                <h3>Svīres iela, Sigulda</h3>
+                            </div>
+                        </div>
+                        <div class="mt-4 d-flex justify-content-lg-start justify-content-center">
+                            <a href="#contact-us"
+                               class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
+                            >Pieteikties</a>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-center">3 PIETURVIETAS. 3 DAŽĀDI RISINĀJUMI. 1 IESPĒJA PIETEIKTIES.</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {{--        Agenda--}}
+        {{--        <section>--}}
         {{--            <div class="container-xxl h-100 d-flex flex-column justify-content-center">--}}
         {{--                <div class="row">--}}
         {{--                    <div class="col-lg-5 d-flex flex-column justify-content-evenly">--}}
@@ -204,23 +118,22 @@
         {{--                </div>--}}
         {{--            </div>--}}
         {{--        </section>--}}
-        <div id="non-scroll-type-sections">
-            {{--      Contact us--}}
-            <section id="contact-us">
-                <livewire:open-days-registration-form :isBackButtonVisible="false"/>
-            </section>
-            {{--Footer--}}
-            {{--      TODO: On safari jump to the section when reached the bottom--}}
-            <section class="mt-5">
-                @include('includes.footer')
-            </section>
-        </div>
-        <div id="button-up" class="position-fixed visually-hidden d-flex justify-content-center align-items-center">
-            <a href="#introduction" class="d-flex justify-content-center align-items-center">
-                <img width="20" height="20" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
-            </a>
-        </div>
+
+        {{--      Contact us--}}
+        <section id="contact-us">
+            <livewire:open-days-registration-form :isBackButtonVisible="false"/>
+        </section>
+        {{--Footer--}}
+        <section class="mt-5">
+            @include('includes.footer')
+        </section>
     </div>
+    <div id="button-up" class="position-fixed visually-hidden d-flex justify-content-center align-items-center">
+        <a href="#introduction" class="d-flex justify-content-center align-items-center">
+            <img width="20" height="20" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
+        </a>
+    </div>
+
     <script type="module">
         const buttonUp = document.getElementById('button-up');
         const landingPage = document.getElementById('landing-page');
