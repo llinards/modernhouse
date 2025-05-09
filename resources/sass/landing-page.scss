@@ -1,3 +1,7 @@
+.non-fixed {
+  scroll-snap-type: none !important;
+}
+
 #landing-page {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
