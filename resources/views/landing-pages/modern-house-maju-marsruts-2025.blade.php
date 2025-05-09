@@ -58,30 +58,30 @@
                         <p class="mb-2">Atnāciet un iepazīstaties ar mūsu darba procesu un atvērsim durvis Jūsu sapņu
                             mājai kopā!</p>
                     </div>
-                    <div class="col-12 col-lg-4 offset-lg-2 d-flex flex-column justify-content-center mt-lg-0 mt-3">
+                    <div class="col-12 col-lg-5 offset-lg-1 d-flex flex-column justify-content-center mt-lg-0 mt-3">
                         <div class="row">
-                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                            <div class="col-12 d-flex align-items-center">
                                 <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"
                                      alt="Calendar icon">
-                                <h3>5., 6. un 7. jūlijs</h3>
+                                <h3>4. un 5. jūlijā (sestdiena, svētdiena)</h3>
                             </div>
                         </div>
                         <div class="row mt-2 mt-lg-4">
-                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                            <div class="col-12 d-flex align-items-center">
                                 <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"
                                      alt="Clock icon">
-                                <h3>10:00 - 18:00</h3>
+                                <h3>10:00 - 19:00</h3>
                             </div>
                         </div>
                         <div class="row mt-2 mt-lg-4">
-                            <div class="col-12 d-flex justify-content-lg-start justify-content-center align-items-center">
+                            <div class="col-12 d-flex align-items-center">
                                 <img class="icons open-days-icons"
                                      src="{{asset('storage/icons/map-pin-line-3.svg')}}"
                                      alt="Location icon">
-                                <h3>Svīres iela, Sigulda</h3>
+                                <h3>Sigulda - Svīres iela 3, Televīzijas iela 15C, Cēsu iela</h3>
                             </div>
                         </div>
-                        <div class="mt-4 d-flex justify-content-lg-start justify-content-center">
+                        <div class="mt-4 d-flex justify-content-center">
                             <a href="#contact-us"
                                class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
                             >Pieteikties</a>
