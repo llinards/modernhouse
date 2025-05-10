@@ -87,40 +87,69 @@
                             >Pieteikties</a>
                         </div>
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-4 pt-4">
                         <h3 class="text-center">3 PIETURVIETAS. 3 DAŽĀDI RISINĀJUMI. 1 IESPĒJA PIETEIKTIES.</h3>
                     </div>
                 </div>
             </div>
         </section>
-        {{--        Agenda--}}
-        {{--        <section>--}}
-        {{--            <div class="container-xxl h-100 d-flex flex-column justify-content-center">--}}
-        {{--                <div class="row">--}}
-        {{--                    <div class="col-lg-5 d-flex flex-column justify-content-evenly">--}}
-        {{--                        <h2 class="mb-4">Atvērto durvju dienu programma</h2>--}}
-        {{--                        <ul class="open-days-agenda">--}}
-        {{--                            <li class="mb-2">Sarunas ar MODERN HOUSE komandu</li>--}}
-        {{--                            <li class="mb-2">Sarunas ar arhitektu, konstruktoru, projektu vadītāju, pārdošanas vadītāju--}}
-        {{--                                un citiem--}}
-        {{--                                MODERN HOUSE komandas pārstāvjiem--}}
-        {{--                            </li>--}}
-        {{--                            <li class="mb-2">Sarunas ar Swedbank un SEB bankas pārstāvjiem</li>--}}
-        {{--                            <li class="mb-2">Sarunas ar sadarbības partneriem</li>--}}
-        {{--                            <li class="mb-2">Sarunas ar MODERN HOUSE klientiem</li>--}}
-        {{--                            <li class="mb-2">Iespēja noslēgt līgumu par labāku cenu</li>--}}
-        {{--                        </ul>--}}
-        {{--                    </div>--}}
-        {{--                    <div class="col-lg-7 d-lg-flex d-none flex-column justify-content-center">--}}
-        {{--                        <img loading="lazy" class="full-container-image"--}}
-        {{--                             src="{{asset('storage/landing-pages/svires-ielas-projekts-sigulda/7.jpg')}}"/>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </section>--}}
-
-        {{--      Contact us--}}
-        <section id="contact-us">
+        <section class="mt-4 pt-4 mt-lg-5 pt-lg-5">
+            <div class="container d-flex flex-column justify-content-center">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <h3 class="mb-4 text-uppercase">Atvērto durvju dienu programma</h3>
+                        <p class="mb-2 fw-bold">Šis maršruts nav tikai par mājām – tas ir par izvēlēm, kas saskan ar
+                            Jūsu dzīvesveidu. Nāc un atklāj, kura no tām ir Jūsu!</p>
+                        <ul class="open-days-agenda">
+                            <li class="mb-2 mb-lg-4 custom-bullet">
+                                <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
+                                <div>
+                                    <strong>1. PIETURVIETA – SVĪRES IELAS PROJEKTS</strong><br/>
+                                    Pilnībā pabeigta privātmāja, kas gatava tūlītējai iegādei un
+                                    dzīvošanai. Šī ir maršruta centrālā pietura – vieta, kur visiem startā
+                                    satikties un apskatīt gatavu iegādei privātmāju. Sper soli tuvāk savai
+                                    jaunajai mājai!
+                                </div>
+                            </li>
+                            <li class="mb-2 mb-lg-4 custom-bullet">
+                                <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
+                                <div>
+                                    <strong>2. PIETURVIETA – TELEVĪZIJAS IELAS DVĪŅU MĀJA</strong><br/>
+                                    Šeit varēs redzēt, kā top dzīves telpa – no pamatiem līdz atslēgai.
+                                    Tas būs ielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
+                                    Ieskaties nākotnē, kur vēl viss tikai sākas - rezervē vai iegādājies
+                                    jau šodien!
+                                </div>
+                            </li>
+                            <li class="mb-2 mb-lg-4 custom-bullet">
+                                <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
+                                <div>
+                                    <strong>3. PIETURVIETA – XXXX MODUĻI UN SAUNA</strong><br/>
+                                    Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
+                                    uzstādīšanu un pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan kā
+                                    papildu dzīves telpu.
+                                    Efektīva telpa – skaidrs risinājums dinamiskai ikdienai! (jāpiemin
+                                    par kempingu).
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <img loading="lazy" class="w-100 h-100 object-fit-cover"
+                             src="{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/1.jpg')}}"/>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-center">Pasākums norisināsies tikai 2 dienas – rezervācija ir obligāta!</h4>
+                        <div class="d-flex justify-content-center mt-4">
+                            <a href="#contact-us"
+                               class="btn btn-primary d-flex justify-content-center align-items-center"
+                            >Pieteikties</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact-us" class="mt-4 mt-lg-5">
             <livewire:open-days-registration-form :isBackButtonVisible="false"/>
         </section>
         {{--Footer--}}

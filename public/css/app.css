@@ -13874,7 +13874,20 @@ footer hr {
   padding-right: 12px;
 }
 #landing-page .open-days-agenda {
-  padding-left: 1rem;
+  padding-left: 0;
+}
+#landing-page .open-days-agenda li.custom-bullet {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+#landing-page .open-days-agenda li.custom-bullet .icon {
+  margin-right: 0.5rem;
+  width: 1.2rem; /* Adjust size as needed */
+  height: auto;
+  margin-top: 0.25rem; /* Align with text */
 }
 #landing-page .map-size {
   height: 100%;
