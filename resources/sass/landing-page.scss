@@ -57,7 +57,22 @@
   }
 
   .open-days-agenda {
-    padding-left: 1rem;
+    padding-left: 0;
+
+    li.custom-bullet {
+      display: flex;
+      align-items: flex-start;
+      margin-left: 0;
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    li.custom-bullet .icon {
+      margin-right: 0.5rem;
+      width: 1.2rem; /* Adjust size as needed */
+      height: auto;
+      margin-top: 0.25rem; /* Align with text */
+    }
   }
 
   .map-size {
