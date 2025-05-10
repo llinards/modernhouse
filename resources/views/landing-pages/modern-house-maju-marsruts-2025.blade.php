@@ -63,14 +63,14 @@
                             <div class="col-12 d-flex align-items-center">
                                 <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"
                                      alt="Calendar icon">
-                                <h3>4. un 5. jūlijā (sestdiena, svētdiena)</h3>
+                                <h5>4. un 5. jūlijā (sestdiena, svētdiena)</h5>
                             </div>
                         </div>
                         <div class="row mt-2 mt-lg-4">
                             <div class="col-12 d-flex align-items-center">
                                 <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"
                                      alt="Clock icon">
-                                <h3>10:00 - 19:00</h3>
+                                <h5>10:00 - 19:00</h5>
                             </div>
                         </div>
                         <div class="row mt-2 mt-lg-4">
@@ -78,7 +78,7 @@
                                 <img class="icons open-days-icons"
                                      src="{{asset('storage/icons/map-pin-line-3.svg')}}"
                                      alt="Location icon">
-                                <h3>Sigulda - Svīres iela 3, Televīzijas iela 15C, Cēsu iela</h3>
+                                <h5>Sigulda - Svīres iela 3, Televīzijas iela 15C, Cēsu iela</h5>
                             </div>
                         </div>
                         <div class="mt-4 d-flex justify-content-center">
@@ -98,38 +98,39 @@
                 <div class="row">
                     <div class="col-12 col-lg-6">
                         <h3 class="mb-4 text-uppercase">Atvērto durvju dienu programma</h3>
-                        <p class="mb-2 fw-bold">Šis maršruts nav tikai par mājām – tas ir par izvēlēm, kas saskan ar
+                        <p class="mb-4 fw-bold">Šis maršruts nav tikai par mājām – tas ir par izvēlēm, kas saskan ar
                             Jūsu dzīvesveidu. Nāc un atklāj, kura no tām ir Jūsu!</p>
                         <ul class="open-days-agenda">
                             <li class="mb-2 mb-lg-4 custom-bullet">
                                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                                 <div>
-                                    <strong>1. PIETURVIETA – SVĪRES IELAS PROJEKTS</strong><br/>
-                                    Pilnībā pabeigta privātmāja, kas gatava tūlītējai iegādei un
-                                    dzīvošanai. Šī ir maršruta centrālā pietura – vieta, kur visiem startā
-                                    satikties un apskatīt gatavu iegādei privātmāju. Sper soli tuvāk savai
-                                    jaunajai mājai!
+                                    <h5 class="mb-2">1. PIETURVIETA – SVĪRES IELAS PROJEKTS</h5>
+                                    <p>Pilnībā pabeigta privātmāja, kas gatava tūlītējai iegādei un
+                                        dzīvošanai. Šī ir maršruta centrālā pietura – vieta, kur visiem startā
+                                        satikties un apskatīt gatavu iegādei privātmāju. Sper soli tuvāk savai
+                                        jaunajai mājai!</p>
                                 </div>
                             </li>
                             <li class="mb-2 mb-lg-4 custom-bullet">
                                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                                 <div>
-                                    <strong>2. PIETURVIETA – TELEVĪZIJAS IELAS DVĪŅU MĀJA</strong><br/>
-                                    Šeit varēs redzēt, kā top dzīves telpa – no pamatiem līdz atslēgai.
-                                    Tas būs ielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
-                                    Ieskaties nākotnē, kur vēl viss tikai sākas - rezervē vai iegādājies
-                                    jau šodien!
+                                    <h5 class="mb-2">2. PIETURVIETA – TELEVĪZIJAS IELAS DVĪŅU MĀJA</h5>
+                                    <p>Šeit varēs redzēt, kā top dzīves telpa – no pamatiem līdz atslēgai.
+                                        Tas būs ielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
+                                        Ieskaties nākotnē, kur vēl viss tikai sākas - rezervē vai iegādājies
+                                        jau šodien!</p>
                                 </div>
                             </li>
                             <li class="mb-2 mb-lg-4 custom-bullet">
                                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                                 <div>
-                                    <strong>3. PIETURVIETA – XXXX MODUĻI UN SAUNA</strong><br/>
-                                    Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
-                                    uzstādīšanu un pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan kā
-                                    papildu dzīves telpu.
-                                    Efektīva telpa – skaidrs risinājums dinamiskai ikdienai! (jāpiemin
-                                    par kempingu).
+                                    <h5 class="mb-2">3. PIETURVIETA – XXXX MODUĻI UN SAUNA</h5>
+                                    <p>Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
+                                        uzstādīšanu un pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan
+                                        kā
+                                        papildu dzīves telpu.
+                                        Efektīva telpa – skaidrs risinājums dinamiskai ikdienai! (jāpiemin
+                                        par kempingu).</p>
                                 </div>
                             </li>
                         </ul>

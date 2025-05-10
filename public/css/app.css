@@ -13206,6 +13206,10 @@ h3, .h3 {
   font-size: 32px;
 }
 
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
 p {
   font-size: 16px;
 }
@@ -13989,6 +13993,9 @@ footer hr {
   }
   h3, .h3 {
     font-size: 22px;
+  }
+  h5, .h5 {
+    font-size: 1rem;
   }
   p, li {
     font-size: 14px;
