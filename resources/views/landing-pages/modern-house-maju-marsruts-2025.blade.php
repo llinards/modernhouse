@@ -84,7 +84,7 @@
                         <div class="mt-4 d-flex justify-content-center">
                             <a href="#contact-us"
                                class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
-                            >Pieteikties</a>
+                            >Reģistrēties</a>
                         </div>
                     </div>
                     <div class="mt-4 pt-4">
@@ -144,7 +144,7 @@
                         <div class="d-flex justify-content-center mt-4">
                             <a href="#contact-us"
                                class="btn btn-primary d-flex justify-content-center align-items-center"
-                            >Pieteikties</a>
+                            >Reģistrēties</a>
                         </div>
                     </div>
                 </div>
