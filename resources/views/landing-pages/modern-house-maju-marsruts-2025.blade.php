@@ -87,13 +87,13 @@
                             >Reģistrēties</a>
                         </div>
                     </div>
-                    <div class="mt-4 pt-4">
+                    <div class="my-4 py-4">
                         <h3 class="text-center">3 PIETURVIETAS. 3 DAŽĀDI RISINĀJUMI. 1 IESPĒJA PIETEIKTIES.</h3>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="mt-4 pt-4 mt-lg-5 pt-lg-5">
+        <section class="mt-4 mt-lg-5">
             <div class="container d-flex flex-column justify-content-center">
                 <div class="row">
                     <div class="col-12 col-lg-6">
