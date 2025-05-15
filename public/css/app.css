@@ -14059,6 +14059,10 @@ footer hr {
     height: 42px;
     font-size: 14px;
   }
+  .btn-primary-sm {
+    width: 225px;
+    height: 48px;
+  }
   label {
     font-size: 14px;
   }
