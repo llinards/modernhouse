@@ -150,6 +150,10 @@
                 </div>
             </div>
         </section>
+        <section class="mt-4 mt-lg-5">
+            
+        </section>
+        <section id="open-days-registration" class="mt-4 mt-lg-5"></section>
         <section id="contact-us" class="mt-4 mt-lg-5">
             <livewire:open-days-registration-form :isBackButtonVisible="false"/>
         </section>
