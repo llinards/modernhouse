@@ -14022,6 +14022,21 @@ footer hr {
   -o-object-fit: cover;
      object-fit: cover;
 }
+#landing-page .full-screen-gallery .splide__arrow {
+  background: rgba(0, 0, 0, 0.5);
+  width: 3rem;
+  height: 3rem;
+}
+#landing-page .splide.is-focus-in .splide__arrow:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+#landing-page .full-screen-gallery .splide__arrow:hover {
+  opacity: 1;
+}
+#landing-page .full-screen-gallery .splide__arrow i {
+  color: white;
+  font-size: 1.5rem;
+}
 #landing-page .full-screen-gallery .splide__pagination {
   bottom: 2rem;
 }
@@ -14030,10 +14045,6 @@ footer hr {
   width: 12px;
   height: 12px;
   margin: 0 8px;
-}
-#landing-page .full-screen-gallery .splide__pagination__page.is-active {
-  background: white;
-  transform: scale(1.2);
 }
 
 #open-days-registration .introduction,

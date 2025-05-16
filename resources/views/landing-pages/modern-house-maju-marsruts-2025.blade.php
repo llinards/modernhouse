@@ -484,7 +484,8 @@
             fixedWidth: '100vw',
             fixedHeight: '100vh',
             focus: 'center',
-            cover: true
+            cover: true,
+            pagination: false,
           }
         }
       }).mount();
