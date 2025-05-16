@@ -173,7 +173,9 @@
                 </div>
                 <div class="event-map-card p-lg-4 p-3 location-2 d-flex flex-column align-items-center">
                   <h5 class="mb-2 text-uppercase">2. DVĪŅU MĀJAS PROJEKTS</h5>
-                  <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
+                  <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center"
+                          data-bs-toggle="modal"
+                          data-bs-target="#locationTwoModal">
                     Uzzināt vairāk
                   </button>
                   <div class="d-flex align-items-center mt-3">
@@ -184,7 +186,10 @@
                 </div>
                 <div class="event-map-card p-lg-4 p-3 location-3 d-flex flex-column align-items-center">
                   <h5 class="mb-2 text-uppercase">3. MODUĻI UN SAUNA</h5>
-                  <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
+                  <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center"
+                          data-bs-toggle="modal"
+                          data-bs-target="#locationThreeModal"
+                  >
                     Uzzināt vairāk
                   </button>
                   <div class="d-flex align-items-center mt-3">
@@ -218,7 +223,7 @@
   <div class="modal fade" id="locationOneModal" tabindex="-1"
        aria-labelledby="Register for open days at Modern House"
        aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-close-btn d-flex justify-content-end p-3">
           <button type="button" data-bs-dismiss="modal" aria-label="Close">
@@ -253,6 +258,84 @@
                     <div>
                       <h5 class="mb-2">4. Iespēja satikt MODERN HOUSE esošos klientus un aprunāties par viņu
                         pieredzi</h5>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="locationTwoModal" tabindex="-1"
+       aria-labelledby="Register for open days at Modern House"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-close-btn d-flex justify-content-end p-3">
+          <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg text-black"></i>
+          </button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <ul class="list-unstyled">
+                  <li class="mb-2 mb-lg-4">
+                    <div>
+                      <h5 class="mb-2">Tikšanās ar būvniekiem un iepazīšanās ar materiāliem</h5>
+                      <p>Iespēja uzdot jautājumus MODERN HOUSE komandas pārstāvjiem un iepazīties ar būvmateriāliem un
+                        tehnikām, kas veido MODERN HOUSE kvalitāti.</p>
+                    </div>
+                  </li>
+                  <li class="mb-2 mb-lg-4">
+                    <div>
+                      <h5 class="mb-2">Iespēja redzēt kā top MODERN HOUSE mājas</h5>
+                      <p>Iespēja redzēt pilnībā pabeigtu māju un māju būvniecības procesā.</p>
+                    </div>
+                  </li>
+                  <li class="mb-2 mb-lg-4">
+                    <div>
+                      <h5 class="mb-2">Iespēju veikt rezervāciju mājas iegādei</h5>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="locationThreeModal" tabindex="-1"
+       aria-labelledby="Register for open days at Modern House"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-close-btn d-flex justify-content-end p-3">
+          <button type="button" data-bs-dismiss="modal" aria-label="Close">
+            <i class="bi bi-x-lg text-black"></i>
+          </button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <ul class="list-unstyled">
+                  <li class="mb-2 mb-lg-4">
+                    <div>
+                      <h5 class="mb-2">Iespēja iepazīties ar MODERN HOUSE moduļiem</h5>
+                      <p>Apskati mūsdienīgus, ilgtspējīgus un estētiskus koka karkasa moduļus un saunu.</p>
+                    </div>
+                  </li>
+                  <li class="mb-2 mb-lg-4">
+                    <div>
+                      <h5 class="mb-2">KEMPINGS</h5>
+                      <p>Rezervē savas brīvdienas Siguldā jau šodien!</p>
                     </div>
                   </li>
                 </ul>
