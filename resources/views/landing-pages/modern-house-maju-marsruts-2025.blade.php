@@ -165,7 +165,7 @@
                           data-bs-target="#locationOneModal">
                     Uzzināt vairāk
                   </button>
-                  <div class="d-flex align-items-center mt-4">
+                  <div class="d-flex align-items-center mt-3">
                     <img class="icons-sm" src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                          alt="Location icon">
                     <p class="mx-2">Svīres iela 3, Sigulda</p>
@@ -176,7 +176,7 @@
                   <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
                     Uzzināt vairāk
                   </button>
-                  <div class="d-flex align-items-center mt-4">
+                  <div class="d-flex align-items-center mt-3">
                     <img class="icons-sm" src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                          alt="Location icon">
                     <p class="mx-2">Televīzijas iela 15C, Sigulda</p>
@@ -187,21 +187,10 @@
                   <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
                     Uzzināt vairāk
                   </button>
-                  <div class="d-flex align-items-center mt-4">
+                  <div class="d-flex align-items-center mt-3">
                     <img class="icons-sm" src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                          alt="Location icon">
                     <p class="mx-2">Cēsu iela, Sigulda</p>
-                  </div>
-                </div>
-                <div class="event-map-card p-lg-4 p-3 location-4 d-flex flex-column align-items-center">
-                  <h5 class="mb-2 text-uppercase">4. XXXXXXX</h5>
-                  <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center">
-                    Uzzināt vairāk
-                  </button>
-                  <div class="d-flex align-items-center mt-4">
-                    <img class="icons-sm" src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
-                         alt="Location icon">
-                    <p class="mx-2">XXXXX iela, Sigulda</p>
                   </div>
                 </div>
               </div>
