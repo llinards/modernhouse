@@ -91,13 +91,12 @@
     }
 
     .event-map {
-      min-height: 1000px;
+      min-height: 800px;
       background-size: cover;
 
-
       .event-map-grid {
-        grid-template-rows: repeat(12, 1fr); /* Create more rows for mobile */
-        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(9, 1fr); /* Create more rows for mobile */
+        grid-template-columns: repeat(9, 1fr);
       }
 
       .location-1 {
@@ -117,13 +116,6 @@
         grid-row: 8;
         justify-self: center;
       }
-
-      .location-4 {
-        grid-column: 1 / -1;
-        grid-row: 11;
-        justify-self: center;
-      }
-
     }
 
     #button-up {
@@ -179,7 +171,7 @@
 
   .btn-primary-sm {
     width: 225px;
-    height: 48px;
+    height: 36px;
   }
 
   label {
