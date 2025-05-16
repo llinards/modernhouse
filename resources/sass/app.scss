@@ -376,6 +376,13 @@ footer {
   }
 }
 
+.iti {
+  --iti-path-flags-1x: url('/images/vendor/intl-tel-input/build/flags.webp');
+  --iti-path-flags-2x: url('/images/vendor/intl-tel-input/build/flags@2x.webp');
+  --iti-path-globe-1x: url('/images/vendor/intl-tel-input/build/globe.webp');
+  --iti-path-globe-2x: url('/images/vendor/intl-tel-input/build/globe@2x.webp');
+}
+
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./product.scss";

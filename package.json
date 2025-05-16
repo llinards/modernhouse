@@ -27,6 +27,7 @@
     "filepond-plugin-file-validate-size": "^2.2.8",
     "filepond-plugin-file-validate-type": "^1.2.8",
     "filepond-plugin-image-preview": "^4.6.12",
+    "intl-tel-input": "^25.3.1",
     "leaflet": "^1.9.4",
     "livewire-sortable": "^1.0.0",
     "swiper": "^11.2.4"

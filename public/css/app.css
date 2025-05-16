@@ -13455,6 +13455,13 @@ footer hr {
   transition: all 0.5s;
 }
 
+.iti {
+  --iti-path-flags-1x: url("/images/vendor/intl-tel-input/build/flags.webp");
+  --iti-path-flags-2x: url("/images/vendor/intl-tel-input/build/flags@2x.webp");
+  --iti-path-globe-1x: url("/images/vendor/intl-tel-input/build/globe.webp");
+  --iti-path-globe-2x: url("/images/vendor/intl-tel-input/build/globe@2x.webp");
+}
+
 .mobile-navbar {
   z-index: 10;
   transition: background-color 0.3s ease;
