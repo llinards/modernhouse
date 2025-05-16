@@ -13844,6 +13844,8 @@ footer hr {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
+  /* Custom navigation styling */
+  /* Pagination styling */
 }
 #landing-page #button-up {
   rotate: 180deg;
@@ -13988,6 +13990,51 @@ footer hr {
   grid-row: 18;
   justify-self: center;
 }
+#landing-page .full-screen-gallery {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+#landing-page .full-screen-gallery .splide {
+  height: 100%;
+}
+#landing-page .full-screen-gallery .splide__track,
+#landing-page .full-screen-gallery .splide__list {
+  height: 100%;
+}
+#landing-page .full-screen-gallery .splide__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#landing-page .full-screen-gallery .slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#landing-page .full-screen-gallery img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#landing-page .full-screen-gallery .splide__pagination {
+  bottom: 2rem;
+}
+#landing-page .full-screen-gallery .splide__pagination__page {
+  background: rgba(255, 255, 255, 0.7);
+  width: 12px;
+  height: 12px;
+  margin: 0 8px;
+}
+#landing-page .full-screen-gallery .splide__pagination__page.is-active {
+  background: white;
+  transform: scale(1.2);
+}
 
 #open-days-registration .introduction,
 #open-days-registration .success {
@@ -14092,6 +14139,22 @@ footer hr {
     grid-column: 1/-1;
     grid-row: 8;
     justify-self: center;
+  }
+  #landing-page .full-screen-gallery {
+    height: 100vh !important; /* Force full height on mobile */
+  }
+  #landing-page .full-screen-gallery .splide__slide a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  #landing-page .full-screen-gallery .splide__slide img {
+    height: 100vh;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center; /* Center the image */
   }
   #landing-page #button-up {
     right: 10px;
