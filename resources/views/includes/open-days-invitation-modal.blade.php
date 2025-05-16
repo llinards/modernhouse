@@ -45,7 +45,7 @@
                 </ul>
               </div>
               <div class="d-flex justify-content-center justify-content-lg-start">
-                <a href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025#contact-us" target="_blank"
+                <a href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025" target="_blank"
                    class="btn btn-primary text-uppercase d-flex justify-content-center align-items-center">Pieteikties</a>
               </div>
             </div>
@@ -67,9 +67,11 @@
     const now = new Date().getTime();
 
     const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
-    const differenceInDays = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60 * 24)) : Infinity;
+    // Calculate difference in hours
+    const differenceInHours = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60)) : Infinity;
 
-    if (locale === 'lv' && ((differenceInDays > 1 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
+    // Check if 24 hours have passed
+    if (locale === 'lv' && ((differenceInHours >= 24 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
       setTimeout(() => {
         try {
           new bootstrap.Modal(registerForOpenDaysModal).show();
