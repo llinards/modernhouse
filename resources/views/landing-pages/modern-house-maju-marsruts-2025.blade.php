@@ -157,7 +157,6 @@
           <div class="event-map position-relative">
             <div class="event-map">
               <div class="event-map-grid">
-                <!-- Location 1 -->
                 <div class="event-map-card p-lg-4 p-3 location-1 d-flex flex-column align-items-center">
                   <h5 class="mb-2 text-uppercase">1. tikšanās vieta</h5>
                   <button class="btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center"
@@ -204,6 +203,123 @@
         </div>
       </div>
     </section>
+    <section class="mt-5 mt-lg-5 full-screen-gallery">
+      <div class="splide" id="fullscreen-gallery">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/1.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/1.jpg') }}"
+                       alt="Gallery Image 1">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/2.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/2.jpg') }}"
+                       alt="Gallery Image 2">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/3.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/3.jpg') }}"
+                       alt="Gallery Image 3">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/4.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/4.jpg') }}"
+                       alt="Gallery Image 4">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/5.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/5.jpg') }}"
+                       alt="Gallery Image 5">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/6.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/6.jpg') }}"
+                       alt="Gallery Image 6">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/7.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/7.jpg') }}"
+                       alt="Gallery Image 7">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/8.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/8.jpg') }}"
+                       alt="Gallery Image 8">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/9.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/9.jpg') }}"
+                       alt="Gallery Image 9">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/10.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/10.jpg') }}"
+                       alt="Gallery Image 10">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/11.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/11.jpg') }}"
+                       alt="Gallery Image 11">
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- Custom navigation arrows -->
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section id="open-days-registration" class="mt-4 mt-lg-5"></section>
     <section id="contact-us" class="mt-4 mt-lg-5">
       <livewire:open-days-registration-form :isBackButtonVisible="false"/>
@@ -218,7 +334,6 @@
       <img width="20" height="20" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
     </a>
   </div>
-
 
   <div class="modal fade" id="locationOneModal" tabindex="-1"
        aria-labelledby="Register for open days at Modern House"
@@ -347,25 +462,35 @@
     </div>
   </div>
 
-
   <script type="module">
-    const buttonUp = document.getElementById('button-up');
-    const landingPage = document.getElementById('landing-page');
-    const introSection = document.getElementById('introduction');
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('#fullscreen-gallery', {
+        type: 'loop',
+        perPage: 1,
+        rewind: true,
+        autoplay: true,
+        interval: 4000,
+        arrows: true,
+        pagination: true,
+        height: '100vh',
+        width: '100%',
+        cover: true,
+        focus: 'center',
+        trimSpace: false,
+        updateOnMove: true,
+        breakpoints: {
+          768: {
+            height: '100vh',
+            fixedWidth: '100vw',
+            fixedHeight: '100vh',
+            focus: 'center',
+            cover: true
+          }
+        }
+      }).mount();
+    });
 
-    landingPage.onscroll = () => {
-      const introBounds = introSection.getBoundingClientRect();
-      const isInIntroSection = introBounds.bottom > 0;
+    Fancybox.bind("[data-fancybox]", {});
 
-      if (isInIntroSection) {
-        buttonUp.classList.add('visually-hidden');
-      } else {
-        buttonUp.classList.remove('visually-hidden');
-      }
-    };
-
-    // setTimeout(function () {
-    //     window.dispatchEvent(new Event("resize"));
-    // }, 500);
   </script>
 </x-layouts.landing-page>

@@ -67,10 +67,8 @@
     const now = new Date().getTime();
 
     const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
-    // Calculate difference in hours
     const differenceInHours = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60)) : Infinity;
-
-    // Check if 24 hours have passed
+    
     if (locale === 'lv' && ((differenceInHours >= 24 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
       setTimeout(() => {
         try {

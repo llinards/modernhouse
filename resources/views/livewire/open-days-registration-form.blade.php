@@ -112,7 +112,7 @@
             <img class="modern-house-logo" src="{{asset('storage/logo/logo-black.png')}}" alt="MH logo">
           </a>
           <h3 class="mt-4 mb-4">Tiekamies {{substr_replace($date, 'ā', -1)}} {{$time}} uz kopīgu
-            piedzīvojumu atvērtajās durvju dienās Svīres ielā, Siguldā!</h3>
+            piedzīvojumu “MODERN HOUSE MĀJU MARŠRUTĀ 2025”!</h3>
         </div>
         <div class="d-flex justify-content-center">
           <a href="/"
