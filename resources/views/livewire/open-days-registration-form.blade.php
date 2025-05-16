@@ -55,7 +55,7 @@
           </div>
           <div class="mb-3">
             <label for="phoneNumber" class="form-label fw-bold">Telefona numurs (ar valsts kodu)*</label>
-            <input type="tel" wire:model="phoneNumber" name="phoneNumber" class="form-control">
+            <input type="tel" wire:model="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label fw-bold">E-pasts*</label>
@@ -124,8 +124,16 @@
     </div>
   @endif
 </div>
-<script>
+<script type="module">
   addEventListener('submit', () => {
     localStorage.setItem('acceptedOpenDaysRegistration', 'true');
   });
+
+  // const input = document.querySelector("#phoneNumber");
+  // const iti = intlTelInput(input, {
+  //   loadUtils: () => import("intl-tel-input/utils"),
+  //   formatOnDisplay: false,
+  //   autoPlaceholder: 'off',
+  //   separateDialCode: true,
+  // });
 </script>
