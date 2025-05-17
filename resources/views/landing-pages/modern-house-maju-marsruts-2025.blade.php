@@ -309,14 +309,14 @@
           </ul>
         </div>
         <!-- Custom navigation arrows -->
-        <div class="splide__arrows">
-          <button class="splide__arrow splide__arrow--prev">
-            <i class="bi bi-chevron-left"></i>
-          </button>
-          <button class="splide__arrow splide__arrow--next">
-            <i class="bi bi-chevron-right"></i>
-          </button>
-        </div>
+        {{--        <div class="splide__arrows">--}}
+        {{--          <button class="splide__arrow splide__arrow--prev">--}}
+        {{--            <i class="bi bi-chevron-left"></i>--}}
+        {{--          </button>--}}
+        {{--          <button class="splide__arrow splide__arrow--next">--}}
+        {{--            <i class="bi bi-chevron-right"></i>--}}
+        {{--          </button>--}}
+        {{--        </div>--}}
       </div>
     </section>
 
@@ -466,8 +466,8 @@
     document.addEventListener('DOMContentLoaded', function () {
       new Splide('#fullscreen-gallery', {
         type: 'loop',
+        lazyLoad: 'sequential',
         perPage: 1,
-        rewind: true,
         autoplay: true,
         interval: 4000,
         arrows: true,
@@ -476,14 +476,11 @@
         width: '100%',
         cover: true,
         focus: 'center',
-        trimSpace: false,
-        updateOnMove: true,
         breakpoints: {
           768: {
             height: '100vh',
             fixedWidth: '100vw',
             fixedHeight: '100vh',
-            focus: 'center',
             cover: true,
             pagination: false,
           }
