@@ -14028,18 +14028,6 @@ footer hr {
   -o-object-fit: cover;
      object-fit: cover;
 }
-#landing-page .full-screen-gallery .splide__pagination {
-  bottom: 2rem;
-}
-#landing-page .full-screen-gallery .splide__pagination__page {
-  width: 12px;
-  height: 12px;
-  margin: 0 8px;
-}
-#landing-page .full-screen-gallery .splide__pagination__page.is-active {
-  background: white;
-  transform: scale(1.2);
-}
 
 #open-days-registration .introduction,
 #open-days-registration .success {

@@ -309,17 +309,90 @@
                 </a>
               </div>
             </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/12.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/12.jpg') }}"
+                       alt="Gallery Image 12">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/13.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/13.jpg') }}"
+                       alt="Gallery Image 13">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/14.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/14.jpg') }}"
+                       alt="Gallery Image 14">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/15.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/15.jpg') }}"
+                       alt="Gallery Image 15">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/16.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/16.jpg') }}"
+                       alt="Gallery Image 16">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/17.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/17.jpg') }}"
+                       alt="Gallery Image 17">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/18.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/18.jpg') }}"
+                       alt="Gallery Image 18">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/19.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/19.jpg') }}"
+                       alt="Gallery Image 19">
+                </a>
+              </div>
+            </li>
+            <li class="splide__slide">
+              <div class="slide-content">
+                <a data-fancybox="modern-house-maju-marsruts-2025-galerija"
+                   href="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/20.jpg') }}">
+                  <img src="{{ asset('storage/landing-pages/modern-house-maju-marsruts-2025/20.jpg') }}"
+                       alt="Gallery Image 20">
+                </a>
+              </div>
+            </li>
+
           </ul>
         </div>
-        <!-- Custom navigation arrows -->
-        {{--        <div class="splide__arrows">--}}
-        {{--          <button class="splide__arrow splide__arrow--prev">--}}
-        {{--            <i class="bi bi-chevron-left"></i>--}}
-        {{--          </button>--}}
-        {{--          <button class="splide__arrow splide__arrow--next">--}}
-        {{--            <i class="bi bi-chevron-right"></i>--}}
-        {{--          </button>--}}
-        {{--        </div>--}}
       </div>
     </section>
     <section id="contact-us" class="mt-4 mt-lg-5">
@@ -472,7 +545,7 @@
         autoplay: true,
         interval: 4000,
         arrows: true,
-        pagination: true,
+        pagination: false,
         height: '100vh',
         width: '100%',
         cover: true,
