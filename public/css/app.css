@@ -13848,8 +13848,6 @@ footer hr {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100%;
-  /* Custom navigation styling */
-  /* Pagination styling */
 }
 #landing-page #button-up {
   rotate: 180deg;
