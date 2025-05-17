@@ -93,6 +93,9 @@
         </div>
       </div>
     </section>
+    <section class="full-height-section d-flex flex-column justify-content-between"
+             style="background-image: url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/8.jpg')}}')">
+    </section>
     <section class="mt-4 mt-lg-5">
       <div class="container d-flex flex-column justify-content-center">
         <div class="row">
@@ -319,8 +322,6 @@
         {{--        </div>--}}
       </div>
     </section>
-
-    <section id="open-days-registration" class="mt-4 mt-lg-5"></section>
     <section id="contact-us" class="mt-4 mt-lg-5">
       <livewire:open-days-registration-form :isBackButtonVisible="false"/>
     </section>
