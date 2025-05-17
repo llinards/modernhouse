@@ -227,19 +227,4 @@
     height: 100%;
     object-fit: cover;
   }
-  
-  .full-screen-gallery .splide__pagination {
-    bottom: 2rem;
-  }
-
-  .full-screen-gallery .splide__pagination__page {
-    width: 12px;
-    height: 12px;
-    margin: 0 8px;
-  }
-
-  .full-screen-gallery .splide__pagination__page.is-active {
-    background: white;
-    transform: scale(1.2);
-  }
 }
