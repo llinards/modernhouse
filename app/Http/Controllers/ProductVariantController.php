@@ -37,10 +37,6 @@ class ProductVariantController extends Controller
         $productVariantService->addAttachment($data['product-variant-attachments']);
       }
 
-      if ($data->has('product-variant-menu-icon')) {
-        $productVariantService->addMenuIcon($data['product-variant-menu-icon']);
-      }
-
       return redirect('/admin')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
@@ -87,10 +83,6 @@ class ProductVariantController extends Controller
       }
       if ($data->has(['product-variant-attachments'])) {
         $productVariantService->addAttachment($data['product-variant-attachments']);
-      }
-
-      if ($data->has('product-variant-menu-icon')) {
-        $productVariantService->addMenuIcon($data['product-variant-menu-icon']);
       }
 
       return back()->with('success', 'Atjaunots!');

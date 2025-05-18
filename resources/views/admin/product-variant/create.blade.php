@@ -24,12 +24,6 @@
                    value="{{ old('product-variant-name') }}" name="product-variant-name">
           </div>
           <div class="mb-3">
-            <label for="product-variant-menu-icon" class="form-label">Izvēlnes ikona pirmajā lapā</label>
-            <x-file-upload :name="'product-variant-menu-icon'"/>
-            <p class="small">Bildei ir jābūt .PNG vai .SVG formātā, pēc iespējas mazākā
-              izmērā un ar caurspīdīgu fonu.</p>
-          </div>
-          <div class="mb-3">
             <div class="row">
               <div class="col-4">
                 <label for="product-variant-basic-price" class="form-label">Cena bāzes
@@ -83,14 +77,14 @@
           </div>
           <div class="mb-3">
             <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
-            <x-file-upload :name="'product-variant-plan'"/>
+            <x-file-upload :name="'product-variant-plan'" :required="'true'"/>
             <p class="small">Faila izmēru var samazināt šajā lapā - <a href="https://compressor.io/"
                                                                        target="_blank">compressor.io</a>
             </p>
           </div>
           <div class="mb-3">
             <label for="product-variant-images" class="form-label">Bildes</label>
-            <x-file-upload :name="'product-variant-images'"/>
+            <x-file-upload :name="'product-variant-images'" :required="'true'"/>
             <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
               izmērā.</p>
             <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
