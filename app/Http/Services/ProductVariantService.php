@@ -62,28 +62,6 @@ class ProductVariantService
     }
   }
 
-  public function addMenuIcon(array $icons): void
-  {
-    foreach ($icons as $icon) {
-      if ($icon !== null) {
-        $fileService = new FileService();
-
-        $existingIcon = $this->productVariant->menu_icon;
-
-        if ($existingIcon) {
-          $fileService->destroyFile($existingIcon,
-            'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
-        }
-
-        $fileService->storeFile($icon, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
-
-        $this->productVariant->update([
-          'menu_icon' => basename($icon),
-        ]);
-      }
-    }
-  }
-
   public function addPlan(array $files): void
   {
     foreach ($files as $file) {

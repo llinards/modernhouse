@@ -1,4 +1,4 @@
-<x-layouts.landing-page :title="'Atvērto durvju dienas Svīres ielā, Siguldā'">
+<x-layouts.landing-page :title="'MODERN HOUSE māju maršruts 2025'">
   <div id="landing-page" class="position-relative non-fixed">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
              style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');backdrop-filter:grayscale(100%);">
@@ -398,7 +398,6 @@
     <section id="contact-us" class="mt-4 mt-lg-5">
       <livewire:open-days-registration-form :isBackButtonVisible="false"/>
     </section>
-    {{--Footer--}}
     <section class="mt-5">
       @include('includes.footer')
     </section>
@@ -457,7 +456,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="locationTwoModal" tabindex="-1"
        aria-labelledby="Register for open days at Modern House"
        aria-hidden="true">
@@ -499,7 +497,6 @@
       </div>
     </div>
   </div>
-
   <div class="modal fade" id="locationThreeModal" tabindex="-1"
        aria-labelledby="Register for open days at Modern House"
        aria-hidden="true">

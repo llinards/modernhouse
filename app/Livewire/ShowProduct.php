@@ -165,6 +165,7 @@ class ShowProduct extends Component
                          })
                          ->where('is_active', 1)
                          ->where('product_id', $product->id)
+                         ->orderBy('slug')
                          ->get();
   }
 }
