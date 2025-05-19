@@ -13,7 +13,7 @@
                  class="modern-house-furniture-logo">
           </div>
           <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12 col-lg-8 offset-lg-2">
               <h3 class="mb-2 text-center text-white">@lang('furniture title one')</h3>
               <p class="text-center text-white">@lang('furniture content one')</p>
             </div>
@@ -26,9 +26,9 @@
           style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/modern-house-furniture/2.jpg')}});background-size:cover;">
           <div class="row">
             <div class="col-lg-6 offset-lg-6 col-12">
-              <h3 class="mb-2 text-white text-uppercase">@lang('furniture title two')</h3>
-              <p class="mb-2 text-white">@lang('furniture content two')</p>
-              <p class="text-white">@lang('furniture content two two')</p>
+              <h3 class="mb-2 text-center text-lg-start text-white text-uppercase">@lang('furniture title two')</h3>
+              <p class="mb-2 text-center text-lg-start text-white">@lang('furniture content two')</p>
+              <p class="text-white text-center text-lg-start">@lang('furniture content two two')</p>
             </div>
           </div>
         </div>
@@ -45,9 +45,9 @@
           style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/modern-house-furniture/3.jpg')}});background-size:cover;">
           <div class="row">
             <div class="col-lg-6 offset-lg-6 col-12">
-              <h3 class="mb-2 text-white text-uppercase">@lang('furniture title three')</h3>
-              <p class="mb-2 text-white">@lang('furniture content three')</p>
-              <p class="text-white">@lang('furniture content three two')</p>
+              <h3 class="mb-2 text-center text-lg-start text-white text-uppercase">@lang('furniture title three')</h3>
+              <p class="mb-2 text-center text-lg-start text-white">@lang('furniture content three')</p>
+              <p class="text-white text-center text-lg-start">@lang('furniture content three two')</p>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
           class="col-12 container-with-image-background-furniture p-lg-5 d-flex flex-column justify-content-center align-items-center"
           style="background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url({{ asset('storage/modern-house-furniture/4.jpg')}});background-size:cover;">
           <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-12 col-lg-8 offset-lg-2">
               <h3 class="mb-2 text-center text-white">@lang('furniture title five')</h3>
               <p class="mb-2 text-center text-white">@lang('furniture content five')</p>
               <p class="text-center text-white">@lang('furniture content five two')</p>
