@@ -1,6 +1,6 @@
 <x-layouts.admin>
   <x-slot name="header">
-    Pieteikumi atvērto durvju dienām Svīres ielā
+    Pieteikumi atvērto durvju dienām
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">
