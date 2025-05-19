@@ -2,3 +2,16 @@
   background-position: center;
   min-height: 550px;
 }
+
+.modern-house-furniture-logo {
+  width: 15%;
+}
+
+.container-with-image-background-furniture {
+  background-position: center;
+  min-height: 550px;
+
+  &:first-of-type {
+    background-position: center;
+  }
+}

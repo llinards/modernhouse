@@ -13742,6 +13742,18 @@ footer hr {
   min-height: 550px;
 }
 
+.modern-house-furniture-logo {
+  width: 15%;
+}
+
+.container-with-image-background-furniture {
+  background-position: center;
+  min-height: 550px;
+}
+.container-with-image-background-furniture:first-of-type {
+  background-position: center;
+}
+
 .modern-house-staff a {
   color: #000000;
   font-size: 16px;
