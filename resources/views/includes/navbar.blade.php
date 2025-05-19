@@ -14,7 +14,7 @@
         @endforeach
         @if(app()->getLocale() === 'lv')
           <a class="nav-link index text-center p-3"
-             href="/lv/projekti/svires-ielas-projekts-sigulda" target="_blank">@lang('projects')</a>
+             href="/lv/modern-house-maju-marsruts-2025" target="_blank">Atvērtās durvju dienas 2025</a>
         @endif
       </div>
     @endif
@@ -57,6 +57,11 @@
               <a class="nav-link text-center"
                  href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"
                  target="_blank">@lang('projects')</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-center"
+                 href="/{{app()->getLocale()}}/projekti/modern-house-maju-marsruts-2025"
+                 target="_blank">Atvērtās durvju dienas 2025</a>
             </li>
           @endif
         </ul>
