@@ -53,13 +53,15 @@
               <input type="text" wire:model="lastName" name="lastName" class="form-control">
             </div>
           </div>
-          <div class="mb-3">
-            <label for="phoneNumber" class="form-label fw-bold">Telefona numurs (ar valsts kodu)*</label>
-            <input type="tel" wire:model="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label fw-bold">E-pasts*</label>
-            <input type="email" wire:model="email" name="email" class="form-control">
+          <div class="row mb-3">
+            <div class="col-6">
+              <label for="phoneNumber" class="form-label fw-bold">Telefona numurs*</label>
+              <input type="tel" wire:model="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control">
+            </div>
+            <div class="col-6">
+              <label for="email" class="form-label fw-bold">E-pasts*</label>
+              <input type="email" wire:model="email" name="email" class="form-control">
+            </div>
           </div>
           <div class="mb-3">
             <label for="reason" class="form-label fw-bold">Apmeklējuma mērķis*</label>
@@ -124,16 +126,29 @@
     </div>
   @endif
 </div>
-<script type="module">
+@script
+<script>
   addEventListener('submit', () => {
     localStorage.setItem('acceptedOpenDaysRegistration', 'true');
   });
 
-  // const input = document.querySelector("#phoneNumber");
-  // const iti = intlTelInput(input, {
-  //   loadUtils: () => import("intl-tel-input/utils"),
+  const phoneInput = document.querySelector("#phoneNumber");
+  const fullPhoneInput = document.getElementById('phone_full');
+
+  // window.intlTelInput(phoneInput, {
+  //   utilScript: window.intlTelInput,
+  //   separateDialCode: true,
   //   formatOnDisplay: false,
   //   autoPlaceholder: 'off',
-  //   separateDialCode: true,
+  //   i18n: {
+  //     search: "Meklēt valsti",
+  //     searchPlaceholder: "Meklēt..."
+  //   },
+  //   initialCountry: "lv",
+  //   // hiddenInput: (telInputName) => ({
+  //   //   phone: "phoneNumber",
+  //   //   country: "countryCode"
+  //   // }),
   // });
 </script>
+@endscript
