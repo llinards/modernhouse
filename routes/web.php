@@ -113,6 +113,10 @@ Route::middleware('setLanguage')->group(function () {
     return view('about-us');
   });
 
+  Route::get('{language?}/modern-house-furniture', static function () {
+    return view('modern-house-furniture');
+  });
+
   Route::get('{language?}/gallery', [GalleryController::class, 'index']);
 
   Route::get('{language?}/request-consultation', static function () {

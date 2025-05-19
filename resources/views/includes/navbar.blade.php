@@ -64,6 +64,10 @@
       <div class="nav-items">
         <ul class="navbar-nav">
           <li class="nav-item">
+            <a class="nav-link text-center {{ Request::is('*/modern-house-furniture*') ? 'nav-link-active' : '' }}"
+               href="/{{app()->getLocale()}}/modern-house-furniture">MODERN HOUSE FURNITURE</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-center {{ Request::is('*/news*') ? 'nav-link-active' : '' }}"
                href="/{{app()->getLocale()}}/news">@lang('news')</a>
           </li>
