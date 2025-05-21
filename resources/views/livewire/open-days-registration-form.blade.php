@@ -18,7 +18,7 @@
           <input type="text" class="visually-hidden" name="subject"
                  value="Pieteikums atvērto durvju dienām Svīres ielas projektā">
           <div class="row mb-3">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="date" class="form-label fw-bold">Datums*</label>
               <select class="form-select" wire:model="date" name="date">
                 <option selected disabled value="">Izvēlies datumu</option>
@@ -26,7 +26,7 @@
                 <option value="5.jūlijs">5.jūlijs</option>
               </select>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="time" class="form-label fw-bold">Laiks*</label>
               <select class="form-select" wire:model="time" name="time">
                 <option selected disabled value="">Izvēlies laiku</option>
@@ -44,21 +44,25 @@
             </div>
           </div>
           <div class="row mb-3">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="firstName" class="form-label fw-bold">Vārds*</label>
               <input type="text" wire:model="firstName" name="firstName" class="form-control">
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="lastName" class="form-label fw-bold">Uzvārds*</label>
               <input type="text" wire:model="lastName" name="lastName" class="form-control">
             </div>
           </div>
           <div class="row mb-3">
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="phoneNumber" class="form-label fw-bold">Telefona numurs*</label>
-              <input type="tel" wire:model="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control">
+              <input type="tel" id="phoneNumber" autocomplete="off" wire:ignore class="form-control">
+              <input type="hidden" wire:model.defer="phoneNumber" id="fullPhoneNumber"/>
+
+              {{--              <input type="tel" wire:model.defer="phoneNumber" id="phoneNumber" name="phoneNumber"--}}
+              {{--                     class="form-control">--}}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
               <label for="email" class="form-label fw-bold">E-pasts*</label>
               <input type="email" wire:model="email" name="email" class="form-control">
             </div>
@@ -132,23 +136,30 @@
     localStorage.setItem('acceptedOpenDaysRegistration', 'true');
   });
 
-  const phoneInput = document.querySelector("#phoneNumber");
-  const fullPhoneInput = document.getElementById('phone_full');
+  const phoneInput = document.querySelector('#phoneNumber');
+  const fullPhoneNumberInput = document.querySelector('#fullPhoneNumber');
+  const iti = window.intlTelInput(phoneInput, {
+    separateDialCode: true,
+    formatOnDisplay: false,
+    autoPlaceholder: 'off',
+    i18n: {
+      search: "Meklēt valsti",
+      searchPlaceholder: "Meklēt..."
+    },
+    initialCountry: "lv",
+  });
 
-  // window.intlTelInput(phoneInput, {
-  //   utilScript: window.intlTelInput,
-  //   separateDialCode: true,
-  //   formatOnDisplay: false,
-  //   autoPlaceholder: 'off',
-  //   i18n: {
-  //     search: "Meklēt valsti",
-  //     searchPlaceholder: "Meklēt..."
-  //   },
-  //   initialCountry: "lv",
-  //   // hiddenInput: (telInputName) => ({
-  //   //   phone: "phoneNumber",
-  //   //   country: "countryCode"
-  //   // }),
-  // });
+  const updateFullNumber = () => {
+    const countryCode = iti.getSelectedCountryData().dialCode;
+    const phoneNumber = phoneInput.value;
+    fullPhoneNumberInput.value = '+' + countryCode + phoneNumber;
+    fullPhoneNumberInput.dispatchEvent(new Event('input'));
+  };
+
+  phoneInput.addEventListener('input', updateFullNumber);
+  phoneInput.addEventListener('countrychange', updateFullNumber);
+
+  updateFullNumber();
+
 </script>
 @endscript
