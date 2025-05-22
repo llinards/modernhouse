@@ -20,7 +20,7 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label for="date" class="form-label fw-bold">Datums*</label>
-              <select class="form-select" wire:model="date" name="date">
+              <select class="form-select" wire:model="date" required name="date">
                 <option selected disabled value="">Izvēlies datumu</option>
                 <option value="4.jūlijs">4.jūlijs</option>
                 <option value="5.jūlijs">5.jūlijs</option>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-12 col-lg-6">
               <label for="time" class="form-label fw-bold">Laiks*</label>
-              <select class="form-select" wire:model="time" name="time">
+              <select class="form-select" wire:model="time" required name="time">
                 <option selected disabled value="">Izvēlies laiku</option>
                 <option value="10:00">10:00</option>
                 <option value="11:00">11:00</option>
@@ -46,30 +46,27 @@
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label for="firstName" class="form-label fw-bold">Vārds*</label>
-              <input type="text" wire:model="firstName" name="firstName" class="form-control">
+              <input type="text" wire:model="firstName" required name="firstName" class="form-control">
             </div>
             <div class="col-12 col-lg-6">
               <label for="lastName" class="form-label fw-bold">Uzvārds*</label>
-              <input type="text" wire:model="lastName" name="lastName" class="form-control">
+              <input type="text" wire:model="lastName" required name="lastName" class="form-control">
             </div>
           </div>
           <div class="row mb-3">
             <div class="col-12 col-lg-6">
               <label for="phoneNumber" class="form-label fw-bold">Telefona numurs*</label>
-              <input type="tel" id="phoneNumber" autocomplete="off" wire:ignore class="form-control">
+              <input type="tel" id="phoneNumber" required autocomplete="off" wire:ignore class="form-control">
               <input type="hidden" wire:model.defer="phoneNumber" id="fullPhoneNumber"/>
-
-              {{--              <input type="tel" wire:model.defer="phoneNumber" id="phoneNumber" name="phoneNumber"--}}
-              {{--                     class="form-control">--}}
             </div>
             <div class="col-12 col-lg-6">
               <label for="email" class="form-label fw-bold">E-pasts*</label>
-              <input type="email" wire:model="email" name="email" class="form-control">
+              <input type="email" wire:model="email" required name="email" class="form-control">
             </div>
           </div>
           <div class="mb-3">
             <label for="reason" class="form-label fw-bold">Apmeklējuma mērķis*</label>
-            <select class="form-select" wire:model="reason" name="reason">
+            <select class="form-select" wire:model="reason" required name="reason">
               <option selected disabled value="">Izvēlies mērķi</option>
               <option value="Interesē privātmājas iegāde">Interesē privātmājas iegāde</option>
               <option value="Interesē moduļa mājas vai saunas iegāde">Interesē moduļa mājas vai saunas iegāde</option>
