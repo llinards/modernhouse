@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'CharpentierRegular';
+  src: url('/storage/fonts/CharpentierRegular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+.siguldas-skati-font {
+  font-family: 'CharpentierRegular', serif;
+  font-size: 25px;
+}
+
+.siguldas-skati-instagram-icon {
+  font-size: 25px;
+}
+
 .non-fixed {
   scroll-snap-type: none !important;
 }

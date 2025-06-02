@@ -13759,6 +13759,20 @@ footer hr {
   font-size: 16px;
 }
 
+@font-face {
+  font-family: "CharpentierRegular";
+  src: url("/storage/fonts/CharpentierRegular.ttf") format("truetype");
+  font-weight: 400;
+}
+.siguldas-skati-font {
+  font-family: "CharpentierRegular", serif;
+  font-size: 25px;
+}
+
+.siguldas-skati-instagram-icon {
+  font-size: 25px;
+}
+
 .non-fixed {
   scroll-snap-type: none !important;
 }
@@ -14007,6 +14021,12 @@ footer hr {
   }
   p, li {
     font-size: 14px;
+  }
+  .siguldas-skati-font {
+    font-size: 20px;
+  }
+  .siguldas-skati-instagram-icon {
+    font-size: 20px !important;
   }
   .product-variant-option-content p {
     font-size: 14px;
