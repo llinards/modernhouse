@@ -78,7 +78,7 @@
                 <img class="icons open-days-icons"
                      src="{{asset('storage/icons/map-pin-line-3.svg')}}"
                      alt="Location icon">
-                <h5>Sigulda - Svīres iela 3, Televīzijas iela 15C, Cēsu iela</h5>
+                <h5>Sigulda - Svīres iela 3, Televīzijas iela 15C, Cēsu iela 17</h5>
               </div>
             </div>
             <div class="mt-4 d-flex justify-content-center">
