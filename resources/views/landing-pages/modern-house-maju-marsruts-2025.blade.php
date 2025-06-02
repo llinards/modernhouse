@@ -522,7 +522,8 @@
                   <li class="mb-2 mb-lg-4">
                     <div>
                       <h5 class="mb-2 siguldas-skati-font">SIGULDAS SKATI </h5>
-                      <p class="mb-2">Tavas jaunās dizaina brīvdienu mājas – drīzumā pieejamas rezervācijām!</p>
+                      <p class="mb-2 siguldas-skati-font">Tavas jaunās dizaina brīvdienu mājas – drīzumā pieejamas
+                        rezervācijām!</p>
                     </div>
                     <div class="d-flex flex-column align-items-center">
                       <a class="mb-2 btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center"
