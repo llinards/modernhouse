@@ -22,11 +22,11 @@
             <img class="icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
             <ul class="list-unstyled d-lg-flex gap-lg-2 justify-content-center mb-lg-0">
               <li class="text-white fw-bold position-relative list-item-divider-lg">Svīres iela 3
-                (tikšanās vieta)
+                (Tikšanās vieta)
               </li>
               <li class="text-white fw-bold position-relative list-item-divider-lg">Televīzijas iela 15C
               </li>
-              <li class="text-white fw-bold position-relative list-item-divider-lg">Cēsu iela</li>
+              <li class="text-white fw-bold position-relative list-item-divider-lg">Cēsu iela 17</li>
             </ul>
           </div>
         </div>
@@ -107,7 +107,7 @@
               <li class="mb-2 mb-lg-4 custom-bullet">
                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                 <div>
-                  <h5 class="mb-2">1. PIETURVIETA – SVĪRES IELAS PROJEKTS</h5>
+                  <h5 class="mb-2">SVĪRES IELA 3 (TIKŠANĀS VIETA)</h5>
                   <p>Pilnībā pabeigta privātmāja, kas gatava tūlītējai iegādei un
                     dzīvošanai. Šī ir maršruta centrālā pietura – vieta, kur visiem startā
                     satikties un apskatīt gatavu iegādei privātmāju. Sper soli tuvāk savai
@@ -117,7 +117,7 @@
               <li class="mb-2 mb-lg-4 custom-bullet">
                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                 <div>
-                  <h5 class="mb-2">2. PIETURVIETA – TELEVĪZIJAS IELAS DVĪŅU MĀJA</h5>
+                  <h5 class="mb-2">TELEVĪZIJAS IELA 15C (DVĪŅU MĀJA)</h5>
                   <p>Šeit varēs redzēt, kā top dzīves telpa – no pamatiem līdz atslēgai.
                     Tas būs ielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
                     Ieskaties nākotnē, kur vēl viss tikai sākas - rezervē vai iegādājies
@@ -127,20 +127,21 @@
               <li class="mb-2 mb-lg-4 custom-bullet">
                 <img class="icon" src="{{asset('storage/landing-pages/icons/pin.svg')}}" alt="Pin icon">
                 <div>
-                  <h5 class="mb-2">3. PIETURVIETA – XXXX MODUĻI UN SAUNA</h5>
-                  <p>Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
-                    uzstādīšanu un pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan
-                    kā
-                    papildu dzīves telpu.
-                    Efektīva telpa – skaidrs risinājums dinamiskai ikdienai! (jāpiemin
-                    par kempingu).</p>
+                  <h5 class="mb-2">CĒSU IELA 17, MODUĻI UN SAUNA <span
+                      class="siguldas-skati-font">(SIGULDAS SKATI)</span></h5>
+                  <p class="mb-2">Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
+                    uzstādīšanu un
+                    pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan kā papildu dzīves telpu.</p>
+                  <p>Siguldas skati ir īpaša atpūtas vieta tiem, kuri meklē mieru, klātbūtnes un skaistuma sajūtu pašā
+                    Siguldas sirdī. Mūsu stāsts sākas vietā, kur dizains saplūst ar dabu un miers kļūst par lielāko
+                    greznību.</p>
                 </div>
               </li>
             </ul>
           </div>
           <div class="col-12 col-lg-6">
             <img loading="lazy" class="w-100 h-100 object-fit-cover"
-                 src="{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/1.jpg')}}"/>
+                 src="{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/siguldas-skati.jpg')}}"/>
           </div>
           <div class="mt-4">
             <h4 class="text-center">Pasākums norisināsies tikai 2 dienas – rezervācija ir obligāta!</h4>
@@ -197,7 +198,7 @@
                   <div class="d-flex align-items-center mt-3">
                     <img class="icons-sm" src="{{asset('storage/landing-pages/icons/map-pin-line.svg')}}"
                          alt="Location icon">
-                    <p class="mx-2">Cēsu iela, Sigulda</p>
+                    <p class="mx-2">Cēsu iela 17, Sigulda</p>
                   </div>
                 </div>
               </div>
@@ -514,14 +515,24 @@
                 <ul class="list-unstyled">
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">Iespēja iepazīties ar MODERN HOUSE moduļiem</h5>
-                      <p>Apskati mūsdienīgus, ilgtspējīgus un estētiskus koka karkasa moduļus un saunu.</p>
+                      <h5 class="mb-2">Iespēja iepazīties ar MODERN HOUSE moduļiem un saunu</h5>
+                      <p class="mb-4">Apskati mūsdienīgus, ilgtspējīgus un estētiskus koka karkasa moduļus un saunu.</p>
                     </div>
                   </li>
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">KEMPINGS</h5>
-                      <p>Rezervē savas brīvdienas Siguldā jau šodien!</p>
+                      <h5 class="mb-2 siguldas-skati-font">SIGULDAS SKATI </h5>
+                      <p class="mb-2">Tavas jaunās dizaina brīvdienu mājas – drīzumā pieejamas rezervācijām!</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <a class="mb-2 btn btn-primary btn-primary-sm d-flex justify-content-center align-items-center"
+                         href="https://siguldasskati.lv" target="_blank"
+                      >
+                        Uzzināt vairāk
+                      </a>
+                      <a href="https://www.instagram.com/siguldasskati/" class="nav-link siguldas-skati-instagram-icon"
+                         target="_blank"><i
+                          class="bi bi-instagram"></i></a>
                     </div>
                   </li>
                 </ul>
