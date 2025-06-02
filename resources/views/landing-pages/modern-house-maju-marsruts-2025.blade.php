@@ -474,20 +474,20 @@
                 <ul class="list-unstyled">
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">Tikšanās ar būvniekiem un iepazīšanās ar materiāliem</h5>
+                      <h5 class="mb-2">1. Tikšanās ar būvniekiem un iepazīšanās ar materiāliem</h5>
                       <p>Iespēja uzdot jautājumus MODERN HOUSE komandas pārstāvjiem un iepazīties ar būvmateriāliem un
                         tehnikām, kas veido MODERN HOUSE kvalitāti.</p>
                     </div>
                   </li>
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">Iespēja redzēt kā top MODERN HOUSE mājas</h5>
+                      <h5 class="mb-2">2. Iespēja redzēt kā top MODERN HOUSE mājas</h5>
                       <p>Iespēja redzēt pilnībā pabeigtu māju un māju būvniecības procesā.</p>
                     </div>
                   </li>
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">Iespēju veikt rezervāciju mājas iegādei</h5>
+                      <h5 class="mb-2">3. Iespēju veikt rezervāciju mājas iegādei</h5>
                     </div>
                   </li>
                 </ul>
