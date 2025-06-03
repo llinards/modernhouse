@@ -23,9 +23,12 @@ class KlaviyoService
 
   public function storeProfile($request, $listId): void
   {
-    $profileId = $this->createProfile($request);
-    if ($profileId) {
-      $this->subscribeProfile($profileId, $listId, $request);
+    $result = $this->createProfile($request);
+    if ($result['profileId']) {
+      if ($result['existed']) {
+        $this->updateProfile($result['profileId'], $request);
+      }
+      $this->subscribeProfile($result['profileId'], $listId, $request);
     }
   }
 
@@ -33,44 +36,44 @@ class KlaviyoService
   {
     $data = [
       'data' => [
-        'type' => 'profile-subscription-bulk-create-job',
-        'attributes' => [
+        'type'          => 'profile-subscription-bulk-create-job',
+        'attributes'    => [
           'profiles' => [
             'data' => [
               [
-                'type' => 'profile',
-                'id' => $profileId,
+                'type'       => 'profile',
+                'id'         => $profileId,
                 'attributes' => [
-                  'email' => $request['email'],
-                  'phone_number' => $request['phone-number'],
+                  'email'         => $request['email'],
+                  'phone_number'  => $request['phone-number'],
                   'subscriptions' => [
                     'email' => [
                       'marketing' => [
-                        'consent' => 'SUBSCRIBED',
+                        'consent'      => 'SUBSCRIBED',
                         'consented_at' => date('Y-m-d\TH:i:sO'),
-                      ]
+                      ],
                     ],
-                    'sms' => [
+                    'sms'   => [
                       'marketing' => [
-                        'consent' => 'SUBSCRIBED',
+                        'consent'      => 'SUBSCRIBED',
                         'consented_at' => date('Y-m-d\TH:i:sO'),
-                      ]
-                    ]
+                      ],
+                    ],
                   ],
                 ],
-              ]
-            ]
-          ]
+              ],
+            ],
+          ],
         ],
         'relationships' => [
           'list' => [
             'data' => [
               'type' => 'list',
-              'id' => $listId
-            ]
-          ]
-        ]
-      ]
+              'id'   => $listId,
+            ],
+          ],
+        ],
+      ],
     ];
     try {
       $this->klaviyo->Profiles->subscribeProfiles($data);
@@ -85,14 +88,14 @@ class KlaviyoService
   {
     $data = [
       'data' => [
-        'type' => 'profile',
+        'type'       => 'profile',
         'attributes' => [
-          'email' => $request['email'],
+          'email'        => $request['email'],
           'phone_number' => $request['phone-number'],
-          'first_name' => $request['first-name'],
-          'last_name' => $request['last-name'],
+          'first_name'   => $request['first-name'],
+          'last_name'    => $request['last-name'],
           'organization' => $request['company'] ?? '',
-          "properties" => [
+          "properties"   => [
             "atvertoDurvjuDienasPieteikums" => $request['date-time'] ?? null,
           ],
         ],
@@ -101,17 +104,48 @@ class KlaviyoService
     try {
       $response = $this->klaviyo->Profiles->createProfile($data);
       Log::info('Profile created!');
-      return $response['data']['id'];
+
+      return ['profileId' => $response['data']['id'], 'existed' => false];
     } catch (ApiException $e) {
       if ($e->getCode() === 409) {
         $profileId = json_decode($e->getResponseBody(), true);
         Log::info('Profile already exists!');
-        return $profileId['errors'][0]['meta']['duplicate_profile_id'];
+
+        return [
+          'profileId' => $profileId['errors'][0]['meta']['duplicate_profile_id'],
+          'existed'   => true,
+        ];
       } else {
         Log::error($e->getResponseBody());
         Log::error('Profile creation failed!');
         throw new \RuntimeException('Profile not created!');
       }
+    }
+  }
+
+  private function updateProfile($profileId, $request): void
+  {
+    $data = [
+      'data' => [
+        'type'       => 'profile',
+        'id'         => $profileId,
+        'attributes' => [
+          'first_name'   => $request['first-name'],
+          'last_name'    => $request['last-name'],
+          'organization' => $request['company'] ?? '',
+          "properties"   => [
+            "atvertoDurvjuDienasPieteikums" => $request['date-time'] ?? null,
+          ],
+        ],
+      ],
+    ];
+
+    try {
+      $this->klaviyo->Profiles->updateProfile($profileId, $data);
+      Log::info('Profile updated with custom property!');
+    } catch (ApiException $e) {
+      Log::error($e->getResponseBody());
+      Log::error('Profile update failed!');
     }
   }
 }

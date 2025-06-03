@@ -22,11 +22,11 @@ class OpenDaysRegistrationForm extends Component
   public bool $successView = false;
 
   #[Validate('required', message: 'Datums ir obligāts.')]
-  #[Validate('in:4.jūlijs,5.jūlijs', message: 'Pieteikties var tikai 4.jūlijā vai 5.jūlijā.')]
+  #[Validate('in:18.jūlijs,19.jūlijs', message: 'Pieteikties var tikai 18.jūlijā vai 19.jūlijā.')]
   public string $date = '';
 
   #[Validate('required', message: 'Laiks ir obligāts.')]
-  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00,19:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
+  #[Validate('in:10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00,18:00', message: 'Pieteikties var tikai uz pilnu stundu.')]
   public string $time = '';
 
   #[Validate('required', message: 'Vārds ir obligāts.')]
@@ -65,8 +65,7 @@ class OpenDaysRegistrationForm extends Component
     $this->validate();
     try {
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-      OpenDaysRegistration::class::create($this->all());
-//      TODO: This should be fixed
+      OpenDaysRegistration::create($this->all());
       $request = [
         'email'        => $this->email,
         'phone-number' => $this->phoneNumber,

@@ -8,7 +8,7 @@
           </a>
           <h4 class="mt-4 mb-2">Gaidīsim Jūs ciemos uz MODERN HOUSE atvērtajām durvju dienām<br/>
             “MODERN HOUSE MĀJU MARŠRUTS 2025”<br/>
-            Svīres ielā Siguldā š.g. 4. un 5. jūlijā.
+            Svīres ielā Siguldā š.g. 18. un 19. jūlijā.
           </h4>
           <p class="mb-4">Izvēlies sev ērtāko dienu un laiku, un reģistrē savu apmeklējumu.*</p>
         </div>
@@ -22,8 +22,8 @@
               <label for="date" class="form-label fw-bold">Datums*</label>
               <select class="form-select" wire:model="date" required name="date">
                 <option selected disabled value="">Izvēlies datumu</option>
-                <option value="4.jūlijs">4.jūlijs</option>
-                <option value="5.jūlijs">5.jūlijs</option>
+                <option value="18.jūlijs">18.jūlijs</option>
+                <option value="19.jūlijs">19.jūlijs</option>
               </select>
             </div>
             <div class="col-12 col-lg-6">
@@ -39,7 +39,6 @@
                 <option value="16:00">16:00</option>
                 <option value="17:00">17:00</option>
                 <option value="18:00">18:00</option>
-                <option value="19:00">19:00</option>
               </select>
             </div>
           </div>
@@ -130,7 +129,7 @@
 @script
 <script>
   addEventListener('submit', () => {
-    localStorage.setItem('acceptedOpenDaysRegistration', 'true');
+    localStorage.setItem('acceptedModernHouseOpenDays2025', 'true');
   });
 
   const phoneInput = document.querySelector('#phoneNumber');
