@@ -119,8 +119,8 @@
                 <div>
                   <h5 class="mb-2">TELEVĪZIJAS IELA 15C (DVĪŅU MĀJA)</h5>
                   <p>Šeit varēs redzēt, kā top dzīves telpa – no pamatiem līdz atslēgai.
-                    Tas būs ielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
-                    Ieskaties nākotnē, kur vēl viss tikai sākas - rezervē vai iegādājies
+                    Tas būs lielisks veids, kā izprast katru posmu ceļā uz savu mājokli.
+                    Ieskaties nākotnē, kur viss vēl tikai sākas - rezervē vai iegādājies
                     jau šodien!</p>
                 </div>
               </li>
