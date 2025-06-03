@@ -65,8 +65,7 @@ class OpenDaysRegistrationForm extends Component
     $this->validate();
     try {
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-      OpenDaysRegistration::class::create($this->all());
-//      TODO: This should be fixed
+      OpenDaysRegistration::create($this->all());
       $request = [
         'email'        => $this->email,
         'phone-number' => $this->phoneNumber,
