@@ -12,11 +12,11 @@
         <div class="d-flex justify-content-center align-items-center flex-wrap">
           <div class="d-flex mb-3 mb-sm-4 mx-4">
             <img class="icon" src="{{asset('storage/icons/calendar-check-white.svg')}}" alt="Calendar icon">
-            <p class="text-white fw-bold">4. un 5. jūlijs, Sigulda</p>
+            <p class="text-white fw-bold">18. un 19. jūlijs, Sigulda</p>
           </div>
           <div class="d-flex mb-3 mb-sm-4 mx-4">
             <img class="icon" src="{{asset('storage/icons/clock-white.svg')}}" alt="Clock icon">
-            <p class="text-white fw-bold">10:00 - 19:00</p>
+            <p class="text-white fw-bold">10:00 - 18:00</p>
           </div>
           <div class="d-flex mb-3 mb-sm-4 mx-4">
             <img class="icon" src="{{asset('storage/landing-pages/icons/map.svg')}}" alt="Location icon">
@@ -63,14 +63,14 @@
               <div class="col-12 d-flex align-items-center">
                 <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"
                      alt="Calendar icon">
-                <h5>4. un 5. jūlijā (sestdiena, svētdiena)</h5>
+                <h5>18. un 19. jūlijā (sestdiena, svētdiena)</h5>
               </div>
             </div>
             <div class="row mt-2 mt-lg-4">
               <div class="col-12 d-flex align-items-center">
                 <img class="icons open-days-icons" src="{{asset('storage/icons/clock.svg')}}"
                      alt="Clock icon">
-                <h5>10:00 - 19:00</h5>
+                <h5>10:00 - 18:00</h5>
               </div>
             </div>
             <div class="row mt-2 mt-lg-4">
@@ -439,8 +439,8 @@
                   </li>
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">3. Iespēja satikt Swedbank pārstāvjus un mājokļa vērtētāju</h5>
-                      <p>Uzzināt mājokļu tirgus situāciju un tendences, kā arī pieteikties finansējumam???</p>
+                      <h5 class="mb-2">3. Iespēja satikt banku pārstāvjus (Swedbank, SEB) un tehnisko ekspertu.</h5>
+                      <p>Uzzināt mājokļu tirgus situāciju un tendences, kā arī pieteikties finansējumam</p>
                     </div>
                   </li>
                   <li class="mb-2 mb-lg-4">

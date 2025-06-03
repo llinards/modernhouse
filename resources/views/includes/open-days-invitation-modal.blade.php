@@ -27,13 +27,13 @@
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/calendar-check.svg')}}" alt="Calendar icon">
-                      <p class="mb-0">4. un 5. jūlijā (sestdiena, svētdiena)</p>
+                      <p class="mb-0">18. un 19. jūlijā (sestdiena, svētdiena)</p>
                     </div>
                   </li>
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/clock.svg')}}" alt="Clock icon">
-                      <p class="mb-0">10:00 - 19:00</p>
+                      <p class="mb-0">10:00 - 18:00</p>
                     </div>
                   </li>
                   <li>
@@ -62,14 +62,15 @@
   } else {
     const localeMetaTag = document.querySelector('meta[name="locale"]');
     const locale = localeMetaTag ? localeMetaTag.getAttribute('content') : null;
-    const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
-    const acceptedOpenDaysRegistration = localStorage.getItem('acceptedOpenDaysRegistration');
-    const now = new Date().getTime();
+    // const declinedOpenDaysRegistration = localStorage.getItem('declinedOpenDaysRegistration');
+    const acceptedOpenDaysRegistration = localStorage.getItem('acceptedModernHouseOpenDays2025');
+    // const now = new Date().getTime();
 
-    const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
-    const differenceInHours = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60)) : Infinity;
-    
-    if (locale === 'lv' && ((differenceInHours >= 24 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
+    // const declinedTimestamp = declinedOpenDaysRegistration ? parseInt(declinedOpenDaysRegistration, 10) : 0;
+    // const differenceInHours = declinedTimestamp ? Math.floor((now - declinedTimestamp) / (1000 * 60 * 60)) : Infinity;
+
+    // if (locale === 'lv' && ((differenceInHours >= 24 || !declinedOpenDaysRegistration) && !acceptedOpenDaysRegistration)) {
+    if (locale === 'lv' && !acceptedOpenDaysRegistration) {
       setTimeout(() => {
         try {
           new bootstrap.Modal(registerForOpenDaysModal).show();
@@ -78,9 +79,9 @@
         }
       }, 3000);
     }
-
-    registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
-      localStorage.setItem('declinedOpenDaysRegistration', new Date().getTime().toString());
-    });
+    //
+    // registerForOpenDaysModal.addEventListener('hidden.bs.modal', () => {
+    //   localStorage.setItem('declinedOpenDaysRegistration', new Date().getTime().toString());
+    // });
   }
 </script>
