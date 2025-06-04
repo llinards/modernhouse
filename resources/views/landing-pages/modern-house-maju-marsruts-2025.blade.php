@@ -1,7 +1,7 @@
 <x-layouts.landing-page :title="'MODERN HOUSE māju maršruts 2025'">
   <div id="landing-page" class="position-relative non-fixed">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');backdrop-filter:grayscale(100%);">
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');background-position:center 20%;backdrop-filter:grayscale(100%);">
       <div class="px-2">
         <h4 class="text-center text-white text-uppercase mb-5 mb-lg-5 introduction-title">Modern House<br/>atvērto
           durvju dienas
@@ -51,9 +51,10 @@
               klātienē iepazīt 3 atšķirīgus mājokļu projektus, satikt mūsu komandu, esošos klientus un
               sajust, kā rodas mājas, kas iedvesmo, kā arī iegādāties savu jauno mājokli!</p>
             <p class="mb-2">Tāpat pasākuma laikā būs iespēja uzdot arī tehniskus jautājumus mūsu komandai,
-              jo tajā piedalīsies projektu vadītāji un citi speciālisti no MODERN HOUSE komandas. Mājokļa
+              jo tajā piedalīsies projektu vadītāji un citi speciālisti no MODERN HOUSE komandas.</p>
+            <p class="mb-2">Mājokļa
               tirgus situācijas analīzei un tendenču apskatam pasākumā piedalīsies arī banku pārstāvji no
-              Swedbank un SEB. Būs iespēja iepazīties arī citu projektu māju klientiem un aprunāties par
+              Swedbank un SEB. Būs iespēja iepazīties arī ar citu projektu māju klientiem un aprunāties par
               viņu pieredzi.</p>
             <p class="mb-2">Atnāciet un iepazīstaties ar mūsu darba procesu un atvērsim durvis Jūsu sapņu
               mājai kopā!</p>
@@ -132,7 +133,7 @@
                   <p class="mb-2">Moduļu mājas ir risinājums tiem, kas novērtē mūsdienīgu funkcionalitāti, ātru
                     uzstādīšanu un
                     pielāgojamību dažādām vajadzībām – gan kā pastāvīgu mājokli, gan kā papildu dzīves telpu.</p>
-                  <p>Siguldas skati ir īpaša atpūtas vieta tiem, kuri meklē mieru, klātbūtnes un skaistuma sajūtu pašā
+                  <p>* Siguldas skati ir īpaša atpūtas vieta tiem, kuri meklē mieru, klātbūtnes un skaistuma sajūtu pašā
                     Siguldas sirdī. Mūsu stāsts sākas vietā, kur dizains saplūst ar dabu un miers kļūst par lielāko
                     greznību.</p>
                 </div>
