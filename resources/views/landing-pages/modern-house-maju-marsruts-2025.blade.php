@@ -1,7 +1,7 @@
 <x-layouts.landing-page :title="'MODERN HOUSE māju maršruts 2025'">
   <div id="landing-page" class="position-relative non-fixed">
     <section id="introduction" class="full-height-section d-flex flex-column justify-content-between"
-             style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');background-position:center 20%;backdrop-filter:grayscale(100%);">
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)), url('{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/introduction.jpg')}}');background-position:center 40%;backdrop-filter:grayscale(100%);">
       <div class="px-2">
         <h4 class="text-center text-white text-uppercase mb-5 mb-lg-5 introduction-title">Modern House<br/>atvērto
           durvju dienas
