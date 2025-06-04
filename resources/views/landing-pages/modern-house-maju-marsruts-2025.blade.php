@@ -102,7 +102,7 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <h3 class="mb-4 text-uppercase">Atvērto durvju dienu programma</h3>
-            <p class="mb-4 fw-bold">Šis maršruts nav tikai par mājām – tas ir par izvēlēm, kas saskan ar
+            <p class="mb-4">Šis maršruts nav tikai par mājām – tas ir par izvēlēm, kas saskan ar
               Jūsu dzīvesveidu. Nāc un atklāj, kura no tām ir Jūsu!</p>
             <ul class="open-days-agenda">
               <li class="mb-2 mb-lg-4 custom-bullet">

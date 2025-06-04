@@ -8,7 +8,7 @@
           </a>
           <h4 class="mt-4 mb-2">Gaidīsim Jūs ciemos uz MODERN HOUSE atvērtajām durvju dienām<br/>
             “MODERN HOUSE MĀJU MARŠRUTS 2025”<br/>
-            Svīres ielā 3 Siguldā š.g. 18. un 19. jūlijā.
+            Svīres ielā 3, Siguldā š.g. 18. un 19. jūlijā.
           </h4>
           <p class="mb-4">Izvēlies sev ērtāko dienu un laiku, un reģistrē savu apmeklējumu.*</p>
         </div>
