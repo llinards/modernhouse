@@ -46,7 +46,7 @@
         <div class="row">
           <div class="col-12 col-lg-6">
             <h3 class="mb-4">PAR ATVĒRTAJĀM DURVJU DIENĀM – IEPAZĪSTI KVALITĀTI 3 PIETURVIETĀS</h3>
-            <p class="mb-2">4. un 5. jūlijā aicinām doties īpašā ceļojumā caur MODERN HOUSE mājokļu
+            <p class="mb-2">18. un 19. jūlijā aicinām doties īpašā ceļojumā caur MODERN HOUSE mājokļu
               risinājumiem. “MODERN HOUSE MĀJU MARŠRUTS 2025” ir atvērto durvju dienu notikums, kur varēsi
               klātienē iepazīt 3 atšķirīgus mājokļu projektus, satikt mūsu komandu, esošos klientus un
               sajust, kā rodas mājas, kas iedvesmo, kā arī iegādāties savu jauno mājokli!</p>
