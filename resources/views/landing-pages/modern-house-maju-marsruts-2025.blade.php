@@ -488,7 +488,7 @@
                   </li>
                   <li class="mb-2 mb-lg-4">
                     <div>
-                      <h5 class="mb-2">3. Iespēju veikt rezervāciju mājas iegādei</h5>
+                      <h5 class="mb-2">3. Iespēja veikt rezervāciju mājas iegādei</h5>
                     </div>
                   </li>
                 </ul>
