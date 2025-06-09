@@ -27,7 +27,7 @@
                   <li class="mb-2">
                     <div class="d-flex align-items-center">
                       <img src="{{asset('storage/icons/calendar-check.svg')}}" alt="Calendar icon">
-                      <p class="mb-0">18. un 19. jūlijā (sestdiena, svētdiena)</p>
+                      <p class="mb-0">18. un 19. jūlijā (piektdiena, sestdiena)</p>
                     </div>
                   </li>
                   <li class="mb-2">
