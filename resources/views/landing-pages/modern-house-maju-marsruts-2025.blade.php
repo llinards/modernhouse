@@ -64,7 +64,7 @@
               <div class="col-12 d-flex align-items-center">
                 <img class="icons open-days-icons" src="{{asset('storage/icons/calendar-check.svg')}}"
                      alt="Calendar icon">
-                <h5>18. un 19. jūlijā (sestdiena, svētdiena)</h5>
+                <h5>18. un 19. jūlijā (piektdiena, sestdiena)</h5>
               </div>
             </div>
             <div class="row mt-2 mt-lg-4">
