@@ -33,7 +33,7 @@
         <div>
           <a href="#contact-us"
              class="btn btn-secondary d-flex justify-content-center align-items-center"
-          >Reģistrēties</a>
+          >Pieteikties</a>
         </div>
         <a href="#about-project"
            class="pb-lg-5 pb-4 pt-3">
@@ -85,7 +85,7 @@
             <div class="mt-4 d-flex justify-content-center">
               <a href="#contact-us"
                  class="btn btn-primary fw-light d-flex justify-content-center align-items-center"
-              >Reģistrēties</a>
+              >Pieteikties</a>
             </div>
           </div>
           <div class="my-4 py-4">
@@ -149,7 +149,7 @@
             <div class="d-flex justify-content-center mt-4">
               <a href="#contact-us"
                  class="btn btn-primary d-flex justify-content-center align-items-center"
-              >Reģistrēties</a>
+              >Pieteikties</a>
             </div>
           </div>
         </div>
