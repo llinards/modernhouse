@@ -132,6 +132,12 @@
     localStorage.setItem('acceptedModernHouseOpenDays2025', 'true');
   });
 
+  Livewire.on('registration-successful', () => {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead');
+    }
+  });
+  
   const phoneInput = document.querySelector('#phoneNumber');
   const fullPhoneNumberInput = document.querySelector('#fullPhoneNumber');
   const iti = window.intlTelInput(phoneInput, {
