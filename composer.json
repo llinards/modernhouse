@@ -13,6 +13,7 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "klaviyo/api": "^7.1.2",
     "laravel/framework": "^11.0",
+    "laravel/nightwatch": "^1.7",
     "laravel/sanctum": "^4.0",
     "laravel/tinker": "^2.5",
     "laravel/ui": "^4.0",
