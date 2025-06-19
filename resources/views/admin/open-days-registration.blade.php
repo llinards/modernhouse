@@ -10,6 +10,7 @@
           Izskatās, ka pagaidām nav pieteikumu!
         </div>
       @else
+        <h4 class="my-2">Kopējais pieteikumu skaits: {{count($submissions)}}</h4>
         <div class="d-flex justify-content-evenly mt-2 mb-2">
           <a href="/admin/open-days-submissions/export" class="btn btn-dark">Lejupielādēt Excel formātā</a>
         </div>

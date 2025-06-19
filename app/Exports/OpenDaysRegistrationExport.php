@@ -12,8 +12,8 @@ class OpenDaysRegistrationExport implements FromCollection
    */
   public function collection()
   {
-    return OpenDaysRegistration::select('firstName', 'lastName', 'date', 'time', 'phoneNumber', 'email', 'questions')
-      ->orderByDateTime()
-      ->get();
+    return OpenDaysRegistration::select('firstName', 'lastName', 'date', 'time', 'phoneNumber', 'email', 'reason')
+                               ->orderByDateTime()
+                               ->get();
   }
 }
