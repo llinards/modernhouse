@@ -3,9 +3,11 @@
 namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
+use App\Mail\CustomerRegisteredForOpenDays;
 use App\Models\OpenDaysRegistration;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
@@ -63,12 +65,7 @@ class OpenDaysRegistrationForm extends Component
     $this->validate();
     try {
       OpenDaysRegistration::create($this->all());
-//      try {
-//        Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-//      } catch (\Exception $mailException) {
-//        Log::error('Mail sending failed: '.$mailException->getMessage());
-//      }
-
+      Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
       $request = [
         'email'        => $this->email,
         'phone-number' => $this->phoneNumber,
