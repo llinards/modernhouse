@@ -137,7 +137,7 @@
       fbq('track', 'Lead');
     }
   });
-  
+
   const phoneInput = document.querySelector('#phoneNumber');
   const fullPhoneNumberInput = document.querySelector('#fullPhoneNumber');
   const iti = window.intlTelInput(phoneInput, {
