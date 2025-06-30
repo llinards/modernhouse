@@ -64,8 +64,13 @@ class OpenDaysRegistrationForm extends Component
     $this->protectAgainstSpam();
     $this->validate();
     try {
-      Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
       OpenDaysRegistration::create($this->all());
+      try {
+        Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
+      } catch (\Exception $mailException) {
+        Log::error('Mail sending failed: '.$mailException->getMessage());
+      }
+
       $request = [
         'email'        => $this->email,
         'phone-number' => $this->phoneNumber,
