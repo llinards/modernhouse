@@ -3,9 +3,11 @@
 namespace App\Livewire;
 
 use App\Http\Services\KlaviyoService;
+use App\Mail\CustomerRegisteredForOpenDays;
 use App\Models\OpenDaysRegistration;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
