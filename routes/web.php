@@ -6,6 +6,8 @@ use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductVariantController;
+use App\Http\Controllers\ProductVariantDetailController;
 use App\Http\Controllers\ProductVariantOptionController;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
@@ -46,13 +48,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::delete('/news/{news:id}/delete', [NewsController::class, 'destroy']);
 
   //ProductVariantController
-  Route::get('/product-variant/create', [\App\Http\Controllers\ProductVariantController::class, 'create']);
-  Route::post('/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'store']);
+  Route::get('/product-variant/create', [ProductVariantController::class, 'create']);
+  Route::post('/product-variant', [ProductVariantController::class, 'store']);
   Route::get('/product-variant/{productVariant}/edit',
-    [\App\Http\Controllers\ProductVariantController::class, 'show']);
-  Route::patch('/product-variant', [\App\Http\Controllers\ProductVariantController::class, 'update']);
+    [ProductVariantController::class, 'show']);
+  Route::patch('/product-variant', [ProductVariantController::class, 'update']);
   Route::delete('/product-variant/{productVariant}/delete',
-    [\App\Http\Controllers\ProductVariantController::class, 'destroy']);
+    [ProductVariantController::class, 'destroy']);
 
   //ProductVariantOptionController
   Route::get('/product-variant/{productVariant}/product-variant-options',
@@ -89,13 +91,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
   //ProductVariantDetailController
   Route::get('/product-variant/{productVariant}/product-variant-details',
-    [\App\Http\Controllers\ProductVariantDetailController::class, 'index']);
+    [ProductVariantDetailController::class, 'index']);
   Route::get('/product-variant/{productVariant}/product-variant-details/create',
-    [\App\Http\Controllers\ProductVariantDetailController::class, 'create']);
+    [ProductVariantDetailController::class, 'create']);
   Route::post('/product-variant/{productVariant}/product-variant-details',
-    [\App\Http\Controllers\ProductVariantDetailController::class, 'store']);
+    [ProductVariantDetailController::class, 'store']);
   Route::get('/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
-    [\App\Http\Controllers\ProductVariantDetailController::class, 'destroy']);
+    [ProductVariantDetailController::class, 'destroy']);
 
   //HomeController
   Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
