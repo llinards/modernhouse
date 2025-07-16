@@ -18,6 +18,7 @@ class OpenDaysRegistrationForm extends Component
   use UsesSpamProtection;
 
   public HoneypotData $extraFields;
+  public bool $registrationClosed = true;
   public bool $registerView = true;
   public bool $successView = false;
 

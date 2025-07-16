@@ -12,10 +12,10 @@
           <a class="nav-link index text-center p-3"
              href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
         @endforeach
-        @if(app()->getLocale() === 'lv')
-          <a class="nav-link index text-center p-3"
-             href="/lv/modern-house-maju-marsruts-2025" target="_blank">Atvērtās durvju dienas 2025</a>
-        @endif
+        {{--        @if(app()->getLocale() === 'lv')--}}
+        {{--          <a class="nav-link index text-center p-3"--}}
+        {{--             href="/lv/modern-house-maju-marsruts-2025" target="_blank">Atvērtās durvju dienas 2025</a>--}}
+        {{--        @endif--}}
       </div>
     @endif
     <button type="button" name="menu" class="navbar-toggler py-4">
@@ -58,11 +58,11 @@
                  href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"
                  target="_blank">@lang('projects')</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-center"
-                 href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025"
-                 target="_blank">Atvērtās durvju dienas 2025</a>
-            </li>
+            {{--            <li class="nav-item">--}}
+            {{--              <a class="nav-link text-center"--}}
+            {{--                 href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025"--}}
+            {{--                 target="_blank">Atvērtās durvju dienas 2025</a>--}}
+            {{--            </li>--}}
           @endif
         </ul>
       </div>
