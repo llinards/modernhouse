@@ -155,7 +155,7 @@
         </div>
       </div>
     </section>
-    <section class="mt-4 mt-lg-5">
+    <section id="agenda" class="mt-4 mt-lg-5">
       <div class="container">
         <div class="row">
           <h3 class="mb-4 text-center">“MODERN HOUSE MĀJU MARŠRUTA 2025”<br/>PIETURVIETU KARTE</h3>
