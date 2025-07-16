@@ -141,7 +141,7 @@
             </ul>
           </div>
           <div class="col-12 col-lg-6">
-            <img loading="lazy" class="w-100 h-100 object-fit-cover"
+            <img class="w-100 h-100 object-fit-cover"
                  src="{{asset('storage/landing-pages/modern-house-maju-marsruts-2025/siguldas-skati.jpg')}}"/>
           </div>
           <div class="mt-4">
@@ -155,8 +155,8 @@
         </div>
       </div>
     </section>
-    <section class="mt-4 mt-lg-5">
-      <div id="agenda" class="container">
+    <section id="agenda" class="mt-4 mt-lg-5">
+      <div class="container">
         <div class="row">
           <h3 class="mb-4 text-center">“MODERN HOUSE MĀJU MARŠRUTA 2025”<br/>PIETURVIETU KARTE</h3>
           <div class="event-map position-relative">
@@ -573,6 +573,6 @@
     });
 
     Fancybox.bind("[data-fancybox]", {});
-
+    
   </script>
 </x-layouts.landing-page>
