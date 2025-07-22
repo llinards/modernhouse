@@ -71,7 +71,7 @@
             <h2 class="text-center">@lang('apply to consultation and learn more')</h2>
           </div>
           <x-contact-us-form :formId="'form_submit_about_us'"
-                             :subject="'Jauna ziņa no mājaslapas MODERN HOUSE FURNITURE sadaļas)'"/>
+                             :subject="'New message from the website (Modern House Furniture page)'"/>
         </div>
       </div>
     </div>
