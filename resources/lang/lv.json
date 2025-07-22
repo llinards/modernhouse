@@ -1,8 +1,8 @@
 {
   "introduction-title": "Moduļu un koka karkasa<br/> māju ražotājs",
   "customer order": "Veikt pasūtījumu",
-  "View the plan": "Apskatīt plānojumu",
-  "about": "Par Mums",
+  "View the house plan": "Apskatīt plānojumu",
+  "about": "Par mums",
   "contact": "Kontakti",
   "feature details": "Uzzināt vairāk",
   "request consultation": "Pieteikties konsultācijai",
@@ -95,5 +95,17 @@
   "internal_utility_installation": "Iekšējo komunikāciju (ūdens, kanalizācija, elektrība, rekuperācija) instalāciju izbūve",
   "external_finish_with_panels": "Pilnībā pabeigti ārējās apdares darbi un veikta plākšņu materiālu (OSB, saplāksnis, ģipškartons) montāža",
   "complete_internal_and_external_finish": "Pilnībā pabeigti iekšējās un ārējās apdares darbi",
-  "kitchen_and_bathroom_setup": "Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas"
+  "kitchen_and_bathroom_setup": "Uzstādīta virtuves iekārta ar tehnikām un iekārtotas vannas istabas",
+  "furniture title one": "Tavs jaunais mēbeļu ražotājs!",
+  "furniture content one": "Mēs radām kvalitatīvas un modernas, virtuves, durvis, skapjus, kumodes un citas\nmēbeles pēc individuāla pasūtījuma! Ja vēlies unikālu un funkcionālu interjeru,\nmēs parūpēsimies par katru detaļu!",
+  "furniture title two": "MŪSU VĪZIJA",
+  "furniture content two": "MODERN HOUSE FURNITURE vīzija ir kļūt par\nuzticamāko individuālo mēbeļu ražotāju Latvijā un ārpus\ntās – uzņēmumu, kam uzticas gan interjera dizaina\nprofesionāļi, gan ikviens, kas meklē kvalitatīvu, estētisku\nun funkcionālu risinājumu savām mājām vai darbam.",
+  "furniture content two two": "Mēs tiecamies radīt telpas, kas atspoguļo cilvēku\ndzīvesveidu, vajadzības un gaumi, apvienojot\nmūsdienīgu dizainu ar ilgtspējīgiem materiāliem un\nprecīzu meistaru darbu. Mēs ticam, ka katrai mēbelei ir\nsava loma stāsta radīšanā – un mūsu mērķis ir šo stāstu\npalīdzēt uzbūvēt tieši Tev.",
+  "ceo quot mh furniture": "MŪSU MĒRĶIS NAV VIENKĀRŠI RADĪT MĒBELES –\nMĒS VEIDOJAM TELPAS, KURĀS CILVĒKS JŪTAS KĀ\nMĀJAS. KATRS RISINĀJUMS IR KĀ KOPĪGI RADĪTS\nSTĀSTS, KUR PRECIZITĀTE, CIEŅA UN ILGTSPĒJA\nSAVIJAS VIENĀ DIZAINĀ.",
+  "furniture title three": "MŪSU KOMANDA",
+  "furniture content three": "Aiz katra Modern House Furniture projekta stāv\npieredzējuša un aizrautīga komanda – dizaineri,\ngaldnieki, projektu vadītāji un montāžas speciālisti,\nkuriem rūp katra detaļa. Mēs apvienojam tehnisko\nprecizitāti ar radošu skatījumu, lai nodrošinātu gan\nkvalitatīvu izpildījumu, gan patīkamu sadarbību.",
+  "furniture content three two": "Katra komandas cilvēka stiprā puse veido mūsu\nkopējo spēku – sākot no idejas un dizaina izstrādes\nlīdz gatavu mēbeļu uzstādīšanai Tavā telpā.\nMēs esam šeit, lai palīdzētu Tev piepildīt vīziju par\nfunkcionālām un skaistām mājām.",
+  "furniture title five": "MODERN HOUSE<br/>FURNITURE KONCEPTS",
+  "furniture content five": "Modern House Furniture ir mūsdienīgs mēbeļu ražotājs, kas specializējas\nindividuālu interjera risinājumu izstrādē. Mūsu koncepts balstās uz trīs\npamatprincipiem: kvalitāte, personalizācija un dizains.",
+  "furniture content five two": "Mēs radām mēbeles, kas pielāgotas katra klienta dzīvesveidam un telpas\nspecifikai – no virtuves iekārtām līdz iebūvētiem skapjiem un dizaina\nakcentiem. Katrs projekts tiek veidots ciešā sadarbībā ar klientu,\napvienojot funkcionalitāti ar estētiku."
 }

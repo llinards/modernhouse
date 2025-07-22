@@ -58,13 +58,13 @@
       }
     });
 
-    const activeVariantSlide = document.querySelector('.product-variant-item .nav-link.active');
-    if (activeVariantSlide) {
-      const slideIndex = activeVariantSlide.closest('.product-variant-item').getAttribute('data-variant-index');
-      if (slideIndex !== null) {
-        swiper.slideTo(parseInt(slideIndex), 0);
-      }
-    }
+    // const activeVariantSlide = document.querySelector('.product-variant-item .nav-link.active');
+    // if (activeVariantSlide) {
+    //   const slideIndex = activeVariantSlide.closest('.product-variant-item').getAttribute('data-variant-index');
+    //   if (slideIndex !== null) {
+    //     swiper.slideTo(parseInt(slideIndex), 0);
+    //   }
+    // }
   });
 </script>
 @endscript

@@ -44,6 +44,9 @@ $title-3rd-font-size: 32px;
 $title-3rd-font-size-mobile: 22px;
 $title-3rd-font-size-xs-mobile: 20px;
 
+$title-5th-font-size: 1.25rem;
+$title-5th-font-size-mobile: 1rem;
+
 $paragraph-font-size: 16px;
 $paragraph-font-size-mobile: 14px;
 $paragraph-font-size-xs-mobile: 12px;
@@ -111,6 +114,10 @@ h2 {
 
 h3 {
   font-size: $title-3rd-font-size;
+}
+
+h5 {
+  font-size: $title-5th-font-size;
 }
 
 p {
@@ -359,6 +366,10 @@ footer {
   background: black;
 }
 
+.splide.is-focus-in .splide__arrow:focus {
+  outline: none;
+}
+
 .loading-spinner {
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 20;
@@ -367,6 +378,14 @@ footer {
     color: $primary-color;
     transition: all 0.5s;
   }
+}
+
+.iti {
+  --iti-path-flags-1x: url('/images/vendor/intl-tel-input/build/flags.webp');
+  --iti-path-flags-2x: url('/images/vendor/intl-tel-input/build/flags@2x.webp');
+  --iti-path-globe-1x: url('/images/vendor/intl-tel-input/build/globe.webp');
+  --iti-path-globe-2x: url('/images/vendor/intl-tel-input/build/globe@2x.webp');
+  width: 100%;
 }
 
 @import "./navbar.scss";
