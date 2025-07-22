@@ -12,17 +12,15 @@
     "doctrine/dbal": "^4.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "laravel/framework": "^11.0",
-    "laravel/pulse": "^1.0@beta",
     "laravel/sanctum": "^4.0",
-    "laravel/telescope": "^5.0",
     "laravel/tinker": "^2.5",
     "laravel/ui": "^4.0",
+    "livewire/livewire": "^3.6",
     "maatwebsite/excel": "^3.1",
     "propaganistas/laravel-phone": "^5.3",
     "spatie/laravel-honeypot": "^4.3"
   },
   "require-dev": {
-    "barryvdh/laravel-debugbar": "^3.8",
     "fakerphp/faker": "^1.9.1",
     "laravel/sail": "^1.0.1",
     "mockery/mockery": "^1.4.4",
