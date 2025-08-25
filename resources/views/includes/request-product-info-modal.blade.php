@@ -57,8 +57,9 @@
           </div>
           <div class="mb-3">
             <label for="phone-number" class="form-label fw-bold">@lang('phone number')*</label>
-            <input type="tel" name="phone-number" class="form-control" id="phone-number"
-                   value="{{ old('phone-number') }}">
+            <input type="tel" class="form-control" id="phone-number-display"
+                   value="{{ old('phone-number') }}" autocomplete="off">
+            <input type="hidden" name="phone-number" id="phone-number-full" value="{{ old('phone-number') }}">
           </div>
           <div class="mb-3">
             <label for="company" class="form-label fw-bold">@lang('company')</label>
@@ -75,3 +76,36 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const phoneInput = document.querySelector('#phone-number-display');
+    const fullPhoneNumberInput = document.querySelector('#phone-number-full');
+
+    if (phoneInput && fullPhoneNumberInput) {
+      const iti = window.intlTelInput(phoneInput, {
+        separateDialCode: true,
+        formatOnDisplay: false,
+        autoPlaceholder: 'off',
+        i18n: {
+          search: "@lang('Search country')",
+          searchPlaceholder: "@lang('Search')..."
+        },
+        initialCountry: "lv", // Change this to your default country
+      });
+
+      const updateFullNumber = () => {
+        const countryCode = iti.getSelectedCountryData().dialCode;
+        const phoneNumber = phoneInput.value;
+        fullPhoneNumberInput.value = '+' + countryCode + phoneNumber;
+      };
+
+      phoneInput.addEventListener('input', updateFullNumber);
+      phoneInput.addEventListener('countrychange', updateFullNumber);
+
+      // Initialize with current value if exists
+      if (phoneInput.value) {
+        updateFullNumber();
+      }
+    }
+  });
+</script>

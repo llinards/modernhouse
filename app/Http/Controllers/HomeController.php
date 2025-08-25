@@ -17,7 +17,6 @@ use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
-  //TODO:check why the first paramter is required to be $language
   public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
   {
     try {
