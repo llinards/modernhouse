@@ -37,11 +37,10 @@
 <meta property="og:image" content="{{ asset('storage/logo/mh-og-logo.jpeg') }}"/>
 
 <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
-<link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
+@vite(['resources/js/app.js', 'resources/sass/app.scss'])
 @if(App::environment('production'))
   <meta name="facebook-domain-verification" content="6f9uyw6o900t8gvvu9fhtwmn938qse"/>
 @endif
-<script src="{{ mix('/js/app.js') }}" defer></script>
 @if(App::environment('production'))
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJX1GVY8KK"></script>

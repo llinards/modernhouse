@@ -1,0 +1,78 @@
+{
+  "node_modules/intl-tel-input/build/img/flags.webp": {
+    "file": "assets/flags-a2kmUSbF.webp",
+    "src": "node_modules/intl-tel-input/build/img/flags.webp"
+  },
+  "node_modules/intl-tel-input/build/img/flags@2x.webp": {
+    "file": "assets/flags@2x-gR6KPp3x.webp",
+    "src": "node_modules/intl-tel-input/build/img/flags@2x.webp"
+  },
+  "node_modules/intl-tel-input/build/img/globe.webp": {
+    "file": "assets/globe-CKC-qWvL.webp",
+    "src": "node_modules/intl-tel-input/build/img/globe.webp"
+  },
+  "node_modules/intl-tel-input/build/img/globe@2x.webp": {
+    "file": "assets/globe@2x-CEs4Xftd.webp",
+    "src": "node_modules/intl-tel-input/build/img/globe@2x.webp"
+  },
+  "node_modules/leaflet/dist/images/layers-2x.png": {
+    "file": "assets/layers-2x-Bpkbi35X.png",
+    "src": "node_modules/leaflet/dist/images/layers-2x.png"
+  },
+  "node_modules/leaflet/dist/images/layers.png": {
+    "file": "assets/layers-BWBAp2CZ.png",
+    "src": "node_modules/leaflet/dist/images/layers.png"
+  },
+  "node_modules/leaflet/dist/images/marker-icon.png": {
+    "file": "assets/marker-icon-hN30_KVU.png",
+    "src": "node_modules/leaflet/dist/images/marker-icon.png"
+  },
+  "resources/fonts/TipoTypeBold.otf": {
+    "file": "assets/TipoTypeBold-CSZ9-6V_.otf",
+    "src": "resources/fonts/TipoTypeBold.otf"
+  },
+  "resources/fonts/TipoTypeBold.ttf": {
+    "file": "assets/TipoTypeBold-BFKkfaSe.ttf",
+    "src": "resources/fonts/TipoTypeBold.ttf"
+  },
+  "resources/fonts/TipoTypeRegular.otf": {
+    "file": "assets/TipoTypeRegular-DU_mm2y9.otf",
+    "src": "resources/fonts/TipoTypeRegular.otf"
+  },
+  "resources/fonts/TipoTypeRegular.ttf": {
+    "file": "assets/TipoTypeRegular-Cw0Cq1L2.ttf",
+    "src": "resources/fonts/TipoTypeRegular.ttf"
+  },
+  "resources/js/admin.js": {
+    "file": "assets/admin-Cc7llepQ.js",
+    "name": "admin",
+    "src": "resources/js/admin.js",
+    "isEntry": true,
+    "css": [
+      "assets/admin-BL84cIOU.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CXRpsiMb.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-TBoBtud0.css"
+    ],
+    "assets": [
+      "assets/flags-a2kmUSbF.webp",
+      "assets/flags@2x-gR6KPp3x.webp",
+      "assets/globe-CKC-qWvL.webp",
+      "assets/globe@2x-CEs4Xftd.webp"
+    ]
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-YvrVw694.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  }
+}
