@@ -12,9 +12,8 @@
 
   <title>{{ config('app.name')}}</title>
 
-  <link href="{{ mix('/css/app.css') }}" rel="stylesheet"/>
-  <script src="{{ mix('/js/app.js') }}" defer></script>
-  <script src="{{ mix('/js/admin.js') }}" defer></script>
+  @vite(['resources/js/app.js', 'resources/js/admin.js', 'resources/sass/app.scss'])
+
 </head>
 <body class="antialiased">
 <div class="container">

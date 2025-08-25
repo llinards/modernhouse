@@ -1,18 +1,18 @@
 @font-face {
   font-family: 'TipoTypeRegular';
-  src: url('/storage/fonts/TipoTypeRegular.otf') format('opentype');
-  src: url('/storage/fonts/TipoTypeRegular.ttf') format('truetype');
+  src: url('../fonts/TipoTypeRegular.otf') format('opentype');
+  src: url('../fonts/TipoTypeRegular.ttf') format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'TipoTypeBold';
-  src: url('/storage/fonts/TipoTypeBold.otf') format('opentype');
-  src: url('/storage/fonts/TipoTypeBold.ttf') format('truetype');
+  src: url('../fonts/TipoTypeBold.otf') format('opentype');
+  src: url('../fonts/TipoTypeBold.ttf') format('truetype');
   font-weight: 700;
 }
 
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 
 @import 'leaflet/dist/leaflet.css';
 
