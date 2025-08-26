@@ -39,6 +39,12 @@
     pagination: false,
     lazyLoad: 'sequential',
     rewind: true,
+    fixedHeight: 500,
+    breakpoints: {
+      768: {
+        fixedHeight: 400,
+      }
+    }
   });
   const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
     fixedWidth: 100,
