@@ -4,15 +4,20 @@
     @foreach($products as $product)
       <div class="col-lg-4 col-md-6 col-12 mb-4" wire:key="product-{{ $product->id }}"
            wire:sortable.item="{{ $product->id }}">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100">
           <!-- Card Header with Drag Handle and Status -->
-          <div class="card-header d-flex justify-content-between align-items-center">
+          <div class="p-2 d-flex justify-content-between align-items-center">
             <div wire:sortable.handle class="cursor-move">
               <i class="bi bi-arrows-move text-muted"></i>
             </div>
-            <span class="badge {{ $product->is_active ? 'bg-success' : 'bg-danger' }}">
+            <div>
+            <span class="badge bg-dark bg-opacity-75">
+                {!! $product->cover_video_filename ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}
+              </span>
+              <span class="badge {{ $product->is_active ? 'bg-success' : 'bg-danger' }}">
               {{ $product->is_active ? 'Aktīvs' : 'Nav aktīvs' }}
             </span>
+            </div>
           </div>
 
           <!-- Card Image -->
@@ -21,13 +26,6 @@
                  class="card-img-top"
                  style="height: 200px; object-fit: cover;"
                  alt="{{ $product->translations[0]->name ?? 'Product image' }}">
-
-            <!-- Media Type Indicator -->
-            <div class="position-absolute top-0 end-0 m-2">
-              <span class="badge bg-dark bg-opacity-75">
-                {!! $product->cover_video_filename ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}
-              </span>
-            </div>
           </div>
 
           <!-- Card Body -->
