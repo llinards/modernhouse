@@ -13,6 +13,9 @@
     </div>
   @endif
   <div class="nav-item">
+    <a href="/admin/open-days-submissions" class="nav-link">Pieteikumi atvērto durvju dienām</a>
+  </div>
+  <div class="nav-item">
     <a href="/admin/gallery" class="nav-link">Galerijas</a>
   </div>
   <div class="nav-item">
