@@ -1,0 +1,22 @@
+.gallery-item {
+  .splide__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    max-height: 500px;
+    overflow: hidden;
+  }
+
+  .splide__slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+}
