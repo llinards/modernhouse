@@ -12,7 +12,7 @@
         @if($gallery->is_video)
           <div
             class="col-lg-7 d-flex order-first order-lg-last justify-content-center align-items-center flex-column">
-            <video class="img-fluid" controls
+            <video class="img-fluid" controls preload="metadata"
                    src="{{ asset('storage/gallery/'. $gallery->slug . '/' .$gallery->images[0]->filename) }}#t=0.001"
                    title="{{ $gallery->translations[0]->title }}">Your browser does not support the
               video tag.
