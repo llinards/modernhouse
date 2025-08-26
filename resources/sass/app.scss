@@ -352,8 +352,7 @@ footer {
   height: 100dvh;
 }
 
-.news-item:first-child,
-.gallery-item:first-child {
+.news-item:first-child {
   margin-top: 0 !important;
 }
 
@@ -394,6 +393,7 @@ footer {
 @import "./about-us.scss";
 @import "./contact-us.scss";
 @import './landing-page.scss';
+@import './gallery.scss';
 @import './open-days-registration.scss';
 
 @import "./media-queries.scss";
