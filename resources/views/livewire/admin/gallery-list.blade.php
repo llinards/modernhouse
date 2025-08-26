@@ -3,18 +3,19 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th colspan="3"></th>
       <th scope="col">Nosaukums</th>
       <th scope="col">Izveidots</th>
       <th scope="col">Rediģēts</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th colspan="2"></th>
     </tr>
     </thead>
     <tbody wire:sortable="updateOrder">
     @foreach($galleries as $gallery)
-      <tr wire:sortable.item="{{ $gallery->id }}" wire:key="gallery-{{ $gallery->id }}" wire:sortable.handle>
+      <tr wire:sortable.item="{{ $gallery->id }}" wire:key="gallery-{{ $gallery->id }}">
+        <td class="align-middle" wire:sortable.handle>
+          <i class="bi bi-arrows-move"></i>
+        </td>
         <td class="align-middle">{!! $gallery->is_pinned ? '<i class="bi bi-pin-angle-fill"></i>' : '' !!}</td>
         <td
           class="align-middle">{!! $gallery->is_video ? '<i class="bi bi-camera-video-fill"></i>' : '<i class="bi bi-image-fill"></i>' !!}</td>
