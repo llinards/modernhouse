@@ -29,6 +29,7 @@
     <div class="row mt-4 justify-content-center">
       <div class="col-lg-8">
         <p>{!! $news->content !!}</p>
+        <p class="my-4 small">@lang('Publicēts:') {{ $news->created_at->format('d.m.Y') }}</p>
         <div class="d-flex justify-content-lg-between justify-content-center mt-4 flex-wrap">
           @foreach($news->attachments as $attachment)
             <x-download-attachment :href="asset('storage/news/'.$news->slug.'/'.$attachment->attachment_location)"

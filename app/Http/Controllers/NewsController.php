@@ -15,7 +15,7 @@ class NewsController extends Controller
 {
   public function index()
   {
-    $allNews = News::select('id', 'title', 'slug')
+    $allNews = News::select('id', 'title', 'slug', 'created_at')
                    ->with([
                      'images' => function ($query) {
                        $query->select('image_location', 'news_id');
@@ -65,7 +65,7 @@ class NewsController extends Controller
 
   public function show($language, News $news)
   {
-    $news = News::select('id', 'title', 'content', 'slug')
+    $news = News::select('id', 'title', 'content', 'slug', 'created_at')
                 ->with([
                   'images'      => function ($query) {
                     $query->select('image_location', 'news_id');
