@@ -7,7 +7,9 @@
       <div class="row mt-4 gallery-item">
         <div class="col-lg-5 d-flex justify-content-center align-items-start flex-column mt-lg-0 mt-2">
           <h2 class="mb-2">{{ $gallery->translations[0]->title }}</h2>
-          <p>{!! $gallery->translations[0]->content !!}</p>
+          <div class="gallery-description">
+            {!! $gallery->translations[0]->content !!}
+          </div>
         </div>
         @if($gallery->is_video)
           <div

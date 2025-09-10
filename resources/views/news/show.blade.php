@@ -27,8 +27,8 @@
     </div>
     </div>
     <div class="row mt-4 justify-content-center">
-      <div class="col-lg-8">
-        <p>{!! $news->content !!}</p>
+      <div class="col-lg-8 news-description">
+        {!! $news->content !!}
         <p class="my-4 small">@lang('Publicēts:') {{ $news->created_at->format('d.m.Y') }}</p>
         <div class="d-flex justify-content-lg-between justify-content-center mt-4 flex-wrap">
           @foreach($news->attachments as $attachment)
