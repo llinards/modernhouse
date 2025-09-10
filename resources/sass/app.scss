@@ -348,6 +348,13 @@ footer {
   }
 }
 
+.news-description,
+.gallery-description {
+  p > a {
+    color: $primary-color;
+  }
+}
+
 .maintenance-page {
   height: 100dvh;
 }
