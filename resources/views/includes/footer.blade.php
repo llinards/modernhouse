@@ -1,15 +1,15 @@
 <footer>
   <div class="container-xxl h-100 pb-2">
     <div class="row align-items-center h-100 text-md-start text-center">
-      <div class="col-md-7 col-12 pt-md-0 pt-2">
+      <div class="col-lg-7 col-md-5 col-12 pt-md-0 pt-2">
         <img class="modern-house-logo" src="{{ asset('storage/logo/logo-white.png') }} " alt="Modern House Logo">
       </div>
-      <div class="col-md-2 col-6">
+      <div class="col-lg-2 col-md-3 col-6">
         <h4 class="mb-2">@lang('address')</h4>
         <p class="small">Lauku iela 1, Sigulda,<br/> Siguldas nov., LV-2150</p>
         <p class="small">@lang('modern house registration number'): 40203251766</p>
       </div>
-      <div class="col-md-2 col-6">
+      <div class="col-lg-2 col-md-3 col-6">
         <h4 class="mb-2">@lang('contact us')</h4>
         <p class="small">info@modern-house.lv</p>
         <p class="small">+371 25666622</p>
