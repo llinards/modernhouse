@@ -30,10 +30,14 @@
         </div>
       </div>
       <hr class="m-0">
-      <div class="d-flex justify-content-center justify-content-md-between flex-wrap flex-md-nowrap">
+      <div class="d-md-flex justify-content-between align-items-center">
         <p class="small">&copy; SIA {{ config('app.name') }} {{  date ('Y') }} | @lang('all rights reserved')</p>
-        <p class="small">@lang('Developed by') <a href="https://slmedia.lv" class="text-white" target="_blank">S&L Media
-            SIA</a></p>
+        <div>
+          <p class="small">@lang('Designed by') <a href="https://simpledesign.lv" class="text-white" target="_blank">SIMPLE
+              DESIGN</a></p>
+          <p class="small">@lang('Developed by') <a href="https://slmedia.lv" class="text-white" target="_blank">S&L
+              MEDIA</a></p>
+        </div>
       </div>
     </div>
   </div>
