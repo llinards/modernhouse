@@ -4,16 +4,12 @@
       <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo w-75" alt="Modern House logo">
     </a>
   </div>
-  @if(app()->getLocale() === 'lv')
-    <div class="nav-item">
-      <a href="/admin/{{ app()->getLocale() }}/create" class="nav-link">Jauna kategorija</a>
-    </div>
-    <div class="nav-item">
-      <a href="/admin/{{ app()->getLocale() }}/product-variant/create" class="nav-link">Jauns modulis/māja</a>
-    </div>
-  @endif
   <div class="nav-item">
-    <a href="/admin/{{ app()->getLocale() }}/open-days-submissions" class="nav-link">Pieteikumi atvērto durvju dienām</a>
+    <a href="/admin/{{ app()->getLocale() }}" class="nav-link">Sākums</a>
+  </div>
+  <div class="nav-item">
+    <a href="/admin/{{ app()->getLocale() }}/open-days-submissions" class="nav-link">Pieteikumi atvērto durvju
+      dienām</a>
   </div>
   <div class="nav-item">
     <a href="/admin/{{ app()->getLocale() }}/gallery" class="nav-link">Galerijas</a>
