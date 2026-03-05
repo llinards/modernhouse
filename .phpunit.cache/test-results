@@ -1,0 +1,1 @@
+{"version":"pest_4.4.1","defects":{"P\\Tests\\Feature\\ExampleTest::__pest_evaluable_it_returns_a_successful_response":7},"times":{"P\\Tests\\Feature\\ExampleTest::__pest_evaluable_it_returns_a_successful_response":0.14,"Tests\\Feature\\GeneralTest::test_page_can_be_opened":0.004}}
