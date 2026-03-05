@@ -14,7 +14,7 @@
         <a href="/{{ app()->getLocale()}}/request-consultation"
            class="btn btn-secondary fw-light d-flex justify-content-center align-items-center"
         >@lang('request consultation')</a>
-        <a href="#{{ $allActiveProducts[0]->slug }}"
+        <a href="#{{ $allActiveProducts->isNotEmpty() ? $allActiveProducts[0]->slug : 'choose-order-contact' }}"
            class="pb-lg-5 pb-4 pt-3">
           <img width="35" height="35" src="{{ asset('storage/icons/arrow-down.svg') }}" alt="Arrow down">
         </a>

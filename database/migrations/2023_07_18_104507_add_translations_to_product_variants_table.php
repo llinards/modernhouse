@@ -13,11 +13,11 @@ return new class extends Migration {
     Schema::table('product_variants', function (Blueprint $table) {
       $table->string('slug')->after('id');
       $table->renameColumn('name', 'name_lv');
-      $table->string('name_en')->after('name')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_en')->after('name_lv')->nullable()->default('Nav tulkojuma!');
       $table->string('name_se')->after('name_en')->nullable()->default('Nav tulkojuma!');
       $table->string('name_no')->after('name_se')->nullable()->default('Nav tulkojuma!');
       $table->renameColumn('description', 'description_lv');
-      $table->text('description_en')->after('description')->nullable();
+      $table->text('description_en')->after('description_lv')->nullable();
       $table->text('description_se')->after('description_en')->nullable();
       $table->text('description_no')->after('description_se')->nullable();
     });

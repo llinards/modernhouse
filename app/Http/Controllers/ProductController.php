@@ -13,16 +13,12 @@ class ProductController extends Controller
   public function index()
   {
     $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
-                                ->with([
-                                  'translations' => function ($query) {
-                                    $query->select('name', 'product_id', 'language')->where('language',
-                                      app()->getLocale());
-                                  },
-                                ])
-                                ->whereHas('translations', function ($query) {
-                                  $query->where('language', app()->getLocale());
+                                ->withWhereHas('translations', function ($query) {
+                                  $query->select('name', 'product_id', 'language')
+                                        ->where('language', app()->getLocale());
                                 })
                                 ->where('is_active', true)
+                                ->orderBy('order')
                                 ->get();
 
     return view('home', compact('allActiveProducts'));
