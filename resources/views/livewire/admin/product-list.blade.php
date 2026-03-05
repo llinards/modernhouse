@@ -1,6 +1,6 @@
 <div>
   @include('includes.status-messages')
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
     <tr>
       <th></th>
@@ -43,7 +43,7 @@
         </td>
       </tr>
       @foreach($product->productVariants as $variant)
-        <tr class="collapse" id="variants-{{ $product->id }}">
+        <tr class="collapse table-light" id="variants-{{ $product->id }}">
           <td></td>
           <td></td>
           <td class="align-middle">
