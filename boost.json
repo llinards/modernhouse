@@ -1,9 +1,14 @@
 {
     "agents": [
-        "phpstorm"
+        "claude_code",
+        "opencode"
     ],
-    "editors": [
-        "phpstorm"
-    ],
-    "guidelines": []
+    "guidelines": true,
+    "herd_mcp": true,
+    "mcp": true,
+    "nightwatch_mcp": true,
+    "sail": false,
+    "skills": [
+        "livewire-development"
+    ]
 }
