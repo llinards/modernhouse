@@ -12,7 +12,7 @@
       @else
         <h4 class="my-2">Kopējais pieteikumu skaits: {{count($submissions)}}</h4>
         <div class="d-flex justify-content-evenly mt-2 mb-2">
-          <a href="/admin/open-days-submissions/export" class="btn btn-dark">Lejupielādēt Excel formātā</a>
+          <a href="/admin/{{ app()->getLocale() }}/open-days-submissions/export" class="btn btn-dark">Lejupielādēt Excel formātā</a>
         </div>
       @endif
       <table class="table table-striped">
@@ -44,7 +44,7 @@
             <td @if($isDuplicate) class="bg-danger" @endif>{{ $submission->time }}</td>
             <td>{{ $submission->phoneNumber }}</td>
             <td>{{ $submission->reason }}</td>
-            <form action="/admin/open-days-submissions/{{$submission->id}}/delete" method="POST">
+            <form action="/admin/{{ app()->getLocale() }}/open-days-submissions/{{$submission->id}}/delete" method="POST">
               @csrf
               @method('DELETE')
               <td>
@@ -58,7 +58,7 @@
         </tbody>
       </table>
       <div class="d-flex justify-content-evenly mt-2 mb-2">
-        <form action="/admin/open-days-submissions/all/delete" method="POST">
+        <form action="/admin/{{ app()->getLocale() }}/open-days-submissions/all/delete" method="POST">
           @csrf
           @method('DELETE')
           <td>

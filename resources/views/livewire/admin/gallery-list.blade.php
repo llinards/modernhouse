@@ -23,12 +23,12 @@
         <td class="align-middle">{{ \Carbon\Carbon::parse($gallery->created_at)->format('d-m-Y') }}</td>
         <td class="align-middle">{{ \Carbon\Carbon::parse($gallery->updated_at)->format('d-m-Y') }}</td>
         <td class="align-middle">
-          <a href="/admin/gallery/{{ $gallery->id }}/edit" title="Rediģēt" class="btn">
+          <a href="/admin/{{ app()->getLocale() }}/gallery/{{ $gallery->id }}/edit" title="Rediģēt" class="btn">
             <i class="bi bi-pencil-square"></i>
           </a>
         </td>
         <td class="align-middle">
-          <form action="/admin/gallery/{{ $gallery->id }}/delete" method="POST">
+          <form action="/admin/{{ app()->getLocale() }}/gallery/{{ $gallery->id }}/delete" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" title="Dzēst" onclick="return confirm('Vai tiešām vēlies dzēst galeriju?')"

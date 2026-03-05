@@ -5,7 +5,7 @@
   <x-slot name="content">
     <div class="row justify-content-between">
       <div class="mb-2">
-        <a href="/admin/news/create" class="btn btn-success">Pievienot jaunu</a>
+        <a href="/admin/{{ app()->getLocale() }}/news/create" class="btn btn-success">Pievienot jaunu</a>
       </div>
       @include('includes.status-messages')
       <table class="table table-striped">
@@ -25,12 +25,12 @@
             <td class="align-middle">{{ \Carbon\Carbon::parse($news->created_at)->format('d-m-Y') }}</td>
             <td class="align-middle">{{ \Carbon\Carbon::parse($news->updated_at)->format('d-m-Y') }}</td>
             <td class="align-middle">
-              <a href="/admin/news/{{ $news->id }}/edit" title="Rediģēt" class="btn">
+              <a href="/admin/{{ app()->getLocale() }}/news/{{ $news->id }}/edit" title="Rediģēt" class="btn">
                 <i class="bi bi-pencil-square"></i>
               </a>
             </td>
             <td class="align-middle">
-              <form action="/admin/news/{{ $news->id }}/delete" method="POST">
+              <form action="/admin/{{ app()->getLocale() }}/news/{{ $news->id }}/delete" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" title="Dzēst" onclick="return confirm('Vai tiešām vēlies dzēst aktualitāti?')"

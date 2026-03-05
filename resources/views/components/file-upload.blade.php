@@ -8,7 +8,7 @@
   FilePond.registerPlugin(FilePondPluginFileValidateSize);
   const options = {
     server: {
-      url: '/admin/upload',
+      url: '/admin/{{ app()->getLocale() }}/upload',
       headers: {
         'X-CSRF-TOKEN': '{{ csrf_token() }}'
       }

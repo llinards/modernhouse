@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}/gallery" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PATCH')
           <input name="id" class="visually-hidden" value="{{ $gallery->id }}">
@@ -53,7 +53,7 @@
                 @foreach($gallery->images as $image)
                   <div class="col-lg-4 col-md-3 col-sm-6 col-6">
                     <a class="btn btn-danger btn-sm mb-1"
-                       href="{{ URL::to('/admin/gallery/'.$image->id.'/delete') }}">
+                       href="{{ URL::to('/admin/'.app()->getLocale().'/gallery/'.$image->id.'/delete') }}">
                       <i class="bi bi-x"></i>
                     </a>
                     @if($gallery->is_video)
@@ -79,7 +79,7 @@
                                                               target="_blank">compressor.io</a>
             </p>
           </div>
-          <a href="/admin/gallery" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}/gallery" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Atjaunot</button>
         </form>
       </div>

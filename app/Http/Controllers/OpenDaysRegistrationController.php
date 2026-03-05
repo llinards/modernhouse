@@ -17,7 +17,7 @@ class OpenDaysRegistrationController extends Controller
     return view('admin.open-days-registration', compact('submissions'));
   }
 
-  public function destroyOne(OpenDaysRegistration $openDaysRegistration)
+  public function destroyOne(string $locale, OpenDaysRegistration $openDaysRegistration)
   {
     try {
       $openDaysRegistration->delete();

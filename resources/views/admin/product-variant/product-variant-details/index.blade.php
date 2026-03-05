@@ -7,7 +7,7 @@
       <div class="col-lg-7 col-12">
         <div class="mb-5 text-center">
           <a class="btn btn-success"
-             href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details/create">+</a>
+             href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details/create">+</a>
         </div>
         @include('includes.status-messages')
         <div class="row">
@@ -22,14 +22,14 @@
                      alt="">
                 <p>Skaits: {{ $productVariantDetail->count }}</p>
                 <a
-                  href="{{ URL::to('/admin/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}"
+                  href="{{ URL::to('/admin/'.app()->getLocale().'/product-variant/'.$productVariant->id.'/product-variant-details/'.$productVariantDetail->id) }}"
                   class="btn btn-danger mt-2">Dzēst</a>
               </div>
             </div>
           @endforeach
         </div>
         <div class="d-flex">
-          <a href="/admin/product-variant/{{ $productVariant->id }}/edit" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/edit" class="btn btn-dark">Atpakaļ</a>
         </div>
       </div>
     </div>

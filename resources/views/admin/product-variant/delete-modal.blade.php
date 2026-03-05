@@ -1,4 +1,4 @@
-<form action="/admin/product-variant/{{ $productVariant->id }}/delete" method="POST">
+<form action="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/delete" method="POST">
   @csrf
   @method('DELETE')
   <div class="modal fade" id="delete-product-variant-modal" tabindex="-1" aria-labelledby="exampleModalLabel"

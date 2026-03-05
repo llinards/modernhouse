@@ -17,6 +17,12 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes(['register' => false]);
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+  Route::get('/', function () {
+    return redirect('/admin/' . app()->getLocale());
+  });
+});
+
+Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]{2}'])->group(function () {
   //ProductController
   Route::get('/', [ProductController::class, 'indexAdmin']);
   Route::get('/create', [ProductController::class, 'create']);

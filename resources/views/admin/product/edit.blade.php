@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}" method="POST" enctype="multipart/form-data">
           @csrf
           @method('PATCH')
           <input name="id" class="visually-hidden" value="{{ $product->id }}">
@@ -57,7 +57,7 @@
                   </video>
                   <div>
                     <a class="btn btn-danger btn-sm mb-1"
-                       href="{{ URL::to('/admin/'.$product->slug.'/video/delete') }}">
+                       href="{{ URL::to('/admin/'.app()->getLocale().'/'.$product->slug.'/video/delete') }}">
                       Noņemt video kā galveno kategorijas skatu
                     </a>
                   </div>
@@ -87,7 +87,7 @@
                     class="btn btn-danger">Dzēst
             </button>
             <div class="d-flex">
-              <a href="/admin" class="btn btn-dark">Atpakaļ</a>
+              <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
             </div>
           </div>

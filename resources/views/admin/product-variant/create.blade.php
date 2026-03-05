@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-12">
         @include('includes.status-messages')
-        <form action="/admin/product-variant" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}/product-variant" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
             <label for="product-id" class="form-label">Izvēlies kategoriju</label>
@@ -96,7 +96,7 @@
             <x-file-upload :name="'product-variant-attachments'"/>
             <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
           </div>
-          <a href="/admin" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>
       </div>

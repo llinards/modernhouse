@@ -44,7 +44,7 @@ class ProductController extends Controller
         $productService->addMedia($data['product-cover-video']);
       }
 
-      return redirect('/admin')->with('success', 'Pievienots!');
+      return redirect('/admin/' . app()->getLocale())->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -55,7 +55,7 @@ class ProductController extends Controller
     }
   }
 
-  public function showAdmin(Product $product)
+  public function showAdmin(string $locale, Product $product)
   {
     $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename', 'cover_video_filename')
                       ->with([
@@ -85,7 +85,7 @@ class ProductController extends Controller
         $productService->addMedia($data['product-cover-video']);
       }
 
-      return redirect('/admin')->with('success', 'Atjaunots!');
+      return redirect('/admin/' . app()->getLocale())->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -96,12 +96,12 @@ class ProductController extends Controller
     }
   }
 
-  public function destroy(Product $product, ProductService $productService)
+  public function destroy(string $locale, Product $product, ProductService $productService)
   {
     try {
       $productService->destroyProduct($product);
 
-      return redirect('/admin')->with('success', 'Dzēsts!');
+      return redirect('/admin/' . app()->getLocale())->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
 
@@ -109,7 +109,7 @@ class ProductController extends Controller
     }
   }
 
-  public function destroyVideo(Product $product, ProductService $productService)
+  public function destroyVideo(string $locale, Product $product, ProductService $productService)
   {
     try {
       $productService->destroyVideo($product);

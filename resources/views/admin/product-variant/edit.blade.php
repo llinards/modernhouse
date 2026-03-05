@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-12">
         @include('includes.status-messages')
-        <form action="/admin/product-variant" id="update-product-variant" method="POST"
+        <form action="/admin/{{ app()->getLocale() }}/product-variant" id="update-product-variant" method="POST"
               enctype="multipart/form-data">
           @csrf
           @method('PATCH')
@@ -57,9 +57,9 @@
             </div>
           </div>
           <div class="mb-3">
-            <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-options"
+            <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-options"
                class="btn btn-dark" target="_blank">Tehniskā informācija</a>
-            <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
+            <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details"
                class="btn btn-dark" target="_blank">Platība, istabas</a>
           </div>
           <div class="mb-3">
@@ -114,7 +114,7 @@
                     class="btn btn-danger">Dzēst
             </button>
             <div class="d-flex">
-              <a href="/admin" class="btn btn-dark">Atpakaļ</a>
+              <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" form="update-product-variant"
                       class="btn btn-success mx-1">Atjaunot
               </button>

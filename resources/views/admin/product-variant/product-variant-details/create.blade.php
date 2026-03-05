@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
+        <form action="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details"
               method="POST"
               enctype="multipart/form-data">
           @csrf
@@ -57,7 +57,7 @@
                    id="product-variant-detail-new-icon">
           </div>
           <div class="d-flex">
-            <a href="/admin/product-variant/{{ $productVariant->id }}/product-variant-details"
+            <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details"
                class="btn btn-dark">Atpakaļ</a>
             <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
           </div>

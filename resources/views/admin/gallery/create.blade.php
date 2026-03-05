@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/gallery" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}/gallery" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="row mb-3">
             <div class="col-6">
@@ -49,7 +49,7 @@
                                                               target="_blank">compressor.io</a>
             </p>
           </div>
-          <a href="/admin/gallery" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}/gallery" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>
       </div>
