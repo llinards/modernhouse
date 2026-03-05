@@ -6,28 +6,58 @@ use App\Models\Product;
 use App\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 
 class ShowProduct extends Component
 {
   public Product $product;
-  public ProductVariant|string $productVariant;
-  public object $productVariants;
+  public ProductVariant $selectedVariant;
   public string $productVariantSlug;
+
+  #[Locked]
+  public array $variantTabs = [];
+
+  private Collection $productVariants;
 
   public function mount(Product $product, string $productVariant = ''): void
   {
-    $this->product         = $this->getProduct($product);
-    $this->productVariants = $this->getProductVariants($this->product);
-    if ($this->productVariants->isNotEmpty()) {
-      $this->productVariant = $productVariant
-        ? $this->getProductVariant($productVariant)
-        : $this->productVariants->first();
+    $locale = app()->getLocale();
 
-      $this->productVariantSlug = $this->productVariant->slug;
-    } else {
+    $this->product = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
+      ->with([
+        'translations' => fn ($query) => $query->select('name', 'product_id')->where('language', $locale),
+      ])
+      ->whereHas('translations', fn ($query) => $query->where('language', $locale))
+      ->where('is_active', 1)
+      ->findOrFail($product->id);
+
+    $this->productVariants = ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle', 'price_full', 'living_area', 'building_area')
+      ->with([
+        'translations' => fn ($query) => $query->select('product_variant_id', 'name', 'description')->where('language', $locale),
+        'productVariantImages' => fn ($query) => $query->select('product_variant_id', 'filename'),
+      ])
+      ->whereHas('translations', fn ($query) => $query->where('language', $locale))
+      ->where('is_active', 1)
+      ->where('product_id', $this->product->id)
+      ->orderBy('slug')
+      ->get();
+
+    if ($this->productVariants->isEmpty()) {
       abort(404);
     }
+
+    $this->variantTabs = $this->productVariants->map(fn ($v) => [
+      'slug' => $v->slug,
+      'name' => $v->translations->first()->name,
+    ])->all();
+
+    $this->selectedVariant = $productVariant
+      ? $this->productVariants->where('slug', $productVariant)->first() ?? abort(404)
+      : $this->productVariants->first();
+
+    $this->loadVariantRelationships($locale);
+    $this->productVariantSlug = $this->selectedVariant->slug;
   }
 
   public function render(): View
@@ -38,134 +68,43 @@ class ShowProduct extends Component
       ]);
   }
 
-  public function switchProductVariant(string $productVariant): void
+  public function switchProductVariant(string $productVariantSlug): void
   {
-    $this->productVariant = ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle',
-      'price_full',
-      'living_area',
-      'building_area')
-                                          ->with([
-                                            'translations' => function ($query) {
-                                              $query->select('product_variant_id', 'name',
-                                                'description')->where('language',
-                                                app()->getLocale());
-                                            },
-                                          ])
-                                          ->with([
-                                            'productVariantDetails' => function ($query) {
-                                              $query->select('product_variant_id', 'name', 'hasThis', 'icon',
-                                                'count')->where('language',
-                                                app()->getLocale());
-                                            },
-                                          ])
-                                          ->with([
-                                            'productVariantOptions' => function ($query) {
-                                              $query->select('id', 'product_variant_id',
-                                                'option_title')->where('language',
-                                                app()->getLocale())
-                                                    ->with([
-                                                      'productVariantOptionDetails' => function ($query) {
-                                                        $query->select('product_variant_option_id', 'detail',
-                                                          'has_in_basic',
-                                                          'has_in_middle',
-                                                          'has_in_full');
-                                                      },
-                                                    ]);
-                                            },
-                                          ])
-                                          ->with([
-                                            'productVariantAttachments' => function ($query) {
-                                              $query->select('product_variant_id', 'filename',
-                                                'language')->where('language',
-                                                app()->getLocale());
-                                            },
-                                          ])
-                                          ->with([
-                                            'productVariantPlan' => function ($query) {
-                                              $query->select('product_variant_id', 'filename')->where('language',
-                                                app()->getLocale());
-                                            },
-                                          ])
-                                          ->where('slug', $productVariant)
-                                          ->firstOrFail();
+    $locale = app()->getLocale();
 
-    $this->productVariantSlug = $this->productVariant->slug;
-    $this->dispatch('update-url', url: '/'.app()->getLocale().'/'.$this->product->slug.'/'.$this->productVariantSlug);
-    $this->dispatch('variantChanged', $productVariant);
+    $this->selectedVariant = ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle', 'price_full', 'living_area', 'building_area')
+      ->with([
+        'translations' => fn ($query) => $query->select('product_variant_id', 'name', 'description')->where('language', $locale),
+        'productVariantImages' => fn ($query) => $query->select('product_variant_id', 'filename'),
+        'productVariantDetails' => fn ($query) => $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language', $locale),
+        'productVariantOptions' => fn ($query) => $query->select('id', 'product_variant_id', 'option_title')->where('language', $locale)
+          ->with([
+            'productVariantOptionDetails' => fn ($query) => $query->select('product_variant_option_id', 'detail', 'has_in_basic', 'has_in_middle', 'has_in_full'),
+          ]),
+        'productVariantAttachments' => fn ($query) => $query->select('product_variant_id', 'filename', 'language')->where('language', $locale),
+        'productVariantPlan' => fn ($query) => $query->select('product_variant_id', 'filename')->where('language', $locale),
+      ])
+      ->where('slug', $productVariantSlug)
+      ->where('product_id', $this->product->id)
+      ->where('is_active', 1)
+      ->firstOrFail();
+
+    $this->productVariantSlug = $this->selectedVariant->slug;
+
+    $this->dispatch('update-url', url: '/' . app()->getLocale() . '/' . $this->product->slug . '/' . $this->productVariantSlug);
+    $this->dispatch('variantChanged', $productVariantSlug);
   }
 
-  private function getProduct(Product $product): Product
+  private function loadVariantRelationships(string $locale): void
   {
-    return Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
-                  ->with([
-                    'translations' => function ($query) {
-                      $query->select('name', 'product_id')->where('language', app()->getLocale());
-                    },
-                  ])
-                  ->whereHas('translations', function ($query) {
-                    $query->where('language', app()->getLocale());
-                  })
-                  ->where('is_active', 1)
-                  ->findOrFail($product->id);
-  }
-
-  private function getProductVariant(string $productVariantSlug): ProductVariant
-  {
-    return $this->productVariants->where('slug', $productVariantSlug)->first() ?? abort(404);
-  }
-
-  private function getProductVariants(Product $product): Collection
-  {
-    return ProductVariant::select('id', 'product_id', 'slug', 'price_basic', 'price_middle', 'price_full',
-      'living_area',
-      'building_area')
-                         ->with([
-                           'translations' => function ($query) {
-                             $query->select('product_variant_id', 'name', 'description')->where('language',
-                               app()->getLocale());
-                           },
-                         ])
-                         ->with([
-                           'productVariantImages' => function ($query) {
-                             $query->select('product_variant_id', 'filename');
-                           },
-                         ])
-                         ->with([
-                           'productVariantDetails' => function ($query) {
-                             $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language',
-                               app()->getLocale());
-                           },
-                         ])
-                         ->with([
-                           'productVariantOptions' => function ($query) {
-                             $query->select('id', 'product_variant_id', 'option_title')->where('language',
-                               app()->getLocale())
-                                   ->with([
-                                     'productVariantOptionDetails' => function ($query) {
-                                       $query->select('product_variant_option_id', 'detail', 'has_in_basic',
-                                         'has_in_middle',
-                                         'has_in_full');
-                                     },
-                                   ]);
-                           },
-                         ])
-                         ->with([
-                           'productVariantAttachments' => function ($query) {
-                             $query->select('product_variant_id', 'filename', 'language')->where('language',
-                               app()->getLocale());
-                           },
-                         ])
-                         ->with([
-                           'productVariantPlan' => function ($query) {
-                             $query->select('product_variant_id', 'filename')->where('language', app()->getLocale());
-                           },
-                         ])
-                         ->whereHas('translations', function ($query) {
-                           $query->where('language', app()->getLocale());
-                         })
-                         ->where('is_active', 1)
-                         ->where('product_id', $product->id)
-                         ->orderBy('slug')
-                         ->get();
+    $this->selectedVariant->loadMissing([
+      'productVariantDetails' => fn ($query) => $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language', $locale),
+      'productVariantOptions' => fn ($query) => $query->select('id', 'product_variant_id', 'option_title')->where('language', $locale)
+        ->with([
+          'productVariantOptionDetails' => fn ($query) => $query->select('product_variant_option_id', 'detail', 'has_in_basic', 'has_in_middle', 'has_in_full'),
+        ]),
+      'productVariantAttachments' => fn ($query) => $query->select('product_variant_id', 'filename', 'language')->where('language', $locale),
+      'productVariantPlan' => fn ($query) => $query->select('product_variant_id', 'filename')->where('language', $locale),
+    ]);
   }
 }

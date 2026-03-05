@@ -1,18 +1,18 @@
 <div>
   @include('includes.status-messages')
-  @if(count($productVariants) !== 1)
+  @if(count($variantTabs) !== 1)
     <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
       <div class="swiper-wrapper">
-        @foreach($productVariants as $index => $productsVariant)
+        @foreach($variantTabs as $index => $tab)
           <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
             <button
-              class="nav-link d-inline-block {{ $productVariant->slug === $productsVariant->slug ? 'active' : '' }}"
-              data-variant="{{$productsVariant->slug}}"
-              wire:click="switchProductVariant('{{$productsVariant->slug}}')"
+              class="nav-link d-inline-block {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
+              data-variant="{{ $tab['slug'] }}"
+              wire:click="switchProductVariant('{{ $tab['slug'] }}')"
               wire:loading.attr="disabled"
               wire:target="switchProductVariant"
-              type="button">{{ $productsVariant->translations[0]->name}}</button>
+              type="button">{{ $tab['name'] }}</button>
           </li>
         @endforeach
       </div>
@@ -21,20 +21,20 @@
   @endif
   <div class="position-relative">
     <x-loading-spinner target="switchProductVariant"/>
-    @include('includes.request-product-info-modal', ['currentProductVariant' =>$productVariant, $product])
+    @include('includes.request-product-info-modal', ['currentProductVariant' =>$selectedVariant, $product])
     <div class="row">
-      <livewire:product.gallery :productVariant="$productVariant" :product="$product"
-                                :key="'gallery-' . $productVariant->id"/>
-      <livewire:product.details :productVariant="$productVariant" :product="$product"
-                                :key="'details-' . $productVariant->id"/>
-      @if($productVariant->productVariantOptions->isNotEmpty())
+      <livewire:product.gallery :productVariant="$selectedVariant" :product="$product"
+                                :key="'gallery-' . $selectedVariant->id"/>
+      <livewire:product.details :productVariant="$selectedVariant" :product="$product"
+                                :key="'details-' . $selectedVariant->id"/>
+      @if($selectedVariant->productVariantOptions->isNotEmpty())
         <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
-        <x-product-variant-options :productVariant="$productVariant"/>
+        <x-product-variant-options :productVariant="$selectedVariant"/>
       @endif
-      @if($productVariant->productVariantAttachments->isNotEmpty())
-        @foreach($productVariant->productVariantAttachments as $attachment)
+      @if($selectedVariant->productVariantAttachments->isNotEmpty())
+        @foreach($selectedVariant->productVariantAttachments as $attachment)
           <x-download-attachment
-            :href="asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$attachment->filename)"
+            :href="asset('storage/product-images/'.$product->slug.'/'.$selectedVariant->slug.'/'.$attachment->filename)"
             :filename="__('Download attachment')"/>
         @endforeach
       @endif

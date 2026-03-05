@@ -14,14 +14,14 @@
           <x-honeypot/>
           <input type="text" class="visually-hidden" name="product-name"
                  value="{{ $product->translations[0]->name }}"/>
-          @if(count($productVariants) !== 1)
+          @if(count($variantTabs) !== 1)
             <div class="mb-3">
               <label for="product-variant" class="form-label fw-bold">@lang('product variant')*</label>
               <select class="form-select" name="product-variant" id="product-variant"
                       aria-label="Default select example">
-                @foreach($productVariants as $productVariant)
+                @foreach($variantTabs as $tab)
                   <option
-                    value="{{ $productVariant->translations[0]->name }}" {{ $currentProductVariant->translations[0]->name === $productVariant->translations[0]->name ? 'selected' : '' }}>{{ $productVariant->translations[0]->name }}</option>
+                    value="{{ $tab['name'] }}" {{ $currentProductVariant->translations[0]->name === $tab['name'] ? 'selected' : '' }}>{{ $tab['name'] }}</option>
                 @endforeach
               </select>
             </div>
