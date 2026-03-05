@@ -1,12 +1,12 @@
 <x-layouts.admin>
   <x-slot name="header">
-    Pievienot jaunu māju/moduli
+    Pievienot jaunu kategoriju
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
             <label for="product-name" class="form-label">Nosaukums</label>
@@ -38,7 +38,7 @@
             <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
               izmērā.</p>
           </div>
-          <a href="/admin" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>
       </div>

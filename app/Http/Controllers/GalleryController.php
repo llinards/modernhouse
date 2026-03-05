@@ -50,7 +50,7 @@ class GalleryController extends Controller
       $galleryService->addTranslation($data);
       $galleryService->addImage($data['gallery-images']);
 
-      return redirect('/admin/gallery')->with('success', 'Pievienots!');
+      return redirect('/admin/' . app()->getLocale() . '/gallery')->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -61,7 +61,7 @@ class GalleryController extends Controller
     }
   }
 
-  public function show(Gallery $gallery)
+  public function show(string $locale, Gallery $gallery)
   {
     $gallery = Gallery::select('id', 'slug', 'is_video', 'is_pinned')
                       ->with([
@@ -91,7 +91,7 @@ class GalleryController extends Controller
         $galleryService->addImage($data['gallery-images']);
       }
 
-      return redirect('/admin/gallery')->with('success', 'Atjaunots!');
+      return redirect('/admin/' . app()->getLocale() . '/gallery')->with('success', 'Atjaunots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -102,7 +102,7 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroy(Gallery $gallery, GalleryService $galleryService)
+  public function destroy(string $locale, Gallery $gallery, GalleryService $galleryService)
   {
     try {
       $galleryService->destroyGallery($gallery);
@@ -115,7 +115,7 @@ class GalleryController extends Controller
     }
   }
 
-  public function destroyImage(GalleryImage $image, GalleryService $galleryService)
+  public function destroyImage(string $locale, GalleryImage $image, GalleryService $galleryService)
   {
     try {
       $galleryService->destroyImage($image);

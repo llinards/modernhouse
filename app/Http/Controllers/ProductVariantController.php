@@ -41,7 +41,7 @@ class ProductVariantController extends Controller
         $productVariantService->addMenuIcon($data['product-variant-menu-icon']);
       }
 
-      return redirect('/admin')->with('success', 'Pievienots!');
+      return redirect('/admin/' . app()->getLocale())->with('success', 'Pievienots!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -52,7 +52,7 @@ class ProductVariantController extends Controller
     }
   }
 
-  public function show(ProductVariant $productVariant)
+  public function show(string $locale, ProductVariant $productVariant)
   {
     $product        = $productVariant->product;
     $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_middle', 'price_full',
@@ -104,12 +104,12 @@ class ProductVariantController extends Controller
     }
   }
 
-  public function destroy(ProductVariant $productVariant, ProductVariantService $productVariantService)
+  public function destroy(string $locale, ProductVariant $productVariant, ProductVariantService $productVariantService)
   {
     try {
       $productVariantService->destroyProductVariant($productVariant);
 
-      return redirect('/admin')->with('success', 'Dzēsts!');
+      return redirect('/admin/' . app()->getLocale())->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
 

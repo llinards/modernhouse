@@ -12,7 +12,7 @@ return new class extends Migration {
   {
     Schema::table('product_variant_area_details', function (Blueprint $table) {
       $table->renameColumn('name', 'name_lv');
-      $table->string('name_en')->after('name')->nullable()->default('Nav tulkojuma!');
+      $table->string('name_en')->after('name_lv')->nullable()->default('Nav tulkojuma!');
       $table->string('name_se')->after('name_en')->nullable()->default('Nav tulkojuma!');
       $table->string('name_no')->after('name_se')->nullable()->default('Nav tulkojuma!');
     });

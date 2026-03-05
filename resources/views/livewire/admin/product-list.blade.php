@@ -34,7 +34,7 @@
 
             <!-- Edit Button -->
             <div class="mb-3">
-              <a href="/admin/{{ $product->slug }}/edit" title="Rediģēt" class="btn btn-outline-primary btn-sm">
+              <a href="/admin/{{ app()->getLocale() }}/{{ $product->slug }}/edit" title="Rediģēt" class="btn btn-outline-primary btn-sm">
                 <i class="bi bi-pencil-square"></i> Rediģēt
               </a>
             </div>
@@ -60,7 +60,7 @@
                             </span>
                             <small>{{ $variant->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</small>
                           </div>
-                          <a href="/admin/product-variant/{{ $variant->id }}/edit"
+                          <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $variant->id }}/edit"
                              title="Rediģēt"
                              class="btn btn-sm btn-outline-primary">
                             <i class="bi bi-pencil-square"></i>

@@ -25,7 +25,7 @@ class ProductVariantOptionController extends Controller
     $this->productVariantOptionService = $productVariantOptionService;
   }
 
-  public function index(ProductVariant $productVariant)
+  public function index(string $locale, ProductVariant $productVariant)
   {
     return view('admin.product-variant.product-variant-options.index', compact('productVariant'));
   }
@@ -97,19 +97,19 @@ class ProductVariantOptionController extends Controller
     }
   }
 
-  public function destroy(ProductVariant $productVariant)
+  public function destroy(string $locale, ProductVariant $productVariant)
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOptions($productVariant));
   }
 
-  public function destroyProductVariantOption(ProductVariantOption $productVariantOption)
+  public function destroyProductVariantOption(string $locale, ProductVariantOption $productVariantOption)
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOption($productVariantOption));
   }
 
-  public function destroyProductVariantOptionDetail(ProductVariantOptionDetail $productVariantOptionDetail)
+  public function destroyProductVariantOptionDetail(string $locale, ProductVariantOptionDetail $productVariantOptionDetail)
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOptionDetail($productVariantOptionDetail));

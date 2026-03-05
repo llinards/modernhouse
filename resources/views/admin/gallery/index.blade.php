@@ -6,7 +6,7 @@
     <div class="row justify-content-between">
       @if(app()->getLocale() == 'lv')
         <div class="my-2">
-          <a href="/admin/gallery/create" class="btn btn-success">Pievienot jaunu</a>
+          <a href="/admin/{{ app()->getLocale() }}/gallery/create" class="btn btn-success">Pievienot jaunu</a>
         </div>
       @endif
       <livewire:admin.gallery-list/>

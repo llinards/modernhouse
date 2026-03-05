@@ -52,7 +52,7 @@ class NewsController extends Controller
         $newsService->addAttachment($data['news-attachments']);
       }
 
-      return redirect('/admin/news')->with('success', 'Jaunums pievienots');
+      return redirect('/admin/' . app()->getLocale() . '/news')->with('success', 'Jaunums pievienots');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -80,7 +80,7 @@ class NewsController extends Controller
     return view('news.show', compact('news'));
   }
 
-  public function showAdmin(News $news)
+  public function showAdmin(string $locale, News $news)
   {
     return view('admin.news.edit', compact('news'));
   }
@@ -96,7 +96,7 @@ class NewsController extends Controller
         $newsService->addAttachment($data['news-attachments']);
       }
 
-      return redirect('/admin/news')->with('success', 'Jaunums atjaunināts!');
+      return redirect('/admin/' . app()->getLocale() . '/news')->with('success', 'Jaunums atjaunināts!');
     } catch (\Exception $e) {
       if ($e->getCode() === '23000') {
         return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
@@ -107,12 +107,12 @@ class NewsController extends Controller
     }
   }
 
-  public function destroy(News $news, NewsService $newsService)
+  public function destroy(string $locale, News $news, NewsService $newsService)
   {
     try {
       $newsService->destroyNews($news);
 
-      return redirect('/admin/news')->with('success', 'Jaunums dzēsts!');
+      return redirect('/admin/' . app()->getLocale() . '/news')->with('success', 'Jaunums dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
 
@@ -120,7 +120,7 @@ class NewsController extends Controller
     }
   }
 
-  public function destroyNewsImage(NewsImage $image, NewsService $newsService)
+  public function destroyNewsImage(string $locale, NewsImage $image, NewsService $newsService)
   {
     try {
       $newsService->destroyImage($image);
@@ -133,7 +133,7 @@ class NewsController extends Controller
     }
   }
 
-  public function destroyNewsAttachment(NewsAttachment $attachment, NewsService $newsService)
+  public function destroyNewsAttachment(string $locale, NewsAttachment $attachment, NewsService $newsService)
   {
     try {
       $newsService->destroyAttachment($attachment);

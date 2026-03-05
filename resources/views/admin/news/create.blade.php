@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/news" method="POST" enctype="multipart/form-data">
+        <form action="/admin/{{ app()->getLocale() }}/news" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="alert alert-secondary mx-0 my-2" role="alert">
             <p>Jaunums, ko pievienosi būs pieejams tikai {{ strtoupper(Lang::locale()) }}
@@ -38,7 +38,7 @@
                                                               target="_blank">compressor.io</a>
             <p class="small">Pielikumam ir jābūt .PDF un pēc iespējas mazākā izmērā.</p>
           </div>
-          <a href="/admin/news" class="btn btn-dark">Atpakaļ</a>
+          <a href="/admin/{{ app()->getLocale() }}/news" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>
       </div>

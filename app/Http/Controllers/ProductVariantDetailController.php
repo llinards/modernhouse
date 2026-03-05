@@ -10,14 +10,14 @@ use Illuminate\Support\Facades\Log;
 
 class ProductVariantDetailController extends Controller
 {
-  public function index(ProductVariant $productVariant)
+  public function index(string $locale, ProductVariant $productVariant)
   {
     $productVariantDetails = $productVariant->productVariantDetails->where('language', app()->getLocale());
     return view('admin.product-variant.product-variant-details.index',
       compact('productVariant', 'productVariantDetails'));
   }
 
-  public function create(ProductVariant $productVariant)
+  public function create(string $locale, ProductVariant $productVariant)
   {
     $productVariantDetailIcons = ProductVariantDetailIcon::all();
     return view('admin.product-variant.product-variant-details.create',
@@ -51,7 +51,7 @@ class ProductVariantDetailController extends Controller
     }
   }
 
-  public function destroy(ProductVariant $productVariant, ProductVariantDetail $productVariantDetail)
+  public function destroy(string $locale, ProductVariant $productVariant, ProductVariantDetail $productVariantDetail)
   {
     try {
       $productVariantDetail->delete();
