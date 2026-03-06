@@ -26,6 +26,7 @@ class HomeController extends Controller
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+      report($e);
 
       return back()->with('error', Lang::get('message has not been sent'));
     }
@@ -39,6 +40,7 @@ class HomeController extends Controller
       return Redirect::to(URL::previous()."#contact-us")->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+      report($e);
 
       return Redirect::to(URL::previous()."#contact-us")->with('error', Lang::get('message has not been sent'));
     }
@@ -52,6 +54,7 @@ class HomeController extends Controller
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       Log::error($e);
+      report($e);
 
       return back()->with('error', Lang::get('message has not been sent'));
     }

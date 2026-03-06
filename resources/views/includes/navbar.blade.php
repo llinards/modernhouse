@@ -52,18 +52,18 @@
                  href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
             </li>
           @endforeach
-          @if(app()->getLocale() === 'lv')
-            <li class="nav-item">
-              <a class="nav-link text-center"
-                 href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"
-                 target="_blank">@lang('projects')</a>
-            </li>
-            {{--            <li class="nav-item">--}}
-            {{--              <a class="nav-link text-center"--}}
-            {{--                 href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025"--}}
-            {{--                 target="_blank">Atvērtās durvju dienas 2025</a>--}}
-            {{--            </li>--}}
-          @endif
+          {{--          @if(app()->getLocale() === 'lv')--}}
+          {{--            <li class="nav-item">--}}
+          {{--              <a class="nav-link text-center"--}}
+          {{--                 href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda"--}}
+          {{--                 target="_blank">@lang('projects')</a>--}}
+          {{--            </li>--}}
+          {{--            --}}{{--            <li class="nav-item">--}}
+          {{--            --}}{{--              <a class="nav-link text-center"--}}
+          {{--            --}}{{--                 href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025"--}}
+          {{--            --}}{{--                 target="_blank">Atvērtās durvju dienas 2025</a>--}}
+          {{--            --}}{{--            </li>--}}
+          {{--          @endif--}}
         </ul>
       </div>
       <div class="nav-items">
