@@ -24,18 +24,18 @@
        wire:target="switchProductVariant"
        style="transition: opacity 0.2s">
     <x-loading-spinner target="switchProductVariant"/>
-    @include('includes.request-product-info-modal', ['currentProductVariant' =>$selectedVariant, $product])
+    @include('includes.request-product-info-modal', ['currentProductVariant' => $this->selectedVariant, 'product' => $this->product])
     <div class="row">
-      <x-product.gallery :productVariant="$selectedVariant" :product="$product"/>
-      <x-product.details :productVariant="$selectedVariant" :product="$product"/>
-      @if($selectedVariant->productVariantOptions->isNotEmpty())
+      <x-product.gallery :productVariant="$this->selectedVariant" :product="$this->product"/>
+      <x-product.details :productVariant="$this->selectedVariant" :product="$this->product"/>
+      @if($this->selectedVariant->productVariantOptions->isNotEmpty())
         <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
-        <x-product-variant-options :productVariant="$selectedVariant"/>
+        <x-product-variant-options :productVariant="$this->selectedVariant"/>
       @endif
-      @if($selectedVariant->productVariantAttachments->isNotEmpty())
-        @foreach($selectedVariant->productVariantAttachments as $attachment)
+      @if($this->selectedVariant->productVariantAttachments->isNotEmpty())
+        @foreach($this->selectedVariant->productVariantAttachments as $attachment)
           <x-download-attachment
-            :href="asset('storage/product-images/'.$product->slug.'/'.$selectedVariant->slug.'/'.$attachment->filename)"
+            :href="asset('storage/product-images/'.$this->product->slug.'/'.$this->selectedVariant->slug.'/'.$attachment->filename)"
             :filename="__('Download attachment')"/>
         @endforeach
       @endif
