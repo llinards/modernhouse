@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <form
-          action="{{ route('product-variant-options.store-product-variant-option') }}"
+          action="{{ route('product-variant-options.store-product-variant-option', ['locale' => app()->getLocale()]) }}"
           method="POST">
           @csrf
           <input name="id" class="visually-hidden" value="{{ $productVariant->id }}">

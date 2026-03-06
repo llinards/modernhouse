@@ -5,7 +5,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
-        <form action="{{ route('product-variant-options.import', ['productVariant' => $productVariant->id]) }}"
+        <form action="{{ route('product-variant-options.import', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
               method="POST">
           @csrf
           <input name="product-variant-id" id="id" value="{{$productVariant->id}}"
@@ -33,7 +33,7 @@
           <livewire:admin.product-variant-option-list :productVariant="$productVariant"/>
           <div class="d-flex justify-content-center">
             <form
-              action="{{route('product-variant-options.destroy', ['productVariant' => $productVariant->id])}}"
+              action="{{route('product-variant-options.destroy', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id])}}"
               method="POST">
               @csrf
               @method('DELETE')

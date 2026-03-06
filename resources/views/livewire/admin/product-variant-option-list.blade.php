@@ -22,7 +22,7 @@
           <i class="bi bi-pencil text-white"></i>
         </button>
         <form
-          action="{{route('product-variant-options.destroy-product-variant-option', ['productVariantOption' => $productVariantOption->id])}}"
+          action="{{route('product-variant-options.destroy-product-variant-option', ['locale' => app()->getLocale(), 'productVariantOption' => $productVariantOption->id])}}"
           method="POST">
           @csrf
           @method('DELETE')
@@ -54,7 +54,7 @@
                     <i class="bi bi-pencil text-white"></i>
                   </button>
                   <form
-                    action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['productVariantOptionDetail' => $detail]) }}"
+                    action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['locale' => app()->getLocale(), 'productVariantOptionDetail' => $detail]) }}"
                     method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')

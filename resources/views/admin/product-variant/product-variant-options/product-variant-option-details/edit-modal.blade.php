@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <form
-          action="{{ route('product-variant-options.update-product-variant-option-detail', ['productVariantOptionDetail' => $detail->id]) }}"
+          action="{{ route('product-variant-options.update-product-variant-option-detail', ['locale' => app()->getLocale(), 'productVariantOptionDetail' => $detail->id]) }}"
           method="POST">
           @csrf
           @method('PATCH')

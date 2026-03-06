@@ -14,11 +14,11 @@ use App\Livewire\ShowProduct;
 use Illuminate\Support\Facades\Route;
 use Spatie\Honeypot\ProtectAgainstSpam;
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/', function () {
-    return redirect('/admin/' . app()->getLocale());
+    return redirect('/admin/'.app()->getLocale());
   });
 });
 
