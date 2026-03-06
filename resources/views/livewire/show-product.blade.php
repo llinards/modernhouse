@@ -52,18 +52,26 @@
       const gallery = document.getElementById('product-variant-gallery');
       if (!gallery) return;
 
-      const main = new Splide('#' + gallery.firstElementChild.id, {
+      const isDesktop = window.innerWidth >= 992;
+      const mainOptions = {
         type: 'fade',
         pagination: false,
         lazyLoad: 'sequential',
         rewind: true,
-        fixedHeight: 500,
-        breakpoints: {
-          768: {
-            fixedHeight: 400,
-          }
-        }
-      });
+      };
+
+      if (isDesktop) {
+        const detailsCol = gallery.nextElementSibling;
+        const thumbnailEl = gallery.lastElementChild;
+        const thumbnailHeight = thumbnailEl ? thumbnailEl.offsetHeight + 8 : 68;
+        const detailsHeight = detailsCol ? detailsCol.offsetHeight : 0;
+        mainOptions.fixedHeight = detailsHeight > thumbnailHeight ? detailsHeight - thumbnailHeight : 500;
+      } else {
+        mainOptions.fixedHeight = 500;
+        mainOptions.breakpoints = { 768: { fixedHeight: 400 } };
+      }
+
+      const main = new Splide('#' + gallery.firstElementChild.id, mainOptions);
       const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
         fixedWidth: 100,
         fixedHeight: 60,
