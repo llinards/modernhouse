@@ -110,6 +110,10 @@
   }
 }
 
+.buttons-content-switch.swiper {
+  padding: 0 40px;
+}
+
 .swiper-slide {
   text-align: center;
   background: #fff;
@@ -129,11 +133,11 @@
 }
 
 .swiper-button-next {
-  right: -2px !important;
+  right: 0 !important;
 }
 
 .swiper-button-prev {
-  left: -2px !important;
+  left: 0 !important;
 }
 
 .swiper-slide .nav-link {
