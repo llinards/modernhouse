@@ -139,3 +139,19 @@
 .swiper-slide .nav-link {
   pointer-events: auto !important;
 }
+
+.collapsed .bi-chevron-up {
+  display: none;
+}
+
+.collapsed .bi-chevron-down {
+  display: inline;
+}
+
+:not(.collapsed) > .bi-chevron-up {
+  display: inline;
+}
+
+:not(.collapsed) > .bi-chevron-down {
+  display: none;
+}

@@ -27,8 +27,9 @@
         <td class="align-middle">{{ $product->translations[0]->name ?? 'Nav pievienots tulkojums!' }}</td>
         <td class="align-middle">
           @if(count($product->productVariants) > 0)
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
+            <button class="btn btn-sm btn-outline-secondary collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#variants-{{ $product->id }}">
+              <i class="bi bi-chevron-up"></i>
               <i class="bi bi-chevron-down"></i>
               <span class="badge bg-secondary">{{ count($product->productVariants) }}</span>
             </button>
