@@ -39,10 +39,10 @@
             :filename="__('Download attachment')"/>
         @endforeach
       @endif
-      <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-      <x-faq/>
     </div>
   </div>
+  <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+  <x-faq/>
 </div>
 
 @script
