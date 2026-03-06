@@ -7,7 +7,7 @@
         @foreach($variantTabs as $index => $tab)
           <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
             <button
-              class="nav-link d-inline-block {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
+              class="nav-link {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
               data-variant="{{ $tab['slug'] }}"
               wire:click="switchProductVariant('{{ $tab['slug'] }}')"
               wire:loading.attr="disabled"
@@ -47,6 +47,15 @@
 @script
 <script>
   document.addEventListener('livewire:initialized', () => {
+    const nextBtn = document.querySelector('.swiper-button-next');
+    const prevBtn = document.querySelector('.swiper-button-prev');
+    const totalSlides = document.querySelectorAll('.swiper-slide').length;
+
+    function updateArrowState(activeIndex) {
+      prevBtn?.classList.toggle('disabled', activeIndex <= 0);
+      nextBtn?.classList.toggle('disabled', activeIndex >= totalSlides - 1);
+    }
+
     Livewire.on('update-url', params => {
       window.history.pushState({}, '', params.url);
     });
@@ -59,6 +68,8 @@
       const activeButton = document.querySelector(`.swiper-slide button[data-variant="${variantSlug}"]`);
       if (activeButton) {
         activeButton.classList.add('active');
+        const slideIndex = parseInt(activeButton.closest('.swiper-slide').dataset.variantIndex);
+        updateArrowState(slideIndex);
       }
     });
 
@@ -68,70 +79,33 @@
       preventClicksPropagation: false,
       touchStartPreventDefault: false,
       breakpoints: {
-        992: {slidesPerView: 5},
         570: {slidesPerView: 4},
+        992: {slidesPerView: 5},
       },
-      on: {
-        init: function () {
-          const nextBtn = document.querySelector('.swiper-button-next');
-          const prevBtn = document.querySelector('.swiper-button-prev');
-          if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-              const activeSlide = document.querySelector('.swiper-slide .nav-link.active').closest('.swiper-slide');
-              const activeIndex = parseInt(activeSlide.dataset.variantIndex);
-              const nextSlide = document.querySelector(`.swiper-slide[data-variant-index="${activeIndex + 1}"]`);
+    });
 
-              if (nextSlide) {
-                nextSlide.querySelector('.nav-link').click();
-
-                let slidesToShow;
-                const windowWidth = window.innerWidth;
-
-                if (windowWidth >= 992) {
-                  slidesToShow = 5;
-                } else if (windowWidth >= 570) {
-                  slidesToShow = 4;
-                } else {
-                  slidesToShow = 2;
-                }
-
-                const slidePosition = activeIndex + 1;
-                const currentVisibleEnd = Math.floor(swiper.activeIndex + slidesToShow - 1);
-
-                if (slidePosition > currentVisibleEnd) {
-                  swiper.slideTo(swiper.activeIndex + 1);
-                }
-              }
-            });
-          }
-
-          if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-              const activeSlide = document.querySelector('.swiper-slide .nav-link.active').closest('.swiper-slide');
-              const activeIndex = parseInt(activeSlide.dataset.variantIndex);
-              const prevSlide = document.querySelector(`.swiper-slide[data-variant-index="${activeIndex - 1}"]`);
-
-              if (prevSlide) {
-                prevSlide.querySelector('.nav-link').click();
-
-                const slidePosition = activeIndex - 1;
-
-                if (slidePosition < swiper.activeIndex) {
-                  swiper.slideTo(swiper.activeIndex - 1);
-                }
-              }
-            });
-          }
+    function switchVariant(direction) {
+      const activeSlide = document.querySelector('.swiper-slide .nav-link.active')?.closest('.swiper-slide');
+      if (!activeSlide) return;
+      const targetIndex = parseInt(activeSlide.dataset.variantIndex) + direction;
+      const targetSlide = document.querySelector(`.swiper-slide[data-variant-index="${targetIndex}"]`);
+      if (targetSlide) {
+        targetSlide.querySelector('.nav-link').click();
+        updateArrowState(targetIndex);
+        if (targetIndex < swiper.activeIndex || targetIndex >= swiper.activeIndex + swiper.params.slidesPerView) {
+          swiper.slideTo(targetIndex);
         }
       }
-    });
+    }
+
+    nextBtn?.addEventListener('click', () => switchVariant(1));
+    prevBtn?.addEventListener('click', () => switchVariant(-1));
 
     const activeVariantSlide = document.querySelector('.swiper-slide .nav-link.active');
     if (activeVariantSlide) {
-      const slideIndex = activeVariantSlide.closest('.swiper-slide').getAttribute('data-variant-index');
-      if (slideIndex !== null) {
-        swiper.slideTo(parseInt(slideIndex), 0);
-      }
+      const slideIndex = parseInt(activeVariantSlide.closest('.swiper-slide').dataset.variantIndex);
+      updateArrowState(slideIndex);
+      swiper.slideTo(slideIndex, 0);
     }
   });
 </script>
