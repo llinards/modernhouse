@@ -10,7 +10,7 @@
               class="nav-link {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
               data-variant="{{ $tab['slug'] }}"
               wire:click="switchProductVariant('{{ $tab['slug'] }}')"
-              wire:loading.attr="disabled"
+              wire:loading.class="pe-none"
               wire:target="switchProductVariant"
               type="button">{{ $tab['name'] }}</button>
           </li>
