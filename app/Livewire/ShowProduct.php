@@ -13,6 +13,7 @@ class ShowProduct extends Component
 {
   public Product $product;
   public ProductVariant $selectedVariant;
+  #[Locked]
   public string $productVariantSlug;
 
   #[Locked]
