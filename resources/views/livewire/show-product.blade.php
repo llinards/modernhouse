@@ -19,7 +19,10 @@
       <div class="swiper-button-next"></div>
     </ul>
   @endif
-  <div class="position-relative">
+  <div class="position-relative"
+       wire:loading.class="opacity-50"
+       wire:target="switchProductVariant"
+       style="transition: opacity 0.2s">
     <x-loading-spinner target="switchProductVariant"/>
     @include('includes.request-product-info-modal', ['currentProductVariant' =>$selectedVariant, $product])
     <div class="row">
