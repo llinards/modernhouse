@@ -1,3 +1,5 @@
+@props(['productVariant', 'product'])
+
 <div id="product-variant-gallery" class="col-lg-7">
   <section id="{{$productVariant->slug}}-main-carousel" class="splide">
     <div class="splide__track">
@@ -31,40 +33,3 @@
     </div>
   </section>
 </div>
-@script
-<script>
-  const gallery = document.getElementById('product-variant-gallery');
-  const main = new Splide('#' + gallery.firstElementChild.id, {
-    type: 'fade',
-    pagination: false,
-    lazyLoad: 'sequential',
-    rewind: true,
-    fixedHeight: 500,
-    breakpoints: {
-      768: {
-        fixedHeight: 400,
-      }
-    }
-  });
-  const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
-    fixedWidth: 100,
-    fixedHeight: 60,
-    gap: 10,
-    arrows: false,
-    pagination: false,
-    isNavigation: true,
-    lazyLoad: 'sequential',
-    breakpoints: {
-      600: {
-        fixedWidth: 60,
-        fixedHeight: 44,
-      },
-    },
-  });
-  main.sync(thumbnails);
-  main.mount();
-  thumbnails.mount();
-
-  Fancybox.bind("[data-fancybox]", {});
-</script>
-@endscript

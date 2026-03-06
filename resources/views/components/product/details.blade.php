@@ -1,3 +1,5 @@
+@props(['productVariant', 'product'])
+
 <div class="col-lg-5 d-flex flex-column justify-content-between">
     <div>
         <h2 class="text-center">@lang('choose option')</h2>
@@ -155,23 +157,3 @@
         >@lang('customer order')</button>
     </div>
 </div>
-@script
-<script>
-    document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
-        button.addEventListener('show.bs.tab', () => {
-            const targetClass = button.dataset.bsTarget.replace('#', '');
-            const currentVariantPrice = document.querySelector(`.${targetClass}`);
-            if (currentVariantPrice) {
-                document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price')
-                    .forEach(element => element.classList.remove('show', 'active'));
-                currentVariantPrice.classList.add('show', 'active');
-            }
-        });
-    });
-
-    const modal = new bootstrap.Modal('#request-product-info');
-    document.querySelectorAll('.request-product-info-modal').forEach(button => {
-        button.addEventListener('click', () => modal.show());
-    });
-</script>
-@endscript

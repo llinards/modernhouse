@@ -26,10 +26,8 @@
     <x-loading-spinner target="switchProductVariant"/>
     @include('includes.request-product-info-modal', ['currentProductVariant' =>$selectedVariant, $product])
     <div class="row">
-      <livewire:product.gallery :productVariant="$selectedVariant" :product="$product"
-                                :key="'gallery-' . $selectedVariant->id"/>
-      <livewire:product.details :productVariant="$selectedVariant" :product="$product"
-                                :key="'details-' . $selectedVariant->id"/>
+      <x-product.gallery :productVariant="$selectedVariant" :product="$product"/>
+      <x-product.details :productVariant="$selectedVariant" :product="$product"/>
       @if($selectedVariant->productVariantOptions->isNotEmpty())
         <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
         <x-product-variant-options :productVariant="$selectedVariant"/>
@@ -50,6 +48,68 @@
 @script
 <script>
   document.addEventListener('livewire:initialized', () => {
+    function initGallery() {
+      const gallery = document.getElementById('product-variant-gallery');
+      if (!gallery) return;
+
+      const main = new Splide('#' + gallery.firstElementChild.id, {
+        type: 'fade',
+        pagination: false,
+        lazyLoad: 'sequential',
+        rewind: true,
+        fixedHeight: 500,
+        breakpoints: {
+          768: {
+            fixedHeight: 400,
+          }
+        }
+      });
+      const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
+        fixedWidth: 100,
+        fixedHeight: 60,
+        gap: 10,
+        arrows: false,
+        pagination: false,
+        isNavigation: true,
+        lazyLoad: 'sequential',
+        breakpoints: {
+          600: {
+            fixedWidth: 60,
+            fixedHeight: 44,
+          },
+        },
+      });
+      main.sync(thumbnails);
+      main.mount();
+      thumbnails.mount();
+
+      Fancybox.bind("[data-fancybox]", {});
+    }
+
+    function initDetails() {
+      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
+        button.addEventListener('show.bs.tab', () => {
+          const targetClass = button.dataset.bsTarget.replace('#', '');
+          const currentVariantPrice = document.querySelector(`.${targetClass}`);
+          if (currentVariantPrice) {
+            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price')
+              .forEach(element => element.classList.remove('show', 'active'));
+            currentVariantPrice.classList.add('show', 'active');
+          }
+        });
+      });
+
+      const modal = new bootstrap.Modal('#request-product-info');
+      document.querySelectorAll('.request-product-info-modal').forEach(button => {
+        button.addEventListener('click', () => modal.show());
+      });
+    }
+
+    // Initialize on first load
+    initGallery();
+    initDetails();
+
+    // Swiper (variant tabs) - only initialized once, wrapped in wire:ignore
     const nextBtn = document.querySelector('.swiper-button-next');
     const prevBtn = document.querySelector('.swiper-button-prev');
     const totalSlides = document.querySelectorAll('.swiper-slide').length;
@@ -74,6 +134,12 @@
         const slideIndex = parseInt(activeButton.closest('.swiper-slide').dataset.variantIndex);
         updateArrowState(slideIndex);
       }
+
+      // Re-initialize gallery and details after Livewire re-renders the DOM
+      setTimeout(() => {
+        initGallery();
+        initDetails();
+      }, 0);
     });
 
     const swiper = new Swiper('.swiper', {
