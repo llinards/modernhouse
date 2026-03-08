@@ -68,7 +68,7 @@
         mainOptions.fixedHeight = detailsHeight > thumbnailHeight ? detailsHeight - thumbnailHeight : 500;
       } else {
         mainOptions.fixedHeight = 500;
-        mainOptions.breakpoints = { 768: { fixedHeight: 400 } };
+        mainOptions.breakpoints = {768: {fixedHeight: 400}};
       }
 
       const main = new Splide('#' + gallery.firstElementChild.id, mainOptions);
@@ -113,11 +113,9 @@
       });
     }
 
-    // Initialize on first load
     initGallery();
     initDetails();
 
-    // Swiper (variant tabs) - only initialized once, wrapped in wire:ignore
     const nextBtn = document.querySelector('.swiper-button-next');
     const prevBtn = document.querySelector('.swiper-button-prev');
     const totalSlides = document.querySelectorAll('.swiper-slide').length;
@@ -143,7 +141,6 @@
         updateArrowState(slideIndex);
       }
 
-      // Re-initialize gallery and details after Livewire re-renders the DOM
       setTimeout(() => {
         initGallery();
         initDetails();

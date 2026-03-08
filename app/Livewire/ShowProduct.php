@@ -12,13 +12,13 @@ use Livewire\Component;
 class ShowProduct extends Component
 {
   #[Locked]
-  public int $productId;
+  public ?int $productId = null;
 
   #[Locked]
-  public int $selectedVariantId;
+  public ?int $selectedVariantId = null;
 
   #[Locked]
-  public string $productVariantSlug;
+  public string $productVariantSlug = '';
 
   #[Locked]
   public array $variantTabs = [];
@@ -103,6 +103,10 @@ class ShowProduct extends Component
 
   public function switchProductVariant(string $productVariantSlug): void
   {
+    if ($this->productId === null) {
+      return;
+    }
+
     $variant = ProductVariant::select('id', 'slug')
       ->where('slug', $productVariantSlug)
       ->where('product_id', $this->productId)

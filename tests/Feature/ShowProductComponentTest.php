@@ -86,6 +86,15 @@ describe('ShowProduct variant switching', function () {
             ->assertDispatched('update-url')
             ->assertDispatched('variantChanged');
     });
+
+    it('handles switching when productId is null', function () {
+        $component = new ShowProduct();
+
+        $component->switchProductVariant('variant-b');
+
+        expect($component->productId)->toBeNull();
+        expect($component->selectedVariantId)->toBeNull();
+    });
 });
 
 describe('ShowProduct with variant details', function () {
