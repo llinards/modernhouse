@@ -7,10 +7,10 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/{{ app()->getLocale() }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.update', ['locale' => app()->getLocale(), 'product' => $product]) }}"
+              method="POST" enctype="multipart/form-data">
           @csrf
           @method('PATCH')
-          <input name="id" class="visually-hidden" value="{{ $product->id }}">
           <div class="mb-3">
             <div class="form-check">
               <input class="form-check-input" type="checkbox"
@@ -46,22 +46,26 @@
                            :files="$product->cover_video_filename ? json_encode(['product-images/'.$product->slug.'/'.$product->cover_video_filename]) : null"/>
             <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
               izmērā.</p>
-            @if($product->cover_video_filename)
-              <a class="btn btn-danger btn-sm mt-2"
-                 href="{{ URL::to('/admin/'.app()->getLocale().'/'.$product->slug.'/video/delete') }}"
-                 onclick="return confirm('Vai tiešām vēlies noņemt video?')">
-                Noņemt video pirmajā skatā
-              </a>
-            @endif
           </div>
           <div class="d-flex justify-content-between">
             <div></div>
             <div class="d-flex">
-              <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
+              <a href="{{ route('admin.products.index', ['locale' => app()->getLocale()]) }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
             </div>
           </div>
         </form>
+        @if($product->cover_video_filename)
+          <form action="{{ route('admin.products.destroyVideo', ['locale' => app()->getLocale(), 'product' => $product]) }}"
+                method="POST" class="mt-3">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-sm"
+                    onclick="return confirm('Vai tiešām vēlies noņemt video?')">
+              Noņemt video pirmajā skatā
+            </button>
+          </form>
+        @endif
       </div>
     </div>
   </x-slot>

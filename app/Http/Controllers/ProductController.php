@@ -6,11 +6,14 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Services\ProductService;
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-  public function index()
+  public function index(): View
   {
     $allActiveProducts = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename')
                                 ->withWhereHas('translations', function ($query) {
@@ -24,84 +27,84 @@ class ProductController extends Controller
     return view('home', compact('allActiveProducts'));
   }
 
-  public function indexAdmin()
+  public function indexAdmin(): View
   {
     return view('admin.index');
   }
 
-  public function create()
+  public function create(): View
   {
     return view('admin.product.create');
   }
 
-  public function store(StoreProductRequest $data, ProductService $productService)
+  public function store(StoreProductRequest $request, ProductService $productService): RedirectResponse
   {
     try {
-      $productService->addProduct($data);
-      $productService->addTranslation($data);
-      $productService->addMedia($data['product-cover-photo']);
-      if ($data->has('product-cover-video')) {
-        $productService->addMedia($data['product-cover-video']);
-      }
+      return DB::transaction(function () use ($request, $productService) {
+        $product = $productService->addProduct($request);
+        $productService->addTranslation($product, $request->input('product-name'));
+        $productService->addMedia($product, $request->input('product-cover-photo'));
 
-      return redirect('/admin/' . app()->getLocale())->with('success', 'Pievienots!');
+        if ($request->has('product-cover-video')) {
+          $productService->addMedia($product, $request->input('product-cover-video'));
+        }
+
+        return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
+                         ->with('success', 'Pievienots!');
+      });
     } catch (\Exception $e) {
-      if ($e->getCode() === '23000') {
-        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
-      }
       Log::error($e);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function showAdmin(string $locale, Product $product)
+  public function showAdmin(string $locale, Product $product): View
   {
-    $product = Product::select('id', 'is_active', 'slug', 'cover_photo_filename', 'cover_video_filename')
-                      ->with([
-                        'translations' => function ($query) {
-                          $query->select('name', 'product_id', 'language')->where('language', app()->getLocale());
-                        },
-                      ])
-                      ->findOrFail($product->id);
+    $product->load(['translations' => function ($query) {
+      $query->where('language', app()->getLocale());
+    }]);
 
     return view('admin.product.edit', compact('product'));
   }
 
-  public function update(UpdateProductRequest $data, ProductService $productService)
+  public function update(string $locale, Product $product, UpdateProductRequest $request, ProductService $productService): RedirectResponse
   {
     try {
-      $productService->updateProduct($data);
-      $translation = $productService->getTranslation();
-      if ($translation) {
-        $productService->updateTranslation($translation, $data);
-      } else {
-        $productService->addTranslation($data);
-      }
-      if ($data->has(['product-cover-photo'])) {
-        $productService->addMedia($data['product-cover-photo']);
-      }
-      if ($data->has(['product-cover-video'])) {
-        $productService->addMedia($data['product-cover-video']);
-      }
+      return DB::transaction(function () use ($product, $request, $productService) {
+        $productService->updateProduct($product, $request);
 
-      return redirect('/admin/' . app()->getLocale())->with('success', 'Atjaunots!');
+        $translation = $productService->getTranslation($product);
+        if ($translation) {
+          $productService->updateTranslation($translation, $request->input('product-name'));
+        } else {
+          $productService->addTranslation($product, $request->input('product-name'));
+        }
+
+        if ($request->has('product-cover-photo')) {
+          $productService->addMedia($product, $request->input('product-cover-photo'));
+        }
+        if ($request->has('product-cover-video')) {
+          $productService->addMedia($product, $request->input('product-cover-video'));
+        }
+
+        return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
+                         ->with('success', 'Atjaunots!');
+      });
     } catch (\Exception $e) {
-      if ($e->getCode() === '23000') {
-        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
-      }
       Log::error($e);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function destroy(string $locale, Product $product, ProductService $productService)
+  public function destroy(string $locale, Product $product, ProductService $productService): RedirectResponse
   {
     try {
       $productService->destroyProduct($product);
 
-      return redirect('/admin/' . app()->getLocale())->with('success', 'Dzēsts!');
+      return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
+                       ->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
       Log::error($e);
 
@@ -109,7 +112,7 @@ class ProductController extends Controller
     }
   }
 
-  public function destroyVideo(string $locale, Product $product, ProductService $productService)
+  public function destroyVideo(string $locale, Product $product, ProductService $productService): RedirectResponse
   {
     try {
       $productService->destroyVideo($product);

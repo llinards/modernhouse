@@ -6,7 +6,7 @@
     @if(app()->getLocale() == 'lv')
       <div class="d-flex gap-2">
         <div class="my-2">
-          <a href="/admin/{{ app()->getLocale() }}/create" class="btn btn-success">Jauna kategorija</a>
+          <a href="{{ route('admin.products.create', ['locale' => app()->getLocale()]) }}" class="btn btn-success">Jauna kategorija</a>
         </div>
         <div class="my-2">
           <a href="/admin/{{ app()->getLocale() }}/product-variant/create" class="btn btn-success">Jauns

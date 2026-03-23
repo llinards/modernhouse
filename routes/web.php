@@ -18,19 +18,19 @@ Auth::routes(['register' => false, 'reset' => false]);
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
   Route::get('/', function () {
-    return redirect('/admin/'.app()->getLocale());
+    return redirect()->route('admin.products.index', ['locale' => app()->getLocale()]);
   });
 });
 
 Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]{2}'])->group(function () {
   //ProductController
-  Route::get('/', [ProductController::class, 'indexAdmin']);
-  Route::get('/create', [ProductController::class, 'create']);
-  Route::post('/', [ProductController::class, 'store']);
-  Route::get('/{product}/edit', [ProductController::class, 'showAdmin']);
-  Route::patch('/', [ProductController::class, 'update']);
-  Route::get('/{product}/video/delete', [ProductController::class, 'destroyVideo']);
-  Route::delete('/{product}/delete', [ProductController::class, 'destroy']);
+  Route::get('/', [ProductController::class, 'indexAdmin'])->name('admin.products.index');
+  Route::get('/products/create', [ProductController::class, 'create'])->name('admin.products.create');
+  Route::post('/products', [ProductController::class, 'store'])->name('admin.products.store');
+  Route::get('/products/{product}/edit', [ProductController::class, 'showAdmin'])->name('admin.products.edit');
+  Route::patch('/products/{product}', [ProductController::class, 'update'])->name('admin.products.update');
+  Route::delete('/products/{product}/video', [ProductController::class, 'destroyVideo'])->name('admin.products.destroyVideo');
+  Route::delete('/products/{product}/delete', [ProductController::class, 'destroy'])->name('admin.products.destroy');
 
   //GalleryController
   Route::get('/gallery', [GalleryController::class, 'indexAdmin']);
@@ -117,6 +117,7 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
     [OpenDaysRegistrationController::class, 'destroy']);
   Route::delete('/open-days-submissions/{openDaysRegistration}/delete',
     [OpenDaysRegistrationController::class, 'destroyOne']);
+
 });
 
 Route::middleware('setLanguage')->group(function () {

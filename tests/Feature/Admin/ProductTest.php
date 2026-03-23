@@ -14,7 +14,7 @@ beforeEach(function () {
 describe('Create product', function () {
     it('displays create product form', function () {
         $this->actingAs($this->user)
-            ->get('/admin/lv/create')
+            ->get('/admin/lv/products/create')
             ->assertSuccessful();
     });
 
@@ -22,7 +22,7 @@ describe('Create product', function () {
         $storedPath = UploadedFile::fake()->image('cover.jpg', 1200, 800)->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->post('/admin/lv', [
+            ->post('/admin/lv/products', [
                 'product-name' => 'Jauns Produkts',
                 'product-cover-photo' => [$storedPath],
             ])
@@ -40,7 +40,7 @@ describe('Create product', function () {
         $storedPath = UploadedFile::fake()->image('cover.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->post('/admin/lv', [
+            ->post('/admin/lv/products', [
                 'product-name' => 'Latvian Name',
                 'product-cover-photo' => [$storedPath],
             ]);
@@ -56,7 +56,7 @@ describe('Create product', function () {
         $storedPath = UploadedFile::fake()->image('cover.jpg', 1200, 800)->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->post('/admin/lv', [
+            ->post('/admin/lv/products', [
                 'product-name' => 'Media Test',
                 'product-cover-photo' => [$storedPath],
             ]);
@@ -70,7 +70,7 @@ describe('Create product', function () {
         $videoPath = UploadedFile::fake()->create('video.mp4', 1000)->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->post('/admin/lv', [
+            ->post('/admin/lv/products', [
                 'product-name' => 'Video Product',
                 'product-cover-photo' => [$coverPath],
                 'product-cover-video' => [$videoPath],
@@ -83,22 +83,22 @@ describe('Create product', function () {
 
     it('validates required fields when creating product', function () {
         $this->actingAs($this->user)
-            ->post('/admin/lv', [])
+            ->post('/admin/lv/products', [])
             ->assertSessionHasErrors(['product-name', 'product-cover-photo']);
     });
 
-    it('returns error for duplicate slug', function () {
+    it('returns validation error for duplicate slug', function () {
         Product::factory()->create(['slug' => 'existing-slug']);
 
         $storedPath = UploadedFile::fake()->image('cover.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->post('/admin/lv', [
+            ->post('/admin/lv/products', [
                 'product-name' => 'existing slug',
                 'product-cover-photo' => [$storedPath],
             ])
             ->assertRedirect()
-            ->assertSessionHas('error');
+            ->assertSessionHasErrors(['product-name']);
     });
 });
 
@@ -118,14 +118,13 @@ describe('Update product', function () {
 
     it('displays edit product form', function () {
         $this->actingAs($this->user)
-            ->get("/admin/lv/{$this->product->slug}/edit")
+            ->get("/admin/lv/products/{$this->product->slug}/edit")
             ->assertSuccessful();
     });
 
     it('updates product name translation', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Updated Name',
             ])
             ->assertRedirect('/admin/lv');
@@ -140,8 +139,7 @@ describe('Update product', function () {
         Storage::disk('public')->put("product-images/original-slug/old-cover.jpg", 'fake');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Updated Name',
             ])
             ->assertRedirect('/admin/lv');
@@ -154,8 +152,7 @@ describe('Update product', function () {
         app()->setLocale('en');
 
         $this->actingAs($this->user)
-            ->patch('/admin/en', [
-                'id' => $this->product->id,
+            ->patch("/admin/en/products/{$this->product->slug}", [
                 'product-name' => 'English Name',
             ]);
 
@@ -164,8 +161,7 @@ describe('Update product', function () {
 
     it('activates product when product-available is set', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Active Product',
                 'product-available' => 'on',
             ]);
@@ -177,8 +173,7 @@ describe('Update product', function () {
         $this->product->update(['is_active' => true]);
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Inactive Product',
             ]);
 
@@ -189,8 +184,7 @@ describe('Update product', function () {
         $newCover = UploadedFile::fake()->image('new-cover.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Cover Update',
                 'product-cover-photo' => [$newCover],
             ]);
@@ -202,8 +196,7 @@ describe('Update product', function () {
         $newVideo = UploadedFile::fake()->create('new-video.mp4', 1000)->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'Original Name',
                 'product-cover-video' => [$newVideo],
             ]);
@@ -213,8 +206,7 @@ describe('Update product', function () {
 
     it('keeps existing cover photo when none is provided', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [
-                'id' => $this->product->id,
+            ->patch("/admin/lv/products/{$this->product->slug}", [
                 'product-name' => 'No Cover Change',
             ]);
 
@@ -225,8 +217,7 @@ describe('Update product', function () {
         app()->setLocale('en');
 
         $this->actingAs($this->user)
-            ->patch('/admin/en', [
-                'id' => $this->product->id,
+            ->patch("/admin/en/products/{$this->product->slug}", [
                 'product-name' => 'English Name',
             ]);
 
@@ -238,7 +229,7 @@ describe('Update product', function () {
 
     it('validates required fields when updating product', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv', [])
+            ->patch("/admin/lv/products/{$this->product->slug}", [])
             ->assertSessionHasErrors(['product-name']);
     });
 });
@@ -250,7 +241,7 @@ describe('Delete product', function () {
         Storage::disk('public')->put("product-images/delete-test/cover.jpg", 'fake');
 
         $this->actingAs($this->user)
-            ->delete("/admin/lv/{$product->slug}/delete")
+            ->delete("/admin/lv/products/{$product->slug}/delete")
             ->assertRedirect('/admin/lv');
 
         expect(Product::where('slug', 'delete-test')->exists())->toBeFalse();
@@ -265,7 +256,7 @@ describe('Delete product', function () {
         Storage::disk('public')->put("product-images/video-delete/intro.mp4", 'fake');
 
         $this->actingAs($this->user)
-            ->get("/admin/lv/{$product->slug}/video/delete")
+            ->delete("/admin/lv/products/{$product->slug}/video")
             ->assertRedirect();
 
         $product->refresh();

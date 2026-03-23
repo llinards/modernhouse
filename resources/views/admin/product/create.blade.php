@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
         @include('includes.status-messages')
-        <form action="/admin/{{ app()->getLocale() }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.products.store', ['locale' => app()->getLocale()]) }}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
             <label for="product-name" class="form-label">Nosaukums</label>
@@ -29,11 +29,10 @@
             <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
               izmērā.</p>
           </div>
-          <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
+          <a href="{{ route('admin.products.index', ['locale' => app()->getLocale()]) }}" class="btn btn-dark">Atpakaļ</a>
           <button type="submit" class="btn btn-success">Pievienot</button>
         </form>
       </div>
     </div>
   </x-slot>
 </x-layouts.admin>
-

@@ -2,95 +2,85 @@
 
 namespace App\Http\Services;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\TranslationsProduct;
 use Illuminate\Support\Str;
 
 class ProductService
 {
-  private string $slug;
-  private object $product;
+  public function __construct(private FileService $fileService) {}
 
-  private function setSlug(string $slug): void
+  public function addProduct(StoreProductRequest $request): Product
   {
-    $this->slug = Str::slug($slug);
-  }
+    $slug = Str::slug($request->input('product-name'));
 
-  private function getProduct(string $id): object
-  {
-    return Product::findOrFail($id);
-  }
-
-  public function getTranslation()
-  {
-    return $this->product->translations()->where('language', app()->getLocale())->first();
-  }
-
-  public function addProduct(object $data): void
-  {
-    $this->setSlug($data['product-name']);
-    $this->product = Product::create([
-      'slug' => $this->slug,
-      'cover_photo_filename' => basename($data['product-cover-photo'][0]),
-      'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : null,
-      'is_active' => false
+    return Product::create([
+      'slug' => $slug,
+      'cover_photo_filename' => basename($request->input('product-cover-photo.0')),
+      'cover_video_filename' => $request->has('product-cover-video') ? basename($request->input('product-cover-video.0')) : null,
+      'is_active' => false,
     ]);
   }
 
-  public function addTranslation(object $data): void
+  public function addTranslation(Product $product, string $name): void
   {
-    $this->product->translations()->create([
-      'name' => $data['product-name'],
-      'language' => app()->getLocale()
+    $product->translations()->create([
+      'name' => $name,
+      'language' => app()->getLocale(),
     ]);
   }
 
-  public function addMedia(array $media): void
+  public function getTranslation(Product $product): ?TranslationsProduct
   {
+    return $product->translations()->where('language', app()->getLocale())->first();
+  }
+
+  public function addMedia(Product $product, array $media): void
+  {
+    $slug = $product->slug;
+
     foreach ($media as $mediaItem) {
       if ($mediaItem !== null) {
-        $fileService = new FileService();
-        $fileService->storeFile($mediaItem, 'product-images/'.$this->slug);
+        $this->fileService->storeFile($mediaItem, 'product-images/' . $slug);
       }
     }
   }
 
-  public function updateProduct(object $data): void
+  public function updateProduct(Product $product, UpdateProductRequest $request): void
   {
-    $fileService = new FileService();
-    $this->product = $this->getProduct($data['id']);
-    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-name'] : $this->product->slug);
-    $isSlugChanged = $this->product->slug !== $this->slug;
-    if ($isSlugChanged && (app()->getLocale() === 'lv')) {
-      $fileService->moveDirectory('product-images/'.$this->product->slug, 'product-images/'.$this->slug);
+    $isPrimaryLocale = app()->getLocale() === config('app.fallback_locale');
+    $slug = $isPrimaryLocale ? Str::slug($request->input('product-name')) : $product->slug;
+
+    if ($isPrimaryLocale && $product->slug !== $slug) {
+      $this->fileService->moveDirectory('product-images/' . $product->slug, 'product-images/' . $slug);
     }
-    $this->product->update([
-      'slug' => $this->slug,
-      'cover_photo_filename' => isset($data['product-cover-photo'][0]) ? basename($data['product-cover-photo'][0]) : $this->product->cover_photo_filename,
-      'cover_video_filename' => isset($data['product-cover-video'][0]) ? basename($data['product-cover-video'][0]) : $this->product->cover_video_filename,
-      'is_active' => isset($data['product-available'])
+
+    $product->update([
+      'slug' => $slug,
+      'cover_photo_filename' => $request->has('product-cover-photo') ? basename($request->input('product-cover-photo.0')) : $product->cover_photo_filename,
+      'cover_video_filename' => $request->has('product-cover-video') ? basename($request->input('product-cover-video.0')) : $product->cover_video_filename,
+      'is_active' => $request->has('product-available'),
     ]);
   }
 
-  public function updateTranslation($translation, $data): void
+  public function updateTranslation(TranslationsProduct $translation, string $name): void
   {
     $translation->update([
-      'name' => $data['product-name'],
+      'name' => $name,
     ]);
   }
 
-  public function destroyVideo(object $data): void
+  public function destroyVideo(Product $product): void
   {
-    $this->product = $this->getProduct($data->id);
-    $fileService = new FileService();
-    $fileService->destroyFile($this->product->cover_video_filename, 'product-images/'.$this->product->slug);
-    $this->product->update(['cover_video_filename' => null]);
+    $this->fileService->destroyFile($product->cover_video_filename, 'product-images/' . $product->slug);
+    $product->update(['cover_video_filename' => null]);
   }
 
-  public function destroyProduct(object $data): void
+  public function destroyProduct(Product $product): void
   {
-    $this->product = $this->getProduct($data->id);
-    $fileService = new FileService();
-    $fileService->destroyDirectory('product-images/'.$this->product->slug);
-    $this->product->delete();
+    $this->fileService->destroyDirectory('product-images/' . $product->slug);
+    $product->delete();
   }
 }

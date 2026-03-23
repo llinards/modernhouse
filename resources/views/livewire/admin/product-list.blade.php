@@ -48,10 +48,10 @@
           @endif
         </td>
         <td class="align-middle">
-          <a href="/admin/{{ app()->getLocale() }}/{{ $product->slug }}/edit" title="Rediģēt" class="btn">
+          <a href="{{ route('admin.products.edit', ['locale' => app()->getLocale(), 'product' => $product]) }}" title="Rediģēt" class="btn">
             <i class="bi bi-pencil-square"></i>
           </a>
-          <form action="/admin/{{ app()->getLocale() }}/{{ $product->slug }}/delete" method="POST"
+          <form action="{{ route('admin.products.destroy', ['locale' => app()->getLocale(), 'product' => $product]) }}" method="POST"
                 class="d-inline"
                 onsubmit="return confirm('Vai tiešām vēlies dzēst? Visi varianti, bildes saistītas ar šo produktu arī tiks dzēstas.')">
             @csrf

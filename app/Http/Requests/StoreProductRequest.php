@@ -2,30 +2,35 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Product;
+use Closure;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreProductRequest extends FormRequest
 {
-  /**
-   * Determine if the user is authorized to make this request.
-   *
-   * @return bool
-   */
-  public function authorize()
+  public function authorize(): bool
   {
     return true;
   }
 
   /**
-   * Get the validation rules that apply to the request.
-   *
    * @return array<string, mixed>
    */
-  public function rules()
+  public function rules(): array
   {
     return [
-      'product-name' => 'required',
-      'product-cover-photo' => 'required'
+      'product-name'        => [
+        'required',
+        'string',
+        'max:255',
+        function (string $attribute, mixed $value, Closure $fail): void {
+          if (Product::where('slug', Str::slug($value))->exists()) {
+            $fail('Kategorija ar šādu nosaukumu jau eksistē.');
+          }
+        },
+      ],
+      'product-cover-photo' => 'required|array',
     ];
   }
 }
