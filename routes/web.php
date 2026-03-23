@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariantController;
+use App\Http\Controllers\IntroductionVideoController;
 use App\Http\Controllers\ProductVariantDetailController;
 use App\Http\Controllers\ProductVariantOptionController;
 use App\Livewire\OpenDaysRegistration;
@@ -104,6 +105,9 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
     [ProductVariantDetailController::class, 'store']);
   Route::get('/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
     [ProductVariantDetailController::class, 'destroy']);
+
+  //IntroductionVideoController
+  Route::patch('/introduction-video', [IntroductionVideoController::class, 'update'])->name('admin.introduction-video.update');
 
   //HomeController
   Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);

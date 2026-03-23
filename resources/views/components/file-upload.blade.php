@@ -69,6 +69,11 @@
       labelIdle: 'Pievienot Excel failu',
       maxFileSize: '50MB',
       acceptedFileTypes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
+    },
+    "introduction-video": {
+      labelIdle: 'Pievienot video',
+      maxFileSize: '100MB',
+      acceptedFileTypes: ['video/mp4']
     }
   };
   if (optionsConfig[fileId]) {

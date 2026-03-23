@@ -9,6 +9,7 @@ use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -29,7 +30,9 @@ class ProductController extends Controller
 
   public function indexAdmin(): View
   {
-    return view('admin.index');
+    $videoExists = Storage::disk('public')->exists('introduction-video/introduction-video.mp4');
+
+    return view('admin.index', compact('videoExists'));
   }
 
   public function create(): View
