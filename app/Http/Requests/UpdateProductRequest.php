@@ -25,7 +25,6 @@ class UpdateProductRequest extends FormRequest
   {
     return [
       'product-name' => 'required',
-      'product-slug' => 'sometimes|required',
     ];
   }
 }

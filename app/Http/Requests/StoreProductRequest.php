@@ -25,7 +25,6 @@ class StoreProductRequest extends FormRequest
   {
     return [
       'product-name' => 'required',
-      'product-slug' => 'required',
       'product-cover-photo' => 'required'
     ];
   }

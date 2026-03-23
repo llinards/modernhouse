@@ -18,13 +18,12 @@ describe('Create product', function () {
             ->assertSuccessful();
     });
 
-    it('creates product with slugified slug and is_active false', function () {
+    it('creates product with slug auto-generated from name and is_active false', function () {
         $storedPath = UploadedFile::fake()->image('cover.jpg', 1200, 800)->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
             ->post('/admin/lv', [
                 'product-name' => 'Jauns Produkts',
-                'product-slug' => 'Jauns Produkts',
                 'product-cover-photo' => [$storedPath],
             ])
             ->assertRedirect('/admin/lv');
@@ -43,11 +42,10 @@ describe('Create product', function () {
         $this->actingAs($this->user)
             ->post('/admin/lv', [
                 'product-name' => 'Latvian Name',
-                'product-slug' => 'latvian-product',
                 'product-cover-photo' => [$storedPath],
             ]);
 
-        $product = Product::where('slug', 'latvian-product')->first();
+        $product = Product::where('slug', 'latvian-name')->first();
         $translation = $product->translations()->where('language', 'lv')->first();
 
         expect($translation)->not->toBeNull()
@@ -60,7 +58,6 @@ describe('Create product', function () {
         $this->actingAs($this->user)
             ->post('/admin/lv', [
                 'product-name' => 'Media Test',
-                'product-slug' => 'media-test',
                 'product-cover-photo' => [$storedPath],
             ]);
 
@@ -75,7 +72,6 @@ describe('Create product', function () {
         $this->actingAs($this->user)
             ->post('/admin/lv', [
                 'product-name' => 'Video Product',
-                'product-slug' => 'video-product',
                 'product-cover-photo' => [$coverPath],
                 'product-cover-video' => [$videoPath],
             ]);
@@ -88,7 +84,7 @@ describe('Create product', function () {
     it('validates required fields when creating product', function () {
         $this->actingAs($this->user)
             ->post('/admin/lv', [])
-            ->assertSessionHasErrors(['product-name', 'product-slug', 'product-cover-photo']);
+            ->assertSessionHasErrors(['product-name', 'product-cover-photo']);
     });
 
     it('returns error for duplicate slug', function () {
@@ -98,8 +94,7 @@ describe('Create product', function () {
 
         $this->actingAs($this->user)
             ->post('/admin/lv', [
-                'product-name' => 'Duplicate',
-                'product-slug' => 'existing-slug',
+                'product-name' => 'existing slug',
                 'product-cover-photo' => [$storedPath],
             ])
             ->assertRedirect()
@@ -132,7 +127,6 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'Updated Name',
-                'product-slug' => 'original-slug',
             ])
             ->assertRedirect('/admin/lv');
 
@@ -141,7 +135,7 @@ describe('Update product', function () {
         expect($translation->name)->toBe('Updated Name');
     });
 
-    it('updates slug and renames directory', function () {
+    it('updates slug from name and renames directory in latvian locale', function () {
         Storage::disk('public')->makeDirectory("product-images/original-slug");
         Storage::disk('public')->put("product-images/original-slug/old-cover.jpg", 'fake');
 
@@ -149,12 +143,23 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'Updated Name',
-                'product-slug' => 'New Slug',
             ])
             ->assertRedirect('/admin/lv');
 
-        expect($this->product->fresh()->slug)->toBe('new-slug');
-        Storage::disk('public')->assertExists("product-images/new-slug");
+        expect($this->product->fresh()->slug)->toBe('updated-name');
+        Storage::disk('public')->assertExists("product-images/updated-name");
+    });
+
+    it('does not change slug when editing in non-latvian locale', function () {
+        app()->setLocale('en');
+
+        $this->actingAs($this->user)
+            ->patch('/admin/en', [
+                'id' => $this->product->id,
+                'product-name' => 'English Name',
+            ]);
+
+        expect($this->product->fresh()->slug)->toBe('original-slug');
     });
 
     it('activates product when product-available is set', function () {
@@ -162,7 +167,6 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'Active Product',
-                'product-slug' => 'original-slug',
                 'product-available' => 'on',
             ]);
 
@@ -176,7 +180,6 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'Inactive Product',
-                'product-slug' => 'original-slug',
             ]);
 
         expect($this->product->fresh()->is_active)->toBeFalsy();
@@ -189,7 +192,6 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'Cover Update',
-                'product-slug' => 'original-slug',
                 'product-cover-photo' => [$newCover],
             ]);
 
@@ -201,7 +203,6 @@ describe('Update product', function () {
             ->patch('/admin/lv', [
                 'id' => $this->product->id,
                 'product-name' => 'No Cover Change',
-                'product-slug' => 'original-slug',
             ]);
 
         expect($this->product->fresh()->cover_photo_filename)->toBe('old-cover.jpg');

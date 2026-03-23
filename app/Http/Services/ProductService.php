@@ -27,7 +27,7 @@ class ProductService
 
   public function addProduct(object $data): void
   {
-    $this->setSlug($data['product-slug']);
+    $this->setSlug($data['product-name']);
     $this->product = Product::create([
       'slug' => $this->slug,
       'cover_photo_filename' => basename($data['product-cover-photo'][0]),
@@ -58,7 +58,7 @@ class ProductService
   {
     $fileService = new FileService();
     $this->product = $this->getProduct($data['id']);
-    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-slug'] : $this->product->slug);
+    $this->setSlug(app()->getLocale() === 'lv' ? $data['product-name'] : $this->product->slug);
     $isSlugChanged = $this->product->slug !== $this->slug;
     if ($isSlugChanged && (app()->getLocale() === 'lv')) {
       $fileService->moveDirectory('product-images/'.$this->product->slug, 'product-images/'.$this->slug);
