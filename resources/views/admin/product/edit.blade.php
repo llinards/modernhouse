@@ -72,16 +72,20 @@
               izmērā.</p>
           </div>
           <div class="d-flex justify-content-between">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-modal"
-                    class="btn btn-danger">Dzēst
-            </button>
+            <div></div>
             <div class="d-flex">
               <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" class="btn btn-success mx-1">Atjaunot</button>
             </div>
           </div>
         </form>
-        @include('admin.product.delete-modal')
+        <form action="/admin/{{ app()->getLocale() }}/{{ $product->slug }}/delete" method="POST"
+              onsubmit="return confirm('Vai tiešām vēlies dzēst? Visi varianti, bildes saistītas ar šo produktu arī tiks dzēstas.')"
+              class="mt-3">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Dzēst</button>
+        </form>
       </div>
     </div>
   </x-slot>
