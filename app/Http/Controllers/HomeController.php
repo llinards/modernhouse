@@ -85,4 +85,15 @@ class HomeController extends Controller
 
     return '';
   }
+
+  public function loadUpload(Request $request)
+  {
+    $path = $request->query('source');
+
+    if (! $path || ! Storage::disk('public')->exists($path)) {
+      abort(404);
+    }
+
+    return response()->file(Storage::disk('public')->path($path));
+  }
 }

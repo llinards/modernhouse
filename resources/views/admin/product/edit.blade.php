@@ -29,35 +29,10 @@
                    name="product-name">
           </div>
           <div class="mb-3">
-            <div class="row">
-              <div class="col-6">
-                <p>Esošā pirmās lapas bilde</p>
-                <img class="img-fluid"
-                     src="{{ asset('storage/product-images/'.$product->slug.'/'.$product->cover_photo_filename)}}"
-                     alt=""/>
-              </div>
-              @if($product->cover_video_filename)
-                <div class="col-6">
-                  <p>Esošais pirmās lapas video</p>
-                  <video class="img-fluid" controls muted>
-                    <source
-                      src="{{asset('storage/product-images/'.$product->slug.'/'.$product->cover_video_filename)}}"
-                      type="video/mp4">
-                  </video>
-                  <div>
-                    <a class="btn btn-danger btn-sm mb-1"
-                       href="{{ URL::to('/admin/'.app()->getLocale().'/'.$product->slug.'/video/delete') }}">
-                      Noņemt video kā galveno kategorijas skatu
-                    </a>
-                  </div>
-                </div>
-              @endif
-            </div>
-          </div>
-          <div class="mb-3">
             <label for="product-cover-photo" class="form-label">Produkta pirmās lapas
               bilde</label>
-            <x-file-upload :name="'product-cover-photo'"/>
+            <x-file-upload :name="'product-cover-photo'"
+                           :files="json_encode(['product-images/'.$product->slug.'/'.$product->cover_photo_filename])"/>
             <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
               izmērā.</p>
             <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
@@ -67,9 +42,17 @@
           <div class="mb-3">
             <label for="product-cover-video" class="form-label">Produkta pirmās lapas
               video</label>
-            <x-file-upload :name="'product-cover-video'"/>
+            <x-file-upload :name="'product-cover-video'"
+                           :files="$product->cover_video_filename ? json_encode(['product-images/'.$product->slug.'/'.$product->cover_video_filename]) : null"/>
             <p class="small">Video ir jābūt .MP4 formātā un pēc iespējas mazākā
               izmērā.</p>
+            @if($product->cover_video_filename)
+              <a class="btn btn-danger btn-sm mt-2"
+                 href="{{ URL::to('/admin/'.app()->getLocale().'/'.$product->slug.'/video/delete') }}"
+                 onclick="return confirm('Vai tiešām vēlies noņemt video?')">
+                Noņemt video pirmajā skatā
+              </a>
+            @endif
           </div>
           <div class="d-flex justify-content-between">
             <div></div>

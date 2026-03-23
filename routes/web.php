@@ -108,6 +108,7 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
   //HomeController
   Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
   Route::delete('/upload', [HomeController::class, 'destroyTemporaryUpload']);
+  Route::get('/upload', [HomeController::class, 'loadUpload']);
 
   //OpenDaysRegistrationControlller
   Route::get('/open-days-submissions', [OpenDaysRegistrationController::class, 'index']);

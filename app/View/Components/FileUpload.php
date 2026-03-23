@@ -11,7 +11,7 @@ class FileUpload extends Component
   /**
    * Create a new component instance.
    */
-  public function __construct(public string $name, public string $required = 'false')
+  public function __construct(public string $name, public string $required = 'false', public ?string $files = null)
   {
     //
   }

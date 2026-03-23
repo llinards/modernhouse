@@ -6,12 +6,14 @@
   FilePond.registerPlugin(FilePondPluginFileValidateType);
   FilePond.registerPlugin(FilePondPluginImagePreview);
   FilePond.registerPlugin(FilePondPluginFileValidateSize);
+  const existingFiles = @json($files ? json_decode($files, true) : []);
   const options = {
     server: {
       url: '/admin/{{ app()->getLocale() }}/upload',
       headers: {
         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-      }
+      },
+      load: '?source=',
     },
     allowFileSizeValidation: true,
     allowReorder: true,
@@ -73,5 +75,11 @@
     Object.assign(options, optionsConfig[fileId]);
   }
   options.required = fileUpload.getAttribute('required') === 'true';
+  if (existingFiles.length > 0) {
+    options.files = existingFiles.map(source => ({
+      source: source,
+      options: { type: 'local' }
+    }));
+  }
   FilePond.create(fileUpload, options);
 </script>
