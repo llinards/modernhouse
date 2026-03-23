@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e72969bae26417f9b2cc8fc141fd881",
+    "content-hash": "6d1c5c13093c1dc4d82d48731e0dc64f",
     "packages": [
         {
             "name": "brick/math",
@@ -1504,16 +1504,16 @@
         },
         {
             "name": "klaviyo/api",
-            "version": "7.1.2",
+            "version": "18.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/klaviyo/klaviyo-api-php.git",
-                "reference": "faf76abaf785dfd7b5c9794dacc34188548bb6f6"
+                "reference": "72c6d0661616a713091017b003c6569c4a0cfad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/klaviyo/klaviyo-api-php/zipball/faf76abaf785dfd7b5c9794dacc34188548bb6f6",
-                "reference": "faf76abaf785dfd7b5c9794dacc34188548bb6f6",
+                "url": "https://api.github.com/repos/klaviyo/klaviyo-api-php/zipball/72c6d0661616a713091017b003c6569c4a0cfad3",
+                "reference": "72c6d0661616a713091017b003c6569c4a0cfad3",
                 "shasum": ""
             },
             "require": {
@@ -1522,7 +1522,7 @@
                 "ext-mbstring": "*",
                 "guzzlehttp/guzzle": "^7.3",
                 "guzzlehttp/psr7": "^1.7 || ^2.0",
-                "php": "^7.4 || ^8.0"
+                "php": "^8.1"
             },
             "type": "library",
             "autoload": {
@@ -1553,9 +1553,9 @@
             ],
             "support": {
                 "issues": "https://github.com/klaviyo/klaviyo-api-php/issues",
-                "source": "https://github.com/klaviyo/klaviyo-api-php/tree/v7.1.2"
+                "source": "https://github.com/klaviyo/klaviyo-api-php/tree/v18.0.0"
             },
-            "time": "2024-04-09T16:18:34+00:00"
+            "time": "2026-01-15T19:56:41+00:00"
         },
         {
             "name": "laravel/framework",
