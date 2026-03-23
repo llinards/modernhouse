@@ -14,7 +14,7 @@ it('displays introduction video section on admin index', function () {
     $this->actingAs($this->user)
         ->get('/admin/lv')
         ->assertSuccessful()
-        ->assertSee('Ievada video');
+        ->assertSee('Pirmā skata video');
 });
 
 it('redirects guests to login', function () {
