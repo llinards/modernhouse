@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Http\Services\KlaviyoService;
+use App\Jobs\SyncProfileToKlaviyo;
 use App\Mail\CustomerRegisteredForOpenDays;
 use App\Models\OpenDaysRegistration;
 use Illuminate\Support\Facades\Lang;
@@ -60,21 +60,20 @@ class OpenDaysRegistrationForm extends Component
 
   public bool $isBackButtonVisible;
 
-  public function register(KlaviyoService $klaviyoService): void
+  public function register(): void
   {
     $this->protectAgainstSpam();
     $this->validate();
     try {
       OpenDaysRegistration::create($this->all());
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-      $request = [
+      SyncProfileToKlaviyo::dispatch([
         'email'        => $this->email,
         'phone-number' => $this->phoneNumber,
         'first-name'   => $this->firstName,
         'last-name'    => $this->lastName,
         'date-time'    => $this->date.', '.$this->time,
-      ];
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_register_open_days'));
+      ], config('klaviyo.list_id_register_open_days'), 'Atvērto durvju dienas');
       $this->dispatch('registration-successful', $this->date, $this->time);
       $this->showSuccessView($this->date, $this->time);
     } catch (\Exception $e) {

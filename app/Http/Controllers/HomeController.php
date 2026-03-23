@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactUsRequest;
-use App\Http\Services\KlaviyoService;
+use App\Jobs\SyncProfileToKlaviyo;
 use App\Mail\ContactUsSubmitted;
 use App\Mail\RequestedProductInfo;
 use Illuminate\Http\Request;
@@ -17,11 +17,11 @@ use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
-  public function requestProductInfo($language, ContactUsRequest $request, KlaviyoService $klaviyoService)
+  public function requestProductInfo($language, ContactUsRequest $request)
   {
     try {
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_product_info'));
       Mail::to('info@modern-house.lv')->send(new RequestedProductInfo($request->input()));
+      SyncProfileToKlaviyo::dispatch($request->input(), config('klaviyo.list_id_request_product_info'), 'Produkta pieprasījums');
 
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
@@ -46,18 +46,11 @@ class HomeController extends Controller
     }
   }
 
-  public function submitConsultation(ContactUsRequest $request, KlaviyoService $klaviyoService)
+  public function submitConsultation(ContactUsRequest $request)
   {
-    try {
-      $klaviyoService->storeProfile($request, config('klaviyo.list_id_request_consultation'));
+    SyncProfileToKlaviyo::dispatch($request->input(), config('klaviyo.list_id_request_consultation'), 'Konsultācijas pieprasījums');
 
-      return back()->with('success', Lang::get('message has been sent'));
-    } catch (\Exception $e) {
-      Log::error($e);
-      report($e);
-
-      return back()->with('error', Lang::get('message has not been sent'));
-    }
+    return back()->with('success', Lang::get('message has been sent'));
   }
 
   public function storeTemporaryUpload(Request $data): string

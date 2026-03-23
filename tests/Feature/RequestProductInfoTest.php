@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Services\KlaviyoService;
+use App\Jobs\SyncProfileToKlaviyo;
 use App\Mail\RequestedProductInfo;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\TranslationsProduct;
 use App\Models\TranslationsProductVariants;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
 
 beforeEach(function () {
     app()->setLocale('lv');
@@ -46,11 +47,9 @@ beforeEach(function () {
 });
 
 describe('Request product info form submission', function () {
-    it('sends email and calls Klaviyo on valid submission', function () {
+    it('sends email and dispatches Klaviyo job on valid submission', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         $this->post('/lv/test-product', $this->validPayload)
             ->assertRedirect()
@@ -60,13 +59,16 @@ describe('Request product info form submission', function () {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['product-name'] === 'Testa produkts';
         });
+
+        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
+            return $job->profileData['email'] === 'janis@example.com'
+                && $job->listId === config('klaviyo.list_id_request_product_info');
+        });
     });
 
     it('redirects back with success message', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         $this->from('/lv/test-product')
             ->post('/lv/test-product', $this->validPayload)
@@ -74,17 +76,13 @@ describe('Request product info form submission', function () {
             ->assertSessionHas('success');
     });
 
-    it('returns error when Klaviyo service throws exception', function () {
+    it('returns error when email fails', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->andThrow(new \Exception('Klaviyo error'));
+        Mail::shouldReceive('to')->andThrow(new \Exception('Mail error'));
 
         $this->post('/lv/test-product', $this->validPayload)
             ->assertRedirect()
             ->assertSessionHas('error');
-
-        Mail::assertNothingSent();
     });
 });
 
@@ -113,9 +111,7 @@ describe('Request product info validation', function () {
 
     it('does not require company field', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         $payload = $this->validPayload;
         unset($payload['company']);

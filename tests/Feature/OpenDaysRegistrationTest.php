@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Services\KlaviyoService;
+use App\Jobs\SyncProfileToKlaviyo;
 use App\Livewire\OpenDaysRegistrationForm;
 use App\Mail\CustomerRegisteredForOpenDays;
 use App\Models\OpenDaysRegistration;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
 use Livewire\Livewire;
 
 beforeEach(function () {
@@ -24,11 +25,9 @@ beforeEach(function () {
 });
 
 describe('Open days registration form submission', function () {
-    it('creates database record, sends email and calls Klaviyo on valid submission', function () {
+    it('creates database record, sends email and dispatches Klaviyo job', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         Livewire::test(OpenDaysRegistrationForm::class)
             ->set('registrationClosed', false)
@@ -51,13 +50,17 @@ describe('Open days registration form submission', function () {
         Mail::assertSent(CustomerRegisteredForOpenDays::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv');
         });
+
+        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
+            return $job->profileData['email'] === 'janis@example.com'
+                && $job->profileData['date-time'] === '18.jūlijs, 10:00'
+                && $job->listId === config('klaviyo.list_id_register_open_days');
+        });
     });
 
     it('shows success view after registration', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         Livewire::test(OpenDaysRegistrationForm::class)
             ->set('registrationClosed', false)
@@ -72,28 +75,6 @@ describe('Open days registration form submission', function () {
             ->call('register')
             ->assertSet('successView', true)
             ->assertSet('registerView', false);
-    });
-
-    it('does not show success view when Klaviyo service throws exception', function () {
-        Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->andThrow(new \Exception('Klaviyo error'));
-
-        Livewire::test(OpenDaysRegistrationForm::class)
-            ->set('registrationClosed', false)
-            ->set('date', $this->validData['date'])
-            ->set('time', $this->validData['time'])
-            ->set('firstName', $this->validData['firstName'])
-            ->set('lastName', $this->validData['lastName'])
-            ->set('phoneNumber', $this->validData['phoneNumber'])
-            ->set('email', $this->validData['email'])
-            ->set('reason', $this->validData['reason'])
-            ->set('consentToProcessPersonalData', true)
-            ->call('register')
-            ->assertSet('successView', false)
-            ->assertSet('registerView', true)
-            ->assertSeeHtml('alert-danger');
     });
 });
 

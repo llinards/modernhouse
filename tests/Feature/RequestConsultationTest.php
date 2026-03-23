@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Services\KlaviyoService;
+use App\Jobs\SyncProfileToKlaviyo;
 use App\Models\Product;
 use App\Models\TranslationsProduct;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
 
 beforeEach(function () {
     app()->setLocale('lv');
@@ -27,20 +28,21 @@ beforeEach(function () {
 });
 
 describe('Request consultation form submission', function () {
-    it('calls Klaviyo on valid submission', function () {
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+    it('dispatches Klaviyo job on valid submission', function () {
+        Queue::fake();
 
         $this->post('/lv/request-consultation', $this->validPayload)
             ->assertRedirect()
             ->assertSessionHas('success');
+
+        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
+            return $job->profileData['email'] === 'janis@example.com'
+                && $job->listId === config('klaviyo.list_id_request_consultation');
+        });
     });
 
     it('redirects back with success message', function () {
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         $this->from('/lv/request-consultation')
             ->post('/lv/request-consultation', $this->validPayload)
@@ -50,24 +52,12 @@ describe('Request consultation form submission', function () {
 
     it('does not send any email', function () {
         Mail::fake();
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->once();
+        Queue::fake();
 
         $this->post('/lv/request-consultation', $this->validPayload)
             ->assertSessionHas('success');
 
         Mail::assertNothingSent();
-    });
-
-    it('returns error when Klaviyo service throws exception', function () {
-        $this->mock(KlaviyoService::class)
-            ->shouldReceive('storeProfile')
-            ->andThrow(new \Exception('Klaviyo error'));
-
-        $this->post('/lv/request-consultation', $this->validPayload)
-            ->assertRedirect()
-            ->assertSessionHas('error');
     });
 });
 
