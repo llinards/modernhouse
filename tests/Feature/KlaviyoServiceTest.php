@@ -40,7 +40,9 @@ describe('storeProfile creates new profile and subscribes', function () {
                     && $data['data']['attributes']['profiles']['data'][0]['id'] === 'profile-abc'
                     && $data['data']['attributes']['profiles']['data'][0]['attributes']['email'] === 'janis@example.com'
                     && $data['data']['attributes']['profiles']['data'][0]['attributes']['subscriptions']['email']['marketing']['consent'] === 'SUBSCRIBED'
-                    && $data['data']['attributes']['profiles']['data'][0]['attributes']['subscriptions']['sms']['marketing']['consent'] === 'SUBSCRIBED';
+                    && !isset($data['data']['attributes']['profiles']['data'][0]['attributes']['subscriptions']['email']['marketing']['consented_at'])
+                    && $data['data']['attributes']['profiles']['data'][0]['attributes']['subscriptions']['sms']['marketing']['consent'] === 'SUBSCRIBED'
+                    && !isset($data['data']['attributes']['profiles']['data'][0]['attributes']['subscriptions']['sms']['marketing']['consented_at']);
             });
 
         $this->service->storeProfile($this->validRequest, $this->testListId);

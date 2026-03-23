@@ -49,14 +49,12 @@ class KlaviyoService
                   'subscriptions' => [
                     'email' => [
                       'marketing' => [
-                        'consent'      => 'SUBSCRIBED',
-                        'consented_at' => date('Y-m-d\TH:i:sO'),
+                        'consent' => 'SUBSCRIBED',
                       ],
                     ],
                     'sms'   => [
                       'marketing' => [
-                        'consent'      => 'SUBSCRIBED',
-                        'consented_at' => date('Y-m-d\TH:i:sO'),
+                        'consent' => 'SUBSCRIBED',
                       ],
                     ],
                   ],
