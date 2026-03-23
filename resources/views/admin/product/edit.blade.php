@@ -62,13 +62,6 @@
             </div>
           </div>
         </form>
-        <form action="/admin/{{ app()->getLocale() }}/{{ $product->slug }}/delete" method="POST"
-              onsubmit="return confirm('Vai tiešām vēlies dzēst? Visi varianti, bildes saistītas ar šo produktu arī tiks dzēstas.')"
-              class="mt-3">
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger">Dzēst</button>
-        </form>
       </div>
     </div>
   </x-slot>

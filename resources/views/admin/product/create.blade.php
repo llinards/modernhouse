@@ -10,7 +10,7 @@
           @csrf
           <div class="mb-3">
             <label for="product-name" class="form-label">Nosaukums</label>
-            <input type="text" class="form-control" id="product-name" name="product-name">
+            <input type="text" required="required" class="form-control" id="product-name" name="product-name">
           </div>
           <div class="mb-3">
             <label for="product-cover-photo" class="form-label">Produkta pirmās lapas

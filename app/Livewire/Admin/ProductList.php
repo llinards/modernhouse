@@ -23,8 +23,7 @@ class ProductList extends Component
     $this->products = Product::select('id', 'slug', 'cover_photo_filename', 'cover_video_filename', 'is_active')
                              ->with([
                                'translations' => function ($query) {
-                                 $query->select('name', 'product_id', 'language')->where('language',
-                                   app()->getLocale());
+                                 $query->select('name', 'product_id', 'language');
                                },
                              ])
                              ->with([

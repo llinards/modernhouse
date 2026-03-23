@@ -198,6 +198,19 @@ describe('Update product', function () {
         expect($this->product->fresh()->cover_photo_filename)->toBe(basename($newCover));
     });
 
+    it('updates cover video when new one is provided', function () {
+        $newVideo = UploadedFile::fake()->create('new-video.mp4', 1000)->store('uploads/temp', 'public');
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv', [
+                'id' => $this->product->id,
+                'product-name' => 'Original Name',
+                'product-cover-video' => [$newVideo],
+            ]);
+
+        expect($this->product->fresh()->cover_video_filename)->toBe(basename($newVideo));
+    });
+
     it('keeps existing cover photo when none is provided', function () {
         $this->actingAs($this->user)
             ->patch('/admin/lv', [
