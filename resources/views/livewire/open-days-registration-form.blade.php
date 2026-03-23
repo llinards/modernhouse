@@ -70,7 +70,7 @@
               <div class="col-12 col-lg-6">
                 <label for="phoneNumber" class="form-label fw-bold">Telefona numurs*</label>
                 <input type="tel" id="phoneNumber" required autocomplete="off" wire:ignore class="form-control">
-                <input type="hidden" wire:model.defer="phoneNumber" id="fullPhoneNumber"/>
+                <input type="hidden" wire:model="phoneNumber" id="fullPhoneNumber"/>
               </div>
               <div class="col-12 col-lg-6">
                 <label for="email" class="form-label fw-bold">E-pasts*</label>
