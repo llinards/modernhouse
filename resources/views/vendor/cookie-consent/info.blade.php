@@ -4,7 +4,7 @@
     <p class="text-muted" style="font-size: 14px;">{{ $category->description }}</p>
 @endif
 <div class="table-responsive">
-    <table class="table table-bordered">
+    <table class="table table-bordered cookie-consent-info-table">
         <thead class="table-light">
             <tr>
                 <th>@lang('cookieConsent::cookies.cookie')</th>
