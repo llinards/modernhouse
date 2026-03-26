@@ -73,14 +73,25 @@ describe('Destroy temporary upload', function () {
     });
 
     it('deletes the specified file', function () {
-        Storage::fake();
-        Storage::put('public/uploads/temp/test-file.jpg', 'content');
+        Storage::disk('public')->put('uploads/temp/test-file.jpg', 'content');
 
         $this->actingAs($this->user)
             ->call('DELETE', '/admin/lv/upload', [], [], [], [], 'uploads/temp/test-file.jpg')
             ->assertSuccessful();
 
-        Storage::assertMissing('public/uploads/temp/test-file.jpg');
+        Storage::disk('public')->assertMissing('uploads/temp/test-file.jpg');
+    });
+
+    it('rejects path traversal attempts', function () {
+        $this->actingAs($this->user)
+            ->call('DELETE', '/admin/lv/upload', [], [], [], [], '../../.env')
+            ->assertForbidden();
+    });
+
+    it('rejects paths outside uploads/temp', function () {
+        $this->actingAs($this->user)
+            ->call('DELETE', '/admin/lv/upload', [], [], [], [], 'product-images/some-file.jpg')
+            ->assertForbidden();
     });
 });
 

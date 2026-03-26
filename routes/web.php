@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariantController;
+use App\Http\Controllers\TemporaryUploadController;
 use App\Http\Controllers\IntroductionVideoController;
 use App\Http\Controllers\ProductVariantDetailController;
 use App\Http\Controllers\ProductVariantOptionController;
@@ -109,10 +110,10 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
   //IntroductionVideoController
   Route::patch('/introduction-video', [IntroductionVideoController::class, 'update'])->name('admin.introduction-video.update');
 
-  //HomeController
-  Route::post('/upload', [HomeController::class, 'storeTemporaryUpload']);
-  Route::delete('/upload', [HomeController::class, 'destroyTemporaryUpload']);
-  Route::get('/upload', [HomeController::class, 'loadUpload']);
+  //TemporaryUploadController
+  Route::post('/upload', [TemporaryUploadController::class, 'store']);
+  Route::delete('/upload', [TemporaryUploadController::class, 'destroy']);
+  Route::get('/upload', [TemporaryUploadController::class, 'load']);
 
   //OpenDaysRegistrationControlller
   Route::get('/open-days-submissions', [OpenDaysRegistrationController::class, 'index']);
@@ -142,7 +143,7 @@ Route::middleware('setLanguage')->group(function () {
   });
 
   Route::post('{language?}/request-consultation',
-    [HomeController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
+    [ContactController::class, 'submitConsultation'])->middleware(ProtectAgainstSpam::class);
 
   Route::get('{language?}/news', [NewsController::class, 'index']);
 
@@ -160,7 +161,7 @@ Route::middleware('setLanguage')->group(function () {
     return view('contact-us');
   });
   Route::post('{language?}/contact-us',
-    [HomeController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
+    [ContactController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
   //Landing pages
   Route::get('{language?}/projekti/svires-ielas-projekts-sigulda',
@@ -181,5 +182,5 @@ Route::middleware('setLanguage')->group(function () {
   Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class);
 
   Route::post('{language?}/{product}',
-    [HomeController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
+    [ContactController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
 });

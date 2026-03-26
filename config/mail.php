@@ -98,6 +98,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Contact Email Address
+    |--------------------------------------------------------------------------
+    |
+    | This address receives all contact form submissions, product info
+    | requests, and other customer inquiries from the website.
+    |
+    */
+
+    'contact_email' => env('MAIL_CONTACT_ADDRESS', 'info@modern-house.lv'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |
