@@ -11,8 +11,9 @@
       </div>
       <div class="col-lg-2 col-md-3 col-6">
         <h4 class="mb-2">@lang('contact us')</h4>
-        <p class="small">info@modern-house.lv</p>
-        <p class="small">+371 25666622</p>
+        <a href="mailto:info@modern-house.lv" class="text-white small">info@modern-house.lv</a>
+        <br/>
+        <a href="tel:+37125666622" class="text-white small">+371 25666622</a>
         <p class="small invisible">+371 25666622</p>
       </div>
       <div class="col-md-1 col-12 d-flex flex-md-column justify-content-center align-items-md-end">
