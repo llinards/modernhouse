@@ -1,6 +1,7 @@
 <?php
 
 use App\Jobs\SyncProfileToKlaviyo;
+use App\Mail\ConsultationRequested;
 use App\Models\Product;
 use App\Models\TranslationsProduct;
 use Illuminate\Support\Facades\Mail;
@@ -28,12 +29,18 @@ beforeEach(function () {
 });
 
 describe('Request consultation form submission', function () {
-    it('dispatches Klaviyo job on valid submission', function () {
+    it('sends email and dispatches Klaviyo job on valid submission', function () {
+        Mail::fake();
         Queue::fake();
 
         $this->post('/lv/request-consultation', $this->validPayload)
             ->assertRedirect()
             ->assertSessionHas('success');
+
+        Mail::assertSent(ConsultationRequested::class, function ($mail) {
+            return $mail->hasTo('info@modern-house.lv')
+                && $mail->data['email'] === 'janis@example.com';
+        });
 
         Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
             return $job->profileData['email'] === 'janis@example.com'
@@ -42,6 +49,7 @@ describe('Request consultation form submission', function () {
     });
 
     it('redirects back with success message', function () {
+        Mail::fake();
         Queue::fake();
 
         $this->from('/lv/request-consultation')
@@ -50,14 +58,13 @@ describe('Request consultation form submission', function () {
             ->assertSessionHas('success');
     });
 
-    it('does not send any email', function () {
+    it('returns error when email fails', function () {
         Mail::fake();
-        Queue::fake();
+        Mail::shouldReceive('to')->andThrow(new \Exception('Mail error'));
 
         $this->post('/lv/request-consultation', $this->validPayload)
-            ->assertSessionHas('success');
-
-        Mail::assertNothingSent();
+            ->assertRedirect()
+            ->assertSessionHas('error');
     });
 });
 
@@ -82,5 +89,18 @@ describe('Request consultation validation', function () {
 
         $this->post('/lv/request-consultation', $payload)
             ->assertSessionHasErrors(['email']);
+    });
+});
+
+describe('ConsultationRequested mailable', function () {
+    it('has the correct subject', function () {
+        $mailable = new ConsultationRequested([
+            'first-name'   => 'Jānis',
+            'last-name'    => 'Bērziņš',
+            'email'        => 'janis@example.com',
+            'phone-number' => '+37120000000',
+        ]);
+
+        $mailable->assertHasSubject('Konsultācijas pieprasījums');
     });
 });

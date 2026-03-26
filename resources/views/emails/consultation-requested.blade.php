@@ -1,5 +1,10 @@
-<x-layouts.email title="Jauna ziņa no kontaktformas">
+<x-layouts.email title="Konsultācijas pieprasījums">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+    @if (!empty($data['product-variant']))
+      <tr>
+        <td style="padding:6px 0 16px 0; color:#333333; font-size:14px;">Variants: <strong>{{ $data['product-variant'] }}</strong></td>
+      </tr>
+    @endif
     <tr>
       <td style="padding:6px 0; color:#333333; font-size:14px;">Vārds: <strong>{{ $data['first-name'] }}</strong></td>
     </tr>
@@ -12,19 +17,6 @@
     <tr>
       <td style="padding:6px 0; color:#333333; font-size:14px;">Kontakttālrunis: <strong>{{ $data['phone-number'] }}</strong></td>
     </tr>
-    @if (!empty($data['company']))
-      <tr>
-        <td style="padding:6px 0; color:#333333; font-size:14px;">Uzņēmums: <strong>{{ $data['company'] }}</strong></td>
-      </tr>
-    @endif
-    @if (!empty($data['customers-question']))
-      <tr>
-        <td style="padding:16px 0 6px 0; color:#333333; font-size:14px;">
-          <strong>Klienta jautājums:</strong><br>
-          {{ $data['customers-question'] }}
-        </td>
-      </tr>
-    @endif
     @if (!empty($data['customer-agrees-for-data-processing']))
       <tr>
         <td style="padding:16px 0 6px 0; color:#919191; font-size:12px;">
