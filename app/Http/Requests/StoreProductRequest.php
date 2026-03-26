@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Product;
-use Closure;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class StoreProductRequest extends FormRequest
 {
@@ -14,23 +13,32 @@ class StoreProductRequest extends FormRequest
     return true;
   }
 
+  protected function prepareForValidation(): void
+  {
+    $this->merge([
+      'slug' => Str::slug($this->input('product-name')),
+    ]);
+  }
+
   /**
    * @return array<string, mixed>
    */
   public function rules(): array
   {
     return [
-      'product-name'        => [
-        'required',
-        'string',
-        'max:255',
-        function (string $attribute, mixed $value, Closure $fail): void {
-          if (Product::where('slug', Str::slug($value))->exists()) {
-            $fail('Kategorija ar šādu nosaukumu jau eksistē.');
-          }
-        },
-      ],
-      'product-cover-photo' => 'required|array',
+      'product-name'        => ['required', 'string', 'max:255'],
+      'slug'                => [Rule::unique('products', 'slug')],
+      'product-cover-photo' => ['required', 'array'],
+    ];
+  }
+
+  /**
+   * @return array<string, string>
+   */
+  public function messages(): array
+  {
+    return [
+      'slug.unique' => 'Kategorija ar šādu nosaukumu jau eksistē.',
     ];
   }
 }

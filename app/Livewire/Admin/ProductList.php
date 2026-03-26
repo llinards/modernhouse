@@ -37,6 +37,7 @@ class ProductList extends Component
                                  ]);
                                },
                              ])
+                             ->ordered()
                              ->get();
   }
 

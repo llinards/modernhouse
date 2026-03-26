@@ -22,7 +22,7 @@ class ProductController extends Controller
                                         ->where('language', app()->getLocale());
                                 })
                                 ->where('is_active', true)
-                                ->orderBy('order')
+                                ->ordered()
                                 ->get();
 
     return view('home', compact('allActiveProducts'));
@@ -44,8 +44,12 @@ class ProductController extends Controller
   {
     try {
       return DB::transaction(function () use ($request, $productService) {
-        $product = $productService->addProduct($request);
-        $productService->addTranslation($product, $request->input('product-name'));
+        $name = $request->input('product-name');
+        $coverPhotoPath = $request->input('product-cover-photo.0');
+        $coverVideoPath = $request->input('product-cover-video.0');
+
+        $product = $productService->addProduct($name, $coverPhotoPath, $coverVideoPath);
+        $productService->addTranslation($product, $name);
         $productService->addMedia($product, $request->input('product-cover-photo'));
 
         if ($request->has('product-cover-video')) {
@@ -56,7 +60,7 @@ class ProductController extends Controller
                          ->with('success', 'Pievienots!');
       });
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product store failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -75,13 +79,21 @@ class ProductController extends Controller
   {
     try {
       return DB::transaction(function () use ($product, $request, $productService) {
-        $productService->updateProduct($product, $request);
+        $name = $request->input('product-name');
+
+        $productService->updateProduct(
+          $product,
+          $name,
+          $request->input('product-cover-photo.0'),
+          $request->input('product-cover-video.0'),
+          $request->has('product-available'),
+        );
 
         $translation = $productService->getTranslation($product);
         if ($translation) {
-          $productService->updateTranslation($translation, $request->input('product-name'));
+          $productService->updateTranslation($translation, $name);
         } else {
-          $productService->addTranslation($product, $request->input('product-name'));
+          $productService->addTranslation($product, $name);
         }
 
         if ($request->has('product-cover-photo')) {
@@ -95,7 +107,7 @@ class ProductController extends Controller
                          ->with('success', 'Atjaunots!');
       });
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product update failed', ['exception' => $e, 'product_id' => $product->id]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -104,12 +116,14 @@ class ProductController extends Controller
   public function destroy(string $locale, Product $product, ProductService $productService): RedirectResponse
   {
     try {
-      $productService->destroyProduct($product);
+      DB::transaction(function () use ($product, $productService) {
+        $productService->destroyProduct($product);
+      });
 
       return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
                        ->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product delete failed', ['exception' => $e, 'product_id' => $product->id]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
@@ -122,7 +136,7 @@ class ProductController extends Controller
 
       return back()->with('success', 'Video dzēsts!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product video delete failed', ['exception' => $e, 'product_id' => $product->id]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }

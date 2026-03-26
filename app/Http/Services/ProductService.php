@@ -2,8 +2,6 @@
 
 namespace App\Http\Services;
 
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\TranslationsProduct;
 use Illuminate\Support\Str;
@@ -12,14 +10,14 @@ class ProductService
 {
   public function __construct(private FileService $fileService) {}
 
-  public function addProduct(StoreProductRequest $request): Product
+  public function addProduct(string $name, string $coverPhotoPath, ?string $coverVideoPath): Product
   {
-    $slug = Str::slug($request->input('product-name'));
+    $slug = Str::slug($name);
 
     return Product::create([
       'slug' => $slug,
-      'cover_photo_filename' => basename($request->input('product-cover-photo.0')),
-      'cover_video_filename' => $request->has('product-cover-video') ? basename($request->input('product-cover-video.0')) : null,
+      'cover_photo_filename' => basename($coverPhotoPath),
+      'cover_video_filename' => $coverVideoPath ? basename($coverVideoPath) : null,
       'is_active' => false,
     ]);
   }
@@ -39,19 +37,17 @@ class ProductService
 
   public function addMedia(Product $product, array $media): void
   {
-    $slug = $product->slug;
-
     foreach ($media as $mediaItem) {
       if ($mediaItem !== null) {
-        $this->fileService->storeFile($mediaItem, 'product-images/' . $slug);
+        $this->fileService->storeFile($mediaItem, 'product-images/' . $product->slug);
       }
     }
   }
 
-  public function updateProduct(Product $product, UpdateProductRequest $request): void
+  public function updateProduct(Product $product, string $name, ?string $coverPhotoPath, ?string $coverVideoPath, bool $isActive): void
   {
     $isPrimaryLocale = app()->getLocale() === config('app.fallback_locale');
-    $slug = $isPrimaryLocale ? Str::slug($request->input('product-name')) : $product->slug;
+    $slug = $isPrimaryLocale ? Str::slug($name) : $product->slug;
 
     if ($isPrimaryLocale && $product->slug !== $slug) {
       $this->fileService->moveDirectory('product-images/' . $product->slug, 'product-images/' . $slug);
@@ -59,9 +55,9 @@ class ProductService
 
     $product->update([
       'slug' => $slug,
-      'cover_photo_filename' => $request->has('product-cover-photo') ? basename($request->input('product-cover-photo.0')) : $product->cover_photo_filename,
-      'cover_video_filename' => $request->has('product-cover-video') ? basename($request->input('product-cover-video.0')) : $product->cover_video_filename,
-      'is_active' => $request->has('product-available'),
+      'cover_photo_filename' => $coverPhotoPath ? basename($coverPhotoPath) : $product->cover_photo_filename,
+      'cover_video_filename' => $coverVideoPath ? basename($coverVideoPath) : $product->cover_video_filename,
+      'is_active' => $isActive,
     ]);
   }
 
@@ -80,7 +76,7 @@ class ProductService
 
   public function destroyProduct(Product $product): void
   {
-    $this->fileService->destroyDirectory('product-images/' . $product->slug);
     $product->delete();
+    $this->fileService->destroyDirectory('product-images/' . $product->slug);
   }
 }

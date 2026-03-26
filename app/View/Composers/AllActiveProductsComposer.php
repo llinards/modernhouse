@@ -19,6 +19,7 @@ class AllActiveProductsComposer
         $query->where('language', app()->getLocale());
       })
       ->where('is_active', true)
+      ->ordered()
       ->get();
 
     $view->with('allActiveProducts', $allActiveProducts);

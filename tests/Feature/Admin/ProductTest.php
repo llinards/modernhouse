@@ -98,7 +98,7 @@ describe('Create product', function () {
                 'product-cover-photo' => [$storedPath],
             ])
             ->assertRedirect()
-            ->assertSessionHasErrors(['product-name']);
+            ->assertSessionHasErrors(['slug']);
     });
 });
 
