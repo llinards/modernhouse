@@ -27,7 +27,7 @@
             </h4>
             <p class="mb-4">Izvēlies sev ērtāko dienu un laiku, un reģistrē savu apmeklējumu.*</p>
           </div>
-          @include('includes.status-messages')
+          <x-status-messages />
           <form wire:submit="register">
             <x-honeypot livewire-model="extraFields"/>
             <input type="text" class="visually-hidden" name="subject"

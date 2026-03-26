@@ -1,5 +1,5 @@
 <div>
-  @include('includes.status-messages')
+  <x-status-messages />
   <table class="table table-hover" style="table-layout: fixed">
     <thead>
     <tr>

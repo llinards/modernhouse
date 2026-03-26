@@ -7,7 +7,7 @@
       <div class="col-lg-12 d-flex justify-content-center align-items-center flex-column">
         <form method="POST" id="request-consultation-form"
               action="/{{app()->getLocale()}}/request-consultation">
-          @include('includes.status-messages')
+          <x-status-messages />
           @csrf
           <x-honeypot/>
           <div class="mb-3">

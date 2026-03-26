@@ -6,7 +6,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
-        @include('includes.status-messages')
+        <x-status-messages />
         <form action="{{ route('admin.products.update', ['locale' => app()->getLocale(), 'product' => $product]) }}"
               method="POST" enctype="multipart/form-data">
           @csrf

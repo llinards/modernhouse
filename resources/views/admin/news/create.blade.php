@@ -5,7 +5,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
-        @include('includes.status-messages')
+        <x-status-messages />
         <form action="/admin/{{ app()->getLocale() }}/news" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="alert alert-secondary mx-0 my-2" role="alert">

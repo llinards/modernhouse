@@ -5,7 +5,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-7 col-12">
-        @include('includes.status-messages')
+        <x-status-messages />
         <form action="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details"
               method="POST"
               enctype="multipart/form-data">

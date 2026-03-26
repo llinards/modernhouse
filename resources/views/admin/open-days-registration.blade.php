@@ -4,7 +4,7 @@
   </x-slot>
   <x-slot name="content">
     <div class="row justify-content-between">
-      @include('includes.status-messages')
+      <x-status-messages />
       @if(count($submissions) === 0)
         <div class="alert alert-secondary" role="alert">
           Izskatās, ka pagaidām nav pieteikumu!

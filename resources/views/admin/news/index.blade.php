@@ -7,7 +7,7 @@
       <div class="mb-2">
         <a href="/admin/{{ app()->getLocale() }}/news/create" class="btn btn-success">Pievienot jaunu</a>
       </div>
-      @include('includes.status-messages')
+      <x-status-messages />
       <table class="table table-striped">
         <thead>
         <tr>

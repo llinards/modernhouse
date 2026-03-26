@@ -4,7 +4,7 @@
   'formId' => $formId
 ])
 <form method="POST" action="/{{app()->getLocale()}}/contact-us">
-  @include('includes.status-messages')
+  <x-status-messages />
   @csrf
   <x-honeypot/>
   <input type="text" class="visually-hidden" name="subject"

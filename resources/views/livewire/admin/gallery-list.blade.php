@@ -1,5 +1,5 @@
 <div>
-  @include('includes.status-messages')
+  <x-status-messages />
   <table class="table table-striped">
     <thead>
     <tr>

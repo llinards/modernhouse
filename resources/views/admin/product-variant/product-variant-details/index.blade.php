@@ -9,7 +9,7 @@
           <a class="btn btn-success"
              href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details/create">+</a>
         </div>
-        @include('includes.status-messages')
+        <x-status-messages />
         <div class="row">
           @foreach($productVariantDetails as $productVariantDetail)
             <div class="col-6 text-center">

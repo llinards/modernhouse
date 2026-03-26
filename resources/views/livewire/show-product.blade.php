@@ -1,5 +1,5 @@
 <div>
-  @include('includes.status-messages')
+  <x-status-messages />
   @if(count($variantTabs) !== 1)
     <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
