@@ -276,3 +276,14 @@
     border: 1px solid $primary-color;
   }
 }
+
+@media (max-width: 992px) {
+  #cookies-policy.cookies {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  #cookies-policy.cookies.cookies--closing {
+    transform: translateX(50%) translateY(10px);
+  }
+}
