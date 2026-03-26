@@ -38,55 +38,9 @@
 
 <title>{{ isset($title) ? $title . ' | ' . config('app.name') : config('app.name')}}</title>
 @vite(['resources/js/app.js', 'resources/sass/app.scss'])
-@if(App::environment('production'))
-  <meta name="facebook-domain-verification" content="6f9uyw6o900t8gvvu9fhtwmn938qse"/>
-@endif
-@if(App::environment('production'))
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJX1GVY8KK"></script>
-  <script> window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-DJX1GVY8KK');
-
-    function trackFormSubmit(event) {
-      gtag('event', event, {
-        'event_category': event,
-        'event_label': 'Submit Form'
-      });
-    }
-
-  </script>
-  <!-- Facebook Pixel Code -->
-  <script>
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return;
-      n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n;
-      n.push = n;
-      n.loaded = !0;
-      n.version = '2.0';
-      n.queue = [];
-      t = b.createElement(e);
-      t.async = !0;
-      t.src = v;
-      s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '1323535588541765');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1323535588541765&ev=PageView&noscript=1"/>
-  </noscript>
-@endif
+<meta name="facebook-domain-verification" content="6f9uyw6o900t8gvvu9fhtwmn938qse"/>
+<script>
+  if (typeof window.trackFormSubmit === 'undefined') { window.trackFormSubmit = function() {}; }
+  if (typeof window.fbq === 'undefined') { window.fbq = function() {}; }
+</script>
+@cookieconsentscripts

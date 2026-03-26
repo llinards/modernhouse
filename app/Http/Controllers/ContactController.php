@@ -10,6 +10,7 @@ use App\Mail\RequestedProductInfo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
+use Whitecube\LaravelCookieConsent\Facades\Cookies;
 
 class ContactController extends Controller
 {
@@ -17,7 +18,10 @@ class ContactController extends Controller
   {
     try {
       Mail::to(config('mail.contact_email'))->send(new RequestedProductInfo($request->validated()));
-      SyncProfileToKlaviyo::dispatch($request->validated(), config('klaviyo.list_id_request_product_info'), 'Produkta pieprasījums');
+
+      if (Cookies::hasConsentFor('klaviyo')) {
+        SyncProfileToKlaviyo::dispatch($request->validated(), config('klaviyo.list_id_request_product_info'), 'Produkta pieprasījums');
+      }
 
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
@@ -44,7 +48,10 @@ class ContactController extends Controller
   {
     try {
       Mail::to(config('mail.contact_email'))->send(new ConsultationRequested($request->validated()));
-      SyncProfileToKlaviyo::dispatch($request->validated(), config('klaviyo.list_id_request_consultation'), 'Konsultācijas pieprasījums');
+
+      if (Cookies::hasConsentFor('klaviyo')) {
+        SyncProfileToKlaviyo::dispatch($request->validated(), config('klaviyo.list_id_request_consultation'), 'Konsultācijas pieprasījums');
+      }
 
       return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {

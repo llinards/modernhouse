@@ -25,7 +25,7 @@ beforeEach(function () {
 });
 
 describe('Open days registration form submission', function () {
-    it('creates database record, sends email and dispatches Klaviyo job', function () {
+    it('creates database record and sends email', function () {
         Mail::fake();
         Queue::fake();
 
@@ -49,12 +49,6 @@ describe('Open days registration form submission', function () {
 
         Mail::assertSent(CustomerRegisteredForOpenDays::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv');
-        });
-
-        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
-            return $job->profileData['email'] === 'janis@example.com'
-                && $job->profileData['date-time'] === '18.jūlijs, 10:00'
-                && $job->listId === config('klaviyo.list_id_register_open_days');
         });
     });
 

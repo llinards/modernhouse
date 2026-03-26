@@ -12,6 +12,7 @@ use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
+use Whitecube\LaravelCookieConsent\Facades\Cookies;
 
 class OpenDaysRegistrationForm extends Component
 {
@@ -67,13 +68,15 @@ class OpenDaysRegistrationForm extends Component
     try {
       OpenDaysRegistration::create($this->all());
       Mail::to('info@modern-house.lv')->send(new CustomerRegisteredForOpenDays($this->all()));
-      SyncProfileToKlaviyo::dispatch([
-        'email'        => $this->email,
-        'phone-number' => $this->phoneNumber,
-        'first-name'   => $this->firstName,
-        'last-name'    => $this->lastName,
-        'date-time'    => $this->date.', '.$this->time,
-      ], config('klaviyo.list_id_register_open_days'), 'Atvērto durvju dienas');
+      if (Cookies::hasConsentFor('klaviyo')) {
+        SyncProfileToKlaviyo::dispatch([
+          'email'        => $this->email,
+          'phone-number' => $this->phoneNumber,
+          'first-name'   => $this->firstName,
+          'last-name'    => $this->lastName,
+          'date-time'    => $this->date.', '.$this->time,
+        ], config('klaviyo.list_id_register_open_days'), 'Atvērto durvju dienas');
+      }
       $this->dispatch('registration-successful', $this->date, $this->time);
       $this->showSuccessView($this->date, $this->time);
     } catch (\Exception $e) {

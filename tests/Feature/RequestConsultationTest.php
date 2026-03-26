@@ -29,9 +29,8 @@ beforeEach(function () {
 });
 
 describe('Request consultation form submission', function () {
-    it('sends email and dispatches Klaviyo job on valid submission', function () {
+    it('sends email on valid submission', function () {
         Mail::fake();
-        Queue::fake();
 
         $this->post('/lv/request-consultation', $this->validPayload)
             ->assertRedirect()
@@ -40,11 +39,6 @@ describe('Request consultation form submission', function () {
         Mail::assertSent(ConsultationRequested::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['email'] === 'janis@example.com';
-        });
-
-        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
-            return $job->profileData['email'] === 'janis@example.com'
-                && $job->listId === config('klaviyo.list_id_request_consultation');
         });
     });
 

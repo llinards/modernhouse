@@ -5,5 +5,6 @@
 </head>
 <body class="antialiased w-100 h-100 overflow-x-hidden" oncontextmenu="return false">
 {{ $slot }}
+@cookieconsentview
 </body>
 </html>

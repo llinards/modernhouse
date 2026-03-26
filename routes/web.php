@@ -151,7 +151,7 @@ Route::middleware('setLanguage')->group(function () {
 
   Route::get('{language?}/privacy-policy', static function () {
     return view('privacy-policy');
-  });
+  })->name('privacy-policy');
 
   Route::get('{language?}/faq', static function () {
     return view('faq');

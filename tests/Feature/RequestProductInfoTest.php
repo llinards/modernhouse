@@ -47,9 +47,8 @@ beforeEach(function () {
 });
 
 describe('Request product info form submission', function () {
-    it('sends email and dispatches Klaviyo job on valid submission', function () {
+    it('sends email on valid submission', function () {
         Mail::fake();
-        Queue::fake();
 
         $this->post('/lv/test-product', $this->validPayload)
             ->assertRedirect()
@@ -58,11 +57,6 @@ describe('Request product info form submission', function () {
         Mail::assertSent(RequestedProductInfo::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['product-name'] === 'Testa produkts';
-        });
-
-        Queue::assertPushed(SyncProfileToKlaviyo::class, function ($job) {
-            return $job->profileData['email'] === 'janis@example.com'
-                && $job->listId === config('klaviyo.list_id_request_product_info');
         });
     });
 
