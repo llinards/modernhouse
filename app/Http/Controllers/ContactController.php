@@ -9,7 +9,6 @@ use App\Mail\RequestedProductInfo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\URL;
 
 class ContactController extends Controller
 {
@@ -32,11 +31,11 @@ class ContactController extends Controller
     try {
       Mail::to(config('mail.contact_email'))->send(new ContactUsSubmitted($request->validated()));
 
-      return redirect()->to(URL::previous().'#contact-us')->with('success', Lang::get('message has been sent'));
+      return back()->with('success', Lang::get('message has been sent'));
     } catch (\Exception $e) {
       report($e);
 
-      return redirect()->to(URL::previous().'#contact-us')->with('error', Lang::get('message has not been sent'));
+      return back()->with('error', Lang::get('message has not been sent'));
     }
   }
 
