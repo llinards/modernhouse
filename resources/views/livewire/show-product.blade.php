@@ -1,5 +1,5 @@
 <div>
-  <x-status-messages />
+  <x-status-messages/>
   @if(count($variantTabs) !== 1)
     <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
       <div class="swiper-button-prev"></div>
@@ -33,11 +33,13 @@
         <x-product-variant-options :productVariant="$this->selectedVariant"/>
       @endif
       @if($this->selectedVariant->productVariantAttachments->isNotEmpty())
-        @foreach($this->selectedVariant->productVariantAttachments as $attachment)
-          <x-download-attachment
-            :href="asset('storage/product-images/'.$this->product->slug.'/'.$this->selectedVariant->slug.'/'.$attachment->filename)"
-            :filename="__('Download attachment')"/>
-        @endforeach
+        <div class="mt-4">
+          @foreach($this->selectedVariant->productVariantAttachments as $attachment)
+            <x-download-attachment
+              :href="asset('storage/product-images/'.$this->product->slug.'/'.$this->selectedVariant->slug.'/'.$attachment->filename)"
+              :filename="__('Download attachment')"/>
+          @endforeach
+        </div>
       @endif
     </div>
   </div>
