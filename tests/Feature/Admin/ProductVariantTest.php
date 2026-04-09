@@ -2,6 +2,9 @@
 
 use App\Models\Product;
 use App\Models\ProductVariant;
+use App\Models\ProductVariantAttachment;
+use App\Models\ProductVariantImage;
+use App\Models\ProductVariantPlan;
 use App\Models\TranslationsProductVariants;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
@@ -206,6 +209,185 @@ describe('Update product variant', function () {
         Storage::disk('public')->assertExists(
             "product-images/parent/original-variant/" . basename($imagePath)
         );
+    });
+
+    it('preserves existing images when submitted unchanged', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/img-a.jpg", 'fake');
+        Storage::disk('public')->put("$basePath/img-b.jpg", 'fake');
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-a.jpg', 'order' => 0]);
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-b.jpg', 'order' => 1]);
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["$basePath/img-a.jpg", "$basePath/img-b.jpg"],
+            ]);
+
+        expect($this->variant->fresh()->productVariantImages)->toHaveCount(2);
+        Storage::disk('public')->assertExists("$basePath/img-a.jpg");
+        Storage::disk('public')->assertExists("$basePath/img-b.jpg");
+    });
+
+    it('reorders existing images', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/img-a.jpg", 'fake');
+        Storage::disk('public')->put("$basePath/img-b.jpg", 'fake');
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-a.jpg', 'order' => 0]);
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-b.jpg', 'order' => 1]);
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["$basePath/img-b.jpg", "$basePath/img-a.jpg"],
+            ]);
+
+        $images = $this->variant->fresh()->productVariantImages;
+
+        expect($images->firstWhere('filename', 'img-b.jpg')->order)->toBe(0)
+            ->and($images->firstWhere('filename', 'img-a.jpg')->order)->toBe(1);
+    });
+
+    it('removes images not in submitted list', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/keep.jpg", 'fake');
+        Storage::disk('public')->put("$basePath/remove.jpg", 'fake');
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'keep.jpg', 'order' => 0]);
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'remove.jpg', 'order' => 1]);
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["$basePath/keep.jpg"],
+            ]);
+
+        expect($this->variant->fresh()->productVariantImages)->toHaveCount(1);
+        Storage::disk('public')->assertExists("$basePath/keep.jpg");
+        Storage::disk('public')->assertMissing("$basePath/remove.jpg");
+    });
+
+    it('adds new images alongside existing ones', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/existing.jpg", 'fake');
+        ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'existing.jpg', 'order' => 0]);
+
+        $newImagePath = UploadedFile::fake()->image('new.jpg')->store('uploads/temp', 'public');
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["$basePath/existing.jpg", $newImagePath],
+            ]);
+
+        $images = $this->variant->fresh()->productVariantImages;
+
+        expect($images)->toHaveCount(2);
+        Storage::disk('public')->assertExists("$basePath/existing.jpg");
+        Storage::disk('public')->assertExists("$basePath/" . basename($newImagePath));
+    });
+
+    it('syncs plans with ordering', function () {
+        $basePath = 'product-images/parent/original-variant/plan';
+        Storage::disk('public')->put("$basePath/plan-a.jpg", 'fake');
+        ProductVariantPlan::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'plan-a.jpg', 'order' => 0]);
+
+        $newPlanPath = UploadedFile::fake()->image('plan-b.jpg')->store('uploads/temp', 'public');
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-plan' => [$newPlanPath, "$basePath/plan-a.jpg"],
+            ]);
+
+        $plans = $this->variant->fresh()->productVariantPlan()->where('language', 'lv')->get();
+
+        expect($plans)->toHaveCount(2)
+            ->and($plans->firstWhere('filename', basename($newPlanPath))->order)->toBe(0)
+            ->and($plans->firstWhere('filename', 'plan-a.jpg')->order)->toBe(1);
+    });
+
+    it('replaces attachment when new file submitted', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/old.pdf", 'fake');
+        ProductVariantAttachment::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'old.pdf']);
+
+        $newAttachmentPath = UploadedFile::fake()->create('new.pdf')->store('uploads/temp', 'public');
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-attachments' => [$newAttachmentPath],
+            ]);
+
+        $attachments = $this->variant->fresh()->productVariantAttachments()->where('language', 'lv')->get();
+
+        expect($attachments)->toHaveCount(1)
+            ->and($attachments->first()->filename)->toBe(basename($newAttachmentPath));
+        Storage::disk('public')->assertMissing("$basePath/old.pdf");
+        Storage::disk('public')->assertExists("$basePath/" . basename($newAttachmentPath));
+    });
+
+    it('removes attachment when empty submitted', function () {
+        $basePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("$basePath/old.pdf", 'fake');
+        ProductVariantAttachment::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'old.pdf']);
+
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+            ]);
+
+        expect($this->variant->fresh()->productVariantAttachments()->where('language', 'lv')->count())->toBe(0);
+        Storage::disk('public')->assertMissing("$basePath/old.pdf");
     });
 });
 

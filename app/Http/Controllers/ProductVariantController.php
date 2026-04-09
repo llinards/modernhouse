@@ -59,6 +59,9 @@ class ProductVariantController extends Controller
                                           'language')->where('language',
                                           app()->getLocale());
                                       },
+                                      'productVariantImages',
+                                      'productVariantPlan' => fn ($query) => $query->where('language', app()->getLocale()),
+                                      'productVariantAttachments' => fn ($query) => $query->where('language', app()->getLocale()),
                                     ])
                                     ->findOrFail($productVariant->id);
 
@@ -75,15 +78,9 @@ class ProductVariantController extends Controller
       } else {
         $productVariantService->addTranslation($data);
       }
-      if ($data->has(['product-variant-plan'])) {
-        $productVariantService->addPlan($data['product-variant-plan']);
-      }
-      if ($data->has(['product-variant-images'])) {
-        $productVariantService->addImage($data['product-variant-images']);
-      }
-      if ($data->has(['product-variant-attachments'])) {
-        $productVariantService->addAttachment($data['product-variant-attachments']);
-      }
+      $productVariantService->syncImages($data->input('product-variant-images', []));
+      $productVariantService->syncPlans($data->input('product-variant-plan', []));
+      $productVariantService->syncAttachment($data->input('product-variant-attachments', []));
 
       return back()->with('success', 'Atjaunots!');
     } catch (\Exception $e) {

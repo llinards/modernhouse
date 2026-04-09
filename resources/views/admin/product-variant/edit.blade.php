@@ -83,19 +83,18 @@
             <x-description-text-area
               :name="'product-variant-description'">{{ $productVariant->translations[0]->description ?? 'Nav pievienots tulkojums!' }}</x-description-text-area>
           </div>
-          <livewire:admin.product-variant-plan-list :product="$product" :productVariant="$productVariant"/>
           <div class="mb-3">
             <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
-            <x-file-upload :name="'product-variant-plan'"/>
+            <x-file-upload :name="'product-variant-plan'"
+                           :files="json_encode($productVariant->productVariantPlan->map(fn($p) => 'product-images/'.$product->slug.'/'.$productVariant->slug.'/plan/'.$p->filename)->toArray())"/>
             <p class="small">Faila izmēru var samazināt šajā lapā - <a href="https://compressor.io/"
                                                                        target="_blank">compressor.io</a>
             </p>
           </div>
-          <livewire:admin.product-variant-image-list :product="$product" :productVariant="$productVariant"/>
           <div class="mb-3">
-            <label for="product-variant-images" class="form-label">Pievienot jaunas
-              bildes</label>
-            <x-file-upload :name="'product-variant-images'"/>
+            <label for="product-variant-images" class="form-label">Bildes</label>
+            <x-file-upload :name="'product-variant-images'"
+                           :files="json_encode($productVariant->productVariantImages->map(fn($i) => 'product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$i->filename)->toArray())"/>
             <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
               izmērā.</p>
             <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"
@@ -104,8 +103,8 @@
           </div>
           <div class="mb-3">
             <label for="product-variant-attachments" class="form-label">Pielikums</label>
-            <x-file-upload :name="'product-variant-attachments'"/>
-            <p class="small">Pievienojot jaunu pielikumu, ja eksistē iepriekšējais, tas tiks aizvietots.</p>
+            <x-file-upload :name="'product-variant-attachments'"
+                           :files="json_encode($productVariant->productVariantAttachments->map(fn($a) => 'product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$a->filename)->toArray())"/>
             <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
           </div>
           <div class="d-flex justify-content-between">

@@ -51,12 +51,13 @@ class ProductVariantService
 
   public function addImage(array $images): void
   {
-    foreach ($images as $image) {
+    foreach ($images as $index => $image) {
       if ($image !== null) {
         $fileService = new FileService();
         $fileService->storeFile($image, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug);
         $this->productVariant->productVariantImages()->create([
           'filename' => basename($image),
+          'order'    => $index,
         ]);
       }
     }
@@ -64,13 +65,14 @@ class ProductVariantService
 
   public function addPlan(array $files): void
   {
-    foreach ($files as $file) {
+    foreach ($files as $index => $file) {
       if ($file !== null) {
         $fileService = new FileService();
         $fileService->storeFile($file, 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug.'/plan');
         $this->productVariant->productVariantPlan()->create([
           'filename' => basename($file),
           'language' => app()->getLocale(),
+          'order'    => $index,
         ]);
       }
     }
@@ -139,19 +141,108 @@ class ProductVariantService
     $this->productVariant->delete();
   }
 
-  public function destroyImage(object $data): void
+  public function syncImages(array $submittedFiles): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($data->filename,
-      'product-images/'.$data->productVariant->product->slug.'/'.$data->productVariant->slug);
-    $data->delete();
+    $basePath = 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug;
+
+    $existing = $this->productVariant->productVariantImages->keyBy('filename');
+
+    foreach ($submittedFiles as $index => $file) {
+      if ($file === null) {
+        continue;
+      }
+
+      $filename = basename($file);
+
+      if (str_starts_with($file, 'uploads/temp/')) {
+        $fileService->storeFile($file, $basePath);
+        $this->productVariant->productVariantImages()->create([
+          'filename' => $filename,
+          'order'    => $index,
+        ]);
+      } else {
+        $existing->get($filename)?->update(['order' => $index]);
+        $existing->forget($filename);
+      }
+    }
+
+    foreach ($existing as $image) {
+      $fileService->destroyFile($image->filename, $basePath);
+      $image->delete();
+    }
   }
 
-  public function destroyPlan(object $data): void
+  public function syncPlans(array $submittedFiles): void
   {
     $fileService = new FileService();
-    $fileService->destroyFile($data->filename,
-      'product-images/'.$data->productVariant->product->slug.'/'.$data->productVariant->slug.'/plan');
-    $data->delete();
+    $basePath = 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug.'/plan';
+    $locale = app()->getLocale();
+
+    $existing = $this->productVariant->productVariantPlan()
+                                     ->withoutGlobalScope('order')
+                                     ->where('language', $locale)
+                                     ->get()
+                                     ->keyBy('filename');
+
+    foreach ($submittedFiles as $index => $file) {
+      if ($file === null) {
+        continue;
+      }
+
+      $filename = basename($file);
+
+      if (str_starts_with($file, 'uploads/temp/')) {
+        $fileService->storeFile($file, $basePath);
+        $this->productVariant->productVariantPlan()->create([
+          'filename' => $filename,
+          'language' => $locale,
+          'order'    => $index,
+        ]);
+      } else {
+        $existing->get($filename)?->update(['order' => $index]);
+        $existing->forget($filename);
+      }
+    }
+
+    foreach ($existing as $plan) {
+      $fileService->destroyFile($plan->filename, $basePath);
+      $plan->delete();
+    }
+  }
+
+  public function syncAttachment(array $submittedFiles): void
+  {
+    $fileService = new FileService();
+    $basePath = 'product-images/'.$this->productVariant->product->slug.'/'.$this->slug;
+    $locale = app()->getLocale();
+
+    $existingAttachment = $this->productVariant->productVariantAttachments()
+                                               ->where('language', $locale)
+                                               ->first();
+
+    $submittedFile = collect($submittedFiles)->first();
+
+    if ($submittedFile === null) {
+      if ($existingAttachment) {
+        $fileService->destroyFile($existingAttachment->filename, $basePath);
+        $existingAttachment->delete();
+      }
+
+      return;
+    }
+
+    if (str_starts_with($submittedFile, 'uploads/temp/')) {
+      if ($existingAttachment) {
+        $fileService->destroyFile($existingAttachment->filename, $basePath);
+        $existingAttachment->update(['filename' => basename($submittedFile)]);
+      } else {
+        $this->productVariant->productVariantAttachments()->create([
+          'filename' => basename($submittedFile),
+          'language' => $locale,
+        ]);
+      }
+      $fileService->storeFile($submittedFile, $basePath);
+    }
   }
 }

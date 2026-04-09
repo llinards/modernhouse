@@ -15,6 +15,7 @@ class ProductVariantPlanFactory extends Factory
         return [
             'filename' => 'plan-' . fake()->unique()->numberBetween(1, 1000) . '.jpg',
             'language' => 'lv',
+            'order' => fake()->numberBetween(0, 10),
             'product_variant_id' => ProductVariant::factory(),
         ];
     }
