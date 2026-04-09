@@ -29,6 +29,7 @@ class ProductVariantDetailFactory extends Factory
             'hasThis' => fake()->boolean(70),
             'icon' => $detail['icon'],
             'count' => fake()->numberBetween(0, 3),
+            'order' => 0,
             'product_variant_id' => ProductVariant::factory(),
             'language' => 'lv',
         ];
