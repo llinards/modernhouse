@@ -108,20 +108,19 @@
                            :files="json_encode($productVariant->productVariantAttachments->map(fn($a) => 'product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$a->filename)->toArray())"/>
             <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
           </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" data-bs-toggle="modal"
-                    data-bs-target="#delete-product-variant-modal"
-                    class="btn btn-danger">Dzēst
-            </button>
-            <div class="d-flex">
+          <div class="d-flex justify-content-end">
               <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" form="update-product-variant"
                       class="btn btn-success mx-1">Atjaunot
               </button>
-            </div>
           </div>
         </form>
-        @include('admin.product-variant.delete-modal')
+        <form action="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/delete"
+              method="POST" onsubmit="return confirm('Vai tiešām vēlies dzēst? Visas bildes saistītas ar šo variantu arī tiks dzēstas.')">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger mt-3">Dzēst</button>
+        </form>
       </div>
     </div>
   </x-slot>
