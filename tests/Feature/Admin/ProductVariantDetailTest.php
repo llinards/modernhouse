@@ -330,6 +330,24 @@ describe('ProductVariantDetailList Livewire component', function () {
 
         expect(ProductVariantDetail::where('product_variant_id', $this->variant->id)->count())->toBe(1);
     });
+
+    it('stores a detail with a new icon upload', function () {
+        $file = UploadedFile::fake()->create('pool.svg', 1, 'image/svg+xml');
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->set('form.name', 'Baseins')
+            ->set('form.hasThis', true)
+            ->set('form.count', 1)
+            ->set('form.newIcon', $file)
+            ->call('store')
+            ->assertHasNoErrors();
+
+        $detail = ProductVariantDetail::where('product_variant_id', $this->variant->id)->first();
+
+        expect($detail->icon)->toBe('pool')
+            ->and(ProductVariantDetailIcon::where('name', 'pool.svg')->exists())->toBeTrue();
+    });
 });
 
 describe('Variant edit page embeds detail component', function () {
