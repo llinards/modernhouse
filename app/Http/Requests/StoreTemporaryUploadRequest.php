@@ -23,7 +23,7 @@ class StoreTemporaryUploadRequest extends FormRequest
       'gallery-images.*'                => ['file', 'image', 'max:10240'],
       'news-images.*'                   => ['file', 'image', 'max:10240'],
       'news-attachments.*'              => ['file', 'max:20480'],
-      'product-variant-attachments.*'   => ['file', 'max:20480'],
+      'product-variant-attachments.*'   => ['file', 'max:51200'],
       'product-variant-options-excel.*' => ['file', 'mimes:xlsx,xls,csv', 'max:10240'],
       'product-variant-plan.*'          => ['file', 'max:20480'],
       'introduction-video.*'            => ['file', 'mimes:mp4,mov,avi', 'max:102400'],

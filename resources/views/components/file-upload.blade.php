@@ -11,7 +11,8 @@
     server: {
       url: '/admin/{{ app()->getLocale() }}/upload',
       headers: {
-        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+        'Accept': 'application/json'
       },
       load: '?source=',
     },
@@ -52,7 +53,8 @@
       labelIdle: 'Pievienot bildes',
       maxFileSize: '500KB',
       acceptedFileTypes: ['image/*'],
-      allowMultiple: true
+      allowMultiple: true,
+      className: 'filepond-grid'
     },
     "product-variant-plan": {
       labelIdle: 'Pievienot plānojumu',
