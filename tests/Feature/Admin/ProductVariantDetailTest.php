@@ -7,6 +7,7 @@ use App\Models\ProductVariantDetailIcon;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Livewire;
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -216,5 +217,117 @@ describe('ProductVariantDetailService', function () {
             ->and($details->first()->order)->toBe(0)
             ->and($details->last()->name)->toBe('Copied')
             ->and($details->last()->order)->toBe(1);
+    });
+});
+
+describe('ProductVariantDetailList Livewire component', function () {
+    beforeEach(function () {
+        $this->variant = ProductVariant::factory()->create();
+        Storage::fake('public');
+    });
+
+    it('renders with existing details', function () {
+        $detail = ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'name' => 'Guļamistabas',
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->assertSee('Guļamistabas');
+    });
+
+    it('stores a new detail', function () {
+        ProductVariantDetailIcon::factory()->create(['name' => 'bed.svg']);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->set('form.name', 'Guļamistabas')
+            ->set('form.hasThis', true)
+            ->set('form.count', 3)
+            ->set('form.icon', 'bed')
+            ->call('store')
+            ->assertHasNoErrors();
+
+        expect(ProductVariantDetail::where('product_variant_id', $this->variant->id)->count())->toBe(1);
+    });
+
+    it('validates required fields on store', function () {
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->call('store')
+            ->assertHasErrors(['form.name', 'form.count']);
+    });
+
+    it('updates an existing detail', function () {
+        $detail = ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'name' => 'Old Name',
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->call('edit', $detail->id)
+            ->set('form.name', 'New Name')
+            ->call('update')
+            ->assertHasNoErrors();
+
+        expect($detail->fresh()->name)->toBe('New Name');
+    });
+
+    it('deletes a detail', function () {
+        $detail = ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->call('destroy', $detail->id)
+            ->assertHasNoErrors();
+
+        expect(ProductVariantDetail::find($detail->id))->toBeNull();
+    });
+
+    it('reorders details', function () {
+        $first = ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'order' => 0,
+            'language' => 'lv',
+        ]);
+        $second = ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'order' => 1,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->call('updateDetailOrder', [
+                ['value' => $second->id, 'order' => 0],
+                ['value' => $first->id, 'order' => 1],
+            ]);
+
+        expect($second->fresh()->order)->toBe(0)
+            ->and($first->fresh()->order)->toBe(1);
+    });
+
+    it('copies details from another variant', function () {
+        $source = ProductVariant::factory()->create();
+        ProductVariantDetail::factory()->create([
+            'product_variant_id' => $source->id,
+            'name' => 'Copied Detail',
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
+            ->set('copyFromVariantId', $source->id)
+            ->call('copyFromVariant')
+            ->assertHasNoErrors();
+
+        expect(ProductVariantDetail::where('product_variant_id', $this->variant->id)->count())->toBe(1);
     });
 });
