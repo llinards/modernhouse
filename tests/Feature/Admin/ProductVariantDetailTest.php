@@ -350,17 +350,26 @@ describe('ProductVariantDetailList Livewire component', function () {
     });
 });
 
-describe('Variant edit page embeds detail component', function () {
-    it('shows the detail list component on the variant edit page', function () {
-        $product = \App\Models\Product::factory()->create();
-        $variant = ProductVariant::factory()->create(['product_id' => $product->id]);
+describe('Product variant details page', function () {
+    beforeEach(function () {
+        $this->product = \App\Models\Product::factory()->create();
+        $this->variant = ProductVariant::factory()->create(['product_id' => $this->product->id]);
         \App\Models\TranslationsProductVariants::factory()->create([
-            'product_variant_id' => $variant->id,
+            'product_variant_id' => $this->variant->id,
             'language' => 'lv',
         ]);
+    });
 
+    it('shows a link to the details page on the variant edit page', function () {
         $this->actingAs($this->user)
-            ->get("/admin/lv/product-variant/{$variant->id}/edit")
+            ->get("/admin/lv/product-variant/{$this->variant->id}/edit")
+            ->assertSuccessful()
+            ->assertSee('product-variant-details');
+    });
+
+    it('renders the details page with the Livewire component', function () {
+        $this->actingAs($this->user)
+            ->get("/admin/lv/product-variant/{$this->variant->id}/product-variant-details")
             ->assertSuccessful()
             ->assertSeeLivewire(\App\Livewire\Admin\ProductVariantDetailList::class);
     });
