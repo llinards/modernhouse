@@ -59,8 +59,10 @@
           <div class="mb-3">
             <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-options"
                class="btn btn-dark" target="_blank">Tehniskā informācija</a>
-            <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/product-variant-details"
-               class="btn btn-dark" target="_blank">Platība, istabas</a>
+          </div>
+          <div class="mb-3">
+            <h5>Platība, istabas</h5>
+            <livewire:admin.product-variant-detail-list :productVariant="$productVariant" />
           </div>
           <div class="mb-3">
             <div class="row">

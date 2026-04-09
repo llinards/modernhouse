@@ -7,7 +7,6 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OpenDaysRegistrationController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariantController;
-use App\Http\Controllers\ProductVariantDetailController;
 use App\Http\Controllers\ProductVariantOptionController;
 use App\Http\Controllers\TemporaryUploadController;
 use App\Livewire\OpenDaysRegistration;
@@ -96,16 +95,6 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
     [ProductVariantOptionController::class, 'destroyProductVariantOption'])->name('product-variant-options.destroy-product-variant-option');
   Route::delete('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/delete',
     [ProductVariantOptionController::class, 'destroyProductVariantOptionDetail'])->name('product-variant-options.destroy-product-variant-option-detail');
-
-  /* Product Variant Details */
-  Route::get('/product-variant/{productVariant}/product-variant-details',
-    [ProductVariantDetailController::class, 'index']);
-  Route::get('/product-variant/{productVariant}/product-variant-details/create',
-    [ProductVariantDetailController::class, 'create']);
-  Route::post('/product-variant/{productVariant}/product-variant-details',
-    [ProductVariantDetailController::class, 'store']);
-  Route::get('/product-variant/{productVariant}/product-variant-details/{productVariantDetail}',
-    [ProductVariantDetailController::class, 'destroy']);
 
   /* Introduction Video */
   Route::patch('/introduction-video', [IntroductionVideoController::class, 'update'])->name('admin.introduction-video.update');

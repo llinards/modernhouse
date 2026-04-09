@@ -331,3 +331,19 @@ describe('ProductVariantDetailList Livewire component', function () {
         expect(ProductVariantDetail::where('product_variant_id', $this->variant->id)->count())->toBe(1);
     });
 });
+
+describe('Variant edit page embeds detail component', function () {
+    it('shows the detail list component on the variant edit page', function () {
+        $product = \App\Models\Product::factory()->create();
+        $variant = ProductVariant::factory()->create(['product_id' => $product->id]);
+        \App\Models\TranslationsProductVariants::factory()->create([
+            'product_variant_id' => $variant->id,
+            'language' => 'lv',
+        ]);
+
+        $this->actingAs($this->user)
+            ->get("/admin/lv/product-variant/{$variant->id}/edit")
+            ->assertSuccessful()
+            ->assertSeeLivewire(\App\Livewire\Admin\ProductVariantDetailList::class);
+    });
+});
