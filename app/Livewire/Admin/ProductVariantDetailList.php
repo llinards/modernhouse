@@ -36,7 +36,7 @@ class ProductVariantDetailList extends Component
     {
         $this->productVariant = $productVariant;
         $this->loadDetails();
-        $this->icons = ProductVariantDetailIcon::all();
+        $this->loadIcons();
     }
 
     public function store(): void
@@ -48,12 +48,13 @@ class ProductVariantDetailList extends Component
 
         $this->resetForm();
         $this->loadDetails();
+        $this->loadIcons();
         session()->flash('success', 'Pievienots!');
     }
 
     public function edit(int $detailId): void
     {
-        $detail = ProductVariantDetail::findOrFail($detailId);
+        $detail = $this->productVariant->productVariantDetails()->findOrFail($detailId);
         $this->editingDetailId = $detail->id;
         $this->form = [
             'name' => $detail->name,
@@ -69,18 +70,19 @@ class ProductVariantDetailList extends Component
     {
         $this->validate();
 
-        $detail = ProductVariantDetail::findOrFail($this->editingDetailId);
+        $detail = $this->productVariant->productVariantDetails()->findOrFail($this->editingDetailId);
         $service = app(ProductVariantDetailService::class);
         $service->update($detail, $this->form);
 
         $this->resetForm();
         $this->loadDetails();
+        $this->loadIcons();
         session()->flash('success', 'Atjaunots!');
     }
 
     public function destroy(int $detailId): void
     {
-        $detail = ProductVariantDetail::findOrFail($detailId);
+        $detail = $this->productVariant->productVariantDetails()->findOrFail($detailId);
         $service = app(ProductVariantDetailService::class);
         $service->destroy($detail);
 
@@ -141,9 +143,11 @@ class ProductVariantDetailList extends Component
 
     public function render()
     {
-        $availableVariants = ProductVariant::where('id', '!=', $this->productVariant->id)
-            ->with(['product.translations' => fn ($q) => $q->where('language', app()->getLocale())])
-            ->get();
+        $availableVariants = $this->showCopyModal
+            ? ProductVariant::where('id', '!=', $this->productVariant->id)
+                ->with(['product.translations' => fn ($q) => $q->where('language', app()->getLocale())])
+                ->get()
+            : collect();
 
         return view('livewire.admin.product-variant-detail-list', [
             'availableVariants' => $availableVariants,
@@ -168,6 +172,11 @@ class ProductVariantDetailList extends Component
             'form.count.numeric' => 'Skaitam jābūt skaitlim.',
             'form.icon.required_without' => 'Izvēlieties ikonu vai augšupielādējiet jaunu.',
         ];
+    }
+
+    private function loadIcons(): void
+    {
+        $this->icons = ProductVariantDetailIcon::all();
     }
 
     private function loadDetails(): void
