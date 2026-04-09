@@ -119,6 +119,13 @@ describe('Update product variant', function () {
             'description' => '<p>Old</p>',
             'language' => 'lv',
         ]);
+        $this->imagePath = 'product-images/parent/original-variant';
+        Storage::disk('public')->put("{$this->imagePath}/default.jpg", 'fake');
+        ProductVariantImage::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'filename' => 'default.jpg',
+            'order' => 0,
+        ]);
     });
 
     it('displays edit variant form', function () {
@@ -138,6 +145,7 @@ describe('Update product variant', function () {
                 'product-variant-living-area' => 85.5,
                 'product-variant-building-area' => 100.0,
                 'product-variant-description' => '<p>Updated</p>',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
             ])
             ->assertRedirect();
 
@@ -153,9 +161,6 @@ describe('Update product variant', function () {
     });
 
     it('renames variant directory when slug changes', function () {
-        Storage::disk('public')->makeDirectory("product-images/parent/original-variant");
-        Storage::disk('public')->put("product-images/parent/original-variant/img.jpg", 'fake');
-
         $this->actingAs($this->user)
             ->patch('/admin/lv/product-variant', [
                 'id' => $this->variant->id,
@@ -166,6 +171,7 @@ describe('Update product variant', function () {
                 'product-variant-living-area' => 40,
                 'product-variant-building-area' => 50,
                 'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
             ]);
 
         expect($this->variant->fresh()->slug)->toBe('renamed-variant');
@@ -184,6 +190,7 @@ describe('Update product variant', function () {
                 'product-variant-building-area' => 50,
                 'product-variant-description' => '<p>Desc</p>',
                 'product-variant-available' => 'on',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
             ]);
 
         expect($this->variant->fresh()->is_active)->toBeTruthy();
@@ -331,6 +338,7 @@ describe('Update product variant', function () {
                 'product-variant-living-area' => 40,
                 'product-variant-building-area' => 50,
                 'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
                 'product-variant-plan' => [$newPlanPath, "$basePath/plan-a.jpg"],
             ]);
 
@@ -358,6 +366,7 @@ describe('Update product variant', function () {
                 'product-variant-living-area' => 40,
                 'product-variant-building-area' => 50,
                 'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
                 'product-variant-attachments' => [$newAttachmentPath],
             ]);
 
@@ -367,6 +376,21 @@ describe('Update product variant', function () {
             ->and($attachments->first()->filename)->toBe(basename($newAttachmentPath));
         Storage::disk('public')->assertMissing("$basePath/old.pdf");
         Storage::disk('public')->assertExists("$basePath/" . basename($newAttachmentPath));
+    });
+
+    it('validates images required on update', function () {
+        $this->actingAs($this->user)
+            ->patch('/admin/lv/product-variant', [
+                'id' => $this->variant->id,
+                'product-variant-name' => 'Original Variant',
+                'product-variant-basic-price' => 10000,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+            ])
+            ->assertSessionHasErrors(['product-variant-images']);
     });
 
     it('removes attachment when empty submitted', function () {
@@ -384,6 +408,7 @@ describe('Update product variant', function () {
                 'product-variant-living-area' => 40,
                 'product-variant-building-area' => 50,
                 'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => ["{$this->imagePath}/default.jpg"],
             ]);
 
         expect($this->variant->fresh()->productVariantAttachments()->where('language', 'lv')->count())->toBe(0);

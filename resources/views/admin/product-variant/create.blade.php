@@ -5,7 +5,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-12">
-        <x-status-messages />
+        <x-status-messages/>
         <form action="/admin/{{ app()->getLocale() }}/product-variant" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
@@ -77,14 +77,14 @@
           </div>
           <div class="mb-3">
             <label for="product-variant-plan" class="form-label">Projekta plānojums</label>
-            <x-file-upload :name="'product-variant-plan'" :required="'true'"/>
+            <x-file-upload :name="'product-variant-plan'"/>
             <p class="small">Faila izmēru var samazināt šajā lapā - <a href="https://compressor.io/"
                                                                        target="_blank">compressor.io</a>
             </p>
           </div>
           <div class="mb-3">
             <label for="product-variant-images" class="form-label">Bildes</label>
-            <x-file-upload :name="'product-variant-images'" :required="'true'"/>
+            <x-file-upload :name="'product-variant-images'"/>
             <p class="small">Bildei ir jābūt .JPG, .JPEG vai .PNG formātā un pēc iespējas mazākā
               izmērā.</p>
             <p class="small">Tās var samazināt šajā lapā - <a href="https://compressor.io/"

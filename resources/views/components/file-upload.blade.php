@@ -50,20 +50,14 @@
     },
     "product-variant-images": {
       labelIdle: 'Pievienot bildes',
-      maxFileSize: '500KB',
-      acceptedFileTypes: ['image/*'],
       allowMultiple: true
     },
     "product-variant-plan": {
       labelIdle: 'Pievienot plānojumu',
-      maxFileSize: '500KB',
-      acceptedFileTypes: ['image/*'],
       allowMultiple: true
     },
     "product-variant-attachments": {
       labelIdle: 'Pievienot pielikumu',
-      maxFileSize: '50MB',
-      acceptedFileTypes: ['application/pdf'],
     },
     "product-variant-options-excel": {
       labelIdle: 'Pievienot Excel failu',

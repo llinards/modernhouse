@@ -32,6 +32,8 @@ class UpdateProductVariantRequest extends FormRequest
       'product-variant-living-area'   => ['required', 'numeric'],
       'product-variant-building-area' => ['required', 'numeric'],
       'product-variant-description'   => 'required',
+      'product-variant-images'        => ['required', 'array', 'min:1'],
+      'product-variant-images.*'      => ['required', 'string'],
     ];
   }
 }

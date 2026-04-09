@@ -6,7 +6,7 @@
   <x-slot name="content">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-12">
-        <x-status-messages />
+        <x-status-messages/>
         <form action="/admin/{{ app()->getLocale() }}/product-variant" id="update-product-variant" method="POST"
               enctype="multipart/form-data">
           @csrf
@@ -54,6 +54,7 @@
               <p class="small">Ja cena tiek norādīta kā 0.00, tad klientiem rādīsies -
                 <strong>Cena pēc
                   individuālā pieprasījuma.</strong></p>
+              <p class="small">Ja cena netiek <strong>norādīta</strong>, tad klientiem šī komplektācija nerādīsies.</p>
             </div>
           </div>
           <div class="mb-3">
