@@ -155,7 +155,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" wire:click="closeCopyModal">Aizvērt</button>
+            <button type="button" class="btn btn-dark" wire:click="closeCopyModal">Aizvērt</button>
             <button type="button" class="btn btn-success" wire:click="copyFromVariant"
                     @if(!$copyFromVariantId) disabled @endif>
               Kopēt
