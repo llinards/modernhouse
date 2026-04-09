@@ -257,7 +257,7 @@ describe('ProductVariantDetailList Livewire component', function () {
         Livewire::actingAs($this->user)
             ->test(\App\Livewire\Admin\ProductVariantDetailList::class, ['productVariant' => $this->variant])
             ->call('store')
-            ->assertHasErrors(['form.name', 'form.count']);
+            ->assertHasErrors(['form.name']);
     });
 
     it('updates an existing detail', function () {

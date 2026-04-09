@@ -22,7 +22,7 @@ class ProductVariantDetailService
             'name' => $data['name'],
             'hasThis' => $data['hasThis'] ?? false,
             'icon' => $icon,
-            'count' => $data['count'],
+            'count' => $data['count'] ?? 0,
             'order' => $maxOrder !== null ? $maxOrder + 1 : 0,
             'product_variant_id' => $productVariant->id,
             'language' => app()->getLocale(),
@@ -37,7 +37,7 @@ class ProductVariantDetailService
             'name' => $data['name'],
             'hasThis' => $data['hasThis'] ?? false,
             'icon' => $icon,
-            'count' => $data['count'],
+            'count' => $data['count'] ?? 0,
         ]);
 
         return $detail;

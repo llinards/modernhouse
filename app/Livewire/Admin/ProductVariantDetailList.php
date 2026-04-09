@@ -75,6 +75,7 @@ class ProductVariantDetailList extends Component
         $service->update($detail, $this->form);
 
         $this->resetForm();
+        $this->showModal = false;
         $this->loadDetails();
         $this->loadIcons();
         session()->flash('success', 'Atjaunots!');
@@ -145,7 +146,10 @@ class ProductVariantDetailList extends Component
     {
         $availableVariants = $this->showCopyModal
             ? ProductVariant::where('id', '!=', $this->productVariant->id)
-                ->with(['product.translations' => fn ($q) => $q->where('language', app()->getLocale())])
+                ->with([
+                    'translations' => fn ($q) => $q->where('language', app()->getLocale()),
+                    'product.translations' => fn ($q) => $q->where('language', app()->getLocale()),
+                ])
                 ->get()
             : collect();
 
@@ -158,7 +162,7 @@ class ProductVariantDetailList extends Component
     {
         return [
             'form.name' => 'required|string',
-            'form.count' => 'required|numeric',
+            'form.count' => 'nullable|numeric',
             'form.icon' => 'required_without:form.newIcon|string',
             'form.newIcon' => 'nullable|file|mimes:svg',
         ];
