@@ -85,16 +85,25 @@
               <div class="text-danger small mb-2">{{ $message }}</div> @enderror
               <div class="d-flex flex-wrap gap-2">
                 @foreach($icons as $iconItem)
-                  <label for="icon-{{ $iconItem->id }}"
-                         class="d-flex align-items-center justify-content-center border rounded p-2"
-                         style="width: 60px; height: 60px; cursor: pointer;{{ $form['icon'] === basename($iconItem->name, '.svg') ? ' border-color: #000 !important; border-width: 2px !important;' : '' }}">
-                    <input class="d-none" type="radio"
-                           value="{{ basename($iconItem->name, '.svg') }}"
-                           id="icon-{{ $iconItem->id }}"
-                           wire:model.live="form.icon">
-                    <img width="40" src="{{ asset('storage/icons/product-variant-detail-icons/'.$iconItem->name) }}"
-                         alt="">
-                  </label>
+                  <div class="position-relative">
+                    <label for="icon-{{ $iconItem->id }}"
+                           class="d-flex align-items-center justify-content-center border rounded p-2"
+                           style="width: 60px; height: 60px; cursor: pointer;{{ $form['icon'] === basename($iconItem->name, '.svg') ? ' border-color: #000 !important; border-width: 2px !important;' : '' }}">
+                      <input class="d-none" type="radio"
+                             value="{{ basename($iconItem->name, '.svg') }}"
+                             id="icon-{{ $iconItem->id }}"
+                             wire:model.live="form.icon">
+                      <img width="40" src="{{ asset('storage/icons/product-variant-detail-icons/'.$iconItem->name) }}"
+                           alt="">
+                    </label>
+                    <button type="button"
+                            class="btn btn-danger btn-sm position-absolute top-0 end-0 p-0 d-flex align-items-center justify-content-center"
+                            style="width: 18px; height: 18px; font-size: 10px; transform: translate(40%, -40%);"
+                            onclick="confirm('Vai tiešām vēlies dzēst ikonu?') || event.stopImmediatePropagation()"
+                            wire:click="destroyIcon({{ $iconItem->id }})">
+                      <i class="bi bi-x"></i>
+                    </button>
+                  </div>
                 @endforeach
               </div>
             </div>

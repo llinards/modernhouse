@@ -6,6 +6,7 @@ use App\Models\ProductVariant;
 use App\Models\ProductVariantDetail;
 use App\Models\ProductVariantDetailIcon;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class ProductVariantDetailService
 {
@@ -81,6 +82,21 @@ class ProductVariantDetailService
                 'language' => $language,
             ]);
         }
+    }
+
+    public function destroyIcon(ProductVariantDetailIcon $icon): bool
+    {
+        $iconName = basename($icon->name, '.svg');
+        $inUse = ProductVariantDetail::where('icon', $iconName)->exists();
+
+        if ($inUse) {
+            return false;
+        }
+
+        Storage::disk('public')->delete('icons/product-variant-detail-icons/' . $icon->name);
+        $icon->delete();
+
+        return true;
     }
 
     private function resolveIcon(array $data): ?string

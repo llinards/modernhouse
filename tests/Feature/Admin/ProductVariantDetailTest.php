@@ -154,6 +154,30 @@ describe('ProductVariantDetailService', function () {
             ->and($first->fresh()->order)->toBe(1);
     });
 
+    it('destroys an unused icon', function () {
+        $icon = ProductVariantDetailIcon::factory()->create(['name' => 'unused.svg']);
+        Storage::disk('public')->put('icons/product-variant-detail-icons/unused.svg', 'fake');
+
+        $result = $this->service->destroyIcon($icon);
+
+        expect($result)->toBeTrue()
+            ->and(ProductVariantDetailIcon::find($icon->id))->toBeNull();
+        Storage::disk('public')->assertMissing('icons/product-variant-detail-icons/unused.svg');
+    });
+
+    it('refuses to destroy an icon in use', function () {
+        $icon = ProductVariantDetailIcon::factory()->create(['name' => 'bed.svg']);
+        ProductVariantDetail::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'icon' => 'bed',
+        ]);
+
+        $result = $this->service->destroyIcon($icon);
+
+        expect($result)->toBeFalse()
+            ->and(ProductVariantDetailIcon::find($icon->id))->not->toBeNull();
+    });
+
     it('copies details from one variant to another', function () {
         $source = ProductVariant::factory()->create();
         ProductVariantDetail::factory()->create([

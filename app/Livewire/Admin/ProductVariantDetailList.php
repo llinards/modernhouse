@@ -91,6 +91,19 @@ class ProductVariantDetailList extends Component
         session()->flash('success', 'Dzēsts!');
     }
 
+    public function destroyIcon(int $iconId): void
+    {
+        $icon = ProductVariantDetailIcon::findOrFail($iconId);
+        $service = app(ProductVariantDetailService::class);
+
+        if ($service->destroyIcon($icon)) {
+            $this->loadIcons();
+            session()->flash('success', 'Ikona dzēsta!');
+        } else {
+            session()->flash('error', 'Ikonu nevar dzēst — tā tiek izmantota.');
+        }
+    }
+
     public function updateDetailOrder(array $orderedDetails): void
     {
         $service = app(ProductVariantDetailService::class);
