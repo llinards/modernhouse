@@ -7,11 +7,10 @@
     <div class="row justify-content-center">
       <div class="col-lg-8 col-12">
         <x-status-messages/>
-        <form action="/admin/{{ app()->getLocale() }}/product-variant" id="update-product-variant" method="POST"
+        <form action="{{ route('admin.product-variants.update', $productVariant) }}" id="update-product-variant" method="POST"
               enctype="multipart/form-data">
           @csrf
           @method('PATCH')
-          <input name="id" id="id" value="{{ $productVariant->id }}" class="visually-hidden">
           <div class="mb-3">
             <div class="form-check">
               <input class="form-check-input" type="checkbox"
@@ -109,13 +108,13 @@
             <p class="small">Maksimālais faila izmērs 50 MB un jābūt PDF.</p>
           </div>
           <div class="d-flex justify-content-end">
-              <a href="/admin/{{ app()->getLocale() }}" class="btn btn-dark">Atpakaļ</a>
+              <a href="{{ route('admin.products.index', ['locale' => app()->getLocale()]) }}" class="btn btn-dark">Atpakaļ</a>
               <button type="submit" form="update-product-variant"
                       class="btn btn-success mx-1">Atjaunot
               </button>
           </div>
         </form>
-        <form action="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/delete"
+        <form action="{{ route('admin.product-variants.destroy', $productVariant) }}"
               method="POST" onsubmit="return confirm('Vai tiešām vēlies dzēst? Visas bildes saistītas ar šo variantu arī tiks dzēstas.')">
           @csrf
           @method('DELETE')

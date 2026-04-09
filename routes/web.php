@@ -71,11 +71,11 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
   Route::delete('/news/{news:id}/delete', [NewsController::class, 'destroy']);
 
   /* Product Variants */
-  Route::get('/product-variant/create', [ProductVariantController::class, 'create']);
-  Route::post('/product-variant', [ProductVariantController::class, 'store']);
-  Route::get('/product-variant/{productVariant}/edit', [ProductVariantController::class, 'show']);
-  Route::patch('/product-variant', [ProductVariantController::class, 'update']);
-  Route::delete('/product-variant/{productVariant}/delete', [ProductVariantController::class, 'destroy']);
+  Route::get('/product-variant/create', [ProductVariantController::class, 'create'])->name('admin.product-variants.create');
+  Route::post('/product-variant', [ProductVariantController::class, 'store'])->name('admin.product-variants.store');
+  Route::get('/product-variant/{productVariant}/edit', [ProductVariantController::class, 'show'])->name('admin.product-variants.edit');
+  Route::patch('/product-variant/{productVariant}', [ProductVariantController::class, 'update'])->name('admin.product-variants.update');
+  Route::delete('/product-variant/{productVariant}/delete', [ProductVariantController::class, 'destroy'])->name('admin.product-variants.destroy');
 
   /* Product Variant Options */
   Route::get('/product-variant/{productVariant}/product-variant-options',

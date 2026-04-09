@@ -103,6 +103,26 @@ describe('Create product variant', function () {
                 'product-variant-images',
             ]);
     });
+
+    it('validates slug uniqueness when creating variant', function () {
+        $product = Product::factory()->create(['slug' => 'parent']);
+        ProductVariant::factory()->create(['product_id' => $product->id, 'slug' => 'duplicate-name']);
+        $imagePath = UploadedFile::fake()->image('img.jpg')->store('uploads/temp', 'public');
+
+        $this->actingAs($this->user)
+            ->post('/admin/lv/product-variant', [
+                'product-id' => $product->id,
+                'product-variant-name' => 'Duplicate Name',
+                'product-variant-basic-price' => null,
+                'product-variant-middle-price' => null,
+                'product-variant-full-price' => null,
+                'product-variant-living-area' => 40,
+                'product-variant-building-area' => 50,
+                'product-variant-description' => '<p>Desc</p>',
+                'product-variant-images' => [$imagePath],
+            ])
+            ->assertSessionHasErrors(['slug']);
+    });
 });
 
 describe('Update product variant', function () {
@@ -136,8 +156,7 @@ describe('Update product variant', function () {
 
     it('updates variant prices and areas', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 50000,
                 'product-variant-middle-price' => 60000,
@@ -162,8 +181,7 @@ describe('Update product variant', function () {
 
     it('renames variant directory when slug changes', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Renamed Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -180,8 +198,7 @@ describe('Update product variant', function () {
 
     it('toggles variant active status', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -200,8 +217,7 @@ describe('Update product variant', function () {
         $imagePath = UploadedFile::fake()->image('new.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -226,8 +242,7 @@ describe('Update product variant', function () {
         ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-b.jpg', 'order' => 1]);
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -251,8 +266,7 @@ describe('Update product variant', function () {
         ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'img-b.jpg', 'order' => 1]);
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -277,8 +291,7 @@ describe('Update product variant', function () {
         ProductVariantImage::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'remove.jpg', 'order' => 1]);
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -302,8 +315,7 @@ describe('Update product variant', function () {
         $newImagePath = UploadedFile::fake()->image('new.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -329,8 +341,7 @@ describe('Update product variant', function () {
         $newPlanPath = UploadedFile::fake()->image('plan-b.jpg')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -357,8 +368,7 @@ describe('Update product variant', function () {
         $newAttachmentPath = UploadedFile::fake()->create('new.pdf')->store('uploads/temp', 'public');
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -380,8 +390,7 @@ describe('Update product variant', function () {
 
     it('validates images required on update', function () {
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,
@@ -399,8 +408,7 @@ describe('Update product variant', function () {
         ProductVariantAttachment::factory()->create(['product_variant_id' => $this->variant->id, 'filename' => 'old.pdf']);
 
         $this->actingAs($this->user)
-            ->patch('/admin/lv/product-variant', [
-                'id' => $this->variant->id,
+            ->patch("/admin/lv/product-variant/{$this->variant->id}", [
                 'product-variant-name' => 'Original Variant',
                 'product-variant-basic-price' => 10000,
                 'product-variant-middle-price' => null,

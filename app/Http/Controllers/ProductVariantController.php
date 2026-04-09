@@ -7,11 +7,14 @@ use App\Http\Requests\UpdateProductVariantRequest;
 use App\Http\Services\ProductVariantService;
 use App\Models\Product;
 use App\Models\ProductVariant;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 
 class ProductVariantController extends Controller
 {
-  public function create()
+  public function create(): View
   {
     $products = Product::select('id')
                        ->with([
@@ -24,83 +27,100 @@ class ProductVariantController extends Controller
     return view('admin.product-variant.create', compact('products'));
   }
 
-  public function store(StoreProductVariantRequest $data, ProductVariantService $productVariantService)
+  public function store(StoreProductVariantRequest $request, ProductVariantService $productVariantService): RedirectResponse
   {
     try {
-      $productVariantService->addProductVariant($data);
-      $productVariantService->addTranslation($data);
-      $productVariantService->addImage($data['product-variant-images']);
-      if ($data->has(['product-variant-plan'])) {
-        $productVariantService->addPlan($data['product-variant-plan']);
-      }
-      if ($data->has(['product-variant-attachments'])) {
-        $productVariantService->addAttachment($data['product-variant-attachments']);
-      }
+      return DB::transaction(function () use ($request, $productVariantService) {
+        $productVariant = $productVariantService->addProductVariant($request);
 
-      return redirect('/admin/' . app()->getLocale())->with('success', 'Pievienots!');
+        $productVariantService->addTranslation(
+          $productVariant,
+          $request->input('product-variant-name'),
+          $request->input('product-variant-description'),
+        );
+
+        $productVariantService->addImage($productVariant, $request->input('product-variant-images'));
+
+        if ($request->has('product-variant-plan')) {
+          $productVariantService->addPlan($productVariant, $request->input('product-variant-plan'));
+        }
+
+        if ($request->has('product-variant-attachments')) {
+          $productVariantService->addAttachment($productVariant, $request->input('product-variant-attachments'));
+        }
+
+        return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
+                         ->with('success', 'Pievienots!');
+      });
     } catch (\Exception $e) {
-      if ($e->getCode() === '23000') {
-        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
-      }
-      Log::error($e);
+      Log::error('Product variant store failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function show(string $locale, ProductVariant $productVariant)
+  public function show(string $locale, ProductVariant $productVariant): View
   {
-    $product        = $productVariant->product;
-    $productVariant = ProductVariant::select('id', 'slug', 'is_active', 'price_basic', 'price_middle', 'price_full',
-      'living_area', 'building_area')
-                                    ->with([
-                                      'translations' => function ($query) {
-                                        $query->select('product_variant_id', 'name', 'description',
-                                          'language')->where('language',
-                                          app()->getLocale());
-                                      },
-                                      'productVariantImages',
-                                      'productVariantPlan' => fn ($query) => $query->where('language', app()->getLocale()),
-                                      'productVariantAttachments' => fn ($query) => $query->where('language', app()->getLocale()),
-                                    ])
-                                    ->findOrFail($productVariant->id);
+    $product = $productVariant->product;
+
+    $productVariant->load([
+      'translations' => function ($query) {
+        $query->select('product_variant_id', 'name', 'description', 'language')
+              ->where('language', app()->getLocale());
+      },
+      'productVariantImages',
+      'productVariantPlan' => fn ($query) => $query->where('language', app()->getLocale()),
+      'productVariantAttachments' => fn ($query) => $query->where('language', app()->getLocale()),
+    ]);
 
     return view('admin.product-variant.edit', compact('productVariant', 'product'));
   }
 
-  public function update(UpdateProductVariantRequest $data, ProductVariantService $productVariantService)
+  public function update(string $locale, ProductVariant $productVariant, UpdateProductVariantRequest $request, ProductVariantService $productVariantService): RedirectResponse
   {
     try {
-      $productVariantService->updateProductVariant($data);
-      $translation = $productVariantService->getTranslation();
-      if ($translation) {
-        $productVariantService->updateTranslation($translation, $data);
-      } else {
-        $productVariantService->addTranslation($data);
-      }
-      $productVariantService->syncImages($data->input('product-variant-images', []));
-      $productVariantService->syncPlans($data->input('product-variant-plan', []));
-      $productVariantService->syncAttachment($data->input('product-variant-attachments', []));
+      return DB::transaction(function () use ($productVariant, $request, $productVariantService) {
+        $productVariantService->updateProductVariant($productVariant, $request);
 
-      return back()->with('success', 'Atjaunots!');
+        $translation = $productVariantService->getTranslation($productVariant);
+        if ($translation) {
+          $productVariantService->updateTranslation(
+            $translation,
+            $request->input('product-variant-name'),
+            $request->input('product-variant-description'),
+          );
+        } else {
+          $productVariantService->addTranslation(
+            $productVariant,
+            $request->input('product-variant-name'),
+            $request->input('product-variant-description'),
+          );
+        }
+
+        $productVariantService->syncImages($productVariant, $request->input('product-variant-images', []));
+        $productVariantService->syncPlans($productVariant, $request->input('product-variant-plan', []));
+        $productVariantService->syncAttachment($productVariant, $request->input('product-variant-attachments', []));
+
+        return back()->with('success', 'Atjaunots!');
+      });
     } catch (\Exception $e) {
-      if ($e->getCode() === '23000') {
-        return back()->with('error', 'Kļūda! Šāds nosaukums jau eksistē.');
-      }
-      Log::error($e);
+      Log::error('Product variant update failed', ['exception' => $e, 'product_variant_id' => $productVariant->id]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function destroy(string $locale, ProductVariant $productVariant, ProductVariantService $productVariantService)
+  public function destroy(string $locale, ProductVariant $productVariant, ProductVariantService $productVariantService): RedirectResponse
   {
     try {
-      $productVariantService->destroyProductVariant($productVariant);
+      DB::transaction(function () use ($productVariant, $productVariantService) {
+        $productVariantService->destroyProductVariant($productVariant);
+      });
 
-      return redirect('/admin/' . app()->getLocale())->with('success', 'Dzēsts!');
+      return redirect()->route('admin.products.index', ['locale' => app()->getLocale()])
+                       ->with('success', 'Dzēsts!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant delete failed', ['exception' => $e, 'product_variant_id' => $productVariant->id]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
