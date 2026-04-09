@@ -21,13 +21,11 @@
     <div class="splide__track">
       <ul class="splide__list">
         @foreach($productVariant->productVariantImages as $image)
-          @if($image->product_variant_id === $productVariant->id)
             <li class="splide__slide">
               <img class="img-fluid"
                    data-splide-lazy="{{ asset('storage/product-images/'.$product->slug.'/'.$productVariant->slug.'/'.$image->filename) }}"
                    alt="{{ $productVariant->{'name_'.app()->getLocale()} }}"/>
             </li>
-          @endif
         @endforeach
       </ul>
     </div>
