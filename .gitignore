@@ -14,5 +14,6 @@ yarn-error.log
 /.idea
 /.vscode
 /storage/app/public/introduction-video
+/storage/app/livewire-tmp
 .DS_Store
 /public/build
