@@ -1,4 +1,6 @@
-<input class="form-control file-upload" type="file" id="{{ $name }}" name="{{ $name }}[]" required="{{ $required }}">
+<div @class(['filepond-grid' => str_contains($name, 'product-variant-images')])>
+  <input class="form-control file-upload" type="file" id="{{ $name }}" name="{{ $name }}[]" required="{{ $required }}">
+</div>
 
 <script type="module">
   const fileUpload = document.getElementById('{{$name}}');
@@ -53,8 +55,7 @@
       labelIdle: 'Pievienot bildes',
       maxFileSize: '500KB',
       acceptedFileTypes: ['image/*'],
-      allowMultiple: true,
-      className: 'filepond-grid'
+      allowMultiple: true
     },
     "product-variant-plan": {
       labelIdle: 'Pievienot plānojumu',
