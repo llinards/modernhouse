@@ -35,10 +35,10 @@
   "contact us": "Saziņai",
   "all rights reserved": "Visas tiesības rezervētas.",
   "choose order contact title 1": "izvēlies",
-  "choose order contact title 2": "pasūti",
+  "choose order contact title 2": "piesakies konsultācijai",
   "choose order contact title 3": "sazināmies",
   "choose order contact text 1": "Iepazīsties un izvēlies sev labāko variantu.",
-  "choose order contact text 2": "Veic pasūtījumu mūsu pieteikuma anketā.",
+  "choose order contact text 2": "Aizpildi mūsu pieteikuma anketu.",
   "choose order contact text 3": "Mēs ar Tevi sazināsimies!",
   "product variant": "Variants",
   "product variant option": "Komplektācija",
@@ -113,5 +113,7 @@
   "furniture title five": "MODERN HOUSE<br/>FURNITURE KONCEPTS",
   "furniture content five": "Modern House Furniture ir mūsdienīgs mēbeļu ražotājs, kas specializējas\nindividuālu interjera risinājumu izstrādē. Mūsu koncepts balstās uz trīs\npamatprincipiem: kvalitāte, personalizācija un dizains.",
   "furniture content five two": "Mēs radām mēbeles, kas pielāgotas katra klienta dzīvesveidam un telpas\nspecifikai – no virtuves iekārtām līdz iebūvētiem skapjiem un dizaina\nakcentiem. Katrs projekts tiek veidots ciešā sadarbībā ar klientu,\napvienojot funkcionalitāti ar estētiku.",
-  "Publicēts:": "Publicēts:"
+  "Publicēts:": "Publicēts:",
+  "MH galdniecība": "MH Galdniecība",
+  "Projektu katalogs": "Projektu katalogs"
 }

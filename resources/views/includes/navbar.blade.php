@@ -12,6 +12,16 @@
           <a class="nav-link index text-center p-3"
              href="/{{app()->getLocale()}}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
         @endforeach
+        <a class="nav-link index text-center p-3"
+           href="/{{app()->getLocale()}}/modern-house-furniture">@lang('MH galdniecība')</a>
+        @if(app()->getLocale() === 'lv')
+          <a class="nav-link index text-center p-3" target="_blank"
+             href="https://modern-house.lv/storage/news/modern-house-projektu-katalogs/MH_Projektu_Katalogs.pdf">@lang('Projektu katalogs')</a>
+        @endif
+        @if(app()->getLocale() === 'en')
+          <a class="nav-link index text-center p-3" target="_blank"
+             href="https://modern-house.lv/storage/news/project-catalogues/MH_Project_Catalogue.pdf">@lang('Projektu katalogs')</a>
+        @endif
         {{--        @if(app()->getLocale() === 'lv')--}}
         {{--          <a class="nav-link index text-center p-3"--}}
         {{--             href="/lv/modern-house-maju-marsruts-2025" target="_blank">Atvērtās durvju dienas 2025</a>--}}
