@@ -1,3 +1,4 @@
+@props(['title' => null, 'description' => null, 'ogImage' => null, 'ogType' => 'website', 'robots' => null])
 <!DOCTYPE html>
 <html class="h-100 w-100 overflow-x-hidden" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
