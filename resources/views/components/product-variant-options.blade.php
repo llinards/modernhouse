@@ -6,12 +6,12 @@
           <h2 class="accordion-header">
             <button class="accordion-button collapsed variant-button" type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#{{Str::slug($option->option_title)}}"
-                    aria-expanded="false" aria-controls="{{Str::slug($option->option_title)}}">
+                    data-bs-target="#option-{{ $option->id }}"
+                    aria-expanded="false" aria-controls="option-{{ $option->id }}">
               {{ $option->option_title }}
             </button>
           </h2>
-          <div id="{{Str::slug($option->option_title)}}"
+          <div id="option-{{ $option->id }}"
                class="accordion-collapse collapse product-variant-option-content">
             <div class="accordion-body px-md-4 p-2">
               <table class="table">

@@ -131,4 +131,23 @@ describe('ShowProduct with variant details', function () {
             ->assertSee('Ārsienas')
             ->assertSee('Koka karkass');
     });
+
+    it('renders unique accordion ids for options with identical titles', function () {
+        $first = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant1->id,
+            'option_title' => 'Ārsienas',
+            'language' => 'lv',
+        ]);
+        $second = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant1->id,
+            'option_title' => 'Ārsienas',
+            'language' => 'lv',
+        ]);
+
+        Livewire::test(ShowProduct::class, [
+            'product' => $this->product,
+        ])
+            ->assertSee('option-'.$first->id)
+            ->assertSee('option-'.$second->id);
+    });
 });
