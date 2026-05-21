@@ -14,6 +14,12 @@
                          :name="'product-variant-options-excel'"/>
           <button type="submit" class="btn btn-success">Augšupielādēt</button>
         </form>
+
+        @include('admin.product-variant.product-variant-options.copy-modal', ['productVariant' => $productVariant, 'availableVariants' => $availableVariants])
+        <button type="button" class="btn btn-outline-dark mt-2" data-bs-toggle="modal"
+                data-bs-target="#copy-product-variant-options-modal">
+          <i class="bi bi-copy"></i> Kopēt opcijas no cita varianta
+        </button>
       </div>
     </div>
     <div class="row justify-content-center mt-5">

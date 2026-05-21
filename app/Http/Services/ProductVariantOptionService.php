@@ -75,4 +75,39 @@ class ProductVariantOptionService
   {
     $productVariant->productVariantOptions()->delete();
   }
+
+  public function copyFromVariant(ProductVariant $source, ProductVariant $target, string $language): void
+  {
+    $maxOrder = ProductVariantOption::withoutGlobalScope('order')
+                                    ->where('product_variant_id', $target->id)
+                                    ->where('language', $language)
+                                    ->max('order');
+
+    $nextOrder = $maxOrder !== null ? $maxOrder + 1 : 0;
+
+    $sourceOptions = ProductVariantOption::where('product_variant_id', $source->id)
+                                         ->where('language', $language)
+                                         ->with('productVariantOptionDetails')
+                                         ->get();
+
+    foreach ($sourceOptions as $option) {
+      $newOption = ProductVariantOption::create([
+        'option_title'       => $option->option_title,
+        'product_variant_id' => $target->id,
+        'language'           => $language,
+        'order'              => $nextOrder++,
+      ]);
+
+      foreach ($option->productVariantOptionDetails as $detail) {
+        ProductVariantOptionDetail::create([
+          'product_variant_option_id' => $newOption->id,
+          'detail'                    => $detail->detail,
+          'has_in_basic'              => $detail->has_in_basic,
+          'has_in_middle'             => $detail->has_in_middle,
+          'has_in_full'               => $detail->has_in_full,
+          'order'                     => $detail->order,
+        ]);
+      }
+    }
+  }
 }

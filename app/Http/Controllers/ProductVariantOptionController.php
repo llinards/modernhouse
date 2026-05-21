@@ -30,7 +30,14 @@ class ProductVariantOptionController extends Controller
 
   public function index(string $locale, ProductVariant $productVariant): View
   {
-    return view('admin.product-variant.product-variant-options.index', compact('productVariant'));
+    $availableVariants = ProductVariant::where('id', '!=', $productVariant->id)
+                                       ->with([
+                                         'translations'         => fn ($query) => $query->where('language', app()->getLocale()),
+                                         'product.translations' => fn ($query) => $query->where('language', app()->getLocale()),
+                                       ])
+                                       ->get();
+
+    return view('admin.product-variant.product-variant-options.index', compact('productVariant', 'availableVariants'));
   }
 
   public function import(Request $data): RedirectResponse
@@ -104,6 +111,29 @@ class ProductVariantOptionController extends Controller
       return back()->with('success', 'Opcija atjaunota!');
     } catch (\Exception $e) {
       Log::error('Product variant option detail update failed', ['exception' => $e]);
+
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function copyProductVariantOptions(string $locale, ProductVariant $productVariant, Request $data): RedirectResponse
+  {
+    $data->validate([
+      'source_variant_id' => ['required', 'exists:product_variants,id'],
+    ]);
+
+    try {
+      $source = ProductVariant::findOrFail($data->input('source_variant_id'));
+
+      DB::transaction(fn () => $this->productVariantOptionService->copyFromVariant(
+        $source,
+        $productVariant,
+        app()->getLocale(),
+      ));
+
+      return back()->with('success', 'Opcijas nokopētas!');
+    } catch (\Exception $e) {
+      Log::error('Product variant option copy failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }

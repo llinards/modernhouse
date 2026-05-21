@@ -242,6 +242,69 @@ describe('ProductVariantOptionService', function () {
         expect(ProductVariantOption::find($option->id))->toBeNull()
             ->and(ProductVariantOptionDetail::find($detail->id))->toBeNull();
     });
+
+    it('copies options and their details from another variant', function () {
+        $source = ProductVariant::factory()->create();
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'option_title' => 'Walls',
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Concrete',
+        ]);
+
+        $this->service->copyFromVariant($source, $this->variant, 'lv');
+
+        $copied = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
+
+        expect($copied)->toHaveCount(1)
+            ->and($copied->first()->option_title)->toBe('Walls')
+            ->and($copied->first()->productVariantOptionDetails)->toHaveCount(1)
+            ->and($copied->first()->productVariantOptionDetails->first()->detail)->toBe('Concrete');
+    });
+
+    it('appends copied options after existing ones', function () {
+        ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'option_title' => 'Existing',
+            'order' => 0,
+            'language' => 'lv',
+        ]);
+
+        $source = ProductVariant::factory()->create();
+        ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'option_title' => 'Copied',
+            'order' => 0,
+            'language' => 'lv',
+        ]);
+
+        $this->service->copyFromVariant($source, $this->variant, 'lv');
+
+        $options = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
+
+        expect($options)->toHaveCount(2)
+            ->and($options->firstWhere('option_title', 'Existing')->order)->toBe(0)
+            ->and($options->firstWhere('option_title', 'Copied')->order)->toBe(1);
+    });
+
+    it('only copies options in the given language', function () {
+        $source = ProductVariant::factory()->create();
+        ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'language' => 'en',
+        ]);
+
+        $this->service->copyFromVariant($source, $this->variant, 'lv');
+
+        expect(ProductVariantOption::where('product_variant_id', $this->variant->id)->count())->toBe(1);
+    });
 });
 
 describe('ProductVariantOptionImport', function () {
@@ -447,7 +510,8 @@ describe('Product variant option routes', function () {
         $this->actingAs($this->user)
             ->get(route('product-variant-options.index', ['locale' => 'lv', 'productVariant' => $this->variant->id]))
             ->assertSuccessful()
-            ->assertSeeLivewire(ProductVariantOptionList::class);
+            ->assertSeeLivewire(ProductVariantOptionList::class)
+            ->assertSee('Kopēt opcijas no cita varianta');
     });
 
     it('redirects guests away from the options page', function () {
@@ -598,5 +662,32 @@ describe('Product variant option routes', function () {
             ->assertSessionHas('success');
 
         Excel::assertImported(storage_path('app/public/options.xlsx'));
+    });
+
+    it('copies options from another variant via the copy route', function () {
+        $source = ProductVariant::factory()->create();
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create(['product_variant_option_id' => $option->id]);
+
+        $this->actingAs($this->user)
+            ->post(route('product-variant-options.copy', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [
+                'source_variant_id' => $source->id,
+            ])
+            ->assertRedirect()
+            ->assertSessionHas('success');
+
+        $copied = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
+
+        expect($copied)->toHaveCount(1)
+            ->and($copied->first()->productVariantOptionDetails)->toHaveCount(1);
+    });
+
+    it('validates the source variant on copy', function () {
+        $this->actingAs($this->user)
+            ->post(route('product-variant-options.copy', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [])
+            ->assertSessionHasErrors('source_variant_id');
     });
 });
