@@ -10,39 +10,50 @@
     </button>
   </div>
 
-  {{-- Sortable detail list --}}
-  <div wire:sortable="updateDetailOrder">
-    @foreach($details as $detail)
-      <div wire:key="detail-{{ $detail->id }}" wire:sortable.item="{{ $detail->id }}"
-           class="d-flex align-items-center mb-2 p-2 border rounded">
-        <div wire:sortable.handle class="me-2" style="cursor: grab;">
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <img width="25" src="{{ asset('storage/icons/product-variant-detail-icons/'.$detail->icon.'.svg') }}" alt=""
-             class="me-2">
-        <div class="flex-grow-1">
-          <strong>{{ $detail->name }}</strong>
-          <span class="ms-2">
+  @if($details->isEmpty())
+    <p class="text-muted text-center">Nav pievienotu detaļu.</p>
+  @else
+    <table class="table table-hover align-middle" style="table-layout: fixed">
+      <thead>
+      <tr>
+        <th style="width: 40px"></th>
+        <th scope="col">Nosaukums</th>
+        <th scope="col" style="width: 110px">Pieejamība</th>
+        <th scope="col" style="width: 90px">Skaits</th>
+        <th style="width: 110px"></th>
+      </tr>
+      </thead>
+      <tbody wire:sortable="updateDetailOrder">
+      @foreach($details as $detail)
+        <tr wire:key="detail-{{ $detail->id }}" wire:sortable.item="{{ $detail->id }}">
+          <td wire:sortable.handle>
+            <i class="bi bi-arrows-move"></i>
+          </td>
+          <td>
+            <img width="25" src="{{ asset('storage/icons/product-variant-detail-icons/'.$detail->icon.'.svg') }}"
+                 alt="" class="me-2">
+            {{ $detail->name }}
+          </td>
+          <td>
             <img width="20"
                  src="{{ $detail->hasThis ? asset('storage/icons/check.svg') : asset('storage/icons/negative.svg') }}"
                  alt="">
-          </span>
-          <span class="ms-2 text-muted">Skaits: {{ $detail->count > 0 ? $detail->count : '-' }}</span>
-        </div>
-        <button type="button" class="btn btn-dark btn-sm mx-1" wire:click="edit({{ $detail->id }})">
-          <i class="bi bi-pencil text-white"></i>
-        </button>
-        <button type="button" class="btn btn-danger btn-sm"
-                onclick="confirm('Vai tiešām vēlies dzēst ierakstu?') || event.stopImmediatePropagation()"
-                wire:click="destroy({{ $detail->id }})">
-          <i class="bi bi-trash text-white"></i>
-        </button>
-      </div>
-    @endforeach
-  </div>
-
-  @if($details->isEmpty())
-    <p class="text-muted text-center">Nav pievienotu detaļu.</p>
+          </td>
+          <td>{{ $detail->count > 0 ? $detail->count : '-' }}</td>
+          <td>
+            <button type="button" class="btn" title="Rediģēt" wire:click="edit({{ $detail->id }})">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button type="button" class="btn" title="Dzēst"
+                    onclick="confirm('Vai tiešām vēlies dzēst ierakstu?') || event.stopImmediatePropagation()"
+                    wire:click="destroy({{ $detail->id }})">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      @endforeach
+      </tbody>
+    </table>
   @endif
 
   {{-- Add/Edit Modal --}}
