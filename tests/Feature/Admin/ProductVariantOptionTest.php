@@ -457,6 +457,50 @@ describe('ProductVariantOptionList Livewire component', function () {
         }
     });
 
+    it('shows a details-count badge on each option row', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->count(2)->create([
+            'product_variant_option_id' => $option->id,
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->assertSeeHtml('<span class="badge bg-secondary">2</span>');
+    });
+
+    it('shows package-tier indicators on detail rows', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'has_in_basic' => false,
+            'has_in_middle' => false,
+            'has_in_full' => true,
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->assertSee('product-variant-option-detail')
+            ->assertSeeHtml('<span class="badge bg-light text-muted" title="Bāzes komplektācija">Bāzes</span>')
+            ->assertSeeHtml('<span class="badge bg-success" title="Pilnā komplektācija">Pilnā</span>');
+    });
+
+    it('renders a collapse target for each option', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->assertSee('option-details-'.$option->id);
+    });
+
     it('filters options by the current language on mount', function () {
         ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant->id,

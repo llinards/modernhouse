@@ -38,6 +38,7 @@ class ProductVariantOptionList extends Component
     $this->productVariant        = $productVariant;
     $this->productVariantOptions = ProductVariantOption::where('product_variant_id', $this->productVariant->id)
                                                        ->where('language', app()->getLocale())
+                                                       ->with('productVariantOptionDetails')
                                                        ->get();
   }
 
