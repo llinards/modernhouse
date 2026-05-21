@@ -1,57 +1,69 @@
 <x-layouts.admin>
-  <x-slot name="header">
-    Tehniskā informācija
-  </x-slot>
-  <x-slot name="content">
-    <div class="row justify-content-center">
-      <div class="col-lg-7 col-12">
-        <form action="{{ route('product-variant-options.import', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
-              method="POST">
-          @csrf
-          <input name="product-variant-id" id="id" value="{{$productVariant->id}}"
-                 class="visually-hidden">
-          <x-file-upload :required="true"
-                         :name="'product-variant-options-excel'"/>
-          <button type="submit" class="btn btn-success">Augšupielādēt</button>
-        </form>
+    <x-slot name="header">
+        Tehniskā informācija
+    </x-slot>
+    <x-slot name="content">
 
-        @include('admin.product-variant.product-variant-options.copy-modal', ['productVariant' => $productVariant, 'availableVariants' => $availableVariants])
-        <button type="button" class="btn btn-outline-dark mt-2" data-bs-toggle="modal"
-                data-bs-target="#copy-product-variant-options-modal">
-          <i class="bi bi-copy"></i> Kopēt opcijas no cita varianta
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center mt-5">
-      @if(count($productVariant->productVariantOptions) === 0)
-        <div class="col-lg-7 col-12">
-          <div class="alert alert-secondary" role="alert">
-            Izskatās, ka pagaidām tehniskā informācija nav pievienota.
-          </div>
+        <div class="row justify-content-center mt-5">
+            <div class="mb-3">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#store-product-variant-option-modal">
+                    Pievienot
+                </button>
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                    data-bs-target="#copy-product-variant-options-modal">
+                    <i class="bi bi-copy"></i> Kopēt no cita varianta
+                </button>
+            </div>
+            @if (count($productVariant->productVariantOptions) === 0)
+                <div class="col-lg-7 col-12">
+                    <div class="alert alert-secondary" role="alert">
+                        Izskatās, ka pagaidām tehniskā informācija nav pievienota.
+                    </div>
+                </div>
+            @else
+                <div class="col-12">
+                    @include('admin.product-variant.product-variant-options.store-modal', [
+                        'productVariant' => $productVariant,
+                    ])
+                    <livewire:admin.product-variant-option-list :productVariant="$productVariant" />
+                    <div class="d-flex gap-2 justify-content-center mt-3">
+                        <a href="/admin/{{ app()->getLocale() }}/product-variant/{{ $productVariant->id }}/edit"
+                            class="btn btn-dark">Atpakaļ</a>
+                        {{-- <form
+                            action="{{ route('product-variant-options.destroy', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button
+                                onclick="return confirm('Vai tiešām vēlies dzēst ierakstu visu tehnisko informāciju? TIKS DZĒSTA INFORMĀCIJA VISĀS VALODĀS');"
+                                class="btn btn-danger" type="submit">
+                                Dzēst visu tehnisko informāciju
+                            </button>
+                        </form> --}}
+                    </div>
+                </div>
+            @endif
         </div>
-      @else
-        <div class="col-12">
-          @include('admin.product-variant.product-variant-options.store-modal', ['productVariant' => $productVariant])
-          <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal"
-                  data-bs-target="#store-product-variant-option-modal">
-            <i class="bi bi-plus text-white"></i> Pievienot kategoriju
-          </button>
-          <livewire:admin.product-variant-option-list :productVariant="$productVariant"/>
-          <div class="d-flex justify-content-center">
-            <form
-              action="{{route('product-variant-options.destroy', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id])}}"
-              method="POST">
-              @csrf
-              @method('DELETE')
-              <button onclick="return confirm('Vai tiešām vēlies dzēst ierakstu visu tehnisko informāciju?');"
-                      class="btn btn-danger"
-                      type="submit">
-                Dzēst visu tehnisko informāciju
-              </button>
-            </form>
-          </div>
+        <hr class="my-4" />
+        <h5 class="mb-3">Pievienot tehniskās detaļas no Excel faila</h5>
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-12">
+                <form
+                    action="{{ route('product-variant-options.import', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
+                    method="POST">
+                    @csrf
+                    <input name="product-variant-id" id="id" value="{{ $productVariant->id }}"
+                        class="visually-hidden">
+                    <x-file-upload :required="true" :name="'product-variant-options-excel'" />
+                    <button type="submit" class="btn btn-success">Augšupielādēt</button>
+                </form>
+
+                @include('admin.product-variant.product-variant-options.copy-modal', [
+                    'productVariant' => $productVariant,
+                    'availableVariants' => $availableVariants,
+                ])
+            </div>
         </div>
-      @endif
-    </div>
-  </x-slot>
+    </x-slot>
 </x-layouts.admin>

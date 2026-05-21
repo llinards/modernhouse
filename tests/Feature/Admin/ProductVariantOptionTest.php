@@ -468,7 +468,7 @@ describe('ProductVariantOptionList Livewire component', function () {
 
         Livewire::actingAs($this->user)
             ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSeeHtml('<span class="badge bg-secondary">2</span>');
+            ->assertSeeHtml('class="badge bg-secondary">2</span>');
     });
 
     it('shows package-tier indicators on detail rows', function () {
@@ -483,10 +483,13 @@ describe('ProductVariantOptionList Livewire component', function () {
             'has_in_full' => true,
         ]);
 
-        Livewire::actingAs($this->user)
+        $html = Livewire::actingAs($this->user)
             ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSeeHtml('<span class="badge bg-light text-muted" title="Bāzes komplektācija">Bāzes</span>')
-            ->assertSeeHtml('<span class="badge bg-success" title="Pilnā komplektācija">Pilnā</span>');
+            ->html();
+
+        expect($html)
+            ->toMatch('/class="badge bg-light text-muted"\s+title="Bāzes komplektācija">Bāzes/')
+            ->and($html)->toMatch('/class="badge bg-success"\s+title="Pilnā komplektācija">Pilnā/');
     });
 
     it('renders a collapse target for each option', function () {
