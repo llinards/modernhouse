@@ -166,12 +166,3 @@
 :not(.collapsed) > .bi-chevron-down {
   display: none;
 }
-
-.product-variant-option-detail {
-  background-color: #f8f9fa;
-  transition: background-color .15s ease-in-out;
-}
-
-.product-variant-option-detail:hover {
-  background-color: #eceef0;
-}

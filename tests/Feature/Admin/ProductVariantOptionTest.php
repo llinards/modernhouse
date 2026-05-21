@@ -485,7 +485,6 @@ describe('ProductVariantOptionList Livewire component', function () {
 
         Livewire::actingAs($this->user)
             ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSee('product-variant-option-detail')
             ->assertSeeHtml('<span class="badge bg-light text-muted" title="Bāzes komplektācija">Bāzes</span>')
             ->assertSeeHtml('<span class="badge bg-success" title="Pilnā komplektācija">Pilnā</span>');
     });

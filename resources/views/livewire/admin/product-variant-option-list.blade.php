@@ -50,24 +50,26 @@
       <tr wire:key="option-details-row-{{ $productVariantOption->id }}"
           id="option-details-{{ $productVariantOption->id }}" class="collapse">
         <td colspan="4" class="p-0">
-          <div class="px-3 py-2">
+          <div class="p-2">
             @include('admin.product-variant.product-variant-options.product-variant-option-details.store-modal', ['productVariantOption' => $productVariantOption])
-            <button type="button" class="btn btn-success btn-sm mb-2" data-bs-toggle="modal"
+            <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal"
                     data-bs-target="#store-product-variant-option-detail-modal-{{ $productVariantOption->id }}">
               <i class="bi bi-plus text-white"></i> Pievienot ierakstu
             </button>
-            <ul wire:sortable-group.item-group="{{ $productVariantOption->id }}" class="list-unstyled m-0">
-              @foreach($productVariantOption->productVariantOptionDetails as $detail)
-                <li wire:key="option-detail-{{ $detail->id }}"
-                    wire:sortable-group.item="{{ $detail->id }}"
-                    class="product-variant-option-detail d-flex align-items-center gap-2 py-1 px-2 border-top">
+          </div>
+          <table class="table table-hover table-light align-middle m-0" style="table-layout: fixed">
+            <tbody wire:sortable-group.item-group="{{ $productVariantOption->id }}">
+            @foreach($productVariantOption->productVariantOptionDetails as $detail)
+              <tr wire:key="option-detail-{{ $detail->id }}"
+                  wire:sortable-group.item="{{ $detail->id }}">
+                <td style="width: 40px" wire:sortable-group.handle>
+                  <i class="bi bi-arrows-move"></i>
+                </td>
+                <td>
                   @include('admin.product-variant.product-variant-options.product-variant-option-details.edit-modal', ['detail' => $detail])
-                  <span wire:sortable-group.handle>
-                    <i class="bi bi-arrows-move"></i>
-                  </span>
-                  <span class="flex-grow-1">
-                    <i class="bi bi-arrow-return-right text-muted me-1"></i>{{ $detail->detail }}
-                  </span>
+                  <i class="bi bi-arrow-return-right text-muted me-1"></i>{{ $detail->detail }}
+                </td>
+                <td style="width: 240px">
                   @unless(str_contains($detail->detail, '*'))
                     <span class="d-flex gap-1">
                       <span class="badge {{ $detail->has_in_basic ? 'bg-success' : 'bg-light text-muted' }}" title="Bāzes komplektācija">Bāzes</span>
@@ -75,26 +77,27 @@
                       <span class="badge {{ $detail->has_in_full ? 'bg-success' : 'bg-light text-muted' }}" title="Pilnā komplektācija">Pilnā</span>
                     </span>
                   @endunless
-                  <span class="text-nowrap">
-                    <button type="button" class="btn btn-sm" title="Rediģēt" data-bs-toggle="modal"
-                            data-bs-target="#edit-product-variant-option-detail-modal-{{ $detail->id }}">
-                      <i class="bi bi-pencil-square"></i>
+                </td>
+                <td style="width: 110px">
+                  <button type="button" class="btn btn-sm" title="Rediģēt" data-bs-toggle="modal"
+                          data-bs-target="#edit-product-variant-option-detail-modal-{{ $detail->id }}">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <form
+                    action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['locale' => app()->getLocale(), 'productVariantOptionDetail' => $detail->id]) }}"
+                    method="POST" class="d-inline"
+                    onsubmit="return confirm('Vai tiešām vēlies dzēst ierakstu?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm" title="Dzēst">
+                      <i class="bi bi-trash"></i>
                     </button>
-                    <form
-                      action="{{ route('product-variant-options.destroy-product-variant-option-detail', ['locale' => app()->getLocale(), 'productVariantOptionDetail' => $detail->id]) }}"
-                      method="POST" class="d-inline"
-                      onsubmit="return confirm('Vai tiešām vēlies dzēst ierakstu?');">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm" title="Dzēst">
-                        <i class="bi bi-trash"></i>
-                      </button>
-                    </form>
-                  </span>
-                </li>
-              @endforeach
-            </ul>
-          </div>
+                  </form>
+                </td>
+              </tr>
+            @endforeach
+            </tbody>
+          </table>
         </td>
       </tr>
     @endforeach
