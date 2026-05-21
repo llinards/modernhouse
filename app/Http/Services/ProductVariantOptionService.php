@@ -3,61 +3,75 @@
 namespace App\Http\Services;
 
 
+use App\Http\Requests\ProductVariantOptionDetailRequest;
+use App\Http\Requests\ProductVariantOptionRequest;
+use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 
 class ProductVariantOptionService
 {
-  public function storeProductVariantOption(object $data): void
+  public function storeProductVariantOption(ProductVariantOptionRequest $request): void
   {
+    $maxOrder = ProductVariantOption::withoutGlobalScope('order')
+                                    ->where('product_variant_id', $request->input('id'))
+                                    ->where('language', app()->getLocale())
+                                    ->max('order');
+
     ProductVariantOption::create([
-      'product_variant_id' => $data['id'],
-      'option_title'       => $data['product_variant_option'],
+      'product_variant_id' => $request->input('id'),
+      'option_title'       => $request->input('product_variant_option'),
       'language'           => app()->getLocale(),
+      'order'              => $maxOrder !== null ? $maxOrder + 1 : 0,
     ]);
   }
 
-  public function storeProductVariantOptionDetail(object $data): void
+  public function storeProductVariantOptionDetail(ProductVariantOptionDetailRequest $request): void
   {
+    $maxOrder = ProductVariantOptionDetail::withoutGlobalScope('order')
+                                          ->where('product_variant_option_id', $request->input('id'))
+                                          ->max('order');
+
     ProductVariantOptionDetail::create([
-      'product_variant_option_id' => $data['id'],
-      'detail'                    => $data['product_variant_option_detail'],
-      'has_in_basic'              => isset($data['has_in_basic']),
-      'has_in_middle'             => isset($data['has_in_middle']),
-      'has_in_full'               => isset($data['has_in_full']),
+      'product_variant_option_id' => $request->input('id'),
+      'detail'                    => $request->input('product_variant_option_detail'),
+      'has_in_basic'              => $request->boolean('has_in_basic'),
+      'has_in_middle'             => $request->boolean('has_in_middle'),
+      'has_in_full'               => $request->boolean('has_in_full'),
+      'order'                     => $maxOrder !== null ? $maxOrder + 1 : 0,
     ]);
   }
 
-  public function updateProductVariantOption(object $data): void
+  public function updateProductVariantOption(ProductVariantOptionRequest $request): void
   {
-    $productVariantOption = ProductVariantOption::findOrFail($data['id']);
+    $productVariantOption = ProductVariantOption::findOrFail($request->input('id'));
     $productVariantOption->update([
-      'option_title' => $data['product_variant_option'],
+      'option_title' => $request->input('product_variant_option'),
     ]);
   }
 
-  public function updateProductVariantOptionDetail(object $data): void
+  public function updateProductVariantOptionDetail(ProductVariantOptionDetailRequest $request): void
   {
-    $productVariantOptionDetail = ProductVariantOptionDetail::findOrFail($data['id']);
+    $productVariantOptionDetail = ProductVariantOptionDetail::findOrFail($request->input('id'));
     $productVariantOptionDetail->update([
-      'detail'        => $data['product_variant_option_detail'],
-      'has_in_basic'  => isset($data['has_in_basic']),
-      'has_in_middle' => isset($data['has_in_middle']),
-      'has_in_full'   => isset($data['has_in_full']),
+      'detail'        => $request->input('product_variant_option_detail'),
+      'has_in_basic'  => $request->boolean('has_in_basic'),
+      'has_in_middle' => $request->boolean('has_in_middle'),
+      'has_in_full'   => $request->boolean('has_in_full'),
     ]);
   }
 
-  public function destroyProductVariantOption(object $productVariantOption): void
+  public function destroyProductVariantOption(ProductVariantOption $productVariantOption): void
   {
     $productVariantOption->delete();
   }
 
-  public function destroyProductVariantOptionDetail(object $productVariantOptionDetail): void
+  public function destroyProductVariantOptionDetail(ProductVariantOptionDetail $productVariantOptionDetail): void
   {
     $productVariantOptionDetail->delete();
   }
 
-  public function destroyProductVariantOptions(object $productVariant): void
+  public function destroyProductVariantOptions(ProductVariant $productVariant): void
   {
     $productVariant->productVariantOptions()->delete();
   }

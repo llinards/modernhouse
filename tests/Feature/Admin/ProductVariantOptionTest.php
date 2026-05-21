@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Requests\ProductVariantOptionDetailRequest;
+use App\Http\Requests\ProductVariantOptionRequest;
 use App\Http\Services\ProductVariantOptionService;
 use App\Imports\ProductVariantOptionImport;
 use App\Livewire\Admin\ProductVariantOptionList;
@@ -8,7 +10,6 @@ use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
 use Maatwebsite\Excel\Facades\Excel;
@@ -90,7 +91,7 @@ describe('ProductVariantOptionService', function () {
     });
 
     it('stores an option with the current locale as language', function () {
-        $this->service->storeProductVariantOption(new Request([
+        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
             'id' => $this->variant->id,
             'product_variant_option' => 'Ārsienas',
         ]));
@@ -105,7 +106,7 @@ describe('ProductVariantOptionService', function () {
     it('stores an option detail with package flags true when keys are present', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(new Request([
+        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
             'id' => $option->id,
             'product_variant_option_detail' => 'Concrete walls',
             'has_in_basic' => 'on',
@@ -124,7 +125,7 @@ describe('ProductVariantOptionService', function () {
     it('stores an option detail with flags false when checkbox keys are absent', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(new Request([
+        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
             'id' => $option->id,
             'product_variant_option_detail' => 'Optional extra',
         ]));
@@ -136,10 +137,44 @@ describe('ProductVariantOptionService', function () {
             ->and($detail->has_in_full)->toBeFalsy();
     });
 
+    it('assigns sequential order when storing options', function () {
+        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
+            'id' => $this->variant->id,
+            'product_variant_option' => 'First',
+        ]));
+        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
+            'id' => $this->variant->id,
+            'product_variant_option' => 'Second',
+        ]));
+
+        $options = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
+
+        expect($options->firstWhere('option_title', 'First')->order)->toBe(0)
+            ->and($options->firstWhere('option_title', 'Second')->order)->toBe(1);
+    });
+
+    it('assigns sequential order when storing option details', function () {
+        $option = ProductVariantOption::factory()->create();
+
+        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
+            'id' => $option->id,
+            'product_variant_option_detail' => 'First',
+        ]));
+        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
+            'id' => $option->id,
+            'product_variant_option_detail' => 'Second',
+        ]));
+
+        $details = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->get();
+
+        expect($details->firstWhere('detail', 'First')->order)->toBe(0)
+            ->and($details->firstWhere('detail', 'Second')->order)->toBe(1);
+    });
+
     it('updates an option title', function () {
         $option = ProductVariantOption::factory()->create(['option_title' => 'Old Title']);
 
-        $this->service->updateProductVariantOption(new Request([
+        $this->service->updateProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
             'id' => $option->id,
             'product_variant_option' => 'New Title',
         ]));
@@ -148,7 +183,7 @@ describe('ProductVariantOptionService', function () {
     });
 
     it('throws when updating a non-existent option', function () {
-        $this->service->updateProductVariantOption(new Request([
+        $this->service->updateProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
             'id' => 999999,
             'product_variant_option' => 'Whatever',
         ]));
@@ -162,7 +197,7 @@ describe('ProductVariantOptionService', function () {
             'has_in_full' => true,
         ]);
 
-        $this->service->updateProductVariantOptionDetail(new Request([
+        $this->service->updateProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
             'id' => $detail->id,
             'product_variant_option_detail' => 'New detail',
             'has_in_full' => 'on',
@@ -542,6 +577,12 @@ describe('Product variant option routes', function () {
 
         expect(ProductVariantOption::find($option->id))->toBeNull()
             ->and(ProductVariantOptionDetail::find($detail->id))->toBeNull();
+    });
+
+    it('validates required fields on import', function () {
+        $this->actingAs($this->user)
+            ->post(route('product-variant-options.import', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [])
+            ->assertSessionHasErrors(['product-variant-id', 'product-variant-options-excel']);
     });
 
     it('imports options from an uploaded Excel file', function () {

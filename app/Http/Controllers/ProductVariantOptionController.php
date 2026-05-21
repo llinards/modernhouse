@@ -10,8 +10,11 @@ use App\Imports\ProductVariantOptionImport;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ProductVariantOptionController extends Controller
@@ -25,104 +28,113 @@ class ProductVariantOptionController extends Controller
     $this->productVariantOptionService = $productVariantOptionService;
   }
 
-  public function index(string $locale, ProductVariant $productVariant)
+  public function index(string $locale, ProductVariant $productVariant): View
   {
     return view('admin.product-variant.product-variant-options.index', compact('productVariant'));
   }
 
-  public function import(Request $data)
+  public function import(Request $data): RedirectResponse
   {
+    $data->validate([
+      'product-variant-id'            => ['required', 'exists:product_variants,id'],
+      'product-variant-options-excel' => ['required', 'array'],
+    ]);
+
     try {
       $filePath = storage_path('app/public/'.$data['product-variant-options-excel'][0]);
-      Excel::import(new ProductVariantOptionImport($data['product-variant-id']), $filePath);
+
+      DB::transaction(function () use ($data, $filePath) {
+        Excel::import(new ProductVariantOptionImport($data['product-variant-id']), $filePath);
+      });
+
       $this->fileService->destroyFile(basename($filePath), 'uploads/temp');
 
       return back()->with('success', 'Tehniskā specifikācija importēta!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option import failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function storeProductVariantOption(ProductVariantOptionRequest $data)
+  public function storeProductVariantOption(ProductVariantOptionRequest $data): RedirectResponse
   {
     try {
-      $this->productVariantOptionService->storeProductVariantOption($data);
+      DB::transaction(fn () => $this->productVariantOptionService->storeProductVariantOption($data));
 
       return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option store failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function storeProductVariantOptionDetail(ProductVariantOptionDetailRequest $data)
+  public function storeProductVariantOptionDetail(ProductVariantOptionDetailRequest $data): RedirectResponse
   {
     try {
-      $this->productVariantOptionService->storeProductVariantOptionDetail($data);
+      DB::transaction(fn () => $this->productVariantOptionService->storeProductVariantOptionDetail($data));
 
       return back()->with('success', 'Pievienots!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option detail store failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function updateProductVariantOption(ProductVariantOptionRequest $data)
+  public function updateProductVariantOption(ProductVariantOptionRequest $data): RedirectResponse
   {
     try {
-      $this->productVariantOptionService->updateProductVariantOption($data);
+      DB::transaction(fn () => $this->productVariantOptionService->updateProductVariantOption($data));
 
       return back()->with('success', 'Opcija atjaunota!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option update failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function updateProductVariantOptionDetail(ProductVariantOptionDetailRequest $data)
+  public function updateProductVariantOptionDetail(ProductVariantOptionDetailRequest $data): RedirectResponse
   {
     try {
-      $this->productVariantOptionService->updateProductVariantOptionDetail($data);
+      DB::transaction(fn () => $this->productVariantOptionService->updateProductVariantOptionDetail($data));
 
       return back()->with('success', 'Opcija atjaunota!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option detail update failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
   }
 
-  public function destroy(string $locale, ProductVariant $productVariant)
+  public function destroy(string $locale, ProductVariant $productVariant): RedirectResponse
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOptions($productVariant));
   }
 
-  public function destroyProductVariantOption(string $locale, ProductVariantOption $productVariantOption)
+  public function destroyProductVariantOption(string $locale, ProductVariantOption $productVariantOption): RedirectResponse
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOption($productVariantOption));
   }
 
-  public function destroyProductVariantOptionDetail(string $locale, ProductVariantOptionDetail $productVariantOptionDetail)
+  public function destroyProductVariantOptionDetail(string $locale, ProductVariantOptionDetail $productVariantOptionDetail): RedirectResponse
   {
     return $this->destroyEntity(fn(
     ) => $this->productVariantOptionService->destroyProductVariantOptionDetail($productVariantOptionDetail));
   }
 
-  private function destroyEntity(callable $callback)
+  private function destroyEntity(callable $callback): RedirectResponse
   {
     try {
-      $callback();
+      DB::transaction($callback);
 
       return back()->with('success', 'Opcija izdzēsta!');
     } catch (\Exception $e) {
-      Log::error($e);
+      Log::error('Product variant option deletion failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }
