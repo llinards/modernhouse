@@ -421,6 +421,42 @@ describe('ProductVariantOptionList Livewire component', function () {
             ->assertSee('Visible Option');
     });
 
+    it('renders a uniquely identified add-detail modal per option', function () {
+        $first = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        $second = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->assertSee('store-product-variant-option-detail-modal-'.$first->id)
+            ->assertSee('store-product-variant-option-detail-modal-'.$second->id);
+    });
+
+    it('renders detail package checkboxes with a value that submits when checked', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+        ]);
+
+        $html = Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->html();
+
+        // Each field renders in the add-detail modal and the edit-detail modal;
+        // both must submit value="1" so a checked box persists as true.
+        foreach (['has_in_basic', 'has_in_middle', 'has_in_full'] as $field) {
+            expect(preg_match_all('/name="'.$field.'"\s+value="1"/', $html))->toBe(2);
+        }
+    });
+
     it('filters options by the current language on mount', function () {
         ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant->id,

@@ -1,4 +1,4 @@
-<div class="modal fade" id="store-product-variant-option-detail-modal" tabindex="-1"
+<div class="modal fade" id="store-product-variant-option-detail-modal-{{ $productVariantOption->id }}" tabindex="-1"
      aria-labelledby="store-product-variant-detail-modal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -17,25 +17,25 @@
           </div>
           <div class="d-flex justify-content-between mb-3">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="has-in-basic"
+              <input class="form-check-input" type="checkbox" id="has-in-basic-{{ $productVariantOption->id }}"
                      name="has_in_basic"
-                     value="">
-              <label class="form-check-label" for="has-in-basic">
+                     value="1">
+              <label class="form-check-label" for="has-in-basic-{{ $productVariantOption->id }}">
                 Bāzes komplektācija
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="has-in-middle"
+              <input class="form-check-input" type="checkbox" id="has-in-middle-{{ $productVariantOption->id }}"
                      name="has_in_middle"
-                     value="">
-              <label class="form-check-label" for="has-in-middle">
+                     value="1">
+              <label class="form-check-label" for="has-in-middle-{{ $productVariantOption->id }}">
                 Pelēkā apdare
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="has-in-full"
-                     name="has_in_full" value="">
-              <label class="form-check-label" for="has-in-full">
+              <input class="form-check-input" type="checkbox" id="has-in-full-{{ $productVariantOption->id }}"
+                     name="has_in_full" value="1">
+              <label class="form-check-label" for="has-in-full-{{ $productVariantOption->id }}">
                 Pilnā komplektācija
               </label>
             </div>

@@ -20,7 +20,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="has-in-basic-{{ $detail->id }}"
                      name="has_in_basic"
-                     value="{{ $detail->has_in_basic }}" {{ $detail->has_in_basic ? 'checked' : '' }}>
+                     value="1" {{ $detail->has_in_basic ? 'checked' : '' }}>
               <label class="form-check-label" for="has-in-basic-{{ $detail->id }}">
                 Bāzes komplektācija
               </label>
@@ -28,14 +28,14 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="has-in-middle-{{ $detail->id }}"
                      name="has_in_middle"
-                     value="{{ $detail->has_in_middle }}" {{ $detail->has_in_middle ? 'checked' : '' }}>
+                     value="1" {{ $detail->has_in_middle ? 'checked' : '' }}>
               <label class="form-check-label" for="has-in-middle-{{ $detail->id }}">
                 Pelēkā apdare
               </label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="has-in-full-{{ $detail->id }}"
-                     name="has_in_full" value="{{ $detail->has_in_full }}" {{ $detail->has_in_full ? 'checked' : '' }}>
+                     name="has_in_full" value="1" {{ $detail->has_in_full ? 'checked' : '' }}>
               <label class="form-check-label" for="has-in-full-{{ $detail->id }}">
                 Pilnā komplektācija
               </label>

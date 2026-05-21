@@ -38,7 +38,7 @@
           <ul wire:sortable-group.item-group="{{ $productVariantOption->id }}">
             @include('admin.product-variant.product-variant-options.product-variant-option-details.store-modal', ['productVariantOption' => $productVariantOption])
             <button type="button" class="btn btn-success mb-2" data-bs-toggle="modal"
-                    data-bs-target="#store-product-variant-option-detail-modal">
+                    data-bs-target="#store-product-variant-option-detail-modal-{{ $productVariantOption->id }}">
               <i class="bi bi-plus text-white"></i> Pievienot ierakstu
             </button>
             @foreach($productVariantOption->productVariantOptionDetails as $detail)
