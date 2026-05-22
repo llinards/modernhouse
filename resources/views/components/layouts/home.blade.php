@@ -9,9 +9,9 @@
 <div class="content w-100 h-100">
   {{ $slot }}
 </div>
-{{--@if(app()->getLocale() === 'lv')--}}
-{{--  @include('includes.open-days-invitation-modal')--}}
-{{--@endif--}}
+@if(!empty($promoModal))
+  @include('includes.promo-modal')
+@endif
 @cookieconsentview
 </body>
 </html>

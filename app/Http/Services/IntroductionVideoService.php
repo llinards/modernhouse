@@ -17,8 +17,15 @@ class IntroductionVideoService
 
   public function replaceVideo(array $videoInput): void
   {
+    $tempPath = $videoInput[0] ?? null;
+
+    // FilePond resubmits the already-stored video path when no new file is
+    // chosen; only act on a genuine fresh temp upload.
+    if (! $tempPath || ! str_starts_with($tempPath, 'uploads/temp/')) {
+      return;
+    }
+
     $disk = Storage::disk('public');
-    $tempPath = $videoInput[0];
 
     $disk->delete(self::DIRECTORY.'/'.self::VIDEO_FILENAME);
     $disk->delete(self::DIRECTORY.'/'.self::POSTER_FILENAME);

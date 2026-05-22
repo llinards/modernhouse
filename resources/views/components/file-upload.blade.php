@@ -77,6 +77,11 @@
       labelIdle: 'Pievienot video',
       maxFileSize: '100MB',
       acceptedFileTypes: ['video/mp4']
+    },
+    "promo-modal-image": {
+      labelIdle: 'Pievienot bildi',
+      maxFileSize: '2MB',
+      acceptedFileTypes: ['image/jpeg', 'image/png', 'image/webp']
     }
   };
   if (optionsConfig[fileId]) {

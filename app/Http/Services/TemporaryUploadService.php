@@ -21,6 +21,7 @@ class TemporaryUploadService
     'product-variant-options-excel',
     'product-variant-plan',
     'introduction-video',
+    'promo-modal-image',
   ];
 
   public function store(Request $request): string
@@ -59,7 +60,7 @@ class TemporaryUploadService
   {
     return match ($fileType) {
       'product-cover-photo' => 'cover.'.$file->getClientOriginalExtension(),
-      'product-variant-plan' => Str::random(10).'.'.$file->getClientOriginalExtension(),
+      'product-variant-plan', 'promo-modal-image' => Str::random(10).'.'.$file->getClientOriginalExtension(),
       default => $file->getClientOriginalName(),
     };
   }

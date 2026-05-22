@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductVariantController;
 use App\Http\Controllers\ProductVariantDetailController;
 use App\Http\Controllers\ProductVariantOptionController;
+use App\Http\Controllers\PromoModalController;
 use App\Http\Controllers\TemporaryUploadController;
 use App\Livewire\OpenDaysRegistration;
 use App\Livewire\ShowProduct;
@@ -105,6 +106,9 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
 
   /* Introduction Video */
   Route::patch('/introduction-video', [IntroductionVideoController::class, 'update'])->name('admin.introduction-video.update');
+
+  /* Homepage Promo Modal */
+  Route::post('/promo-modal', [PromoModalController::class, 'update'])->name('admin.promo-modal.update');
 
   /* Temporary Uploads (FilePond) */
   Route::post('/upload', [TemporaryUploadController::class, 'store']);

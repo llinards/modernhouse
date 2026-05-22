@@ -55,3 +55,18 @@ it('shows existing video when video exists', function () {
         ->assertSuccessful()
         ->assertSee('introduction-video\/introduction-video.mp4', false);
 });
+
+it('keeps the existing video when filepond resubmits its stored path', function () {
+    Storage::disk('public')->put('introduction-video/introduction-video.mp4', 'video-content');
+    Storage::disk('public')->put('introduction-video/video-cover.jpg', 'poster-content');
+
+    $this->actingAs($this->user)
+        ->patch('/admin/lv/introduction-video', [
+            'introduction-video' => ['introduction-video/introduction-video.mp4'],
+        ])
+        ->assertRedirect()
+        ->assertSessionHas('success');
+
+    Storage::disk('public')->assertExists('introduction-video/introduction-video.mp4');
+    Storage::disk('public')->assertExists('introduction-video/video-cover.jpg');
+});

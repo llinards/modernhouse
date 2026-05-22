@@ -6,6 +6,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Services\ProductService;
 use App\Models\Product;
+use App\Models\PromoModal;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -31,8 +32,9 @@ class ProductController extends Controller
   public function indexAdmin(): View
   {
     $videoExists = Storage::disk('public')->exists('introduction-video/introduction-video.mp4');
+    $promoModal = PromoModal::current();
 
-    return view('admin.index', compact('videoExists'));
+    return view('admin.index', compact('videoExists', 'promoModal'));
   }
 
   public function create(): View

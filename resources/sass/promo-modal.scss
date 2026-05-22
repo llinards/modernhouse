@@ -1,0 +1,20 @@
+#promo-modal {
+  .modal-body {
+    padding-bottom: 45px;
+  }
+
+  .promo-modal-description {
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+    }
+  }
+}

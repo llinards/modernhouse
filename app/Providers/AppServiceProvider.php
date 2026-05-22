@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\View\Composers\AllActiveProductsComposer;
+use App\View\Composers\PromoModalComposer;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
       'request-consultation', 'components.layouts.home', 'components.layouts.app', 'components.layouts.app-secondary'
     ],
       AllActiveProductsComposer::class);
+
+    view()->composer('components.layouts.home', PromoModalComposer::class);
 
     Paginator::useBootstrapFive();
   }

@@ -109,6 +109,28 @@ return [
     'product-variant-detail-new-icon'              => [
       'mimes' => 'Ikonai jābūt vai nu SVG vai PNG formāta.',
     ],
+    'title'                                        => [
+      'required' => 'Nav norādīts virsraksts.',
+      'max'      => 'Virsraksts ir pārāk garš.',
+    ],
+    'cta_label'                                    => [
+      'required' => 'Nav norādīts pogas teksts.',
+      'max'      => 'Pogas teksts ir pārāk garš.',
+    ],
+    'cta_url'                                      => [
+      'required' => 'Nav norādīta pogas saite.',
+      'max'      => 'Pogas saite ir pārāk gara.',
+    ],
+    'starts_at'                                    => [
+      'date' => 'Nekorekts sākuma datums.',
+    ],
+    'ends_at'                                      => [
+      'date'           => 'Nekorekts beigu datums.',
+      'after_or_equal' => 'Beigu datumam jābūt vienādam vai vēlākam par sākuma datumu.',
+    ],
+    'promo-modal-image'                            => [
+      'required' => 'Nav pievienota bilde.',
+    ],
   ],
 
   /*
