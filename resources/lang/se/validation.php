@@ -1,6 +1,20 @@
 <?php
 
 return [
+  'file'     => ':attribute måste vara en fil.',
+  'mimes'    => ':attribute måste vara en fil av typen: :values.',
+  'required' => ':attribute är obligatoriskt.',
+  'string'   => ':attribute måste vara text.',
+  'boolean'  => ':attribute måste vara true eller false.',
+  'numeric'  => ':attribute måste vara ett tal.',
+  'integer'  => ':attribute måste vara ett heltal.',
+  'max'      => [
+    'numeric' => ':attribute får inte vara större än :max.',
+    'file'    => ':attribute får inte vara större än :max kilobyte.',
+    'string'  => ':attribute får inte vara längre än :max tecken.',
+    'array'   => ':attribute får inte ha fler än :max element.',
+  ],
+
   'custom' => [
     'first-name'                                   => [
       'required' => 'Förnamn är obligatoriskt.',

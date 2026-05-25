@@ -1,6 +1,20 @@
 <?php
 
 return [
+  'file'     => 'Laukam :attribute jābūt failam.',
+  'mimes'    => 'Laukam :attribute jābūt failam šādā formātā: :values.',
+  'required' => 'Lauks :attribute ir obligāts.',
+  'string'   => 'Laukam :attribute jābūt tekstam.',
+  'boolean'  => 'Laukam :attribute jābūt true vai false.',
+  'numeric'  => 'Laukam :attribute jābūt skaitlim.',
+  'integer'  => 'Laukam :attribute jābūt veselam skaitlim.',
+  'max'      => [
+    'numeric' => 'Lauks :attribute nedrīkst būt lielāks par :max.',
+    'file'    => 'Fails :attribute nedrīkst pārsniegt :max kilobaitus.',
+    'string'  => 'Lauks :attribute nedrīkst būt garāks par :max simboliem.',
+    'array'   => 'Lauks :attribute nedrīkst saturēt vairāk par :max elementiem.',
+  ],
+
   'custom' => [
     'first-name'                                   => [
       'required' => 'Pieteikumā ir jānorāda vārds.',

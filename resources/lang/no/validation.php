@@ -1,6 +1,20 @@
 <?php
 
 return [
+  'file'     => ':attribute må være en fil.',
+  'mimes'    => ':attribute må være en fil av typen: :values.',
+  'required' => ':attribute er påkrevd.',
+  'string'   => ':attribute må være tekst.',
+  'boolean'  => ':attribute må være true eller false.',
+  'numeric'  => ':attribute må være et tall.',
+  'integer'  => ':attribute må være et heltall.',
+  'max'      => [
+    'numeric' => ':attribute kan ikke være større enn :max.',
+    'file'    => ':attribute kan ikke være større enn :max kilobyte.',
+    'string'  => ':attribute kan ikke være lengre enn :max tegn.',
+    'array'   => ':attribute kan ikke ha mer enn :max elementer.',
+  ],
+
   'custom' => [
     'first-name'                                   => [
       'required' => 'Fornavn er påkrevd.',

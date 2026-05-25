@@ -17,6 +17,9 @@
   <div class="nav-item">
     <a href="/admin/{{ app()->getLocale() }}/news" class="nav-link">Aktualitātes</a>
   </div>
+  <div class="nav-item">
+    <a href="/admin/{{ app()->getLocale() }}/project-catalogs" class="nav-link">Projektu katalogi</a>
+  </div>
   <div>|</div>
   @if (count(config('app.languages')) > 1)
     <div class="nav-item d-flex justify-content-between">

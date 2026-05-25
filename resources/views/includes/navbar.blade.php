@@ -14,14 +14,23 @@
                 @endforeach
                 <a class="nav-link index text-center p-3"
                     href="/{{ app()->getLocale() }}/modern-house-furniture">@lang('MH galdniecība')</a>
-                {{-- @if (app()->getLocale() === 'lv')
-          <a class="nav-link index text-center p-3" target="_blank"
-             href="https://modern-house.lv/storage/news/modern-house-projektu-katalogs/MH_Projektu_Katalogs.pdf">@lang('Projektu katalogs')</a>
-        @endif
-        @if (app()->getLocale() === 'en')
-          <a class="nav-link index text-center p-3" target="_blank"
-             href="https://modern-house.lv/storage/news/project-catalogues/MH_Project_Catalogue.pdf">@lang('Projektu katalogs')</a>
-        @endif --}}
+                @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
+                    <div class="nav-item dropdown">
+                        <a class="nav-link index text-center p-3 dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">@lang('Projektu katalogi')</a>
+                        <ul class="dropdown-menu">
+                            @foreach ($projectCatalogs as $catalog)
+                                @php($catalogTranslation = $catalog->translations[0])
+                                <li>
+                                    <a class="dropdown-item" target="_blank" rel="noopener"
+                                        href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
+                                        {{ $catalogTranslation->menu_name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 {{--        @if (app()->getLocale() === 'lv') --}}
                 {{--          <a class="nav-link index text-center p-3" --}}
                 {{--             href="/lv/modern-house-maju-marsruts-2025" target="_blank">Atvērtās durvju dienas 2025</a> --}}
@@ -63,18 +72,20 @@
                                 href="/{{ app()->getLocale() }}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
                         </li>
                     @endforeach
-                    {{--          @if (app()->getLocale() === 'lv') --}}
-                    {{--            <li class="nav-item"> --}}
-                    {{--              <a class="nav-link text-center" --}}
-                    {{--                 href="/{{app()->getLocale()}}/projekti/svires-ielas-projekts-sigulda" --}}
-                    {{--                 target="_blank">@lang('projects')</a> --}}
-                    {{--            </li> --}}
-                    {{--            --}}{{--            <li class="nav-item"> --}}
-                    {{--            --}}{{--              <a class="nav-link text-center" --}}
-                    {{--            --}}{{--                 href="/{{app()->getLocale()}}/modern-house-maju-marsruts-2025" --}}
-                    {{--            --}}{{--                 target="_blank">Atvērtās durvju dienas 2025</a> --}}
-                    {{--            --}}{{--            </li> --}}
-                    {{--          @endif --}}
+                    @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
+                        <li class="nav-item">
+                            <p class="nav-link text-center mb-0 fw-bold">@lang('Projektu katalogi')</p>
+                        </li>
+                        @foreach ($projectCatalogs as $catalog)
+                            @php($catalogTranslation = $catalog->translations[0])
+                            <li class="nav-item">
+                                <a class="nav-link text-center" target="_blank" rel="noopener"
+                                    href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
+                                    {{ $catalogTranslation->menu_name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
             <div class="nav-items">

@@ -1,6 +1,20 @@
 <?php
 
 return [
+  'file'     => 'The :attribute must be a file.',
+  'mimes'    => 'The :attribute must be a file of type: :values.',
+  'required' => 'The :attribute field is required.',
+  'string'   => 'The :attribute must be a string.',
+  'boolean'  => 'The :attribute field must be true or false.',
+  'numeric'  => 'The :attribute must be a number.',
+  'integer'  => 'The :attribute must be an integer.',
+  'max'      => [
+    'numeric' => 'The :attribute may not be greater than :max.',
+    'file'    => 'The :attribute may not be greater than :max kilobytes.',
+    'string'  => 'The :attribute may not be greater than :max characters.',
+    'array'   => 'The :attribute may not have more than :max items.',
+  ],
+
   'custom' => [
     'first-name'                                   => [
       'required' => 'First name is required.',

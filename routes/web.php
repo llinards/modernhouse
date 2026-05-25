@@ -110,6 +110,11 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
   /* Homepage Promo Modal */
   Route::post('/promo-modal', [PromoModalController::class, 'update'])->name('admin.promo-modal.update');
 
+  /* Project Catalogs */
+  Route::get('/project-catalogs', static function () {
+    return view('admin.project-catalogs.index');
+  })->name('admin.project-catalogs.index');
+
   /* Temporary Uploads (FilePond) */
   Route::post('/upload', [TemporaryUploadController::class, 'store']);
   Route::delete('/upload', [TemporaryUploadController::class, 'destroy']);
