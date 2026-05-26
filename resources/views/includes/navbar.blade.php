@@ -7,33 +7,35 @@
                     class="modern-house-logo" alt="Modern House logo">
             </a>
         </div>
-        @if (isset($home) && count($allActiveProducts) > 1)
-            <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
+
+        <div class="navbar-links-desktop d-flex justify-content-center align-items-center">
+            @if (count($allActiveProducts) > 1)
                 @foreach ($allActiveProducts as $product)
-                    <a class="nav-link index text-center p-3"
+                    <a class="nav-link {{ isset($home) ? 'nav-link-index' : 'nav-link-product-page' }} text-center p-3 {{ Request::routeIs('products.show') && Request::route('product')?->slug === $product->slug ? 'nav-link-active' : '' }}"
                         href="{{ route('products.show', ['language' => $locale, 'product' => $product->slug]) }}">{{ $product->translations[0]->name }}</a>
                 @endforeach
-                <a class="nav-link index text-center p-3"
-                    href="{{ route('modern-house-furniture', ['language' => $locale]) }}">@lang('MH galdniecība')</a>
-                @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
-                    <div class="nav-item dropdown">
-                        <a class="nav-link index text-center p-3 dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">@lang('Projektu katalogi')</a>
-                        <ul class="dropdown-menu">
-                            @foreach ($projectCatalogs as $catalog)
-                                @php($catalogTranslation = $catalog->translations[0])
-                                <li>
-                                    <a class="dropdown-item" target="_blank" rel="noopener"
-                                        href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
-                                        {{ $catalogTranslation->menu_name }}
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
-        @endif
+            @endif
+            <a class="nav-link {{ isset($home) ? 'nav-link-index' : 'nav-link-product-page' }} text-center p-3 {{ Request::routeIs('modern-house-furniture') ? 'nav-link-active' : '' }}"
+                href="{{ route('modern-house-furniture', ['language' => $locale]) }}">@lang('MH galdniecība')</a>
+            @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
+                <div class="nav-item dropdown">
+                    <a class="nav-link {{ isset($home) ? 'nav-link-index' : 'nav-link-product-page' }} text-center p-3 dropdown-toggle"
+                        href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">@lang('Projektu katalogi')</a>
+                    <ul class="dropdown-menu">
+                        @foreach ($projectCatalogs as $catalog)
+                            @php($catalogTranslation = $catalog->translations[0])
+                            <li>
+                                <a class="dropdown-item" target="_blank" rel="noopener noreferrer"
+                                    href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
+                                    {{ $catalogTranslation->menu_name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
         <button type="button" name="menu" class="navbar-toggler py-4">
             <div class="bar1 {{ isset($home) ? 'bar-index' : '' }}"></div>
             <div class="bar2 {{ isset($home) ? 'bar-index' : '' }}"></div>
@@ -65,7 +67,7 @@
                 <ul class="navbar-nav">
                     @foreach ($allActiveProducts as $product)
                         <li class="nav-item">
-                            <a class="nav-link text-center {{ Request::routeIs('products.show') && Request::route('product') === $product->slug ? 'nav-link-active' : '' }}"
+                            <a class="nav-link text-center {{ Request::routeIs('products.show') && Request::route('product')?->slug === $product->slug ? 'nav-link-active' : '' }}"
                                 href="{{ route('products.show', ['language' => $locale, 'product' => $product->slug]) }}">{{ $product->translations[0]->name }}</a>
                         </li>
                     @endforeach
@@ -80,7 +82,7 @@
                         @foreach ($projectCatalogs as $catalog)
                             @php($catalogTranslation = $catalog->translations[0])
                             <li class="nav-item">
-                                <a class="nav-link text-center" target="_blank" rel="noopener"
+                                <a class="nav-link text-center" target="_blank" rel="noopener noreferrer"
                                     href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
                                     {{ $catalogTranslation->menu_name }}
                                 </a>

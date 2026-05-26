@@ -86,8 +86,12 @@
   font-size: $navbar-item-font-size;
 }
 
-.nav-link.index {
+.nav-link.nav-link-index {
   color: white;
+}
+
+.nav-link.nav-link-product-page {
+  color: $navbar-item-font-color;
 }
 
 .nav-link:hover,
