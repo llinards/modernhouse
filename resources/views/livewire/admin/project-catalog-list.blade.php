@@ -95,20 +95,35 @@
                                     {{ strtoupper($code) }}
                                 </legend>
 
-                                <div class="mb-3">
-                                    <label for="menu-name-{{ $code }}" class="form-label">Izvēlnes
-                                        nosaukums</label>
-                                    <input type="text"
-                                        class="form-control @error('form.translations.' . $code . '.menu_name') is-invalid @enderror"
-                                        id="menu-name-{{ $code }}"
-                                        wire:model="form.translations.{{ $code }}.menu_name">
-                                    @error('form.translations.' . $code . '.menu_name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="menu-name-{{ $code }}" class="form-label">Izvēlnes
+                                            nosaukums</label>
+                                        <input type="text"
+                                            class="form-control @error('form.translations.' . $code . '.menu_name') is-invalid @enderror"
+                                            id="menu-name-{{ $code }}"
+                                            wire:model="form.translations.{{ $code }}.menu_name">
+                                        @error('form.translations.' . $code . '.menu_name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="pdf-{{ $code }}" class="form-label">
+                                            {{ !empty($form['translations'][$code]['existing_pdf_filename']) ? 'Aizstāt PDF' : 'PDF fails' }}
+                                        </label>
+                                        <input type="file"
+                                            class="form-control @error('form.translations.' . $code . '.new_pdf') is-invalid @enderror"
+                                            id="pdf-{{ $code }}" accept="application/pdf"
+                                            wire:model="form.translations.{{ $code }}.new_pdf">
+                                        @error('form.translations.' . $code . '.new_pdf')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 @if (!empty($form['translations'][$code]['existing_pdf_filename']))
-                                    <div class="mb-2 small d-flex align-items-center flex-wrap gap-3">
+                                    <div class="mt-3 small d-flex align-items-center flex-wrap gap-3">
                                         <span>
                                             Esošais PDF:
                                             <a href="{{ asset('storage/project-catalogs/' . $editingCatalogId . '/' . $code . '/' . $form['translations'][$code]['existing_pdf_filename']) }}"
@@ -126,19 +141,6 @@
                                         </div>
                                     </div>
                                 @endif
-
-                                <div>
-                                    <label for="pdf-{{ $code }}" class="form-label">
-                                        {{ !empty($form['translations'][$code]['existing_pdf_filename']) ? 'Aizstāt PDF' : 'PDF fails' }}
-                                    </label>
-                                    <input type="file"
-                                        class="form-control @error('form.translations.' . $code . '.new_pdf') is-invalid @enderror"
-                                        id="pdf-{{ $code }}" accept="application/pdf"
-                                        wire:model="form.translations.{{ $code }}.new_pdf">
-                                    @error('form.translations.' . $code . '.new_pdf')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
                             </fieldset>
                         @endforeach
                     </div>

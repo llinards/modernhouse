@@ -45,24 +45,12 @@
     </div>
 
     <div id="navbar-modal" class="h-100">
-        <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
+        <div id="modal-content" class="d-flex h-100 flex-column justify-content-around py-4 align-items-center">
             <div class="logo p-0">
                 <a class="navbar-brand" href="/">
                     <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo"
                         alt="Modern House logo">
                 </a>
-            </div>
-            <div class="nav-items">
-                <ul class="navbar-nav">
-                    @if (count(config('app.languages')) > 1)
-                        <li class="nav-item d-flex justify-content-between">
-                            @foreach (config('app.languages') as $langLocale => $langName)
-                                <a class="nav-link mx-2 {{ $langLocale == app()->getLocale() ? 'nav-link-active' : '' }}"
-                                    href="{{ url()->current() }}?changeLanguage={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
-                            @endforeach
-                        </li>
-                    @endif
-                </ul>
             </div>
             <div class="nav-items">
                 <ul class="navbar-nav">
@@ -72,7 +60,11 @@
                                 href="/{{ app()->getLocale() }}/{{ $product->slug }}">{{ $product->translations[0]->name }}</a>
                         </li>
                     @endforeach
-                    @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
+                </ul>
+            </div>
+            @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
+                <div class="nav-items">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <p class="nav-link text-center mb-0 fw-bold">@lang('Projektu katalogi')</p>
                         </li>
@@ -85,9 +77,10 @@
                                 </a>
                             </li>
                         @endforeach
-                    @endif
-                </ul>
-            </div>
+
+                    </ul>
+                </div>
+            @endif
             <div class="nav-items">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -118,6 +111,18 @@
                         <a class="nav-link text-center {{ Request::is('*/privacy-policy') ? 'nav-link-active' : '' }}"
                             href="/{{ app()->getLocale() }}/privacy-policy">@lang('privacy policy')</a>
                     </li>
+                </ul>
+            </div>
+            <div class="nav-items">
+                <ul class="navbar-nav">
+                    @if (count(config('app.languages')) > 1)
+                        <li class="nav-item d-flex justify-content-between">
+                            @foreach (config('app.languages') as $langLocale => $langName)
+                                <a class="nav-link mx-2 {{ $langLocale == app()->getLocale() ? 'nav-link-active' : '' }}"
+                                    href="{{ url()->current() }}?changeLanguage={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
+                            @endforeach
+                        </li>
+                    @endif
                 </ul>
             </div>
             <div class="d-flex navbar-modal-social-network-icons">
