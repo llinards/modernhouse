@@ -140,16 +140,16 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
 Route::middleware('setLanguage')->group(function () {
 
   /* Homepage */
-  Route::get('{language?}/', [ProductController::class, 'index']);
+  Route::get('{language?}/', [ProductController::class, 'index'])->name('home');
 
   /* Static Pages */
   Route::get('{language?}/about-us', static function () {
     return view('about-us');
-  });
+  })->name('about-us');
 
   Route::get('{language?}/modern-house-furniture', static function () {
     return view('modern-house-furniture');
-  });
+  })->name('modern-house-furniture');
 
   Route::get('{language?}/request-consultation', static function () {
     return view('request-consultation');
@@ -164,21 +164,21 @@ Route::middleware('setLanguage')->group(function () {
 
   Route::get('{language?}/faq', static function () {
     return view('faq');
-  });
+  })->name('faq');
 
   Route::get('{language?}/contact-us', static function () {
     return view('contact-us');
-  });
+  })->name('contact-us');
 
   Route::post('{language?}/contact-us',
     [ContactController::class, 'submitContactUs'])->middleware(ProtectAgainstSpam::class);
 
   /* Gallery */
-  Route::get('{language?}/gallery', [GalleryController::class, 'index']);
+  Route::get('{language?}/gallery', [GalleryController::class, 'index'])->name('gallery');
 
   /* News */
-  Route::get('{language?}/news', [NewsController::class, 'index']);
-  Route::get('{language?}/news/{news}', [NewsController::class, 'show']);
+  Route::get('{language?}/news', [NewsController::class, 'index'])->name('news.index');
+  Route::get('{language?}/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
   /* Landing Pages */
   Route::redirect('{language?}/projekti/svires-ielas-projekts-sigulda', '/');
@@ -196,7 +196,7 @@ Route::middleware('setLanguage')->group(function () {
     OpenDaysRegistration::class)->name('registration-for-open-days-at-svires-iela');
 
   /* Product Pages — catch-all, must remain last */
-  Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class);
+  Route::get('{language?}/{product}/{productVariant:slug?}', ShowProduct::class)->name('products.show');
 
   Route::post('{language?}/{product}',
     [ContactController::class, 'requestProductInfo'])->middleware(ProtectAgainstSpam::class);
