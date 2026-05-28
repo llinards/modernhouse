@@ -22,7 +22,7 @@
                     <a class="nav-link {{ isset($home) ? 'nav-link-index' : 'nav-link-product-page' }} text-center p-3 dropdown-toggle"
                         href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">@lang('Projektu katalogi')</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu py-3">
                         @foreach ($projectCatalogs as $catalog)
                             @php($catalogTranslation = $catalog->translations[0])
                             <li>
@@ -46,24 +46,26 @@
     <div id="navbar-modal" class="h-100">
         <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
             <div class="logo p-0">
-                <a class="navbar-brand" href="{{ route('home', ['language' => $locale]) }}">
-                    <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo"
-                        alt="Modern House logo">
-                </a>
+                <div class="text-center">
+                    <a class="navbar-brand" href="{{ route('home', ['language' => $locale]) }}">
+                        <img src="{{ asset('storage/logo/logo-black.png') }}" class="modern-house-logo"
+                            alt="Modern House logo">
+                    </a>
+                </div>
+                <div class="nav-items mt-2 mt-lg-4">
+                    <ul class="navbar-nav">
+                        @if (count(config('app.languages')) > 1)
+                            <li class="nav-item d-flex justify-content-between">
+                                @foreach (config('app.languages') as $langLocale => $langName)
+                                    <a class="nav-link mx-2 {{ $langLocale == app()->getLocale() ? 'nav-link-active' : '' }}"
+                                        href="{{ url()->current() }}?changeLanguage={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
+                                @endforeach
+                            </li>
+                        @endif
+                    </ul>
+                </div>
             </div>
-            <div class="nav-items">
-                <ul class="navbar-nav">
-                    @if (count(config('app.languages')) > 1)
-                        <li class="nav-item d-flex justify-content-between">
-                            @foreach (config('app.languages') as $langLocale => $langName)
-                                <a class="nav-link mx-2 {{ $langLocale == app()->getLocale() ? 'nav-link-active' : '' }}"
-                                    href="{{ url()->current() }}?changeLanguage={{ $langLocale }}">{{ strtoupper($langLocale) }}</a>
-                            @endforeach
-                        </li>
-                    @endif
-                </ul>
-            </div>
-            <div class="nav-items">
+            <div class="nav-items d-lg-none">
                 <ul class="navbar-nav">
                     @foreach ($allActiveProducts as $product)
                         <li class="nav-item">
@@ -74,11 +76,8 @@
                 </ul>
             </div>
             @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
-                <div class="nav-items">
+                <div class="nav-items d-lg-none">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <p class="nav-link text-center mb-0 fw-bold">@lang('Projektu katalogi')</p>
-                        </li>
                         @foreach ($projectCatalogs as $catalog)
                             @php($catalogTranslation = $catalog->translations[0])
                             <li class="nav-item">
@@ -94,7 +93,7 @@
             @endif
             <div class="nav-items">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li class="nav-item d-lg-none">
                         <a class="nav-link text-center {{ Request::routeIs('modern-house-furniture') ? 'nav-link-active' : '' }}"
                             href="{{ route('modern-house-furniture', ['language' => $locale]) }}">MODERN HOUSE
                             FURNITURE</a>
