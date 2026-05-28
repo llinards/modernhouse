@@ -77,6 +77,10 @@ $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
 $navbar-item-font-size-mobile: 15px;
 
+$navbar-dark-translucent: rgba(63, 63, 63, .5);
+$navbar-light-translucent: rgba(255, 255, 255, 0.85);
+$dropdown-item-hover-light: $primary-color-hover;
+
 h1,
 h2,
 h3,

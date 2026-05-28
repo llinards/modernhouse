@@ -70,7 +70,7 @@
 }
 
 .navbar-index {
-  background-color: rgba(63, 63, 63, .5);
+  background-color: $navbar-dark-translucent;
 }
 
 .backdrop {
@@ -91,20 +91,93 @@
   font-size: $navbar-item-font-size;
 }
 
-.dropdown-item:hover,
-.dropdown-item:focus,
-.dropdown-item:active {
-  background-color: $navbar-item-hover-font-color;
-  color: white;
-}
-
 .dropdown-toggle::after {
   vertical-align: middle;
-  // transition: transform 0.3s ease;
 }
 
 .dropdown-toggle[aria-expanded="true"]::after {
   transform: rotate(180deg);
+}
+
+.navbar-links-desktop .nav-item.dropdown {
+  position: relative;
+}
+
+.navbar-links-desktop .dropdown-menu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateY(-8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  background-color: $navbar-dark-translucent;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  padding: 0.75rem 1.5rem 0.5rem;
+  margin-top: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $navbar-dark-translucent;
+  }
+
+  .dropdown-item {
+    color: white;
+    padding: 0.85rem 0 0.85rem 1.5rem;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    position: relative;
+    background-color: transparent;
+    white-space: normal;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: $navbar-item-hover-font-color;
+    }
+  }
+
+  li:last-child .dropdown-item {
+    border-bottom: none;
+  }
+}
+
+.navbar-product-page .navbar-links-desktop .dropdown-menu {
+  background-color: $navbar-light-translucent;
+
+  &::before {
+    border-bottom-color: $navbar-light-translucent;
+  }
+
+  .dropdown-item {
+    color: $navbar-item-font-color;
+    border-bottom-color: rgba(0, 0, 0, 0.15);
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $dropdown-item-hover-light;
+    }
+  }
+}
+
+.navbar-links-desktop .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 
 .nav-link.nav-link-index {
