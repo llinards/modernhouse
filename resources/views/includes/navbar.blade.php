@@ -20,8 +20,7 @@
             @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
                 <div class="nav-item dropdown">
                     <a class="nav-link {{ isset($home) ? 'nav-link-index' : 'nav-link-product-page' }} text-center p-3 dropdown-toggle"
-                        href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static"
-                        aria-expanded="false">@lang('Projektu katalogi')</a>
+                        href="#" role="button">@lang('Projektu katalogi')</a>
                     <ul class="dropdown-menu">
                         @foreach ($projectCatalogs as $catalog)
                             @php($catalogTranslation = $catalog->translations[0])

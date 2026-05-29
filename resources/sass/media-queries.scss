@@ -301,7 +301,8 @@
     margin-right: 0;
   }
 
-  .navbar-links-desktop .nav-item.dropdown:hover {
+  .navbar-links-desktop .nav-item.dropdown:hover,
+  .navbar-links-desktop .nav-item.dropdown:focus-within {
     .dropdown-menu {
       opacity: 1;
       visibility: visible;
