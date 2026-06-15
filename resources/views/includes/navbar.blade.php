@@ -43,7 +43,7 @@
     </div>
 
     <div id="navbar-modal" class="h-100">
-        <div id="modal-content" class="d-flex h-100 flex-column justify-content-between py-4 align-items-center">
+        <div id="modal-content" class="d-flex min-vh-100 flex-column justify-content-between py-4 align-items-center">
             <div class="logo p-0">
                 <div class="text-center">
                     <a class="navbar-brand" href="{{ route('home', ['language' => $locale]) }}">
@@ -77,16 +77,24 @@
             @if (isset($projectCatalogs) && $projectCatalogs->isNotEmpty())
                 <div class="nav-items d-lg-none">
                     <ul class="navbar-nav">
-                        @foreach ($projectCatalogs as $catalog)
-                            @php($catalogTranslation = $catalog->translations[0])
-                            <li class="nav-item">
-                                <a class="nav-link text-center" target="_blank" rel="noopener noreferrer"
-                                    href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
-                                    {{ $catalogTranslation->menu_name }}
-                                </a>
-                            </li>
-                        @endforeach
-
+                        <li class="nav-item">
+                            <button type="button" class="nav-link-toggle dropdown-toggle text-center"
+                                data-bs-toggle="collapse" data-bs-target="#mobile-project-catalogs"
+                                aria-expanded="false" aria-controls="mobile-project-catalogs">
+                                @lang('Projektu katalogi')
+                            </button>
+                            <ul id="mobile-project-catalogs" class="navbar-nav collapse text-center">
+                                @foreach ($projectCatalogs as $catalog)
+                                    @php($catalogTranslation = $catalog->translations[0])
+                                    <li class="nav-item">
+                                        <a class="nav-link text-center" target="_blank" rel="noopener noreferrer"
+                                            href="{{ asset('storage/project-catalogs/' . $catalog->id . '/' . $catalogTranslation->language . '/' . $catalogTranslation->pdf_filename) }}">
+                                            {{ $catalogTranslation->menu_name }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             @endif
