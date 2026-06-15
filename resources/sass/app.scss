@@ -77,8 +77,8 @@ $navbar-item-letter-spacing: 0;
 $navbar-item-font-size: 19px;
 $navbar-item-font-size-mobile: 15px;
 
-$navbar-dark-translucent: rgba(63, 63, 63, .5);
-$navbar-light-translucent: rgba(255, 255, 255, 0.85);
+$navbar-dark-translucent: rgba(63, 63, 63, 0.5);
+$navbar-light-translucent: rgba(255, 255, 255, 1);
 $dropdown-item-hover-light: $primary-color-hover;
 
 h1,
@@ -205,29 +205,32 @@ section.footer {
 
 .btn-primary:active,
 .btn.btn-primary:active,
-.btn-primary:first-child:active, {
-  border-color: $primary-color;
-  box-shadow: 0 0 20px 0 $primary-color;
-  background-color: white;
-  color: $primary-color;
+.btn-primary:first-child:active,
+{
+border-color: $primary-color;
+box-shadow: 0 0 20px 0 $primary-color;
+background-color: white;
+color: $primary-color;
 }
 
 .btn-secondary:active,
 .btn.btn-secondary:active,
-.btn-secondary:first-child:active, {
-  border: none;
-  box-shadow: none;
-  background-color: $primary-color;
-  color: white;
+.btn-secondary:first-child:active,
+{
+border: none;
+box-shadow: none;
+background-color: $primary-color;
+color: white;
 }
 
 .btn-third:active,
 .btn.btn-third:active,
-.btn-third:first-child:active, {
-  border: none;
-  box-shadow: 0 0 10px 0 white;
-  background-color: $primary-color;
-  color: white;
+.btn-third:first-child:active,
+{
+border: none;
+box-shadow: 0 0 10px 0 white;
+background-color: $primary-color;
+color: white;
 }
 
 //.btn-primary:focus,
@@ -282,7 +285,9 @@ section.footer {
   border-color: $primary-color;
 }
 
-.btn:disabled, .btn.disabled, fieldset:disabled .btn {
+.btn:disabled,
+.btn.disabled,
+fieldset:disabled .btn {
   background-color: $primary-color;
   border-color: $primary-color;
 }
@@ -347,7 +352,8 @@ footer {
 footer {
   background-color: $primary-color;
 
-  h4, p {
+  h4,
+  p {
     color: white;
   }
 
@@ -358,7 +364,7 @@ footer {
 
 .news-description,
 .gallery-description {
-  p > a {
+  p>a {
     color: $primary-color;
   }
 }
