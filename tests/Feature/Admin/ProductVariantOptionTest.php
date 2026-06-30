@@ -134,6 +134,33 @@ describe('ProductVariantOptionService', function () {
             ->and($detail->has_in_full)->toBeFalsy();
     });
 
+    it('stores a label detail when is_label is checked', function () {
+        $option = ProductVariantOption::factory()->create();
+
+        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
+            'id' => $option->id,
+            'product_variant_option_detail' => 'Ārējā apdare',
+            'is_label' => '1',
+        ]));
+
+        $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
+
+        expect($detail->is_label)->toBeTrue()
+            ->and($detail->has_in_basic)->toBeFalsy();
+    });
+
+    it('toggles is_label on update', function () {
+        $detail = ProductVariantOptionDetail::factory()->create(['is_label' => false]);
+
+        $this->service->updateProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
+            'id' => $detail->id,
+            'product_variant_option_detail' => 'Heading',
+            'is_label' => '1',
+        ]));
+
+        expect($detail->fresh()->is_label)->toBeTrue();
+    });
+
     it('assigns sequential order when storing options', function () {
         $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
             'id' => $this->variant->id,
@@ -249,17 +276,25 @@ describe('ProductVariantOptionService', function () {
         ]);
         ProductVariantOptionDetail::factory()->create([
             'product_variant_option_id' => $option->id,
+            'detail' => 'Heading',
+            'is_label' => true,
+            'order' => 0,
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
             'detail' => 'Concrete',
+            'is_label' => false,
+            'order' => 1,
         ]);
 
         $this->service->copyFromVariant($source, $this->variant, 'lv');
 
-        $copied = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
+        $copied = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
 
-        expect($copied)->toHaveCount(1)
-            ->and($copied->first()->option_title)->toBe('Walls')
-            ->and($copied->first()->productVariantOptionDetails)->toHaveCount(1)
-            ->and($copied->first()->productVariantOptionDetails->first()->detail)->toBe('Concrete');
+        expect($copied->option_title)->toBe('Walls')
+            ->and($copied->productVariantOptionDetails)->toHaveCount(2)
+            ->and($copied->productVariantOptionDetails->firstWhere('detail', 'Heading')->is_label)->toBeTrue()
+            ->and($copied->productVariantOptionDetails->firstWhere('detail', 'Concrete')->is_label)->toBeFalse();
     });
 
     it('appends copied options after existing ones', function () {

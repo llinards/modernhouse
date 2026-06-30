@@ -35,6 +35,7 @@ class ProductVariantOptionService
     ProductVariantOptionDetail::create([
       'product_variant_option_id' => $request->input('id'),
       'detail'                    => $request->input('product_variant_option_detail'),
+      'is_label'                  => $request->boolean('is_label'),
       'has_in_basic'              => $request->boolean('has_in_basic'),
       'has_in_middle'             => $request->boolean('has_in_middle'),
       'has_in_full'               => $request->boolean('has_in_full'),
@@ -55,6 +56,7 @@ class ProductVariantOptionService
     $productVariantOptionDetail = ProductVariantOptionDetail::findOrFail($request->input('id'));
     $productVariantOptionDetail->update([
       'detail'        => $request->input('product_variant_option_detail'),
+      'is_label'      => $request->boolean('is_label'),
       'has_in_basic'  => $request->boolean('has_in_basic'),
       'has_in_middle' => $request->boolean('has_in_middle'),
       'has_in_full'   => $request->boolean('has_in_full'),
@@ -102,6 +104,7 @@ class ProductVariantOptionService
         ProductVariantOptionDetail::create([
           'product_variant_option_id' => $newOption->id,
           'detail'                    => $detail->detail,
+          'is_label'                  => $detail->is_label,
           'has_in_basic'              => $detail->has_in_basic,
           'has_in_middle'             => $detail->has_in_middle,
           'has_in_full'               => $detail->has_in_full,
