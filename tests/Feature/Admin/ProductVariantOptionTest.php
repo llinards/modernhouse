@@ -3,16 +3,13 @@
 use App\Http\Requests\ProductVariantOptionDetailRequest;
 use App\Http\Requests\ProductVariantOptionRequest;
 use App\Http\Services\ProductVariantOptionService;
-use App\Imports\ProductVariantOptionImport;
 use App\Livewire\Admin\ProductVariantOptionList;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Livewire;
-use Maatwebsite\Excel\Facades\Excel;
 
 beforeEach(function () {
     $this->user = User::factory()->create();
@@ -304,103 +301,6 @@ describe('ProductVariantOptionService', function () {
         $this->service->copyFromVariant($source, $this->variant, 'lv');
 
         expect(ProductVariantOption::where('product_variant_id', $this->variant->id)->count())->toBe(1);
-    });
-});
-
-describe('ProductVariantOptionImport', function () {
-    beforeEach(function () {
-        $this->variant = ProductVariant::factory()->create();
-    });
-
-    it('creates an option from a title row', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', 'Ārsienas']),
-        ]));
-
-        $option = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
-
-        expect($option)->not->toBeNull()
-            ->and($option->option_title)->toBe('Ārsienas')
-            ->and($option->order)->toBe(1)
-            ->and($option->language)->toBe('lv');
-    });
-
-    it('creates details under the current option', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', 'Ārsienas']),
-            collect(['', 'Concrete', 'x', 'x', 'x']),
-            collect(['', 'Brick', '', 'x', 'x']),
-        ]));
-
-        $option = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
-        $details = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->get();
-
-        expect($details)->toHaveCount(2)
-            ->and($details->first()->detail)->toBe('Concrete')
-            ->and($details->first()->has_in_basic)->toBeTruthy()
-            ->and($details->last()->detail)->toBe('Brick')
-            ->and($details->last()->has_in_basic)->toBeFalsy()
-            ->and($details->last()->has_in_middle)->toBeTruthy();
-    });
-
-    it('assigns sequential order to options', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', 'First']),
-            collect(['Title', 'Second']),
-        ]));
-
-        $options = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
-
-        expect($options->firstWhere('option_title', 'First')->order)->toBe(1)
-            ->and($options->firstWhere('option_title', 'Second')->order)->toBe(2);
-    });
-
-    it('assigns sequential detail order and resets numbering for each new option', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', 'First']),
-            collect(['', 'A1', 'x', 'x', 'x']),
-            collect(['', 'A2', 'x', 'x', 'x']),
-            collect(['Title', 'Second']),
-            collect(['', 'B1', 'x', 'x', 'x']),
-        ]));
-
-        $detailA2 = ProductVariantOptionDetail::where('detail', 'A2')->first();
-        $detailB1 = ProductVariantOptionDetail::where('detail', 'B1')->first();
-
-        expect($detailA2->order)->toBe(2)
-            ->and($detailB1->order)->toBe(1);
-    });
-
-    it('skips detail rows with empty detail text', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', 'Ārsienas']),
-            collect(['', '   ', 'x', 'x', 'x']),
-        ]));
-
-        $option = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
-
-        expect(ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->count())->toBe(0);
-    });
-
-    it('skips detail rows that appear before any option title', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['', 'Orphan detail', 'x', 'x', 'x']),
-        ]));
-
-        expect(ProductVariantOptionDetail::count())->toBe(0)
-            ->and(ProductVariantOption::count())->toBe(0);
-    });
-
-    it('trims whitespace from titles and details', function () {
-        (new ProductVariantOptionImport($this->variant->id))->collection(collect([
-            collect(['Title', '  Padded Title  ']),
-            collect(['', '  Padded Detail  ', 'x', 'x', 'x']),
-        ]));
-
-        $option = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
-
-        expect($option->option_title)->toBe('Padded Title')
-            ->and($option->productVariantOptionDetails->first()->detail)->toBe('Padded Detail');
     });
 });
 
@@ -723,27 +623,6 @@ describe('Product variant option routes', function () {
 
         expect(ProductVariantOption::find($option->id))->toBeNull()
             ->and(ProductVariantOptionDetail::find($detail->id))->toBeNull();
-    });
-
-    it('validates required fields on import', function () {
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.import', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [])
-            ->assertSessionHasErrors(['product-variant-id', 'product-variant-options-excel']);
-    });
-
-    it('imports options from an uploaded Excel file', function () {
-        Excel::fake();
-        Storage::fake('public');
-
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.import', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [
-                'product-variant-id' => $this->variant->id,
-                'product-variant-options-excel' => ['options.xlsx'],
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        Excel::assertImported(storage_path('app/public/options.xlsx'));
     });
 
     it('copies options from another variant via the copy route', function () {

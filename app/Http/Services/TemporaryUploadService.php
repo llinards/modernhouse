@@ -18,7 +18,6 @@ class TemporaryUploadService
     'news-images',
     'news-attachments',
     'product-variant-attachments',
-    'product-variant-options-excel',
     'product-variant-plan',
     'introduction-video',
     'promo-modal-image',

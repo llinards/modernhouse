@@ -67,25 +67,9 @@
                 </form>
             </div>
         </div>
-        <hr class="my-4" />
-        <h5 class="mb-3">Pievienot tehniskās detaļas no Excel faila</h5>
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-12">
-                <form
-                    action="{{ route('product-variant-options.import', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
-                    method="POST">
-                    @csrf
-                    <input name="product-variant-id" id="id" value="{{ $productVariant->id }}"
-                        class="visually-hidden">
-                    <x-file-upload :required="true" :name="'product-variant-options-excel'" />
-                    <button type="submit" class="btn btn-success">Augšupielādēt</button>
-                </form>
-
-                @include('admin.product-variant.product-variant-options.copy-modal', [
-                    'productVariant' => $productVariant,
-                    'availableVariants' => $availableVariants,
-                ])
-            </div>
-        </div>
+        @include('admin.product-variant.product-variant-options.copy-modal', [
+            'productVariant' => $productVariant,
+            'availableVariants' => $availableVariants,
+        ])
     </x-slot>
 </x-layouts.admin>

@@ -81,8 +81,6 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
   /* Product Variant Options */
   Route::get('/product-variant/{productVariant}/product-variant-options',
     [ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
-  Route::post('/product-variant/{productVariant}/product-variant-options',
-    [ProductVariantOptionController::class, 'import'])->name('product-variant-options.import');
   Route::post('/product-variant/{productVariant}/product-variant-options/import-pdf',
     [ProductVariantOptionController::class, 'importPdf'])->name('product-variant-options.import-pdf');
   Route::post('/product-variant/{productVariant}/product-variant-options/copy',

@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ImportTechSpecPdfRequest;
 use App\Http\Requests\ProductVariantOptionDetailRequest;
 use App\Http\Requests\ProductVariantOptionRequest;
-use App\Http\Services\FileService;
 use App\Http\Services\ProductVariantOptionPdfImportService;
 use App\Http\Services\ProductVariantOptionService;
-use App\Imports\ProductVariantOptionImport;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
@@ -17,19 +15,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
-use Maatwebsite\Excel\Facades\Excel;
 
 class ProductVariantOptionController extends Controller
 {
-  protected FileService $fileService;
   protected ProductVariantOptionService $productVariantOptionService;
 
   public function __construct(
-    FileService $fileService,
     ProductVariantOptionService $productVariantOptionService,
     private ProductVariantOptionPdfImportService $pdfImportService,
   ) {
-    $this->fileService                 = $fileService;
     $this->productVariantOptionService = $productVariantOptionService;
   }
 
@@ -43,30 +37,6 @@ class ProductVariantOptionController extends Controller
                                        ->get();
 
     return view('admin.product-variant.product-variant-options.index', compact('productVariant', 'availableVariants'));
-  }
-
-  public function import(Request $data): RedirectResponse
-  {
-    $data->validate([
-      'product-variant-id'            => ['required', 'exists:product_variants,id'],
-      'product-variant-options-excel' => ['required', 'array'],
-    ]);
-
-    try {
-      $filePath = storage_path('app/public/'.$data['product-variant-options-excel'][0]);
-
-      DB::transaction(function () use ($data, $filePath) {
-        Excel::import(new ProductVariantOptionImport($data['product-variant-id']), $filePath);
-      });
-
-      $this->fileService->destroyFile(basename($filePath), 'uploads/temp');
-
-      return back()->with('success', 'Tehniskā specifikācija importēta!');
-    } catch (\Exception $e) {
-      Log::error('Product variant option import failed', ['exception' => $e]);
-
-      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
-    }
   }
 
   public function importPdf(ImportTechSpecPdfRequest $request, string $locale, ProductVariant $productVariant): RedirectResponse
