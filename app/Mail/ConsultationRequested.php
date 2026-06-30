@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Mail\Concerns\LogsMailFailures;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 
 class ConsultationRequested extends Mailable implements ShouldQueue
 {
-  use Queueable, SerializesModels;
+  use LogsMailFailures, Queueable, SerializesModels;
 
   public array $data;
 
