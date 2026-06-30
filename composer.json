@@ -26,6 +26,7 @@
   "require-dev": {
     "fakerphp/faker": "^1.9.1",
     "laravel/boost": "^2.0",
+    "laravel/pail": "^1.2",
     "laravel/sail": "^1.0.1",
     "mockery/mockery": "^1.4.4",
     "nunomaduro/collision": "^8.1",
@@ -46,6 +47,10 @@
     }
   },
   "scripts": {
+    "dev": [
+      "Composer\\Config::disableProcessTimeout",
+      "npx concurrently -c \"#c4b5fd,#fb7185\" \"npm run dev\" \"php artisan pail --timeout=0\" --names=vite,logs --kill-others"
+    ],
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi"
