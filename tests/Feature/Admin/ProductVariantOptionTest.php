@@ -446,8 +446,27 @@ describe('ProductVariantOptionList Livewire component', function () {
             ->html();
 
         expect($html)
-            ->toMatch('/class="badge bg-light text-muted"\s+title="Bāzes komplektācija">Bāzes/')
-            ->and($html)->toMatch('/class="badge bg-success"\s+title="Pilnā komplektācija">Pilnā/');
+            ->toMatch('/bg-light text-muted"[^>]*title="Bāzes komplektācija"[^>]*>Bāzes/')
+            ->and($html)->toMatch('/bg-success"[^>]*title="Pilnā komplektācija"[^>]*>Pilnā/');
+    });
+
+    it('toggles a detail package flag from the row badge', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        $detail = ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'has_in_basic' => false,
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('toggleDetailPackage', $detail->id, 'basic')
+            ->call('toggleDetailPackage', $detail->id, 'full');
+
+        expect($detail->fresh()->has_in_basic)->toBeTrue()
+            ->and($detail->fresh()->has_in_full)->toBeFalse();
     });
 
     it('persists new order when reordering options', function () {

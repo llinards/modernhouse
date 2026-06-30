@@ -157,6 +157,20 @@ class ProductVariantOptionList extends Component
     $this->showDetailModal = false;
   }
 
+  public function toggleDetailPackage(int $detailId, string $package): void
+  {
+    $field = ['basic' => 'has_in_basic', 'middle' => 'has_in_middle', 'full' => 'has_in_full'][$package] ?? null;
+
+    if ($field === null) {
+      return;
+    }
+
+    $detail = $this->findDetail($detailId);
+    $detail->update([$field => ! $detail->{$field}]);
+
+    $this->loadOptions();
+  }
+
   /* -------------------------------------------------------------- Reordering */
 
   public function updateProductVariantOptionOrder(array $productVariantOptions): void

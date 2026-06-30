@@ -77,15 +77,18 @@
                                             <td style="width: 240px">
                                                 @unless ($detail->is_label || str_contains($detail->detail, '*'))
                                                     <span class="d-flex gap-1">
-                                                        <span
-                                                            class="badge {{ $detail->has_in_basic ? 'bg-success' : 'bg-light text-muted' }}"
-                                                            title="Bāzes komplektācija">Bāzes</span>
-                                                        <span
-                                                            class="badge {{ $detail->has_in_middle ? 'bg-success' : 'bg-light text-muted' }}"
-                                                            title="Pelēkā apdare">Pelēkā</span>
-                                                        <span
-                                                            class="badge {{ $detail->has_in_full ? 'bg-success' : 'bg-light text-muted' }}"
-                                                            title="Pilnā komplektācija">Pilnā</span>
+                                                        <button type="button"
+                                                            class="badge border-0 {{ $detail->has_in_basic ? 'bg-success' : 'bg-light text-muted' }}"
+                                                            title="Bāzes komplektācija"
+                                                            wire:click="toggleDetailPackage({{ $detail->id }}, 'basic')">Bāzes</button>
+                                                        <button type="button"
+                                                            class="badge border-0 {{ $detail->has_in_middle ? 'bg-success' : 'bg-light text-muted' }}"
+                                                            title="Pelēkā apdare"
+                                                            wire:click="toggleDetailPackage({{ $detail->id }}, 'middle')">Pelēkā</button>
+                                                        <button type="button"
+                                                            class="badge border-0 {{ $detail->has_in_full ? 'bg-success' : 'bg-light text-muted' }}"
+                                                            title="Pilnā komplektācija"
+                                                            wire:click="toggleDetailPackage({{ $detail->id }}, 'full')">Pilnā</button>
                                                     </span>
                                                 @endunless
                                             </td>
