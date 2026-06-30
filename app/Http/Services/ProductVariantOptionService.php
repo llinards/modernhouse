@@ -3,63 +3,65 @@
 namespace App\Http\Services;
 
 
-use App\Http\Requests\ProductVariantOptionDetailRequest;
-use App\Http\Requests\ProductVariantOptionRequest;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 
 class ProductVariantOptionService
 {
-  public function storeProductVariantOption(ProductVariantOptionRequest $request): void
+  public function storeProductVariantOption(ProductVariant $productVariant, string $title): void
   {
     $maxOrder = ProductVariantOption::withoutGlobalScope('order')
-                                    ->where('product_variant_id', $request->input('id'))
+                                    ->where('product_variant_id', $productVariant->id)
                                     ->where('language', app()->getLocale())
                                     ->max('order');
 
     ProductVariantOption::create([
-      'product_variant_id' => $request->input('id'),
-      'option_title'       => $request->input('product_variant_option'),
+      'product_variant_id' => $productVariant->id,
+      'option_title'       => $title,
       'language'           => app()->getLocale(),
       'order'              => $maxOrder !== null ? $maxOrder + 1 : 0,
     ]);
   }
 
-  public function storeProductVariantOptionDetail(ProductVariantOptionDetailRequest $request): void
+  /**
+   * @param  array{detail: string, is_label?: bool, has_in_basic?: bool, has_in_middle?: bool, has_in_full?: bool} $data
+   */
+  public function storeProductVariantOptionDetail(ProductVariantOption $productVariantOption, array $data): void
   {
     $maxOrder = ProductVariantOptionDetail::withoutGlobalScope('order')
-                                          ->where('product_variant_option_id', $request->input('id'))
+                                          ->where('product_variant_option_id', $productVariantOption->id)
                                           ->max('order');
 
     ProductVariantOptionDetail::create([
-      'product_variant_option_id' => $request->input('id'),
-      'detail'                    => $request->input('product_variant_option_detail'),
-      'is_label'                  => $request->boolean('is_label'),
-      'has_in_basic'              => $request->boolean('has_in_basic'),
-      'has_in_middle'             => $request->boolean('has_in_middle'),
-      'has_in_full'               => $request->boolean('has_in_full'),
+      'product_variant_option_id' => $productVariantOption->id,
+      'detail'                    => $data['detail'],
+      'is_label'                  => $data['is_label'] ?? false,
+      'has_in_basic'              => $data['has_in_basic'] ?? false,
+      'has_in_middle'             => $data['has_in_middle'] ?? false,
+      'has_in_full'               => $data['has_in_full'] ?? false,
       'order'                     => $maxOrder !== null ? $maxOrder + 1 : 0,
     ]);
   }
 
-  public function updateProductVariantOption(ProductVariantOptionRequest $request): void
+  public function updateProductVariantOption(ProductVariantOption $productVariantOption, string $title): void
   {
-    $productVariantOption = ProductVariantOption::findOrFail($request->input('id'));
     $productVariantOption->update([
-      'option_title' => $request->input('product_variant_option'),
+      'option_title' => $title,
     ]);
   }
 
-  public function updateProductVariantOptionDetail(ProductVariantOptionDetailRequest $request): void
+  /**
+   * @param  array{detail: string, is_label?: bool, has_in_basic?: bool, has_in_middle?: bool, has_in_full?: bool} $data
+   */
+  public function updateProductVariantOptionDetail(ProductVariantOptionDetail $productVariantOptionDetail, array $data): void
   {
-    $productVariantOptionDetail = ProductVariantOptionDetail::findOrFail($request->input('id'));
     $productVariantOptionDetail->update([
-      'detail'        => $request->input('product_variant_option_detail'),
-      'is_label'      => $request->boolean('is_label'),
-      'has_in_basic'  => $request->boolean('has_in_basic'),
-      'has_in_middle' => $request->boolean('has_in_middle'),
-      'has_in_full'   => $request->boolean('has_in_full'),
+      'detail'        => $data['detail'],
+      'is_label'      => $data['is_label'] ?? false,
+      'has_in_basic'  => $data['has_in_basic'] ?? false,
+      'has_in_middle' => $data['has_in_middle'] ?? false,
+      'has_in_full'   => $data['has_in_full'] ?? false,
     ]);
   }
 

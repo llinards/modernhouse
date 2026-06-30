@@ -83,22 +83,6 @@ Route::middleware(['auth'])->prefix('admin/{locale}')->where(['locale' => '[a-z]
     [ProductVariantOptionController::class, 'index'])->name('product-variant-options.index');
   Route::post('/product-variant/{productVariant}/product-variant-options/import-pdf',
     [ProductVariantOptionController::class, 'importPdf'])->name('product-variant-options.import-pdf');
-  Route::post('/product-variant/{productVariant}/product-variant-options/copy',
-    [ProductVariantOptionController::class, 'copyProductVariantOptions'])->name('product-variant-options.copy');
-  Route::post('/product-variant/product-variant-options/create',
-    [ProductVariantOptionController::class, 'storeProductVariantOption'])->name('product-variant-options.store-product-variant-option');
-  Route::post('/product-variant/product-variant-options/product-variant-option-detail/create',
-    [ProductVariantOptionController::class, 'storeProductVariantOptionDetail'])->name('product-variant-options.store-product-variant-option-detail');
-  Route::patch('/product-variant/product-variant-options/{productVariantOption}/update',
-    [ProductVariantOptionController::class, 'updateProductVariantOption'])->name('product-variant-options.update-product-variant-option');
-  Route::patch('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/update',
-    [ProductVariantOptionController::class, 'updateProductVariantOptionDetail'])->name('product-variant-options.update-product-variant-option-detail');
-  Route::delete('/product-variant/{productVariant}/product-variant-options/delete',
-    [ProductVariantOptionController::class, 'destroy'])->name('product-variant-options.destroy');
-  Route::delete('/product-variant/product-variant-options/{productVariantOption}/delete',
-    [ProductVariantOptionController::class, 'destroyProductVariantOption'])->name('product-variant-options.destroy-product-variant-option');
-  Route::delete('/product-variant/product-variant-options/product-variant-option-detail/{productVariantOptionDetail}/delete',
-    [ProductVariantOptionController::class, 'destroyProductVariantOptionDetail'])->name('product-variant-options.destroy-product-variant-option-detail');
 
   /* Product Variant Details */
   Route::get('/product-variant/{productVariant}/product-variant-details',

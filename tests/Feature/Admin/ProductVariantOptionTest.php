@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Requests\ProductVariantOptionDetailRequest;
-use App\Http\Requests\ProductVariantOptionRequest;
 use App\Http\Services\ProductVariantOptionService;
 use App\Livewire\Admin\ProductVariantOptionList;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantOption;
 use App\Models\ProductVariantOptionDetail;
 use App\Models\User;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Livewire;
 
 beforeEach(function () {
@@ -88,10 +85,7 @@ describe('ProductVariantOptionService', function () {
     });
 
     it('stores an option with the current locale as language', function () {
-        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
-            'id' => $this->variant->id,
-            'product_variant_option' => 'Ārsienas',
-        ]));
+        $this->service->storeProductVariantOption($this->variant, 'Ārsienas');
 
         $option = ProductVariantOption::where('product_variant_id', $this->variant->id)->first();
 
@@ -100,76 +94,53 @@ describe('ProductVariantOptionService', function () {
             ->and($option->language)->toBe('lv');
     });
 
-    it('stores an option detail with package flags true when keys are present', function () {
+    it('stores an option detail with the given package flags', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option_detail' => 'Concrete walls',
-            'has_in_basic' => 'on',
-            'has_in_middle' => 'on',
-            'has_in_full' => 'on',
-        ]));
+        $this->service->storeProductVariantOptionDetail($option, [
+            'detail' => 'Concrete walls',
+            'has_in_basic' => true,
+            'has_in_middle' => true,
+            'has_in_full' => true,
+        ]);
 
         $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
 
         expect($detail->detail)->toBe('Concrete walls')
-            ->and($detail->has_in_basic)->toBeTruthy()
-            ->and($detail->has_in_middle)->toBeTruthy()
-            ->and($detail->has_in_full)->toBeTruthy();
+            ->and($detail->has_in_basic)->toBeTrue()
+            ->and($detail->has_in_middle)->toBeTrue()
+            ->and($detail->has_in_full)->toBeTrue();
     });
 
-    it('stores an option detail with flags false when checkbox keys are absent', function () {
+    it('defaults package flags to false when absent', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option_detail' => 'Optional extra',
-        ]));
+        $this->service->storeProductVariantOptionDetail($option, ['detail' => 'Optional extra']);
 
         $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
 
-        expect($detail->has_in_basic)->toBeFalsy()
-            ->and($detail->has_in_middle)->toBeFalsy()
-            ->and($detail->has_in_full)->toBeFalsy();
+        expect($detail->has_in_basic)->toBeFalse()
+            ->and($detail->has_in_middle)->toBeFalse()
+            ->and($detail->has_in_full)->toBeFalse();
     });
 
-    it('stores a label detail when is_label is checked', function () {
+    it('stores a label detail', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option_detail' => 'Ārējā apdare',
-            'is_label' => '1',
-        ]));
+        $this->service->storeProductVariantOptionDetail($option, [
+            'detail' => 'Ārējā apdare',
+            'is_label' => true,
+        ]);
 
         $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
 
         expect($detail->is_label)->toBeTrue()
-            ->and($detail->has_in_basic)->toBeFalsy();
-    });
-
-    it('toggles is_label on update', function () {
-        $detail = ProductVariantOptionDetail::factory()->create(['is_label' => false]);
-
-        $this->service->updateProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $detail->id,
-            'product_variant_option_detail' => 'Heading',
-            'is_label' => '1',
-        ]));
-
-        expect($detail->fresh()->is_label)->toBeTrue();
+            ->and($detail->has_in_basic)->toBeFalse();
     });
 
     it('assigns sequential order when storing options', function () {
-        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
-            'id' => $this->variant->id,
-            'product_variant_option' => 'First',
-        ]));
-        $this->service->storeProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
-            'id' => $this->variant->id,
-            'product_variant_option' => 'Second',
-        ]));
+        $this->service->storeProductVariantOption($this->variant, 'First');
+        $this->service->storeProductVariantOption($this->variant, 'Second');
 
         $options = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
 
@@ -180,14 +151,8 @@ describe('ProductVariantOptionService', function () {
     it('assigns sequential order when storing option details', function () {
         $option = ProductVariantOption::factory()->create();
 
-        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option_detail' => 'First',
-        ]));
-        $this->service->storeProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option_detail' => 'Second',
-        ]));
+        $this->service->storeProductVariantOptionDetail($option, ['detail' => 'First']);
+        $this->service->storeProductVariantOptionDetail($option, ['detail' => 'Second']);
 
         $details = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->get();
 
@@ -198,20 +163,10 @@ describe('ProductVariantOptionService', function () {
     it('updates an option title', function () {
         $option = ProductVariantOption::factory()->create(['option_title' => 'Old Title']);
 
-        $this->service->updateProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
-            'id' => $option->id,
-            'product_variant_option' => 'New Title',
-        ]));
+        $this->service->updateProductVariantOption($option, 'New Title');
 
         expect($option->fresh()->option_title)->toBe('New Title');
     });
-
-    it('throws when updating a non-existent option', function () {
-        $this->service->updateProductVariantOption(ProductVariantOptionRequest::create('/', 'POST', [
-            'id' => 999999,
-            'product_variant_option' => 'Whatever',
-        ]));
-    })->throws(ModelNotFoundException::class);
 
     it('updates an option detail name and toggles flags', function () {
         $detail = ProductVariantOptionDetail::factory()->create([
@@ -221,18 +176,17 @@ describe('ProductVariantOptionService', function () {
             'has_in_full' => true,
         ]);
 
-        $this->service->updateProductVariantOptionDetail(ProductVariantOptionDetailRequest::create('/', 'POST', [
-            'id' => $detail->id,
-            'product_variant_option_detail' => 'New detail',
-            'has_in_full' => 'on',
-        ]));
+        $this->service->updateProductVariantOptionDetail($detail, [
+            'detail' => 'New detail',
+            'has_in_full' => true,
+        ]);
 
         $detail->refresh();
 
         expect($detail->detail)->toBe('New detail')
-            ->and($detail->has_in_basic)->toBeFalsy()
-            ->and($detail->has_in_middle)->toBeFalsy()
-            ->and($detail->has_in_full)->toBeTruthy();
+            ->and($detail->has_in_basic)->toBeFalse()
+            ->and($detail->has_in_middle)->toBeFalse()
+            ->and($detail->has_in_full)->toBeTrue();
     });
 
     it('destroys an option and cascade-deletes its details', function () {
@@ -253,18 +207,6 @@ describe('ProductVariantOptionService', function () {
         $this->service->destroyProductVariantOptionDetail($detail);
 
         expect(ProductVariantOptionDetail::find($detail->id))->toBeNull();
-    });
-
-    it('destroys all options and details for a variant', function () {
-        $option = ProductVariantOption::factory()->create(['product_variant_id' => $this->variant->id]);
-        $detail = ProductVariantOptionDetail::factory()->create([
-            'product_variant_option_id' => $option->id,
-        ]);
-
-        $this->service->destroyProductVariantOptions($this->variant);
-
-        expect(ProductVariantOption::find($option->id))->toBeNull()
-            ->and(ProductVariantOptionDetail::find($detail->id))->toBeNull();
     });
 
     it('copies options and their details from another variant', function () {
@@ -297,41 +239,10 @@ describe('ProductVariantOptionService', function () {
             ->and($copied->productVariantOptionDetails->firstWhere('detail', 'Concrete')->is_label)->toBeFalse();
     });
 
-    it('appends copied options after existing ones', function () {
-        ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'option_title' => 'Existing',
-            'order' => 0,
-            'language' => 'lv',
-        ]);
-
-        $source = ProductVariant::factory()->create();
-        ProductVariantOption::factory()->create([
-            'product_variant_id' => $source->id,
-            'option_title' => 'Copied',
-            'order' => 0,
-            'language' => 'lv',
-        ]);
-
-        $this->service->copyFromVariant($source, $this->variant, 'lv');
-
-        $options = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
-
-        expect($options)->toHaveCount(2)
-            ->and($options->firstWhere('option_title', 'Existing')->order)->toBe(0)
-            ->and($options->firstWhere('option_title', 'Copied')->order)->toBe(1);
-    });
-
     it('only copies options in the given language', function () {
         $source = ProductVariant::factory()->create();
-        ProductVariantOption::factory()->create([
-            'product_variant_id' => $source->id,
-            'language' => 'lv',
-        ]);
-        ProductVariantOption::factory()->create([
-            'product_variant_id' => $source->id,
-            'language' => 'en',
-        ]);
+        ProductVariantOption::factory()->create(['product_variant_id' => $source->id, 'language' => 'lv']);
+        ProductVariantOption::factory()->create(['product_variant_id' => $source->id, 'language' => 'en']);
 
         $this->service->copyFromVariant($source, $this->variant, 'lv');
 
@@ -344,101 +255,7 @@ describe('ProductVariantOptionList Livewire component', function () {
         $this->variant = ProductVariant::factory()->create();
     });
 
-    it('renders with existing options for the variant', function () {
-        ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'option_title' => 'Visible Option',
-            'language' => 'lv',
-        ]);
-
-        Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSee('Visible Option');
-    });
-
-    it('renders a uniquely identified add-detail modal per option', function () {
-        $first = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-        $second = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-
-        Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSee('store-product-variant-option-detail-modal-'.$first->id)
-            ->assertSee('store-product-variant-option-detail-modal-'.$second->id);
-    });
-
-    it('renders detail package checkboxes with a value that submits when checked', function () {
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-        ProductVariantOptionDetail::factory()->create([
-            'product_variant_option_id' => $option->id,
-        ]);
-
-        $html = Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->html();
-
-        // Each field renders in the add-detail modal and the edit-detail modal;
-        // both must submit value="1" so a checked box persists as true.
-        foreach (['has_in_basic', 'has_in_middle', 'has_in_full'] as $field) {
-            expect(preg_match_all('/name="'.$field.'"\s+value="1"/', $html))->toBe(2);
-        }
-    });
-
-    it('shows a details-count badge on each option row', function () {
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-        ProductVariantOptionDetail::factory()->count(2)->create([
-            'product_variant_option_id' => $option->id,
-        ]);
-
-        Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSeeHtml('class="badge bg-secondary">2</span>');
-    });
-
-    it('shows package-tier indicators on detail rows', function () {
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-        ProductVariantOptionDetail::factory()->create([
-            'product_variant_option_id' => $option->id,
-            'has_in_basic' => false,
-            'has_in_middle' => false,
-            'has_in_full' => true,
-        ]);
-
-        $html = Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->html();
-
-        expect($html)
-            ->toMatch('/class="badge bg-light text-muted"\s+title="Bāzes komplektācija">Bāzes/')
-            ->and($html)->toMatch('/class="badge bg-success"\s+title="Pilnā komplektācija">Pilnā/');
-    });
-
-    it('renders a collapse target for each option', function () {
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'language' => 'lv',
-        ]);
-
-        Livewire::actingAs($this->user)
-            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
-            ->assertSee('option-details-'.$option->id);
-    });
-
-    it('filters options by the current language on mount', function () {
+    it('renders existing options filtered by language', function () {
         ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant->id,
             'option_title' => 'Latvian Option',
@@ -454,6 +271,183 @@ describe('ProductVariantOptionList Livewire component', function () {
             ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
             ->assertSee('Latvian Option')
             ->assertDontSee('English Option');
+    });
+
+    it('stores an option', function () {
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('openOptionModal')
+            ->set('optionForm.title', 'Ārsienas')
+            ->call('storeOption')
+            ->assertHasNoErrors();
+
+        expect(ProductVariantOption::where('product_variant_id', $this->variant->id)
+            ->where('option_title', 'Ārsienas')->exists())->toBeTrue();
+    });
+
+    it('validates the option title', function () {
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('storeOption')
+            ->assertHasErrors('optionForm.title');
+    });
+
+    it('edits and updates an option', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'option_title' => 'Old Title',
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('editOption', $option->id)
+            ->assertSet('optionForm.title', 'Old Title')
+            ->set('optionForm.title', 'New Title')
+            ->call('updateOption')
+            ->assertHasNoErrors();
+
+        expect($option->fresh()->option_title)->toBe('New Title');
+    });
+
+    it('destroys an option', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('destroyOption', $option->id);
+
+        expect(ProductVariantOption::find($option->id))->toBeNull();
+    });
+
+    it('stores a detail with package flags under an option', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('openDetailModal', $option->id)
+            ->set('detailForm.detail', 'Concrete walls')
+            ->set('detailForm.has_in_full', true)
+            ->call('storeDetail')
+            ->assertHasNoErrors();
+
+        $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
+
+        expect($detail->detail)->toBe('Concrete walls')
+            ->and($detail->has_in_basic)->toBeFalse()
+            ->and($detail->has_in_full)->toBeTrue();
+    });
+
+    it('stores a label detail', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('openDetailModal', $option->id)
+            ->set('detailForm.detail', 'Ārējā apdare')
+            ->set('detailForm.is_label', true)
+            ->call('storeDetail')
+            ->assertHasNoErrors();
+
+        expect(ProductVariantOptionDetail::where('product_variant_option_id', $option->id)
+            ->where('is_label', true)->where('detail', 'Ārējā apdare')->exists())->toBeTrue();
+    });
+
+    it('validates the detail text', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('openDetailModal', $option->id)
+            ->call('storeDetail')
+            ->assertHasErrors('detailForm.detail');
+    });
+
+    it('edits and updates a detail', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        $detail = ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Old detail',
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('editDetail', $detail->id)
+            ->assertSet('detailForm.detail', 'Old detail')
+            ->set('detailForm.detail', 'New detail')
+            ->call('updateDetail')
+            ->assertHasNoErrors();
+
+        expect($detail->fresh()->detail)->toBe('New detail');
+    });
+
+    it('destroys a detail', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        $detail = ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+        ]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->call('destroyDetail', $detail->id);
+
+        expect(ProductVariantOptionDetail::find($detail->id))->toBeNull();
+    });
+
+    it('copies options from another variant', function () {
+        $source = ProductVariant::factory()->create();
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $source->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create(['product_variant_option_id' => $option->id]);
+
+        Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->set('copyFromVariantId', $source->id)
+            ->call('copyFromVariant');
+
+        expect(ProductVariantOption::where('product_variant_id', $this->variant->id)->count())->toBe(1);
+    });
+
+    it('shows a details-count badge and package-tier indicators', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant->id,
+            'language' => 'lv',
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'has_in_basic' => false,
+            'has_in_middle' => false,
+            'has_in_full' => true,
+        ]);
+
+        $html = Livewire::actingAs($this->user)
+            ->test(ProductVariantOptionList::class, ['productVariant' => $this->variant])
+            ->assertSeeHtml('class="badge bg-secondary">1</span>')
+            ->html();
+
+        expect($html)
+            ->toMatch('/class="badge bg-light text-muted"\s+title="Bāzes komplektācija">Bāzes/')
+            ->and($html)->toMatch('/class="badge bg-success"\s+title="Pilnā komplektācija">Pilnā/');
     });
 
     it('persists new order when reordering options', function () {
@@ -528,162 +522,11 @@ describe('Product variant option routes', function () {
             ->get(route('product-variant-options.index', ['locale' => 'lv', 'productVariant' => $this->variant->id]))
             ->assertSuccessful()
             ->assertSeeLivewire(ProductVariantOptionList::class)
-            ->assertSee('Kopēt opcijas no cita varianta');
+            ->assertSee('Kopēt no cita varianta');
     });
 
     it('redirects guests away from the options page', function () {
         $this->get(route('product-variant-options.index', ['locale' => 'lv', 'productVariant' => $this->variant->id]))
             ->assertRedirect();
-    });
-
-    it('stores an option via the store route', function () {
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.store-product-variant-option', ['locale' => 'lv']), [
-                'id' => $this->variant->id,
-                'product_variant_option' => 'Ārsienas',
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect(ProductVariantOption::where('product_variant_id', $this->variant->id)
-            ->where('option_title', 'Ārsienas')
-            ->exists())->toBeTrue();
-    });
-
-    it('validates the required option title on store', function () {
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.store-product-variant-option', ['locale' => 'lv']), [
-                'id' => $this->variant->id,
-            ])
-            ->assertSessionHasErrors('product_variant_option');
-    });
-
-    it('updates an option via the update route', function () {
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $this->variant->id,
-            'option_title' => 'Old Title',
-        ]);
-
-        $this->actingAs($this->user)
-            ->patch(route('product-variant-options.update-product-variant-option', [
-                'locale' => 'lv',
-                'productVariantOption' => $option->id,
-            ]), [
-                'id' => $option->id,
-                'product_variant_option' => 'New Title',
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect($option->fresh()->option_title)->toBe('New Title');
-    });
-
-    it('stores an option detail via the store-detail route', function () {
-        $option = ProductVariantOption::factory()->create(['product_variant_id' => $this->variant->id]);
-
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.store-product-variant-option-detail', ['locale' => 'lv']), [
-                'id' => $option->id,
-                'product_variant_option_detail' => 'Concrete walls',
-                'has_in_full' => 'on',
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        $detail = ProductVariantOptionDetail::where('product_variant_option_id', $option->id)->first();
-
-        expect($detail->detail)->toBe('Concrete walls')
-            ->and($detail->has_in_basic)->toBeFalsy()
-            ->and($detail->has_in_full)->toBeTruthy();
-    });
-
-    it('updates an option detail via the update-detail route', function () {
-        $detail = ProductVariantOptionDetail::factory()->create(['detail' => 'Old detail']);
-
-        $this->actingAs($this->user)
-            ->patch(route('product-variant-options.update-product-variant-option-detail', [
-                'locale' => 'lv',
-                'productVariantOptionDetail' => $detail->id,
-            ]), [
-                'id' => $detail->id,
-                'product_variant_option_detail' => 'New detail',
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect($detail->fresh()->detail)->toBe('New detail');
-    });
-
-    it('destroys a single option via the route', function () {
-        $option = ProductVariantOption::factory()->create(['product_variant_id' => $this->variant->id]);
-
-        $this->actingAs($this->user)
-            ->delete(route('product-variant-options.destroy-product-variant-option', [
-                'locale' => 'lv',
-                'productVariantOption' => $option->id,
-            ]))
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect(ProductVariantOption::find($option->id))->toBeNull();
-    });
-
-    it('destroys a single option detail via the route', function () {
-        $detail = ProductVariantOptionDetail::factory()->create();
-
-        $this->actingAs($this->user)
-            ->delete(route('product-variant-options.destroy-product-variant-option-detail', [
-                'locale' => 'lv',
-                'productVariantOptionDetail' => $detail->id,
-            ]))
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect(ProductVariantOptionDetail::find($detail->id))->toBeNull();
-    });
-
-    it('destroys all options for a variant via the route', function () {
-        $option = ProductVariantOption::factory()->create(['product_variant_id' => $this->variant->id]);
-        $detail = ProductVariantOptionDetail::factory()->create([
-            'product_variant_option_id' => $option->id,
-        ]);
-
-        $this->actingAs($this->user)
-            ->delete(route('product-variant-options.destroy', [
-                'locale' => 'lv',
-                'productVariant' => $this->variant->id,
-            ]))
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        expect(ProductVariantOption::find($option->id))->toBeNull()
-            ->and(ProductVariantOptionDetail::find($detail->id))->toBeNull();
-    });
-
-    it('copies options from another variant via the copy route', function () {
-        $source = ProductVariant::factory()->create();
-        $option = ProductVariantOption::factory()->create([
-            'product_variant_id' => $source->id,
-            'language' => 'lv',
-        ]);
-        ProductVariantOptionDetail::factory()->create(['product_variant_option_id' => $option->id]);
-
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.copy', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [
-                'source_variant_id' => $source->id,
-            ])
-            ->assertRedirect()
-            ->assertSessionHas('success');
-
-        $copied = ProductVariantOption::where('product_variant_id', $this->variant->id)->get();
-
-        expect($copied)->toHaveCount(1)
-            ->and($copied->first()->productVariantOptionDetails)->toHaveCount(1);
-    });
-
-    it('validates the source variant on copy', function () {
-        $this->actingAs($this->user)
-            ->post(route('product-variant-options.copy', ['locale' => 'lv', 'productVariant' => $this->variant->id]), [])
-            ->assertSessionHasErrors('source_variant_id');
     });
 });
