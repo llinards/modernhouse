@@ -54,7 +54,7 @@ describe('Request product info form submission', function () {
             ->assertRedirect()
             ->assertSessionHas('success');
 
-        Mail::assertSent(RequestedProductInfo::class, function ($mail) {
+        Mail::assertQueued(RequestedProductInfo::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['product-name'] === 'Testa produkts';
         });

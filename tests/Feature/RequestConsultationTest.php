@@ -36,7 +36,7 @@ describe('Request consultation form submission', function () {
             ->assertRedirect()
             ->assertSessionHas('success');
 
-        Mail::assertSent(ConsultationRequested::class, function ($mail) {
+        Mail::assertQueued(ConsultationRequested::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['email'] === 'janis@example.com';
         });

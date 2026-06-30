@@ -47,7 +47,7 @@ describe('Open days registration form submission', function () {
         expect($registration->firstName)->toBe('Jānis');
         expect($registration->email)->toBe('janis@example.com');
 
-        Mail::assertSent(CustomerRegisteredForOpenDays::class, function ($mail) {
+        Mail::assertQueued(CustomerRegisteredForOpenDays::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv');
         });
     });

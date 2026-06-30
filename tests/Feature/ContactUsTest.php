@@ -26,7 +26,7 @@ describe('Contact us form submission', function () {
             ->assertRedirect()
             ->assertSessionHas('success');
 
-        Mail::assertSent(ContactUsSubmitted::class, function ($mail) {
+        Mail::assertQueued(ContactUsSubmitted::class, function ($mail) {
             return $mail->hasTo('info@modern-house.lv')
                 && $mail->data['subject'] === 'Kontaktforma';
         });
