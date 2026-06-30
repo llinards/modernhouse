@@ -76,11 +76,15 @@
                                                 'admin.product-variant.product-variant-options.product-variant-option-details.edit-modal',
                                                 ['detail' => $detail]
                                             )
-                                            <i
-                                                class="bi bi-arrow-return-right text-muted me-1"></i>{{ $detail->detail }}
+                                            @if ($detail->is_label)
+                                                <strong>{{ $detail->detail }}</strong>
+                                            @else
+                                                <i
+                                                    class="bi bi-arrow-return-right text-muted me-1"></i>{{ $detail->detail }}
+                                            @endif
                                         </td>
                                         <td style="width: 240px">
-                                            @unless (str_contains($detail->detail, '*'))
+                                            @unless ($detail->is_label || str_contains($detail->detail, '*'))
                                                 <span class="d-flex gap-1">
                                                     <span
                                                         class="badge {{ $detail->has_in_basic ? 'bg-success' : 'bg-light text-muted' }}"

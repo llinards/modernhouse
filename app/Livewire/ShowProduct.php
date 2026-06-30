@@ -85,7 +85,7 @@ class ShowProduct extends Component
         'productVariantDetails' => fn ($query) => $query->select('product_variant_id', 'name', 'hasThis', 'icon', 'count')->where('language', $locale),
         'productVariantOptions' => fn ($query) => $query->select('id', 'product_variant_id', 'option_title')->where('language', $locale)
           ->with([
-            'productVariantOptionDetails' => fn ($query) => $query->select('product_variant_option_id', 'detail', 'has_in_basic', 'has_in_middle', 'has_in_full'),
+            'productVariantOptionDetails' => fn ($query) => $query->select('product_variant_option_id', 'detail', 'is_label', 'has_in_basic', 'has_in_middle', 'has_in_full'),
           ]),
         'productVariantAttachments' => fn ($query) => $query->select('product_variant_id', 'filename', 'language')->where('language', $locale),
         'productVariantPlan' => fn ($query) => $query->select('product_variant_id', 'filename', 'language')->where('language', $locale),

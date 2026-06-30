@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ImportTechSpecPdfRequest;
 use App\Http\Requests\ProductVariantOptionDetailRequest;
 use App\Http\Requests\ProductVariantOptionRequest;
 use App\Http\Services\FileService;
+use App\Http\Services\ProductVariantOptionPdfImportService;
 use App\Http\Services\ProductVariantOptionService;
 use App\Imports\ProductVariantOptionImport;
 use App\Models\ProductVariant;
@@ -22,8 +24,11 @@ class ProductVariantOptionController extends Controller
   protected FileService $fileService;
   protected ProductVariantOptionService $productVariantOptionService;
 
-  public function __construct(FileService $fileService, ProductVariantOptionService $productVariantOptionService)
-  {
+  public function __construct(
+    FileService $fileService,
+    ProductVariantOptionService $productVariantOptionService,
+    private ProductVariantOptionPdfImportService $pdfImportService,
+  ) {
     $this->fileService                 = $fileService;
     $this->productVariantOptionService = $productVariantOptionService;
   }
@@ -59,6 +64,27 @@ class ProductVariantOptionController extends Controller
       return back()->with('success', 'Tehniskā specifikācija importēta!');
     } catch (\Exception $e) {
       Log::error('Product variant option import failed', ['exception' => $e]);
+
+      return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
+    }
+  }
+
+  public function importPdf(ImportTechSpecPdfRequest $request, string $locale, ProductVariant $productVariant): RedirectResponse
+  {
+    try {
+      $files = [];
+
+      foreach (ImportTechSpecPdfRequest::PACKAGE_FIELDS as $package => $field) {
+        if ($request->hasFile($field)) {
+          $files[$package] = $request->file($field)->getRealPath();
+        }
+      }
+
+      $this->pdfImportService->import($productVariant, $files);
+
+      return back()->with('success', 'Tehniskā specifikācija importēta no PDF!');
+    } catch (\Exception $e) {
+      Log::error('Product variant option PDF import failed', ['exception' => $e]);
 
       return back()->with('error', 'Kļūda! Mēģini vēlreiz.');
     }

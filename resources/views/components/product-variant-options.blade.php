@@ -15,7 +15,9 @@
                         <div class="accordion-body p-md-4 p-2">
                             <ul class="product-variant-option-features p-0 m-0">
                                 @foreach ($option->productVariantOptionDetails as $detail)
-                                    @if (str_contains($detail->detail, '*'))
+                                    @if ($detail->is_label)
+                                        <li class="product-variant-option-label">{{ $detail->detail }}</li>
+                                    @elseif (str_contains($detail->detail, '*'))
                                         <li class="product-variant-option-note" data-variant-note>
                                             <p class="small mb-0">{{ $detail->detail }}</p>
                                         </li>

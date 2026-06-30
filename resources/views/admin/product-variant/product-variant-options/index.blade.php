@@ -46,6 +46,28 @@
             @endif
         </div>
         <hr class="my-4" />
+        <h5 class="mb-3">Importēt tehnisko specifikāciju no PDF</h5>
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-12">
+                <form
+                    action="{{ route('product-variant-options.import-pdf', ['locale' => app()->getLocale(), 'productVariant' => $productVariant->id]) }}"
+                    method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="pdf_basic" class="form-label">Bāzes komplektācija (PDF)</label>
+                        <input type="file" name="pdf_basic" id="pdf_basic" accept="application/pdf"
+                            class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pdf_full" class="form-label">Pilnā komplektācija (PDF)</label>
+                        <input type="file" name="pdf_full" id="pdf_full" accept="application/pdf"
+                            class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Importēt no PDF</button>
+                </form>
+            </div>
+        </div>
+        <hr class="my-4" />
         <h5 class="mb-3">Pievienot tehniskās detaļas no Excel faila</h5>
         <div class="row justify-content-center">
             <div class="col-lg-7 col-12">

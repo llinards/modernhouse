@@ -102,6 +102,15 @@
     height: 25px;
     padding-right: 0.5rem;
   }
+
+  .product-variant-option-label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 .basic-variant-price:not(.show),

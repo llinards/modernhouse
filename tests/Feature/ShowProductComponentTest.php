@@ -157,6 +157,35 @@ describe('ShowProduct with variant details', function () {
             ->assertSeeHtml('data-has-full="1"');
     });
 
+    it('renders label rows as headings, not filterable features', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant1->id,
+            'option_title' => 'Ārsienas elements EW-1',
+            'language' => 'lv',
+        ]);
+
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Ārējā apdare',
+            'is_label' => true,
+            'order' => 0,
+        ]);
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Vertikāls fasādes dēis',
+            'is_label' => false,
+            'order' => 1,
+        ]);
+
+        // Label renders as a heading row and is not a package-filtered feature.
+        Livewire::test(ShowProduct::class, [
+            'product' => $this->product,
+        ])
+            ->assertSeeHtml('class="product-variant-option-label"')
+            ->assertSee('Ārējā apdare')
+            ->assertSeeHtml('class="product-variant-option-feature');
+    });
+
     it('renders unique accordion ids for options with identical titles', function () {
         $first = ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant1->id,
