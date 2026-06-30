@@ -77,8 +77,8 @@
   }
 
   .variant-button,
-  .product-variant-option-content td,
-  .product-variant-option-content th {
+  .product-variant-option-feature,
+  .product-variant-option-note {
     font-size: $paragraph-font-size-mobile;
   }
 
@@ -248,8 +248,8 @@
 }
 
 .variant-button,
-.product-variant-option-content td,
-.product-variant-option-content th {
+.product-variant-option-feature,
+.product-variant-option-note {
   font-size: $paragraph-font-size-xs-mobile;
 }
 

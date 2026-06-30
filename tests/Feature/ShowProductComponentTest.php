@@ -132,6 +132,31 @@ describe('ShowProduct with variant details', function () {
             ->assertSee('Koka karkass');
     });
 
+    it('renders package membership data attributes for option details', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant1->id,
+            'option_title' => 'Ārsienas',
+            'language' => 'lv',
+        ]);
+
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Koka karkass',
+            'has_in_basic' => true,
+            'has_in_middle' => false,
+            'has_in_full' => true,
+        ]);
+
+        Livewire::test(ShowProduct::class, [
+            'product' => $this->product,
+        ])
+            ->assertSee('Koka karkass')
+            ->assertSeeHtml('class="product-variant-option-feature')
+            ->assertSeeHtml('data-has-basic="1"')
+            ->assertSeeHtml('data-has-middle="0"')
+            ->assertSeeHtml('data-has-full="1"');
+    });
+
     it('renders unique accordion ids for options with identical titles', function () {
         $first = ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant1->id,

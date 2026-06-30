@@ -29,7 +29,7 @@
       <x-product.gallery :productVariant="$this->selectedVariant" :product="$this->product"/>
       <x-product.details :productVariant="$this->selectedVariant" :product="$this->product"/>
       @if($this->selectedVariant->productVariantOptions->isNotEmpty())
-        <h3 class="text-center mt-4 mb-1">@lang('tech specs')</h3>
+        <h3 id="tech-specs-heading" class="text-center mt-4 mb-1">@lang('tech specs')</h3>
         <x-product-variant-options :productVariant="$this->selectedVariant"/>
       @endif
       @if($this->selectedVariant->productVariantAttachments->isNotEmpty())
@@ -96,6 +96,31 @@
       Fancybox.bind("[data-fancybox]", {});
     }
 
+    function applyPackageFilter(pkg) {
+      const key = 'has' + pkg.charAt(0).toUpperCase() + pkg.slice(1);
+
+      document.querySelectorAll('.product-variant-option-feature').forEach(feature => {
+        feature.classList.toggle('d-none', feature.dataset[key] !== '1');
+      });
+
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        const features = item.querySelectorAll('.product-variant-option-feature');
+        if (!features.length) return;
+        const anyVisible = [...features].some(feature => !feature.classList.contains('d-none'));
+        item.classList.toggle('d-none', !anyVisible);
+      });
+
+      const heading = document.getElementById('tech-specs-heading');
+      if (heading) {
+        const anyFeature = document.querySelector('.product-variant-option-feature:not(.d-none)');
+        heading.classList.toggle('d-none', !anyFeature);
+      }
+    }
+
+    function packageFromTab(button) {
+      return button.dataset.bsTarget.replace('#', '').split('-')[0];
+    }
+
     function initDetails() {
       document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
         button.addEventListener('show.bs.tab', () => {
@@ -106,8 +131,15 @@
               .forEach(element => element.classList.remove('show', 'active'));
             currentVariantPrice.classList.add('show', 'active');
           }
+          applyPackageFilter(packageFromTab(button));
         });
       });
+
+      const activeTab = document.querySelector('button[data-bs-toggle="tab"].active')
+        || document.querySelector('button[data-bs-toggle="tab"]');
+      if (activeTab) {
+        applyPackageFilter(packageFromTab(activeTab));
+      }
 
       const modal = new bootstrap.Modal('#request-product-info');
       document.querySelectorAll('.request-product-info-modal').forEach(button => {
