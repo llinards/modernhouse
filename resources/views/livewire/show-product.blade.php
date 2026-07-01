@@ -29,7 +29,10 @@
       <x-product.gallery :productVariant="$this->selectedVariant" :product="$this->product"/>
       <x-product.details :productVariant="$this->selectedVariant" :product="$this->product"/>
       @if($this->selectedVariant->productVariantOptions->isNotEmpty())
-        <h3 id="tech-specs-heading" class="text-center mt-4 mb-1">@lang('tech specs')</h3>
+        <h3 id="tech-specs-heading" class="text-center mt-4 mb-1"
+            data-title-basic="{{ __('tech specs basic') }}"
+            data-title-middle="{{ __('tech specs middle') }}"
+            data-title-full="{{ __('tech specs full') }}">@lang('tech specs')</h3>
         <x-product-variant-options :productVariant="$this->selectedVariant"/>
       @endif
       @if($this->selectedVariant->productVariantAttachments->isNotEmpty())
@@ -112,6 +115,10 @@
 
       const heading = document.getElementById('tech-specs-heading');
       if (heading) {
+        const title = heading.dataset['title' + pkg.charAt(0).toUpperCase() + pkg.slice(1)];
+        if (title) {
+          heading.textContent = title;
+        }
         const anyFeature = document.querySelector('.product-variant-option-feature:not(.d-none)');
         heading.classList.toggle('d-none', !anyFeature);
       }

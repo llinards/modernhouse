@@ -186,6 +186,28 @@ describe('ShowProduct with variant details', function () {
             ->assertSeeHtml('class="product-variant-option-feature');
     });
 
+    it('exposes per-package tech-specs titles on the heading', function () {
+        $option = ProductVariantOption::factory()->create([
+            'product_variant_id' => $this->variant1->id,
+            'option_title' => 'Ārsienas',
+            'language' => 'lv',
+        ]);
+
+        ProductVariantOptionDetail::factory()->create([
+            'product_variant_option_id' => $option->id,
+            'detail' => 'Koka karkass',
+            'has_in_basic' => true,
+        ]);
+
+        Livewire::test(ShowProduct::class, [
+            'product' => $this->product,
+        ])
+            ->assertSeeHtml('id="tech-specs-heading"')
+            ->assertSeeHtml('data-title-basic="'.__('tech specs basic').'"')
+            ->assertSeeHtml('data-title-middle="'.__('tech specs middle').'"')
+            ->assertSeeHtml('data-title-full="'.__('tech specs full').'"');
+    });
+
     it('renders unique accordion ids for options with identical titles', function () {
         $first = ProductVariantOption::factory()->create([
             'product_variant_id' => $this->variant1->id,
