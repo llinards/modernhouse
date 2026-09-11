@@ -58,6 +58,31 @@ describe('Store temporary upload', function () {
         expect($response->getContent())->toBe('uploads/temp/photo.jpg');
     });
 
+    it('stores a file sent alongside FilePond metadata under the same field name', function () {
+        $file = UploadedFile::fake()->create('cover-video.mp4', 1000, 'video/mp4');
+
+        $response = $this->actingAs($this->user)
+            ->call(
+                'POST',
+                '/admin/lv/upload?'.http_build_query(['product-cover-video' => ['{}']]),
+                files: ['product-cover-video' => [$file]],
+                server: ['HTTP_ACCEPT' => 'application/json'],
+            );
+
+        expect($response->getContent())->toBe('uploads/temp/cover-video.mp4');
+        Storage::disk('public')->assertExists('uploads/temp/cover-video.mp4');
+    });
+
+    it('rejects a cover video that is not a video file', function () {
+        $file = UploadedFile::fake()->create('document.pdf', 100, 'application/pdf');
+
+        $this->actingAs($this->user)
+            ->postJson('/admin/lv/upload', ['product-cover-video' => [$file]])
+            ->assertJsonValidationErrors(['product-cover-video.0']);
+
+        Storage::disk('public')->assertMissing('uploads/temp/document.pdf');
+    });
+
     it('returns empty string when no file is uploaded', function () {
         $response = $this->actingAs($this->user)
             ->post('/admin/lv/upload');

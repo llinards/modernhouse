@@ -12,6 +12,17 @@ class StoreTemporaryUploadRequest extends FormRequest
   }
 
   /**
+   * Validate uploaded files only. FilePond sends a metadata string under the same
+   * field name as the file, and Request::all() gives text input precedence over files.
+   *
+   * @return array<string, mixed>
+   */
+  public function validationData(): array
+  {
+    return $this->allFiles();
+  }
+
+  /**
    * @return array<string, mixed>
    */
   public function rules(): array
