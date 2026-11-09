@@ -1,4 +1,9 @@
 <script>
+  {{-- Clear the empty fbq placeholder from layout-head, otherwise the snippet below thinks the pixel is already loaded and stops. --}}
+  if (window.fbq && !window.fbq.loaded) {
+    window.fbq = undefined;
+  }
+
   !function (f, b, e, v, n, t, s) {
     if (f.fbq) return;
     n = f.fbq = function () {
