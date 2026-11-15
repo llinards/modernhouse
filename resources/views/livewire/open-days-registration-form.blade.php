@@ -158,17 +158,15 @@
   const fullPhoneNumberInput = document.querySelector('#fullPhoneNumber');
   const iti = window.intlTelInput(phoneInput, {
     separateDialCode: true,
-    formatOnDisplay: false,
-    autoPlaceholder: 'off',
-    i18n: {
-      search: "Meklēt valsti",
+    placeholderNumberPolicy: 'OFF',
+    uiTranslations: {
       searchPlaceholder: "Meklēt..."
     },
     initialCountry: "lv",
   });
 
   const updateFullNumber = () => {
-    const countryCode = iti.getSelectedCountryData().dialCode;
+    const countryCode = iti.getSelectedCountry()?.dialCode ?? '';
     const phoneNumber = phoneInput.value;
     fullPhoneNumberInput.value = '+' + countryCode + phoneNumber;
     fullPhoneNumberInput.dispatchEvent(new Event('input'));

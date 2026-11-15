@@ -64,17 +64,15 @@
     if (phoneInput && fullPhoneNumberInput) {
       const iti = window.intlTelInput(phoneInput, {
         separateDialCode: true,
-        formatOnDisplay: false,
-        autoPlaceholder: 'off',
-        i18n: {
-          search: "@lang('Search country')",
+        placeholderNumberPolicy: 'OFF',
+        uiTranslations: {
           searchPlaceholder: "@lang('Search')..."
         },
         initialCountry: "lv", // Change this to your default country
       });
 
       const updateFullNumber = () => {
-        const countryCode = iti.getSelectedCountryData().dialCode;
+        const countryCode = iti.getSelectedCountry()?.dialCode ?? '';
         const phoneNumber = phoneInput.value;
         fullPhoneNumberInput.value = '+' + countryCode + phoneNumber;
       };

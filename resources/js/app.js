@@ -7,7 +7,7 @@ import Swiper from 'swiper';
 import 'swiper/css';
 
 import intlTelInput from 'intl-tel-input';
-import 'intl-tel-input/build/css/intlTelInput.css';
+import 'intl-tel-input/styles';
 
 window.Splide = Splide;
 window.bootstrap = bootstrap;
