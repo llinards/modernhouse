@@ -1,227 +1,250 @@
 <div>
-  <x-status-messages/>
-  @if(count($variantTabs) !== 1)
-    <ul class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-wrapper">
-        @foreach($variantTabs as $index => $tab)
-          <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
-            <button
-              class="nav-link {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
-              data-variant="{{ $tab['slug'] }}"
-              wire:click="switchProductVariant('{{ $tab['slug'] }}')"
-              wire:loading.class="pe-none"
-              wire:target="switchProductVariant"
-              type="button">{{ $tab['name'] }}</button>
-          </li>
-        @endforeach
-      </div>
-      <div class="swiper-button-next"></div>
-    </ul>
-  @endif
-  <div class="position-relative"
-       wire:loading.class="opacity-50"
-       wire:target="switchProductVariant"
-       style="transition: opacity 0.2s">
-    <x-loading-spinner target="switchProductVariant"/>
-    @include('includes.request-product-info-modal', ['currentProductVariant' => $this->selectedVariant, 'product' => $this->product])
-    <div class="row">
-      <x-product.gallery :productVariant="$this->selectedVariant" :product="$this->product"/>
-      <x-product.details :productVariant="$this->selectedVariant" :product="$this->product"/>
-      @if($this->selectedVariant->productVariantOptions->isNotEmpty())
-        <h3 id="tech-specs-heading" class="text-center mt-4 mb-1"
-            data-title-basic="{{ __('tech specs basic') }}"
-            data-title-middle="{{ __('tech specs middle') }}"
-            data-title-full="{{ __('tech specs full') }}">@lang('tech specs')</h3>
-        <x-product-variant-options :productVariant="$this->selectedVariant"/>
-      @endif
-      @if($this->selectedVariant->productVariantAttachments->isNotEmpty())
-        <div class="mt-4">
-          @foreach($this->selectedVariant->productVariantAttachments as $attachment)
-            <x-download-attachment
-              :href="asset('storage/product-images/'.$this->product->slug.'/'.$this->selectedVariant->slug.'/'.$attachment->filename)"
-              :filename="__('Download attachment')"/>
-          @endforeach
+    <x-status-messages />
+    @if (count($variantTabs) !== 1)
+        <div class="nav nav-tabs d-flex border-0 buttons-content-switch swiper mb-4" wire:ignore>
+            <button type="button" class="variant-arrow variant-arrow-prev" aria-label="@lang('previous variant')">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+            </button>
+            <ul class="swiper-wrapper list-unstyled mb-0">
+                @foreach ($variantTabs as $index => $tab)
+                    <li class="nav-item swiper-slide" data-variant-index="{{ $index }}">
+                        <button class="nav-link {{ $productVariantSlug === $tab['slug'] ? 'active' : '' }}"
+                            data-variant="{{ $tab['slug'] }}" wire:click="switchProductVariant('{{ $tab['slug'] }}')"
+                            wire:loading.class="pe-none" wire:target="switchProductVariant"
+                            type="button">{{ $tab['name'] }}</button>
+                    </li>
+                @endforeach
+            </ul>
+            <button type="button" class="variant-arrow variant-arrow-next" aria-label="@lang('next variant')">
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            </button>
         </div>
-      @endif
+    @endif
+    <div class="position-relative" wire:loading.class="opacity-50" wire:target="switchProductVariant"
+        style="transition: opacity 0.2s">
+        <x-loading-spinner target="switchProductVariant" />
+        @include('includes.request-product-info-modal', [
+            'currentProductVariant' => $this->selectedVariant,
+            'product' => $this->product,
+        ])
+        <div class="row">
+            <x-product.gallery :productVariant="$this->selectedVariant" :product="$this->product" />
+            <x-product.details :productVariant="$this->selectedVariant" :product="$this->product" />
+            @if ($this->selectedVariant->productVariantOptions->isNotEmpty())
+                <h3 id="tech-specs-heading" class="text-center mt-4 mb-1"
+                    data-title-basic="{{ __('tech specs basic') }}" data-title-middle="{{ __('tech specs middle') }}"
+                    data-title-full="{{ __('tech specs full') }}">@lang('tech specs')</h3>
+                <x-product-variant-options :productVariant="$this->selectedVariant" />
+            @endif
+            @if ($this->selectedVariant->productVariantAttachments->isNotEmpty())
+                <div class="mt-4">
+                    @foreach ($this->selectedVariant->productVariantAttachments as $attachment)
+                        <x-download-attachment :href="asset(
+                            'storage/product-images/' .
+                                $this->product->slug .
+                                '/' .
+                                $this->selectedVariant->slug .
+                                '/' .
+                                $attachment->filename,
+                        )" :filename="__('Download attachment')" />
+                    @endforeach
+                </div>
+            @endif
+        </div>
     </div>
-  </div>
-  <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
-  <x-faq/>
+    <h3 class="text-center mt-4 mb-1">@lang('faq')</h3>
+    <x-faq />
 </div>
 
 @script
-<script>
-  document.addEventListener('livewire:initialized', () => {
-    function initGallery() {
-      const gallery = document.getElementById('product-variant-gallery');
-      if (!gallery) return;
+    <script>
+        document.addEventListener('livewire:initialized', () => {
+            function initGallery() {
+                const gallery = document.getElementById('product-variant-gallery');
+                if (!gallery) return;
 
-      const isDesktop = window.innerWidth >= 992;
-      const mainOptions = {
-        type: 'fade',
-        pagination: false,
-        lazyLoad: 'sequential',
-        rewind: true,
-      };
+                const isDesktop = window.innerWidth >= 992;
+                const mainOptions = {
+                    type: 'fade',
+                    pagination: false,
+                    lazyLoad: 'sequential',
+                    rewind: true,
+                };
 
-      if (isDesktop) {
-        const detailsCol = gallery.nextElementSibling;
-        const thumbnailEl = gallery.lastElementChild;
-        const thumbnailHeight = thumbnailEl ? thumbnailEl.offsetHeight + 8 : 68;
-        const detailsHeight = detailsCol ? detailsCol.offsetHeight : 0;
-        mainOptions.fixedHeight = detailsHeight > thumbnailHeight ? detailsHeight - thumbnailHeight : 500;
-      } else {
-        mainOptions.fixedHeight = 500;
-        mainOptions.breakpoints = {768: {fixedHeight: 400}};
-      }
+                if (isDesktop) {
+                    const detailsCol = gallery.nextElementSibling;
+                    const thumbnailEl = gallery.lastElementChild;
+                    const thumbnailHeight = thumbnailEl ? thumbnailEl.offsetHeight + 8 : 68;
+                    const detailsHeight = detailsCol ? detailsCol.offsetHeight : 0;
+                    mainOptions.fixedHeight = detailsHeight > thumbnailHeight ? detailsHeight - thumbnailHeight :
+                        500;
+                } else {
+                    mainOptions.fixedHeight = 500;
+                    mainOptions.breakpoints = {
+                        768: {
+                            fixedHeight: 400
+                        }
+                    };
+                }
 
-      const main = new Splide('#' + gallery.firstElementChild.id, mainOptions);
-      const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
-        fixedWidth: 100,
-        fixedHeight: 60,
-        gap: 10,
-        arrows: false,
-        pagination: false,
-        isNavigation: true,
-        lazyLoad: 'sequential',
-        breakpoints: {
-          600: {
-            fixedWidth: 60,
-            fixedHeight: 44,
-          },
-        },
-      });
-      main.sync(thumbnails);
-      main.mount();
-      thumbnails.mount();
+                const main = new Splide('#' + gallery.firstElementChild.id, mainOptions);
+                const thumbnails = new Splide('#' + gallery.lastElementChild.id, {
+                    fixedWidth: 100,
+                    fixedHeight: 60,
+                    gap: 10,
+                    arrows: false,
+                    pagination: false,
+                    isNavigation: true,
+                    lazyLoad: 'sequential',
+                    breakpoints: {
+                        600: {
+                            fixedWidth: 60,
+                            fixedHeight: 44,
+                        },
+                    },
+                });
+                main.sync(thumbnails);
+                main.mount();
+                thumbnails.mount();
 
-      Fancybox.bind("[data-fancybox]", {});
-    }
+                Fancybox.bind("[data-fancybox]", {});
+            }
 
-    function applyPackageFilter(pkg) {
-      const key = 'has' + pkg.charAt(0).toUpperCase() + pkg.slice(1);
+            function applyPackageFilter(pkg) {
+                const key = 'has' + pkg.charAt(0).toUpperCase() + pkg.slice(1);
 
-      document.querySelectorAll('.product-variant-option-feature').forEach(feature => {
-        feature.classList.toggle('d-none', feature.dataset[key] !== '1');
-      });
+                document.querySelectorAll('.product-variant-option-feature').forEach(feature => {
+                    feature.classList.toggle('d-none', feature.dataset[key] !== '1');
+                });
 
-      document.querySelectorAll('.accordion-item').forEach(item => {
-        const features = item.querySelectorAll('.product-variant-option-feature');
-        if (!features.length) return;
-        const anyVisible = [...features].some(feature => !feature.classList.contains('d-none'));
-        item.classList.toggle('d-none', !anyVisible);
-      });
+                document.querySelectorAll('.accordion-item').forEach(item => {
+                    const features = item.querySelectorAll('.product-variant-option-feature');
+                    if (!features.length) return;
+                    const anyVisible = [...features].some(feature => !feature.classList.contains('d-none'));
+                    item.classList.toggle('d-none', !anyVisible);
+                });
 
-      const heading = document.getElementById('tech-specs-heading');
-      if (heading) {
-        const title = heading.dataset['title' + pkg.charAt(0).toUpperCase() + pkg.slice(1)];
-        if (title) {
-          heading.textContent = title;
-        }
-        const anyFeature = document.querySelector('.product-variant-option-feature:not(.d-none)');
-        heading.classList.toggle('d-none', !anyFeature);
-      }
-    }
+                const heading = document.getElementById('tech-specs-heading');
+                if (heading) {
+                    const title = heading.dataset['title' + pkg.charAt(0).toUpperCase() + pkg.slice(1)];
+                    if (title) {
+                        heading.textContent = title;
+                    }
+                    const anyFeature = document.querySelector('.product-variant-option-feature:not(.d-none)');
+                    heading.classList.toggle('d-none', !anyFeature);
+                }
+            }
 
-    function packageFromTab(button) {
-      return button.dataset.bsTarget.replace('#', '').split('-')[0];
-    }
+            function packageFromTab(button) {
+                return button.dataset.bsTarget.replace('#', '').split('-')[0];
+            }
 
-    function initDetails() {
-      document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
-        button.addEventListener('show.bs.tab', () => {
-          const targetClass = button.dataset.bsTarget.replace('#', '');
-          const currentVariantPrice = document.querySelector(`.${targetClass}`);
-          if (currentVariantPrice) {
-            document.querySelectorAll('.basic-variant-price, .middle-variant-price, .full-variant-price')
-              .forEach(element => element.classList.remove('show', 'active'));
-            currentVariantPrice.classList.add('show', 'active');
-          }
-          applyPackageFilter(packageFromTab(button));
+            function initDetails() {
+                document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(button => {
+                    button.addEventListener('show.bs.tab', () => {
+                        const targetClass = button.dataset.bsTarget.replace('#', '');
+                        const currentVariantPrice = document.querySelector(`.${targetClass}`);
+                        if (currentVariantPrice) {
+                            document.querySelectorAll(
+                                    '.basic-variant-price, .middle-variant-price, .full-variant-price'
+                                    )
+                                .forEach(element => element.classList.remove('show', 'active'));
+                            currentVariantPrice.classList.add('show', 'active');
+                        }
+                        applyPackageFilter(packageFromTab(button));
+                    });
+                });
+
+                const activeTab = document.querySelector('button[data-bs-toggle="tab"].active') ||
+                    document.querySelector('button[data-bs-toggle="tab"]');
+                if (activeTab) {
+                    applyPackageFilter(packageFromTab(activeTab));
+                }
+
+                const modal = new bootstrap.Modal('#request-product-info');
+                document.querySelectorAll('.request-product-info-modal').forEach(button => {
+                    button.addEventListener('click', () => modal.show());
+                });
+            }
+
+            initGallery();
+            initDetails();
+
+            const variantSwitcher = $wire.$el.querySelector('.buttons-content-switch');
+            const nextBtn = variantSwitcher?.querySelector('.variant-arrow-next');
+            const prevBtn = variantSwitcher?.querySelector('.variant-arrow-prev');
+            const totalSlides = variantSwitcher?.querySelectorAll('.swiper-slide').length ?? 0;
+
+            function updateArrowState(activeIndex) {
+                if (prevBtn) prevBtn.disabled = activeIndex <= 0;
+                if (nextBtn) nextBtn.disabled = activeIndex >= totalSlides - 1;
+            }
+
+            Livewire.on('update-url', params => {
+                window.history.pushState({}, '', params.url);
+            });
+
+            Livewire.on('variantChanged', variantSlug => {
+                variantSwitcher?.querySelectorAll('.swiper-slide .nav-link').forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                const activeButton = variantSwitcher?.querySelector(
+                    `.swiper-slide button[data-variant="${variantSlug}"]`);
+                if (activeButton) {
+                    activeButton.classList.add('active');
+                    const slideIndex = parseInt(activeButton.closest('.swiper-slide').dataset.variantIndex);
+                    updateArrowState(slideIndex);
+                }
+
+                setTimeout(() => {
+                    initGallery();
+                    initDetails();
+                }, 0);
+            });
+
+            if (!variantSwitcher) return;
+
+            const swiper = new Swiper(variantSwitcher, {
+                slidesPerView: 2,
+                preventClicks: false,
+                preventClicksPropagation: false,
+                touchStartPreventDefault: false,
+                breakpoints: {
+                    570: {
+                        slidesPerView: 4
+                    },
+                    992: {
+                        slidesPerView: 5
+                    },
+                },
+            });
+
+            function switchVariant(direction) {
+                const activeSlide = variantSwitcher.querySelector('.swiper-slide .nav-link.active')?.closest(
+                    '.swiper-slide');
+                if (!activeSlide) return;
+                const targetIndex = parseInt(activeSlide.dataset.variantIndex) + direction;
+                const targetSlide = variantSwitcher.querySelector(`.swiper-slide[data-variant-index="${targetIndex}"]`);
+                if (targetSlide) {
+                    targetSlide.querySelector('.nav-link').click();
+                    updateArrowState(targetIndex);
+                    if (targetIndex < swiper.activeIndex || targetIndex >= swiper.activeIndex + swiper.params
+                        .slidesPerView) {
+                        swiper.slideTo(targetIndex);
+                    }
+                }
+            }
+
+            nextBtn.addEventListener('click', () => switchVariant(1));
+            prevBtn.addEventListener('click', () => switchVariant(-1));
+
+            const activeVariantSlide = variantSwitcher.querySelector('.swiper-slide .nav-link.active');
+            if (activeVariantSlide) {
+                const slideIndex = parseInt(activeVariantSlide.closest('.swiper-slide').dataset.variantIndex);
+                updateArrowState(slideIndex);
+                swiper.slideTo(slideIndex, 0);
+            }
         });
-      });
-
-      const activeTab = document.querySelector('button[data-bs-toggle="tab"].active')
-        || document.querySelector('button[data-bs-toggle="tab"]');
-      if (activeTab) {
-        applyPackageFilter(packageFromTab(activeTab));
-      }
-
-      const modal = new bootstrap.Modal('#request-product-info');
-      document.querySelectorAll('.request-product-info-modal').forEach(button => {
-        button.addEventListener('click', () => modal.show());
-      });
-    }
-
-    initGallery();
-    initDetails();
-
-    const nextBtn = document.querySelector('.swiper-button-next');
-    const prevBtn = document.querySelector('.swiper-button-prev');
-    const totalSlides = document.querySelectorAll('.swiper-slide').length;
-
-    function updateArrowState(activeIndex) {
-      prevBtn?.classList.toggle('disabled', activeIndex <= 0);
-      nextBtn?.classList.toggle('disabled', activeIndex >= totalSlides - 1);
-    }
-
-    Livewire.on('update-url', params => {
-      window.history.pushState({}, '', params.url);
-    });
-
-    Livewire.on('variantChanged', variantSlug => {
-      document.querySelectorAll('.swiper-slide .nav-link').forEach(button => {
-        button.classList.remove('active');
-      });
-
-      const activeButton = document.querySelector(`.swiper-slide button[data-variant="${variantSlug}"]`);
-      if (activeButton) {
-        activeButton.classList.add('active');
-        const slideIndex = parseInt(activeButton.closest('.swiper-slide').dataset.variantIndex);
-        updateArrowState(slideIndex);
-      }
-
-      setTimeout(() => {
-        initGallery();
-        initDetails();
-      }, 0);
-    });
-
-    const swiper = new Swiper('.swiper', {
-      slidesPerView: 2,
-      preventClicks: false,
-      preventClicksPropagation: false,
-      touchStartPreventDefault: false,
-      breakpoints: {
-        570: {slidesPerView: 4},
-        992: {slidesPerView: 5},
-      },
-    });
-
-    function switchVariant(direction) {
-      const activeSlide = document.querySelector('.swiper-slide .nav-link.active')?.closest('.swiper-slide');
-      if (!activeSlide) return;
-      const targetIndex = parseInt(activeSlide.dataset.variantIndex) + direction;
-      const targetSlide = document.querySelector(`.swiper-slide[data-variant-index="${targetIndex}"]`);
-      if (targetSlide) {
-        targetSlide.querySelector('.nav-link').click();
-        updateArrowState(targetIndex);
-        if (targetIndex < swiper.activeIndex || targetIndex >= swiper.activeIndex + swiper.params.slidesPerView) {
-          swiper.slideTo(targetIndex);
-        }
-      }
-    }
-
-    nextBtn?.addEventListener('click', () => switchVariant(1));
-    prevBtn?.addEventListener('click', () => switchVariant(-1));
-
-    const activeVariantSlide = document.querySelector('.swiper-slide .nav-link.active');
-    if (activeVariantSlide) {
-      const slideIndex = parseInt(activeVariantSlide.closest('.swiper-slide').dataset.variantIndex);
-      updateArrowState(slideIndex);
-      swiper.slideTo(slideIndex, 0);
-    }
-  });
-</script>
+    </script>
 @endscript

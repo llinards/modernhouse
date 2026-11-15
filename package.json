@@ -26,6 +26,10 @@
     "intl-tel-input": "^25.3.1",
     "leaflet": "^1.9.4",
     "livewire-sortable": "^1.0.0",
-    "swiper": "^11.2.4"
+    "swiper": "^14.0.0"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true
   }
 }
