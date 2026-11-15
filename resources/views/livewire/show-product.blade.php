@@ -220,21 +220,36 @@
                 },
             });
 
+            /**
+             * Scroll the minimum distance needed to bring a slide fully into view:
+             * past the right edge it becomes the last visible slide, past the left edge the first.
+             */
+            function revealSlide(index, speed) {
+                const slidesPerView = swiper.params.slidesPerView;
+                const lastVisibleIndex = swiper.activeIndex + slidesPerView - 1;
+                if (index < swiper.activeIndex) {
+                    swiper.slideTo(index, speed);
+                } else if (index > lastVisibleIndex) {
+                    swiper.slideTo(index - slidesPerView + 1, speed);
+                }
+            }
+
             function switchVariant(direction) {
                 const activeSlide = variantSwitcher.querySelector('.swiper-slide .nav-link.active')?.closest(
                     '.swiper-slide');
                 if (!activeSlide) return;
                 const targetIndex = parseInt(activeSlide.dataset.variantIndex) + direction;
-                const targetSlide = variantSwitcher.querySelector(`.swiper-slide[data-variant-index="${targetIndex}"]`);
-                if (targetSlide) {
-                    targetSlide.querySelector('.nav-link').click();
-                    updateArrowState(targetIndex);
-                    if (targetIndex < swiper.activeIndex || targetIndex >= swiper.activeIndex + swiper.params
-                        .slidesPerView) {
-                        swiper.slideTo(targetIndex);
-                    }
-                }
+                variantSwitcher.querySelector(`.swiper-slide[data-variant-index="${targetIndex}"] .nav-link`)
+                    ?.click();
             }
+
+            swiper.wrapperEl.addEventListener('click', event => {
+                const button = event.target.closest('.nav-link');
+                if (!button) return;
+                const slideIndex = parseInt(button.closest('.swiper-slide').dataset.variantIndex);
+                updateArrowState(slideIndex);
+                revealSlide(slideIndex);
+            });
 
             nextBtn.addEventListener('click', () => switchVariant(1));
             prevBtn.addEventListener('click', () => switchVariant(-1));
@@ -243,7 +258,7 @@
             if (activeVariantSlide) {
                 const slideIndex = parseInt(activeVariantSlide.closest('.swiper-slide').dataset.variantIndex);
                 updateArrowState(slideIndex);
-                swiper.slideTo(slideIndex, 0);
+                revealSlide(slideIndex, 0);
             }
         });
     </script>
